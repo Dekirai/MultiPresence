@@ -11,6 +11,7 @@ namespace MultiPresence
 
         KH2 kh2 = new KH2();
         WWHD wwhd = new WWHD();
+        TY ty = new TY();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
         {
@@ -26,8 +27,9 @@ namespace MultiPresence
         }
         private void gameUpdater_Tick(object sender, EventArgs e)
         {
-            Process[] game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
-            Process[] game_cemu = Process.GetProcessesByName("Cemu");
+            var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
+            var game_cemu = Process.GetProcessesByName("Cemu");
+            var game_ty = Process.GetProcessesByName("TY");
 
             if (game_kh2.Length > 0)
             {
@@ -39,20 +41,25 @@ namespace MultiPresence
             }
             else if (game_cemu.Length > 0)
             {
-                Process[] processes = Process.GetProcesses();
-                
-                foreach (var process in processes)
+                var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
+
+                if (title.MainWindowTitle.Contains("Wind Waker HD"))
                 {
-                    if (process.MainWindowTitle.Contains("Wind Waker HD"))
-                    {
-                        notify.BalloonTipTitle = "Found a game!";
-                        notify.BalloonTipText = "I now keep track of Wind Waker HD.";
-                        notify.ShowBalloonTip(3000);
-                        wwhd.DoAction();
-                        gameUpdater.Stop();
-                        return;
-                    }
+                    notify.BalloonTipTitle = "Found a game!";
+                    notify.BalloonTipText = "I now keep track of Wind Waker HD.";
+                    notify.ShowBalloonTip(3000);
+                    wwhd.DoAction();
+                    gameUpdater.Stop();
+                    return;
                 }
+            }
+            else if (game_ty.Length > 0)
+            {
+                notify.BalloonTipTitle = "Found a game!";
+                notify.BalloonTipText = "I now keep track of TY the Tasmanian Tiger.";
+                notify.ShowBalloonTip(3000);
+                ty.DoAction();
+                gameUpdater.Stop();
             }
         }
 

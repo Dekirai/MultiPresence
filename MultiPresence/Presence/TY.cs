@@ -6,24 +6,20 @@ using System.Net;
 using Newtonsoft.Json;
 using MultiPresence.Models.KH2;
 using MultiPresence.Models.WWHD;
+using MultiPresence.Models.TY;
 
 namespace MultiPresence.Presence
 {
-    public class WWHD
+    public class TY
     {
         Mem mem = new Mem();
-        string process = "Cemu";
-        public string _spoof_address = "";
-        public bool _spoof = false;
+        string process = "TY";
+        public static string _level = "Undefined";
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
-            await Task.Delay(10000);
             GetPID();
-            long spoof_get = (await mem.AoBScan("17 B3 C0 04 00 00 00 1A 17 B3 C0 28 10 00 1E 70 00 00 00 2D 17 B3 C1 54 10 00 1E 80 00 00 00 1A 00 00 00 2D 17 B3 C3 18 10 00 1E 90 00 00 00 00", true)).FirstOrDefault();
-            _spoof_address = spoof_get.ToString("X11");
-            _spoof = true;
-            discord = new DiscordRpcClient("821476520891383849");
+            discord = new DiscordRpcClient("928276083483234334");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -42,12 +38,18 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string stage = mem.ReadString($"{_spoof_address}+0xA4");
-                string realstage = await wwhd_values.GetRealName(stage);
+                int health = mem.ReadByte("TY.exe+2737CC");
+                int level = mem.ReadByte("TY.exe+28903C");
+                var levelvalue = await Levels.GetLevel(level);
+                int opals = mem.ReadByte("TY.exe+2888B0");
 
-                discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
-                discord.UpdateDetails($"Current Location");
-                discord.UpdateState($"{realstage}");
+                discord.UpdateLargeAsset($"logo", $"TY the Tasmanian Tiger");
+                if (level != 0 | level != 5 | level != 12 | level != 16 | level != 17 | level != 19 | level != 20 | level != 21 | level != 22 | level != 23)
+                    discord.UpdateDetails($"HP: {health} | Opals: {opals}/300");
+                else
+                    discord.UpdateDetails($"HP: {health}");
+                discord.UpdateState($"{levelvalue[0]}");
+                _level = levelvalue[0];
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
@@ -66,7 +68,7 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View in the eShop", Url = "https://www.nintendo.co.uk/Games/Wii-U/The-Legend-of-Zelda-The-Wind-Waker-HD-765386.html" }
+                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" }
                 },
                 Timestamps = new Timestamps()
                 {
