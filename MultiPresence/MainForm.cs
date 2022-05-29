@@ -10,6 +10,7 @@ namespace MultiPresence
     {
 
         KH2 kh2 = new KH2();
+        WWHD wwhd = new WWHD();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
         {
@@ -38,10 +39,20 @@ namespace MultiPresence
             }
             else if (game_cemu.Length > 0)
             {
-                notify.BalloonTipTitle = "Found a game!";
-                notify.BalloonTipText = "I now keep track of Cemu.";
-                notify.ShowBalloonTip(3000);
-                gameUpdater.Stop();
+                Process[] processes = Process.GetProcesses();
+                
+                foreach (var process in processes)
+                {
+                    if (process.MainWindowTitle.Contains("Wind Waker HD"))
+                    {
+                        notify.BalloonTipTitle = "Found a game!";
+                        notify.BalloonTipText = "I now keep track of Wind Waker HD.";
+                        notify.ShowBalloonTip(3000);
+                        wwhd.DoAction();
+                        gameUpdater.Stop();
+                        return;
+                    }
+                }
             }
         }
 

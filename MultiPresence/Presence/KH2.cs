@@ -1,4 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Memory;
 using DiscordRPC;
 using KHMemLibrary;
 using Button = DiscordRPC.Button;
@@ -10,6 +16,7 @@ namespace MultiPresence.Presence
 {
     public class KH2
     {
+        Mem mem = new Mem();
         KH2FM kh2 = new KH2FM();
         string process = "KINGDOM HEARTS II FINAL MIX";
         private static DiscordRpcClient discord;
@@ -52,10 +59,10 @@ namespace MultiPresence.Presence
                         discord.UpdateDetails(null);
                         discord.UpdateState("Main Menu");
                     }
-                    await Task.Delay(3000);
-                    Thread thread = new Thread(RPC);
-                    thread.Start();
                 }
+                await Task.Delay(3000);
+                Thread thread = new Thread(RPC);
+                thread.Start();
             }
             else
             {
