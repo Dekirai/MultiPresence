@@ -22,8 +22,8 @@ Just do the following:
  
  That's it!
 ## Supported games
-|Name| Version|Information|
-|--|--|--|
-|Kingdom Hearts II Final Mix|1.0.0.8 (Latest)|None|
-|The Legend of Zelda: The Wind Waker HD (CEMU)|v0|Tested on EUR|
-|TY the Tasmanian Tiger|R4704_V1.44 (Latest)|None|
+|Name| Version|Information|Progress|
+|--|--|--|--|
+|Kingdom Hearts II Final Mix|1.0.0.8 (Latest)|None|Completed|
+|The Legend of Zelda: The Wind Waker HD (CEMU)|v0|Tested on EUR|Unfinished|
+|TY the Tasmanian Tiger|R4704_V1.44 (Latest)|None|Unfinished|
