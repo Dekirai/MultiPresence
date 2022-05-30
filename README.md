@@ -22,6 +22,7 @@ Just do the following:
  3. Place the **shortcut** of **MultiPresence.exe** in there
  
  That's it!
+ 
 ## Supported games
 "Game Version" stands for the version I used to get the presence working.
 |Name|Game Version|Information|Progress|
@@ -29,3 +30,26 @@ Just do the following:
 |Kingdom Hearts II Final Mix|**1.0.0.8**|Only english for now|**Completed**|
 |TY the Tasmanian Tiger|**R4704_V1.44**|Only german for now|Unfinished|
 |Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|
+
+## Game Checklist
+Please take this list with a grain of salt.  
+It contains every game that are in my mind but it doesn't mean they all get support.  
+If I decide against it later on, the game will be removed from the list.
+
+- [ ] Devour
+- [ ] Kingdom Hearts Birth by Sleep Final Mix
+- [ ] Kingdom Hearts Dream Drop Distance
+- [ ] Kingdom Hearts Final Mix
+- [x] Kingdom Hearts II Final Mix
+- [ ] Resident Evil
+- [ ] Resident Evil 4
+- [ ] Resident Evil 5
+- [ ] RetroArch
+- [ ] Sonic Adventure
+- [ ] Sonic Adventure 2
+- [x] TY the Tasmanian Tiger
+- [ ] Trials of Mana
+- [ ] Zelda: Breath of the Wild (CEMU)
+- [ ] Zelda: Ocarina of Time PC (Ship of Harkinian)
+- [x] Zelda: The Wind Waker HD (CEMU)
+- [ ] Zelda: Twilight Princess HD (CEMU)
