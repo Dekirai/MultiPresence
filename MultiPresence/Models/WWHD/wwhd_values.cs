@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MultiPresence.Models.WWHD
+﻿namespace MultiPresence.Models.WWHD
 {
     public class wwhd_values
     {

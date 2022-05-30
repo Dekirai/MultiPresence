@@ -1,8 +1,6 @@
 using MultiPresence.Presence;
 using System.Diagnostics;
 using System.Timers;
-using MultiPresence.Properties;
-using Microsoft.Win32;
 
 namespace MultiPresence
 {

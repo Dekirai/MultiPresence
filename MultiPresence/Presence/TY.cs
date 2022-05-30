@@ -2,10 +2,6 @@
 using DiscordRPC;
 using Memory;
 using Button = DiscordRPC.Button;
-using System.Net;
-using Newtonsoft.Json;
-using MultiPresence.Models.KH2;
-using MultiPresence.Models.WWHD;
 using MultiPresence.Models.TY;
 
 namespace MultiPresence.Presence

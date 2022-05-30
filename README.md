@@ -1,3 +1,4 @@
+
 # MultiPresence
 Show your game's status on Discord with it's Rich Presence feature!
 
@@ -22,8 +23,9 @@ Just do the following:
  
  That's it!
 ## Supported games
+"Game Version" stands for the version I used to get the presence working.
 |Name|Game Version|Information|Progress|
 |--|--|--|--|
-|Kingdom Hearts II Final Mix|1.0.0.8 (Latest)|Only english for now|Completed|
-|The Legend of Zelda: The Wind Waker HD (CEMU)|v0|Tested on EUR|Unfinished|
-|TY the Tasmanian Tiger|R4704_V1.44 (Latest)|Only german for now|Unfinished|
+|Kingdom Hearts II Final Mix|**1.0.0.8**|Only english for now|**Completed**|
+|TY the Tasmanian Tiger|**R4704_V1.44**|Only german for now|Unfinished|
+|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|
