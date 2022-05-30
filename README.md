@@ -44,7 +44,6 @@ If I decide against it later on, the game will be removed from the list.
 - [ ] Resident Evil
 - [ ] Resident Evil 4
 - [ ] Resident Evil 5
-- [ ] RetroArch
 - [ ] Sonic Adventure
 - [ ] Sonic Adventure 2
 - [x] TY the Tasmanian Tiger
