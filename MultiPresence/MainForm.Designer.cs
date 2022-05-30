@@ -58,12 +58,12 @@
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_Exit});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(181, 48);
+            this.cms.Size = new System.Drawing.Size(94, 26);
             // 
             // btn_Exit
             // 
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(180, 22);
+            this.btn_Exit.Size = new System.Drawing.Size(93, 22);
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
@@ -73,6 +73,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 36);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowInTaskbar = false;

@@ -20,9 +20,7 @@ namespace MultiPresence
             gameUpdater.Interval = 5000;
             gameUpdater.Enabled = true;
 
-            notify.BalloonTipTitle = "MultiPresence";
-            notify.BalloonTipText = "I am active now!";
-            notify.ShowBalloonTip(3000);
+            Balloon("Beep Boop", "I am active now!");
             gameUpdater.Start();
         }
         private void gameUpdater_Tick(object sender, EventArgs e)
@@ -33,9 +31,7 @@ namespace MultiPresence
 
             if (game_kh2.Length > 0)
             {
-                notify.BalloonTipTitle = "Found a game!";
-                notify.BalloonTipText = "I now keep track of Kingdom Hearts II.";
-                notify.ShowBalloonTip(3000);
+                Balloon("Found a game!", "I now keep track of Kingdom Hearts II Final Mix.");
                 kh2.DoAction();
                 gameUpdater.Stop();
             }
@@ -45,9 +41,7 @@ namespace MultiPresence
 
                 if (title.MainWindowTitle.Contains("Wind Waker HD"))
                 {
-                    notify.BalloonTipTitle = "Found a game!";
-                    notify.BalloonTipText = "I now keep track of Wind Waker HD.";
-                    notify.ShowBalloonTip(3000);
+                    Balloon("Found a game!", "I now keep track of Zelda: The Wind Waker HD");
                     wwhd.DoAction();
                     gameUpdater.Stop();
                     return;
@@ -55,9 +49,7 @@ namespace MultiPresence
             }
             else if (game_ty.Length > 0)
             {
-                notify.BalloonTipTitle = "Found a game!";
-                notify.BalloonTipText = "I now keep track of TY the Tasmanian Tiger.";
-                notify.ShowBalloonTip(3000);
+                Balloon("Found a game!", "I now keep track of TY the Tasmanian Tiger.");
                 ty.DoAction();
                 gameUpdater.Stop();
             }
@@ -66,6 +58,13 @@ namespace MultiPresence
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Balloon(string title, string text)
+        {
+            notify.BalloonTipTitle = title;
+            notify.BalloonTipText = text;
+            notify.ShowBalloonTip(3000);
         }
     }
 }
