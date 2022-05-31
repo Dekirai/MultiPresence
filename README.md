@@ -27,8 +27,9 @@ Just do the following:
 "Game Version" stands for the version I used to get the presence working.
 |Name|Game Version|Information|Progress|
 |--|--|--|--|
-|Kingdom Hearts II Final Mix|**1.0.0.8**|Only english for now|**Completed**|
-|TY the Tasmanian Tiger|**R4704_V1.44**|Only german for now|Unfinished|
+|Kingdom Hearts Final Mix|**1.0.0.8**|None|**Completed**|
+|Kingdom Hearts II Final Mix|**1.0.0.8**|None|**Completed**|
+|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Unfinished|
 |Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|
 
 ## Game Checklist
@@ -41,7 +42,6 @@ The games that are checked will definitely be added, while unchecked means it's 
 - [ ] Devour
 - [x] Kingdom Hearts Birth by Sleep Final Mix
 - [x] Kingdom Hearts Dream Drop Distance
-- [x] Kingdom Hearts Final Mix
 - [ ] Resident Evil
 - [ ] Resident Evil 4
 - [ ] Resident Evil 5

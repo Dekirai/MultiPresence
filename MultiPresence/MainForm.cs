@@ -6,7 +6,7 @@ namespace MultiPresence
 {
     public partial class MainForm : Form
     {
-
+        KH1 kh1 = new KH1();
         KH2 kh2 = new KH2();
         WWHD wwhd = new WWHD();
         TY ty = new TY();
@@ -23,11 +23,18 @@ namespace MultiPresence
         }
         private void gameUpdater_Tick(object sender, EventArgs e)
         {
+            var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_ty = Process.GetProcessesByName("TY");
 
-            if (game_kh2.Length > 0)
+            if (game_kh1.Length > 0)
+            {
+                Balloon("Found a game!", "I now keep track of Kingdom Hearts Final Mix.");
+                kh1.DoAction();
+                gameUpdater.Stop();
+            }
+            else if (game_kh2.Length > 0)
             {
                 Balloon("Found a game!", "I now keep track of Kingdom Hearts II Final Mix.");
                 kh2.DoAction();
