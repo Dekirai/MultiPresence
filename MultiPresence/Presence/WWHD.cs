@@ -40,7 +40,7 @@ namespace MultiPresence.Presence
             if (game.Length > 0)
             {
                 string stage = mem.ReadString($"{_spoof_address}+0xA4");
-                string realstage = await wwhd_values.GetRealName(stage);
+                string realstage = await Stages.GetRealName(stage);
 
                 discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
                 discord.UpdateDetails($"Current Location");
