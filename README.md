@@ -37,7 +37,7 @@ Please take this list with a grain of salt.
 It contains every game that are in my mind but it doesn't mean they all get support.  
 If I decide against it later on, the game will be removed from the list.    
 
-The games that are checked will definitely be added, while unchecked means it's not safe to be added.
+The games that are checked will definitely be added, while unchecked means it's not not guaranteed to be added later on.
 
 - [ ] Devour
 - [x] Kingdom Hearts Birth by Sleep Final Mix
