@@ -34,21 +34,20 @@ Just do the following:
 ## Game Checklist
 Please take this list with a grain of salt.  
 It contains every game that are in my mind but it doesn't mean they all get support.  
-If I decide against it later on, the game will be removed from the list.
+If I decide against it later on, the game will be removed from the list.    
+
+The games that are checked will definitely be added, while unchecked means it's not safe to be added.
 
 - [ ] Devour
-- [ ] Kingdom Hearts Birth by Sleep Final Mix
-- [ ] Kingdom Hearts Dream Drop Distance
-- [ ] Kingdom Hearts Final Mix
-- [x] Kingdom Hearts II Final Mix
+- [x] Kingdom Hearts Birth by Sleep Final Mix
+- [x] Kingdom Hearts Dream Drop Distance
+- [x] Kingdom Hearts Final Mix
 - [ ] Resident Evil
 - [ ] Resident Evil 4
 - [ ] Resident Evil 5
-- [ ] Sonic Adventure
-- [ ] Sonic Adventure 2
-- [x] TY the Tasmanian Tiger
+- [x] Sonic Adventure
+- [x] Sonic Adventure 2
 - [ ] Trials of Mana
-- [ ] Zelda: Breath of the Wild (CEMU)
-- [ ] Zelda: Ocarina of Time PC (Ship of Harkinian)
-- [x] Zelda: The Wind Waker HD (CEMU)
-- [ ] Zelda: Twilight Princess HD (CEMU)
+- [x] Zelda: Breath of the Wild (CEMU)
+- [x] Zelda: Ocarina of Time PC (Ship of Harkinian)
+- [x] Zelda: Twilight Princess HD (CEMU)
