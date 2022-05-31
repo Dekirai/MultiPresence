@@ -43,7 +43,7 @@ The games that are checked will definitely be added, while unchecked means it's 
 - [x] Kingdom Hearts Birth by Sleep Final Mix
 - [x] Kingdom Hearts Dream Drop Distance
 - [ ] Resident Evil
-- [ ] Resident Evil 4
+- [x] Resident Evil 4
 - [ ] Resident Evil 5
 - [x] Sonic Adventure
 - [x] Sonic Adventure 2
