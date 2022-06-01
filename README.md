@@ -1,4 +1,3 @@
-
 # MultiPresence
 Show your game's status on Discord with it's Rich Presence feature!
 
@@ -29,6 +28,7 @@ Just do the following:
 |--|--|--|--|
 |Kingdom Hearts Final Mix|**1.0.0.8**|None|**Completed**|
 |Kingdom Hearts II Final Mix|**1.0.0.8**|None|**Completed**|
+|Mega Man 11||None|**Completed**|
 |TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Unfinished|
 |Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|
 

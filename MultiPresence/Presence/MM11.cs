@@ -2,19 +2,19 @@
 using DiscordRPC;
 using Memory;
 using Button = DiscordRPC.Button;
-using MultiPresence.Models.TY;
+using MultiPresence.Models.MM11;
 
 namespace MultiPresence.Presence
 {
-    public class TY
+    public class MM11
     {
         Mem mem = new Mem();
-        string process = "TY";
+        string process = "game";
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("928276083483234334");
+            discord = new DiscordRpcClient("981534050781122570");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -33,17 +33,18 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int health = mem.ReadByte("TY.exe+2737CC");
-                int level = mem.ReadByte("TY.exe+28903C");
-                var levelvalue = await Levels.GetLevel(level);
-                int opals = mem.ReadByte("TY.exe+2888B0");
+                string _save = "140C3F6C0";
+                string _game = "140B87A20";
+                int lives = mem.ReadByte($"{_save},0x3A40");
+                int difficulty = mem.ReadByte($"{_save},0x388C");
+                int stage = mem.ReadByte($"{_game},0xDF0,0xA8,0x18,0xA0");
 
-                discord.UpdateLargeAsset($"logo", $"TY the Tasmanian Tiger");
-                if (level != 0 | level != 5 | level != 12 | level != 16 | level != 17 | level != 19 | level != 20 | level != 21 | level != 22 | level != 23)
-                    discord.UpdateDetails($"HP: {health} | Opals: {opals}/300");
-                else
-                    discord.UpdateDetails($"HP: {health}");
-                discord.UpdateState($"{levelvalue[0]}");
+                var stagename = await Stages.GetStage(stage);
+                var difficultyname = await Difficulties.GetDifficulty(difficulty);
+
+                discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
+                discord.UpdateDetails($"Lives: {lives} ({difficultyname[0]})");
+                discord.UpdateState($"{stagename[0]}");
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
@@ -62,7 +63,7 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" }
+                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/742300/Mega_Man_11/" }
                 },
                 Timestamps = new Timestamps()
                 {

@@ -8,6 +8,7 @@ namespace MultiPresence
     {
         KH1 kh1 = new KH1();
         KH2 kh2 = new KH2();
+        MM11 mm11 = new MM11();
         WWHD wwhd = new WWHD();
         TY ty = new TY();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
@@ -26,6 +27,7 @@ namespace MultiPresence
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_cemu = Process.GetProcessesByName("Cemu");
+            var game_mm11 = Process.GetProcessesByName("game");
             var game_ty = Process.GetProcessesByName("TY");
 
             if (game_kh1.Length > 0)
@@ -39,6 +41,19 @@ namespace MultiPresence
                 Balloon("Found a game!", "I now keep track of Kingdom Hearts II Final Mix.");
                 kh2.DoAction();
                 gameUpdater.Stop();
+            }
+            else if (game_mm11.Length > 0)
+            {
+                var title = Process.GetProcessesByName("game").FirstOrDefault();
+
+                if (title.MainWindowTitle.Contains("MEGAMAN11"))
+                {
+                    Balloon("Found a game!", "I now keep track of Mega Man 11."); //Doing this because there might be other games with "game.exe"
+                    mm11.DoAction();
+                    gameUpdater.Stop();
+                    return;
+                }
+
             }
             else if (game_cemu.Length > 0)
             {
