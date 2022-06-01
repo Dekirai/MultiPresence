@@ -40,7 +40,7 @@ namespace MultiPresence.Presence
                 int stage = mem.ReadByte($"{_game},0xDF0,0xA8,0x18,0xA0");
 
                 var stagename = await Stages.GetStage(stage);
-                var difficultyname = await Characters.GetDifficulty(difficulty);
+                var difficultyname = await Difficulties.GetDifficulty(difficulty);
 
                 discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
                 discord.UpdateDetails($"Lives: {lives} ({difficultyname[0]})");
