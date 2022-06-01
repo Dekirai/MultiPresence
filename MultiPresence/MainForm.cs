@@ -15,11 +15,11 @@ namespace MultiPresence
         public MainForm()
         {
             InitializeComponent();
+
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
             gameUpdater.Enabled = true;
 
-            Balloon("Beep Boop", "I am active now!");
             gameUpdater.Start();
         }
         private void gameUpdater_Tick(object sender, EventArgs e)
@@ -32,13 +32,13 @@ namespace MultiPresence
 
             if (game_kh1.Length > 0)
             {
-                Balloon("Found a game!", "I now keep track of Kingdom Hearts Final Mix.");
+                Balloon("Kingdom Hearts Final Mix");
                 kh1.DoAction();
                 gameUpdater.Stop();
             }
             else if (game_kh2.Length > 0)
             {
-                Balloon("Found a game!", "I now keep track of Kingdom Hearts II Final Mix.");
+                Balloon("Kingdom Hearts II Final Mix");
                 kh2.DoAction();
                 gameUpdater.Stop();
             }
@@ -46,9 +46,9 @@ namespace MultiPresence
             {
                 var title = Process.GetProcessesByName("game").FirstOrDefault();
 
-                if (title.MainWindowTitle.Contains("MEGAMAN11"))
+                if (title.MainWindowTitle.Contains("MEGAMAN11")) //Doing this because there might be other games with "game.exe"
                 {
-                    Balloon("Found a game!", "I now keep track of Mega Man 11."); //Doing this because there might be other games with "game.exe"
+                    Balloon("Mega Man 11");
                     mm11.DoAction();
                     gameUpdater.Stop();
                     return;
@@ -61,7 +61,7 @@ namespace MultiPresence
 
                 if (title.MainWindowTitle.Contains("Wind Waker HD"))
                 {
-                    Balloon("Found a game!", "I now keep track of Zelda: The Wind Waker HD");
+                    Balloon("Zelda: The Wind Waker HD");
                     wwhd.DoAction();
                     gameUpdater.Stop();
                     return;
@@ -69,7 +69,7 @@ namespace MultiPresence
             }
             else if (game_ty.Length > 0)
             {
-                Balloon("Found a game!", "I now keep track of TY the Tasmanian Tiger.");
+                Balloon("TY the Tasmanian Tiger");
                 ty.DoAction();
                 gameUpdater.Stop();
             }
@@ -80,10 +80,10 @@ namespace MultiPresence
             Application.Exit();
         }
 
-        private void Balloon(string title, string text)
+        private void Balloon(string text)
         {
-            notify.BalloonTipTitle = title;
-            notify.BalloonTipText = text;
+            notify.BalloonTipTitle = "Found a game!";
+            notify.BalloonTipText = $"I now keep track of {text}.";
             notify.ShowBalloonTip(3000);
         }
     }
