@@ -29,8 +29,8 @@ Just do the following:
 |Kingdom Hearts Final Mix|**1.0.0.8**|None|**Completed**|[Click here](https://i.imgur.com/z0shD6F.png)|
 |Kingdom Hearts II Final Mix|**1.0.0.8**|None|**Completed**|[Click here](https://i.imgur.com/pgJQaje.png)|
 |Mega Man 11||None|**Completed**|[Click here](https://i.imgur.com/liicsCN.png)|
-|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Uncompleted|[Click here](https://i.imgur.com/OQRK2pM.png)|
-|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Uncompleted|[Click here](https://i.imgur.com/S686slD.png)|
+|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Unfinished|[Click here](https://i.imgur.com/OQRK2pM.png)|
+|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|[Click here](https://i.imgur.com/S686slD.png)|
 
 ## Game Checklist
 Please take this list with a grain of salt.  
