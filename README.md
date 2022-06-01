@@ -24,13 +24,13 @@ Just do the following:
  
 ## Supported games
 "Game Version" stands for the version I used to get the presence working.
-|Name|Game Version|Information|Progress|
-|--|--|--|--|
-|Kingdom Hearts Final Mix|**1.0.0.8**|None|**Completed**|
-|Kingdom Hearts II Final Mix|**1.0.0.8**|None|**Completed**|
-|Mega Man 11||None|**Completed**|
-|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Unfinished|
-|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|
+|Name|Game Version|Information|Progress|Preview|
+|--|--|--|--|--|
+|Kingdom Hearts Final Mix|**1.0.0.8**|None|**Completed**|[Click here](https://i.imgur.com/z0shD6F.png)|
+|Kingdom Hearts II Final Mix|**1.0.0.8**|None|**Completed**|[Click here](https://i.imgur.com/pgJQaje.png)|
+|Mega Man 11||None|**Completed**|[Click here](https://i.imgur.com/liicsCN.png)|
+|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|Unfinished|[Click here](https://i.imgur.com/OQRK2pM.png)|
+|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|Unfinished|[Click here](https://i.imgur.com/S686slD.png)|
 
 ## Game Checklist
 Please take this list with a grain of salt.  
