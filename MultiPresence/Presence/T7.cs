@@ -2,19 +2,19 @@
 using DiscordRPC;
 using Memory;
 using Button = DiscordRPC.Button;
-using MultiPresence.Models.MM11;
+using MultiPresence.Models.T7;
 
 namespace MultiPresence.Presence
 {
-    public class MM11
+    public class T7
     {
         Mem mem = new Mem();
-        string process = "game";
+        string process = "TekkenGame-Win64-Shipping";
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("981534050781122570");
+            discord = new DiscordRpcClient("981603437043130379");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -33,18 +33,29 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string _save = "140C3F6C0";
-                string _game = "140B87A20";
-                int lives = mem.ReadByte($"{_save},0x3A40");
-                int difficulty = mem.ReadByte($"{_save},0x388C");
-                int stage = mem.ReadByte($"{_game},0xDF0,0xA8,0x18,0xA0");
+                int p1 = mem.ReadByte($"{process}.exe+34E72AC");
+                int p2 = mem.ReadByte($"{process}.exe+34EA91C");
+                int stage = mem.ReadByte($"{process}.exe+34E6200");
+                int isBattle = mem.ReadByte($"{process}.exe+34D9024");
 
-                var stagename = await Stages.GetStage(stage);
-                var difficultyname = await Characters.GetDifficulty(difficulty);
+                var p1_name = await Characters.GetCharacter(p1);
+                var p2_name = await Characters.GetCharacter(p2);
+                var stage_name = await Stages.GetStage(stage);
 
-                discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
-                discord.UpdateDetails($"Lives: {lives} ({difficultyname[0]})");
-                discord.UpdateState($"{stagename[0]}");
+                if (isBattle == 1)
+                {
+                    discord.UpdateLargeAsset($"logo", $"{stage_name[0]}");
+                    discord.UpdateDetails($"{p1_name[0]} VS. {p2_name[0]}");
+                    discord.UpdateState($"{stage_name[0]}");
+                }
+                else
+                {
+                    discord.UpdateLargeAsset($"logo", $"TEKKEN 7");
+                    discord.UpdateDetails($"Idle");
+                    discord.UpdateState(null);
+                }
+
+                
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
@@ -63,7 +74,7 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/742300/Mega_Man_11/" }
+                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/389730/TEKKEN_7/" }
                 },
                 Timestamps = new Timestamps()
                 {

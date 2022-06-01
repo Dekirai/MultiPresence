@@ -10,6 +10,7 @@ namespace MultiPresence
         KH2 kh2 = new KH2();
         MM11 mm11 = new MM11();
         WWHD wwhd = new WWHD();
+        T7 t7 = new T7();
         TY ty = new TY();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
@@ -28,6 +29,7 @@ namespace MultiPresence
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_mm11 = Process.GetProcessesByName("game");
+            var game_t7 = Process.GetProcessesByName("TekkenGame-Win64-Shipping");
             var game_ty = Process.GetProcessesByName("TY");
 
             if (game_kh1.Length > 0)
@@ -54,6 +56,12 @@ namespace MultiPresence
                     return;
                 }
 
+            }
+            else if (game_t7.Length > 0)
+            {
+                Balloon("TEKKEN 7");
+                t7.DoAction();
+                gameUpdater.Stop();
             }
             else if (game_cemu.Length > 0)
             {

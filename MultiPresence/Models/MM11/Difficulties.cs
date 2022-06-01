@@ -1,6 +1,6 @@
 ﻿namespace MultiPresence.Models.MM11
 {
-    public class Difficulties
+    public class Characters
     {
         public static async Task<string[]> GetDifficulty(int difficulty)
         {
