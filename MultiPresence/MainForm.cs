@@ -8,10 +8,11 @@ namespace MultiPresence
     {
         KH1 kh1 = new KH1();
         KH2 kh2 = new KH2();
-        MM11 mm11 = new MM11();
-        WWHD wwhd = new WWHD();
+        RE4 re4 = new RE4();
         T7 t7 = new T7();
         TY ty = new TY();
+        MM11 mm11 = new MM11();
+        WWHD wwhd = new WWHD();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
         {
@@ -29,6 +30,7 @@ namespace MultiPresence
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_mm11 = Process.GetProcessesByName("game");
+            var game_re4 = Process.GetProcessesByName("bio4");
             var game_t7 = Process.GetProcessesByName("TekkenGame-Win64-Shipping");
             var game_ty = Process.GetProcessesByName("TY");
 
@@ -56,6 +58,12 @@ namespace MultiPresence
                     return;
                 }
 
+            }
+            else if (game_re4.Length > 0)
+            {
+                Balloon("Resident Evil 4");
+                re4.DoAction();
+                gameUpdater.Stop();
             }
             else if (game_t7.Length > 0)
             {

@@ -29,6 +29,7 @@ Just do the following:
 |Kingdom Hearts Final Mix|**1.0.0.8**|None|✔|[Click here](https://i.imgur.com/z0shD6F.png)|
 |Kingdom Hearts II Final Mix|**1.0.0.8**|None|✔|[Click here](https://i.imgur.com/pgJQaje.png)|
 |Mega Man 11|**Unknown**|None|✔|[Click here](https://i.imgur.com/liicsCN.png)|
+|Resident Evil 4|**Unknown**|Only Leon story for now|❌|[Click here](https://i.imgur.com/Wg24loW.png)|
 |TEKKEN 7|**Unknown**|None|❌|[Click here](https://i.imgur.com/UW5lXod.png)|
 |TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|❌|[Click here](https://i.imgur.com/OQRK2pM.png)|
 |Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|❌|[Click here](https://i.imgur.com/S686slD.png)|
@@ -44,7 +45,6 @@ The games that are checked will definitely be added, while unchecked means it's 
 - [x] Kingdom Hearts Birth by Sleep Final Mix
 - [x] Kingdom Hearts Dream Drop Distance
 - [ ] Resident Evil
-- [x] Resident Evil 4
 - [ ] Resident Evil 5
 - [x] Sonic Adventure
 - [x] Sonic Adventure 2
