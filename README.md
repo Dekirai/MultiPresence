@@ -32,7 +32,7 @@ If a game receives an update, I'll try my best to update it as quickly as possib
 Date format is **dd/mm/yyyy**.   
 
 |Game|Updated|Information|Completed?|
-|--|--|--|--|--|
+|--|--|--|--|
 |Kingdom Hearts Final Mix|03/06/2022|None|✔|
 |Kingdom Hearts II Final Mix|03/06/2022|None|✔|
 |Mega Man 11|03/06/2022|None|✔|
