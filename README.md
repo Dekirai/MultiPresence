@@ -1,9 +1,9 @@
 # MultiPresence
 Show your game's status on Discord with it's Rich Presence feature!
 
-## What is MultiPresence exactly?
+## About MultiPresence
 MultiPresence exists for game's that don't support Rich Presence for Discord (yet).  
-It can be expanded for tons of games that allows me to easily read the process' memory.    
+It can be expanded to tons of games that allows me to easily read the process' memory.    
 
 A preview for every game supported so far can be found [here](https://github.com/Dekirai/MultiPresence/blob/main/PREVIEW.md)
 
@@ -49,12 +49,7 @@ If I decide against it later on, the game will be removed from the list.
 The games that are checked will definitely be added, while unchecked means it's not not guaranteed to be added later on.
 
 - [x] Kingdom Hearts Birth by Sleep Final Mix
-- [x] Kingdom Hearts Dream Drop Distance
-- [ ] Resident Evil
-- [ ] Resident Evil 5
 - [x] Sonic Adventure
 - [x] Sonic Adventure 2
-- [ ] Trials of Mana
-- [x] Zelda: Breath of the Wild (CEMU)
 - [x] Zelda: Ocarina of Time PC (Ship of Harkinian)
 - [x] Zelda: Twilight Princess HD (CEMU)
