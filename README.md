@@ -25,19 +25,21 @@ Just do the following:
  That's it!
  
 ## Supported games
-"Game Version" stands for the version I used to get the presence working.  
-If a game does not include a game version, I was not able to identify it.  
-Date format is dd/mm/yyyy.  
+The presences are always expected to work on the latest version of the respective game.  
+Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
+If a game receives an update, I'll try my best to update it as quickly as possible.    
 
-|Name|Last updated|Game Version|Information|Completed?|
+Date format is **dd/mm/yyyy**.   
+
+|Game|Updated|Information|Completed?|
 |--|--|--|--|--|
-|Kingdom Hearts Final Mix|03/06/2022|**1.0.0.8**|None|✔|
-|Kingdom Hearts II Final Mix|03/06/2022|**1.0.0.8**|None|✔|
-|Mega Man 11|03/06/2022||None|✔|
-|Resident Evil 4|03/06/2022||Only Leon story for now|❌|
-|TEKKEN 7|03/06/2022||None|❌|
-|TY the Tasmanian Tiger|03/06/2022|**R4704_V1.44**|Level names are in german|❌|
-|Zelda: The Wind Waker HD (CEMU)|03/06/2022|**v0**|Tested on EUR|❌|
+|Kingdom Hearts Final Mix|03/06/2022|None|✔|
+|Kingdom Hearts II Final Mix|03/06/2022|None|✔|
+|Mega Man 11|03/06/2022|None|✔|
+|Resident Evil 4|03/06/2022|Only Leon story for now|❌|
+|TEKKEN 7|03/06/2022|None|❌|
+|TY the Tasmanian Tiger|03/06/2022|Level names are in german|❌|
+|Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|❌|
 
 ## Game Checklist
 Please take this list with a grain of salt.  
