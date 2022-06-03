@@ -3,7 +3,9 @@ Show your game's status on Discord with it's Rich Presence feature!
 
 ## What is MultiPresence exactly?
 MultiPresence exists for game's that don't support Rich Presence for Discord (yet).  
-It can be expanded for tons of games that allows me to easily read the process' memory.
+It can be expanded for tons of games that allows me to easily read the process' memory.    
+
+A preview for every game supported so far can be found [here](https://github.com/Dekirai/MultiPresence/blob/main/PREVIEW.md)
 
 ## Requirements
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
@@ -23,16 +25,19 @@ Just do the following:
  That's it!
  
 ## Supported games
-"Game Version" stands for the version I used to get the presence working.
-|Name|Game Version|Information|Completed?|Preview|
+"Game Version" stands for the version I used to get the presence working.  
+If a game does not include a game version, I was not able to identify it.  
+Date format is dd/mm/yyyy.  
+
+|Name|Last updated|Game Version|Information|Completed?|
 |--|--|--|--|--|
-|Kingdom Hearts Final Mix|**1.0.0.8**|None|✔|[Click here](https://i.imgur.com/z0shD6F.png)|
-|Kingdom Hearts II Final Mix|**1.0.0.8**|None|✔|[Click here](https://i.imgur.com/pgJQaje.png)|
-|Mega Man 11|**Unknown**|None|✔|[Click here](https://i.imgur.com/liicsCN.png)|
-|Resident Evil 4|**Unknown**|Only Leon story for now|❌|[Click here](https://i.imgur.com/Wg24loW.png)|
-|TEKKEN 7|**Unknown**|None|❌|[Click here](https://i.imgur.com/UW5lXod.png)|
-|TY the Tasmanian Tiger|**R4704_V1.44**|Level names are in german|❌|[Click here](https://i.imgur.com/OQRK2pM.png)|
-|Zelda: The Wind Waker HD (CEMU)|**v0**|Tested on EUR|❌|[Click here](https://i.imgur.com/S686slD.png)|
+|Kingdom Hearts Final Mix|03/06/2022|**1.0.0.8**|None|✔|
+|Kingdom Hearts II Final Mix|03/06/2022|**1.0.0.8**|None|✔|
+|Mega Man 11|03/06/2022||None|✔|
+|Resident Evil 4|03/06/2022||Only Leon story for now|❌|
+|TEKKEN 7|03/06/2022||None|❌|
+|TY the Tasmanian Tiger|03/06/2022|**R4704_V1.44**|Level names are in german|❌|
+|Zelda: The Wind Waker HD (CEMU)|03/06/2022|**v0**|Tested on EUR|❌|
 
 ## Game Checklist
 Please take this list with a grain of salt.  
@@ -41,7 +46,6 @@ If I decide against it later on, the game will be removed from the list.
 
 The games that are checked will definitely be added, while unchecked means it's not not guaranteed to be added later on.
 
-- [ ] Devour
 - [x] Kingdom Hearts Birth by Sleep Final Mix
 - [x] Kingdom Hearts Dream Drop Distance
 - [ ] Resident Evil

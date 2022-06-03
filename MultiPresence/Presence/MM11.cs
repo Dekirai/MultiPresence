@@ -45,6 +45,7 @@ namespace MultiPresence.Presence
                 discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
                 discord.UpdateDetails($"Lives: {lives} ({difficultyname[0]})");
                 discord.UpdateState($"{stagename[0]}");
+
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();

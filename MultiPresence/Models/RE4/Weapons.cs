@@ -86,6 +86,9 @@
                 case 65:
                     weapon = "P.R.L. 412";
                     break;
+                case 82:
+                    weapon = "Krauser's Bow";
+                    break;
                 case 109:
                     weapon = "Infinite Launcher";
                     break;

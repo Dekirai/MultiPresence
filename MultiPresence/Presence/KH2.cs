@@ -37,7 +37,7 @@ namespace MultiPresence.Presence
                 try
                 {
                     discord.UpdateState($"{room[room_get]}");
-                    discord.UpdateDetails($"Lv. {level} ({difficulty[0]})");
+                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
                 }
                 catch
                 {

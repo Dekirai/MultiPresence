@@ -63,7 +63,6 @@ namespace MultiPresence.Presence
                     discord.UpdateState($"{area}: {room_name[room]}");
                 }
 
-
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();

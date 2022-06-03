@@ -54,7 +54,6 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"Idle");
                     discord.UpdateState(null);
                 }
-
                 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

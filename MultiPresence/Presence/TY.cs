@@ -44,6 +44,7 @@ namespace MultiPresence.Presence
                 else
                     discord.UpdateDetails($"HP: {health}");
                 discord.UpdateState($"{levelvalue[0]}");
+
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
