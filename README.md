@@ -33,13 +33,13 @@ Date format is **dd/mm/yyyy**.
 
 |Game|Updated|Information|Completed?|
 |--|--|--|--|
-|Kingdom Hearts Final Mix|03/06/2022|None|✔|
-|Kingdom Hearts II Final Mix|03/06/2022|None|✔|
-|Mega Man 11|03/06/2022|None|✔|
-|Resident Evil 4|03/06/2022|Only Leon story for now|❌|
-|TEKKEN 7|03/06/2022|None|❌|
-|TY the Tasmanian Tiger|03/06/2022|Level names are in german|❌|
-|Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|❌|
+|Kingdom Hearts Final Mix|03/06/2022|None|:heavy_check_mark:|
+|Kingdom Hearts II Final Mix|03/06/2022|None|:heavy_check_mark:|
+|Mega Man 11|03/06/2022|None|:heavy_check_mark:|
+|Resident Evil 4|03/06/2022|Only Leon story for now|:x:|
+|TEKKEN 7|03/06/2022|None|:x:|
+|TY the Tasmanian Tiger|03/06/2022|Level names are in german|:x:|
+|Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|:x:|
 
 ## Game Checklist
 Please take this list with a grain of salt.  
