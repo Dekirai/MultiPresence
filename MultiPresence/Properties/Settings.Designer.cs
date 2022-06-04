@@ -26,12 +26,12 @@ namespace MultiPresence.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartUp {
+        public bool Notifications {
             get {
-                return ((bool)(this["StartUp"]));
+                return ((bool)(this["Notifications"]));
             }
             set {
-                this["StartUp"] = value;
+                this["Notifications"] = value;
             }
         }
     }

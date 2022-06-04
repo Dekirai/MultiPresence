@@ -1,6 +1,7 @@
 using MultiPresence.Presence;
 using System.Diagnostics;
 using System.Timers;
+using MultiPresence.Properties;
 
 namespace MultiPresence
 {
@@ -17,6 +18,8 @@ namespace MultiPresence
         public MainForm()
         {
             InitializeComponent();
+
+            cb_DisableNotifications.Checked = Settings.Default.Notifications;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -93,11 +96,15 @@ namespace MultiPresence
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
+            Settings.Default.Notifications = cb_DisableNotifications.Checked;
+            Settings.Default.Save();
             Application.Exit();
         }
 
         private void Balloon(string text)
         {
+            if (cb_DisableNotifications.Checked)
+                return;
             notify.BalloonTipTitle = "Found a game!";
             notify.BalloonTipText = $"I now keep track of {text}.";
             notify.ShowBalloonTip(3000);

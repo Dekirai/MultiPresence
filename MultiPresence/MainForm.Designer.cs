@@ -34,6 +34,7 @@
             this.notify = new System.Windows.Forms.NotifyIcon(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btn_Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.cb_DisableNotifications = new System.Windows.Forms.ToolStripMenuItem();
             this.cms.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,16 +57,24 @@
             // cms
             // 
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cb_DisableNotifications,
             this.btn_Exit});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(94, 26);
+            this.cms.Size = new System.Drawing.Size(184, 70);
             // 
             // btn_Exit
             // 
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(93, 22);
+            this.btn_Exit.Size = new System.Drawing.Size(183, 22);
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
+            // cb_DisableNotifications
+            // 
+            this.cb_DisableNotifications.CheckOnClick = true;
+            this.cb_DisableNotifications.Name = "cb_DisableNotifications";
+            this.cb_DisableNotifications.Size = new System.Drawing.Size(183, 22);
+            this.cb_DisableNotifications.Text = "Disable Notifications";
             // 
             // MainForm
             // 
@@ -91,5 +100,6 @@
         private NotifyIcon notify;
         private ContextMenuStrip cms;
         private ToolStripMenuItem btn_Exit;
+        private ToolStripMenuItem cb_DisableNotifications;
     }
 }
