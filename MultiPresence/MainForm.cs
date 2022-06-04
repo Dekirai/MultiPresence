@@ -10,6 +10,7 @@ namespace MultiPresence
         KH1 kh1 = new KH1();
         KH2 kh2 = new KH2();
         RE4 re4 = new RE4();
+        SA2 sa2 = new SA2();
         T7 t7 = new T7();
         TY ty = new TY();
         MM11 mm11 = new MM11();
@@ -34,6 +35,7 @@ namespace MultiPresence
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_mm11 = Process.GetProcessesByName("game");
             var game_re4 = Process.GetProcessesByName("bio4");
+            var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_t7 = Process.GetProcessesByName("TekkenGame-Win64-Shipping");
             var game_ty = Process.GetProcessesByName("TY");
 
@@ -66,6 +68,12 @@ namespace MultiPresence
             {
                 Balloon("Resident Evil 4");
                 re4.DoAction();
+                gameUpdater.Stop();
+            }
+            else if (game_sa2.Length > 0)
+            {
+                Balloon("Sonic Adventure 2");
+                sa2.DoAction();
                 gameUpdater.Stop();
             }
             else if (game_t7.Length > 0)
