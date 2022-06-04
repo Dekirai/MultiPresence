@@ -37,6 +37,7 @@ Date format is **dd/mm/yyyy**.
 |Kingdom Hearts II Final Mix|03/06/2022|None|:heavy_check_mark:|
 |Mega Man 11|03/06/2022|None|:heavy_check_mark:|
 |Resident Evil 4|03/06/2022|Only Leon story for now|:x:|
+|Sonic Adventure 2|04/06/2022||:heavy_check_mark:|
 |TEKKEN 7|03/06/2022|None|:x:|
 |TY the Tasmanian Tiger|03/06/2022|Level names are in german|:x:|
 |Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|:x:|
