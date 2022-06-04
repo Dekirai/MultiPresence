@@ -39,5 +39,5 @@ Date format is **dd/mm/yyyy**.
 |Resident Evil 4|03/06/2022|Only Leon story for now|:x:|
 |Sonic Adventure 2|04/06/2022||:heavy_check_mark:|
 |TEKKEN 7|03/06/2022|None|:x:|
-|TY the Tasmanian Tiger|03/06/2022|Level names are in german|:x:|
+|TY the Tasmanian Tiger|04/06/2022||:heavy_check_mark:|
 |Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|:x:|

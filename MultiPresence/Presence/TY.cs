@@ -39,7 +39,7 @@ namespace MultiPresence.Presence
                 int opals = mem.ReadByte("TY.exe+2888B0");
 
                 discord.UpdateLargeAsset($"logo", $"TY the Tasmanian Tiger");
-                if (level != 0 | level != 5 | level != 12 | level != 16 | level != 17 | level != 19 | level != 20 | level != 21 | level != 22 | level != 23)
+                if (level == 4 || level == 5 || level == 6 || level == 8 || level == 9 || level == 10 || level == 12 || level == 13 || level == 14)
                     discord.UpdateDetails($"HP: {health} | Opals: {opals}/300");
                 else
                     discord.UpdateDetails($"HP: {health}");
@@ -63,7 +63,10 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" }
+                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" },
+#if DEBUG
+                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
+#endif
                 },
                 Timestamps = new Timestamps()
                 {

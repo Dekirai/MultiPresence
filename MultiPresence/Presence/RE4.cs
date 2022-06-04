@@ -81,7 +81,10 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/254700/Resident_Evil_4/" }
+                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/254700/Resident_Evil_4/" },
+#if DEBUG
+                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
+#endif
                 },
                 Timestamps = new Timestamps()
                 {
