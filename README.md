@@ -40,16 +40,3 @@ Date format is **dd/mm/yyyy**.
 |TEKKEN 7|03/06/2022|None|:x:|
 |TY the Tasmanian Tiger|03/06/2022|Level names are in german|:x:|
 |Zelda: The Wind Waker HD (CEMU)|03/06/2022|Tested on EUR|:x:|
-
-## Game Checklist
-Please take this list with a grain of salt.  
-It contains every game that are in my mind but it doesn't mean they all get support.  
-If I decide against it later on, the game will be removed from the list.    
-
-The games that are checked will definitely be added, while unchecked means it's not not guaranteed to be added later on.
-
-- [x] Kingdom Hearts Birth by Sleep Final Mix
-- [x] Sonic Adventure
-- [x] Sonic Adventure 2
-- [x] Zelda: Ocarina of Time PC (Ship of Harkinian)
-- [x] Zelda: Twilight Princess HD (CEMU)
