@@ -73,7 +73,7 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/389730/TEKKEN_7/" },
+                    new Button() { Label = $"Open Store Page", Url = "https://store.steampowered.com/app/389730/TEKKEN_7/" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif

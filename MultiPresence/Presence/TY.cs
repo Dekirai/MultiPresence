@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
         public async void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("928276083483234334");
+            discord = new DiscordRpcClient("983292674863943720");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -63,7 +63,7 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"View on Steam", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" },
+                    new Button() { Label = $"Open Store Page", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif
