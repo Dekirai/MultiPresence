@@ -46,9 +46,10 @@ namespace MultiPresence.Presence
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0xCF"));
 
                 //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
-                discord.UpdateLargeAsset("name", $"{realstage}");
+                discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
                 discord.UpdateDetails($"Health: {hearts}");
                 discord.UpdateState($"{realstage}");
+
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();

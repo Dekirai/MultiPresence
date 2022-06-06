@@ -52,15 +52,17 @@ namespace MultiPresence.Presence
 
                 if (stage == 1 && room == 32)
                 {
-                    discord.UpdateLargeAsset($"logo", $"Resident Evil 4");
+                    discord.UpdateLargeAsset("logo", $"Resident Evil 4");
+                    discord.UpdateSmallAsset(null);
                     discord.UpdateDetails($"At the Title Screen");
                     discord.UpdateState(null);
                 }
                 else
                 {
-                    discord.UpdateLargeAsset($"logo", $"Resident Evil 4");
-                    discord.UpdateDetails($"{weapon_name} ({difficulty_name})");
-                    discord.UpdateState($"{area}: {room_name[room]}");
+                    discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
+                    discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
+                    discord.UpdateDetails($"Weapon: {weapon_name}");
+                    discord.UpdateState($"Location: {room_name[room]}");
                 }
 
                 await Task.Delay(3000);
