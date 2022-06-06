@@ -89,6 +89,7 @@ namespace MultiPresence
                 if (title.MainWindowTitle.Contains("Wind Waker HD"))
                 {
                     Balloon("Zelda: The Wind Waker HD");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     wwhd.DoAction();
                     gameUpdater.Stop();
                     return;
@@ -116,6 +117,13 @@ namespace MultiPresence
             notify.BalloonTipTitle = "Found a game!";
             notify.BalloonTipText = $"I now keep track of {text}.";
             notify.ShowBalloonTip(3000);
+        }
+
+        private void BalloonInfo(string text)
+        {
+            notify.BalloonTipTitle = "Information";
+            notify.BalloonTipText = $"{text}";
+            notify.ShowBalloonTip(5000);
         }
     }
 }
