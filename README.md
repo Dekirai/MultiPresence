@@ -31,13 +31,13 @@ If a game receives a patch, I'll try my best to update it's presence as quickly 
 
 Date format is **dd/mm/yyyy**.   
 
-|Game|Updated|Information|Completed?|
-|--|--|--|--|
-|Kingdom Hearts Final Mix|03/06/2022| |:heavy_check_mark:|
-|Kingdom Hearts II Final Mix|03/06/2022| |:heavy_check_mark:|
-|Mega Man 11|03/06/2022| |:heavy_check_mark:|
-|Resident Evil 4|06/06/2022|Only Leon story for now|:x:|
-|Sonic Adventure 2|04/06/2022| |:heavy_check_mark:|
-|TEKKEN 7|03/06/2022| |:x:|
-|TY the Tasmanian Tiger|04/06/2022| |:heavy_check_mark:|
-|Zelda: The Wind Waker HD (CEMU)|06/06/2022|Tested on EUR|:heavy_check_mark:|
+|Game|Platform|Updated|Information|Completed?|
+|--|--|--|--|--|
+|Kingdom Hearts Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
+|Kingdom Hearts II Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
+|Mega Man 11|Steam|03/06/2022| |:heavy_check_mark:|
+|Resident Evil 4|Steam|06/06/2022|Only Leon story for now|:x:|
+|Sonic Adventure 2|Steam|04/06/2022| |:heavy_check_mark:|
+|TEKKEN 7|Steam|03/06/2022| |:x:|
+|TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
+|Zelda: The Wind Waker HD|Cemu|06/06/2022|Tested on EUR|:heavy_check_mark:|
