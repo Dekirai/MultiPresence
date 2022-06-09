@@ -10,10 +10,14 @@ namespace MultiPresence.Presence
     {
         Mem mem = new Mem();
         string process = "bio4";
+        public string _main_address = "";
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
+            await Task.Delay(5000);
             GetPID();
+            long main_get = (await mem.AoBScan("00 00 00 00 60 BB ?? ?? ?? ?? 96 40 00 00 00 00 E4 CB 96 40 ?? ?? ?? ?? E4 CB 96 40 00 00 00 00 E4 CB 96 40", true)).FirstOrDefault();
+            _main_address = main_get.ToString("X8");
             discord = new DiscordRpcClient("982193093388427314");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
@@ -34,10 +38,10 @@ namespace MultiPresence.Presence
             if (game.Length > 0)
             {
                 string area = "";
-                int stage = mem.ReadByte($"{process}.exe+85A789");
-                int room = mem.ReadByte($"{process}.exe+85A788");
-                int weapon = mem.ReadByte($"{process}.exe+870FE4");
-                int difficulty = mem.ReadByte($"{process}.exe+862BDC");
+                int stage = mem.ReadByte($"{_main_address}+C01");
+                int room = mem.ReadByte($"{_main_address}+C00");
+                int weapon = mem.ReadByte($"{_main_address}+1745C");
+                int difficulty = mem.ReadByte($"{_main_address}+9054");
 
                 var room_name = await Stages.GetStage(stage);
                 var weapon_name = await Weapons.GetWeapon(weapon);

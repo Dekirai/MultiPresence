@@ -17,6 +17,9 @@
                 case 3:
                     weapon = "Matilda";
                     break;
+                case 10:
+                    weapon = "Golden Egg";
+                    break;
                 case 14:
                     weapon = "Flash Grenade";
                     break;
