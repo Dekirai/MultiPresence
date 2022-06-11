@@ -89,6 +89,9 @@
                 case 65:
                     weapon = "P.R.L. 412";
                     break;
+                case 71:
+                    weapon = "Shotgun";
+                    break;
                 case 82:
                     weapon = "Krauser's Bow";
                     break;

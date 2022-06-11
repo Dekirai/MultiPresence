@@ -47,12 +47,16 @@ namespace MultiPresence.Presence
                 var weapon_name = await Weapons.GetWeapon(weapon);
                 var difficulty_name = await Difficulties.GetDifficulty(difficulty);
 
+                if (stage == 0)
+                    area = "Debug Rooms";
                 if (stage == 1)
                     area = "Village";
                 if (stage == 2)
                     area = "Castle";
                 if (stage == 3)
                     area = "Island";
+                if (stage == 5)
+                    area = "Separate Ways";
 
                 if (stage == 1 && room == 32)
                 {
@@ -61,9 +65,19 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"At the Title Screen");
                     discord.UpdateState(null);
                 }
+                else if (stage == 5)
+                {
+                    discord.UpdateLargeAsset($"ada", $"Playing \"{area}\"");
+                    discord.UpdateSmallAsset(null);
+                    discord.UpdateDetails($"Weapon: {weapon_name}");
+                    discord.UpdateState($"Location: {room_name[room]}");
+                }
                 else
                 {
-                    discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
+                    if (stage == 0)
+                        discord.UpdateLargeAsset($"logo_alt", $"{area} - {room_name[room]}");
+                    else
+                        discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
                     discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
                     discord.UpdateDetails($"Weapon: {weapon_name}");
                     discord.UpdateState($"Location: {room_name[room]}");

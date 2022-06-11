@@ -36,7 +36,7 @@ Date format is **dd/mm/yyyy**.
 |Kingdom Hearts Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
 |Kingdom Hearts II Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
 |Mega Man 11|Steam|03/06/2022| |:heavy_check_mark:|
-|Resident Evil 4|Steam|06/06/2022|Only Leon story for now|:x:|
+|Resident Evil 4|Steam|11/06/2022|Main Story + Separate Ways|:x:|
 |Sonic Adventure 2|Steam|04/06/2022| |:heavy_check_mark:|
 |TEKKEN 7|Steam|03/06/2022| |:x:|
 |TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
