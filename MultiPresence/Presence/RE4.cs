@@ -38,14 +38,17 @@ namespace MultiPresence.Presence
             if (game.Length > 0)
             {
                 string area = "";
-                int stage = mem.ReadByte($"{_main_address}+C01");
-                int room = mem.ReadByte($"{_main_address}+C00");
+                int stage = mem.ReadByte($"{_main_address}+5B85");
+                int room = mem.ReadByte($"{_main_address}+5B84");
                 int weapon = mem.ReadByte($"{_main_address}+1745C");
+                int character = mem.ReadByte($"{_main_address}+5BA0");
+                int score = mem.ReadInt($"{_main_address}+17544");
                 int difficulty = mem.ReadByte($"{_main_address}+9054");
 
                 var room_name = await Stages.GetStage(stage);
                 var weapon_name = await Weapons.GetWeapon(weapon);
                 var difficulty_name = await Difficulties.GetDifficulty(difficulty);
+                var character_name = await Characters.GetCharacter(character);
 
                 if (stage == 0)
                     area = "Debug Rooms";
@@ -55,6 +58,8 @@ namespace MultiPresence.Presence
                     area = "Castle";
                 if (stage == 3)
                     area = "Island";
+                if (stage == 4)
+                    area = "Mercenaries";
                 if (stage == 5)
                     area = "Separate Ways";
 
@@ -65,22 +70,42 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"At the Title Screen");
                     discord.UpdateState(null);
                 }
-                else if (stage == 5)
-                {
-                    discord.UpdateLargeAsset($"ada", $"Playing \"{area}\"");
-                    discord.UpdateSmallAsset(null);
-                    discord.UpdateDetails($"Weapon: {weapon_name}");
-                    discord.UpdateState($"Location: {room_name[room]}");
-                }
                 else
                 {
-                    if (stage == 0)
-                        discord.UpdateLargeAsset($"logo_alt", $"{area} - {room_name[room]}");
+                    if (stage == 4)
+                    {
+                        if (room >= 0 && room <= 4)
+                        {
+                            discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
+                            discord.UpdateSmallAsset(null);
+                            discord.UpdateDetails($"The Mercenaries | Score: {score}");
+                            discord.UpdateState($"Playing as {character_name} on {room_name[room]}");
+                        }
+                        else
+                        {
+                            discord.UpdateLargeAsset($"ada", $"Assignment Ada");
+                            discord.UpdateSmallAsset(null);
+                            discord.UpdateDetails($"Assignment Ada");
+                            discord.UpdateState($"Location: {room_name[room]}");
+                        }
+                    }
+                    else if (stage == 5)
+                    {
+                        discord.UpdateLargeAsset($"ada", $"Playing \"{area}\"");
+                        discord.UpdateSmallAsset(null);
+                        discord.UpdateDetails($"Weapon: {weapon_name}");
+                        discord.UpdateState($"Location: {room_name[room]}");
+                    }
                     else
-                        discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
-                    discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
-                    discord.UpdateDetails($"Weapon: {weapon_name}");
-                    discord.UpdateState($"Location: {room_name[room]}");
+                    {
+                        if (stage == 0)
+                            discord.UpdateLargeAsset($"logo_alt", $"{area} - {room_name[room]}");
+                        else
+                            discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
+                        discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
+                        discord.UpdateDetails($"Weapon: {weapon_name}");
+                        discord.UpdateState($"Location: {room_name[room]}");
+                    }
                 }
 
                 await Task.Delay(3000);

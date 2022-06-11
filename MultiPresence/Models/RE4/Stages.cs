@@ -184,6 +184,26 @@
                     getstage.Add("Construction Building"); //Room 50
                     getstage.Add("Underground Water Vein"); //Needs real name (Escaping with the boat)
                     break;
+                case 4: //Mercenaries & Assignment Ada
+                    getstage.Add("Pueblo");
+                    getstage.Add("");
+                    getstage.Add("Castle Ramparts");
+                    getstage.Add("Militant Grounds");
+                    getstage.Add("The Docks");
+                    getstage.Add("Outer Stronghold"); //Room 5
+                    getstage.Add("Cliffside Encampment");
+                    getstage.Add("");
+                    getstage.Add("");
+                    getstage.Add("");
+                    getstage.Add("Stairwell"); //Room 10
+                    getstage.Add("Operating Room");
+                    getstage.Add("Freezer");
+                    getstage.Add("Research Lab");
+                    getstage.Add("Com Tower");
+                    getstage.Add("Waste Disposal"); //Room 15
+                    getstage.Add("Basement");
+                    getstage.Add("Administration Corridor");
+                    break;
                 case 5: //Separate Ways
                     getstage.Add("Pueblo");
                     getstage.Add("Secret Passage");
