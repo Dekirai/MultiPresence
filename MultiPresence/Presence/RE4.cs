@@ -60,7 +60,7 @@ namespace MultiPresence.Presence
                 if (stage == 1 && room == 32)
                 {
                     discord.UpdateLargeAsset("logo", $"Resident Evil 4");
-                    discord.UpdateSmallAsset(null);
+                    discord.UpdateSmallAsset(null, null);
                     discord.UpdateDetails($"At the Title Screen");
                     discord.UpdateState(null);
                 }
@@ -71,22 +71,22 @@ namespace MultiPresence.Presence
                         if (room >= 0 && room <= 4)
                         {
                             discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
-                            discord.UpdateSmallAsset(null);
+                            discord.UpdateSmallAsset("", "");
                             discord.UpdateDetails($"The Mercenaries | Score: {score}");
                             discord.UpdateState($"Playing as {character_name} on {room_name[room]}");
                         }
                         else
                         {
                             discord.UpdateLargeAsset($"ada", $"Assignment Ada");
-                            discord.UpdateSmallAsset(null);
+                            discord.UpdateSmallAsset("", "");
                             discord.UpdateDetails($"Assignment Ada");
                             discord.UpdateState($"Location: {room_name[room]}");
                         }
                     }
                     else if (stage == 5)
                     {
-                        discord.UpdateLargeAsset($"ada", $"{room_name[room]}");
-                        discord.UpdateSmallAsset(null);
+                        discord.UpdateLargeAsset($"ada", $"Separate Ways - {room_name[room]}");
+                        discord.UpdateSmallAsset("", "");
                         discord.UpdateDetails($"Weapon: {weapon_name}");
                         discord.UpdateState($"Location: {room_name[room]}");
                     }
