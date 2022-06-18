@@ -11,11 +11,12 @@ namespace MultiPresence.Presence
     {
         Mem mem = new Mem();
         string process = "Cemu";
+        string location = "";
         public string _main_address = "";
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
-            await Task.Delay(10000);
+            await Task.Delay(7500);
             GetPID();
             long main_get = (await mem.AoBScan("00 00 00 00 00 4C 6F 61 64 69 6E 67 20", true)).FirstOrDefault();
             _main_address = main_get.ToString("X11");
@@ -36,17 +37,37 @@ namespace MultiPresence.Presence
         private async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
+            string[] stage = mem.ReadString($"{_main_address}+D").Split(':');
             if (game.Length > 0)
             {
-                string stage = mem.ReadString($"{_main_address}+D").Split(':')[0];
-                string room = mem.ReadString($"{_main_address}+D").Split(':')[1];
-                string area = $"{stage}-{room}";
-                string realstage = await Stages.MapName(stage);
+                try
+                {
+                    location = stage[0];
+                }
+                catch
+                {
+                    location = mem.ReadString($"{_main_address}+D");
+                }
+                int form = mem.ReadByte($"{_main_address}+12379");
+                string area = $"{stage[0]}-{stage[1]}"; //Used for a future update
+                string realstage = await Stages.MapName(location);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
 
-                discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
-                discord.UpdateDetails($"Health: {hearts}");
-                discord.UpdateState($"{realstage}");
+                if (location == "Opening Scene" || location == "Name Scene")
+                {
+                    discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
+                    discord.UpdateDetails($"At the Title Sceen");
+                    discord.UpdateState($"");
+                }
+                else
+                {
+                    if (form == 0)
+                        discord.UpdateLargeAsset("link", "Running around as a Human");
+                    else
+                        discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
+                    discord.UpdateDetails($"Health: {hearts}");
+                    discord.UpdateState($"{realstage}");
+                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
