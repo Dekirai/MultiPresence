@@ -12,6 +12,7 @@ namespace MultiPresence.Presence
         Mem mem = new Mem();
         string process = "Cemu";
         string location = "";
+        string area = "";
         public string _main_address = "";
         private static DiscordRpcClient discord;
         public async void DoAction()
@@ -43,13 +44,13 @@ namespace MultiPresence.Presence
                 try
                 {
                     location = stage[0];
+                    area = $"{stage[0]}-{stage[1]}"; //Used for a future update
                 }
                 catch
                 {
                     location = mem.ReadString($"{_main_address}+D");
                 }
                 int form = mem.ReadByte($"{_main_address}+12379");
-                string area = $"{stage[0]}-{stage[1]}"; //Used for a future update
                 string realstage = await Stages.MapName(location);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
 

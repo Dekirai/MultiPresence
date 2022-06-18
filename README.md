@@ -5,7 +5,7 @@ Show your game's status on Discord with it's Rich Presence feature!
 MultiPresence exists for game's that don't support Rich Presence for Discord (yet).  
 It can be expanded to tons of games that allows me to easily read the process' memory.    
 
-A preview for every game supported so far can be found [here](https://github.com/Dekirai/MultiPresence/blob/main/PREVIEW.md).
+A preview for every game supported so far can be found [here](https://github.com/Dekirai/MultiPresence/wiki).
 
 ## Requirements
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
@@ -41,4 +41,4 @@ Date format is **dd/mm/yyyy**.
 |TEKKEN 7|Steam|03/06/2022| |:x:|
 |TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
 |Zelda: The Wind Waker HD|Cemu|06/06/2022|Tested on EUR|:heavy_check_mark:|
-|Zelda: Twilight Princess HD|Cemu|18/06/2022|Tested on EUR|:heavy_check_mark:|
+|Zelda: Twilight Princess HD|Cemu|18/06/2022|Tested on EUR v81|:heavy_check_mark:|
