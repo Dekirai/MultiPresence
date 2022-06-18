@@ -12,6 +12,7 @@ namespace MultiPresence
         RE4 re4 = new RE4();
         SA2 sa2 = new SA2();
         T7 t7 = new T7();
+        TPHD tphd = new TPHD();
         TY ty = new TY();
         MM11 mm11 = new MM11();
         WWHD wwhd = new WWHD();
@@ -93,6 +94,14 @@ namespace MultiPresence
                     Balloon("Zelda: The Wind Waker HD");
                     BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     wwhd.DoAction();
+                    gameUpdater.Stop();
+                    return;
+                }
+                else if (title.MainWindowTitle.Contains("Twilight Princess HD"))
+                {
+                    Balloon("Zelda: Twilight Princess HD");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
+                    tphd.DoAction();
                     gameUpdater.Stop();
                     return;
                 }

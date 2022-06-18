@@ -41,3 +41,4 @@ Date format is **dd/mm/yyyy**.
 |TEKKEN 7|Steam|03/06/2022| |:x:|
 |TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
 |Zelda: The Wind Waker HD|Cemu|06/06/2022|Tested on EUR|:heavy_check_mark:|
+|Zelda: Twilight Princess HD|Cemu|18/06/2022/Tested on EUR|:heavy_check_mark:|
