@@ -115,10 +115,10 @@
                     getmap = "Outside Castle Town";
                     break;
                 case "F_SP123":
-                    getmap = "Bublin 2";
+                    getmap = "Bublin";
                     break;
                 case "F_SP124":
-                    getmap = "Gerudo Destert";
+                    getmap = "Gerudo Desert";
                     break;
                 case "F_SP125":
                     getmap = "Mirror Chamber";

@@ -17,7 +17,7 @@ namespace MultiPresence.Presence
         {
             await Task.Delay(10000);
             GetPID();
-            long main_get = (await mem.AoBScan("2D 5C 10 18 2D 68 00 00 00", true)).FirstOrDefault();
+            long main_get = (await mem.AoBScan("00 00 00 00 00 4C 6F 61 64 69 6E 67 20", true)).FirstOrDefault();
             _main_address = main_get.ToString("X11");
             discord = new DiscordRpcClient("983296451453022220");
             InitializeDiscord();
@@ -38,9 +38,11 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string stage = mem.ReadString($"{_main_address}+0x52AA");
+                string stage = mem.ReadString($"{_main_address}+D").Split(':')[0];
+                string room = mem.ReadString($"{_main_address}+D").Split(':')[1];
+                string area = $"{stage}-{room}";
                 string realstage = await Stages.MapName(stage);
-                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0xF"));
+                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
 
                 discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
                 discord.UpdateDetails($"Health: {hearts}");
