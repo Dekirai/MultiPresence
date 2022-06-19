@@ -38,7 +38,7 @@ Date format is **dd/mm/yyyy**.
 |Mega Man 11|Steam|03/06/2022| |:heavy_check_mark:|
 |Resident Evil 4|Steam|11/06/2022| |:heavy_check_mark:|
 |Sonic Adventure 2|Steam|04/06/2022| |:heavy_check_mark:|
-|TEKKEN 7|Steam|03/06/2022| |:x:|
+|TEKKEN 7|Steam|03/06/2022| |:heavy_check_mark:|
 |TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
 |Zelda: The Wind Waker HD|Cemu|06/06/2022|Tested on EUR|:heavy_check_mark:|
 |Zelda: Twilight Princess HD|Cemu|19/06/2022|Tested on EUR v81|:x:|
