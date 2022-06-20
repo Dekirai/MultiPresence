@@ -30,7 +30,7 @@ The presences are always expected to work on the latest version of the respectiv
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
 If a game receives a patch, I'll try my best to update it's presence as quickly as possible.        
 
-Click on a games name to view it's wiki containing all features (and maybe extra infos and a todo-list)!
+Click on a games name to view it's wiki containing all features (and maybe extra infos and a todo-list)!  
 Date format is **dd/mm/yyyy**.   
 
 |Game|Platform|Updated|Information|
