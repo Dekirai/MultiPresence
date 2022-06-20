@@ -741,47 +741,22 @@
                 case "F_SP118-R03":
                     getmap = "Bublin Camp - Before Arbiters Grounds";
                     break;
-                case "F_SP121":
-                    getmap = "Hyrule Field";
-                    break;
                 case "F_SP121-R00":
-                    getmap = "Hyrule Field - Eldin";
-                    break;
                 case "F_SP121-R01":
-                    getmap = "Hyrule Field - Faron to Eldin";
-                    break;
                 case "F_SP121-R02":
-                    getmap = "Hyrule Field - Eldin Entrance";
-                    break;
                 case "F_SP121-R03":
                 case "F_SP121-R04":
                 case "F_SP121-R05":
-                    getmap = "Hyrule Field - Eldin Gorge";
-                    break;
                 case "F_SP121-R06":
-                    getmap = "Hyrule Field - Faron";
-                    break;
                 case "F_SP121-R07":
-                    getmap = "Hyrule Field - Eldin to Lanayru";
-                    break;
                 case "F_SP121-R09":
-                    getmap = "Hyrule Field - Lanayru Entrance";
-                    break;
                 case "F_SP121-R10":
-                    getmap = "Hyrule Field - Lanayru";
-                    break;
                 case "F_SP121-R11":
                 case "F_SP121-R12":
-                    getmap = "Hyrule Field - Lanayru Bridge";
-                    break;
                 case "F_SP121-R13":
-                    getmap = "Hyrule Field - Lanayru Lake Hylia Bridge";
-                    break;
                 case "F_SP121-R14":
-                    getmap = "Hyrule Field - Faron to Lanayru";
-                    break;
                 case "F_SP121-R15":
-                    getmap = "Hyrule Field - Faron to Lanayru Gate";
+                    getmap = "Hyrule Field";
                     break;
                 case "F_SP122-R08":
                     getmap = "Outside Castle Town - West Field";
