@@ -1,3 +1,4 @@
+
 # MultiPresence
 Show your game's status on Discord with it's Rich Presence feature!
 
@@ -27,18 +28,19 @@ Just do the following:
 ## Supported games
 The presences are always expected to work on the latest version of the respective game.  
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
-If a game receives a patch, I'll try my best to update it's presence as quickly as possible.      
+If a game receives a patch, I'll try my best to update it's presence as quickly as possible.        
 
+Click on a games name to view it's wiki containing all features (and maybe extra infos and a todo-list)!
 Date format is **dd/mm/yyyy**.   
 
-|Game|Platform|Updated|Information|Completed?|
+|Game|Platform|Updated|Information|
 |--|--|--|--|--|
-|Kingdom Hearts Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
-|Kingdom Hearts II Final Mix|Epic Games|03/06/2022| |:heavy_check_mark:|
-|Mega Man 11|Steam|03/06/2022| |:heavy_check_mark:|
-|Resident Evil 4|Steam|11/06/2022| |:heavy_check_mark:|
-|Sonic Adventure 2|Steam|04/06/2022| |:heavy_check_mark:|
-|TEKKEN 7|Steam|03/06/2022| |:heavy_check_mark:|
-|TY the Tasmanian Tiger|Steam|04/06/2022| |:heavy_check_mark:|
-|Zelda: The Wind Waker HD|Cemu|06/06/2022|Tested on EUR|:heavy_check_mark:|
-|Zelda: Twilight Princess HD|Cemu|19/06/2022|Tested on EUR v81|:x:|
+|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|Epic Games|03/06/2022| 
+|[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|Epic Games|03/06/2022| |
+|[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|Steam|03/06/2022| 
+|[Resident Evil 4](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|Steam|11/06/2022| |
+|[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|Steam|04/06/2022| |
+|[TEKKEN 7](https://github.com/Dekirai/MultiPresence/wiki/TEKKEN-7)|Steam|03/06/2022| |
+|[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|Steam|04/06/2022| 
+|[Zelda: The Wind Waker HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|Cemu|06/06/2022|Tested on EUR|
+|[Zelda: Twilight Princess HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|Cemu|19/06/2022|Tested on EUR v81|
