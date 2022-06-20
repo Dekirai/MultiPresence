@@ -34,7 +34,7 @@ Click on a games name to view it's wiki containing all features (and maybe extra
 Date format is **dd/mm/yyyy**.   
 
 |Game|Platform|Updated|Information|
-|--|--|--|--|--|
+|--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|Epic Games|03/06/2022| 
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|Epic Games|03/06/2022| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|Steam|03/06/2022| 
