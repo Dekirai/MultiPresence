@@ -50,8 +50,7 @@ namespace MultiPresence.Presence
                 {
                     location = mem.ReadString($"{_main_address}+D");
                 }
-                int form = mem.ReadByte($"{_main_address}+12379");
-                int form2 = mem.ReadByte($"{_main_address}+1237A");
+                int form = mem.ReadByte($"{_main_address}+12369");
                 string realstage = await Stages.MapName(area);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
 
@@ -63,9 +62,9 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
-                    if (form2 == 0)
+                    if (form == 0)
                         discord.UpdateLargeAsset("link", "Running around as a Human");
-                    else if (form2 == 1)
+                    else
                         discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
                     discord.UpdateDetails($"Health: {hearts}");
                     discord.UpdateState($"{realstage}");
