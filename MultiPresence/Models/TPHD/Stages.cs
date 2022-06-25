@@ -615,23 +615,23 @@
                     getmap = "Grotto";
                     break;
                 case "D_SB10-R00":
-                    getmap = "Faron Woods Cave";
+                    getmap = "Faron Woods - Cave";
                     break;
                 /*Locations*/
                 case "F_SP00-R00":
                     getmap = "Ordon Ranch";
                     break;
                 case "F_SP102-R00":
-                    getmap = "Title Screen";
+                    getmap = "Hyrule Field - Rescue Mission";
                     break;
                 case "F_SP103-R00":
-                    getmap = "Ordon Village - Main Village";
+                    getmap = "Ordon - Village";
                     break;
                 case "F_SP103-R01":
-                    getmap = "Ordon Village - Outside Links House";
+                    getmap = "Ordon - Outside Links House";
                     break;
                 case "F_SP104-R01":
-                    getmap = "Ordon Woods";
+                    getmap = "Ordon - Woods";
                     break;
                 case "F_SP108-R00":
                     getmap = "Faron Woods - South Entrance";
@@ -676,7 +676,7 @@
                     getmap = "Death Mountain - Entrance to Mountain";
                     break;
                 case "F_SP110-R03":
-                    getmap = "Death Mountain - Mountain";
+                    getmap = "Death Mountain";
                     break;
                 case "F_SP111-R00":
                     getmap = "Kakariko Graveyard";

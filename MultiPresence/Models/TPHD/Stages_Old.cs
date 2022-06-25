@@ -10,31 +10,31 @@
             {
                 /*Dungeons*/
                 case "D_MN01":
-                    getmap = "Lakebed Temple";
+                    getmap = "[Dungeon] Lakebed Temple";
                     break;
                 case "D_MN04":
-                    getmap = "Goron Mines";
+                    getmap = "[Dungeon] Goron Mines";
                     break;
                 case "D_MN05":
-                    getmap = "Forest Temple";
+                    getmap = "[Dungeon] Forest Temple";
                     break;
                 case "D_MN06":
-                    getmap = "Temple of Time";
+                    getmap = "[Dungeon] Temple of Time";
                     break;
                 case "D_MN07":
-                    getmap = "City in the Sky";
+                    getmap = "[Dungeon] City in the Sky";
                     break;
                 case "D_MN08":
-                    getmap = "Palace of Twilight";
+                    getmap = "[Dungeon] Palace of Twilight";
                     break;
                 case "D_MN09":
-                    getmap = "Hyrule Castle";
+                    getmap = "[Dungeon] Hyrule Castle";
                     break;
                 case "D_MN10":
-                    getmap = "Arbiters Grounds";
+                    getmap = "[Dungeon] Arbiters Grounds";
                     break;
                 case "D_MN11":
-                    getmap = "Snowpeak Ruins";
+                    getmap = "[Dungeon] Snowpeak Ruins";
                     break;
                 /*Caves*/
                 case "D_SB00":

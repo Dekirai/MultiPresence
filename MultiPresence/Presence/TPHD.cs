@@ -4,6 +4,7 @@ using Memory;
 using Button = DiscordRPC.Button;
 using MultiPresence.Models.TPHD;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace MultiPresence.Presence
 {
@@ -44,14 +45,16 @@ namespace MultiPresence.Presence
                 try
                 {
                     location = stage[0];
-                    area = $"{stage[0]}-{stage[1]}"; //Used for a future update
+                    area = $"{stage[0]}-{stage[1]}";
                 }
                 catch
                 {
                     location = mem.ReadString($"{_main_address}+D");
                 }
+
                 int form = mem.ReadByte($"{_main_address}+12369");
-                string realstage = await Stages.MapName(area);
+                int poes = mem.ReadByte($"{_main_address}+12455");
+                string realstage = await Stages_Old.MapName(location);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
 
                 if (location == "Opening Scene" || location == "Name Scene")
@@ -66,7 +69,7 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset("link", "Running around as a Human");
                     else
                         discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                    discord.UpdateDetails($"Health: {hearts}");
+                    discord.UpdateDetails($"[❤️{hearts}][🟣{poes}]");
                     discord.UpdateState($"{realstage}");
                 }
 
@@ -79,6 +82,13 @@ namespace MultiPresence.Presence
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
             }
+        }
+
+        static int ReverseBytes(int val)
+        {
+            byte[] intAsBytes = BitConverter.GetBytes(val);
+            Array.Reverse(intAsBytes);
+            return BitConverter.ToInt32(intAsBytes, 0);
         }
 
         private static void InitializeDiscord()
