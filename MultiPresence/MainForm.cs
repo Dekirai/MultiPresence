@@ -9,6 +9,7 @@ namespace MultiPresence
     {
         KH1 kh1 = new KH1();
         KH2 kh2 = new KH2();
+        KHBBS khbbs = new KHBBS();
         KHDDD khddd = new KHDDD();
         RE4 re4 = new RE4();
         SA2 sa2 = new SA2();
@@ -35,6 +36,7 @@ namespace MultiPresence
         {
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
+            var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_mm11 = Process.GetProcessesByName("game");
@@ -53,6 +55,12 @@ namespace MultiPresence
             {
                 Balloon("Kingdom Hearts II Final Mix");
                 kh2.DoAction();
+                gameUpdater.Stop();
+            }
+            else if (game_khbbs.Length > 0)
+            {
+                Balloon("Kingdom Hearts Birth by Sleep Final Mix");
+                khbbs.DoAction();
                 gameUpdater.Stop();
             }
             else if (game_khddd.Length > 0)
