@@ -43,4 +43,4 @@ Date format is **dd/mm/yyyy**.
 |[TEKKEN 7](https://github.com/Dekirai/MultiPresence/wiki/TEKKEN-7)|Steam|03/06/2022| |
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|Steam|04/06/2022| 
 |[Zelda: The Wind Waker HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|Cemu|06/06/2022|Tested on EUR|
-|[Zelda: Twilight Princess HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|Cemu|21/06/2022|Tested on EUR v81|
+|[Zelda: Twilight Princess HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|Cemu|26/06/2022|Tested on EUR v81|
