@@ -35,12 +35,13 @@ Date format is **dd/mm/yyyy**.
 
 |Game|Platform|Updated|Information|
 |--|--|--|--|
-|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|Epic Games|03/06/2022| 
+|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|Epic Games|03/06/2022| |
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|Epic Games|03/06/2022| |
-|[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|Steam|03/06/2022| 
+|[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|Epic Games|26/06/2022| |
+|[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|Steam|03/06/2022| |
 |[Resident Evil 4](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|Steam|11/06/2022| |
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|Steam|04/06/2022| |
 |[TEKKEN 7](https://github.com/Dekirai/MultiPresence/wiki/TEKKEN-7)|Steam|03/06/2022| |
-|[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|Steam|04/06/2022| 
+|[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|Steam|04/06/2022| |
 |[Zelda: The Wind Waker HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|Cemu|06/06/2022|Tested on EUR|
 |[Zelda: Twilight Princess HD](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|Cemu|26/06/2022|Tested on EUR v81|
