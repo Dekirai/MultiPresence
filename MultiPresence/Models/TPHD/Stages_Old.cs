@@ -12,29 +12,92 @@
                 case "D_MN01":
                     getmap = "Dungeon - Lakebed Temple";
                     break;
+                case "D_MN01A":
+                    getmap = "Dungeon - Lakebed Temple (Boss)";
+                    break;
+                case "D_MN01B":
+                    getmap = "Dungeon - Lakebed Temple (Mini Boss)";
+                    break;
                 case "D_MN04":
                     getmap = "Dungeon - Goron Mines";
+                    break;
+                case "D_MN04A":
+                    getmap = "Dungeon - Goron Mines (Boss)";
+                    break;
+                case "D_MN04B":
+                    getmap = "Dungeon - Goron Mines (Mini Boss)";
                     break;
                 case "D_MN05":
                     getmap = "Dungeon - Forest Temple";
                     break;
+                case "D_MN05A":
+                    getmap = "Dungeon - Forest Temple (Boss)";
+                    break;
+                case "D_MN05B":
+                    getmap = "Dungeon - Forest Temple (Mini Boss)";
+                    break;
                 case "D_MN06":
                     getmap = "Dungeon - Temple of Time";
+                    break;
+                case "D_MN06A":
+                    getmap = "Dungeon - Temple of Time (Boss)";
+                    break;
+                case "D_MN06B":
+                    getmap = "Dungeon - Temple of Time (Mini Boss)";
                     break;
                 case "D_MN07":
                     getmap = "Dungeon - City in the Sky";
                     break;
+                case "D_MN07A":
+                    getmap = "Dungeon - City in the Sky (Boss)";
+                    break;
+                case "D_MN07B":
+                    getmap = "Dungeon - City in the Sky (Mini Boss)";
+                    break;
                 case "D_MN08":
                     getmap = "Dungeon - Palace of Twilight";
+                    break;
+                case "D_MN08A":
+                    getmap = "Dungeon - Palace of Twilight (Boss)";
+                    break;
+                case "D_MN08B":
+                    getmap = "Dungeon - Palace of Twilight (Mini Boss)";
+                    break;
+                case "D_MN08C":
+                    getmap = "Dungeon - Palace of Twilight (Mini Boss)";
+                    break;
+                case "D_MN08D":
+                    getmap = "Dungeon - Palace of Twilight (Boss)";
                     break;
                 case "D_MN09":
                     getmap = "Dungeon - Hyrule Castle";
                     break;
+                case "D_MN09A":
+                    getmap = "Dungeon - Hyrule Castle (Boss)";
+                    break;
+                case "D_MN09B":
+                    getmap = "Dungeon - Hyrule Castle (Boss)";
+                    break;
+                case "D_MN09C":
+                    getmap = "Dungeon - Hyrule Castle (Boss)";
+                    break;
                 case "D_MN10":
                     getmap = "Dungeon - Arbiters Grounds";
                     break;
+                case "D_MN10A":
+                    getmap = "Dungeon - Arbiters Grounds (Boss)";
+                    break;
+                case "D_MN10B":
+                    getmap = "Dungeon - Arbiters Grounds (Mini Boss)";
+                    break;
                 case "D_MN11":
                     getmap = "Dungeon - Snowpeak Ruins";
+                    break;
+                case "D_MN11A":
+                    getmap = "Dungeon - Snowpeak Ruins (Boss)";
+                    break;
+                case "D_MN11B":
+                    getmap = "Dungeon - Snowpeak Ruins (Mini Boss)";
                     break;
                 /*Caves*/
                 case "D_SB00":
