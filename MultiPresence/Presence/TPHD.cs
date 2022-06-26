@@ -56,6 +56,7 @@ namespace MultiPresence.Presence
                 int poes = mem.ReadByte($"{_main_address}+12455");
                 string realstage = await Stages_Old.MapName(location);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
+                int hearts_max = mem.ReadByte($"{_main_address}+0x1234C") / 5;
 
                 if (location == "Opening Scene" || location == "Name Scene")
                 {
@@ -69,7 +70,7 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset("link", "Running around as a Human");
                     else
                         discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                    discord.UpdateDetails($"[❤️{hearts}][🟣{poes}]");
+                    discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][🟣{poes}/60]");
                     discord.UpdateState($"{realstage}");
                 }
 
