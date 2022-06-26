@@ -13,7 +13,6 @@ namespace MultiPresence
         KHDDD khddd = new KHDDD();
         RE4 re4 = new RE4();
         SA2 sa2 = new SA2();
-        T7 t7 = new T7();
         TPHD tphd = new TPHD();
         TY ty = new TY();
         MM11 mm11 = new MM11();
@@ -42,7 +41,6 @@ namespace MultiPresence
             var game_mm11 = Process.GetProcessesByName("game");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
-            var game_t7 = Process.GetProcessesByName("TekkenGame-Win64-Shipping");
             var game_ty = Process.GetProcessesByName("TY");
 
             if (game_kh1.Length > 0)
@@ -93,12 +91,6 @@ namespace MultiPresence
             {
                 Balloon("Sonic Adventure 2");
                 sa2.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_t7.Length > 0)
-            {
-                Balloon("TEKKEN 7");
-                t7.DoAction();
                 gameUpdater.Stop();
             }
             else if (game_cemu.Length > 0)
