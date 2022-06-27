@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
-    <PackageReference Include="KHMemLibrary" Version="1.3.2" />
     <PackageReference Include="Memory.dll.x64" Version="1.2.24" />
   </ItemGroup>
 

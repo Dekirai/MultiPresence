@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
-using KHMemLibrary;
+using Memory;
 using Button = DiscordRPC.Button;
 using MultiPresence.Models.KH1;
 
@@ -8,7 +8,7 @@ namespace MultiPresence.Presence
 {
     public class KH1
     {
-        KH1FM kh1 = new KH1FM();
+        Mem mem = new Mem();
         string process = "KINGDOM HEARTS FINAL MIX";
         private static DiscordRpcClient discord;
         public void DoAction()
@@ -19,16 +19,24 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
+        private void GetPID()
+        {
+            int pid = mem.GetProcIdFromName(process);
+            bool openProc = false;
+
+            if (pid > 0) openProc = mem.OpenProcess(pid);
+        }
+
         private async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int isGummi = kh1.ReadByte(0x50421D);
-                int world_get = kh1.ReadByte(0x233CB4C);
-                int room_get = kh1.ReadByte(0x233CB44);
-                int difficulty_get = kh1.ReadByte(0x2DFBDFC);
-                int level = kh1.ReadByte(0x2DE59D4);
+                int isGummi = mem.ReadByte($"{process}.exe+50421D");
+                int world_get = mem.ReadByte($"{process}.exe+233CB4C");
+                int room_get = mem.ReadByte($"{process}.exe+233CB44");
+                int difficulty_get = mem.ReadByte($"{process}.exe+2DFBDFC");
+                int level = mem.ReadByte($"{process}.exe+2DE59D4");
                 var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
                 var room = await Rooms.GetRoom(world[0]);
