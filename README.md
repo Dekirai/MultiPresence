@@ -28,7 +28,9 @@ Just do the following:
 ## Supported games
 The presences are always expected to work on the latest version of the respective game.  
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
-If a game receives a patch, I'll try my best to update it's presence as quickly as possible.        
+If a game receives a patch, I'll try my best to update it's presence as quickly as possible.    
+
+Games that are on Cemu requires to disable the "Discord Presence" option found in Options -> General settings.    
 
 Click on a games name to view it's wiki containing all features and previews (and maybe extra infos and a todo-list)!  
 Date format is **dd/mm/yyyy**.   
