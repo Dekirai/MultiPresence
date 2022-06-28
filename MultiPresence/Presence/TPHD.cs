@@ -5,6 +5,7 @@ using Button = DiscordRPC.Button;
 using MultiPresence.Models.TPHD;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Buffers.Binary;
 
 namespace MultiPresence.Presence
 {
@@ -54,6 +55,10 @@ namespace MultiPresence.Presence
 
                 int form = mem.ReadByte($"{_main_address}+12369");
                 int poes = mem.ReadByte($"{_main_address}+12455");
+                int rupees_source = mem.Read2Byte($"{_main_address}+1234F");
+                byte[] getbytes = BitConverter.GetBytes(rupees_source);
+                Array.Reverse(getbytes);
+                int rupees = BitConverter.ToInt16(getbytes, 2);
                 string realstage = await Stages_Old.MapName(location);
                 string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
                 int hearts_max = mem.ReadByte($"{_main_address}+0x1234C") / 5;
@@ -70,7 +75,7 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset("link", "Running around as a Human");
                     else
                         discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                    discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][🟣{poes}/60]");
+                    discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][💰{rupees}][🟣{poes}/60]");
                     discord.UpdateState($"{realstage}");
                 }
 
