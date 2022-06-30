@@ -3,7 +3,7 @@
 Let your friends see what you are currently doing in your active game!
 
 ## About MultiPresence
-MultiPresence was made for games that aren't officialy supported by Discord's "Rich Presence" feature.  
+MultiPresence was made for games that aren't officially supported by Discord's "Rich Presence" feature.  
 It can be expanded to tons of games that allows me to easily read the process' memory.    
 
 ## Requirements
