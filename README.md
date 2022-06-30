@@ -21,19 +21,6 @@ To run the program with windows on startup, please follow these steps:
  That's it! Now on every windows startup, the program will automatically launch!
  
 ## Supported games
-The presences are always expected to work on the latest version of the respective game.  
-Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
-If a game receives a patch, I'll try my best to update it's presence as quickly as possible.    
-
-Games that are on Cemu requires to disable the "Discord Presence" option found in Options -> General settings.    
-
-Click on a games name to view it's wiki containing all features and previews (and maybe extra infos and a todo-list)!  
-Date format is **dd/mm/yyyy**.   
-
-Some games will require a memory scan because the addresses aren't static. This mostly occurs for games on emulators like Cemu.  
-A memory scan might lead to a short lag on your machine because the program is currently scanning a ton of memory to find the proper address to work with. 
-If a games name is marked with a * at the end, it means it uses memory scan, just so you know.
-
 |Game|Platform|Updated|Information|
 |--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|Epic Games|03/06/2022| |
@@ -46,3 +33,18 @@ If a games name is marked with a * at the end, it means it uses memory scan, jus
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|Steam|04/06/2022| |
 |[Zelda: The Wind Waker HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|Cemu|28/06/2022|Tested on EUR|
 |[Zelda: Twilight Princess HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|Cemu|28/06/2022|Tested on EUR v81|
+
+## Information
+The presences are always expected to work on the latest version of the respective game.  
+Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
+If a game receives a patch, I'll try my best to update it's presence as quickly as possible.    
+
+Games that are on Cemu requires to disable the "Discord Presence" option found in Options -> General settings.    
+
+Click on a games name to view it's wiki containing all features and previews (and maybe extra infos and a todo-list)!  
+Date format for updates is **dd/mm/yyyy**.   
+
+Some games will **require a memory scan** because the addresses aren't static. This mostly occurs for games on emulators like Cemu.    
+
+A memory scan might lead to a short lag on your machine because the program is currently scanning a ton of memory to find the proper address to work with.  
+If a games name is marked with a * at the end, it means it uses memory scan, just so you know.
