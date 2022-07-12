@@ -8,7 +8,7 @@
 
             switch (weaponid)
             {
-                case 0:
+                case 1:
                     weapon = "Hand Grenade";
                     break;
                 case 2:
@@ -101,6 +101,7 @@
                 case 148:
                     weapon = "Riot Gun";
                     break;
+                case 0:
                 case 2048:
                     weapon = "Nothing";
                     break;

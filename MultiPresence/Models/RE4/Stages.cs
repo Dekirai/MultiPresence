@@ -63,7 +63,7 @@
                     getstage.Add("Swamp"); //Room 10
                     getstage.Add("Lake");
                     getstage.Add("Waterfall");
-                    getstage.Add("Merchant"); //Needs real name
+                    getstage.Add("Lake Cave");
                     getstage.Add("Merchant's Dock");
                     getstage.Add("Village Gate and Gondola"); //Room 15
                     getstage.Add("");
