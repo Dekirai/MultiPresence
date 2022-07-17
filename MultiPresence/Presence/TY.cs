@@ -63,7 +63,6 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"Open Store Page", Url = "https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif

@@ -95,7 +95,6 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"Open Store Page", Url = "https://www.nintendo.co.uk/Games/Wii-U-games/The-Legend-of-Zelda-Twilight-Princess-HD-1082222.html" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif

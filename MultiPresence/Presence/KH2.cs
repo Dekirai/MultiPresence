@@ -72,7 +72,6 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"Open Store Page", Url = "https://www.epicgames.com/store/en-US/p/kingdom-hearts-hd-1-5-2-5-remix" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif

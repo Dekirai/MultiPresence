@@ -77,7 +77,6 @@ namespace MultiPresence.Presence
             {
                 Buttons = new Button[]
                 {
-                    new Button() { Label = $"Open Store Page", Url = "https://store.steampowered.com/app/213610/Sonic_Adventure_2/" },
 #if DEBUG
                     new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
 #endif
