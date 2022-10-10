@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
         private static DiscordRpcClient discord;
         public async void DoAction()
         {
-            await Task.Delay(5000);
+            await Task.Delay(7500);
             GetPID();
             long main_get = (await mem.AoBScan("00 00 00 00 60 BB ?? ?? ?? ?? 96 40 00 00 00 00 E4 CB 96 40 ?? ?? ?? ?? E4 CB 96 40 00 00 00 00 E4 CB 96 40", true)).FirstOrDefault();
             _main_address = main_get.ToString("X8");
@@ -39,6 +39,7 @@ namespace MultiPresence.Presence
             {
                 string area = "";
                 int stage = mem.ReadByte($"{_main_address}+5B85");
+                int chapter = mem.ReadByte($"{_main_address}+5B72");
                 int room = mem.ReadByte($"{_main_address}+5B84");
                 int weapon = mem.ReadByte($"{_main_address}+1745C");
                 int character = mem.ReadByte($"{_main_address}+5BA0");
@@ -49,6 +50,7 @@ namespace MultiPresence.Presence
                 var weapon_name = await Weapons.GetWeapon(weapon);
                 var difficulty_name = await Difficulties.GetDifficulty(difficulty);
                 var character_name = await Characters.GetCharacter(character);
+                var chapter_name = await Chapters.GetChapter(chapter);
 
                 if (stage == 1)
                     area = "Village";
@@ -72,23 +74,23 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"The Mercenaries | Score: {score}");
-                            discord.UpdateState($"Playing as {character_name} on {room_name[room]}");
+                            discord.UpdateDetails($"The Mercenaries - 🎯{score}");
+                            discord.UpdateState($"🧑{character_name} on {room_name[room]}");
                         }
                         else
                         {
                             discord.UpdateLargeAsset($"ada", $"Assignment Ada");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"Assignment Ada");
-                            discord.UpdateState($"Location: {room_name[room]}");
+                            discord.UpdateDetails($"Assignment Ada - 🔫{weapon_name}");
+                            discord.UpdateState($"📍{room_name[room]}");
                         }
                     }
                     else if (stage == 5)
                     {
                         discord.UpdateLargeAsset($"ada", $"Separate Ways - {room_name[room]}");
                         discord.UpdateSmallAsset("", "");
-                        discord.UpdateDetails($"Weapon: {weapon_name}");
-                        discord.UpdateState($"Location: {room_name[room]}");
+                        discord.UpdateDetails($"Separate Ways - 🔫{weapon_name}");
+                        discord.UpdateState($"📕Chapter {chapter_name} 📍{room_name[room]}");
                     }
                     else
                     {
@@ -97,8 +99,8 @@ namespace MultiPresence.Presence
                         else
                             discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
                         discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
-                        discord.UpdateDetails($"Weapon: {weapon_name}");
-                        discord.UpdateState($"Location: {room_name[room]}");
+                        discord.UpdateDetails($"🔫{weapon_name} ⚖️{difficulty_name}");
+                        discord.UpdateState($"📕Chapter {chapter_name} 📍{room_name[room]}");
                     }
                 }
 
