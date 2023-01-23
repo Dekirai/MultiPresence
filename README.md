@@ -45,17 +45,6 @@ To run the program with windows on startup, please follow these steps:
 |[Zelda: Twilight Princess HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|12/07/2022|Tested on EUR v81|
 
 ## Information
-The presences are always expected to work on the latest version of the respective game.  
-Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
-If a game receives a patch, I'll try my best to update it's presence as quickly as possible if needed.       
-
-Click on a games name to view it's wiki containing all features and previews (and maybe extra infos and a todo-list)!  
-Date format for updates is **dd/mm/yyyy**.   
-
-Some games will **require a memory scan** because the addresses aren't static. This mostly occurs for games on emulators like Cemu.    
-
-A memory scan might lead to a short lag on your machine because the program is currently scanning a ton of memory to find the proper address to work with.  
-If a games name is marked with a * at the end, it means it uses memory scan, just so you know.
 
 <details>
 <summary>CEMU</summary>
@@ -68,3 +57,15 @@ MultiPresence trys to fetch the current game from the Window title, so make sure
 You have to disable the "Discord Presence" option found in Settings -> Interface<br />
 You have to disable the "Render to Separate Window" option found in Settings -> Interface<br />
 </details>
+
+The presences are always expected to work on the latest version of the respective game.  
+Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
+If a game receives a patch, I'll try my best to update it's presence as quickly as possible if needed.       
+
+Click on a games name to view it's wiki containing all features and previews.  
+Date format for updates is **dd/mm/yyyy**.   
+
+Some games will **require a memory scan** because the addresses aren't static. This mostly occurs for games on emulators like Cemu.    
+
+A memory scan might lead to a short lag on your machine because the program is currently scanning a ton of memory to find the proper address to work with.  
+If a games name is marked with a * at the end, it means it uses memory scan, just so you know.
