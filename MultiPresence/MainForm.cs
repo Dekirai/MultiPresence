@@ -14,9 +14,11 @@ namespace MultiPresence
         KHDDD khddd = new KHDDD();
         RE4 re4 = new RE4();
         SA2 sa2 = new SA2();
+        RDL rdl = new RDL();
         TPHD tphd = new TPHD();
         TY ty = new TY();
         MM11 mm11 = new MM11();
+        MMXCM mmxcm = new MMXCM();
         WWHD wwhd = new WWHD();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
@@ -40,6 +42,7 @@ namespace MultiPresence
             var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
             var game_cemu = Process.GetProcessesByName("Cemu");
+            var game_pcsx2 = Process.GetProcessesByName("pcsx2-qtx64-avx2");
             var game_mm11 = Process.GetProcessesByName("game");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
@@ -118,6 +121,25 @@ namespace MultiPresence
                     Balloon("Zelda: Twilight Princess HD");
                     BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     tphd.DoAction();
+                    gameUpdater.Stop();
+                    return;
+                }
+            }
+            else if (game_pcsx2.Length > 0)
+            {
+                var title = Process.GetProcessesByName("pcsx2-qtx64-avx2").FirstOrDefault();
+
+                if (title.MainWindowTitle.Contains("Ratchet - Deadlocked"))
+                {
+                    Balloon("Ratchet - Deadlocked");
+                    rdl.DoAction();
+                    gameUpdater.Stop();
+                    return;
+                }
+                else if (title.MainWindowTitle.Contains("Mega Man X - Command Mission"))
+                {
+                    Balloon("Mega Man X - Command Mission");
+                    mmxcm.DoAction();
                     gameUpdater.Stop();
                     return;
                 }

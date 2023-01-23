@@ -41,45 +41,55 @@ namespace MultiPresence.Presence
             string[] stage = mem.ReadString($"{_main_address}+D").Split(':');
             if (game.Length > 0)
             {
-                try
-                {
-                    location = stage[0];
-                    area = $"{stage[0]}-{stage[1]}";
-                }
-                catch
-                {
-                    location = mem.ReadString($"{_main_address}+D");
-                }
+                var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
 
-                int form = mem.ReadByte($"{_main_address}+12369");
-                int poes = mem.ReadByte($"{_main_address}+12455");
-                int rupees_source = mem.Read2Byte($"{_main_address}+1234F");
-                byte[] getbytes = BitConverter.GetBytes(rupees_source);
-                Array.Reverse(getbytes);
-                int rupees = BitConverter.ToInt16(getbytes, 2);
-                string realstage = await Stages_Old.MapName(location);
-                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
-                int hearts_max = mem.ReadByte($"{_main_address}+0x1234C") / 5;
-
-                if (location == "Opening Scene" || location == "Name Scene")
+                if (title.MainWindowTitle.Contains("Twilight Princess HD"))
                 {
-                    discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
-                    discord.UpdateDetails($"At the Title Sceen");
-                    discord.UpdateState($"");
+                    try
+                    {
+                        location = stage[0];
+                        area = $"{stage[0]}-{stage[1]}";
+                    }
+                    catch
+                    {
+                        location = mem.ReadString($"{_main_address}+D");
+                    }
+
+                    int form = mem.ReadByte($"{_main_address}+12369");
+                    int poes = mem.ReadByte($"{_main_address}+12455");
+                    int rupees_source = mem.Read2Byte($"{_main_address}+1234F");
+                    byte[] getbytes = BitConverter.GetBytes(rupees_source);
+                    Array.Reverse(getbytes);
+                    int rupees = BitConverter.ToInt16(getbytes, 2);
+                    string realstage = await Stages_Old.MapName(location);
+                    string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
+                    int hearts_max = mem.ReadByte($"{_main_address}+0x1234C") / 5;
+
+                    if (location == "Opening Scene" || location == "Name Scene")
+                    {
+                        discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
+                        discord.UpdateDetails($"At the Title Sceen");
+                        discord.UpdateState($"");
+                    }
+                    else
+                    {
+                        if (form == 0)
+                            discord.UpdateLargeAsset("link", "Running around as a Human");
+                        else
+                            discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
+                        discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][💰{rupees}][🟣{poes}/60]");
+                        discord.UpdateState($"{realstage}");
+                    }
+
+                    await Task.Delay(3000);
+                    Thread thread = new Thread(RPC);
+                    thread.Start();
                 }
                 else
                 {
-                    if (form == 0)
-                        discord.UpdateLargeAsset("link", "Running around as a Human");
-                    else
-                        discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                    discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][💰{rupees}][🟣{poes}/60]");
-                    discord.UpdateState($"{realstage}");
+                    discord.Deinitialize();
+                    MainForm.gameUpdater.Start();
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {

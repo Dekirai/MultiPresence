@@ -41,22 +41,32 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string stage = mem.ReadString($"{_spoof_address}+0xA4");
-                string realstage = await Stages.GetRealName(stage);
-                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0xCF"));
-                int rupees_source = mem.Read2Byte($"{_main_address}+D0");
-                byte[] getbytes = BitConverter.GetBytes(rupees_source);
-                Array.Reverse(getbytes);
-                int rupees = BitConverter.ToInt16(getbytes, 2);
+                var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
 
-                //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
-                discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
-                discord.UpdateDetails($"[❤️{hearts}][💰{rupees}]");
-                discord.UpdateState($"{realstage}");
+                if (title.MainWindowTitle.Contains("Wind Waker HD"))
+                {
+                    string stage = mem.ReadString($"{_spoof_address}+0xA4");
+                    string realstage = await Stages.GetRealName(stage);
+                    string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0xCF"));
+                    int rupees_source = mem.Read2Byte($"{_main_address}+D0");
+                    byte[] getbytes = BitConverter.GetBytes(rupees_source);
+                    Array.Reverse(getbytes);
+                    int rupees = BitConverter.ToInt16(getbytes, 2);
 
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
+                    //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
+                    discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
+                    discord.UpdateDetails($"[❤️{hearts}][💰{rupees}]");
+                    discord.UpdateState($"{realstage}");
+
+                    await Task.Delay(3000);
+                    Thread thread = new Thread(RPC);
+                    thread.Start();
+                }
+                else
+                {
+                    discord.Deinitialize();
+                    MainForm.gameUpdater.Start();
+                }
             }
             else
             {
