@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
-using MultiPresence.Models.MMXCM;
+//using Button = DiscordRPC.Button;
 using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.Arm;
-using static System.Reflection.Metadata.BlobBuilder;
+using Newtonsoft.Json;
+using System.Net;
+using System.Xml.Linq;
 
 namespace MultiPresence.Presence
 {
@@ -53,15 +53,83 @@ namespace MultiPresence.Presence
                     {
                         // PAL Region
                         int zenny = mem.ReadInt($"{eemem}+55E54C");
-                        discord.UpdateLargeAsset("https://dekirai.crygod.de/rpc/multipresence/mmxcm/logo.jpg", $"Mega Man X: Command Mission");
-                        discord.UpdateDetails($"Zenny: {zenny}");
+                        int area_get = mem.ReadInt($"{eemem}+55D974");
+                        int map_get = mem.ReadInt($"{eemem}+55D97C");
+                        int chapter = mem.ReadInt($"{eemem}+55D984");
+                        int menu = mem.ReadInt($"{eemem}+55D970");
+                        int state = mem.ReadInt($"{eemem}+55D988");
+                        int level_x = mem.ReadByte($"{eemem}+55E560");
+
+                        string url = "https://dekirai.crygod.de/rpc/multipresence/mmxcm/Locations.json";
+
+                        try
+                        {
+                            using (WebClient client = new WebClient())
+                            {
+                                string json = client.DownloadString(url);
+
+                                dynamic jsonData = JsonConvert.DeserializeObject(json);
+
+                                string name = jsonData[area_get.ToString()]["Name"];
+                                string area = jsonData[area_get.ToString()]["Areas"][map_get];
+                                discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                                if (state == 8)
+                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                else
+                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                discord.UpdateState($"{name}: {area}");
+                            }
+                        }
+                        catch
+                        {
+                            discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                            if (state == 8)
+                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                            else
+                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                            discord.UpdateState("");
+                        }
                     }
                     else
                     {
                         // US Region
                         int zenny = mem.ReadInt($"{eemem}+54FCCC");
-                        discord.UpdateLargeAsset("https://dekirai.crygod.de/rpc/multipresence/mmxcm/logo.jpg", $"Mega Man X: Command Mission");
-                        discord.UpdateDetails($"Zenny: {zenny}");
+                        int area_get = mem.ReadInt($"{eemem}+54f0f4");
+                        int map_get = mem.ReadInt($"{eemem}+54f0fc");
+                        int chapter = mem.ReadInt($"{eemem}+54f104");
+                        int menu = mem.ReadInt($"{eemem}+54f0f0");
+                        int state = mem.ReadInt($"{eemem}+54f108");
+                        int level_x = mem.ReadByte($"{eemem}+54fce0");
+
+                        string url = "https://dekirai.crygod.de/rpc/multipresence/mmxcm/Locations.json";
+
+                        try
+                        {
+                            using (WebClient client = new WebClient())
+                            {
+                                string json = client.DownloadString(url);
+
+                                dynamic jsonData = JsonConvert.DeserializeObject(json);
+
+                                string name = jsonData[area_get.ToString()]["Name"];
+                                string area = jsonData[area_get.ToString()]["Areas"][map_get];
+                                discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                                if (state == 8)
+                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                else
+                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                discord.UpdateState($"{name}: {area}");
+                            }
+                        }
+                        catch
+                        {
+                            discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                            if (state == 8)
+                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                            else
+                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                            discord.UpdateState("");
+                        }
                     }
 
                     await Task.Delay(3000);
@@ -87,12 +155,12 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
+//                Buttons = new Button[]
+//                {
+//#if DEBUG
+//                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
+//#endif
+//                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)
