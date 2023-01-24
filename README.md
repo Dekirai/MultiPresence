@@ -8,7 +8,8 @@ MultiPresence was made for games that aren't officially supported by Discord's "
 It can be expanded to tons of games that allows me to easily read the process' memory.  
 This means online games, especially with an anti-cheat, will most likely not be added here.
 
-## Requirements
+## Requirements  
+- Windows 10/11 64 Bit
 - Administrator rights to read the memory
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
