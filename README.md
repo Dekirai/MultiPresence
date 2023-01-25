@@ -39,6 +39,8 @@ To run the program with windows on startup, please follow these steps:
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|26/06/2022| |
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-2-8-final-chapter-prologue)|26/06/2022| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |
+|[Mega Man X: Command Mission](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Mega_Man_X:_Command_Mission)|25/01/2023|Works on PAL & USA|
+|[Ratchet: Deadlocked](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Ratchet:_Deadlocked)|25/01/2023|Works only on USA|
 |[Resident Evil 4*](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|10/10/2022| |
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)|04/06/2022| |
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)|04/06/2022| |
