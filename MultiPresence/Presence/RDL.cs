@@ -9,14 +9,14 @@ namespace MultiPresence.Presence
 {
     public class RDL
     {
-        Mem mem = new Mem();
-        string process = "pcsx2-qtx64-avx2";
+        static Mem mem = new Mem();
+        static string process = "pcsx2-qtx64-avx2";
         private static DiscordRpcClient discord;
 
         [DllImport("GetProcAddressEx.dll")]
         private static extern IntPtr GetEEMem();
 
-        public async void DoAction()
+        public static async void DoAction()
         {
             await Task.Delay(3000);
             GetPID();
@@ -26,7 +26,7 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
-        private void GetPID()
+        private static void GetPID()
         {
             int pid = mem.GetProcIdFromName(process);
             bool openProc = false;
@@ -34,7 +34,7 @@ namespace MultiPresence.Presence
             if (pid > 0) openProc = mem.OpenProcess(pid);
         }
 
-        private async void RPC()
+        private static async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)

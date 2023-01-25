@@ -7,19 +7,6 @@ namespace MultiPresence
 {
     public partial class MainForm : Form
     {
-        KH1 kh1 = new KH1();
-        KH2 kh2 = new KH2();
-        KH3 kh3 = new KH3();
-        KHBBS khbbs = new KHBBS();
-        KHDDD khddd = new KHDDD();
-        RE4 re4 = new RE4();
-        SA2 sa2 = new SA2();
-        RDL rdl = new RDL();
-        TPHD tphd = new TPHD();
-        TY ty = new TY();
-        MM11 mm11 = new MM11();
-        MMXCM mmxcm = new MMXCM();
-        WWHD wwhd = new WWHD();
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
         public MainForm()
         {
@@ -27,128 +14,85 @@ namespace MultiPresence
 
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
             cb_DisableInfoNotifications.Checked = Settings.Default.InfoNotifcations;
-            
+
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
             gameUpdater.Enabled = true;
 
             gameUpdater.Start();
         }
+
         private void gameUpdater_Tick(object sender, EventArgs e)
         {
-            var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
-            var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
-            var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
-            var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
-            var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
-            var game_cemu = Process.GetProcessesByName("Cemu");
-            var game_pcsx2 = Process.GetProcessesByName("pcsx2-qtx64-avx2");
-            var game_mm11 = Process.GetProcessesByName("game");
-            var game_re4 = Process.GetProcessesByName("bio4");
-            var game_sa2 = Process.GetProcessesByName("sonic2app");
-            var game_ty = Process.GetProcessesByName("TY");
+            int game = GameDetector.GetGame();
 
-            if (game_kh1.Length > 0)
+            switch (game)
             {
-                Balloon("Kingdom Hearts Final Mix");
-                kh1.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_kh2.Length > 0)
-            {
-                Balloon("Kingdom Hearts II Final Mix");
-                kh2.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_kh3.Length > 0)
-            {
-                Balloon("Kingdom Hearts III");
-                kh3.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_khbbs.Length > 0)
-            {
-                Balloon("Kingdom Hearts Birth by Sleep Final Mix");
-                khbbs.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_khddd.Length > 0)
-            {
-                Balloon("Kingdom Hearts Dream Drop Distance");
-                khddd.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_mm11.Length > 0)
-            {
-                var title = Process.GetProcessesByName("game").FirstOrDefault();
-
-                if (title.MainWindowTitle.Contains("MEGAMAN11")) //Doing this because there might be other games with "game.exe"
-                {
+                case 1:
+                    Balloon("Kingdom Hearts Final Mix");
+                    KH1.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 2:
+                    Balloon("Kingdom Hearts II Final Mix");
+                    KH2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 3:
+                    Balloon("Kingdom Hearts III");
+                    KH3.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 4:
+                    Balloon("Kingdom Hearts Birth by Sleep Final Mix");
+                    KHBBS.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 5:
+                    Balloon("Kingdom Hearts Dream Drop Distance");
+                    KHDDD.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 6:
                     Balloon("Mega Man 11");
-                    mm11.DoAction();
+                    MM11.DoAction();
                     gameUpdater.Stop();
-                    return;
-                }
-
-            }
-            else if (game_re4.Length > 0)
-            {
-                Balloon("Resident Evil 4");
-                BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
-                re4.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_sa2.Length > 0)
-            {
-                Balloon("Sonic Adventure 2");
-                sa2.DoAction();
-                gameUpdater.Stop();
-            }
-            else if (game_cemu.Length > 0)
-            {
-                var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
-
-                if (title.MainWindowTitle.Contains("Wind Waker HD"))
-                {
+                    break;
+                case 7:
+                    Balloon("Resident Evil 4");
+                    RE4.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 8:
+                    Balloon("Sonic Adventure 2");
+                    SA2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case 9:
                     Balloon("Zelda: The Wind Waker HD");
-                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
-                    wwhd.DoAction();
+                    WWHD.DoAction();
                     gameUpdater.Stop();
-                    return;
-                }
-                else if (title.MainWindowTitle.Contains("Twilight Princess HD"))
-                {
+                    break;
+                case 10:
                     Balloon("Zelda: Twilight Princess HD");
-                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
-                    tphd.DoAction();
+                    TPHD.DoAction();
                     gameUpdater.Stop();
-                    return;
-                }
-            }
-            else if (game_pcsx2.Length > 0)
-            {
-                var title = Process.GetProcessesByName("pcsx2-qtx64-avx2").FirstOrDefault();
-
-                if (title.MainWindowTitle.Contains("Ratchet - Deadlocked"))
-                {
+                    break;
+                case 11:
                     Balloon("Ratchet - Deadlocked");
-                    rdl.DoAction();
+                    RDL.DoAction();
                     gameUpdater.Stop();
-                    return;
-                }
-                else if (title.MainWindowTitle.Contains("Mega Man X - Command Mission"))
-                {
+                    break;
+                case 12:
                     Balloon("Mega Man X - Command Mission");
-                    mmxcm.DoAction();
+                    MMXCM.DoAction();
                     gameUpdater.Stop();
-                    return;
-                }
-            }
-            else if (game_ty.Length > 0)
-            {
-                Balloon("TY the Tasmanian Tiger");
-                ty.DoAction();
-                gameUpdater.Stop();
+                    break;
+                case 13:
+                    Balloon("TY the Tasmanian Tiger");
+                    TY.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 

@@ -8,10 +8,10 @@ namespace MultiPresence.Presence
 {
     public class MM11
     {
-        Mem mem = new Mem();
-        string process = "game";
+        static Mem mem = new Mem();
+        static string process = "game";
         private static DiscordRpcClient discord;
-        public async void DoAction()
+        public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("981534050781122570");
@@ -20,7 +20,7 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
-        private void GetPID()
+        private static void GetPID()
         {
             int pid = mem.GetProcIdFromName(process);
             bool openProc = false;
@@ -28,7 +28,7 @@ namespace MultiPresence.Presence
             if (pid > 0) openProc = mem.OpenProcess(pid);
         }
 
-        private async void RPC()
+        private static async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)

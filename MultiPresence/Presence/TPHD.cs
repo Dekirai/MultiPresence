@@ -8,13 +8,13 @@ namespace MultiPresence.Presence
 {
     public class TPHD
     {
-        Mem mem = new Mem();
-        string process = "Cemu";
-        string location = "";
-        string area = "";
-        public string _main_address = "";
+        static Mem mem = new Mem();
+        static string process = "Cemu";
+        static string location = "";
+        static string area = "";
+        public static string _main_address = "";
         private static DiscordRpcClient discord;
-        public async void DoAction()
+        public static async void DoAction()
         {
             await Task.Delay(5500);
             GetPID();
@@ -27,7 +27,7 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
-        private void GetPID()
+        private static void GetPID()
         {
             int pid = mem.GetProcIdFromName(process);
             bool openProc = false;
@@ -35,7 +35,7 @@ namespace MultiPresence.Presence
             if (pid > 0) openProc = mem.OpenProcess(pid);
         }
 
-        private async void RPC()
+        private static async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             string[] stage = mem.ReadString($"{_main_address}+D").Split(':');

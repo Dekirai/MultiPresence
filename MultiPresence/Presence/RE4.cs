@@ -8,11 +8,11 @@ namespace MultiPresence.Presence
 {
     public class RE4
     {
-        Mem mem = new Mem();
-        string process = "bio4";
-        public string _main_address = "";
+        static Mem mem = new Mem();
+        static string process = "bio4";
+        public static string _main_address = "";
         private static DiscordRpcClient discord;
-        public async void DoAction()
+        public static async void DoAction()
         {
             await Task.Delay(7500);
             GetPID();
@@ -24,7 +24,7 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
-        private void GetPID()
+        private static void GetPID()
         {
             int pid = mem.GetProcIdFromName(process);
             bool openProc = false;
@@ -32,7 +32,7 @@ namespace MultiPresence.Presence
             if (pid > 0) openProc = mem.OpenProcess(pid);
         }
 
-        private async void RPC()
+        private static async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)

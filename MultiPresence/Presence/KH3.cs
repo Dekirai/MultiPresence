@@ -8,10 +8,10 @@ namespace MultiPresence.Presence
 {
     public class KH3
     {
-        Mem mem = new Mem();
-        string process = "KINGDOM HEARTS III";
-        private static DiscordRpcClient discord;
-        public void DoAction()
+        static Mem mem = new Mem();
+        static string process = "KINGDOM HEARTS III";
+        static private DiscordRpcClient discord;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("827190870724837406");
@@ -20,7 +20,7 @@ namespace MultiPresence.Presence
             thread.Start();
         }
 
-        private void GetPID()
+        private static void GetPID()
         {
             int pid = mem.GetProcIdFromName(process);
             bool openProc = false;
@@ -28,7 +28,7 @@ namespace MultiPresence.Presence
             if (pid > 0) openProc = mem.OpenProcess(pid);
         }
 
-        private async void RPC()
+        private static async void RPC()
         {
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
