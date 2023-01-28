@@ -24,6 +24,7 @@ namespace MultiPresence
             var game_ty = Process.GetProcessesByName("TY");
 
             int game = 0;
+
             if (game_kh1.Length > 0)
                 game = 1;
             else if (game_kh2.Length > 0)

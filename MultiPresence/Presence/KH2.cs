@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
 using MultiPresence.Models.KH2;
+using Newtonsoft.Json;
 
 namespace MultiPresence.Presence
 {
@@ -37,21 +37,46 @@ namespace MultiPresence.Presence
                 int room_get = mem.ReadByte($"{process}.exe+714DB9");
                 int difficulty_get = mem.ReadByte($"{process}.exe+9A9548");
                 int level = mem.ReadByte($"{process}.exe+9A95AF");
-                var world = await Worlds.GetWorld(world_get);
+                //var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                var room = await Rooms.GetRoom(world[0]);
+                //var room = await Rooms.GetRoom(world[0]);
 
-                discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                
+                string url = "https://dekirai.crygod.de/rpc/multipresence/kh2/Locations.json";
+
+                //discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
+
+                //try
+                //{
+                //    discord.UpdateState($"{room[room_get]}");
+                //    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                //}
+                //catch
+                //{
+                //    discord.UpdateState($"{room[0]}");
+                //    discord.UpdateDetails(null);
+                //}
+
                 try
                 {
-                    discord.UpdateState($"{room[room_get]}");
-                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    using (HttpClient client = new HttpClient())
+                    {
+                        string json = await client.GetStringAsync(url);
+
+                        dynamic jsonData = JsonConvert.DeserializeObject(json);
+
+                        string world = jsonData[world_get.ToString()]["Name"];
+                        string room = jsonData[world_get.ToString()]["Areas"][room_get];
+                        string imagekey = jsonData[world_get.ToString()]["ImageKey"];
+                        discord.UpdateLargeAsset(imagekey, world);
+                        discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                        discord.UpdateState(room);
+                    }
                 }
                 catch
                 {
-                    discord.UpdateState($"{room[0]}");
-                    discord.UpdateDetails(null);
+                    discord.UpdateLargeAsset("logo", "");
+                    discord.UpdateDetails($"");
+                    discord.UpdateState("");
                 }
 
                 await Task.Delay(3000);
@@ -70,12 +95,6 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

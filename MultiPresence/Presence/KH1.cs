@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
 using MultiPresence.Models.KH1;
 
 namespace MultiPresence.Presence
@@ -13,6 +12,7 @@ namespace MultiPresence.Presence
         private static DiscordRpcClient discord;
         public static void DoAction()
         {
+            GetPID();
             discord = new DiscordRpcClient("827214883190734889");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
@@ -86,12 +86,6 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

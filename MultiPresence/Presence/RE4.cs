@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
 using MultiPresence.Models.RE4;
 
 namespace MultiPresence.Presence
@@ -74,23 +73,23 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"The Mercenaries - 🎯{score}");
-                            discord.UpdateState($"🧑{character_name} on {room_name[room]}");
+                            discord.UpdateDetails($"The Mercenaries - Score: {score}");
+                            discord.UpdateState($"Playing as '{character_name}' on '{room_name[room]}'");
                         }
                         else
                         {
                             discord.UpdateLargeAsset($"ada", $"Assignment Ada");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"Assignment Ada - 🔫{weapon_name}");
-                            discord.UpdateState($"📍{room_name[room]}");
+                            discord.UpdateDetails($"Assignment Ada - Weapon: {weapon_name}");
+                            discord.UpdateState($"{room_name[room]}");
                         }
                     }
                     else if (stage == 5)
                     {
                         discord.UpdateLargeAsset($"ada", $"Separate Ways - {room_name[room]}");
                         discord.UpdateSmallAsset("", "");
-                        discord.UpdateDetails($"Separate Ways - 🔫{weapon_name}");
-                        discord.UpdateState($"📕Chapter {chapter_name} 📍{room_name[room]}");
+                        discord.UpdateDetails($"Separate Ways - Weapon: {weapon_name}");
+                        discord.UpdateState($"Chapter {chapter_name} - {room_name[room]}");
                     }
                     else
                     {
@@ -99,8 +98,8 @@ namespace MultiPresence.Presence
                         else
                             discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
                         discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
-                        discord.UpdateDetails($"🔫{weapon_name} ⚖️{difficulty_name}");
-                        discord.UpdateState($"📕Chapter {chapter_name} 📍{room_name[room]}");
+                        discord.UpdateDetails($"Weapon: {weapon_name}");
+                        discord.UpdateState($"Chapter {chapter_name} - {room_name[room]}");
                     }
                 }
 
@@ -120,12 +119,6 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

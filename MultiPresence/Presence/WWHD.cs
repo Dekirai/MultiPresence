@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
 using MultiPresence.Models.WWHD;
-using System.Collections;
 
 namespace MultiPresence.Presence
 {
@@ -18,7 +16,7 @@ namespace MultiPresence.Presence
         {
             await Task.Delay(7000);
             GetPID();
-            long main_get = (await mem.AoBScan("14 50 8F A4 14 50 ?? 18 00 F0 2E 1C 00 00 00 00 14 50 ?? 70 14 50 ?? 0C 14 ?? ?? 1C 10 14 5B ?? 10 00 66 C8 10 14 5C ?? 10 14 5C ?? 14 5B ?? C4 00 F0", true)).FirstOrDefault();
+            long main_get = (await mem.AoBScan("14 50 ?? A4 14 50 ?? 18 00 F0 2E 1C 00 00 00 00 14 50 ?? 70 14 50 ?? 0C 14 ?? ?? 1C 10 14 5B ?? 10 00 66 C8 10 14 5C ?? 10 14 5C ?? 14 5B ?? C4 00 F0 2E 1C 14 50 ?? 70 14 5B ?? EC 14 5B ?? EC 00 00 00 00 00 00 00 38 14 50 ?? EC 14 50 ?? 98 14 5B ?? 64 14 5B ?? 74 00 00 00 02 00 00 00 04 00 00 00 01 14 50 ?? 70 14 5B ?? C8 14 50 ?? B0 10 15 E6", true)).FirstOrDefault();
             long spoof_get = (await mem.AoBScan("17 B3 C0 04 00 00 00 1A 17 B3 C0 28 10 00 1E 70 00 00 00 2D 17 B3 C1 54 10 00 1E 80 00 00 00 1A 00 00 00 2D 17 B3 C3 18 10 00 1E 90 00 00 00 00", true)).FirstOrDefault();
             _main_address = main_get.ToString("X11");
             _spoof_address = spoof_get.ToString("X11");
@@ -55,7 +53,7 @@ namespace MultiPresence.Presence
 
                     //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
                     discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
-                    discord.UpdateDetails($"[❤️{hearts}][💰{rupees}]");
+                    discord.UpdateDetails($"Health: {hearts}❤ | Rupees: {rupees}");
                     discord.UpdateState($"{realstage}");
 
                     await Task.Delay(3000);
@@ -80,12 +78,6 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

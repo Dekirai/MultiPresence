@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using Button = DiscordRPC.Button;
 using MultiPresence.Models.TPHD;
 
 namespace MultiPresence.Presence
@@ -77,8 +76,8 @@ namespace MultiPresence.Presence
                             discord.UpdateLargeAsset("link", "Running around as a Human");
                         else
                             discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                        discord.UpdateDetails($"[❤️{hearts}/{hearts_max}][💰{rupees}][🟣{poes}/60]");
-                        discord.UpdateState($"{realstage}");
+                        discord.UpdateDetails($"Health: {hearts}/{hearts_max}❤️ | Rupees: {rupees}");
+                        discord.UpdateState($"{realstage} | Poes: {poes}/60");
                     }
 
                     await Task.Delay(3000);
@@ -103,12 +102,6 @@ namespace MultiPresence.Presence
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-#if DEBUG
-                    new Button() { Label = $"Powered by MultiPresence", Url = "https://github.com/Dekirai/MultiPresence" }
-#endif
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

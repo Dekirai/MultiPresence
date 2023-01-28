@@ -60,6 +60,7 @@ namespace MultiPresence
                     break;
                 case 7:
                     Balloon("Resident Evil 4");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     RE4.DoAction();
                     gameUpdater.Stop();
                     break;
@@ -70,11 +71,13 @@ namespace MultiPresence
                     break;
                 case 9:
                     Balloon("Zelda: The Wind Waker HD");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     WWHD.DoAction();
                     gameUpdater.Stop();
                     break;
                 case 10:
                     Balloon("Zelda: Twilight Princess HD");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
                     TPHD.DoAction();
                     gameUpdater.Stop();
                     break;
@@ -109,7 +112,7 @@ namespace MultiPresence
             if (cb_DisableNotifications.Checked)
                 return;
             notify.BalloonTipTitle = "System";
-            notify.BalloonTipText = $"I now keep track of {text}.";
+            notify.BalloonTipText = $"Keeping track of {text}.";
             notify.ShowBalloonTip(3000);
         }
 
