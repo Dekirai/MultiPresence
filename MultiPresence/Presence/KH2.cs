@@ -37,31 +37,13 @@ namespace MultiPresence.Presence
                 int room_get = mem.ReadByte($"{process}.exe+714DB9");
                 int difficulty_get = mem.ReadByte($"{process}.exe+9A9548");
                 int level = mem.ReadByte($"{process}.exe+9A95AF");
-                //var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                //var room = await Rooms.GetRoom(world[0]);
-
-                string url = "https://dekirai.crygod.de/rpc/multipresence/kh2/Locations.json";
-
-                //discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-
-                //try
-                //{
-                //    discord.UpdateState($"{room[room_get]}");
-                //    discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                //}
-                //catch
-                //{
-                //    discord.UpdateState($"{room[0]}");
-                //    discord.UpdateDetails(null);
-                //}
 
                 try
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        string json = await client.GetStringAsync(url);
-
+                        string json = await client.GetStringAsync(JSONs.KHII_Locations_URL);
                         dynamic jsonData = JsonConvert.DeserializeObject(json);
 
                         string world = jsonData[world_get.ToString()]["Name"];

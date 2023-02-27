@@ -59,13 +59,11 @@ namespace MultiPresence.Presence
                         int state = mem.ReadInt($"{eemem}+55D988");
                         int level_x = mem.ReadByte($"{eemem}+55E560");
 
-                        string url = "https://dekirai.crygod.de/rpc/multipresence/mmxcm/Locations.json";
-
                         try
                         {
                             using (WebClient client = new WebClient())
                             {
-                                string json = client.DownloadString(url);
+                                string json = client.DownloadString(JSONs.MMXCM_Locations_URL);
 
                                 dynamic jsonData = JsonConvert.DeserializeObject(json);
 
@@ -73,9 +71,9 @@ namespace MultiPresence.Presence
                                 string area = jsonData[area_get.ToString()]["Areas"][map_get];
                                 discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
                                 if (state == 8)
-                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
                                 else
-                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
                                 discord.UpdateState($"{name}: {area}");
                             }
                         }
@@ -83,9 +81,9 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
                             if (state == 8)
-                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
                             else
-                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
                             discord.UpdateState("");
                         }
                     }
@@ -114,9 +112,9 @@ namespace MultiPresence.Presence
                                 string area = jsonData[area_get.ToString()]["Areas"][map_get];
                                 discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
                                 if (state == 8)
-                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
                                 else
-                                    discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
                                 discord.UpdateState($"{name}: {area}");
                             }
                         }
@@ -124,9 +122,9 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
                             if (state == 8)
-                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x} (In Battle)");
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
                             else
-                                discord.UpdateDetails($"[Chapter {chapter}] Lv. {level_x}");
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
                             discord.UpdateState("");
                         }
                     }

@@ -96,6 +96,11 @@ namespace MultiPresence
                     TY.DoAction();
                     gameUpdater.Stop();
                     break;
+                case 14:
+                    Balloon("Burning SoulWorker");
+                    BSW.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 

@@ -2,22 +2,27 @@
 {
     public class Difficulties
     {
-        public static async Task<string[]> GetDifficulty(int difficulty)
+        public static async Task<string> GetDifficulty(int difficulty)
         {
-            List<string> getdifficulty = new List<string>();
+            string getdifficulty;
+
             switch (difficulty)
             {
                 case 0:
-                    getdifficulty.Add("Beginner");
+                    getdifficulty = "Beginner";
                     break;
                 case 1:
-                    getdifficulty.Add("Standard");
+                    getdifficulty = "Standard";
                     break;
                 case 2:
-                    getdifficulty.Add("Proud");
+                    getdifficulty = "Proud";
+                    break;
+
+                default:
+                    getdifficulty = "Standard";
                     break;
             }
-            return getdifficulty.ToArray();
+            return getdifficulty;
         }
     }
 }

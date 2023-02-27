@@ -12,8 +12,8 @@
                     getroom.Add("The Land of Departure");
                     getroom.Add("Forecourt");
                     getroom.Add("Great Hall");
-                    getroom.Add("Ventus's Room");
-                    getroom.Add("Ventus's Room");
+                    getroom.Add("Ventus' Room");
+                    getroom.Add("Ventus' Room");
                     getroom.Add("Mountain Path");
                     getroom.Add("Summit");
                     getroom.Add("Forecourt");

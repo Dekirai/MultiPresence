@@ -6,10 +6,6 @@
         {
             List<string> getworld = new List<string>();
 
-            //Order:
-            //String to show on discord
-            //String to use as imagekey
-
             switch (world)
             {
                 case 31:

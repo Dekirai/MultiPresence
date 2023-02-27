@@ -2,6 +2,7 @@
 using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH1;
+using Newtonsoft.Json;
 
 namespace MultiPresence.Presence
 {
@@ -37,22 +38,20 @@ namespace MultiPresence.Presence
                 int room_get = mem.ReadByte($"{process}.exe+233CB44");
                 int difficulty_get = mem.ReadByte($"{process}.exe+2DFBDFC");
                 int level = mem.ReadByte($"{process}.exe+2DE59D4");
-                var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                var room = await Rooms.GetRoom(world[0]);
 
 
                 if (room_get == 255)
                 {
                     discord.UpdateLargeAsset($"logo", $"Main Menu");
                     discord.UpdateState($"Main Menu");
-                    discord.UpdateDetails(null);
+                    discord.UpdateDetails("");
                 }
                 if (world_get == 255)
                 {
                     discord.UpdateLargeAsset($"logo", $"Main Menu");
                     discord.UpdateState($"Main Menu");
-                    discord.UpdateDetails(null);
+                    discord.UpdateDetails("");
                 }
                 else
                 {
@@ -64,9 +63,27 @@ namespace MultiPresence.Presence
                     }
                     else
                     {
-                        discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                        discord.UpdateState($"{room[room_get]}");
-                        discord.UpdateDetails($"Lv. {level} ({difficulty[0]})");
+                        try
+                        {
+                            using (HttpClient client = new HttpClient())
+                            {
+                                string json = await client.GetStringAsync(JSONs.KHI_Locations_URL);
+                                dynamic jsonData = JsonConvert.DeserializeObject(json);
+
+                                string world = jsonData[world_get.ToString()]["Name"];
+                                string room = jsonData[world_get.ToString()]["Areas"][room_get];
+                                string imagekey = jsonData[world_get.ToString()]["ImageKey"];
+                                discord.UpdateLargeAsset(imagekey, world);
+                                discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                                discord.UpdateState(room);
+                            }
+                        }
+                        catch
+                        {
+                            discord.UpdateLargeAsset("logo", "");
+                            discord.UpdateDetails("");
+                            discord.UpdateState("");
+                        }
                     }
                 }
 
