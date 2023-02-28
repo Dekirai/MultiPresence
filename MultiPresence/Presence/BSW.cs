@@ -40,10 +40,18 @@ namespace MultiPresence.Presence
                 string nickname = Encoding.Unicode.GetString(nickname_base);
                 int character = mem.ReadByte($"{process}.exe+13C9308");
                 var character_name = await Characters.GetCharacter(character);
-
-                discord.UpdateLargeAsset($"{character_name[1]}", $"Burning SoulWorker");
-                discord.UpdateDetails($"{nickname} (Lv. {level})");
-                discord.UpdateState($"Playing as {character_name[0]}");
+                if (character == 255 || level == 0)
+                {
+                    discord.UpdateLargeAsset($"logo", $"Burning SoulWorker");
+                    discord.UpdateDetails($"In Main Menu");
+                    discord.UpdateState($"");
+                }
+                else
+                {
+                    discord.UpdateLargeAsset($"{character_name[1]}", $"Burning SoulWorker");
+                    discord.UpdateDetails($"{nickname} (Lv. {level})");
+                    discord.UpdateState($"Playing as {character_name[0]}");
+                }        
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

@@ -8,43 +8,43 @@
             switch (character)
             {
                 case 1:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Haru Estia");
+                    getcharacter.Add("haru");
                     break;
                 case 2:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Erwin Arclight");
+                    getcharacter.Add("erwin");
                     break;
                 case 3:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Lily Bloomerchen");
+                    getcharacter.Add("lily");
                     break;
                 case 4:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Jin Seipatsu");
+                    getcharacter.Add("jin");
                     break;
                 case 5:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Stella Unibell");
+                    getcharacter.Add("stella");
                     break;
                 case 6:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Iris Yuma");
+                    getcharacter.Add("iris");
                     break;
                 case 7:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Chii Aruel");
+                    getcharacter.Add("chii");
                     break;
                 case 8:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Ephnel");
+                    getcharacter.Add("ephnel");
                     break;
                 case 9:
-                    getcharacter.Add("Sonic");
-                    getcharacter.Add("sonic");
+                    getcharacter.Add("Lee Nabi");
+                    getcharacter.Add("nabi");
                     break;
                 case 10:
-                    getcharacter.Add("Dana Opinyi");
+                    getcharacter.Add("Dhana Opini");
                     getcharacter.Add("dana");
                     break;
 
