@@ -33,7 +33,6 @@ To run the program with windows on startup, please follow these steps:
 ## Supported games
 |Game|Platform|Updated|Information|
 |--|--|--|--|
-|Burning SoulWorker|[Private Server](https://burningsw.com/)|28/02/2023| |
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|03/06/2022| |
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|03/06/2022| |
 |[Kingdom Hearts III](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|22/01/2023| |
