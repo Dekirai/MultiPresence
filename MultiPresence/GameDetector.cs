@@ -11,7 +11,6 @@ namespace MultiPresence
     {
         public static int GetGame()
         {
-            var game_bsw = Process.GetProcessesByName("BurningSW");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
@@ -64,8 +63,6 @@ namespace MultiPresence
             }
             else if (game_ty.Length > 0)
                 game = 13;
-            else if (game_bsw.Length > 0)
-                game = 14;
 
             return game;
         }
