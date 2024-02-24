@@ -57,7 +57,6 @@ namespace MultiPresence
                 try
                 {
                     long _gettitleid = (await mem.AoBScan("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B", true)).FirstOrDefault();
-                    //Address Range probably around 0x1C000000000 to 0x2A000000000
                     _cemu_titleid_address = _gettitleid.ToString("X11");
                     string _game = mem.ReadString($"{_cemu_titleid_address}");
 
