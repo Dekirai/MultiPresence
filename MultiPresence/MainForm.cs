@@ -22,9 +22,9 @@ namespace MultiPresence
             gameUpdater.Start();
         }
 
-        private void gameUpdater_Tick(object sender, EventArgs e)
+        private async void gameUpdater_Tick(object sender, EventArgs e)
         {
-            int game = GameDetector.GetGame();
+            int game = await GameDetector.GetGameAsync();
 
             switch (game)
             {

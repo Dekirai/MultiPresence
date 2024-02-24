@@ -1,10 +1,18 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+using Memory;
 
 namespace MultiPresence
 {
     public static class GameDetector
     {
-        public static int GetGame()
+        static Mem mem = new Mem();
+        public static string _cemu_titleid_address = "";
+        public static string _cemu_titleid = "";
+        public static bool _cemu_foundGame = false;
+
+        public static async Task<int> GetGameAsync()
         {
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
@@ -42,11 +50,38 @@ namespace MultiPresence
                 game = 8;
             else if (game_cemu.Length > 0)
             {
-                var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
-                if (title.MainWindowTitle.Contains("Wind Waker HD"))
-                    game = 9;
-                else if (title.MainWindowTitle.Contains("Twilight Princess HD"))
-                    game = 10;
+                await Task.Delay(15000); //Wait 15 Seconds 
+                string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";
+
+                GetCemu();
+                try
+                {
+                    long _gettitleid = (await mem.AoBScan("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B", true)).FirstOrDefault();
+                    //Address Range probably around 0x1C000000000 to 0x2A000000000
+                    _cemu_titleid_address = _gettitleid.ToString("X11");
+                    string _game = mem.ReadString($"{_cemu_titleid_address}");
+
+                    Match match = Regex.Match(_game, pattern);
+                    if (match.Success)
+                    {
+                        if (_cemu_foundGame == false)
+                        {
+                            string extractedPart = match.Groups[1].Value;
+                            _cemu_titleid = extractedPart;
+                            if (_cemu_titleid.Contains("10143600"))
+                                game = 9; //Wind Waker HD
+                            else if (_cemu_titleid.Contains("1019e600"))
+                                game = 10; //Twilight Princess HD
+                            _cemu_foundGame = true;
+                        }
+                    }
+                    else
+                        _cemu_foundGame = false;
+                }
+                catch
+                {
+                    _cemu_foundGame = false;
+                }
             }
             else if (game_pcsx2.Length > 0)
             {
@@ -60,6 +95,13 @@ namespace MultiPresence
                 game = 13;
 
             return game;
+        }
+        private static void GetCemu()
+        {
+            int pid = mem.GetProcIdFromName("Cemu");
+            bool openProc = false;
+
+            if (pid > 0) openProc = mem.OpenProcess(pid);
         }
     }
 }
