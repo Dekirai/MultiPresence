@@ -52,7 +52,6 @@ To run the program with windows on startup, please follow these steps:
 
 <details>
 <summary>CEMU</summary>
-MultiPresence trys to fetch the current game from the Window title, so make sure it has access to it.<br />
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />
 </details>
 <details>
