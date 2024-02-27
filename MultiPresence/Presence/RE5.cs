@@ -33,13 +33,20 @@ namespace MultiPresence.Presence
             if (game.Length > 0)
             {
                 int stage_get = mem.ReadInt("re5dx9.exe+00DB2158,0x273D8");
+                int chris_health = mem.Read2Byte("re5dx9.exe+00DB27DC,0x24,0x1364");
+                int sheva_health = mem.Read2Byte("re5dx9.exe+00DB27DC,0x28,0x1364");
                 var stagevalue = await Stages.GetStage(stage_get);
 
                 string[] stage = stagevalue.Split(':');
 
                 discord.UpdateLargeAsset($"logo", $"Resident Evil 5");
-                discord.UpdateDetails($"{stage[0]}");
-                discord.UpdateState($"{stage[1]}");
+                if (chris_health > 0 || sheva_health > 0)
+                {
+                    discord.UpdateDetails($"{stage[0]}");
+                    discord.UpdateState($"{stage[1]}");
+                }
+                else
+                    discord.UpdateDetails("In Menus");
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
