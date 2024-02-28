@@ -22,6 +22,7 @@ namespace MultiPresence
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_pcsx2 = Process.GetProcessesByName("pcsx2-qtx64-avx2");
             var game_mm11 = Process.GetProcessesByName("game");
+            var game_re = Process.GetProcessesByName("bhd");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
             var game_re6 = Process.GetProcessesByName("BH6");
@@ -98,6 +99,8 @@ namespace MultiPresence
                 game = 14;
             else if (game_re6.Length > 0)
                 game = 15;
+            else if (game_re.Length > 0)
+                game = 16;
 
             return game;
         }
