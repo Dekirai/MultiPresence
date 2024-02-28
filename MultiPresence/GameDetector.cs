@@ -24,6 +24,7 @@ namespace MultiPresence
             var game_mm11 = Process.GetProcessesByName("game");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
+            var game_re6 = Process.GetProcessesByName("BH6");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_ty = Process.GetProcessesByName("TY");
 
@@ -95,6 +96,8 @@ namespace MultiPresence
                 game = 13;
             else if (game_re5.Length > 0)
                 game = 14;
+            else if (game_re6.Length > 0)
+                game = 15;
 
             return game;
         }

@@ -101,6 +101,11 @@ namespace MultiPresence
                     RE5.DoAction();
                     gameUpdater.Stop();
                     break;
+                case 15:
+                    Balloon("Resident Evil 6");
+                    RE6.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 
