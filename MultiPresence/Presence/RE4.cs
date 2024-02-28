@@ -61,9 +61,9 @@ namespace MultiPresence.Presence
                 if (stage == 1 && room == 32)
                 {
                     discord.UpdateLargeAsset("logo", $"Resident Evil 4");
-                    discord.UpdateSmallAsset(null, null);
+                    discord.UpdateSmallAsset("", "");
                     discord.UpdateDetails($"At the Title Screen");
-                    discord.UpdateState(null);
+                    discord.UpdateState("");
                 }
                 else
                 {
@@ -73,14 +73,14 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"The Mercenaries - Score: {score}");
+                            discord.UpdateDetails($"Score: {score}");
                             discord.UpdateState($"Playing as '{character_name}' on '{room_name[room]}'");
                         }
                         else
                         {
                             discord.UpdateLargeAsset($"ada", $"Assignment Ada");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"Assignment Ada - Weapon: {weapon_name}");
+                            discord.UpdateDetails($"Weapon: {weapon_name}");
                             discord.UpdateState($"{room_name[room]}");
                         }
                     }
@@ -88,8 +88,8 @@ namespace MultiPresence.Presence
                     {
                         discord.UpdateLargeAsset($"ada", $"Separate Ways - {room_name[room]}");
                         discord.UpdateSmallAsset("", "");
-                        discord.UpdateDetails($"Separate Ways - Weapon: {weapon_name}");
-                        discord.UpdateState($"Chapter {chapter_name} - {room_name[room]}");
+                        discord.UpdateDetails($"Weapon: {weapon_name}");
+                        discord.UpdateState($"Chapter {chapter_name}: {room_name[room]}");
                     }
                     else
                     {
@@ -99,7 +99,7 @@ namespace MultiPresence.Presence
                             discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
                         discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
                         discord.UpdateDetails($"Weapon: {weapon_name}");
-                        discord.UpdateState($"Chapter {chapter_name} - {room_name[room]}");
+                        discord.UpdateState($"Chapter {chapter_name}: {room_name[room]}");
                     }
                 }
 
