@@ -42,6 +42,7 @@ To run the program with windows on startup, please follow these steps:
 |[Mega Man X: Command Mission](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Mega_Man_X:_Command_Mission)|25/01/2023|Works on PAL & USA|
 |[Ratchet: Deadlocked](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Ratchet:_Deadlocked)|25/01/2023|Works only on USA|
 |[Resident Evil 4*](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|10/10/2022| |
+|[Resident Evil 5](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-5)|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)|27/02/2024| |
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)|04/06/2022| |
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)|04/06/2022| |
 |[Zelda: The Wind Waker HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind_Waker_HD)|28/06/2022|Tested on EUR|
@@ -51,7 +52,6 @@ To run the program with windows on startup, please follow these steps:
 
 <details>
 <summary>CEMU</summary>
-MultiPresence trys to fetch the current game from the Window title, so make sure it has access to it.<br />
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />
 </details>
 <details>
