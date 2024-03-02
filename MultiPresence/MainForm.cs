@@ -111,6 +111,11 @@ namespace MultiPresence
                     RE.DoAction();
                     gameUpdater.Stop();
                     break;
+                case 17:
+                    Balloon("Resident Evil Revelations 2");
+                    REV2.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 
