@@ -52,7 +52,8 @@ namespace MultiPresence.Presence
                 catch
                 {
                     discord.UpdateState($"{room[0]}");
-                    discord.UpdateDetails(null);
+                    discord.UpdateDetails("");
+                    discord.UpdateSmallAsset($"");
                 }
 
                 await Task.Delay(3000);

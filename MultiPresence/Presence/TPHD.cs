@@ -18,7 +18,6 @@ namespace MultiPresence.Presence
             await Task.Delay(5500);
             GetPID();
             long main_get = (await mem.AoBScan("00 00 00 00 00 4C 6F 61 64 69 6E 67 20", true)).FirstOrDefault();
-            //Address Range probably around 0x1C000000000 to 0x2A000000000
             _main_address = main_get.ToString("X11");
             discord = new DiscordRpcClient("983296451453022220");
             InitializeDiscord();

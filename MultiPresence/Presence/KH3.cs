@@ -97,8 +97,9 @@ namespace MultiPresence.Presence
                 }
                 catch
                 {
+                    discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
+                    discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
-                    discord.UpdateDetails("");
                 }
 
                 await Task.Delay(3000);

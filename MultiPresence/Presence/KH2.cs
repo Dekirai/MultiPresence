@@ -56,8 +56,8 @@ namespace MultiPresence.Presence
                 }
                 catch
                 {
-                    discord.UpdateLargeAsset("logo", "");
-                    discord.UpdateDetails($"");
+                    discord.UpdateLargeAsset("logo", "Kingdom Hearts II");
+                    discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
                 }
 
