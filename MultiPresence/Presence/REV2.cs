@@ -35,12 +35,24 @@ namespace MultiPresence.Presence
                 int raid_character_get = mem.ReadByte("rerev2.exe+117ED54,0x4A58");
                 int raid_character_level = mem.ReadByte("rerev2.exe+117ED54,0x4A59");
                 int raid_money = mem.ReadInt("rerev2.exe+117D120,0xBA08");
+                int stage_get = mem.Read2Byte("rerev2.exe+115AACC");
+
+                var stage = await Stages.GetStage(stage_get);
 
                 var raid_character = await Characters.GetCharacter(raid_character_get);
 
-                discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-                discord.UpdateDetails($"Raid Mode");
-                discord.UpdateState($"{raid_character} (Lv. {raid_character_level})");
+                if (stage[0] == "Raid Mode")
+                {
+                    discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
+                    discord.UpdateDetails($"Raid Mode: {stage[1]}");
+                    discord.UpdateState($"{raid_character} (Lv. {raid_character_level})");
+                }
+                else
+                {
+                    discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
+                    discord.UpdateDetails($"");
+                    discord.UpdateState($"");
+                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
