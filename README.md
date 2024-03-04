@@ -23,9 +23,11 @@ To run the program with windows on startup, please follow these steps:
  3. Place the created file in the StartUp Folder
  4. Open the file with an Editor
  5. Paste this code into it:  
- `Set WshShell = CreateObject("WScript.Shell" )`  
-`WshShell.Run """C:\Path\To\MultiPresence\MultiPresence.exe""", 0 'Must quote command if it has spaces; must escape quotes`  
-`Set WshShell = Nothing`
+```
+Set WshShell = CreateObject("WScript.Shell" )
+WshShell.Run """C:\Path\To\MultiPresence\MultiPresence.exe""", 0 'Must quote command if it has spaces; must escape quotes
+Set WshShell = Nothing
+```
 6. Modify the Path to the location where you placed MultiPresence.exe
  
  That's it! Now on every windows startup, the program will automatically launch!
