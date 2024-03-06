@@ -56,7 +56,7 @@ namespace MultiPresence.Presence
                     else
                     {
                         discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-                        discord.UpdateDetails($"Raid Mode: Mission {chapter}-{mission}");
+                        discord.UpdateDetails($"Raid Mode: Mission {chapter}-0{mission}");
                         discord.UpdateState($"{raid_character} (Lv. {raid_character_level})");
                     }
                 }

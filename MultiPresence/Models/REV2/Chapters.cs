@@ -33,7 +33,7 @@
                     getchapter = "VIII";
                     break;
                 case 9:
-                    getchapter = "?";
+                    getchapter = "Ω";
                     break;
                 case 10:
                     getchapter = "IX";
