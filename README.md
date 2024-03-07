@@ -33,9 +33,9 @@ Set WshShell = Nothing
  That's it! Now on every windows startup, the program will automatically launch!
  
 ## Supported games
-|Game|Platform|Updated|Information|Latest commit|
-|--|--|--|--|--|
-|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| | https://github.com/Dekirai/MultiPresence/commit/c1a94e29ecc6fb11a448c3a80b682e4b9e634654 |
+|Game|Platform|Updated|Information|
+|--|--|--|--|
+|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
 |[Kingdom Hearts III](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|06/03/2024| |
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
