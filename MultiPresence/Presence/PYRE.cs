@@ -45,7 +45,7 @@ namespace MultiPresence.Presence
 
                 if (mode_get == 23 || mode_get == 255)
                 {
-                    discord.UpdateLargeAsset($"logo", $"PangYa Reborn");
+                    discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                     discord.UpdateDetails($"{nickname}");
                     discord.UpdateState($"In Lobby");
                 }
