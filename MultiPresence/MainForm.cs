@@ -116,6 +116,11 @@ namespace MultiPresence
                     REV2.DoAction();
                     gameUpdater.Stop();
                     break;
+                case 18:
+                    Balloon("PangYa Reborn");
+                    PYRE.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 
