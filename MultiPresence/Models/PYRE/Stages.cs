@@ -67,6 +67,9 @@
                 case 21:
                     getstage.Add("Mystic Ruins");
                     break;
+                case 127:
+                    getstage.Add("Random");
+                    break;
 
                 default:
                     getstage.Add("Unknown Map");
