@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
+using MultiPresence.characterls.PYRE;
 using MultiPresence.Models.PYRE;
 
 namespace MultiPresence.Presence
@@ -33,7 +34,8 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string nickname = mem.ReadString($"{process}.exe+00A47E2C,0x3C0,0x0,0x8,0x1A0,0x228,0x1BC,0x5AC");
+                string nickname = mem.ReadString($"{process}.exe+00A47E2C,0x528,0x8,0x0,0x260,0x1F8,0x1BC,0x5AC");
+                int character_get = mem.ReadByte($"{process}.exe+00A47E2C,0x528,0x8,0x0,0x260,0x1F8,0x1BC,0x81E");
                 int stage_get = mem.ReadByte($"{process}.exe+A47E2C,0x10950");
                 int mode_get = mem.ReadByte($"{process}.exe+A47E2C,0x1094C");
                 int room = mem.ReadByte($"{process}.exe+A47E2C,0x1094D");
@@ -45,32 +47,31 @@ namespace MultiPresence.Presence
 
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);
+                var character = await Characters.GetCharacter(character_get);
+                discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
 
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
                 {
                     discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                     discord.UpdateDetails($"{nickname}");
                     discord.UpdateState($"In Lobby");
-                    discord.UpdateSmallAsset($"", $"");
                 }
                 else
                 {
                     if (isIngame == 1)
                     {
                         discord.UpdateDetails($"{nickname} - Playing in #{room}");
-                        discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
-                        discord.UpdateLargeAsset($"https://dekirai.crygod.de/rpc/multipresence/pyre/{stage_get}.png", $"{stage[0]}");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 4 || mode_get == 7 || mode_get == 10)
-                            discord.UpdateSmallAsset($"logo", $"Hole {currenthole}/{maxholes}");
+                            discord.UpdateState($"{mode[0]} - Hole {currenthole}/{maxholes} ({players}/{playersmax} Players)");
                         else
-                            discord.UpdateSmallAsset($"", $"");
+                            discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
+                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                     }
                     else
                     {
                         discord.UpdateDetails($"{nickname} - Waiting in #{room}");
                         discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
-                        discord.UpdateLargeAsset($"https://dekirai.crygod.de/rpc/multipresence/pyre/{stage_get}.png", $"{stage[0]}");
-                        discord.UpdateSmallAsset($"", $"");
+                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                     }
                 }
 
