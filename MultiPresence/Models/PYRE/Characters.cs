@@ -1,4 +1,4 @@
-﻿namespace MultiPresence.characterls.PYRE
+﻿namespace MultiPresence.Models.PYRE
 {
     public class Characters
     {

@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using DiscordRPC;
 using Memory;
-using MultiPresence.characterls.PYRE;
 using MultiPresence.Models.PYRE;
 
 namespace MultiPresence.Presence
