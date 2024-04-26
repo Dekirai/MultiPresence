@@ -33,8 +33,8 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string nickname = mem.ReadString($"{process}.exe+00A47E2C,0x528,0x8,0x0,0x260,0x1F8,0x1BC,0x5AC");
-                int character_get = mem.ReadByte($"{process}.exe+00A47E2C,0x528,0x8,0x0,0x260,0x1F8,0x1BC,0x81E");
+                string nickname = mem.ReadString($"{process}.exe+00A7D6A4,0x32C,0x12C,0x0,0x13C,0xC0,0x1BC,0x5AC");
+                int character_get = mem.ReadByte($"{process}.exe+00A7D6A4,0x32C,0x12C,0x0,0x13C,0xC0,0x1BC,0x81E");
                 int stage_get = mem.ReadByte($"{process}.exe+A47E2C,0x10950");
                 int mode_get = mem.ReadByte($"{process}.exe+A47E2C,0x1094C");
                 int room = mem.ReadByte($"{process}.exe+A47E2C,0x1094D");
