@@ -33,8 +33,8 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string nickname = mem.ReadString($"{process}.exe+00A7D6A4,0x32C,0x12C,0x0,0x13C,0xC0,0x1BC,0x5AC");
-                int character_get = mem.ReadByte($"{process}.exe+00A7D6A4,0x32C,0x12C,0x0,0x13C,0xC0,0x1BC,0x81E");
+                string nickname = mem.ReadString($"{process}.exe+00A7D6A4,0x5AC");
+                int character_get = mem.ReadInt($"{process}.exe+00136CB4,0x8C,0x6E8");
                 int stage_get = mem.ReadByte($"{process}.exe+A47E2C,0x10950");
                 int mode_get = mem.ReadByte($"{process}.exe+A47E2C,0x1094C");
                 int room = mem.ReadByte($"{process}.exe+A47E2C,0x1094D");
@@ -47,30 +47,32 @@ namespace MultiPresence.Presence
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);
                 var character = await Characters.GetCharacter(character_get);
-                discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
 
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
                 {
                     discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                     discord.UpdateDetails($"{nickname}");
                     discord.UpdateState($"In Lobby");
+                    discord.UpdateSmallAsset("", "");
                 }
                 else
                 {
                     if (isIngame == 1)
                     {
+                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
+                        discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
                         discord.UpdateDetails($"{nickname} - Playing in #{room}");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 4 || mode_get == 7 || mode_get == 10)
-                            discord.UpdateState($"{mode[0]} - Hole {currenthole}/{maxholes} ({players}/{playersmax} Players)");
+                            discord.UpdateState($"{mode[0]} - H{currenthole}/{maxholes}");
                         else
-                            discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
-                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
+                            discord.UpdateState($"{mode[0]} - {players}/{playersmax} Players");
                     }
                     else
                     {
                         discord.UpdateDetails($"{nickname} - Waiting in #{room}");
                         discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
+                        discord.UpdateSmallAsset("", "");
                     }
                 }
 
