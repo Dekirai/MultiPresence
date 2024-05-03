@@ -11,7 +11,6 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "ProjectG";
         private static DiscordRpcClient discord;
-        public static int character_get = 0;
         public static async void DoAction()
         {
             await Task.Delay(10000);
@@ -46,14 +45,8 @@ namespace MultiPresence.Presence
                 int currenthole = mem.ReadByte($"{process}.exe+A47E2C,0xFFEC");
                 int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
 
-                character_get = mem.ReadInt($"{process}.exe+00669A50,0x84,0x6E8");
-                var character_temp = await Characters.GetCharacter(character_get);
-                if (character_temp[0] == "Unknown character")
-                    character_get =  mem.ReadInt($"{process}.exe+00136C68,0x40,0x6E8");
-
                 var stage = await Stages.GetStage(stage_get);
-                var mode = await Modes.GetMode(mode_get);
-                var character = await Characters.GetCharacter(character_get);
+                var mode = await Modes.GetMode(mode_get);             
                 var level = await Levels.GetLevel(level_get);
 
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
@@ -67,6 +60,8 @@ namespace MultiPresence.Presence
                 {
                     if (isIngame == 1)
                     {
+                        int character_get = mem.ReadInt($"{process}.exe+00A73E80,0xA4,0x154");
+                        var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
