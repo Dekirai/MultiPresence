@@ -54,16 +54,12 @@ namespace MultiPresence.Presence
                     discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                     discord.UpdateDetails($"{nickname} - {level[0]}");
                     discord.UpdateState($"In Lobby");
-                    discord.UpdateSmallAsset("", "");
                 }
                 else
                 {
                     if (isIngame == 1)
                     {
-                        int character_get = mem.ReadInt($"{process}.exe+00A73E80,0xA4,0x154");
-                        var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 4 || mode_get == 7 || mode_get == 10)
                             discord.UpdateState($"{mode[0]} » #{room} - H{currenthole}/{maxholes}");
@@ -75,7 +71,6 @@ namespace MultiPresence.Presence
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         discord.UpdateState($"{mode[0]} » #{room} ({players}/{playersmax} Players)");
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset("", "");
                     }
                 }
 
