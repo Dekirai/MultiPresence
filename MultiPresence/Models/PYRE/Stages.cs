@@ -55,6 +55,9 @@
                 case 16:
                     getstage.Add("Eastern Valley");
                     break;
+                case 17:
+                    getstage.Add("Special Shuffle Course");
+                    break;
                 case 18:
                     getstage.Add("Ice Inferno");
                     break;
@@ -66,6 +69,9 @@
                     break;
                 case 21:
                     getstage.Add("Mystic Ruins");
+                    break;
+                case 64:
+                    getstage.Add("Grand Zodiac");
                     break;
                 case 127:
                     getstage.Add("Random");

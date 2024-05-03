@@ -47,7 +47,8 @@ namespace MultiPresence.Presence
                 int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
 
                 character_get = mem.ReadInt($"{process}.exe+00669A50,0x84,0x6E8");
-                if (character_get == 0)
+                var character_temp = await Characters.GetCharacter(character_get);
+                if (character_temp[0] == "Unknown character")
                     character_get =  mem.ReadInt($"{process}.exe+00136C68,0x40,0x6E8");
 
                 var stage = await Stages.GetStage(stage_get);
