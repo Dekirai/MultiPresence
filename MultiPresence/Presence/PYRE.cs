@@ -60,7 +60,7 @@ namespace MultiPresence.Presence
                 {
                     if (isIngame == 1)
                     {
-                        int character_get = mem.ReadInt($"{process}.exe+00A73E80,0xA4,0x154");
+                        int character_get = mem.ReadInt($"{process}.exe+A47E2C,0x110CC");
                         var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
