@@ -61,19 +61,21 @@ namespace MultiPresence.Presence
                     if (isIngame == 1)
                     {
                         int character_get = mem.ReadInt($"{process}.exe+A47E2C,0x110CC");
+                        int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
+
                         var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 4 || mode_get == 7 || mode_get == 10)
-                            discord.UpdateState($"{mode[0]} » #{room} - H{currenthole}/{maxholes}");
+                            discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes} — Score: {score}");
                         else
-                            discord.UpdateState($"{mode[0]} » #{room} - {players}/{playersmax} Players");
+                            discord.UpdateState($"{mode[0]} — {players}/{playersmax} Players");
                     }
                     else
                     {
                         discord.UpdateDetails($"{nickname} - {level[0]}");
-                        discord.UpdateState($"{mode[0]} » #{room} ({players}/{playersmax} Players)");
+                        discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         discord.UpdateSmallAsset("", "");
                     }
