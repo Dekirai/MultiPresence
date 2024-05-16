@@ -19,7 +19,7 @@ All you gotta do is to run the exe and you are ready to go.
 To run the program with windows on startup, please follow these steps:
 
  1. Create a new file named MultiPresence.vbs
- 2. Find your "StartUp" Folder (**C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp**)
+ 2. Find your "StartUp" Folder (**C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup**)
  3. Place the created file in the StartUp Folder
  4. Open the file with an Editor
  5. Paste this code into it:  
