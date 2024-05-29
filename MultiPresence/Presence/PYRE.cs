@@ -67,7 +67,9 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
-                        if (mode_get == 0 || mode_get == 1 || mode_get == 4 || mode_get == 7 || mode_get == 10)
+                        if (mode_get == 0 || mode_get == 1|| mode_get == 7 || mode_get == 10)
+                            discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes}");
+                        else if (mode_get == 4)
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes} — Score: {score}");
                         else
                             discord.UpdateState($"{mode[0]} — {players}/{playersmax} Players");
