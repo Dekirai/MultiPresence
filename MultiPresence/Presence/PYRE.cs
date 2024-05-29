@@ -65,21 +65,21 @@ namespace MultiPresence.Presence
 
                         var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset($"{character_get}", $"Playing as {character[0]}");
+                        discord.UpdateSmallAsset($"playing", $"Room #{room} — {players}/{playersmax} Players");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         if (mode_get == 0 || mode_get == 1|| mode_get == 7 || mode_get == 10)
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes}");
                         else if (mode_get == 4)
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes} — Score: {score}");
                         else
-                            discord.UpdateState($"{mode[0]} — {players}/{playersmax} Players");
+                            discord.UpdateState($"{mode[0]}");
                     }
                     else
                     {
                         discord.UpdateDetails($"{nickname} - {level[0]}");
-                        discord.UpdateState($"{mode[0]} ({players}/{playersmax} Players)");
+                        discord.UpdateState($"{mode[0]}");
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset("", "");
+                        discord.UpdateSmallAsset("waiting", $"Room #{room} — {players}/{playersmax} Players");
                     }
                 }
 
