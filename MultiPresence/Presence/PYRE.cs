@@ -44,6 +44,7 @@ namespace MultiPresence.Presence
                 int isIngame = mem.ReadByte($"{process}.exe+A47E2C,0x10B27");
                 int currenthole = mem.ReadByte($"{process}.exe+A47E2C,0xFFEC");
                 int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
+                int isOpen = mem.ReadByte($"{process}.exe+A47E2C,0x10934");
 
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);             
@@ -65,7 +66,10 @@ namespace MultiPresence.Presence
 
                         var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset($"playing", $"Room #{room} — {players}/{playersmax} Players");
+                        if (isOpen == 1)
+                            discord.UpdateSmallAsset($"playing", $"Room #{room} — {players}/{playersmax} Players");
+                        else
+                            discord.UpdateSmallAsset($"playing", $"Private Room — {players}/{playersmax} Players");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         if (mode_get == 0 || mode_get == 1|| mode_get == 7 || mode_get == 10)
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes}");
@@ -79,7 +83,10 @@ namespace MultiPresence.Presence
                         discord.UpdateDetails($"{nickname} - {level[0]}");
                         discord.UpdateState($"{mode[0]}");
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        discord.UpdateSmallAsset("waiting", $"Room #{room} — {players}/{playersmax} Players");
+                        if (isOpen == 1)
+                            discord.UpdateSmallAsset($"waiting", $"Room #{room} — {players}/{playersmax} Players");
+                        else
+                            discord.UpdateSmallAsset($"waiting", $"Private Room — {players}/{playersmax} Players");
                     }
                 }
 
