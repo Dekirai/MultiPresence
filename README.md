@@ -36,7 +36,7 @@ Set WshShell = Nothing
 |Game|Platform|Updated|Information|
 |--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
-|[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
+|[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|13/06/2024| |
 |[Kingdom Hearts III](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|06/03/2024| |
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-1-5-2-5-remix)|06/03/2024| |
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-2-8-final-chapter-prologue)|06/03/2024| |

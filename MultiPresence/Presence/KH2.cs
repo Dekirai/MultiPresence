@@ -33,10 +33,10 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+714DB8");
-                int room_get = mem.ReadByte($"{process}.exe+714DB9");
-                int difficulty_get = mem.ReadByte($"{process}.exe+9A9548");
-                int level = mem.ReadByte($"{process}.exe+9A95AF");
+                int world_get = mem.ReadByte($"{process}.exe+717008");
+                int room_get = mem.ReadByte($"{process}.exe+717009");
+                int difficulty_get = mem.ReadByte($"{process}.exe+9ABCC8");
+                int level = mem.ReadByte($"{process}.exe+9ABD2F");
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                 try
