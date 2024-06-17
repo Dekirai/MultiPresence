@@ -62,7 +62,6 @@ namespace MultiPresence.Presence
                     if (isIngame == 1)
                     {
                         int character_get = mem.ReadInt($"{process}.exe+A47E2C,0x110CC");
-                        int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
 
                         var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
@@ -71,22 +70,35 @@ namespace MultiPresence.Presence
                         else
                             discord.UpdateSmallAsset($"playing", $"Private Room — {players}/{playersmax} Players");
                         discord.UpdateDetails($"{nickname} - {level[0]}");
-                        if (mode_get == 0 || mode_get == 1|| mode_get == 7 || mode_get == 10)
+                        if (mode_get == 0 || mode_get == 1 || mode_get == 7 || mode_get == 10)
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes}");
                         else if (mode_get == 4)
+                        {
+                            int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
                             discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes} — Score: {score}");
+                        }
                         else
                             discord.UpdateState($"{mode[0]}");
                     }
                     else
                     {
-                        discord.UpdateDetails($"{nickname} - {level[0]}");
-                        discord.UpdateState($"{mode[0]}");
-                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        if (isOpen == 1)
-                            discord.UpdateSmallAsset($"waiting", $"Room #{room} — {players}/{playersmax} Players");
+                        if (mode_get == 2)
+                        {
+                            discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
+                            discord.UpdateDetails($"{nickname} - {level[0]}");
+                            discord.UpdateState($"In Lobby");
+                            discord.UpdateSmallAsset("", "");
+                        }
                         else
-                            discord.UpdateSmallAsset($"waiting", $"Private Room — {players}/{playersmax} Players");
+                        {
+                            discord.UpdateDetails($"{nickname} - {level[0]}");
+                            discord.UpdateState($"{mode[0]}");
+                            discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
+                            if (isOpen == 1)
+                                discord.UpdateSmallAsset($"waiting", $"Room #{room} — {players}/{playersmax} Players");
+                            else
+                                discord.UpdateSmallAsset($"waiting", $"Private Room — {players}/{playersmax} Players");
+                        }
                     }
                 }
 
