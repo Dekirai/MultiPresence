@@ -33,12 +33,9 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+09D2E310,0x2B0,0x228,0x70,0x140,0x8664");
-                int room_get = mem.ReadByte($"{process}.exe+09D2E310,0x2B0,0x228,0x70,0x140,0x8668");
-                int difficulty_get = mem.ReadByte($"{process}.exe+09D2E310,0x2B0,0x228,0x70,0x140,0x8660");
-                int playtime_get = mem.ReadInt($"{process}.exe+09D2E310,0x2B0,0x228,0x70,0x140,0x866C");
-                TimeSpan playtime_convert = TimeSpan.FromSeconds(playtime_get);
-                string playtime = playtime_convert.ToString(@"hh\:mm\:ss");
+                int world_get = mem.ReadByte($"{process}.exe+87ECC90");
+                int room_get = mem.ReadByte($"{process}.exe+87ECC94");
+                int difficulty_get = mem.ReadByte($"{process}.exe+87ECC8C");
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                 try
@@ -47,7 +44,7 @@ namespace MultiPresence.Presence
                     {
                         int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
                         if (level > 0 && level < 100)
-                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                            discord.UpdateDetails($"Lv. 10 ({difficulty})");
                         else
                         {
                             try
@@ -71,27 +68,23 @@ namespace MultiPresence.Presence
                     {
                         try
                         {
-                            using (HttpClient client = new HttpClient())
-                            {
-                                string json = await client.GetStringAsync(JSONs.KHIII_Locations_URL);
+                                string json = JSONs.KHIII_Locations_RAW;
                                 dynamic jsonData = JsonConvert.DeserializeObject(json);
 
-                                int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+                                //int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
                                 string world = jsonData[world_get.ToString()]["Name"];
                                 string room = jsonData[world_get.ToString()]["Areas"][room_get];
                                 string imagekey = jsonData[world_get.ToString()]["ImageKey"];
 
                                 discord.UpdateLargeAsset(imagekey, world);
-                                discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                                discord.UpdateDetails($"Lv. 10 ({difficulty})");
                                 discord.UpdateState(room);
-                            }
                         }
                         catch
                         {
                             int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
                             discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
-                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                            discord.UpdateState($"Playtime: {playtime}");
+                            discord.UpdateDetails($"Lv. 10 ({difficulty})");
                         }
                     }
                 }

@@ -38,21 +38,21 @@ namespace MultiPresence
                     KH2.DoAction();
                     gameUpdater.Stop();
                     break;
-                case 3:
-                    Balloon("Kingdom Hearts III");
-                    KH3.DoAction();
-                    gameUpdater.Stop();
-                    break;
+                //case 3:
+                //    Balloon("Kingdom Hearts III");
+                //    KH3.DoAction();
+                //    gameUpdater.Stop();
+                //    break;
                 case 4:
                     Balloon("Kingdom Hearts Birth by Sleep Final Mix");
                     KHBBS.DoAction();
                     gameUpdater.Stop();
                     break;
-                case 5:
-                    Balloon("Kingdom Hearts Dream Drop Distance");
-                    KHDDD.DoAction();
-                    gameUpdater.Stop();
-                    break;
+                //case 5:
+                //    Balloon("Kingdom Hearts Dream Drop Distance");
+                //    KHDDD.DoAction();
+                //    gameUpdater.Stop();
+                //    break;
                 case 6:
                     Balloon("Mega Man 11");
                     MM11.DoAction();

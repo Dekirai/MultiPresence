@@ -36,6 +36,20 @@
                     getroom.Add("UFO Battle Arena");
                     break;
 
+                case "Dark World":
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    getroom.Add("");
+                    break;
+
                 case "Monstropolis":
                     getroom.Add("Monsters. Inc.");
                     getroom.Add("The Factory");

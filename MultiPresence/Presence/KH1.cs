@@ -33,11 +33,10 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int isGummi = mem.ReadByte($"{process}.exe+50421D");
-                int world_get = mem.ReadByte($"{process}.exe+233CB4C");
-                int room_get = mem.ReadByte($"{process}.exe+233CB44");
-                int difficulty_get = mem.ReadByte($"{process}.exe+2DFBDFC");
-                int level = mem.ReadByte($"{process}.exe+2DE59D4");
+                int world_get = mem.ReadByte($"{process}.exe+233FE94");
+                int room_get = mem.ReadByte($"{process}.exe+233FE8C");
+                int difficulty_get = mem.ReadByte($"{process}.exe+2DFF78C");
+                int level = mem.ReadByte($"{process}.exe+2DE9364");
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
 
@@ -55,35 +54,24 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
-                    if (isGummi == 1)
-                    {
-                        discord.UpdateLargeAsset($"worldmap", $"Gummi Ship");
-                        discord.UpdateState($"Gummi Ship");
-                        discord.UpdateDetails($"Lv. {level} ({difficulty[0]})");
-                    }
-                    else
-                    {
-                        try
-                        {
-                            using (HttpClient client = new HttpClient())
-                            {
-                                string json = await client.GetStringAsync(JSONs.KHI_Locations_URL);
-                                dynamic jsonData = JsonConvert.DeserializeObject(json);
 
-                                string world = jsonData[world_get.ToString()]["Name"];
-                                string room = jsonData[world_get.ToString()]["Areas"][room_get];
-                                string imagekey = jsonData[world_get.ToString()]["ImageKey"];
-                                discord.UpdateLargeAsset(imagekey, world);
-                                discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                                discord.UpdateState(room);
-                            }
-                        }
-                        catch
-                        {
-                            discord.UpdateLargeAsset("logo", "Kingdom Hearts");
-                            discord.UpdateDetails($"In Main Menu");
-                            discord.UpdateState("");
-                        }
+                    try
+                    {
+                        string json = JSONs.KHI_Locations_RAW;
+                        dynamic jsonData = JsonConvert.DeserializeObject(json);
+
+                        string world = jsonData[world_get.ToString()]["Name"];
+                        string room = jsonData[world_get.ToString()]["Areas"][room_get];
+                        string imagekey = jsonData[world_get.ToString()]["ImageKey"];
+                        discord.UpdateLargeAsset(imagekey, world);
+                        discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                        discord.UpdateState(room);
+                    }
+                    catch
+                    {
+                        discord.UpdateLargeAsset("logo", "Kingdom Hearts");
+                        discord.UpdateDetails($"In Main Menu");
+                        discord.UpdateState("");
                     }
                 }
 

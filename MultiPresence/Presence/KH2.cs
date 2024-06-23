@@ -41,18 +41,15 @@ namespace MultiPresence.Presence
 
                 try
                 {
-                    using (HttpClient client = new HttpClient())
-                    {
-                        string json = await client.GetStringAsync(JSONs.KHII_Locations_URL);
-                        dynamic jsonData = JsonConvert.DeserializeObject(json);
+                    string json = JSONs.KHII_Locations_RAW;
+                    dynamic jsonData = JsonConvert.DeserializeObject(json);
 
-                        string world = jsonData[world_get.ToString()]["Name"];
-                        string room = jsonData[world_get.ToString()]["Areas"][room_get];
-                        string imagekey = jsonData[world_get.ToString()]["ImageKey"];
-                        discord.UpdateLargeAsset(imagekey, world);
-                        discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                        discord.UpdateState(room);
-                    }
+                    string world = jsonData[world_get.ToString()]["Name"];
+                    string room = jsonData[world_get.ToString()]["Areas"][room_get];
+                    string imagekey = jsonData[world_get.ToString()]["ImageKey"];
+                    discord.UpdateLargeAsset(imagekey, world);
+                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    discord.UpdateState(room);
                 }
                 catch
                 {
