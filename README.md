@@ -35,10 +35,10 @@ Set WshShell = Nothing
 ## Supported games
 |Game|Platform|Updated|Information|
 |--|--|--|--|
-|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/|23/06/2024| |
+|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024| |
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024| |
 |[Kingdom Hearts III](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|06/03/2024| |
-|[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/|23/06/2024| |
+|[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024| |
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-hd-2-8-final-chapter-prologue)|06/03/2024| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |
 |[Mega Man X: Command Mission](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Mega_Man_X:_Command_Mission)|25/01/2023|Works on PAL & USA|
