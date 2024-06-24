@@ -32,13 +32,20 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+A3CE04");
-                int room_get = mem.ReadByte($"{process}.exe+A3CE05");
-                int difficulty_get = mem.ReadByte($"{process}.exe+A3CE02");
-                int level = mem.ReadByte($"{process}.exe+A946D4");
+                int world_get = mem.ReadByte($"{process}.exe+A40724");
+                int room_get = mem.ReadByte($"{process}.exe+A40725");
+                int difficulty_get = mem.ReadByte($"{process}.exe+A40722");
+                int character_get = mem.ReadByte($"{process}.exe+A40720");
+                int level = mem.ReadByte($"{process}.exe+A97FF4");
                 var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
                 var room = await Rooms.GetRoom(world[0]);
+                string character = "";
+
+                if (character_get == 0)
+                    character = "Sora";
+                else
+                    character = "Riku";
 
                 discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
                 
@@ -46,11 +53,13 @@ namespace MultiPresence.Presence
                 {
                     discord.UpdateState($"{room[room_get]}");
                     discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    discord.UpdateSmallAsset($"{character_get}", $"Playing as {character}");
                 }
                 catch
                 {
                     discord.UpdateState($"{room[0]}");
-                    discord.UpdateDetails("");
+                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    discord.UpdateSmallAsset($"", $"");
                 }
 
                 await Task.Delay(3000);
