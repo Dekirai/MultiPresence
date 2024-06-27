@@ -37,7 +37,7 @@ Set WshShell = Nothing
 |--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
-|[Kingdom Hearts III](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|06/03/2024|Currently outdated|
+|[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|27/06/2024|Currently outdated|
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|24/06/2024|Only works on Steam|
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |

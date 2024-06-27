@@ -38,11 +38,12 @@ namespace MultiPresence
                     KH2.DoAction();
                     gameUpdater.Stop();
                     break;
-                //case 3:
-                //    Balloon("Kingdom Hearts III");
-                //    KH3.DoAction();
-                //    gameUpdater.Stop();
-                //    break;
+                case 3:
+                    Balloon("Kingdom Hearts III");
+                    BalloonInfo("I am currently scanning the memory. Your machine may lag for short period of time.");
+                    KH3.DoAction();
+                    gameUpdater.Stop();
+                    break;
                 case 4:
                     Balloon("Kingdom Hearts Birth by Sleep Final Mix");
                     KHBBS.DoAction();

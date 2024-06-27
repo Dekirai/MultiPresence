@@ -2,6 +2,7 @@
 using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH3;
+using MultiPresence.Models.KHIII;
 using Newtonsoft.Json;
 
 namespace MultiPresence.Presence
@@ -10,10 +11,13 @@ namespace MultiPresence.Presence
     {
         static Mem mem = new Mem();
         static string process = "KINGDOM HEARTS III";
+        public static string _room_address = "";
         static private DiscordRpcClient discord;
-        public static void DoAction()
+        public static async void DoAction()
         {
             GetPID();
+            long room_get = (await mem.AoBScan("?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2F 53 63 72 69 70 74 2F 54 72 65 73 47 61 6D 65 2E 54 72 65 73 50 6C 61 79 65 72 43 6F 6E 74 72 6F 6C 6C 65 72 53 6F 72 61", true)).FirstOrDefault();
+            _room_address = room_get.ToString("X8");
             discord = new DiscordRpcClient("827190870724837406");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
@@ -33,60 +37,20 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+87ECC90");
-                int room_get = mem.ReadByte($"{process}.exe+87ECC94");
+                int world_get = mem.ReadByte($"{process}.exe+086D80A0,0x10,0x130,0x30,0x80,0xD0,0x1C0");
+                string room_get = mem.ReadString($"{_room_address}", "", 5);
                 int difficulty_get = mem.ReadByte($"{process}.exe+87ECC8C");
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                 try
                 {
-                    if (world_get == 27 || world_get == 28)
-                    {
-                        int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
-                        if (level > 0 && level < 100)
-                            discord.UpdateDetails($"Lv. 10 ({difficulty})");
-                        else
-                        {
-                            try
-                            {
-                                int level_gummi = mem.ReadInt($"{process}.exe+0A70B4A0,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
-                                if (level_gummi == 0)
-                                    discord.UpdateDetails($"Preparing for Gummi Mission");
-                                else
-                                    discord.UpdateDetails($"Gummi Lv. {level_gummi} ({difficulty})");
-                            }
-                            catch
-                            {
-                                discord.UpdateDetails($"Preparing for Gummi Mission");
-                            }
-                        }
-                        discord.UpdateLargeAsset("worldmap", "World Map");
-                        discord.UpdateState($"World Map");
-                        discord.UpdateSmallAsset("", "");
-                    }
-                    else
-                    {
-                        try
-                        {
-                                string json = JSONs.KHIII_Locations_RAW;
-                                dynamic jsonData = JsonConvert.DeserializeObject(json);
+                    var world = await Worlds.GetWorld(world_get);
+                    var room = await Rooms.GetRoom(room_get);
 
-                                //int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
-                                string world = jsonData[world_get.ToString()]["Name"];
-                                string room = jsonData[world_get.ToString()]["Areas"][room_get];
-                                string imagekey = jsonData[world_get.ToString()]["ImageKey"];
-
-                                discord.UpdateLargeAsset(imagekey, world);
-                                discord.UpdateDetails($"Lv. 10 ({difficulty})");
-                                discord.UpdateState(room);
-                        }
-                        catch
-                        {
-                            int level = mem.ReadByte($"{process}.exe+0A70B4A0,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
-                            discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
-                            discord.UpdateDetails($"Lv. 10 ({difficulty})");
-                        }
-                    }
+                    discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
+                    discord.UpdateDetails($"Playing on {difficulty}");
+                    discord.UpdateState($"{room}");
+                    discord.UpdateSmallAsset("", "");
                 }
                 catch
                 {
