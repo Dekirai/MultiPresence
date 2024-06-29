@@ -2,91 +2,99 @@
 {
     public class Worlds
     {
-        public static async Task<string[]> GetWorld(int world)
+        public static async Task<string[]> GetWorld(string world)
         {
             List<string> getworld = new List<string>();
 
             switch (world)
             {
-                case 31:
-                    getworld.Add("Main Menu");
-                    getworld.Add("logo");
-                    break;
-                case 1:
+                case "bt":
                     getworld.Add("Scala ad Caelum");
                     getworld.Add("scala");
                     break;
-                case 3:
+                case "dw":
                     getworld.Add("Dark World");
                     getworld.Add("darkworld");
                     break;
-                case 4:
+                case "he":
                     getworld.Add("Olympus");
                     getworld.Add("olympus");
                     break;
-                case 5:
+                case "ts":
                     getworld.Add("Toy Box");
                     getworld.Add("toybox");
                     break;
-                case 7:
+                case "ra":
                     getworld.Add("Kingdom of Corona");
                     getworld.Add("corona");
                     break;
-                case 8:
+                case "fz":
                     getworld.Add("Arendelle");
                     getworld.Add("arendelle");
                     break;
-                case 9:
+                case "ca":
                     getworld.Add("The Caribbean");
                     getworld.Add("caribbean");
                     break;
-                case 10:
+                case "po":
                     getworld.Add("100 Acre Wood");
                     getworld.Add("100acre");
                     break;
-                case 11:
+                case "mi":
                     getworld.Add("Monstropolis");
                     getworld.Add("monstropolis");
                     break;
-                case 12:
+                case "tt":
                     getworld.Add("Twilight Town");
                     getworld.Add("twilighttown");
                     break;
-                case 13:
+                case "yt":
                     getworld.Add("The Mysterious Tower");
                     getworld.Add("tower");
                     break;
-                case 14:
+                case "kg":
                     getworld.Add("Keyblade Graveyard");
                     getworld.Add("graveyard");
                     break;
-                case 19:
+                case "bx":
                     getworld.Add("San Fransokyo");
                     getworld.Add("sanfransokyo");
                     break;
-                case 22:
+                case "ew":
                     getworld.Add("The Final World");
                     getworld.Add("finalworld");
                     break;
-                case 23:
+                case "di":
                     getworld.Add("Destiny Islands");
                     getworld.Add("destinyislands");
                     break;
-                case 24:
+                case "rg":
                     getworld.Add("Radiant Garden");
                     getworld.Add("radiantgarden");
                     break;
-                case 25:
+                case "dp":
                     getworld.Add("Land of Departure");
                     getworld.Add("departure");
                     break;
-                case 27:
-                case 28:
+                case "ss":
+                    getworld.Add("Shibuya");
+                    getworld.Add("logo");
+                    break;
+                case "sf":
+                    getworld.Add("Secret Forest");
+                    getworld.Add("logo");
+                    break;
+                case "sp":
+                    getworld.Add("Unknown");
+                    getworld.Add("logo");
+                    break;
+                case "gm":
+                case "wm":
                     getworld.Add("World Map");
                     getworld.Add("worldmap");
                     break;
                 default:
-                    getworld.Add("Undefined location");
+                    getworld.Add("Main Menu");
                     getworld.Add("logo");
                     break;
             }

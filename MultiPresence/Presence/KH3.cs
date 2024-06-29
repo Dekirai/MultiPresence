@@ -15,6 +15,7 @@ namespace MultiPresence.Presence
         static private DiscordRpcClient discord;
         public static async void DoAction()
         {
+            await Task.Delay(7500); // Wait 7.5 seconds to make sure that the AoB is actually findable
             GetPID();
             long room_get = (await mem.AoBScan("?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2F 53 63 72 69 70 74 2F 54 72 65 73 47 61 6D 65 2E 54 72 65 73 50 6C 61 79 65 72 43 6F 6E 74 72 6F 6C 6C 65 72 53 6F 72 61", true)).FirstOrDefault();
             _room_address = room_get.ToString("X8");
@@ -44,13 +45,22 @@ namespace MultiPresence.Presence
 
                 try
                 {
-                    var world = await Worlds.GetWorld(world_get);
                     var room = await Rooms.GetRoom(room_get);
+                    var world = await Worlds.GetWorld(room_get.Split('_')[0]);
 
-                    discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                    discord.UpdateDetails($"Playing on {difficulty}");
-                    discord.UpdateState($"{room}");
-                    discord.UpdateSmallAsset("", "");
+                    if (world[0] == "Main Menu")
+                    {
+                        discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
+                        discord.UpdateDetails($"In Main Menu");
+                        discord.UpdateState("");
+                    }
+                    else
+                    {
+                        discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
+                        discord.UpdateDetails($"Playing on {difficulty}");
+                        discord.UpdateState($"{room}");
+                        discord.UpdateSmallAsset("", "");
+                    }
                 }
                 catch
                 {

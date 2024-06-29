@@ -37,7 +37,7 @@ Set WshShell = Nothing
 |--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
-|[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Epic Games](https://store.epicgames.com/en-US/p/kingdom-hearts-iii)|27/06/2024|Currently outdated|
+|[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|29/06/2024|Only works on Steam|
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|24/06/2024|Only works on Steam|
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |
@@ -65,6 +65,7 @@ You have to disable the "Discord Presence" option found in Options -> General se
 MultiPresence trys to fetch the current game from the Window title, so make sure it has access to it.<br />
 You have to disable the "Discord Presence" option found in Settings -> Interface<br />
 You have to disable the "Render to Separate Window" option found in Settings -> Interface<br />
+Make sure to download **GetProcAddressEx.dll** aswell and place it in the same directory as MultiPresence.exe<br />
 </details>
 
 The presences are always expected to work on the latest version of the respective game.  
@@ -74,7 +75,7 @@ If a game receives a patch, I'll try my best to update it's presence as quickly 
 Click on a games name to view it's wiki containing all features and previews.  
 Date format for updates is **dd/mm/yyyy**.   
 
-Some games will **require a memory scan** because the addresses aren't static. This mostly occurs for games on emulators like Cemu.    
+Some games will **require a memory scan** because the addresses aren't static. This mostly occurs for games on emulators like Cemu or Unity/Unreal Engine games.    
 
 A memory scan might lead to a short lag on your machine because the program is currently scanning a ton of memory to find the proper address to work with.  
 If a games name is marked with a * at the end, it means it uses memory scan, just so you know.
