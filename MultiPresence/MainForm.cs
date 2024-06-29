@@ -13,7 +13,6 @@ namespace MultiPresence
             InitializeComponent();
 
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
-            cb_DisableInfoNotifications.Checked = Settings.Default.InfoNotifcations;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -124,7 +123,6 @@ namespace MultiPresence
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             Settings.Default.Notifications = cb_DisableNotifications.Checked;
-            Settings.Default.InfoNotifcations = cb_DisableInfoNotifications.Checked;
             Settings.Default.Save();
             Application.Exit();
         }

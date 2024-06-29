@@ -28,79 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.label1 = new System.Windows.Forms.Label();
-            this.notify = new System.Windows.Forms.NotifyIcon(this.components);
-            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cb_DisableNotifications = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.cb_DisableInfoNotifications = new System.Windows.Forms.ToolStripMenuItem();
-            this.cms.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new Label();
+            notify = new NotifyIcon(components);
+            cms = new ContextMenuStrip(components);
+            cb_DisableNotifications = new ToolStripMenuItem();
+            btn_Exit = new ToolStripMenuItem();
+            cms.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "You should not see this";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(129, 15);
+            label1.TabIndex = 0;
+            label1.Text = "You should not see this";
             // 
             // notify
             // 
-            this.notify.ContextMenuStrip = this.cms;
-            this.notify.Icon = ((System.Drawing.Icon)(resources.GetObject("notify.Icon")));
-            this.notify.Text = "MultiPresence";
-            this.notify.Visible = true;
+            notify.ContextMenuStrip = cms;
+            notify.Icon = (Icon)resources.GetObject("notify.Icon");
+            notify.Text = "MultiPresence";
+            notify.Visible = true;
             // 
             // cms
             // 
-            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cb_DisableInfoNotifications,
-            this.cb_DisableNotifications,
-            this.btn_Exit});
-            this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(225, 92);
+            cms.Items.AddRange(new ToolStripItem[] { cb_DisableNotifications, btn_Exit });
+            cms.Name = "cms";
+            cms.Size = new Size(225, 70);
             // 
             // cb_DisableNotifications
             // 
-            this.cb_DisableNotifications.CheckOnClick = true;
-            this.cb_DisableNotifications.Name = "cb_DisableNotifications";
-            this.cb_DisableNotifications.Size = new System.Drawing.Size(224, 22);
-            this.cb_DisableNotifications.Text = "Disable System Notifications";
+            cb_DisableNotifications.CheckOnClick = true;
+            cb_DisableNotifications.Name = "cb_DisableNotifications";
+            cb_DisableNotifications.Size = new Size(224, 22);
+            cb_DisableNotifications.Text = "Disable System Notifications";
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(224, 22);
-            this.btn_Exit.Text = "Exit";
-            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
-            // cb_DisableInfoNotifications
-            // 
-            this.cb_DisableInfoNotifications.CheckOnClick = true;
-            this.cb_DisableInfoNotifications.Name = "cb_DisableInfoNotifications";
-            this.cb_DisableInfoNotifications.Size = new System.Drawing.Size(224, 22);
-            this.cb_DisableInfoNotifications.Text = "Disable Info Notifications";
+            btn_Exit.Name = "btn_Exit";
+            btn_Exit.Size = new Size(224, 22);
+            btn_Exit.Text = "Exit";
+            btn_Exit.Click += btn_Exit_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 36);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.ShowInTaskbar = false;
-            this.Text = "MultiPresence";
-            this.cms.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(329, 36);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "MainForm";
+            ShowInTaskbar = false;
+            Text = "MultiPresence";
+            cms.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -110,6 +98,5 @@
         private ContextMenuStrip cms;
         private ToolStripMenuItem btn_Exit;
         private ToolStripMenuItem cb_DisableNotifications;
-        private ToolStripMenuItem cb_DisableInfoNotifications;
     }
 }

@@ -78,7 +78,7 @@
                     getroom = "Chess Room";
                     break;
                 case "bt_51":
-                    getroom = "Blank Screen";
+                    getroom = "Intro";
                     break;
                 case "bx_01":
                     getroom = "The Bridge";
