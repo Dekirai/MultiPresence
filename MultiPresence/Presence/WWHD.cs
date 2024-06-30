@@ -49,7 +49,7 @@ namespace MultiPresence.Presence
 
                 //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
                 discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
-                discord.UpdateDetails($"Health: {hearts}❤ | Rupees: {rupees}");
+                discord.UpdateDetails($"Health: {hearts} ❤ | Rupees: {rupees}");
                 discord.UpdateState($"{realstage}");
 
                 await Task.Delay(3000);

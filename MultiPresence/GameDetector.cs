@@ -30,6 +30,7 @@ namespace MultiPresence
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_ty = Process.GetProcessesByName("TY");
             var game_pyre = Process.GetProcessesByName("ProjectG");
+            var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
 
             int game = 0;
 
@@ -111,12 +112,26 @@ namespace MultiPresence
                 game = 17;
             else if (game_pyre.Length > 0)
                 game = 18;
+            else if (game_mmbn6g.Length > 0)
+            {
+                GetMMBNLC2();
+                int _game = mem.ReadByte("MMBN_LC2.exe+ABEF0A0");
+                if (_game == 9) //Cybeast Gregar
+                    game = 19;
+            }
 
             return game;
         }
         private static void GetCemu()
         {
             int pid = mem.GetProcIdFromName("Cemu");
+            bool openProc = false;
+
+            if (pid > 0) openProc = mem.OpenProcess(pid);
+        }
+        private static void GetMMBNLC2()
+        {
+            int pid = mem.GetProcIdFromName("MMBN_LC2");
             bool openProc = false;
 
             if (pid > 0) openProc = mem.OpenProcess(pid);

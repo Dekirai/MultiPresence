@@ -72,7 +72,7 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset("link", "Running around as a Human");
                     else
                         discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
-                    discord.UpdateDetails($"Health: {hearts}/{hearts_max}❤️ | Rupees: {rupees}");
+                    discord.UpdateDetails($"Health: {hearts}/{hearts_max} ❤️ | Rupees: {rupees}");
                     discord.UpdateState($"{realstage} | Poes: {poes}/60");
                 }
 

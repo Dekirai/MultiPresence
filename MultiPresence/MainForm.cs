@@ -117,6 +117,11 @@ namespace MultiPresence
                     PYRE.DoAction();
                     gameUpdater.Stop();
                     break;
+                case 19:
+                    Balloon("MMBN 6: Cybeast Gregar");
+                    MMBN6G.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 
