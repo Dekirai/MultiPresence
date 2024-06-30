@@ -211,10 +211,12 @@
                 case "kg_06":
                 case "kg_07":
                 case "kg_08":
+                    getroom = "???";
+                    break;
                 case "kg_50":
                 case "kg_51":
                 case "kg_52":
-                    getroom = "???";
+                    getroom = "Cutscene";
                     break;
                 case "mi_01":
                     getroom = "Monsters. Inc.";
@@ -292,13 +294,13 @@
                     getroom = "Data Battle - Xion";
                     break;
                 case "rg_50":
-                    getroom = "???";
+                    getroom = "Cutscene";
                     break;
                 case "rg_51":
-                    getroom = "???";
+                    getroom = "Cutscene";
                     break;
                 case "sf_50":
-                    getroom = "???";
+                    getroom = "Cutscene";
                     break;
                 case "sp_01":
                     getroom = "???";

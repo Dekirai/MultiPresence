@@ -73,7 +73,9 @@ namespace MultiPresence
                             string extractedPart = match.Groups[1].Value;
                             _cemu_titleid = extractedPart;
                             if (_cemu_titleid.Contains("10143600"))
-                                game = 9; //Wind Waker HD
+                                game = 9; //Wind Waker HD EUR
+                            else if (_cemu_titleid.Contains("10143599"))
+                                game = 9; //Wind Waker HD USA
                             else if (_cemu_titleid.Contains("1019e600"))
                                 game = 10; //Twilight Princess HD
                             _cemu_foundGame = true;
