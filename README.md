@@ -37,7 +37,7 @@ Set WshShell = Nothing
 |--|--|--|--|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
-|[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|29/06/2024|To be updated|
+|[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|01/07/2024|Only works on Steam|
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|24/06/2024|Only works on Steam|
 |[Mega Man BN6: Cybeast Gregar](https://github.com/Dekirai/MultiPresence)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)|30/06/2024|Work in Progress|
@@ -53,7 +53,7 @@ Set WshShell = Nothing
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)|04/06/2022| |
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)|04/06/2022| |
 |[Zelda: The Wind Waker HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind_Waker_HD)|30/06/2024|Works on EUR and USA|
-|[Zelda: Twilight Princess HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|12/07/2022|Tested on EUR v81|
+|[Zelda: Twilight Princess HD*](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|01/07/2024|Only works on EUR|
 
 ## Information
 

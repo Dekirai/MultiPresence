@@ -36,16 +36,22 @@ namespace MultiPresence.Presence
                 int room_get = mem.ReadByte("80205945");
                 int hp = mem.Read2Byte("8020858C");
                 int maxhp = mem.Read2Byte("8020858E");
+                int hp_battle = mem.Read2Byte("8020A8F4");
+                int maxhp_battle = mem.Read2Byte("8020A8F6");
                 int state = mem.ReadByte("80205940");
-
                 var location = await Areas.GetArea(area_get);
 
                 discord.UpdateLargeAsset($"logo", $"Mega Man Battle Network 6: Cybeast Gregar");
-                discord.UpdateDetails($"HP: {hp}/{maxhp}");
                 if (state == 12)
+                {
+                    discord.UpdateDetails($"HP: {hp_battle}/{maxhp_battle}");
                     discord.UpdateState($"{location[room_get]} (In Battle)");
+                }
                 else
+                {
+                    discord.UpdateDetails($"HP: {hp}/{maxhp}");
                     discord.UpdateState($"{location[room_get]}");
+                }
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
