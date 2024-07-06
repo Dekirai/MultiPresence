@@ -42,6 +42,8 @@ namespace MultiPresence.Presence
                 string room_get = mem.ReadString($"{_room_address}", "", 5);
                 int difficulty_get = mem.ReadByte($"{process}.exe+87ECC8C");
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
+                int level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+                int gummilevel = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
 
                 try
                 {
@@ -57,7 +59,12 @@ namespace MultiPresence.Presence
                     else
                     {
                         discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                        discord.UpdateDetails($"Playing on {difficulty}");
+                        if (level > 0 && level < 100)
+                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                        else if (gummilevel > 0 && gummilevel < 100 && room_get.Contains("gm"))
+                            discord.UpdateDetails($"Gummi Lv. {gummilevel} ({difficulty})");
+                        else 
+                            discord.UpdateDetails($"Playing on {difficulty}");
                         discord.UpdateState($"{room}");
                         discord.UpdateSmallAsset("", "");
                     }
