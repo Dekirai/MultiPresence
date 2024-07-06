@@ -60,18 +60,18 @@ namespace MultiPresence.Presence
                     {
                         discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
 
-                        if (!room_get.Contains("wm") || !room_get.Contains("gm"))
-                        {
-                            int level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
-                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                        }
+                        if (room_get.Contains("wm"))
+                            discord.UpdateDetails($"Playing on {difficulty}");
                         else if (room_get.Contains("gm"))
                         {
                             int gummilevel = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
                             discord.UpdateDetails($"Gummi Lv. {gummilevel} ({difficulty})");
                         }
                         else
-                            discord.UpdateDetails($"Playing on {difficulty}");
+                        {
+                            int level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                        }
                         discord.UpdateState($"{room}");
                         discord.UpdateSmallAsset("", "");
                     }
