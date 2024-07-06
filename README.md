@@ -33,7 +33,7 @@ Set WshShell = Nothing
  That's it! Now on every windows startup, the program will automatically launch!    
  
 ## Blacklist (Optional)
-Multipresence also allows you to block certain games from being detected.  
+MultiPresence also allows you to block certain games from being detected.  
 As of release 1.6.0, you can use a file named "blacklist.json" to block games.  
 A downloable premade file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
  
