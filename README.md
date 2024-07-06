@@ -30,7 +30,12 @@ Set WshShell = Nothing
 ```
 6. Modify the Path to the location where you placed MultiPresence.exe
  
- That's it! Now on every windows startup, the program will automatically launch!
+ That's it! Now on every windows startup, the program will automatically launch!    
+ 
+## Blacklist (Optional)
+Multipresence also allows you to block certain games from being detected.  
+As of release 1.6.0, you can use a file named "blacklist.json" to block games.  
+A downloable premade file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
  
 ## Supported games
 |Game|Platform|Updated|Information|
