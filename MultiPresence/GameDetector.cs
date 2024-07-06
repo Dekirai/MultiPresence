@@ -12,7 +12,7 @@ namespace MultiPresence
         public static string _cemu_titleid = "";
         public static bool _cemu_foundGame = false;
 
-        public static async Task<int> GetGameAsync()
+        public static async Task<string> GetGameAsync()
         {
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
@@ -32,28 +32,28 @@ namespace MultiPresence
             var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
 
-            int game = 0;
+            string game = "";
 
             if (game_kh1.Length > 0)
-                game = 1;
+                game = "Kingdom Hearts Final Mix";
             else if (game_kh2.Length > 0)
-                game = 2;
+                game = "Kingdom Hearts II Final Mix";
             else if (game_kh3.Length > 0)
-                game = 3;
+                game = "Kingdom Hearts III";
             else if (game_khbbs.Length > 0)
-                game = 4;
+                game = "Kingdom Hearts Birth by Sleep Final Mix";
             else if (game_khddd.Length > 0)
-                game = 5;
+                game = "Kingdom Hearts Dream Drop Distance";
             else if (game_mm11.Length > 0)
             {
                 var title = Process.GetProcessesByName("game").FirstOrDefault();
                 if (title.MainWindowTitle.Contains("MEGAMAN11"))
-                    game = 6;
+                    game = "Mega Man 11";
             }
             else if (game_re4.Length > 0)
-                game = 7;
+                game = "Resident Evil 4 (2005)";
             else if (game_sa2.Length > 0)
-                game = 8;
+                game = "Sonic Adventure 2";
             else if (game_cemu.Length > 0)
             {
                 await Task.Delay(15000); //Wait 15 Seconds 
@@ -74,13 +74,13 @@ namespace MultiPresence
                             string extractedPart = match.Groups[1].Value;
                             _cemu_titleid = extractedPart;
                             if (_cemu_titleid.Contains("10143600"))
-                                game = 9; //Wind Waker HD EUR
+                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD EUR
                             else if (_cemu_titleid.Contains("10143599"))
-                                game = 9; //Wind Waker HD USA Randomizer
+                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA Randomizer
                             else if (_cemu_titleid.Contains("10143500"))
-                                game = 9; //Wind Waker HD USA
+                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA
                             else if (_cemu_titleid.Contains("1019e600"))
-                                game = 10; //Twilight Princess HD
+                                game = "Zelda: Twilight Princess HD"; //Twilight Princess HD
                             _cemu_foundGame = true;
                         }
                     }
@@ -96,28 +96,28 @@ namespace MultiPresence
             {
                 var title = Process.GetProcessesByName("pcsx2-qtx64-avx2").FirstOrDefault();
                 if (title.MainWindowTitle.Contains("Ratchet - Deadlocked"))
-                    game = 11;
+                    game = "Ratchet: Deadlocked";
                 else if (title.MainWindowTitle.Contains("Mega Man X - Command Mission"))
-                    game = 12;
+                    game = "Mega Man X: Command Mission";
             }
             else if (game_ty.Length > 0)
-                game = 13;
+                game = "TY the Tasmanian Tiger";
             else if (game_re5.Length > 0)
-                game = 14;
+                game = "Resident Evil 5";
             else if (game_re6.Length > 0)
-                game = 15;
+                game = "Resident Evil 6";
             else if (game_re.Length > 0)
-                game = 16;
+                game = "Resident Evil";
             else if (game_rev2.Length > 0)
-                game = 17;
+                game = "Resident Evil Revelations 2";
             else if (game_pyre.Length > 0)
-                game = 18;
+                game = "Pangya Reborn";
             else if (game_mmbn6g.Length > 0)
             {
                 GetMMBNLC2();
                 int _game = mem.ReadByte("MMBN_LC2.exe+ABEF0A0");
-                if (_game == 9) //Cybeast Gregar
-                    game = 19;
+                if (_game == 9)
+                    game = "Mega Man Battle Network 6: Cybeast Gregar";
             }
 
             return game;

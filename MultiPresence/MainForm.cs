@@ -2,12 +2,16 @@ using MultiPresence.Presence;
 using System.Diagnostics;
 using System.Timers;
 using MultiPresence.Properties;
+using Newtonsoft.Json;
 
 namespace MultiPresence
 {
     public partial class MainForm : Form
     {
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
+        Blacklist blacklist = null;
+        public static bool status = false;
+        public static bool isBlacklistLoaded = false;
         public MainForm()
         {
             InitializeComponent();
@@ -23,105 +27,119 @@ namespace MultiPresence
 
         private async void gameUpdater_Tick(object sender, EventArgs e)
         {
-            int game = await GameDetector.GetGameAsync();
+            string game = await GameDetector.GetGameAsync();
+            string json;
 
-            switch (game)
+            if (File.Exists("blacklist.json"))
             {
-                case 1:
-                    Balloon("Kingdom Hearts Final Mix");
-                    KH1.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 2:
-                    Balloon("Kingdom Hearts II Final Mix");
-                    KH2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 3:
-                    Balloon("Kingdom Hearts III");
-                    KH3.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 4:
-                    Balloon("Kingdom Hearts Birth by Sleep Final Mix");
-                    KHBBS.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 5:
-                    Balloon("Kingdom Hearts Dream Drop Distance");
-                    KHDDD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 6:
-                    Balloon("Mega Man 11");
-                    MM11.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 7:
-                    Balloon("Resident Evil 4");
-                    RE4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 8:
-                    Balloon("Sonic Adventure 2");
-                    SA2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 9:
-                    Balloon("Zelda: The Wind Waker HD");
-                    WWHD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 10:
-                    Balloon("Zelda: Twilight Princess HD");
-                    TPHD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 11:
-                    Balloon("Ratchet - Deadlocked");
-                    RDL.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 12:
-                    Balloon("Mega Man X - Command Mission");
-                    MMXCM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 13:
-                    Balloon("TY the Tasmanian Tiger");
-                    TY.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 14:
-                    Balloon("Resident Evil 5");
-                    RE5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 15:
-                    Balloon("Resident Evil 6");
-                    RE6.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 16:
-                    Balloon("Resident Evil");
-                    RE.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 17:
-                    Balloon("Resident Evil Revelations 2");
-                    REV2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case 18:
-                    Balloon("PangYa Reborn");
-                    PYRE.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                //case 19:
-                //    Balloon("MMBN 6: Cybeast Gregar");
-                //    MMBN6G.DoAction();
-                //    gameUpdater.Stop();
-                //    break;
+                json = File.ReadAllText("blacklist.json");
+                blacklist = JsonConvert.DeserializeObject<Blacklist>(json);
+                isBlacklistLoaded = true;
+            }
+
+            if (isBlacklistLoaded && blacklist != null)
+                status = blacklist.GetValue(game);
+
+            if (!status)
+            {
+                switch (game)
+                {
+                    case "Kingdom Hearts Final Mix":
+                        Balloon(game);
+                        KH1.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Kingdom Hearts II Final Mix":
+                        Balloon(game);
+                        KH2.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Kingdom Hearts III":
+                        Balloon(game);
+                        KH3.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Kingdom Hearts Birth by Sleep Final Mix":
+                        Balloon(game);
+                        KHBBS.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Kingdom Hearts Dream Drop Distance":
+                        Balloon(game);
+                        KHDDD.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Mega Man 11":
+                        Balloon(game);
+                        MM11.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil 4 (2005)":
+                        Balloon(game);
+                        RE4.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Sonic Adventure 2":
+                        Balloon(game);
+                        SA2.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Zelda: The Wind Waker HD":
+                        Balloon(game);
+                        WWHD.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Zelda: Twilight Princess HD":
+                        Balloon(game);
+                        TPHD.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Ratchet: Deadlocked":
+                        Balloon(game);
+                        RDL.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Mega Man X: Command Mission":
+                        Balloon(game);
+                        MMXCM.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "TY the Tasmanian Tiger":
+                        Balloon(game);
+                        TY.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil 5":
+                        Balloon(game);
+                        RE5.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil 6":
+                        Balloon(game);
+                        RE6.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil":
+                        Balloon(game);
+                        RE.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil Revelations 2":
+                        Balloon(game);
+                        REV2.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Pangya Reborn":
+                        Balloon(game);
+                        PYRE.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    //case "Mega Man Battle Network 6: Cybeast Gregar":
+                    //    Balloon(game);
+                    //    MMBN6G.DoAction();
+                    //    gameUpdater.Stop();
+                    //    break;
+                }
             }
         }
 
