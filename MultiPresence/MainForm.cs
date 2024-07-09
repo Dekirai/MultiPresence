@@ -17,6 +17,8 @@ namespace MultiPresence
             InitializeComponent();
 
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
+            cb_english.Checked = Settings.Default.langEN;
+            cb_german.Checked = Settings.Default.langDE;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -134,11 +136,16 @@ namespace MultiPresence
                         PYRE.DoAction();
                         gameUpdater.Stop();
                         break;
-                    //case "Mega Man Battle Network 6: Cybeast Gregar":
-                    //    Balloon(game);
-                    //    MMBN6G.DoAction();
-                    //    gameUpdater.Stop();
-                    //    break;
+                    case "Mega Man Battle Network 6: Cybeast Gregar":
+                        Balloon(game);
+                        MMBN6G.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Mega Man Battle Network 6: Cybeast Falzar":
+                        Balloon(game);
+                        MMBN6F.DoAction();
+                        gameUpdater.Stop();
+                        break;
                 }
             }
         }
@@ -157,6 +164,28 @@ namespace MultiPresence
             notify.BalloonTipTitle = "System";
             notify.BalloonTipText = $"Keeping track of {text}.";
             notify.ShowBalloonTip(3000);
+        }
+
+        private void cb_english_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_english.Checked == true)
+            {
+                cb_german.Checked = false;
+                Settings.Default.langEN = cb_english.Checked = true;
+                Settings.Default.langDE = cb_german.Checked = false;
+                Settings.Default.Save();
+            }
+        }
+
+        private void cb_german_Click(object sender, EventArgs e)
+        {
+            if (cb_german.Checked == true)
+            {
+                cb_english.Checked = false;
+                Settings.Default.langEN = cb_english.Checked = false;
+                Settings.Default.langDE = cb_german.Checked = true;
+                Settings.Default.Save();
+            }
         }
     }
 }

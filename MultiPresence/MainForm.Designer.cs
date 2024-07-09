@@ -33,6 +33,9 @@
             label1 = new Label();
             notify = new NotifyIcon(components);
             cms = new ContextMenuStrip(components);
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            cb_english = new ToolStripMenuItem();
+            cb_german = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
             btn_Exit = new ToolStripMenuItem();
             cms.SuspendLayout();
@@ -56,9 +59,34 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { cb_DisableNotifications, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Exit });
             cms.Name = "cms";
             cms.Size = new Size(225, 70);
+            // 
+            // languageToolStripMenuItem
+            // 
+            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cb_english, cb_german });
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            languageToolStripMenuItem.Size = new Size(224, 22);
+            languageToolStripMenuItem.Text = "Language";
+            // 
+            // cb_english
+            // 
+            cb_english.Checked = true;
+            cb_english.CheckOnClick = true;
+            cb_english.CheckState = CheckState.Checked;
+            cb_english.Name = "cb_english";
+            cb_english.Size = new Size(180, 22);
+            cb_english.Text = "English";
+            cb_english.CheckedChanged += cb_english_CheckedChanged;
+            // 
+            // cb_german
+            // 
+            cb_german.CheckOnClick = true;
+            cb_german.Name = "cb_german";
+            cb_german.Size = new Size(180, 22);
+            cb_german.Text = "German";
+            cb_german.Click += cb_german_Click;
             // 
             // cb_DisableNotifications
             // 
@@ -98,5 +126,8 @@
         private ContextMenuStrip cms;
         private ToolStripMenuItem btn_Exit;
         private ToolStripMenuItem cb_DisableNotifications;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem cb_english;
+        private ToolStripMenuItem cb_german;
     }
 }

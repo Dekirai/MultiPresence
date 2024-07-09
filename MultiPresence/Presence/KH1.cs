@@ -57,15 +57,11 @@ namespace MultiPresence.Presence
 
                     try
                     {
-                        string json = JSONs.KHI_Locations_RAW;
-                        dynamic jsonData = JsonConvert.DeserializeObject(json);
-
-                        string world = jsonData[world_get.ToString()]["Name"];
-                        string room = jsonData[world_get.ToString()]["Areas"][room_get];
-                        string imagekey = jsonData[world_get.ToString()]["ImageKey"];
-                        discord.UpdateLargeAsset(imagekey, world);
+                        var world = await Worlds.GetWorld(world_get);
+                        var room = await Rooms.GetRoom(world[0]);
+                        discord.UpdateLargeAsset(world[1], world[0]);
                         discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                        discord.UpdateState(room);
+                        discord.UpdateState(room[room_get]);
                     }
                     catch
                     {

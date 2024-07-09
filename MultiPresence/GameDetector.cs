@@ -56,33 +56,40 @@ namespace MultiPresence
                 game = "Sonic Adventure 2";
             else if (game_cemu.Length > 0)
             {
-                await Task.Delay(15000); //Wait 15 Seconds 
                 string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";
 
                 GetCemu();
                 try
                 {
-                    long _gettitleid = (await mem.AoBScan("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B", true)).FirstOrDefault();
-                    _cemu_titleid_address = _gettitleid.ToString("X11");
-                    string _game = mem.ReadString($"{_cemu_titleid_address}");
-
-                    Match match = Regex.Match(_game, pattern);
-                    if (match.Success)
+                    var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
+                    if (title.MainWindowTitle.Contains("TitleId"))
                     {
-                        if (_cemu_foundGame == false)
+                        long _gettitleid = (await mem.AoBScan("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B", true)).FirstOrDefault();
+                        _cemu_titleid_address = _gettitleid.ToString("X11");
+                        string _game = mem.ReadString($"{_cemu_titleid_address}");
+
+                        Match match = Regex.Match(_game, pattern);
+                        if (match.Success)
                         {
-                            string extractedPart = match.Groups[1].Value;
-                            _cemu_titleid = extractedPart;
-                            if (_cemu_titleid.Contains("10143600"))
-                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD EUR
-                            else if (_cemu_titleid.Contains("10143599"))
-                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA Randomizer
-                            else if (_cemu_titleid.Contains("10143500"))
-                                game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA
-                            else if (_cemu_titleid.Contains("1019e600"))
-                                game = "Zelda: Twilight Princess HD"; //Twilight Princess HD
-                            _cemu_foundGame = true;
+                            if (_cemu_foundGame == false)
+                            {
+                                string extractedPart = match.Groups[1].Value;
+                                _cemu_titleid = extractedPart;
+                                if (_cemu_titleid.Contains("10143600"))
+                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD EUR
+                                else if (_cemu_titleid.Contains("10143599"))
+                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA Randomizer
+                                else if (_cemu_titleid.Contains("10143500"))
+                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA
+                                else if (_cemu_titleid.Contains("1019e500"))
+                                    game = "Zelda: Twilight Princess HD"; //Twilight Princess HD USA
+                                else if (_cemu_titleid.Contains("1019e600"))
+                                    game = "Zelda: Twilight Princess HD"; //Twilight Princess HD EUR
+                                _cemu_foundGame = true;
+                            }
                         }
+                        else
+                            _cemu_foundGame = false;
                     }
                     else
                         _cemu_foundGame = false;
@@ -118,6 +125,8 @@ namespace MultiPresence
                 int _game = mem.ReadByte("MMBN_LC2.exe+ABEF0A0");
                 if (_game == 9)
                     game = "Mega Man Battle Network 6: Cybeast Gregar";
+                if (_game == 10)
+                    game = "Mega Man Battle Network 6: Cybeast Falzar";
             }
 
             return game;

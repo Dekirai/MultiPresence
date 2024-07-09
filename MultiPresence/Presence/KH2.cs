@@ -2,7 +2,7 @@
 using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH2;
-using Newtonsoft.Json;
+using MultiPresence.Properties;
 
 namespace MultiPresence.Presence
 {
@@ -11,6 +11,9 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "KINGDOM HEARTS II FINAL MIX";
         private static DiscordRpcClient discord;
+        public static string difficulty = "";
+        public static string[] room = null;
+        public static string[] world = null;
         public static void DoAction()
         {
             GetPID();
@@ -37,23 +40,28 @@ namespace MultiPresence.Presence
                 int room_get = mem.ReadByte($"{process}.exe+717009");
                 int difficulty_get = mem.ReadByte($"{process}.exe+9ABCC8");
                 int level = mem.ReadByte($"{process}.exe+9ABD2F");
-                var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                 try
                 {
-                    string json = JSONs.KHII_Locations_RAW;
-                    dynamic jsonData = JsonConvert.DeserializeObject(json);
-
-                    string world = jsonData[world_get.ToString()]["Name"];
-                    string room = jsonData[world_get.ToString()]["Areas"][room_get];
-                    string imagekey = jsonData[world_get.ToString()]["ImageKey"];
-                    discord.UpdateLargeAsset(imagekey, world);
+                    if (Settings.Default.langDE == true)
+                    {
+                        world = await Worlds.GetWorldDE(world_get);
+                        room = await Rooms.GetRoomDE(world[0]);
+                        difficulty = await Difficulties.GetDifficultyDE(difficulty_get);
+                    }
+                    else
+                    {
+                        world = await Worlds.GetWorld(world_get);
+                        room = await Rooms.GetRoom(world[0]);
+                        difficulty = await Difficulties.GetDifficulty(difficulty_get);
+                    }
+                    discord.UpdateLargeAsset(world[1], world[0]);
                     discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                    discord.UpdateState(room);
+                    discord.UpdateState(room[room_get]);
                 }
                 catch
                 {
-                    discord.UpdateLargeAsset("logo", "Kingdom Hearts II");
+                    discord.UpdateLargeAsset("logo", "Kingdom Hearts II Final Mix");
                     discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
                 }

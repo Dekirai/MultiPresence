@@ -61,21 +61,17 @@ namespace MultiPresence.Presence
 
                         try
                         {
-                            using (WebClient client = new WebClient())
-                            {
-                                string json = client.DownloadString(JSONs.MMXCM_Locations_URL);
+                            string json = JSONs.MMXCM_Locations_RAW;
+                            dynamic jsonData = JsonConvert.DeserializeObject(json);
 
-                                dynamic jsonData = JsonConvert.DeserializeObject(json);
-
-                                string name = jsonData[area_get.ToString()]["Name"];
-                                string area = jsonData[area_get.ToString()]["Areas"][map_get];
-                                discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
-                                if (state == 8)
-                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
-                                else
-                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
-                                discord.UpdateState($"{name}: {area}");
-                            }
+                            string name = jsonData[area_get.ToString()]["Name"];
+                            string area = jsonData[area_get.ToString()]["Areas"][map_get];
+                            discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                            if (state == 8)
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
+                            else
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
+                            discord.UpdateState($"{name}: {area}");
                         }
                         catch
                         {
@@ -98,25 +94,20 @@ namespace MultiPresence.Presence
                         int state = mem.ReadInt($"{eemem}+54f108");
                         int level_x = mem.ReadByte($"{eemem}+54fce0");
 
-                        string url = "https://dekirai.crygod.de/rpc/multipresence/mmxcm/Locations.json";
 
                         try
                         {
-                            using (WebClient client = new WebClient())
-                            {
-                                string json = client.DownloadString(url);
+                            string json = JSONs.MMXCM_Locations_RAW;
+                            dynamic jsonData = JsonConvert.DeserializeObject(json);
 
-                                dynamic jsonData = JsonConvert.DeserializeObject(json);
-
-                                string name = jsonData[area_get.ToString()]["Name"];
-                                string area = jsonData[area_get.ToString()]["Areas"][map_get];
-                                discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
-                                if (state == 8)
-                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
-                                else
-                                    discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
-                                discord.UpdateState($"{name}: {area}");
-                            }
+                            string name = jsonData[area_get.ToString()]["Name"];
+                            string area = jsonData[area_get.ToString()]["Areas"][map_get];
+                            discord.UpdateLargeAsset("logo", $"Mega Man X: Command Mission");
+                            if (state == 8)
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x} (In Battle)");
+                            else
+                                discord.UpdateDetails($"[Chapter {chapter}] X is Level {level_x}");
+                            discord.UpdateState($"{name}: {area}");
                         }
                         catch
                         {

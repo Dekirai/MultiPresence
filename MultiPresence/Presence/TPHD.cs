@@ -69,9 +69,9 @@ namespace MultiPresence.Presence
                 else
                 {
                     if (form == 0)
-                        discord.UpdateLargeAsset("link", "Running around as a Human");
+                        discord.UpdateLargeAsset("link", "In Human Form");
                     else
-                        discord.UpdateLargeAsset("wolf", "Running around as a Wolf");
+                        discord.UpdateLargeAsset("wolf", "In Wolf Form");
                     discord.UpdateDetails($"Health: {hearts}/{hearts_max} ❤️ | Rupees: {rupees}");
                     discord.UpdateState($"{realstage} | Poes: {poes}/60");
                 }

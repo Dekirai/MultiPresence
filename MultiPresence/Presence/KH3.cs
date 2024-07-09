@@ -4,6 +4,7 @@ using Memory;
 using MultiPresence.Models.KH3;
 using MultiPresence.Models.KHIII;
 using Newtonsoft.Json;
+using MultiPresence.Properties;
 
 namespace MultiPresence.Presence
 {
@@ -13,6 +14,9 @@ namespace MultiPresence.Presence
         static string process = "KINGDOM HEARTS III";
         public static string _room_address = "";
         static private DiscordRpcClient discord;
+        public static string difficulty = "";
+        public static string room = null;
+        public static string[] world = null;
         public static async void DoAction()
         {
             await Task.Delay(7500); // Wait 7.5 seconds to make sure that the AoB is actually findable
@@ -41,14 +45,23 @@ namespace MultiPresence.Presence
                 int world_get = mem.ReadByte($"{process}.exe+086D80A0,0x10,0x130,0x30,0x80,0xD0,0x1C0");
                 string room_get = mem.ReadString($"{_room_address}", "", 5);
                 int difficulty_get = mem.ReadByte($"{process}.exe+87ECC8C");
-                var difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                
-                
+                if (Settings.Default.langDE == true)
+                    difficulty = await Difficulties.GetDifficultyDE(difficulty_get);
+                else
+                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                 try
                 {
-                    var room = await Rooms.GetRoom(room_get);
-                    var world = await Worlds.GetWorld(room_get.Split('_')[0]);
+                    if (Settings.Default.langDE == true)
+                    {
+                        room = await Rooms.GetRoomDE(room_get);
+                        world = await Worlds.GetWorldDE(room_get.Split('_')[0]);
+                    }
+                    else
+                    {
+                        room = await Rooms.GetRoom(room_get);
+                        world = await Worlds.GetWorld(room_get.Split('_')[0]);
+                    }
 
                     if (world[0] == "Main Menu")
                     {

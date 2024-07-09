@@ -27,5 +27,31 @@
             }
             return getdifficulty;
         }
+
+        public static async Task<string> GetDifficultyDE(int difficulty)
+        {
+            string getdifficulty;
+
+            switch (difficulty)
+            {
+                case 0:
+                    getdifficulty = "Anfänger";
+                    break;
+                case 1:
+                    getdifficulty = "Normal";
+                    break;
+                case 2:
+                    getdifficulty = "Profi";
+                    break;
+                case 3:
+                    getdifficulty = "Veteran";
+                    break;
+
+                default:
+                    getdifficulty = "Normal";
+                    break;
+            }
+            return getdifficulty;
+        }
     }
 }

@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultiPresence
 {
@@ -17,12 +12,14 @@ namespace MultiPresence
         public bool KingdomHeartsFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts II Final Mix")]
         public bool KingdomHeartsIIFinalMix { get; set; }
-        [JsonProperty("Kingdom Hearts III Final Mix")]
-        public bool KingdomHeartsIIIFinalMix { get; set; }
+        [JsonProperty("Kingdom Hearts III")]
+        public bool KingdomHeartsIII { get; set; }
         [JsonProperty("Mega Man 11")]
         public bool MegaMan11 { get; set; }
         [JsonProperty("Mega Man Battle Network 6: Cybeast Gregar")]
         public bool MegaManBattleNetwork6CybeastGregar { get; set; }
+        [JsonProperty("Mega Man Battle Network 6: Cybeast Falzar")]
+        public bool MegaManBattleNetwork6CybeastFalzar { get; set; }
         [JsonProperty("Mega Man X: Command Mission")]
         public bool MegaManXCommandMission { get; set; }
         [JsonProperty("Pangya Reborn")]
@@ -60,12 +57,14 @@ namespace MultiPresence
                     return KingdomHeartsFinalMix;
                 case "Kingdom Hearts II Final Mix":
                     return KingdomHeartsIIFinalMix;
-                case "Kingdom Hearts III Final Mix":
-                    return KingdomHeartsIIIFinalMix;
+                case "Kingdom Hearts III":
+                    return KingdomHeartsIII;
                 case "Mega Man 11":
                     return MegaMan11;
                 case "Mega Man Battle Network 6: Cybeast Gregar":
                     return MegaManBattleNetwork6CybeastGregar;
+                case "Mega Man Battle Network 6: Cybeast Falzar":
+                    return MegaManBattleNetwork6CybeastFalzar;
                 case "Mega Man X: Command Mission":
                     return MegaManXCommandMission;
                 case "Pangya Reborn":

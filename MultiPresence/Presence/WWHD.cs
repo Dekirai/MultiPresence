@@ -47,7 +47,6 @@ namespace MultiPresence.Presence
                 Array.Reverse(getbytes);
                 int rupees = BitConverter.ToInt16(getbytes, 2);
 
-                //discord.UpdateLargeAsset(stage.ToLower(), $"{realstage}");
                 discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
                 discord.UpdateDetails($"Health: {hearts} ❤ | Rupees: {rupees}");
                 discord.UpdateState($"{realstage}");

@@ -5,7 +5,7 @@ using MultiPresence.Models.MMBN6;
 
 namespace MultiPresence.Presence
 {
-    public class MMBN6G
+    public class MMBN6F
     {
         static Mem mem = new Mem();
         static string process = "MMBN_LC2";
@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1257021467699449866");
+            discord = new DiscordRpcClient("1260222104444473405");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -41,7 +41,7 @@ namespace MultiPresence.Presence
                 int state = mem.ReadByte("80205940");
                 var location = await Areas.GetArea(area_get);
 
-                discord.UpdateLargeAsset($"logo", $"Mega Man Battle Network 6: Cybeast Gregar");
+                discord.UpdateLargeAsset($"logo", $"Mega Man Battle Network 6: Cybeast Falzar");
                 if (state == 12)
                 {
                     discord.UpdateDetails($"HP: {hp_battle}/{maxhp_battle}");
