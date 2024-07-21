@@ -65,7 +65,6 @@ A downloable premade file and a tutorial can be found [here](https://github.com/
 <summary>CEMU</summary>
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />
 </details>
-<details>
 
 The presences are always expected to work on the latest version of the respective game.  
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
