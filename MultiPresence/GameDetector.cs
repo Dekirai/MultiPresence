@@ -14,14 +14,16 @@ namespace MultiPresence
 
         public static async Task<string> GetGameAsync()
         {
+            var game_asw = Process.GetProcessesByName("SoulWorker");
+            var game_cemu = Process.GetProcessesByName("Cemu");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
             var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
-            var game_cemu = Process.GetProcessesByName("Cemu");
-            var game_pcsx2 = Process.GetProcessesByName("pcsx2-qtx64-avx2");
             var game_mm11 = Process.GetProcessesByName("game");
+            var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
+            var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_re = Process.GetProcessesByName("bhd");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
@@ -29,31 +31,17 @@ namespace MultiPresence
             var game_rev2 = Process.GetProcessesByName("rerev2");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_ty = Process.GetProcessesByName("TY");
-            var game_pyre = Process.GetProcessesByName("ProjectG");
-            var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
 
             string game = "";
 
-            if (game_kh1.Length > 0)
-                game = "Kingdom Hearts Final Mix";
-            else if (game_kh2.Length > 0)
-                game = "Kingdom Hearts II Final Mix";
-            else if (game_kh3.Length > 0)
-                game = "Kingdom Hearts III";
-            else if (game_khbbs.Length > 0)
-                game = "Kingdom Hearts Birth by Sleep Final Mix";
-            else if (game_khddd.Length > 0)
-                game = "Kingdom Hearts Dream Drop Distance";
-            else if (game_mm11.Length > 0)
+            if (game_asw.Length > 0)
             {
-                var title = Process.GetProcessesByName("game").FirstOrDefault();
-                if (title.MainWindowTitle.Contains("MEGAMAN11"))
-                    game = "Mega Man 11";
+                var title = Process.GetProcessesByName("SoulWorker").FirstOrDefault();
+                if (title.MainWindowTitle.Contains("asobiSW"))
+                {
+                    game = "AsobiSW";
+                }
             }
-            else if (game_re4.Length > 0)
-                game = "Resident Evil 4 (2005)";
-            else if (game_sa2.Length > 0)
-                game = "Sonic Adventure 2";
             else if (game_cemu.Length > 0)
             {
                 string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";
@@ -99,26 +87,22 @@ namespace MultiPresence
                     _cemu_foundGame = false;
                 }
             }
-            else if (game_pcsx2.Length > 0)
+            else if (game_kh1.Length > 0)
+                game = "Kingdom Hearts Final Mix";
+            else if (game_kh2.Length > 0)
+                game = "Kingdom Hearts II Final Mix";
+            else if (game_kh3.Length > 0)
+                game = "Kingdom Hearts III";
+            else if (game_khbbs.Length > 0)
+                game = "Kingdom Hearts Birth by Sleep Final Mix";
+            else if (game_khddd.Length > 0)
+                game = "Kingdom Hearts Dream Drop Distance";
+            else if (game_mm11.Length > 0)
             {
-                var title = Process.GetProcessesByName("pcsx2-qtx64-avx2").FirstOrDefault();
-                if (title.MainWindowTitle.Contains("Ratchet - Deadlocked"))
-                    game = "Ratchet: Deadlocked";
-                else if (title.MainWindowTitle.Contains("Mega Man X - Command Mission"))
-                    game = "Mega Man X: Command Mission";
+                var title = Process.GetProcessesByName("game").FirstOrDefault();
+                if (title.MainWindowTitle.Contains("MEGAMAN11"))
+                    game = "Mega Man 11";
             }
-            else if (game_ty.Length > 0)
-                game = "TY the Tasmanian Tiger";
-            else if (game_re5.Length > 0)
-                game = "Resident Evil 5";
-            else if (game_re6.Length > 0)
-                game = "Resident Evil 6";
-            else if (game_re.Length > 0)
-                game = "Resident Evil";
-            else if (game_rev2.Length > 0)
-                game = "Resident Evil Revelations 2";
-            else if (game_pyre.Length > 0)
-                game = "Pangya Reborn";
             else if (game_mmbn6g.Length > 0)
             {
                 GetMMBNLC2();
@@ -128,6 +112,22 @@ namespace MultiPresence
                 if (_game == 10)
                     game = "Mega Man Battle Network 6: Cybeast Falzar";
             }
+            else if (game_pyre.Length > 0)
+                game = "Pangya Reborn";
+            else if (game_re.Length > 0)
+                game = "Resident Evil";
+            else if (game_re4.Length > 0)
+                game = "Resident Evil 4 (2005)";
+            else if (game_re5.Length > 0)
+                game = "Resident Evil 5";
+            else if (game_re6.Length > 0)
+                game = "Resident Evil 6";
+            else if (game_rev2.Length > 0)
+                game = "Resident Evil Revelations 2";
+            else if (game_sa2.Length > 0)
+                game = "Sonic Adventure 2";
+            else if (game_ty.Length > 0)
+                game = "TY the Tasmanian Tiger";
 
             return game;
         }

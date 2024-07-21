@@ -9,10 +9,12 @@
             switch (world)
             {
                 case "bt":
+                case "bt_DLC":
                     getworld.Add("Scala ad Caelum");
                     getworld.Add("scala");
                     break;
                 case "dw":
+                case "dw_DLC":
                     getworld.Add("Dark World");
                     getworld.Add("darkworld");
                     break;
@@ -53,6 +55,7 @@
                     getworld.Add("tower");
                     break;
                 case "kg":
+                case "kg_DLC":
                     getworld.Add("Keyblade Graveyard");
                     getworld.Add("graveyard");
                     break;
@@ -108,10 +111,12 @@
             switch (world)
             {
                 case "bt":
+                case "bt_DLC":
                     getworld.Add("Scala ad Caelum");
                     getworld.Add("scala");
                     break;
                 case "dw":
+                case "dw_DLC":
                     getworld.Add("Das Reich der Dunkelheit");
                     getworld.Add("darkworld");
                     break;
@@ -152,15 +157,20 @@
                     getworld.Add("tower");
                     break;
                 case "kg":
-                    getworld.Add("Schlüsselschwertfriedhof");
+                case "kg_DLC":
+                    getworld.Add("Der Schlüsselschwertfriedhof");
                     getworld.Add("graveyard");
+                    break;
+                case "ex":
+                    getworld.Add("Kampftor");
+                    getworld.Add("battlegates");
                     break;
                 case "bx":
                     getworld.Add("San Fransokyo");
                     getworld.Add("sanfransokyo");
                     break;
                 case "ew":
-                    getworld.Add("The Final World");
+                    getworld.Add("Die letzte Welt");
                     getworld.Add("finalworld");
                     break;
                 case "di":

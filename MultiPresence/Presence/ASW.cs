@@ -1,25 +1,22 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Text;
+using System.Text.RegularExpressions;
 using DiscordRPC;
 using Memory;
-using MultiPresence.Models.RDL;
-using System.Runtime.InteropServices;
+using MultiPresence.Models.ASW;
 
 namespace MultiPresence.Presence
 {
-    public class RDL
+    public class ASW
     {
         static Mem mem = new Mem();
-        static string process = "pcsx2-qtx64-avx2";
+        static string process = "SoulWorker";
         private static DiscordRpcClient discord;
-
-        [DllImport("GetProcAddressEx.dll")]
-        private static extern IntPtr GetEEMem();
-
         public static async void DoAction()
         {
-            await Task.Delay(3000);
             GetPID();
-            discord = new DiscordRpcClient("1067138479814877265");
+            discord = new DiscordRpcClient("1264599106521927690");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
             thread.Start();
@@ -38,16 +35,23 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                GetPID();
-                string eemem = $"0x{GetEEMem():X}";
-
-                var bolts = mem.ReadInt($"{eemem}+171b40");
-                var weapon = await Weapons.GetWeapon(mem.ReadByte($"{eemem}+0x171b67"));
-                var difficulty = mem.ReadByte($"{eemem}+21df64");
-
-                discord.UpdateLargeAsset("https://dekirai.crygod.de/rpc/multipresence/rdl/logo.png", $"Ratchet: Deadlocked");
-                discord.UpdateDetails($"🔫{weapon} - 🔩{bolts}");
-                discord.UpdateState($"Difficulty: Couch Potato");
+                int level = mem.ReadByte($"{process}.exe+1792A28");
+                byte[] nickname_base = mem.ReadBytes($"{process}.exe+16E2008", 24);
+                string nickname = Encoding.Unicode.GetString(nickname_base);
+                int character = mem.ReadByte($"{process}.exe+1792A2C");
+                var character_name = await Characters.GetCharacter(character);
+                if (character == 255 || level == 0)
+                {
+                    discord.UpdateLargeAsset($"logo", $"asobiSW");
+                    discord.UpdateDetails($"In Main Menu");
+                    discord.UpdateState($"");
+                }
+                else
+                {
+                    discord.UpdateLargeAsset($"{character_name[1]}", $"asobiSW");
+                    discord.UpdateDetails($"{nickname} (Lv. {level})");
+                    discord.UpdateState($"Playing as {character_name[0]}");
+                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

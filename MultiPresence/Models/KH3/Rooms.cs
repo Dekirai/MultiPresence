@@ -186,6 +186,8 @@
                     getroom = "Battlegate 0 - Keyblade Graveyard";
                     break;
                 case "fz_01":
+                case "fz_04":
+                case "fz_05":
                     getroom = "The North Mountain";
                     break;
                 case "fz_02":
@@ -194,16 +196,12 @@
                 case "fz_03":
                     getroom = "Trinity Sled Minigame";
                     break;
-                case "fz_04":
-                    getroom = "???";
-                    break;
-                case "fz_05":
-                    getroom = "???";
-                    break;
                 case "fz_06":
                     getroom = "Sköl Fight";
                     break;
                 case "kg_01":
+                    getroom = "???";
+                    break;
                 case "kg_02":
                 case "kg_03":
                 case "kg_04":
@@ -234,10 +232,12 @@
                     getroom = "Outside the Factory";
                     break;
                 case "po_01":
+                    getroom = "Rabbid's House";
+                    break;
                 case "po_02":
                 case "po_03":
                 case "po_04":
-                    getroom = "???";
+                    getroom = "Minigame";
                     break;
                 case "ra_01":
                     getroom = "The Forest";
@@ -306,7 +306,7 @@
                     getroom = "???";
                     break;
                 case "ss_01":
-                    getroom = "Yozora Fight";
+                    getroom = "Quadratum";
                     break;
                 case "ss_50":
                     getroom = "Cutscene";
@@ -327,7 +327,7 @@
                     getroom = "UFO Battle Arena";
                     break;
                 case "yt_50":
-                    getroom = "Cutscene";
+                    getroom = "Sorcerer's Loft";
                     break;
 
                 default:
@@ -350,7 +350,7 @@
                     getroom = "Gummi - Nebelfluss";
                     break;
                 case "gm_03":
-                    getroom = "Gummi - Eclipse Galaxy";
+                    getroom = "Gummi - Die Eklipse";
                     break;
                 case "gm_50":
                     getroom = "Cutscene";
@@ -392,46 +392,46 @@
                     getroom = "Cutscene";
                     break;
                 case "bt_01":
-                    getroom = "The Stairway to the Sky";
+                    getroom = "Die Himmelstreppe";
                     break;
                 case "bt_02":
-                    getroom = "The Stairway to the Sky - Deformed";
+                    getroom = "Die Himmelstreppe - Deformiert";
                     break;
                 case "bt_03":
-                    getroom = "The Stairway to the Sky - Underwater";
+                    getroom = "Die Himmelstreppe - Unter Wasser";
                     break;
                 case "bt_04":
-                    getroom = "The Stairway to the Sky - Destroyed";
+                    getroom = "Die Himmelstreppe - Zerstört";
                     break;
                 case "bt_07":
-                    getroom = "Breezy Quarter";
+                    getroom = "Das Windviertel";
                     break;
                 case "bt_08":
-                    getroom = "The Stairway to the Sky";
+                    getroom = "Die Himmelstreppe";
                     break;
                 case "bt_50":
-                    getroom = "Chess Room";
+                    getroom = "Schach Raum";
                     break;
                 case "bt_51":
                     getroom = "Intro";
                     break;
                 case "bx_01":
-                    getroom = "The Bridge";
+                    getroom = "Die Brücke";
                     break;
                 case "bx_02":
-                    getroom = "The City";
+                    getroom = "Die Stadt";
                     break;
                 case "bx_03":
-                    getroom = "Hiro's Garage";
+                    getroom = "Hiros Garage";
                     break;
                 case "ca_01":
                     getroom = "Port Royal";
                     break;
                 case "ca_02":
-                    getroom = "The High Seas";
+                    getroom = "Die Hohe See";
                     break;
                 case "ca_03":
-                    getroom = "Under the sea";
+                    getroom = "Unter dem See";
                     break;
                 case "ca_04":
                     getroom = "Davy Jones' Locker";
@@ -447,7 +447,7 @@
                     break;
                 case "dp_01":
                 case "dp_50":
-                    getroom = "Land of Departure";
+                    getroom = "Land des Aufbruchs";
                     break;
                 case "dw_21":
                 case "dw_22":
@@ -458,36 +458,52 @@
                 case "ew_02":
                 case "ew_03":
                 case "ew_04":
+                    getroom = "Die finale Welt";
+                    break;
                 case "ew_21":
+                    getroom = "Reich der Götter";
+                    break;
                 case "ew_22":
+                    getroom = "Der Wald";
+                    break;
                 case "ew_23":
+                    getroom = "Die Monster AG";
+                    break;
                 case "ew_24":
+                    getroom = "Galaxy Toys";
+                    break;
                 case "ew_25":
+                    getroom = "Das Eislabyrinth";
+                    break;
                 case "ew_26":
+                    getroom = "Die Hohe See";
+                    break;
                 case "ew_27":
+                    getroom = "Die Stadt";
+                    break;
                 case "ew_28":
-                    getroom = "The Final World";
+                    getroom = "Ort des Erwachens";
                     break;
                 case "ex_21":
-                    getroom = "Battlegate 1 - Olympus";
+                    getroom = "Kampftor 1 - Olymp";
                     break;
                 case "ex_22":
-                    getroom = "Battlegate 2 - Olympus";
+                    getroom = "Kampftor 2 - Olymp";
                     break;
                 case "ex_23":
-                    getroom = "Battlegate 3 - Twilight Town";
+                    getroom = "Kampftor 3 - Twilight Town";
                     break;
                 case "ex_24":
-                    getroom = "Battlegate 4 - Toy Box";
+                    getroom = "Kampftor 4 - Spielzeugkiste";
                     break;
                 case "ex_25":
-                    getroom = "Battlegate 5 - Toy Box";
+                    getroom = "Kampftor 5 - Spielzeugkiste";
                     break;
                 case "ex_26":
-                    getroom = "Battlegate 6 - Kingdom of Corona";
+                    getroom = "Kampftor 6 - Königreich von Corona";
                     break;
                 case "ex_27":
-                    getroom = "Battlegate 7 - Kingdom of Corona";
+                    getroom = "Kampftor 7 - Königreich von Corona";
                     break;
                 case "ex_28":
                 case "ex_30":
@@ -497,52 +513,54 @@
                     getroom = "Unused Battlegate";
                     break;
                 case "ex_29":
-                    getroom = "Battlegate 8 - Monstropolis";
+                    getroom = "Kampftor 8 - Monstropolis";
                     break;
                 case "ex_31":
-                    getroom = "Battlegate 9 - Arendelle";
+                    getroom = "Kampftor 9 - Arendelle";
                     break;
                 case "ex_33":
-                    getroom = "Battlegate 10 - Caribbean";
+                    getroom = "Kampftor 10 - Die Karibik";
                     break;
                 case "ex_34":
-                    getroom = "Battlegate 11 - San Fransokyo";
+                    getroom = "Kampftor 11 - San Fransokyo";
                     break;
                 case "ex_35":
-                    getroom = "Battlegate 12 - San Fransokyo";
+                    getroom = "Kampftor 12 - San Fransokyo";
                     break;
                 case "ex_37":
-                    getroom = "Battlegate 13 - Keyblade Graveyard";
+                    getroom = "Kampftor 13 - Der Schlüsselschwertfriedhof";
                     break;
                 case "ex_38":
-                    getroom = "Battlegate 14 - Keyblade Graveyard";
+                    getroom = "Kampftor 14 - Der Schlüsselschwertfriedhof";
                     break;
                 case "ex_39":
-                    getroom = "Battlegate 0 - Keyblade Graveyard";
+                    getroom = "Kampftor 0 - Der Schlüsselschwertfriedhof";
                     break;
                 case "fz_01":
-                    getroom = "The North Mountain";
+                case "fz_04":
+                case "fz_05":
+                    getroom = "Der Nordberg";
                     break;
                 case "fz_02":
-                    getroom = "The Labyrinth of Ice";
+                    getroom = "Das Eislabyrinth";
                     break;
                 case "fz_03":
                     getroom = "Trinity Sled Minigame";
-                    break;
-                case "fz_04":
-                    getroom = "???";
-                    break;
-                case "fz_05":
-                    getroom = "???";
                     break;
                 case "fz_06":
                     getroom = "Sköl Fight";
                     break;
                 case "kg_01":
+                    getroom = "Das Ödland";
+                    break;
                 case "kg_02":
+                    getroom = "Der Irrgang des Erlöschens";
+                    break;
+                case "kg_05":
+                    getroom = "Der Irrgang des Erlöschens";
+                    break;
                 case "kg_03":
                 case "kg_04":
-                case "kg_05":
                 case "kg_06":
                 case "kg_07":
                 case "kg_08":
@@ -572,9 +590,13 @@
                     getroom = "Rabbits Haus";
                     break;
                 case "po_02":
+                    getroom = "Minigame";
+                    break;
                 case "po_03":
+                    getroom = "Minigame";
+                    break;
                 case "po_04":
-                    getroom = "???";
+                    getroom = "Minigame";
                     break;
                 case "ra_01":
                     getroom = "Der Wald";
@@ -625,7 +647,7 @@
                     getroom = "Daten-Kampf - Vanitas";
                     break;
                 case "rg_21":
-                    getroom = "Daten-Kampf - Young Xehanort";
+                    getroom = "Daten-Kampf - Junger Xehanort";
                     break;
                 case "rg_22":
                     getroom = "Daten-Kampf - Xion";
@@ -643,7 +665,7 @@
                     getroom = "???";
                     break;
                 case "ss_01":
-                    getroom = "Yozora Fight";
+                    getroom = "Quadratum";
                     break;
                 case "ss_50":
                     getroom = "Cutscene";
@@ -664,7 +686,7 @@
                     getroom = "UFO Battle Arena";
                     break;
                 case "yt_50":
-                    getroom = "Cutscene";
+                    getroom = "Studierstube des Zauberers";
                     break;
 
                 default:

@@ -40,6 +40,7 @@ A downloable premade file and a tutorial can be found [here](https://github.com/
 ## Supported games
 |Game|Platform|Updated|Information|
 |--|--|--|--|
+|[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)|21/07/2024| |
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|24/06/2024|Only works on Steam|
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|09/07/2024|Only works on Steam|
@@ -47,9 +48,7 @@ A downloable premade file and a tutorial can be found [here](https://github.com/
 |[Kingdom Hearts III*](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|09/07/2024|Only works on Steam|
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |
 |[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)|09/07/2024| |
-|[Mega Man X: Command Mission](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Mega_Man_X:_Command_Mission)|09/07/2024|Works on PAL & USA|
 |[Pangya Reborn](https://github.com/Dekirai/MultiPresence/wiki/Pangya-Reborn)|[Private Server](https://www.pangyareborn.com/)|14/04/2024| |
-|[Ratchet: Deadlocked](https://github.com/Dekirai/MultiPresence)|[PCSX2 AVX2 QT](https://wiki.pcsx2.net/Ratchet:_Deadlocked)|25/01/2023|Works only on USA|
 |[Resident Evil](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil)|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)|28/02/2024| |
 |[Resident Evil 4 (2005)*](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|28/02/2024| |
 |[Resident Evil 5](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-5)|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)|27/02/2024| |
@@ -67,12 +66,6 @@ A downloable premade file and a tutorial can be found [here](https://github.com/
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />
 </details>
 <details>
-<summary>PCSX2</summary>
-MultiPresence trys to fetch the current game from the Window title, so make sure it has access to it.<br />
-You have to disable the "Discord Presence" option found in Settings -> Interface<br />
-You have to disable the "Render to Separate Window" option found in Settings -> Interface<br />
-Make sure to download GetProcAddressEx.dll aswell and place it in the same directory as MultiPresence.exe<br />
-</details>
 
 The presences are always expected to work on the latest version of the respective game.  
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  

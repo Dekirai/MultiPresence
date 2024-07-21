@@ -46,6 +46,11 @@ namespace MultiPresence
             {
                 switch (game)
                 {
+                    case "AsobiSW":
+                        Balloon(game);
+                        ASW.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Kingdom Hearts Final Mix":
                         Balloon(game);
                         KH1.DoAction();
@@ -94,16 +99,6 @@ namespace MultiPresence
                     case "Zelda: Twilight Princess HD":
                         Balloon(game);
                         TPHD.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Ratchet: Deadlocked":
-                        Balloon(game);
-                        RDL.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Mega Man X: Command Mission":
-                        Balloon(game);
-                        MMXCM.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "TY the Tasmanian Tiger":

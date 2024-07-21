@@ -4,6 +4,8 @@ namespace MultiPresence
 {
     public class Blacklist
     {
+        [JsonProperty("AsobiSW")]
+        public bool AsobiSW {  get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts Dream Drop Distance")]
@@ -20,12 +22,8 @@ namespace MultiPresence
         public bool MegaManBattleNetwork6CybeastGregar { get; set; }
         [JsonProperty("Mega Man Battle Network 6: Cybeast Falzar")]
         public bool MegaManBattleNetwork6CybeastFalzar { get; set; }
-        [JsonProperty("Mega Man X: Command Mission")]
-        public bool MegaManXCommandMission { get; set; }
         [JsonProperty("Pangya Reborn")]
         public bool PangyaReborn { get; set; }
-        [JsonProperty("Ratchet: Deadlocked")]
-        public bool RatchetDeadlocked { get; set; }
         [JsonProperty("Resident Evil")]
         public bool ResidentEvil { get; set; }
         [JsonProperty("Resident Evil 4 (2005)")]
@@ -49,6 +47,8 @@ namespace MultiPresence
         {
             switch (gameTitle)
             {
+                case "AsobiSW":
+                    return AsobiSW;
                 case "Kingdom Hearts Birth by Sleep Final Mix":
                     return KingdomHeartsBirthBySleepFinalMix;
                 case "Kingdom Hearts Dream Drop Distance":
@@ -65,12 +65,8 @@ namespace MultiPresence
                     return MegaManBattleNetwork6CybeastGregar;
                 case "Mega Man Battle Network 6: Cybeast Falzar":
                     return MegaManBattleNetwork6CybeastFalzar;
-                case "Mega Man X: Command Mission":
-                    return MegaManXCommandMission;
                 case "Pangya Reborn":
                     return PangyaReborn;
-                case "Ratchet: Deadlocked":
-                    return RatchetDeadlocked;
                 case "Resident Evil":
                     return ResidentEvil;
                 case "Resident Evil 4 (2005)":
