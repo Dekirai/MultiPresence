@@ -66,6 +66,8 @@ A downloable premade file and a tutorial can be found [here](https://github.com/
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />
 </details>
 
+If you are interested in which game supports english and/or german language, you can check it [here](https://github.com/Dekirai/MultiPresence/wiki/Translation).  
+
 The presences are always expected to work on the latest version of the respective game.  
 Games on lower versions are never supported on purpose. It will always use the very latest version from their game store.  
 If a game receives a patch, I'll try my best to update it's presence as quickly as possible if needed.       
