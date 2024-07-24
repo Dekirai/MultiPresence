@@ -72,6 +72,7 @@
                     getworld.Add("destinyislands");
                     break;
                 case "rg":
+                case "rg_DLC":
                     getworld.Add("Radiant Garden");
                     getworld.Add("radiantgarden");
                     break;
@@ -80,6 +81,7 @@
                     getworld.Add("departure");
                     break;
                 case "ss":
+                case "ss_DLC":
                     getworld.Add("Shibuya");
                     getworld.Add("logo");
                     break;
@@ -178,6 +180,7 @@
                     getworld.Add("destinyislands");
                     break;
                 case "rg":
+                case "rg_DLC":
                     getworld.Add("Radiant Garden");
                     getworld.Add("radiantgarden");
                     break;
@@ -186,6 +189,7 @@
                     getworld.Add("departure");
                     break;
                 case "ss":
+                case "ss_DLC":
                     getworld.Add("Shibuya");
                     getworld.Add("logo");
                     break;

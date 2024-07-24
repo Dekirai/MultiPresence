@@ -199,15 +199,15 @@
                 case "fz_06":
                     getroom = "Sköl Fight";
                     break;
-                case "kg_01":
-                    getroom = "???";
+                case "kg_06":
+                case "kg_07":
+                    getroom = "In the Sky";
                     break;
+                case "kg_01":
                 case "kg_02":
                 case "kg_03":
                 case "kg_04":
                 case "kg_05":
-                case "kg_06":
-                case "kg_07":
                 case "kg_08":
                     getroom = "???";
                     break;
@@ -559,10 +559,12 @@
                 case "kg_05":
                     getroom = "Der Irrgang des Erlöschens";
                     break;
-                case "kg_03":
-                case "kg_04":
                 case "kg_06":
                 case "kg_07":
+                    getroom = "Im Himmel";
+                    break;
+                case "kg_03":
+                case "kg_04":
                 case "kg_08":
                     getroom = "???";
                     break;
