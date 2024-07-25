@@ -38,26 +38,26 @@ As of version 1.6.0, you can use a file called "blacklist.json" to block games.
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
  
 ## Supported games
-|Game|Platform|Updated|Information|
-|--|--|--|--|
-|[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)|21/07/2024| |
-|[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|23/06/2024|Only works on Steam|
-|[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|24/06/2024|Only works on Steam|
-|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|09/07/2024|Only works on Steam|
-|[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|09/07/2024|Only works on Steam|
-|[Kingdom Hearts III¹](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|09/07/2024|Only works on Steam|
-|[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)|03/06/2022| |
-|[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)|09/07/2024| |
-|[Pangya Reborn](https://github.com/Dekirai/MultiPresence/wiki/Pangya-Reborn)|[Private Server](https://www.pangyareborn.com/)|14/04/2024| |
-|[Resident Evil](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil)|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)|28/02/2024| |
-|[Resident Evil 4 (2005)¹](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|28/02/2024| |
-|[Resident Evil 5](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-5)|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)|27/02/2024| |
-|[Resident Evil 6](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-6)|[Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)|28/02/2024| |
-|[Resident Evil Revelations 2](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-Revelations-2)|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|06/03/2024|Raid Mode only|
-|[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)|04/06/2022| |
-|[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)|04/06/2022| |
-|[Zelda: The Wind Waker HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind_Waker_HD)|30/06/2024|Works on EUR and USA|
-|[Zelda: Twilight Princess HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|09/07/2024|Works on EUR and USA|
+|Game|Platform|Information|
+|--|--|--|
+|[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)| |
+|[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|Only works on Steam|
+|[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)|Only works on Steam|
+|[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|Only works on Steam|
+|[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)|Only works on Steam|
+|[Kingdom Hearts III¹](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)|Only works on Steam|
+|[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)| |
+|[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)| |
+|[Pangya Reborn](https://github.com/Dekirai/MultiPresence/wiki/Pangya-Reborn)|[Private Server](https://www.pangyareborn.com/)| |
+|[Resident Evil](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil)|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
+|[Resident Evil 4 (2005)¹](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)| |
+|[Resident Evil 5](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-5)|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)| |
+|[Resident Evil 6](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-6)|[Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)| |
+|[Resident Evil Revelations 2](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-Revelations-2)|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
+|[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
+|[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
+|[Zelda: The Wind Waker HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind_Waker_HD)|Works on EUR and USA|
+|[Zelda: Twilight Princess HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|Works on EUR and USA|
 
 ## Information
 ¹: Requires pattern search.
@@ -74,5 +74,4 @@ The presences are always expected to work on the latest version of the game.
 Games on lower versions will never be supported. They will always use the latest version from their game store.  
 If a game receives a patch, I'll do my best to update it as soon as possible.       
 
-Clicking on a game's name will take you to it's wiki, which contains all the features and previews.  
-The date format for updates is **dd/mm/yyyy**.   
+Clicking on a game's name will take you to it's wiki, which contains all the features and previews.
