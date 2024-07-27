@@ -2,6 +2,7 @@
 using DiscordRPC;
 using Memory;
 using MultiPresence.Models.TY;
+using MultiPresence.Properties;
 
 namespace MultiPresence.Presence
 {
@@ -10,6 +11,7 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "TY";
         private static DiscordRpcClient discord;
+        public static string[] levelvalue = null;
         public static async void DoAction()
         {
             GetPID();
@@ -34,8 +36,12 @@ namespace MultiPresence.Presence
             {
                 int health = mem.ReadByte("TY.exe+2737CC");
                 int level = mem.ReadByte("TY.exe+28903C");
-                var levelvalue = await Levels.GetLevel(level);
                 int opals = mem.ReadByte("TY.exe+2888B0");
+
+                if (Settings.Default.langDE == true)
+                    levelvalue = await Levels.GetLevelDE(level);
+                else
+                    levelvalue = await Levels.GetLevel(level);
 
                 discord.UpdateLargeAsset($"logo", $"TY the Tasmanian Tiger");
                 if (level == 4 || level == 5 || level == 6 || level == 8 || level == 9 || level == 10 || level == 12 || level == 13 || level == 14)

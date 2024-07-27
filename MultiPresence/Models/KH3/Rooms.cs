@@ -9,13 +9,13 @@
             switch (room)
             {
                 case "gm_01":
-                    getroom = "Gummi - Starlight Way";
+                    getroom = "Starlight Way";
                     break;
                 case "gm_02":
-                    getroom = "Gummi - Misty Stream";
+                    getroom = "Misty Stream";
                     break;
                 case "gm_03":
-                    getroom = "Gummi - Eclipse Galaxy";
+                    getroom = "Eclipse Galaxy";
                     break;
                 case "gm_50":
                     getroom = "Cutscene";
@@ -282,7 +282,7 @@
                     getroom = "Data Battle - Terranort";
                     break;
                 case "rg_19":
-                    getroom = "Data Battle - Riku";
+                    getroom = "Data Battle - Dark Riku";
                     break;
                 case "rg_20":
                     getroom = "Data Battle - Vanitas";
@@ -344,13 +344,13 @@
             switch (room)
             {
                 case "gm_01":
-                    getroom = "Gummi - Sternenlichtpfad";
+                    getroom = "Sternenlichtpfad";
                     break;
                 case "gm_02":
-                    getroom = "Gummi - Nebelfluss";
+                    getroom = "Nebelfluss";
                     break;
                 case "gm_03":
-                    getroom = "Gummi - Die Eklipse";
+                    getroom = "Die Eklipse";
                     break;
                 case "gm_50":
                     getroom = "Cutscene";
@@ -545,7 +545,7 @@
                     getroom = "Das Eislabyrinth";
                     break;
                 case "fz_03":
-                    getroom = "Trinity Sled Minigame";
+                    getroom = "Frostige Talfahrt";
                     break;
                 case "fz_06":
                     getroom = "Sköl Fight";
@@ -643,7 +643,7 @@
                     getroom = "Daten-Kampf - Terranort";
                     break;
                 case "rg_19":
-                    getroom = "Daten-Kampf - Riku";
+                    getroom = "Daten-Kampf - Dunkler Riku";
                     break;
                 case "rg_20":
                     getroom = "Daten-Kampf - Vanitas";
