@@ -348,15 +348,15 @@
                     getstage.Add("Schuppen der Erleuchtung");
                     break;
                 case 2: //Castle Part
-                    getstage.Add("Weg zum Schloss");
+                    getstage.Add("Weg zur Burg");
                     getstage.Add("Großer Saal");
-                    getstage.Add("Burgwälle");
-                    getstage.Add("Schlosstor");
-                    getstage.Add("Großer Saal");
+                    getstage.Add("Burgwall");
+                    getstage.Add("Burgtor");
+                    getstage.Add("Große Halle");
                     getstage.Add("Gefängnis"); //Room 5
                     getstage.Add("Theatersall");
                     getstage.Add("Eingangshalle");
-                    getstage.Add("Anbetungshalle");
+                    getstage.Add("Halle der Verehrung");
                     getstage.Add("Gallerie");
                     getstage.Add("Burgmauer"); //Room 10
                     getstage.Add("Schlafzimmer Garten");
@@ -451,7 +451,7 @@
                 case 4: //Mercenaries & Assignment Ada
                     getstage.Add("Pueblo");
                     getstage.Add("");
-                    getstage.Add("Burgwälle");
+                    getstage.Add("Burgwall");
                     getstage.Add("Militärische Gründe");
                     getstage.Add("Die Docks");
                     getstage.Add("Äußere Festung"); //Room 5
