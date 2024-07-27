@@ -23,6 +23,8 @@ namespace MultiPresence
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
             var game_mm11 = Process.GetProcessesByName("game");
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
+            var game_msmmm = Process.GetProcessesByName("MilesMorales");
+            var game_msmr = Process.GetProcessesByName("Spider-Man");
             var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_re = Process.GetProcessesByName("bhd");
             var game_re4 = Process.GetProcessesByName("bio4");
@@ -112,6 +114,10 @@ namespace MultiPresence
                 if (_game == 10)
                     game = "Mega Man Battle Network 6: Cybeast Falzar";
             }
+            else if (game_msmmm.Length > 0)
+                game = "Marvel's Spider-Man: Miles Morales";
+            else if (game_msmr.Length > 0)
+                game = "Marvel's Spider-Man Remastered";
             else if (game_pyre.Length > 0)
                 game = "Pangya Reborn";
             else if (game_re.Length > 0)

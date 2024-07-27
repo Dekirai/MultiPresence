@@ -16,6 +16,10 @@ namespace MultiPresence
         public bool KingdomHeartsIIFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts III")]
         public bool KingdomHeartsIII { get; set; }
+        [JsonProperty("Marvel's Spider-Man Remastered")]
+        public bool MarvelsSpiderManRemastered { get; set; }
+        [JsonProperty("Marvel's Spider-Man: Miles Morales")]
+        public bool MarvelsSpiderManMilesMorales { get; set; }
         [JsonProperty("Mega Man 11")]
         public bool MegaMan11 { get; set; }
         [JsonProperty("Mega Man Battle Network 6: Cybeast Gregar")]

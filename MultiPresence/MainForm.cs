@@ -131,6 +131,16 @@ namespace MultiPresence
                         PYRE.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Marvel's Spider-Man Remastered":
+                        Balloon(game);
+                        MSMR.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Marvel's Spider-Man: Miles Morales":
+                        Balloon(game);
+                        MSMMMM.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Mega Man Battle Network 6: Cybeast Gregar":
                         Balloon(game);
                         MMBN6G.DoAction();
