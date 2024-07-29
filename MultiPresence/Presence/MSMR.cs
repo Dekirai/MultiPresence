@@ -13,11 +13,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "Spider-Man";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1266485584822796331");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -42,15 +44,24 @@ namespace MultiPresence.Presence
                 var location = await Locations.GetLocations(location_get);
                 int health = (int)Math.Floor(health_get);
 
+                var placeholders = new Dictionary<string, object>
+                {
+                    { "level", level },
+                    { "health", health },
+                    { "location", location }
+                };
+
                 if (health > 0)
                 {
-                    discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man: Miles Morales");
-                    discord.UpdateDetails($"Health: {health} (Level {level})");
-                    discord.UpdateState($"Swinging in {location}");
+                    discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man Remastered");
+                    string details = updater.UpdateDetails("Marvel's Spider-Man Remastered", placeholders, "Default");
+                    string state = updater.UpdateState("Marvel's Spider-Man Remastered", placeholders, "Default");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else
                 {
-                    discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man: Miles Morales");
+                    discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man Remastered");
                     discord.UpdateDetails("Loading...");
                     discord.UpdateState("");
                 }

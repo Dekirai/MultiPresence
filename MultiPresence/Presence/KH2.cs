@@ -11,6 +11,7 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "KINGDOM HEARTS II FINAL MIX";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static string difficulty = "";
         public static string[] room = null;
         public static string[] world = null;
@@ -19,6 +20,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("826145131152408625");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -55,9 +57,20 @@ namespace MultiPresence.Presence
                         room = await Rooms.GetRoom(world[0]);
                         difficulty = await Difficulties.GetDifficulty(difficulty_get);
                     }
+
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "room", room[room_get] },
+                        { "world", world },
+                        { "difficulty", difficulty }
+                    };
+
                     discord.UpdateLargeAsset(world[1], world[0]);
-                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
-                    discord.UpdateState(room[room_get]);
+                    string details = updater.UpdateDetails("Kingdom Hearts II Final Mix", placeholders);
+                    string state = updater.UpdateState("Kingdom Hearts II Final Mix", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 catch
                 {

@@ -2,6 +2,7 @@
 using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KHDDD;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MultiPresence.Presence
 {
@@ -10,11 +11,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "KINGDOM HEARTS Dream Drop Distance";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("906904369151213629");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -51,14 +54,29 @@ namespace MultiPresence.Presence
                 
                 try
                 {
-                    discord.UpdateState($"{room[room_get]}");
-                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "room", room[room_get] },
+                        { "world", world },
+                        { "difficulty", difficulty }
+                    };
+                    string details = updater.UpdateDetails("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string state = updater.UpdateState("Kingdom Hearts Dream Drop Distance", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                     discord.UpdateSmallAsset($"{character_get}", $"Playing as {character}");
                 }
                 catch
                 {
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "difficulty", difficulty }
+                    };
+                    string details = updater.UpdateDetails("Kingdom Hearts Dream Drop Distance", placeholders);
+                    discord.UpdateDetails(details);
                     discord.UpdateState($"{room[0]}");
-                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
                     discord.UpdateSmallAsset($"", $"");
                 }
 

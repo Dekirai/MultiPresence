@@ -10,11 +10,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "KINGDOM HEARTS Birth by Sleep FINAL MIX";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("839545395368820806");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -46,8 +48,17 @@ namespace MultiPresence.Presence
                 {
                     discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
                     discord.UpdateSmallAsset($"{character.ToLower()}", $"Playing as {character}");
-                    discord.UpdateState($"{room[room_get]}");
-                    discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "room", room[room_get] },
+                        { "world", world },
+                        { "difficulty", difficulty }
+                    };
+                    string details = updater.UpdateDetails("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    string state = updater.UpdateState("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 catch
                 {

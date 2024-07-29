@@ -11,6 +11,7 @@ namespace MultiPresence.Presence
         static string process = "bio4";
         public static string _main_address = "";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             await Task.Delay(7500);
@@ -19,6 +20,7 @@ namespace MultiPresence.Presence
             _main_address = main_get.ToString("X8");
             discord = new DiscordRpcClient("982193093388427314");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -58,12 +60,25 @@ namespace MultiPresence.Presence
                 if (stage == 3)
                     area = "Island";
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "room", room_name[room] },
+                        { "chapter", chapter_name },
+                        { "area", area },
+                        { "difficulty", difficulty_name },
+                        { "weapon", weapon_name },
+                        { "character", character_name },
+                        { "score", score},
+                    };
+
                 if (stage == 1 && room == 32)
                 {
                     discord.UpdateLargeAsset("logo", $"Resident Evil 4");
                     discord.UpdateSmallAsset("", "");
-                    discord.UpdateDetails($"At the Title Screen");
-                    discord.UpdateState("");
+                    string details = updater.UpdateDetails("Resident Evil 4 (2005)", placeholders, "Title_Screen");
+                    string state = updater.UpdateState("Resident Evil 4 (2005)", placeholders, "Title_Screen");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else
                 {
@@ -73,23 +88,29 @@ namespace MultiPresence.Presence
                         {
                             discord.UpdateLargeAsset($"logo_alt", $"The Mercenaries");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"Score: {score}");
-                            discord.UpdateState($"Playing as '{character_name}' on '{room_name[room]}'");
+                            string details = updater.UpdateDetails("Resident Evil 4 (2005)", placeholders, "Mercenaries");
+                            string state = updater.UpdateState("Resident Evil 4 (2005)", placeholders, "Mercenaries");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                         }
                         else
                         {
                             discord.UpdateLargeAsset($"ada", $"Assignment Ada");
                             discord.UpdateSmallAsset("", "");
-                            discord.UpdateDetails($"Weapon: {weapon_name}");
-                            discord.UpdateState($"{room_name[room]}");
+                            string details = updater.UpdateDetails("Resident Evil 4 (2005)", placeholders, "Assignment_Ada");
+                            string state = updater.UpdateState("Resident Evil 4 (2005)", placeholders, "Assignment_Ada");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                         }
                     }
                     else if (stage == 5)
                     {
                         discord.UpdateLargeAsset($"ada", $"Separate Ways - {room_name[room]}");
                         discord.UpdateSmallAsset("", "");
-                        discord.UpdateDetails($"Weapon: {weapon_name}");
-                        discord.UpdateState($"Chapter {chapter_name}: {room_name[room]}");
+                        string details = updater.UpdateDetails("Resident Evil 4 (2005)", placeholders, "Separate_Ways");
+                        string state = updater.UpdateState("Resident Evil 4 (2005)", placeholders, "Separate_Ways");
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                     else
                     {
@@ -98,8 +119,10 @@ namespace MultiPresence.Presence
                         else
                             discord.UpdateLargeAsset($"{area.ToLower()}", $"{area} - {room_name[room]}");
                         discord.UpdateSmallAsset("logo", $"Playing on {difficulty_name}");
-                        discord.UpdateDetails($"Weapon: {weapon_name}");
-                        discord.UpdateState($"Chapter {chapter_name}: {room_name[room]}");
+                        string details = updater.UpdateDetails("Resident Evil 4 (2005)", placeholders, "Main");
+                        string state = updater.UpdateState("Resident Evil 4 (2005)", placeholders, "Main");
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                 }
 

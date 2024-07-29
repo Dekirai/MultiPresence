@@ -11,12 +11,14 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "ProjectG";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             await Task.Delay(20000);
             GetPID();
             discord = new DiscordRpcClient("1226462236181004338");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -45,54 +47,87 @@ namespace MultiPresence.Presence
                 int currenthole = mem.ReadByte($"{process}.exe+A47E2C,0xFFEC");
                 int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
                 int isOpen = mem.ReadByte($"{process}.exe+A47E2C,0x10934");
+                int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
 
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);             
                 var level = await Levels.GetLevel(level_get);
 
+                var placeholders = new Dictionary<string, object>
+                {
+                    { "nickname", nickname },
+                    { "level", level[0] },
+                    { "room", room },
+                    { "map", stage[0] },
+                    { "players", players },
+                    { "playersmax", playersmax },
+                    { "currenthole", currenthole },
+                    { "maxholes", maxholes },
+                    { "score", score }
+                };
+
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
                 {
                     discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
-                    discord.UpdateDetails($"{nickname} - {level[0]}");
-                    discord.UpdateState($"In Lobby");
+                    string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
+                    string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                     discord.UpdateSmallAsset("", "");
                 }
                 else
                 {
                     if (isIngame == 1)
                     {
-                        int character_get = mem.ReadInt($"{process}.exe+A47E2C,0x110CC");
-
-                        var character = await Characters.GetCharacter(character_get);
                         discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                         if (isOpen == 1)
                             discord.UpdateSmallAsset($"playing", $"Room #{room} — {players}/{playersmax} Players");
                         else
                             discord.UpdateSmallAsset($"playing", $"Private Room — {players}/{playersmax} Players");
-                        discord.UpdateDetails($"{nickname} - {level[0]}");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 7 || mode_get == 10)
-                            discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes}");
+                        {
+                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Match");
+                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Match");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+                        }
                         else if (mode_get == 4)
                         {
-                            int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
-                            discord.UpdateState($"{mode[0]} — H{currenthole}/{maxholes} — Score: {score}");
+                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Tourney");
+                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Tourney");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+                        }
+                        else if (mode_get == 2)
+                        {
+                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Lounge");
+                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Lounge");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                         }
                         else
+                        {
+                            discord.UpdateDetails($"{nickname} - {level[0]}");
                             discord.UpdateState($"{mode[0]}");
+                        }
                     }
                     else
                     {
                         if (mode_get == 2)
                         {
                             discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
-                            discord.UpdateDetails($"{nickname} - {level[0]}");
-                            discord.UpdateState($"In Lobby");
+                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
+                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                             discord.UpdateSmallAsset("", "");
                         }
                         else
                         {
-                            discord.UpdateDetails($"{nickname} - {level[0]}");
-                            discord.UpdateState($"{mode[0]}");
+                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Waiting_Room");
+                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Waiting_Room");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                             discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                             if (isOpen == 1)
                                 discord.UpdateSmallAsset($"waiting", $"Room #{room} — {players}/{playersmax} Players");
