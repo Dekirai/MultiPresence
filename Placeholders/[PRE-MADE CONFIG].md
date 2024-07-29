@@ -1,7 +1,7 @@
 # Config
 
 Here is a working config.json file.  
-You can either copy and paste this code into a newly created file called config.json or download it here.  
+You can either copy and paste this code into a newly created file called config.json or download it [here](https://github.com/user-attachments/files/16415956/config.json).  
 You can also remove any games you don't want in this file to keep it cleaner, you don't need to have everything in there.  
 For example, if you only want to play Kingdom Hearts II, you can remove everything but Kingdom Hearts II.  
 Note that the file is not required for MultiPresence to work, it's just optional so that users can edit the details and state to their liking.
