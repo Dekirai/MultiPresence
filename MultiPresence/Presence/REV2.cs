@@ -10,12 +10,14 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "rerev2";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         static int mission = 0;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1213180163446149121");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -44,20 +46,34 @@ namespace MultiPresence.Presence
 
                 var raid_character = await Characters.GetCharacter(raid_character_get);
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "character", raid_character },
+                        { "level", raid_character_level },
+                        { "money", raid_money },
+                        { "chapter", chapter },
+                        { "mission", mission }
+                    };
+
                 if (stage[0] == "Raid Mode")
                 {
                     if (stage[1] == "In Lobby")
                     {
                         mission = mem.ReadByte("rerev2.exe+011DE690,0x1E0,0x4C,0x3C,0x14,0x3C,0x74,0x7C4") + 1;
                         discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-                        discord.UpdateDetails($"Raid Mode: In Lobby");
-                        discord.UpdateState($"{raid_character} (Lv. {raid_character_level})");
+
+                        string details = updater.UpdateDetails("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string state = updater.UpdateState("Resident Evil Revelations 2", placeholders, "Lobby");
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                     else
                     {
                         discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-                        discord.UpdateDetails($"Raid Mode: Mission {chapter}-0{mission}");
-                        discord.UpdateState($"{raid_character} (Lv. {raid_character_level})");
+                        string details = updater.UpdateDetails("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string state = updater.UpdateState("Resident Evil Revelations 2", placeholders, "Ingame");
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                 }
                 else

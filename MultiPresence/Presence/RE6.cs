@@ -10,11 +10,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "BH6";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212349543463518268");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -38,30 +40,46 @@ namespace MultiPresence.Presence
 
                 string[] stage = stagevalue.Split(':');
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "chapter", stage[0] },
+                        { "room", stage[1] }
+                    };
+
                 if (state_get == 0)
                 {
-                    discord.UpdateDetails($"Starting the game...");
-                    discord.UpdateState($"");
+                    string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Booting");
+                    string state = updater.UpdateState("Resident Evil 6", placeholders, "Booting");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else if (state_get > 1 && state_get < 9)
                 {
-                    discord.UpdateDetails($"{stage[0]}");
-                    discord.UpdateState($"{stage[1]}");
+                    string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Ingame");
+                    string state = updater.UpdateState("Resident Evil 6", placeholders, "Ingame");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else if (state_get == 20)
                 {
-                    discord.UpdateDetails($"In Main Menu");
-                    discord.UpdateState($"");
+                    string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Main_Menu");
+                    string state = updater.UpdateState("Resident Evil 6", placeholders, "Main_Menu");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else if (state_get == 10)
                 {
-                    discord.UpdateDetails($"Saving...");
-                    discord.UpdateState($"");
+                    string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Saving");
+                    string state = updater.UpdateState("Resident Evil 6", placeholders, "Saving");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else if (state_get > 20)
                 {
-                    discord.UpdateDetails($"{stage[0]}");
-                    discord.UpdateState($"In a cutscene");
+                    string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Cutscene");
+                    string state = updater.UpdateState("Resident Evil 6", placeholders, "Cutscene");
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
 
                 discord.UpdateLargeAsset($"logo", $"Resident Evil 6");

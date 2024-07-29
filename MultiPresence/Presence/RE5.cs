@@ -10,11 +10,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "re5dx9";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212083539567186002");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -39,11 +41,21 @@ namespace MultiPresence.Presence
 
                 string[] stage = stagevalue.Split(':');
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "chapter", stage[0] },
+                        { "room", stage[1] },
+                        { "chris_health", chris_health },
+                        { "sheva_health", sheva_health }
+                    };
+
                 discord.UpdateLargeAsset($"logo", $"Resident Evil 5");
                 if (chris_health > 0 || sheva_health > 0)
                 {
-                    discord.UpdateDetails($"{stage[0]}");
-                    discord.UpdateState($"{stage[1]}");
+                    string details = updater.UpdateDetails("Resident Evil 5", placeholders);
+                    string state = updater.UpdateState("Resident Evil 5", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
                 else
                     discord.UpdateDetails("In Menus");

@@ -87,6 +87,26 @@ public class DiscordStatusUpdater
             { "Separate_Ways", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}" } },
             { "Mercenaries", new GameDetails { Details = "Score: {score}", State = "Playing as '{character}' on '{room}'" } }
         }
+    },
+    { "Resident Evil 5", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{chapter}", State = "{room}" } }
+        }
+    },
+    { "Resident Evil 6", new Dictionary<string, GameDetails>
+        {
+            { "Booting", new GameDetails { Details = "Starting the game...", State = "" } },
+            { "Ingame", new GameDetails { Details = "{chapter}", State = "{room}" } },
+            { "Main_Menu", new GameDetails { Details = "In Main Menu", State = "" } },
+            { "Saving", new GameDetails { Details = "Saving the game...", State = "" } },
+            { "Cutscene", new GameDetails { Details = "{chapter}", State = "In a cutscene" } },
+        }
+    },
+    { "Resident Evil Revelations 2", new Dictionary<string, GameDetails>
+        {
+            { "Lobby", new GameDetails { Details = "Raid Mode: In Lobby", State = "{character} (Lv. {level})" } },
+            { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})" } }
+        }
     }
 };
 
