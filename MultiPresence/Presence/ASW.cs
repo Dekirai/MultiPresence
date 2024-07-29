@@ -13,11 +13,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "SoulWorker";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1264599106521927690");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -40,6 +42,14 @@ namespace MultiPresence.Presence
                 string nickname = Encoding.Unicode.GetString(nickname_base);
                 int character = mem.ReadByte($"{process}.exe+1792A2C");
                 var character_name = await Characters.GetCharacter(character);
+
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "nickname", nickname },
+                        { "character", character_name[0] }
+                    };
+
                 if (character == 255 || level == 0)
                 {
                     discord.UpdateLargeAsset($"logo", $"asobiSW");
@@ -48,9 +58,11 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
+                    string details = updater.UpdateDetails("asobiSW", placeholders);
+                    string state = updater.UpdateState("asobiSW", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                     discord.UpdateLargeAsset($"{character_name[1]}", $"asobiSW");
-                    discord.UpdateDetails($"{nickname} (Lv. {level})");
-                    discord.UpdateState($"Playing as {character_name[0]}");
                 }
 
                 await Task.Delay(3000);

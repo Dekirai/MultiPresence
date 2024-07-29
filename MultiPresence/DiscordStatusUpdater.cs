@@ -17,18 +17,9 @@ public class DiscordStatusUpdater
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
-    { "Marvel's Spider-Man: Miles Morales", new Dictionary<string, GameDetails>
+    { "asobiSW", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}" } }
-        }
-    },
-    { "Resident Evil 4", new Dictionary<string, GameDetails>
-        {
-            { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "" } },
-            { "Main", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}" } },
-            { "Assignment_Ada", new GameDetails { Details = "Weapon: {weapon}", State = "{room}" } },
-            { "Separate_Ways", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}" } },
-            { "Mercenaries", new GameDetails { Details = "Score: {score}", State = "Playing as '{character}' on '{room}'" } }
+            { "Default", new GameDetails { Details = "{nickname} (Lv. {level})", State = "Playing as {character}" } }
         }
     },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
@@ -51,6 +42,34 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}" } }
         }
     },
+    { "Kingdom Hearts III", new Dictionary<string, GameDetails>
+        {
+            { "World_Map", new GameDetails { Details = "Playing on {difficulty}", State = "{room}" } },
+            { "Gummi_Ship", new GameDetails { Details = "Gummi Lv. {gummilevel} ({difficulty})", State = "{room}" } },
+            { "In_World", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}" } }
+        }
+    },
+    { "Marvel's Spider-Man Remastered", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}" } }
+        }
+    },
+    { "Marvel's Spider-Man: Miles Morales", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}" } }
+        }
+    },
+    { "Mega Man 11", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lives: {lives} ({difficulty})", State = "{stage}" } }
+        }
+    },
+    { "Mega Man Battle Network 6", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "{location}" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)" } }
+        }
+    },
     { "Pangya Reborn", new Dictionary<string, GameDetails>
         {
             { "Ingame_Match", new GameDetails { Details = "{nickname} - {level}", State = "{mode} — H{currenthole}/{maxholes}" } },
@@ -59,8 +78,18 @@ public class DiscordStatusUpdater
             { "Waiting_Room", new GameDetails { Details = "{nickname} - {level}", State = "{mode}" } },
             { "Lobby", new GameDetails { Details = "{nickname} - {level}", State = "In Lobby" } }
         }
+    },
+    { "Resident Evil 4", new Dictionary<string, GameDetails>
+        {
+            { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "" } },
+            { "Main", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}" } },
+            { "Assignment_Ada", new GameDetails { Details = "Weapon: {weapon}", State = "{room}" } },
+            { "Separate_Ways", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}" } },
+            { "Mercenaries", new GameDetails { Details = "Score: {score}", State = "Playing as '{character}' on '{room}'" } }
+        }
     }
 };
+
 
     public DiscordStatusUpdater(string configPath)
     {

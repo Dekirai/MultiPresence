@@ -14,8 +14,11 @@ namespace MultiPresence.Presence
         static string process = "KINGDOM HEARTS III";
         public static string _room_address = "";
         static private DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static string difficulty = "";
         public static string room = null;
+        public static int level = 0;
+        public static int gummilevel = 0;
         public static string[] world = null;
         public static async void DoAction()
         {
@@ -25,6 +28,7 @@ namespace MultiPresence.Presence
             _room_address = room_get.ToString("X8");
             discord = new DiscordRpcClient("827190870724837406");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -60,6 +64,15 @@ namespace MultiPresence.Presence
                         difficulty = await Difficulties.GetDifficulty(difficulty_get);
                     }
 
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "level", level },
+                        { "gummilevel", gummilevel },
+                        { "room", room },
+                        { "world", world },
+                        { "difficulty", difficulty }
+                    };
+
                     if (world[0] == "Main Menu")
                     {
                         discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
@@ -71,22 +84,29 @@ namespace MultiPresence.Presence
                         discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
 
                         if (level_path.Contains("wm"))
-                            discord.UpdateDetails($"Playing on {difficulty}");
+                        {
+                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "World_Map");
+                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "World_Map");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+                        }
                         else if (level_path.Contains("gm"))
                         {
-                            int gummilevel = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
-                            discord.UpdateDetails($"Gummi Lv. {gummilevel} ({difficulty})");
+                            gummilevel = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
+
+                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                         }
                         else
                         {
-                            int level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
-                            discord.UpdateDetails($"Lv. {level} ({difficulty})");
+                            level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "In_World");
+                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "In_World");
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
                         }
-                        if (level_path.Contains("DLC"))
-                            discord.UpdateState($"[DLC] {room}");
-                        else
-                            discord.UpdateState($"{room}");
-                        discord.UpdateSmallAsset("", "");
                     }
                 }
                 catch

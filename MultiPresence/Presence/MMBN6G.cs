@@ -11,11 +11,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "MMBN_LC2";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1257021467699449866");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -48,19 +50,32 @@ namespace MultiPresence.Presence
                     int maxhp = mem.Read2Byte("8020858E");
                     int hp_battle = mem.Read2Byte("8020A8F4");
                     int maxhp_battle = mem.Read2Byte("8020A8F6");
-                    int state = mem.ReadByte("80205940");
+                    int gamestate = mem.ReadByte("80205940");
                     var location = await Areas.GetArea(area_get);
 
-                    discord.UpdateLargeAsset($"logo", $"Mega Man Battle Network 6: Cybeast Gregar");
-                    if (state == 12)
+                    var placeholders = new Dictionary<string, object>
                     {
-                        discord.UpdateDetails($"HP: {hp_battle}/{maxhp_battle}");
-                        discord.UpdateState($"{location[room_get]} (In Battle)");
+                        { "hp", hp },
+                        { "hp_battle", hp_battle },
+                        { "maxhp", maxhp },
+                        { "maxhp_battle", maxhp_battle },
+                        { "location", location[room_get] }
+                    };
+
+                    discord.UpdateLargeAsset($"logo", $"Mega Man Battle Network 6: Cybeast Gregar");
+                    if (gamestate == 12)
+                    {
+                        string details = updater.UpdateDetails("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        string state = updater.UpdateState("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                     else
                     {
-                        discord.UpdateDetails($"HP: {hp}/{maxhp}");
-                        discord.UpdateState($"{location[room_get]}");
+                        string details = updater.UpdateDetails("Mega Man Battle Network 6", placeholders);
+                        string state = updater.UpdateState("Mega Man Battle Network 6", placeholders);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
                     }
                     await Task.Delay(3000);
                     Thread thread = new Thread(RPC);

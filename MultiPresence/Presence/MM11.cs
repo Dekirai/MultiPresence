@@ -10,11 +10,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "game";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("981534050781122570");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -41,9 +43,18 @@ namespace MultiPresence.Presence
                 var stagename = await Stages.GetStage(stage);
                 var difficultyname = await Difficulties.GetDifficulty(difficulty);
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "lives", lives },
+                        { "difficulty", difficultyname[0] },
+                        { "stage", stagename[0] }
+                    };
+
                 discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
-                discord.UpdateDetails($"Lives: {lives} ({difficultyname[0]})");
-                discord.UpdateState($"{stagename[0]}");
+                string details = updater.UpdateDetails("Mega Man 11", placeholders);
+                string state = updater.UpdateState("Mega Man 11", placeholders);
+                discord.UpdateDetails(details);
+                discord.UpdateState(state);
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

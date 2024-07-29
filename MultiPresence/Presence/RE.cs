@@ -10,11 +10,13 @@ namespace MultiPresence.Presence
         static Mem mem = new Mem();
         static string process = "bhd";
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212466561068171294");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -39,9 +41,17 @@ namespace MultiPresence.Presence
 
                 string[] stage = stagevalue[stage_get].Split(':');
 
+                var placeholders = new Dictionary<string, object>
+                    {
+                        { "floor", stage[0] },
+                        { "room", stage[1] }
+                    };
+
                 discord.UpdateLargeAsset($"logo", $"Resident Evil");
-                discord.UpdateDetails($"{stage[0]}");
-                discord.UpdateState($"{stage[1]}");
+                string details = updater.UpdateDetails("Resident Evil", placeholders);
+                string state = updater.UpdateState("Resident Evil", placeholders);
+                discord.UpdateDetails(details);
+                discord.UpdateState(state);
 
                 if (floor_get > 0)
                 {
