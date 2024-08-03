@@ -36,6 +36,10 @@ Set WshShell = Nothing
 MultiPresence also allows you to block certain games from being detected.  
 As of version 1.6.0, you can use a file called "blacklist.json" to block games.  
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
+
+## Placeholder (Optional)
+Introduced in Release 20, you can customize your presence to your liking using a config.json  
+A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/blob/main/Placeholders/%5BPRE-MADE%20CONFIG%5D.md).
  
 ## Supported games
 |Game|Platform|Information|
