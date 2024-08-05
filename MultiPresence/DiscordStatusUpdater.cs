@@ -22,6 +22,11 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "{nickname} (Lv. {level})", State = "Playing as {character}" } }
         }
     },
+    { "Final Fantasy VII Remake", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level}" } }
+        }
+    },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}" } }

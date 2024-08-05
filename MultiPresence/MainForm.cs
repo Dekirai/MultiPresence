@@ -51,6 +51,11 @@ namespace MultiPresence
                         ASW.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Final Fantasy VII Remake":
+                        Balloon(game);
+                        FFVIIR.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Kingdom Hearts Final Mix":
                         Balloon(game);
                         KH1.DoAction();

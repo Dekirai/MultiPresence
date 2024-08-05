@@ -6,6 +6,8 @@ namespace MultiPresence
     {
         [JsonProperty("AsobiSW")]
         public bool AsobiSW {  get; set; }
+        [JsonProperty("Final Fantasy VII Remake")]
+        public bool FinalFantasyVIIRemake { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts Dream Drop Distance")]
