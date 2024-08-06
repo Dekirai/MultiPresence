@@ -15,6 +15,7 @@ namespace MultiPresence.Presence
         private static string gameName = "";
         private static string richPresence = "";
         private static DiscordStatusUpdater updater;
+
         public static async void DoAction()
         {
             GetPID();
@@ -50,17 +51,8 @@ namespace MultiPresence.Presence
                 {
                     ExtractValuesFromHtml(html);
                 }
-
-                if (gameName.Contains("Overwatch"))
-                {
                     discord.UpdateLargeAsset("logo", "Overwatch 2");
                     discord.UpdateDetails(richPresence);
-                }
-                else
-                {
-                    discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
-                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
@@ -73,7 +65,6 @@ namespace MultiPresence.Presence
             }
         }
 
-        // Fetches HTML content from a given URL
         static async Task<string> FetchHtmlAsync(string url)
         {
             using (HttpClient client = new HttpClient())
