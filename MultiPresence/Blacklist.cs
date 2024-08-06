@@ -28,6 +28,8 @@ namespace MultiPresence
         public bool MegaManBattleNetwork6CybeastGregar { get; set; }
         [JsonProperty("Mega Man Battle Network 6: Cybeast Falzar")]
         public bool MegaManBattleNetwork6CybeastFalzar { get; set; }
+        [JsonProperty("Overwatch 2")]
+        public bool Overwatch2 { get; set; }
         [JsonProperty("Pangya Reborn")]
         public bool PangyaReborn { get; set; }
         [JsonProperty("Resident Evil")]
@@ -55,6 +57,8 @@ namespace MultiPresence
             {
                 case "AsobiSW":
                     return AsobiSW;
+                case "Final Fantasy VII Remake":
+                    return FinalFantasyVIIRemake;
                 case "Kingdom Hearts Birth by Sleep Final Mix":
                     return KingdomHeartsBirthBySleepFinalMix;
                 case "Kingdom Hearts Dream Drop Distance":
@@ -71,6 +75,8 @@ namespace MultiPresence
                     return MegaManBattleNetwork6CybeastGregar;
                 case "Mega Man Battle Network 6: Cybeast Falzar":
                     return MegaManBattleNetwork6CybeastFalzar;
+                case "Overwatch 2":
+                    return Overwatch2;
                 case "Pangya Reborn":
                     return PangyaReborn;
                 case "Resident Evil":
