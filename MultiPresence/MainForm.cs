@@ -96,6 +96,11 @@ namespace MultiPresence
                         SA2.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Overwatch":
+                        Balloon(game);
+                        OW.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Zelda: The Wind Waker HD":
                         Balloon(game);
                         WWHD.DoAction();
