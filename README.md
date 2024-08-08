@@ -43,7 +43,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 
 ## Placeholder (Optional)
 Introduced in Release 20, you can customize your presence to your liking using a config.json  
-A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/blob/main/Placeholders/%5BPRE-MADE%20CONFIG%5D.md).
+A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Config).
  
 ## Supported games
 |Game|Platform|Information|
