@@ -7,16 +7,16 @@ using Memory;
 
 namespace MultiPresence.Presence
 {
-    public class FFVIIR
+    public class CCFFVII
     {
         static Mem mem = new Mem();
-        static string process = "ff7remake_";
+        static string process = "CCFF7R-Win64-Shipping";
         private static DiscordRpcClient discord;
         private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1270065791957471242");
+            discord = new DiscordRpcClient("1271522314248523837");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);

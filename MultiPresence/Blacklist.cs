@@ -6,6 +6,8 @@ namespace MultiPresence
     {
         [JsonProperty("AsobiSW")]
         public bool AsobiSW {  get; set; }
+        [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
+        public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]
         public bool FinalFantasyVIIRemake { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
@@ -57,6 +59,8 @@ namespace MultiPresence
             {
                 case "AsobiSW":
                     return AsobiSW;
+                case "CRISIS CORE –FINAL FANTASY VII– REUNION":
+                    return CrisisCoreFinalFantasyVIIReunion;
                 case "Final Fantasy VII Remake":
                     return FinalFantasyVIIRemake;
                 case "Kingdom Hearts Birth by Sleep Final Mix":

@@ -16,6 +16,7 @@ namespace MultiPresence
         {
             var game_asw = Process.GetProcessesByName("SoulWorker");
             var game_cemu = Process.GetProcessesByName("Cemu");
+            var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
@@ -46,6 +47,8 @@ namespace MultiPresence
                     game = "AsobiSW";
                 }
             }
+            else if (game_ffviir.Length > 0)
+                game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";
             else if (game_cemu.Length > 0)
