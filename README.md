@@ -49,6 +49,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |Game|Platform|Information|
 |--|--|--|
 |[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)| |
+|[Crisis Core -Final Fantasy VII- Reunion](https://github.com/Dekirai/MultiPresence/wiki/Crisis-Core-%E2%80%90Final-Fantasy-VII%E2%80%90-Reunion)|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||
 |[Final Fantasy VII Remake](https://github.com/Dekirai/MultiPresence/wiki/Final-Fantasy-VII-Remake)|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)||
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)||

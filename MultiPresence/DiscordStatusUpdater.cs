@@ -24,7 +24,8 @@ public class DiscordStatusUpdater
     },
     { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level}" } }
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}" } },
+            { "Mission", new GameDetails { Details = "[In Mission] Lv. {level} ({difficulty})}", State = "HP: {hp_mission}/{maxhp_mission} | MP: {mp_mission}/{maxmp_mission}" } }
         }
     },
     { "Final Fantasy VII Remake", new Dictionary<string, GameDetails>

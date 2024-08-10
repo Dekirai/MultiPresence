@@ -47,7 +47,7 @@ namespace MultiPresence
                     game = "AsobiSW";
                 }
             }
-            else if (game_ffviir.Length > 0)
+            else if (game_ccffvii.Length > 0)
                 game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";

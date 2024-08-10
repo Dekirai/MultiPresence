@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using DiscordRPC;
 using Memory;
+using MultiPresence.Models.CCFFVII;
 
 namespace MultiPresence.Presence
 {
@@ -36,33 +37,59 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int level = mem.ReadByte($"{process}.exe+057B9268,0x8A0");
-                int hp = mem.ReadInt($"{process}.exe+057B9268,0x8B0");
-                int maxhp = mem.ReadInt($"{process}.exe+057B9268,0x8B4");
-                int mp = mem.ReadInt($"{process}.exe+057B9268,0x8B8");
-                int maxmp = mem.ReadInt($"{process}.exe+057B9268,0x8BC");   
+                int level = mem.ReadByte($"{process}.exe+71B3F36");
+                int gil = mem.ReadInt($"{process}.exe+71B3FB0");
+                int difficulty_get = mem.ReadByte($"{process}.exe+71B3FD7");
+
+                var difficulty = await Difficulties.GetDifficulty(difficulty_get);
+
+                int hp = mem.ReadInt($"{process}.exe+71B3F10");
+                int maxhp = mem.ReadInt($"{process}.exe+71B3F14");
+                int mp = mem.ReadInt($"{process}.exe+71B3F1C");
+                int maxmp = mem.ReadInt($"{process}.exe+71B3F20");
+                int ap = mem.ReadInt($"{process}.exe+71B3F28");
+                int maxap = mem.ReadInt($"{process}.exe+71B3F2C");
+
+                int hp_mission = mem.ReadInt($"{process}.exe+718DC28");
+                int maxhp_mission = mem.ReadInt($"{process}.exe+718DC2C");
+                int mp_mission = mem.ReadInt($"{process}.exe+718DC30");
+                int maxmp_mission = mem.ReadInt($"{process}.exe+718DC34");
+                int ap_mission = mem.ReadInt($"{process}.exe+718DC38");
+                int maxap_mission = mem.ReadInt($"{process}.exe+718DC3C");
 
                 var placeholders = new Dictionary<string, object>
                 {
                     { "level", level },
+                    { "gil", gil },
+                    { "difficulty", difficulty },
                     { "hp", hp },
                     { "maxhp", maxhp },
                     { "mp", mp },
-                    { "maxmp", maxmp }
+                    { "maxmp", maxmp },
+                    { "ap", ap },
+                    { "maxap", maxap },
+                    { "hp_mission", hp_mission },
+                    { "maxhp_mission", maxhp_mission },
+                    { "mp_mission", mp_mission },
+                    { "maxmp_mission", maxmp_mission },
+                    { "ap_mission", ap_mission },
+                    { "maxap_mission", maxap_mission }
                 };
 
-                discord.UpdateLargeAsset($"logo", $"Final Fantasy VII Remake");
-                if (hp > 0)
+                discord.UpdateLargeAsset($"logo", $"CRISIS CORE –FINAL FANTASY VII– REUNION");
+                if (hp_mission > 0)
                 {
-                    string details = updater.UpdateDetails("Final Fantasy VII Remake", placeholders);
-                    string state = updater.UpdateState("Final Fantasy VII Remake", placeholders);
+                    string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
                 }
                 else
                 {
-                    discord.UpdateDetails("In Main Menu");
-                    discord.UpdateState("");
+                    string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
                 }
 
                 await Task.Delay(3000);

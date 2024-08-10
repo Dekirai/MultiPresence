@@ -51,6 +51,11 @@ namespace MultiPresence
                         ASW.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "CRISIS CORE –FINAL FANTASY VII– REUNION":
+                        Balloon(game);
+                        CCFFVII.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Final Fantasy VII Remake":
                         Balloon(game);
                         FFVIIR.DoAction();
