@@ -63,7 +63,8 @@ namespace MultiPresence.Presence
                     { "playersmax", playersmax },
                     { "currenthole", currenthole },
                     { "maxholes", maxholes },
-                    { "score", score }
+                    { "score", score },
+                    { "mode", mode[0] }
                 };
 
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
