@@ -145,7 +145,7 @@ public class DiscordStatusUpdater
 
         if (!File.Exists(_absoluteConfigPath))
         {
-            throw new FileNotFoundException($"Config file not found: {_absoluteConfigPath}");
+            _config = new JObject();
         }
 
         var directory = Path.GetDirectoryName(_absoluteConfigPath);
