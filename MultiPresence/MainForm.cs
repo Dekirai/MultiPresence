@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Timers;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace MultiPresence
 {
@@ -206,6 +207,72 @@ namespace MultiPresence
                 Settings.Default.langDE = cb_german.Checked = true;
                 Settings.Default.Save();
             }
+        }
+
+        private async void btn_Config_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(Environment.CurrentDirectory + "\\config.json"))
+            {
+                DialogResult result = MessageBox.Show("The config file does not exist, do you want me to create one?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/config.json";
+                    using (HttpClient client = new HttpClient())
+                    {
+                        try
+                        {
+                            HttpResponseMessage response = await client.GetAsync(url);
+                            response.EnsureSuccessStatusCode();
+                            string content = await response.Content.ReadAsStringAsync();
+
+                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\config.json", content);
+
+                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\config.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\config.json") { UseShellExecute = true });
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any exceptions that occur during the download
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\config.json") { UseShellExecute = true });
+        }
+
+        private async void btn_Blacklist_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(Environment.CurrentDirectory + "\\blacklist.json"))
+            {
+                DialogResult result = MessageBox.Show("The blacklist file does not exist, do you want me to create one?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/blacklist.json";
+                    using (HttpClient client = new HttpClient())
+                    {
+                        try
+                        {
+                            HttpResponseMessage response = await client.GetAsync(url);
+                            response.EnsureSuccessStatusCode();
+                            string content = await response.Content.ReadAsStringAsync();
+
+                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\blacklist.json", content);
+
+                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\blacklist.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any exceptions that occur during the download
+                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
         }
     }
 }

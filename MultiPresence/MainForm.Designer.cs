@@ -37,6 +37,9 @@
             cb_english = new ToolStripMenuItem();
             cb_german = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
+            btn_Config = new ToolStripMenuItem();
+            btn_Blacklist = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
             btn_Exit = new ToolStripMenuItem();
             cms.SuspendLayout();
             SuspendLayout();
@@ -59,9 +62,9 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, btn_Blacklist, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(225, 70);
+            cms.Size = new Size(225, 120);
             // 
             // languageToolStripMenuItem
             // 
@@ -76,7 +79,7 @@
             cb_english.CheckOnClick = true;
             cb_english.CheckState = CheckState.Checked;
             cb_english.Name = "cb_english";
-            cb_english.Size = new Size(180, 22);
+            cb_english.Size = new Size(116, 22);
             cb_english.Text = "English";
             cb_english.CheckedChanged += cb_english_CheckedChanged;
             // 
@@ -84,7 +87,7 @@
             // 
             cb_german.CheckOnClick = true;
             cb_german.Name = "cb_german";
-            cb_german.Size = new Size(180, 22);
+            cb_german.Size = new Size(116, 22);
             cb_german.Text = "German";
             cb_german.Click += cb_german_Click;
             // 
@@ -94,6 +97,25 @@
             cb_DisableNotifications.Name = "cb_DisableNotifications";
             cb_DisableNotifications.Size = new Size(224, 22);
             cb_DisableNotifications.Text = "Disable System Notifications";
+            // 
+            // btn_Config
+            // 
+            btn_Config.Name = "btn_Config";
+            btn_Config.Size = new Size(224, 22);
+            btn_Config.Text = "Open config";
+            btn_Config.Click += btn_Config_Click;
+            // 
+            // btn_Blacklist
+            // 
+            btn_Blacklist.Name = "btn_Blacklist";
+            btn_Blacklist.Size = new Size(224, 22);
+            btn_Blacklist.Text = "Open blacklist";
+            btn_Blacklist.Click += btn_Blacklist_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(221, 6);
             // 
             // btn_Exit
             // 
@@ -129,5 +151,8 @@
         private ToolStripMenuItem languageToolStripMenuItem;
         private ToolStripMenuItem cb_english;
         private ToolStripMenuItem cb_german;
+        private ToolStripMenuItem btn_Config;
+        private ToolStripMenuItem btn_Blacklist;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }
