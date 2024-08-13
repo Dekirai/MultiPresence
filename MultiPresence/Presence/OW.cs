@@ -52,8 +52,10 @@ namespace MultiPresence.Presence
                     ExtractValuesFromHtml(html);
                 }
 
+                string state = updater.UpdateState("Overwatch", placeholders);
                 discord.UpdateLargeAsset("logo", "Overwatch 2");
                 discord.UpdateDetails(richPresence);
+                discord.UpdateState(state);
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
