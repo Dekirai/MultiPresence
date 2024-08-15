@@ -14,7 +14,6 @@ This means that online games, especially those with anti-cheat, are less likely 
 
 ## Requirements  
 - Windows 10/11 64 Bit
-- Administrator rights to read the memory
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ## How to use it

@@ -41,6 +41,7 @@
             btn_Blacklist = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             btn_Exit = new ToolStripMenuItem();
+            cb_LaunchWithWindows = new ToolStripMenuItem();
             cms.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,9 +63,9 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, btn_Blacklist, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, cb_LaunchWithWindows, btn_Blacklist, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(225, 120);
+            cms.Size = new Size(225, 164);
             // 
             // languageToolStripMenuItem
             // 
@@ -124,6 +125,14 @@
             btn_Exit.Text = "Exit";
             btn_Exit.Click += btn_Exit_Click;
             // 
+            // cb_LaunchWithWindows
+            // 
+            cb_LaunchWithWindows.CheckOnClick = true;
+            cb_LaunchWithWindows.Name = "cb_LaunchWithWindows";
+            cb_LaunchWithWindows.Size = new Size(224, 22);
+            cb_LaunchWithWindows.Text = "Launch with Windows";
+            cb_LaunchWithWindows.Click += cb_LaunchWithWindows_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -154,5 +163,6 @@
         private ToolStripMenuItem btn_Config;
         private ToolStripMenuItem btn_Blacklist;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem cb_LaunchWithWindows;
     }
 }

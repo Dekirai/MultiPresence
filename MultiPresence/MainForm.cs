@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Timers;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
-using System.Net;
+using Microsoft.Win32;
 
 namespace MultiPresence
 {
@@ -20,6 +20,7 @@ namespace MultiPresence
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
             cb_english.Checked = Settings.Default.langEN;
             cb_german.Checked = Settings.Default.langDE;
+            cb_LaunchWithWindows.Checked = Settings.Default.startup;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -273,6 +274,41 @@ namespace MultiPresence
             }
             else
                 Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
+        }
+
+        private void cb_LaunchWithWindows_Click(object sender, EventArgs e)
+        {
+            if (cb_LaunchWithWindows.Checked)
+            {
+                SetStartup(true);
+                Settings.Default.startup = true;
+                Settings.Default.Save();
+            }
+            else
+            {
+                SetStartup(false);
+                Settings.Default.startup = false;
+                Settings.Default.Save();
+            }
+        }
+
+        private void SetStartup(bool enable)
+        {
+            const string appName = "MultiPresence";
+            string exePath = Application.ExecutablePath;
+
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            if (enable)
+            {
+                // Add the application to startup
+                registryKey.SetValue(appName, exePath);
+            }
+            else
+            {
+                // Remove the application from startup
+                registryKey.DeleteValue(appName, false);
+            }
         }
     }
 }
