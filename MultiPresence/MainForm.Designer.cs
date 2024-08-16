@@ -38,10 +38,10 @@
             cb_german = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
             btn_Config = new ToolStripMenuItem();
+            cb_LaunchWithWindows = new ToolStripMenuItem();
             btn_Blacklist = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             btn_Exit = new ToolStripMenuItem();
-            cb_LaunchWithWindows = new ToolStripMenuItem();
             cms.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, cb_LaunchWithWindows, btn_Blacklist, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, btn_Blacklist, cb_LaunchWithWindows, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
             cms.Size = new Size(225, 164);
             // 
@@ -106,6 +106,14 @@
             btn_Config.Text = "Open config";
             btn_Config.Click += btn_Config_Click;
             // 
+            // cb_LaunchWithWindows
+            // 
+            cb_LaunchWithWindows.CheckOnClick = true;
+            cb_LaunchWithWindows.Name = "cb_LaunchWithWindows";
+            cb_LaunchWithWindows.Size = new Size(224, 22);
+            cb_LaunchWithWindows.Text = "Launch with Windows";
+            cb_LaunchWithWindows.Click += cb_LaunchWithWindows_Click;
+            // 
             // btn_Blacklist
             // 
             btn_Blacklist.Name = "btn_Blacklist";
@@ -124,14 +132,6 @@
             btn_Exit.Size = new Size(224, 22);
             btn_Exit.Text = "Exit";
             btn_Exit.Click += btn_Exit_Click;
-            // 
-            // cb_LaunchWithWindows
-            // 
-            cb_LaunchWithWindows.CheckOnClick = true;
-            cb_LaunchWithWindows.Name = "cb_LaunchWithWindows";
-            cb_LaunchWithWindows.Size = new Size(224, 22);
-            cb_LaunchWithWindows.Text = "Launch with Windows";
-            cb_LaunchWithWindows.Click += cb_LaunchWithWindows_Click;
             // 
             // MainForm
             // 

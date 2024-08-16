@@ -17,6 +17,8 @@ namespace MultiPresence
         {
             InitializeComponent();
 
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
             cb_english.Checked = Settings.Default.langEN;
             cb_german.Checked = Settings.Default.langDE;

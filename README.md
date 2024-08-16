@@ -19,21 +19,8 @@ This means that online games, especially those with anti-cheat, are less likely 
 ## How to use it
 All you have to do is run the exe and you're ready to go.    
 
-To run the program with Windows on startup, please follow these steps
-
- 1. Create a new file called MultiPresence.vbs.
- 2. Locate your StartUp folder (**C:\Users\YOURUSERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup**)
- 3. Place the created file in the StartUp folder.
- 4. Open the file with a text editor
- 5. Paste this code into it:  
-```
-Set WshShell = CreateObject("WScript.Shell" )
-WshShell.Run """C:\Path\To\MultiPresence\MultiPresence.exe""", 0 'Must quote command if it has spaces; must escape quotes
-Set WshShell = Nothing
-```
-6. Change the path to the location where you placed MultiPresence.exe.
- 
- That's it! Now every time you start Windows, the program will start automatically!    
+Using the context menu (right-click on the tray icon), you can easily open the config and blacklist file.  
+You can also choose to launch MultiPresence with Windows, so you don't have to open it every time you switch on your PC.
  
 ## Blacklist (Optional)
 MultiPresence also allows you to block certain games from being detected.  
