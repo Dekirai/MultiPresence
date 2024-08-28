@@ -1,9 +1,9 @@
+using Microsoft.Win32;
 using MultiPresence.Presence;
-using System.Diagnostics;
-using System.Timers;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
-using Microsoft.Win32;
+using System.Diagnostics;
+using System.Timers;
 
 namespace MultiPresence
 {

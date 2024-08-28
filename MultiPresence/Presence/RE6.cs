@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.RE6;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {

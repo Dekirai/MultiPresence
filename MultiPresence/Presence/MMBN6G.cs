@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using System.Xml.Linq;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.MMBN6;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -67,6 +66,12 @@ namespace MultiPresence.Presence
                     {
                         string details = updater.UpdateDetails("Mega Man Battle Network 6", placeholders, "In_Battle");
                         string state = updater.UpdateState("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        string largeasset = updater.UpdateLargeAsset("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        string largeassettext = updater.UpdateLargeAssetText("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        string smallasset = updater.UpdateSmallAsset("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        string smallassettext = updater.UpdateSmallAssetText("Mega Man Battle Network 6", placeholders, "In_Battle");
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
                         discord.UpdateDetails(details);
                         discord.UpdateState(state);
                     }
@@ -74,6 +79,12 @@ namespace MultiPresence.Presence
                     {
                         string details = updater.UpdateDetails("Mega Man Battle Network 6", placeholders);
                         string state = updater.UpdateState("Mega Man Battle Network 6", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Mega Man Battle Network 6", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Mega Man Battle Network 6", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Mega Man Battle Network 6", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Mega Man Battle Network 6", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
                         discord.UpdateDetails(details);
                         discord.UpdateState(state);
                     }

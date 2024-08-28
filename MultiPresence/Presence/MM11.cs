@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.MM11;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -47,12 +47,18 @@ namespace MultiPresence.Presence
                     {
                         { "lives", lives },
                         { "difficulty", difficultyname[0] },
-                        { "stage", stagename[0] }
+                        { "stage", stagename[0] },
+                        { "stage_icon_name", stagename[1] }
                     };
 
-                discord.UpdateLargeAsset($"{stagename[1]}", $"{stagename[0]}");
+                string largeasset = updater.UpdateLargeAsset("Mega Man 11", placeholders);
+                string largeassettext = updater.UpdateLargeAssetText("Mega Man 11", placeholders);
+                string smallasset = updater.UpdateSmallAsset("Mega Man 11", placeholders);
+                string smallassettext = updater.UpdateSmallAssetText("Mega Man 11", placeholders);
                 string details = updater.UpdateDetails("Mega Man 11", placeholders);
                 string state = updater.UpdateState("Mega Man 11", placeholders);
+                discord.UpdateLargeAsset(largeasset, largeassettext);
+                discord.UpdateSmallAsset(smallasset, smallassettext);
                 discord.UpdateDetails(details);
                 discord.UpdateState(state);
 

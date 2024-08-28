@@ -3,7 +3,6 @@
 # MultiPresence
 Let your friends see what you are currently doing in your active game!      
 
-(Server is still in building phase)  
 ![Discord Banner](https://discord.com/api/guilds/1269723725528432712/widget.png?style=banner2)  
 [Join here](https://discord.gg/56zeuwy6Gx)
 
@@ -17,7 +16,8 @@ This means that online games, especially those with anti-cheat, are less likely 
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ## How to use it
-All you have to do is run the exe and you're ready to go.    
+All you have to do is run the exe and you're ready to go.  
+If a game is not showing properly on discord, try running it as administrator.    
 
 Using the context menu (right-click on the tray icon), you can easily open the config and blacklist file.  
 You can also choose to launch MultiPresence with Windows, so you don't have to open it every time you switch on your PC.
@@ -32,7 +32,7 @@ Introduced in Release 20, you can customize your presence to your liking using a
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Config).
  
 ## Supported games
-|Game|Platform|Information|
+|Game|Platform|Notes|
 |--|--|--|
 |[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)| |
 |[Crisis Core -Final Fantasy VII- Reunion](https://github.com/Dekirai/MultiPresence/wiki/Crisis-Core-%E2%80%90Final-Fantasy-VII%E2%80%90-Reunion)|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||

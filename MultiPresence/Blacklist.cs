@@ -5,7 +5,7 @@ namespace MultiPresence
     public class Blacklist
     {
         [JsonProperty("AsobiSW")]
-        public bool AsobiSW {  get; set; }
+        public bool AsobiSW { get; set; }
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]

@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KHBBS;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -43,20 +43,27 @@ namespace MultiPresence.Presence
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
                 var character = await Characters.GetCharacter(character_get);
                 var room = await Rooms.GetRoom(world[0]);
-                
+
                 try
                 {
-                    discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                    discord.UpdateSmallAsset($"{character.ToLower()}", $"Playing as {character}");
                     var placeholders = new Dictionary<string, object>
                     {
                         { "level", level },
                         { "room", room[room_get] },
-                        { "world", world },
-                        { "difficulty", difficulty }
+                        { "world", world[0] },
+                        { "world_icon_name", world[1] },
+                        { "difficulty", difficulty },
+                        { "character", character },
+                        { "character_icon_name", character.ToLower() }
                     };
                     string details = updater.UpdateDetails("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
                     string state = updater.UpdateState("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Birth by Sleep Final Mix", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
                 }

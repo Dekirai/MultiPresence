@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.RE4;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -65,6 +65,7 @@ namespace MultiPresence.Presence
                         { "room", room_name[room] },
                         { "chapter", chapter_name },
                         { "area", area },
+                        { "area_icon_name", area.ToLower() },
                         { "difficulty", difficulty_name },
                         { "weapon", weapon_name },
                         { "character", character_name },

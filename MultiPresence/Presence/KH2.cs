@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH2;
 using MultiPresence.Properties;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -62,13 +62,19 @@ namespace MultiPresence.Presence
                     {
                         { "level", level },
                         { "room", room[room_get] },
-                        { "world", world },
+                        { "world", world[0] },
+                        { "world_icon_name", world[1] },
                         { "difficulty", difficulty }
                     };
 
-                    discord.UpdateLargeAsset(world[1], world[0]);
                     string details = updater.UpdateDetails("Kingdom Hearts II Final Mix", placeholders);
                     string state = updater.UpdateState("Kingdom Hearts II Final Mix", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Kingdom Hearts II Final Mix", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts II Final Mix", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Kingdom Hearts II Final Mix", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts II Final Mix", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
                 }

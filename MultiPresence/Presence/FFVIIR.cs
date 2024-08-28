@@ -1,9 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -40,7 +37,7 @@ namespace MultiPresence.Presence
                 int hp = mem.ReadInt($"{process}.exe+057B9268,0x8B0");
                 int maxhp = mem.ReadInt($"{process}.exe+057B9268,0x8B4");
                 int mp = mem.ReadInt($"{process}.exe+057B9268,0x8B8");
-                int maxmp = mem.ReadInt($"{process}.exe+057B9268,0x8BC");   
+                int maxmp = mem.ReadInt($"{process}.exe+057B9268,0x8BC");
 
                 var placeholders = new Dictionary<string, object>
                 {

@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using System.Security.Policy;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
-using HtmlAgilityPack;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -53,7 +51,12 @@ namespace MultiPresence.Presence
                 }
 
                 string state = updater.UpdateState("Overwatch", placeholders);
-                discord.UpdateLargeAsset("logo", "Overwatch 2");
+                string largeasset = updater.UpdateLargeAsset("Overwatch", placeholders);
+                string largeassettext = updater.UpdateLargeAssetText("Overwatch", placeholders);
+                string smallasset = updater.UpdateSmallAsset("Overwatch", placeholders);
+                string smallassettext = updater.UpdateSmallAssetText("Overwatch", placeholders);
+                discord.UpdateLargeAsset(largeasset, largeassettext);
+                discord.UpdateSmallAsset(smallasset, smallassettext);
                 discord.UpdateDetails(richPresence);
                 discord.UpdateState(state);
 

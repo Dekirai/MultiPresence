@@ -1,10 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.MSMR;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -54,8 +51,14 @@ namespace MultiPresence.Presence
                 if (health > 0)
                 {
                     discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man Remastered");
-                    string details = updater.UpdateDetails("Marvel's Spider-Man Remastered", placeholders, "Default");
-                    string state = updater.UpdateState("Marvel's Spider-Man Remastered", placeholders, "Default");
+                    string details = updater.UpdateDetails("Marvel's Spider-Man Remastered", placeholders);
+                    string state = updater.UpdateState("Marvel's Spider-Man Remastered", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Marvel's Spider-Man Remastered", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Marvel's Spider-Man Remastered", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Marvel's Spider-Man Remastered", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Marvel's Spider-Man Remastered", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
                 }

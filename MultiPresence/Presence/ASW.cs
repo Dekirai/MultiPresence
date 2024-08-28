@@ -1,10 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.ASW;
+using System.Diagnostics;
+using System.Text;
 
 namespace MultiPresence.Presence
 {
@@ -47,7 +45,8 @@ namespace MultiPresence.Presence
                     {
                         { "level", level },
                         { "nickname", nickname },
-                        { "character", character_name[0] }
+                        { "character", character_name[0] },
+                        { "character_icon_name", character_name[1] }
                     };
 
                 if (character == 255 || level == 0)
@@ -60,9 +59,14 @@ namespace MultiPresence.Presence
                 {
                     string details = updater.UpdateDetails("asobiSW", placeholders);
                     string state = updater.UpdateState("asobiSW", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("asobiSW", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("asobiSW", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("asobiSW", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("asobiSW", placeholders);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
-                    discord.UpdateLargeAsset($"{character_name[1]}", $"asobiSW");
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                 }
 
                 await Task.Delay(3000);

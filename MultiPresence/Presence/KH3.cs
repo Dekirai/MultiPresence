@@ -1,10 +1,9 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH3;
 using MultiPresence.Models.KHIII;
-using Newtonsoft.Json;
 using MultiPresence.Properties;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -69,7 +68,8 @@ namespace MultiPresence.Presence
                         { "level", level },
                         { "gummilevel", gummilevel },
                         { "room", room },
-                        { "world", world },
+                        { "world", world[0] },
+                        { "world_icon_name", world[1] },
                         { "difficulty", difficulty }
                     };
 
@@ -81,12 +81,16 @@ namespace MultiPresence.Presence
                     }
                     else
                     {
-                        discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-
                         if (level_path.Contains("wm"))
                         {
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "World_Map");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "World_Map");
+                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "World_Map");
+                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "World_Map");
+                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "World_Map");
+                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "World_Map");
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
                         }
@@ -96,6 +100,12 @@ namespace MultiPresence.Presence
 
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "Gummi_Ship");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
                         }
@@ -104,6 +114,12 @@ namespace MultiPresence.Presence
                             level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "In_World");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "In_World");
+                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "In_World");
+                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "In_World");
+                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "In_World");
+                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "In_World");
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
                         }

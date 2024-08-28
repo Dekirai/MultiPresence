@@ -1,10 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.CCFFVII;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -76,20 +73,31 @@ namespace MultiPresence.Presence
                     { "maxap_mission", maxap_mission }
                 };
 
-                discord.UpdateLargeAsset($"logo", $"CRISIS CORE –FINAL FANTASY VII– REUNION");
                 if (hp_mission > 0)
                 {
                     string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string largeasset = updater.UpdateLargeAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                 }
                 else
                 {
                     string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                     string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                 }
 
                 await Task.Delay(3000);

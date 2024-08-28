@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KHDDD;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -50,34 +49,48 @@ namespace MultiPresence.Presence
                 else
                     character = "Riku";
 
-                discord.UpdateLargeAsset($"{world[1]}", $"{world[0]}");
-                
                 try
                 {
                     var placeholders = new Dictionary<string, object>
                     {
                         { "level", level },
                         { "room", room[room_get] },
-                        { "world", world },
-                        { "difficulty", difficulty }
+                        { "world", world[0] },
+                        { "world_icon_name", world[1] },
+                        { "difficulty", difficulty },
+                        { "character", character },
+                        { "character_icon_name", character_get }
                     };
                     string details = updater.UpdateDetails("Kingdom Hearts Dream Drop Distance", placeholders);
                     string state = updater.UpdateState("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
-                    discord.UpdateSmallAsset($"{character_get}", $"Playing as {character}");
                 }
                 catch
                 {
                     var placeholders = new Dictionary<string, object>
                     {
                         { "level", level },
-                        { "difficulty", difficulty }
+                        { "difficulty", difficulty },
+                        { "world", world[0] },
+                        { "world_icon_name", world[1] },
+                        { "room", room[room_get] }
                     };
                     string details = updater.UpdateDetails("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState($"{room[0]}");
-                    discord.UpdateSmallAsset($"", $"");
                 }
 
                 await Task.Delay(3000);

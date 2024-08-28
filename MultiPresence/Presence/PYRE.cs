@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.PYRE;
+using System.Diagnostics;
 using Button = DiscordRPC.Button;
 
 namespace MultiPresence.Presence
@@ -50,7 +50,7 @@ namespace MultiPresence.Presence
                 int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
 
                 var stage = await Stages.GetStage(stage_get);
-                var mode = await Modes.GetMode(mode_get);             
+                var mode = await Modes.GetMode(mode_get);
                 var level = await Levels.GetLevel(level_get);
 
                 var placeholders = new Dictionary<string, object>
@@ -59,6 +59,7 @@ namespace MultiPresence.Presence
                     { "level", level[0] },
                     { "room", room },
                     { "map", stage[0] },
+                    { "map_icon_name", stage_get },
                     { "players", players },
                     { "playersmax", playersmax },
                     { "currenthole", currenthole },

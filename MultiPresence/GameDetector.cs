@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Memory;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using Memory;
 
 namespace MultiPresence
 {

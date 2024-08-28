@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using DiscordRPC;
+﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.KH1;
-using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -61,18 +60,24 @@ namespace MultiPresence.Presence
                     {
                         var world = await Worlds.GetWorld(world_get);
                         var room = await Rooms.GetRoom(world[0]);
-                        discord.UpdateLargeAsset(world[1], world[0]);
 
                         var placeholders = new Dictionary<string, object>
                         {
                             { "level", level },
                             { "room", room[room_get] },
-                            { "world", world },
+                            { "world", world[0] },
+                            { "world_icon_name", world[1] },
                             { "difficulty", difficulty }
                         };
 
                         string details = updater.UpdateDetails("Kingdom Hearts Final Mix", placeholders);
                         string state = updater.UpdateState("Kingdom Hearts Final Mix", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Kingdom Hearts Final Mix", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Final Mix", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Final Mix", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Final Mix", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
                         discord.UpdateDetails(details);
                         discord.UpdateState(state);
                     }
