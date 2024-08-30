@@ -38,8 +38,9 @@
             cb_german = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
             btn_Config = new ToolStripMenuItem();
-            cb_LaunchWithWindows = new ToolStripMenuItem();
             btn_Blacklist = new ToolStripMenuItem();
+            cb_LaunchWithWindows = new ToolStripMenuItem();
+            cb_LaunchWithWindowsAdmin = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             btn_Exit = new ToolStripMenuItem();
             cms.SuspendLayout();
@@ -63,15 +64,15 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, btn_Blacklist, cb_LaunchWithWindows, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem, cb_DisableNotifications, btn_Config, btn_Blacklist, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(225, 164);
+            cms.Size = new Size(239, 164);
             // 
             // languageToolStripMenuItem
             // 
             languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cb_english, cb_german });
             languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            languageToolStripMenuItem.Size = new Size(224, 22);
+            languageToolStripMenuItem.Size = new Size(238, 22);
             languageToolStripMenuItem.Text = "Language";
             // 
             // cb_english
@@ -96,40 +97,48 @@
             // 
             cb_DisableNotifications.CheckOnClick = true;
             cb_DisableNotifications.Name = "cb_DisableNotifications";
-            cb_DisableNotifications.Size = new Size(224, 22);
+            cb_DisableNotifications.Size = new Size(238, 22);
             cb_DisableNotifications.Text = "Disable System Notifications";
             // 
             // btn_Config
             // 
             btn_Config.Name = "btn_Config";
-            btn_Config.Size = new Size(224, 22);
+            btn_Config.Size = new Size(238, 22);
             btn_Config.Text = "Open config";
             btn_Config.Click += btn_Config_Click;
+            // 
+            // btn_Blacklist
+            // 
+            btn_Blacklist.Name = "btn_Blacklist";
+            btn_Blacklist.Size = new Size(238, 22);
+            btn_Blacklist.Text = "Open blacklist";
+            btn_Blacklist.Click += btn_Blacklist_Click;
             // 
             // cb_LaunchWithWindows
             // 
             cb_LaunchWithWindows.CheckOnClick = true;
             cb_LaunchWithWindows.Name = "cb_LaunchWithWindows";
-            cb_LaunchWithWindows.Size = new Size(224, 22);
+            cb_LaunchWithWindows.Size = new Size(238, 22);
             cb_LaunchWithWindows.Text = "Launch with Windows";
             cb_LaunchWithWindows.Click += cb_LaunchWithWindows_Click;
             // 
-            // btn_Blacklist
+            // cb_LaunchWithWindowsAdmin
             // 
-            btn_Blacklist.Name = "btn_Blacklist";
-            btn_Blacklist.Size = new Size(224, 22);
-            btn_Blacklist.Text = "Open blacklist";
-            btn_Blacklist.Click += btn_Blacklist_Click;
+            cb_LaunchWithWindowsAdmin.CheckOnClick = true;
+            cb_LaunchWithWindowsAdmin.Name = "cb_LaunchWithWindowsAdmin";
+            cb_LaunchWithWindowsAdmin.Size = new Size(238, 22);
+            cb_LaunchWithWindowsAdmin.Text = "Launch with Windows (Admin)";
+            cb_LaunchWithWindowsAdmin.Click += cb_LaunchWithWindowsAdmin_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(235, 6);
             // 
             // btn_Exit
             // 
             btn_Exit.Name = "btn_Exit";
-            btn_Exit.Size = new Size(224, 22);
+            btn_Exit.Size = new Size(238, 22);
             btn_Exit.Text = "Exit";
             btn_Exit.Click += btn_Exit_Click;
             // 
@@ -163,6 +172,7 @@
         private ToolStripMenuItem btn_Config;
         private ToolStripMenuItem btn_Blacklist;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem cb_LaunchWithWindowsAdmin;
         private ToolStripMenuItem cb_LaunchWithWindows;
     }
 }

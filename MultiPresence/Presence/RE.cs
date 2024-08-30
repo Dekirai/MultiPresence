@@ -47,9 +47,14 @@ namespace MultiPresence.Presence
                         { "room", stage[1] }
                     };
 
-                discord.UpdateLargeAsset($"logo", $"Resident Evil");
                 string details = updater.UpdateDetails("Resident Evil", placeholders);
                 string state = updater.UpdateState("Resident Evil", placeholders);
+                string largeasset = updater.UpdateLargeAsset("Resident Evil", placeholders);
+                string largeassettext = updater.UpdateLargeAssetText("Resident Evil", placeholders);
+                string smallasset = updater.UpdateSmallAsset("Resident Evil", placeholders);
+                string smallassettext = updater.UpdateSmallAssetText("Resident Evil", placeholders);
+                discord.UpdateLargeAsset(largeasset, largeassettext);
+                discord.UpdateSmallAsset(smallasset, smallassettext);
                 discord.UpdateDetails(details);
                 discord.UpdateState(state);
 

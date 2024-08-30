@@ -4,6 +4,7 @@ using MultiPresence.Properties;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Timers;
+using Microsoft.Win32.TaskScheduler;
 
 namespace MultiPresence
 {
@@ -22,7 +23,7 @@ namespace MultiPresence
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
             cb_english.Checked = Settings.Default.langEN;
             cb_german.Checked = Settings.Default.langDE;
-            cb_LaunchWithWindows.Checked = Settings.Default.startup;
+            cb_LaunchWithWindowsAdmin.Checked = Settings.Default.startupadmin;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -278,19 +279,31 @@ namespace MultiPresence
                 Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
         }
 
-        private void cb_LaunchWithWindows_Click(object sender, EventArgs e)
+        private void SetStartupAdmin(bool enable)
         {
-            if (cb_LaunchWithWindows.Checked)
+            const string taskName = "MultiPresence";
+
+            using (TaskService ts = new TaskService())
             {
-                SetStartup(true);
-                Settings.Default.startup = true;
-                Settings.Default.Save();
-            }
-            else
-            {
-                SetStartup(false);
-                Settings.Default.startup = false;
-                Settings.Default.Save();
+                if (enable)
+                {
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = "Starts the application with elevated privileges at startup";
+                    td.Principal.LogonType = TaskLogonType.InteractiveToken;
+                    td.Principal.RunLevel = TaskRunLevel.Highest;
+
+                    td.Triggers.Add(new LogonTrigger());
+
+                    string exePath = Application.ExecutablePath;
+                    td.Actions.Add(new ExecAction(exePath, null, null));
+
+                    ts.RootFolder.RegisterTaskDefinition(taskName, td);
+                }
+                else
+                {
+                    // Remove the task
+                    ts.RootFolder.DeleteTask(taskName, false);
+                }
             }
         }
 
@@ -310,6 +323,44 @@ namespace MultiPresence
             {
                 // Remove the application from startup
                 registryKey.DeleteValue(appName, false);
+            }
+        }
+
+        private void cb_LaunchWithWindowsAdmin_Click(object sender, EventArgs e)
+        {
+            if (cb_LaunchWithWindowsAdmin.Checked)
+            {
+                cb_LaunchWithWindows.Checked = false;
+                SetStartupAdmin(true);
+                SetStartup(false);
+                Settings.Default.startup = false;
+                Settings.Default.startupadmin = true;
+                Settings.Default.Save();
+            }
+            else
+            {
+                SetStartupAdmin(false);
+                Settings.Default.startupadmin = false;
+                Settings.Default.Save();
+            }
+        }
+
+        private void cb_LaunchWithWindows_Click(object sender, EventArgs e)
+        {
+            if (cb_LaunchWithWindows.Checked)
+            {
+                cb_LaunchWithWindowsAdmin.Checked = false;
+                SetStartup(true);
+                SetStartupAdmin(false);
+                Settings.Default.startup = true;
+                Settings.Default.startupadmin = false;
+                Settings.Default.Save();
+            }
+            else
+            {
+                SetStartup(false);
+                Settings.Default.startup = false;
+                Settings.Default.Save();
             }
         }
     }
