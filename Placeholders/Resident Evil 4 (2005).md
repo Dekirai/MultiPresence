@@ -8,3 +8,4 @@
 |{weapon}|Shows the current weapon|Everywhere|
 |{character}|Shows the current character|Mercenaries|
 |{score}|Shows the current score|Mercenaries|
+|{area_icon_name}|Icon name of the current area, to be used with Large/Smallasset|Main & Separate Ways|

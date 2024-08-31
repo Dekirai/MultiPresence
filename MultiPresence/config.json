@@ -4,9 +4,9 @@
       "Default": {
         "Details": "{nickname} (Lv. {level})",
         "State": "Playing as {character}",
-        "LargeAsset": "",
+        "LargeAsset": "{character_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "asobiSW",
         "SmallAssetText": ""
       }
     },
@@ -14,17 +14,17 @@
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
         "SmallAssetText": ""
       },
       "Mission": {
         "Details": "[In Mission] Lv. {level} ({difficulty})",
         "State": "HP: {hp_mission}/{maxhp_mission} | MP: {mp_mission}/{maxmp_mission}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
         "SmallAssetText": ""
       }
     },
@@ -32,9 +32,9 @@
       "Default": {
         "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
         "State": "Level {level}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Final Fantasy VII Remake",
         "SmallAssetText": ""
       }
     },
@@ -42,29 +42,29 @@
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
-        "SmallAsset": "",
-        "LargeAssetText": "",
-        "SmallAssetText": ""
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "{character_icon_name}",
+        "LargeAssetText": "{world}",
+        "SmallAssetText": "Playing as {character}"
       }
     },
     "Kingdom Hearts Dream Drop Distance": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
-        "SmallAsset": "",
-        "LargeAssetText": "",
-        "SmallAssetText": ""
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "{character_icon_name}",
+        "LargeAssetText": "{world}",
+        "SmallAssetText": "Playing as {character}"
       }
     },
     "Kingdom Hearts Final Mix": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{world}",
         "SmallAssetText": ""
       }
     },
@@ -72,9 +72,9 @@
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{world}",
         "SmallAssetText": ""
       }
     },
@@ -82,25 +82,25 @@
       "World_Map": {
         "Details": "Playing on {difficulty}",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{world}",
         "SmallAssetText": ""
       },
       "Gummi_Ship": {
         "Details": "Gummi Lv. {gummilevel} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{world}",
         "SmallAssetText": ""
       },
       "In_World": {
         "Details": "Lv. {level} ({difficulty})",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{world}",
         "SmallAssetText": ""
       }
     },
@@ -108,9 +108,9 @@
       "Default": {
         "Details": "Health: {health} (Level {level})",
         "State": "Swinging in {location}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Marvel's Spider-Man Remastered",
         "SmallAssetText": ""
       }
     },
@@ -118,9 +118,9 @@
       "Default": {
         "Details": "Health: {health} (Level {level})",
         "State": "Swinging in {location}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Marvel's Spider-Man: Miles Morales",
         "SmallAssetText": ""
       }
     },
@@ -128,9 +128,9 @@
       "Default": {
         "Details": "Lives: {lives} ({difficulty})",
         "State": "{stage}",
-        "LargeAsset": "",
+        "LargeAsset": "{stage_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "{stage}",
         "SmallAssetText": ""
       }
     },
@@ -138,17 +138,17 @@
       "Default": {
         "Details": "HP: {hp}/{maxhp}",
         "State": "{location}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Mega Man Battle Network 6",
         "SmallAssetText": ""
       },
       "In_Battle": {
         "Details": "HP: {hp_battle}/{maxhp_battle}",
         "State": "{location} (In Battle)",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Mega Man Battle Network 6",
         "SmallAssetText": ""
       }
     },
@@ -156,9 +156,9 @@
       "Default": {
         "Details": "<yourSteamID3>",
         "State": "",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Overwatch 2",
         "SmallAssetText": ""
       }
     },

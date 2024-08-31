@@ -11,3 +11,4 @@
 |{currenthole}|Shows the current hole|Ingame|
 |{maxholes}|Shows the amount of holes to be played|Ingame, Waiting|
 |{score}|Shows your current score|Tourney|
+|{map_icon_name}|Icon name of the current course, to be used with Large/Smallasset|Ingame, Waiting|

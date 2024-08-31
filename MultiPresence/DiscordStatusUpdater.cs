@@ -91,6 +91,11 @@ public class DiscordStatusUpdater
             { "Lobby", new GameDetails { Details = "{nickname} - {level}", State = "In Lobby", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } }
         }
     },
+    { "Resident Evil", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{floor}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } },
+        }
+    },
     { "Resident Evil 4", new Dictionary<string, GameDetails>
         {
             { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } },

@@ -1,5 +1,3 @@
-
-
 # MultiPresence
 Let your friends see what you are currently doing in your active game!      
 

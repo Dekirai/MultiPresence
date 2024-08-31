@@ -50,7 +50,6 @@ namespace MultiPresence.Presence
 
                 if (health > 0)
                 {
-                    discord.UpdateLargeAsset($"logo", $"Marvel's Spider-Man Remastered");
                     string details = updater.UpdateDetails("Marvel's Spider-Man Remastered", placeholders);
                     string state = updater.UpdateState("Marvel's Spider-Man Remastered", placeholders);
                     string largeasset = updater.UpdateLargeAsset("Marvel's Spider-Man Remastered", placeholders);
