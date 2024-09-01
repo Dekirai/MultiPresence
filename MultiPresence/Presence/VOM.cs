@@ -62,16 +62,26 @@ namespace MultiPresence.Presence
                         { "difficulty", difficulty }
                     };
 
-                    string details = updater.UpdateDetails("Visions of Mana", placeholders);
-                    string state = updater.UpdateState("Visions of Mana", placeholders);
-                    string largeasset = updater.UpdateLargeAsset("Visions of Mana", placeholders);
-                    string largeassettext = updater.UpdateLargeAssetText("Visions of Mana", placeholders);
-                    string smallasset = updater.UpdateSmallAsset("Visions of Mana", placeholders);
-                    string smallassettext = updater.UpdateSmallAssetText("Visions of Mana", placeholders);
-                    discord.UpdateLargeAsset(largeasset, largeassettext);
-                    discord.UpdateSmallAsset(smallasset, smallassettext);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
+                    if (level == 0)
+                    {
+                        discord.UpdateLargeAsset("logo", "Visions of Mana");
+                        discord.UpdateSmallAsset("", "");
+                        discord.UpdateDetails($"In Main Menu");
+                        discord.UpdateState("");
+                    }
+                    else
+                    {
+                        string details = updater.UpdateDetails("Visions of Mana", placeholders);
+                        string state = updater.UpdateState("Visions of Mana", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Visions of Mana", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Visions of Mana", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Visions of Mana", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Visions of Mana", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
+                    }
                 }
                 catch
                 {
