@@ -124,6 +124,11 @@ public class DiscordStatusUpdater
             { "Lobby", new GameDetails { Details = "Raid Mode: In Lobby", State = "{character} (Lv. {level})", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } },
             { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } }
         }
+    },
+    { "Visions of Mana", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}", LargeAsset = "logo", LargeAssetText = "Visions of Mana", SmallAsset = "", SmallAssetText = "" } }
+        }
     }
 };
 

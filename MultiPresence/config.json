@@ -325,6 +325,16 @@
         "LargeAssetText": "",
         "SmallAssetText": ""
       }
+    },
+    "Visions of Mana": {
+      "Default": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Visions of Mana",
+        "SmallAssetText": ""
+      }
     }
   }
 }
