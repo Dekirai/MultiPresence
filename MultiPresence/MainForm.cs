@@ -106,7 +106,7 @@ namespace MultiPresence
                         SA2.DoAction();
                         gameUpdater.Stop();
                         break;
-                    case "Overwatch":
+                    case "Overwatch 2":
                         Balloon(game);
                         OW.DoAction();
                         gameUpdater.Stop();

@@ -126,7 +126,7 @@ namespace MultiPresence
             else if (game_msmr.Length > 0)
                 game = "Marvel's Spider-Man Remastered";
             else if (game_ow.Length > 0)
-                game = "Overwatch";
+                game = "Overwatch 2";
             else if (game_pyre.Length > 0)
                 game = "Pangya Reborn";
             else if (game_re.Length > 0)
