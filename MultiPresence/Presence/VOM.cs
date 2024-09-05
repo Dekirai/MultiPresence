@@ -13,8 +13,7 @@ namespace MultiPresence.Presence
         private static DiscordRpcClient discord;
         private static DiscordStatusUpdater updater;
         public static string difficulty = "";
-        public static string[] room = null;
-        public static string[] world = null;
+
         public static void DoAction()
         {
             GetPID();
@@ -42,7 +41,7 @@ namespace MultiPresence.Presence
                 float hpmax = mem.ReadFloat($"{process}.exe+067B2800,0x30,0x228,0x338,0x9A8,0x140,0x0,0x68");
                 float mp = mem.ReadFloat($"{process}.exe+067B2800,0x30,0x228,0x338,0x9A8,0x140,0x0,0x88");
                 float mpmax = mem.ReadFloat($"{process}.exe+067B2800,0x30,0x228,0x338,0x9A8,0x140,0x0,0x98");
-                int difficulty_get = mem.ReadByte($"{process}.exe+0622DB50,0x490,0x688,0x10,0x140,0x88,0xC30");
+                int difficulty_get = mem.ReadByte($"{process}.exe+0622DB50,0x3A0,0x780,0x80,0xF0,0x140,0x88,0xC30");
                 float level = mem.ReadFloat($"{process}.exe+067B2800,0x30,0x228,0x338,0x9A8,0x140,0x0,0x38");
 
                 try

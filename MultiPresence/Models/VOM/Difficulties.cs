@@ -20,6 +20,9 @@
                 case 3:
                     getdifficulty = "Hard";
                     break;
+                case 4:
+                    getdifficulty = "Expert";
+                    break;
 
                 default:
                     getdifficulty = "Normal";
@@ -45,6 +48,12 @@
                     break;
                 case 3:
                     getdifficulty = "Schwer";
+                    break;
+                case 4:
+                    getdifficulty = "Schwer";
+                    break;
+                case 5:
+                    getdifficulty = "Extrem"; //???
                     break;
 
                 default:
