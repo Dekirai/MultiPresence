@@ -326,33 +326,15 @@
         "SmallAssetText": ""
       }
     },
-    "Vampire Survivors": {
+    "Visions of Mana": {
       "Default": {
-        "Details": "In Main Menu",
-        "State": "Coins: {coins}",
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
         "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "Vampire Survivors",
+        "LargeAssetText": "Visions of Mana",
         "SmallAssetText": ""
-      },
-      "Ingame": {
-        "Details": "{firstname} - Lv. {level} - Coins: {coinsingame}",
-        "State": "🕑{time} {stage} - Kills: {kills}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": ""
-      }
-    },
-      "Visions of Mana": {
-        "Default": {
-          "Details": "Lv. {level} ({difficulty})",
-          "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
-          "LargeAsset": "logo",
-          "SmallAsset": "",
-          "LargeAssetText": "Visions of Mana",
-          "SmallAssetText": ""
-        }
       }
     }
+  }
 }

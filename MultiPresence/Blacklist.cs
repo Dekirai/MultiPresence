@@ -52,8 +52,6 @@ namespace MultiPresence
         public bool ZeldaTheWindWakerHD { get; set; }
         [JsonProperty("Zelda: Twilight Princess HD")]
         public bool ZeldaTwilightPrincessHD { get; set; }
-        [JsonProperty("Vampire Survivors")]
-        public bool VampireSurvivors { get; set; }
         [JsonProperty("Visions of Mana")]
         public bool VisionsOfMana { get; set; }
 
@@ -105,8 +103,6 @@ namespace MultiPresence
                     return ZeldaTheWindWakerHD;
                 case "Zelda: Twilight Princess HD":
                     return ZeldaTwilightPrincessHD;
-                case "Vampire Survivors":
-                    return VampireSurvivors;
                 case "Visions of Mana":
                     return VisionsOfMana;
                 default:
