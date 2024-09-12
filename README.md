@@ -53,6 +53,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Resident Evil Revelations 2](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-Revelations-2)|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
+|[Vampire Survivors](https://github.com/Dekirai/MultiPresence/wiki/Vampire-Survivors)|[Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)|Adventure Mode not yet supported|
 |[Visions of Mana](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)| |
 |[Zelda: The Wind Waker HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-The-Wind-Waker-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind_Waker_HD)|Works on EUR and USA|
 |[Zelda: Twilight Princess HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|Works on EUR and USA|

@@ -50,8 +50,6 @@ namespace MultiPresence.Presence
                 string formattedTime = string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
                 
                 var character = await Characters.GetCharacter(characterid);
-                string char_first = character.Split(' ')[0];
-                string char_last = character.Split(' ')[1];
                 var stage = await Stages.GetStages(stageid);
 
                 try
@@ -59,8 +57,6 @@ namespace MultiPresence.Presence
                     var placeholders = new Dictionary<string, object>
                     {
                         { "character", character },
-                        { "firstname", char_first },
-                        { "lastname", char_last },
                         { "stage", stage },
                         { "coins", (int)Math.Floor(coins) },
                         { "coinsingame", (int)Math.Floor(coinsingame) },

@@ -336,7 +336,7 @@
         "SmallAssetText": ""
       },
       "Ingame": {
-        "Details": "{firstname} - Lv. {level} - Coins: {coinsingame}",
+        "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
         "State": "🕑{time} {stage} - Kills: {kills}",
         "LargeAsset": "logo",
         "SmallAsset": "",
