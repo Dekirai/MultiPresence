@@ -125,6 +125,12 @@ public class DiscordStatusUpdater
             { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "" } }
         }
     },
+    { "Vampire Survivors", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "In Main Menu", State = "Coins: {coins}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } },
+            { "Ingame", new GameDetails { Details = "{firstname} - Lv. {level} - Coins: {coinsingame}", State = "🕑{time} {stage} - Kills: {kills}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } }
+        }
+    },
     { "Visions of Mana", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}", LargeAsset = "logo", LargeAssetText = "Visions of Mana", SmallAsset = "", SmallAssetText = "" } }

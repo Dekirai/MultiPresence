@@ -35,6 +35,7 @@ namespace MultiPresence
             var game_rev2 = Process.GetProcessesByName("rerev2");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_ty = Process.GetProcessesByName("TY");
+            var game_vs = Process.GetProcessesByName("VampireSurvivors");
             var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
 
             string game = "";
@@ -143,6 +144,8 @@ namespace MultiPresence
                 game = "Sonic Adventure 2";
             else if (game_ty.Length > 0)
                 game = "TY the Tasmanian Tiger";
+            else if (game_vs.Length > 0)
+                game = "Vampire Survivors";
             else if (game_vom.Length > 0)
                 game = "Visions of Mana";
 
