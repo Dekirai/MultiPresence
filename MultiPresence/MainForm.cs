@@ -171,6 +171,11 @@ namespace MultiPresence
                         MMBN6F.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Vampire Survivors":
+                        Balloon(game);
+                        VS.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Visions of Mana":
                         Balloon(game);
                         VOM.DoAction();
