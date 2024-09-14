@@ -86,6 +86,102 @@
                 case 33:
                     getstage = "Carlo Cart";
                     break;
+                case 1000:
+                    getstage = "Planar Bazaar";
+                    break;
+                case 1001:
+                    getstage = "Castle Grounds";
+                    break;
+                case 1002:
+                    getstage = "Shrine Valley";
+                    break;
+                case 1003:
+                    getstage = "Forbidden Peaks";
+                    break;
+                case 1004:
+                    getstage = "Hidden Cave";
+                    break;
+                case 1005:
+                    getstage = "Frozen Lake";
+                    break;
+                case 1006:
+                    getstage = "Tanuki Forest";
+                    break;
+                case 1007:
+                    getstage = "Mt. Moonspell";
+                    break;
+                case 1011:
+                    getstage = "Old Mad Forest";
+                    break;
+                case 1012:
+                    getstage = "Rough Awakening";
+                    break;
+                case 1013:
+                    getstage = "Risky Woods";
+                    break;
+                case 1014:
+                    getstage = "Rotten Orchard";
+                    break;
+                case 1015:
+                    getstage = "Garlic Paradise";
+                    break;
+                case 1016:
+                    getstage = "Retirement";
+                    break;
+                case 1021:
+                    getstage = "Deep Lore";
+                    break;
+                case 1022:
+                    getstage = "Inlaid Library";
+                    break;
+                case 1023:
+                    getstage = "Mad Forest";
+                    break;
+                case 1024:
+                    getstage = "Gallo Tower";
+                    break;
+                case 1025:
+                    getstage = "Astral Stair";
+                    break;
+                case 1026:
+                    getstage = "Cappella Magna";
+                    break;
+                case 1031:
+                    getstage = "Meeting Called";
+                    break;
+                case 1032:
+                    getstage = "Suspect Security";
+                    break;
+                case 1033:
+                    getstage = "Ejected";
+                    break;
+                case 1034:
+                    getstage = "Don't Get Ghosted";
+                    break;
+                case 1035:
+                    getstage = "Space Rocks";
+                    break;
+                case 1036:
+                    getstage = "Emergency Meating";
+                    break;
+                case 1041:
+                    getstage = "Attack Aggressively";
+                    break;
+                case 1042:
+                    getstage = "Bullet Biters";
+                    break;
+                case 1043:
+                    getstage = "Neo City Chaos";
+                    break;
+                case 1044:
+                    getstage = "Operation: Gun City";
+                    break;
+                case 1045:
+                    getstage = "Run & Gun";
+                    break;
+                case 1046:
+                    getstage = "Alien Revengeance";
+                    break;
 
                 default:
                     getstage = "Unknown";

@@ -128,7 +128,9 @@ public class DiscordStatusUpdater
     { "Vampire Survivors", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "In Main Menu", State = "Coins: {coins}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } },
-            { "Ingame", new GameDetails { Details = "{character} - Lv. {level} - Coins: {coinsingame}", State = "🕑{time} {stage} - Kills: {kills}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } }
+            { "Default_Adventure", new GameDetails { Details = "In Main Menu", State = "{adventure} - Coins: {coinsadventure}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } },
+            { "Ingame", new GameDetails { Details = "{character} - Lv. {level} - Coins: {coinsingame}", State = "🕑{time} {stage} - Kills: {kills}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "" } },
+            { "Ingame_Adventure", new GameDetails { Details = "{characteradventure} - Lv. {level} - Coins: {coinsingameadventure}", State = "🕑{time} {stageadventure} - Kills: {killsadventure}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "book", SmallAssetText = "Playing {adventure}" } },
         }
     },
     { "Visions of Mana", new Dictionary<string, GameDetails>
