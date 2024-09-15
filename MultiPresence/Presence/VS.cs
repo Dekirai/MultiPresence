@@ -34,6 +34,7 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
+            List<string> modesList = new List<string>();
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
@@ -51,6 +52,12 @@ namespace MultiPresence.Presence
                 int level = mem.ReadInt("GameAssembly.dll+049541B8,0xB8,0x0,0xF0,0x98,0x18,0x28,0x18C");
                 float time = mem.ReadFloat("GameAssembly.dll+04962070,0x80,0x78,0x48,0x40,0xB8,0x0,0x360");
                 int isIngame = mem.ReadByte("UnityPlayer.dll+1B32778"); //???? Idk if it's actually ingame check
+                int isHyper = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4C");
+                int isHurry = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4D");
+                int hasArcanas = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4E");
+                int hasLimitbreak = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4F");
+                int isInverse = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x50");
+                int isEndless = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x51");
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(time);
                 string formattedTime = string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
@@ -59,6 +66,23 @@ namespace MultiPresence.Presence
                 var character_adventure = await Characters.GetCharacter(characterid_adventure);
                 var stage = await Stages.GetStages(stageid);
                 var stage_adventure = await Stages.GetStages(stageid_adventure);
+
+                if (isHyper == 1)
+                    modesList.Add("Hyper");
+                if (isHurry == 1)
+                    modesList.Add("Hurry");
+                if (hasArcanas == 1)
+                    modesList.Add("Arcanas");
+                if (hasLimitbreak == 1)
+                    modesList.Add("Limit Break");
+                if (isInverse == 1)
+                    modesList.Add("Inverse");
+                if (isEndless == 1)
+                    modesList.Add("Endless");
+
+                string modes = string.Join(", ", modesList);
+                if (modesList.Count == 0)
+                    modes = "None";
 
                 try
                 {
@@ -77,7 +101,8 @@ namespace MultiPresence.Presence
                         { "health", (int)Math.Floor(health) },
                         { "level", level },
                         { "time", formattedTime },
-                        { "adventure", adventure }
+                        { "adventure", adventure },
+                        { "modes", modes }
                     };
 
                     if (stageid_adventure >= 1001 && stageid_adventure <= 1007)

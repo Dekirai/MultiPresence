@@ -14,5 +14,3 @@
 |{health}|Shows your current health|Ingame, Ingame_Adventure|
 |{level}|Shows the current level|Ingame, Ingame_Adventure|
 |{time}|Displays the current time as mm:ss|Ingame, Ingame_Adventure|
-
-
