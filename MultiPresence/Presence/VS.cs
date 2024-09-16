@@ -1,7 +1,6 @@
 ﻿using DiscordRPC;
 using Memory;
 using MultiPresence.Models.VS;
-using MultiPresence.Properties;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
@@ -58,26 +57,32 @@ namespace MultiPresence.Presence
                 int hasLimitbreak = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4F");
                 int isInverse = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x50");
                 int isEndless = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x51");
+                int isHyper_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4C");
+                int isHurry_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4D");
+                int hasArcanas_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4E");
+                int hasLimitbreak_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4F");
+                int isInverse_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x50");
+                int isEndless_adventure = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x60,0x51");
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(time);
                 string formattedTime = string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
-                
+
                 var character = await Characters.GetCharacter(characterid);
                 var character_adventure = await Characters.GetCharacter(characterid_adventure);
                 var stage = await Stages.GetStages(stageid);
                 var stage_adventure = await Stages.GetStages(stageid_adventure);
 
-                if (isHyper == 1)
+                if (isHyper == 1 || isHyper_adventure == 1)
                     modesList.Add("Hyper");
-                if (isHurry == 1)
+                if (isHurry == 1 || isHurry_adventure == 1)
                     modesList.Add("Hurry");
-                if (hasArcanas == 1)
+                if (hasArcanas == 1 || hasArcanas_adventure == 1)
                     modesList.Add("Arcanas");
-                if (hasLimitbreak == 1)
+                if (hasLimitbreak == 1 || hasLimitbreak_adventure == 1)
                     modesList.Add("Limit Break");
-                if (isInverse == 1)
+                if (isInverse == 1 || isInverse_adventure == 1)
                     modesList.Add("Inverse");
-                if (isEndless == 1)
+                if (isEndless == 1 || isEndless_adventure == 1)
                     modesList.Add("Endless");
 
                 string modes = string.Join(", ", modesList);
@@ -86,24 +91,6 @@ namespace MultiPresence.Presence
 
                 try
                 {
-                    var placeholders = new Dictionary<string, object>
-                    {
-                        { "character", character },
-                        { "characteradventure", character_adventure },
-                        { "stage", stage },
-                        { "stageadventure", stage_adventure },
-                        { "coins", (int)Math.Floor(coins) },
-                        { "coinsadventure", (int)Math.Floor(coins_adventure) },
-                        { "coinsingame", (int)Math.Floor(coinsingame) },
-                        { "coinsingameadventure", (int)Math.Floor(coinsingame_adventure) },
-                        { "kills", kills },
-                        { "killsadventure", kills_adventure },
-                        { "health", (int)Math.Floor(health) },
-                        { "level", level },
-                        { "time", formattedTime },
-                        { "adventure", adventure },
-                        { "modes", modes }
-                    };
 
                     if (stageid_adventure >= 1001 && stageid_adventure <= 1007)
                         adventure = "Legacy of the Moonspell";
@@ -122,6 +109,14 @@ namespace MultiPresence.Presence
                     {
                         if (stageid_adventure > 0)
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "character", character_adventure },
+                                { "stage", stage_adventure },
+                                { "coins", (int)Math.Floor(coins_adventure) },
+                                { "adventure", adventure },
+                                { "modes", modes }
+                            };
                             string details = updater.UpdateDetails("Vampire Survivors", placeholders, "Default_Adventure");
                             string state = updater.UpdateState("Vampire Survivors", placeholders, "Default_Adventure");
                             string largeasset = updater.UpdateLargeAsset("Vampire Survivors", placeholders, "Default_Adventure");
@@ -135,6 +130,14 @@ namespace MultiPresence.Presence
                         }
                         else
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "character", character },
+                                { "stage", stage },
+                                { "coins", (int)Math.Floor(coins) },
+                                { "adventure", adventure },
+                                { "modes", modes }
+                            };
                             string details = updater.UpdateDetails("Vampire Survivors", placeholders);
                             string state = updater.UpdateState("Vampire Survivors", placeholders);
                             string largeasset = updater.UpdateLargeAsset("Vampire Survivors", placeholders);
@@ -151,6 +154,19 @@ namespace MultiPresence.Presence
                     {
                         if (stageid_adventure > 0)
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "character", character_adventure },
+                                { "stage", stage_adventure },
+                                { "coins", (int)Math.Floor(coins_adventure) },
+                                { "coinsingame", (int)Math.Floor(coinsingame_adventure) },
+                                { "kills", kills_adventure },
+                                { "health", (int)Math.Floor(health) },
+                                { "level", level },
+                                { "time", formattedTime },
+                                { "adventure", adventure },
+                                { "modes", modes }
+                            };
                             string details = updater.UpdateDetails("Vampire Survivors", placeholders, "Ingame_Adventure");
                             string state = updater.UpdateState("Vampire Survivors", placeholders, "Ingame_Adventure");
                             string largeasset = updater.UpdateLargeAsset("Vampire Survivors", placeholders, "Ingame_Adventure");
@@ -164,6 +180,18 @@ namespace MultiPresence.Presence
                         }
                         else
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "character", character },
+                                { "stage", stage },
+                                { "coins", (int)Math.Floor(coins) },
+                                { "coinsingame", (int)Math.Floor(coinsingame) },
+                                { "kills", kills },
+                                { "health", (int)Math.Floor(health) },
+                                { "level", level },
+                                { "time", formattedTime },
+                                { "modes", modes }
+                            };
                             string details = updater.UpdateDetails("Vampire Survivors", placeholders, "Ingame");
                             string state = updater.UpdateState("Vampire Survivors", placeholders, "Ingame");
                             string largeasset = updater.UpdateLargeAsset("Vampire Survivors", placeholders, "Ingame");

@@ -337,7 +337,7 @@
       },
       "Default_Adventure": {
         "Details": "In Main Menu",
-        "State": "{adventure} - Coins: {coinsadventure}",
+        "State": "{adventure} - Coins: {coins}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Vampire Survivors",
@@ -347,17 +347,17 @@
         "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
         "State": "🕑{time} {stage} - Kills: {kills}",
         "LargeAsset": "logo",
-        "SmallAsset": "",
+        "SmallAsset": "book",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": ""
+        "SmallAssetText": "Modes: {modes}"
       },
       "Ingame_Adventure": {
-        "Details": "{characteradventure} - Lv. {level} - Coins: {coinsingameadventure}",
-        "State": "🕑{time} {stageadventure} - Kills: {killsadventure}",
+        "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
+        "State": "🕑{time} {stage} - Kills: {kills}",
         "LargeAsset": "logo",
         "SmallAsset": "book",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "Playing {adventure}"
+        "SmallAssetText": "Playing {adventure} - Modes: {modes}"
       }
     },
     "Ingame": {
