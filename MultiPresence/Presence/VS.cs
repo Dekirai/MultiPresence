@@ -50,7 +50,7 @@ namespace MultiPresence.Presence
                 float health = mem.ReadFloat("GameAssembly.dll+049541B8,0xB8,0x0,0xF0,0x98,0x18,0x28,0x188");
                 int level = mem.ReadInt("GameAssembly.dll+049541B8,0xB8,0x0,0xF0,0x98,0x18,0x28,0x18C");
                 float time = mem.ReadFloat("GameAssembly.dll+04962070,0x80,0x78,0x48,0x40,0xB8,0x0,0x360");
-                int isIngame = mem.ReadByte("UnityPlayer.dll+1B32778"); //???? Idk if it's actually ingame check
+                int isIngame = mem.ReadByte("UnityPlayer.dll+1B32778");
                 int isHyper = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4C");
                 int isHurry = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4D");
                 int hasArcanas = mem.ReadByte("GameAssembly.dll+048F7858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4E");
