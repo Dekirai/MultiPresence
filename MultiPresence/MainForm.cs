@@ -66,6 +66,11 @@ namespace MultiPresence
                         FFVIIR.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Final Fantasy XVI":
+                        Balloon(game);
+                        FFXVI.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Kingdom Hearts Final Mix":
                         Balloon(game);
                         KH1.DoAction();

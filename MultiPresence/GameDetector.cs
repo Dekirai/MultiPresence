@@ -17,6 +17,7 @@ namespace MultiPresence
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
+            var game_ffxvi = Process.GetProcessesByName("ffxvi");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
@@ -52,6 +53,8 @@ namespace MultiPresence
                 game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";
+            else if (game_ffxvi.Length > 0)
+                game = "Final Fantasy XVI";
             else if (game_cemu.Length > 0)
             {
                 string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";

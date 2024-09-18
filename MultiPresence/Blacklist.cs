@@ -10,6 +10,8 @@ namespace MultiPresence
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]
         public bool FinalFantasyVIIRemake { get; set; }
+        [JsonProperty("Final Fantasy XVI")]
+        public bool FinalFantasyXVI { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts Dream Drop Distance")]

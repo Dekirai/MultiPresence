@@ -38,6 +38,16 @@
         "SmallAssetText": ""
       }
     },
+    "Final Fantasy XVI": {
+      "Default": {
+        "Details": "HP: {hp} (Lv. {level})",
+        "State": "Gil: {gil}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Final Fantasy XVI",
+        "SmallAssetText": ""
+      }
+    },
     "Kingdom Hearts Birth by Sleep Final Mix": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
@@ -369,15 +379,14 @@
       "SmallAssetText": ""
     }
   },
-      "Visions of Mana": {
-        "Default": {
-          "Details": "Lv. {level} ({difficulty})",
-          "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
-          "LargeAsset": "logo",
-          "SmallAsset": "",
-          "LargeAssetText": "Visions of Mana",
-          "SmallAssetText": ""
-        }
-      }
+  "Visions of Mana": {
+    "Default": {
+      "Details": "Lv. {level} ({difficulty})",
+      "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
+      "LargeAsset": "logo",
+      "SmallAsset": "",
+      "LargeAssetText": "Visions of Mana",
+      "SmallAssetText": ""
     }
+  }
 }

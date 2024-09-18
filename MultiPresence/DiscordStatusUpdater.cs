@@ -29,6 +29,11 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Remake", SmallAsset = "", SmallAssetText = "" } }
         }
     },
+    { "Final Fantasy XVI", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "Gil: {gil}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XVI", SmallAsset = "", SmallAssetText = "" } }
+        }
+    },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}" } }
