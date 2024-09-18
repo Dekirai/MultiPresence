@@ -12,7 +12,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
-            await Task.Delay(10000);
+            await Task.Delay(20000);
             GetPID();
             discord = new DiscordRpcClient("1285884197084336161");
             InitializeDiscord();
