@@ -40,8 +40,8 @@
     },
     "Final Fantasy XVI": {
       "Default": {
-        "Details": "HP: {hp} (Lv. {level})",
-        "State": "Gil: {gil}",
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "Health: {hp} - Gil: {gil}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Final Fantasy XVI",
