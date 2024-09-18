@@ -12,6 +12,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
+            await Task.Delay(10000);
             GetPID();
             discord = new DiscordRpcClient("1285884197084336161");
             InitializeDiscord();
@@ -36,12 +37,24 @@ namespace MultiPresence.Presence
                 int hp = mem.ReadInt($"{process}.exe+02752328,0x100,0x278,0xC8,0x1E8,0x0,0x7A8,0x248");
                 int level = mem.ReadInt($"{process}.exe+02752328,0x100,0x278,0xC8,0x1E8,0x0,0x7A8,0x254");
                 int gil = mem.ReadInt($"10A4072E6C");
+                int difficulty_get = mem.ReadByte($"{process}.exe+1817CE8,0xCB50");
+                string difficulty = "";
+
+                if (difficulty_get == 0)
+                    difficulty = "Normal";
+                else if (difficulty_get == 1)
+                    difficulty = "Hard";
+                else if (difficulty_get == 2)
+                    difficulty = "Final Fantasy";
+                else if (difficulty_get == 3)
+                    difficulty = "Ultimaniac";
 
                 var placeholders = new Dictionary<string, object>
                 {
                     { "level", level },
                     { "hp", hp },
-                    { "gil", gil }
+                    { "gil", gil },
+                    { "difficulty", difficulty }
                 };
 
                 discord.UpdateLargeAsset($"logo", $"FINAL FANTASY XVI");
