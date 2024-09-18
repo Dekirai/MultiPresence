@@ -41,9 +41,9 @@ namespace MultiPresence.Presence
                 string difficulty = "";
 
                 if (difficulty_get == 0)
-                    difficulty = "Normal";
+                    difficulty = "Easy";
                 else if (difficulty_get == 1)
-                    difficulty = "Hard";
+                    difficulty = "Normal";
                 else if (difficulty_get == 2)
                     difficulty = "Final Fantasy";
                 else if (difficulty_get == 3)
