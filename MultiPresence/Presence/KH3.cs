@@ -89,10 +89,34 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "World_Map");
                             string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "World_Map");
                             string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "World_Map");
+                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "World_Map");
+                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "World_Map");
+                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "World_Map");
+                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "World_Map");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else if (level_path.Contains("gm"))
                         {
@@ -104,24 +128,73 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
                             string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "Gummi_Ship");
                             string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "Gummi_Ship");
+                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "Gummi_Ship");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else
                         {
                             level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "In_World");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "In_World");
                             string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "In_World");
                             string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "In_World");
                             string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "In_World");
                             string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "In_World");
+                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "In_World");
+                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "In_World");
+                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "In_World");
+                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "In_World");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
                 }

@@ -60,20 +60,77 @@ namespace MultiPresence.Presence
                     if (stage[1] == "In Lobby")
                     {
                         mission = mem.ReadByte("rerev2.exe+011DE690,0x1E0,0x4C,0x3C,0x14,0x3C,0x74,0x7C4") + 1;
-                        discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-
                         string details = updater.UpdateDetails("Resident Evil Revelations 2", placeholders, "Lobby");
                         string state = updater.UpdateState("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string largeasset = updater.UpdateLargeAsset("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string largeassettext = updater.UpdateLargeAssetText("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string smallasset = updater.UpdateSmallAsset("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string smallassettext = updater.UpdateSmallAssetText("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string button1text = updater.UpdateButton1Text("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string button2text = updater.UpdateButton2Text("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string button1url = updater.UpdateButton1URL("Resident Evil Revelations 2", placeholders, "Lobby");
+                        string button2url = updater.UpdateButton2URL("Resident Evil Revelations 2", placeholders, "Lobby");
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
                         discord.UpdateDetails(details);
                         discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
                     }
                     else
                     {
-                        discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
                         string details = updater.UpdateDetails("Resident Evil Revelations 2", placeholders, "Ingame");
                         string state = updater.UpdateState("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string largeasset = updater.UpdateLargeAsset("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string largeassettext = updater.UpdateLargeAssetText("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string smallasset = updater.UpdateSmallAsset("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string smallassettext = updater.UpdateSmallAssetText("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string button1text = updater.UpdateButton1Text("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string button2text = updater.UpdateButton2Text("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string button1url = updater.UpdateButton1URL("Resident Evil Revelations 2", placeholders, "Ingame");
+                        string button2url = updater.UpdateButton2URL("Resident Evil Revelations 2", placeholders, "Ingame");
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
                         discord.UpdateDetails(details);
                         discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
                     }
                 }
                 else

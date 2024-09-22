@@ -123,10 +123,34 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Vampire Survivors", placeholders, "Default_Adventure");
                             string smallasset = updater.UpdateSmallAsset("Vampire Survivors", placeholders, "Default_Adventure");
                             string smallassettext = updater.UpdateSmallAssetText("Vampire Survivors", placeholders, "Default_Adventure");
+                            string button1text = updater.UpdateButton1Text("Vampire Survivors", placeholders, "Default_Adventure");
+                            string button2text = updater.UpdateButton2Text("Vampire Survivors", placeholders, "Default_Adventure");
+                            string button1url = updater.UpdateButton1URL("Vampire Survivors", placeholders, "Default_Adventure");
+                            string button2url = updater.UpdateButton2URL("Vampire Survivors", placeholders, "Default_Adventure");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else
                         {
@@ -144,10 +168,34 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Vampire Survivors", placeholders);
                             string smallasset = updater.UpdateSmallAsset("Vampire Survivors", placeholders);
                             string smallassettext = updater.UpdateSmallAssetText("Vampire Survivors", placeholders);
+                            string button1text = updater.UpdateButton1Text("Vampire Survivors", placeholders);
+                            string button2text = updater.UpdateButton2Text("Vampire Survivors", placeholders);
+                            string button1url = updater.UpdateButton1URL("Vampire Survivors", placeholders);
+                            string button2url = updater.UpdateButton2URL("Vampire Survivors", placeholders);
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
                     else
@@ -173,10 +221,34 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Vampire Survivors", placeholders, "Ingame_Adventure");
                             string smallasset = updater.UpdateSmallAsset("Vampire Survivors", placeholders, "Ingame_Adventure");
                             string smallassettext = updater.UpdateSmallAssetText("Vampire Survivors", placeholders, "Ingame_Adventure");
+                            string button1text = updater.UpdateButton1Text("Vampire Survivors", placeholders, "Ingame_Adventure");
+                            string button2text = updater.UpdateButton2Text("Vampire Survivors", placeholders, "Ingame_Adventure");
+                            string button1url = updater.UpdateButton1URL("Vampire Survivors", placeholders, "Ingame_Adventure");
+                            string button2url = updater.UpdateButton2URL("Vampire Survivors", placeholders, "Ingame_Adventure");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else
                         {
@@ -198,10 +270,34 @@ namespace MultiPresence.Presence
                             string largeassettext = updater.UpdateLargeAssetText("Vampire Survivors", placeholders, "Ingame");
                             string smallasset = updater.UpdateSmallAsset("Vampire Survivors", placeholders, "Ingame");
                             string smallassettext = updater.UpdateSmallAssetText("Vampire Survivors", placeholders, "Ingame");
+                            string button1text = updater.UpdateButton1Text("Vampire Survivors", placeholders, "Ingame");
+                            string button2text = updater.UpdateButton2Text("Vampire Survivors", placeholders, "Ingame");
+                            string button1url = updater.UpdateButton1URL("Vampire Survivors", placeholders, "Ingame");
+                            string button2url = updater.UpdateButton2URL("Vampire Survivors", placeholders, "Ingame");
                             discord.UpdateLargeAsset(largeasset, largeassettext);
                             discord.UpdateSmallAsset(smallasset, smallassettext);
                             discord.UpdateDetails(details);
                             discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
                 }

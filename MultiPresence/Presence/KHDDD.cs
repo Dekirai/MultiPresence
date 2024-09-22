@@ -67,10 +67,34 @@ namespace MultiPresence.Presence
                     string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
                     string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Dream Drop Distance", placeholders);
                     string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button1text = updater.UpdateButton1Text("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button2text = updater.UpdateButton2Text("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button1url = updater.UpdateButton1URL("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button2url = updater.UpdateButton2URL("Kingdom Hearts Dream Drop Distance", placeholders);
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                 }
                 catch
                 {
@@ -83,13 +107,38 @@ namespace MultiPresence.Presence
                         { "room", room[room_get] }
                     };
                     string details = updater.UpdateDetails("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string state = updater.UpdateState("Kingdom Hearts Dream Drop Distance", placeholders);
                     string largeasset = updater.UpdateLargeAsset("Kingdom Hearts Dream Drop Distance", placeholders);
                     string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
                     string smallasset = updater.UpdateSmallAsset("Kingdom Hearts Dream Drop Distance", placeholders);
                     string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button1text = updater.UpdateButton1Text("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button2text = updater.UpdateButton2Text("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button1url = updater.UpdateButton1URL("Kingdom Hearts Dream Drop Distance", placeholders);
+                    string button2url = updater.UpdateButton2URL("Kingdom Hearts Dream Drop Distance", placeholders);
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                     discord.UpdateState($"{room[0]}");
                 }
 

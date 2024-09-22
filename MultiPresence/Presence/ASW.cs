@@ -63,10 +63,34 @@ namespace MultiPresence.Presence
                     string largeassettext = updater.UpdateLargeAssetText("asobiSW", placeholders);
                     string smallasset = updater.UpdateSmallAsset("asobiSW", placeholders);
                     string smallassettext = updater.UpdateSmallAssetText("asobiSW", placeholders);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
+                    string button1text = updater.UpdateButton1Text("asobiSW", placeholders);
+                    string button2text = updater.UpdateButton2Text("asobiSW", placeholders);
+                    string button1url = updater.UpdateButton1URL("asobiSW", placeholders);
+                    string button2url = updater.UpdateButton2URL("asobiSW", placeholders);
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                 }
 
                 await Task.Delay(3000);

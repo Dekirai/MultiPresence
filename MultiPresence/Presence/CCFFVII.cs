@@ -81,10 +81,34 @@ namespace MultiPresence.Presence
                     string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
+                    string button1text = updater.UpdateButton1Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string button2text = updater.UpdateButton2Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string button1url = updater.UpdateButton1URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
+                    string button2url = updater.UpdateButton2URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                 }
                 else
                 {
@@ -94,10 +118,34 @@ namespace MultiPresence.Presence
                     string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                     string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                     string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
+                    string button1text = updater.UpdateButton1Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string button2text = updater.UpdateButton2Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string button1url = updater.UpdateButton1URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
+                    string button2url = updater.UpdateButton2URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                             new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                 }
 
                 await Task.Delay(3000);

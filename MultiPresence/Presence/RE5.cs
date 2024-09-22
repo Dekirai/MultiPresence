@@ -54,8 +54,38 @@ namespace MultiPresence.Presence
                 {
                     string details = updater.UpdateDetails("Resident Evil 5", placeholders);
                     string state = updater.UpdateState("Resident Evil 5", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Resident Evil 5", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Resident Evil 5", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Resident Evil 5", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Resident Evil 5", placeholders);
+                    string button1text = updater.UpdateButton1Text("Resident Evil 5", placeholders);
+                    string button2text = updater.UpdateButton2Text("Resident Evil 5", placeholders);
+                    string button1url = updater.UpdateButton1URL("Resident Evil 5", placeholders);
+                    string button2url = updater.UpdateButton2URL("Resident Evil 5", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
                     discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
                 }
                 else
                     discord.UpdateDetails("In Menus");

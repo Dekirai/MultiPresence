@@ -51,16 +51,40 @@ namespace MultiPresence.Presence
                         { "stage_icon_name", stagename[1] }
                     };
 
+                string details = updater.UpdateDetails("Mega Man 11", placeholders);
+                string state = updater.UpdateState("Mega Man 11", placeholders);
                 string largeasset = updater.UpdateLargeAsset("Mega Man 11", placeholders);
                 string largeassettext = updater.UpdateLargeAssetText("Mega Man 11", placeholders);
                 string smallasset = updater.UpdateSmallAsset("Mega Man 11", placeholders);
                 string smallassettext = updater.UpdateSmallAssetText("Mega Man 11", placeholders);
-                string details = updater.UpdateDetails("Mega Man 11", placeholders);
-                string state = updater.UpdateState("Mega Man 11", placeholders);
+                string button1text = updater.UpdateButton1Text("Mega Man 11", placeholders);
+                string button2text = updater.UpdateButton2Text("Mega Man 11", placeholders);
+                string button1url = updater.UpdateButton1URL("Mega Man 11", placeholders);
+                string button2url = updater.UpdateButton2URL("Mega Man 11", placeholders);
                 discord.UpdateLargeAsset(largeasset, largeassettext);
                 discord.UpdateSmallAsset(smallasset, smallassettext);
                 discord.UpdateDetails(details);
                 discord.UpdateState(state);
+
+                if (button1url.Length > 0 && button2url.Length == 0)
+                {
+                    discord.UpdateButtons(new DiscordRPC.Button[]
+                    {
+                        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                    });
+                }
+                else if (button1url.Length > 0 && button2url.Length > 0)
+                {
+                    discord.UpdateButtons(new DiscordRPC.Button[]
+                    {
+                        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                    });
+                }
+                else
+                {
+                    discord.UpdateButtons(null);
+                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

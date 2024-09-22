@@ -1,10 +1,10 @@
 using Microsoft.Win32;
+using Microsoft.Win32.TaskScheduler;
 using MultiPresence.Presence;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Timers;
-using Microsoft.Win32.TaskScheduler;
 
 namespace MultiPresence
 {
