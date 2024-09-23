@@ -7,7 +7,11 @@
         "LargeAsset": "{character_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "asobiSW",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "CRISIS CORE –FINAL FANTASY VII– REUNION": {
@@ -17,7 +21,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Mission": {
         "Details": "[In Mission] Lv. {level} ({difficulty})",
@@ -25,7 +33,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Final Fantasy VII Remake": {
@@ -35,7 +47,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Final Fantasy VII Remake",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Final Fantasy XVI": {
@@ -45,7 +61,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Final Fantasy XVI",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts Birth by Sleep Final Mix": {
@@ -55,7 +75,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "{character_icon_name}",
         "LargeAssetText": "{world}",
-        "SmallAssetText": "Playing as {character}"
+        "SmallAssetText": "Playing as {character}",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts Dream Drop Distance": {
@@ -65,7 +89,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "{character_icon_name}",
         "LargeAssetText": "{world}",
-        "SmallAssetText": "Playing as {character}"
+        "SmallAssetText": "Playing as {character}",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts Final Mix": {
@@ -75,7 +103,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{world}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts II Final Mix": {
@@ -85,7 +117,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{world}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts III": {
@@ -95,7 +131,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{world}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Gummi_Ship": {
         "Details": "Gummi Lv. {gummilevel} ({difficulty})",
@@ -103,7 +143,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{world}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "In_World": {
         "Details": "Lv. {level} ({difficulty})",
@@ -111,7 +155,11 @@
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{world}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Marvel's Spider-Man Remastered": {
@@ -121,7 +169,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Marvel's Spider-Man Remastered",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Marvel's Spider-Man: Miles Morales": {
@@ -131,7 +183,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Marvel's Spider-Man: Miles Morales",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Mega Man 11": {
@@ -141,7 +197,11 @@
         "LargeAsset": "{stage_icon_name}",
         "SmallAsset": "",
         "LargeAssetText": "{stage}",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Mega Man Battle Network 6": {
@@ -151,7 +211,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Mega Man Battle Network 6",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "In_Battle": {
         "Details": "HP: {hp_battle}/{maxhp_battle}",
@@ -159,17 +223,25 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Mega Man Battle Network 6",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Overwatch": {
       "Default": {
-        "Details": "<yourSteamID3>",
+        "Details": "41639699",
         "State": "",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Overwatch 2",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Pangya Reborn": {
@@ -179,7 +251,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame_Tourney": {
         "Details": "{nickname} - {level}",
@@ -187,7 +263,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame_Lounge": {
         "Details": "{nickname} - {level}",
@@ -195,7 +275,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Waiting_Room": {
         "Details": "{nickname} - {level}",
@@ -203,7 +287,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Lobby": {
         "Details": "{nickname} - {level}",
@@ -211,7 +299,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Resident Evil": {
@@ -221,7 +313,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Resident Evil 4 (2005)": {
@@ -231,15 +327,23 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Main": {
         "Details": "Weapon: {weapon}",
         "State": "Chapter {chapter}: {room}",
-        "LargeAsset": "",
+        "LargeAsset": "{area_icon_name}",
         "SmallAsset": "",
-        "LargeAssetText": "",
-        "SmallAssetText": ""
+        "LargeAssetText": "{area}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Mercenaries": {
         "Details": "Score: {score}",
@@ -247,7 +351,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Assignment_Ada": {
         "Details": "Weapon: {weapon}",
@@ -255,7 +363,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Separate_Ways": {
         "Details": "Weapon: {weapon}",
@@ -263,7 +375,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Resident Evil 5": {
@@ -273,7 +389,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Resident Evil 6": {
@@ -283,7 +403,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame": {
         "Details": "{chapter}",
@@ -291,7 +415,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Main_Menu": {
         "Details": "In Main Menu",
@@ -299,7 +427,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Saving": {
         "Details": "Saving the game...",
@@ -307,7 +439,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Cutscene": {
         "Details": "{chapter}",
@@ -315,7 +451,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Resident Evil Revelations 2": {
@@ -325,7 +465,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame": {
         "Details": "Raid Mode: Mission {chapter}-0{mission}",
@@ -333,7 +477,11 @@
         "LargeAsset": "",
         "SmallAsset": "",
         "LargeAssetText": "",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Vampire Survivors": {
@@ -343,7 +491,11 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Default_Adventure": {
         "Details": "In Main Menu",
@@ -351,15 +503,23 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": ""
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame": {
         "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
         "State": "🕑{time} {stage} - Kills: {kills}",
         "LargeAsset": "logo",
-        "SmallAsset": "book",
+        "SmallAsset": "",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "Modes: {modes}"
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       },
       "Ingame_Adventure": {
         "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
@@ -367,26 +527,26 @@
         "LargeAsset": "logo",
         "SmallAsset": "book",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "Playing {adventure} - Modes: {modes}"
+        "SmallAssetText": "Playing {adventure} - Modes: {modes}",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
-    "Ingame": {
-      "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
-      "State": "🕑{time} {stage} - Kills: {kills}",
-      "LargeAsset": "logo",
-      "SmallAsset": "",
-      "LargeAssetText": "Vampire Survivors",
-      "SmallAssetText": ""
-    }
-  },
-  "Visions of Mana": {
-    "Default": {
-      "Details": "Lv. {level} ({difficulty})",
-      "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
-      "LargeAsset": "logo",
-      "SmallAsset": "",
-      "LargeAssetText": "Visions of Mana",
-      "SmallAssetText": ""
+    "Visions of Mana": {
+      "Default": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Visions of Mana",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
     }
   }
 }
