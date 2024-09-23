@@ -101,7 +101,7 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "{floor}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
         }
     },
-    { "Resident Evil 4", new Dictionary<string, GameDetails>
+    { "Resident Evil 4 (2005)", new Dictionary<string, GameDetails>
         {
             { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Main", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

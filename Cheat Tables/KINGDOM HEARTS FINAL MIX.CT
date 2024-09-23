@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"World ID"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>"KINGDOM HEARTS FINAL MIX.exe"+233FE94</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Room ID"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>KINGDOM HEARTS FINAL MIX.exe+233FE8C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7136</ID>
+      <Description>"Munny"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"KINGDOM HEARTS FINAL MIX.exe"+2DFF77C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7137</ID>
+      <Description>"Difficulty"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>KINGDOM HEARTS FINAL MIX.exe+2DFF78C</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

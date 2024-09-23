@@ -50,7 +50,7 @@ namespace MultiPresence.Presence
                 {
                     string details = updater.UpdateDetails("Resident Evil 6", placeholders, "Booting");
                     string state = updater.UpdateState("Resident Evil 6", placeholders, "Booting");
-                    string largeasset = updater.UpdateLargeAsset("Resident Evil 6", , "Booting");
+                    string largeasset = updater.UpdateLargeAsset("Resident Evil 6", placeholders, "Booting");
                     string largeassettext = updater.UpdateLargeAssetText("Resident Evil 6", placeholders, "Booting");
                     string smallasset = updater.UpdateSmallAsset("Resident Evil 6", placeholders, "Booting");
                     string smallassettext = updater.UpdateSmallAssetText("Resident Evil 6", placeholders, "Booting");

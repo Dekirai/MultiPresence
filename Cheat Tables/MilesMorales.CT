@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Total XP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>8 Bytes</VariableType>
+      <Address>MilesMorales.exe+7A6C000</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"Skill Points"</Description>
+      <VariableType>2 Bytes</VariableType>
+      <Address>MilesMorales.exe+7A6C008</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"Health"</Description>
+      <VariableType>Float</VariableType>
+      <Address>MilesMorales.exe+7796D68</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"Total XP"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>MilesMorales.exe+671CA6C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"Level"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>MilesMorales.exe+671CA70</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"Location"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>MilesMorales.exe+6724900</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
