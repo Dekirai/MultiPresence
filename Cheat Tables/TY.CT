@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"TY - HP"</Description>
+      <LastState Value="4" RealAddress="007A37CC"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>TY.exe+2737CC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Opals"</Description>
+      <LastState Value="0" RealAddress="007B88B0"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>TY.exe+2888B0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Cheat - Reveal all collectibles"</Description>
+      <LastState Value="0" RealAddress="007BAB68"/>
+      <VariableType>Byte</VariableType>
+      <Address>TY.exe+28AB68</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Cheat - Invincible"</Description>
+      <LastState Value="0" RealAddress="007B8A55"/>
+      <VariableType>Byte</VariableType>
+      <Address>TY.exe+288A55</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Current Boomerang"</Description>
+      <LastState Value="0" RealAddress="007A19A0"/>
+      <VariableType>Byte</VariableType>
+      <Address>TY.exe+2719A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"X"</Description>
+      <LastState Value="-2989" RealAddress="007A0B78"/>
+      <VariableType>Float</VariableType>
+      <Address>TY.exe+270B78</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"Y"</Description>
+      <LastState Value="240.6662903" RealAddress="007A0B7C"/>
+      <VariableType>Float</VariableType>
+      <Address>TY.exe+270B7C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"Z"</Description>
+      <LastState Value="8238" RealAddress="007A0B80"/>
+      <VariableType>Float</VariableType>
+      <Address>TY.exe+270B80</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63</ID>
+      <Description>"Level ID"</Description>
+      <DropDownList DisplayValueAsItem="1">0:Rainbow Cliffs / Regenbogenklippen
+4:Two Up / Alles Roger
+5:Walk in the Park / Parkspaziergang
+6:Ship Rex / Rex Ahoi
+7:Bull's Pen / Bullenbau
+8:Bridge on the River TY / Die Brücke am TY
+9:Snow Worries / Lawinensicher
+10:Outback Safari / Hinterland-Safari
+12:Lyre, Lyre Pants on Fire / Leier, Leier, Vogeleier
+13:Beyond the Black Stump / Jenseits von Nirgendwo
+14:Rex marks the Spot / Rex und Billig
+15:Fluffy's Fjord / Fluffys Fjord
+16:Credits / Credits
+17:Cass' Crest / Cass Gipfel
+19:Crikey's Cove / Mannomanns Meer
+20:Cass' Pass / Cass' Reise
+21:Bonus World / Bonuswelt
+22:Bonus World / Bonuswelt
+23:Final Battle / Endschlacht
+</DropDownList>
+      <LastState Value="4" RealAddress="007B903C"/>
+      <VariableType>Byte</VariableType>
+      <Address>TY.exe+28903C</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>kick_</Name>
+      <Address>00E1F19B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CardRewardCheck_</Name>
+      <Address>00C0290A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>empty_</Name>
+      <Address>00F23127</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Drug_</Name>
+      <Address>00FDC508</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>text_</Name>
+      <Address>0112B4A0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>RangeH_</Name>
+      <Address>007E448E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Room_</Name>
+      <Address>00AE12DA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>abkick1_</Name>
+      <Address>0075D3A0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Names_</Name>
+      <Address>006FBFD5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SentryIgnore_</Name>
+      <Address>020BD8EF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>newname_</Name>
+      <Address>02315691</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>toy_</Name>
+      <Address>29FBCA6F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_sentrystat</Name>
+      <Address>0141F7FC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SentryDelay_</Name>
+      <Address>014EAEF1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>XCBP1_</Name>
+      <Address>012CBEF0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>XCBP2_</Name>
+      <Address>012CBFB0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>XCBP3_</Name>
+      <Address>012861E8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>wallshoot_</Name>
+      <Address>00F9A184</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>passwordmsg_</Name>
+      <Address>01D5938F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>BuffTime_</Name>
+      <Address>01102012</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_Address</Name>
+      <Address>01684733</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>respawn_</Name>
+      <Address>002637DE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nope_</Name>
+      <Address>00FD18F1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nopee_</Name>
+      <Address>0163E3E0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>swordpush_</Name>
+      <Address>0155F315</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Enchant_</Name>
+      <Address>01CFC587</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>chatoptions1_</Name>
+      <Address>01FCEE80</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>chatoptions2_</Name>
+      <Address>02239927</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>FreezeSP_</Name>
+      <Address>00E6AF45</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>namedetect_</Name>
+      <Address>011E3E82</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Mission_</Name>
+      <Address>00AC22E8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>anticount_</Name>
+      <Address>0098B780</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>anticount1_</Name>
+      <Address>00C7C2F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>anticount2_</Name>
+      <Address>00DD88D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Random_</Name>
+      <Address>00D909B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Capsule_</Name>
+      <Address>00D8D160</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_Address1</Name>
+      <Address>007DDBCC</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

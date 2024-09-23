@@ -40,8 +40,8 @@ namespace MultiPresence.Presence
             {
                 int world_get = mem.ReadByte($"{process}.exe+717008");
                 int room_get = mem.ReadByte($"{process}.exe+717009");
-                int difficulty_get = mem.ReadByte($"{process}.exe+9ABCC8");
-                int level = mem.ReadByte($"{process}.exe+9ABD2F");
+                int difficulty_get = mem.ReadByte($"{process}.exe+9ABD48");
+                int level = mem.ReadByte($"{process}.exe+9ABDAF");
 
                 try
                 {
