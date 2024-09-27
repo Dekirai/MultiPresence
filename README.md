@@ -34,14 +34,14 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |--|--|--|
 |[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)| |
 |[Crisis Core -Final Fantasy VII- Reunion](https://github.com/Dekirai/MultiPresence/wiki/Crisis-Core-%E2%80%90Final-Fantasy-VII%E2%80%90-Reunion)|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||
-|[Final Fantasy VII Remake](https://github.com/Dekirai/MultiPresence/wiki/Final-Fantasy-VII-Remake)|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)||
+|[Final Fantasy VII Remake](https://github.com/Dekirai/MultiPresence/wiki/Final-Fantasy-VII-Remake)|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |[Final Fantasy XVI](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)||
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |[Kingdom Hearts II Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-II-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |[Kingdom Hearts III¹](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-III)|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)||
-|[Marvel's Spider-Man Remastered](https://github.com/Dekirai/MultiPresence/wiki/Marvel's-Spider%E2%80%90Man-Remastered)|[Steam](https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/)| |
+|[Marvel's Spider-Man Remastered](https://github.com/Dekirai/MultiPresence/wiki/Marvel's-Spider%E2%80%90Man-Remastered)|[Steam](https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/)|Only base game tested|
 |[Marvel's Spider-Man: Miles Morales](https://github.com/Dekirai/MultiPresence/wiki/Marvel's-Spider%E2%80%90Man:-Miles-Morales)|[Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)| |
 |[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)| |
