@@ -35,10 +35,10 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                int hp = mem.ReadInt($"{process}.exe+02752328,0x100,0x278,0xC8,0x1E8,0x0,0x7A8,0x248");
-                int level = mem.ReadInt($"{process}.exe+02752328,0x100,0x278,0xC8,0x1E8,0x0,0x7A8,0x254");
+                int hp = mem.ReadInt($"{process}.exe+1813CE8,0x50");
+                int level = mem.ReadInt($"{process}.exe+1813CE8,0x40");
                 int gil = mem.ReadInt($"10A4072E6C");
-                int difficulty_get = mem.ReadByte($"{process}.exe+1817CE8,0xCB50");
+                int difficulty_get = mem.ReadByte($"{process}.exe+1813CE8,0xCB50");
                 string difficulty = "";
 
                 if (difficulty_get == 0)
