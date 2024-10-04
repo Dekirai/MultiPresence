@@ -57,12 +57,14 @@ namespace MultiPresence.Presence
                 int hasLimitbreak = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x50,0x4F");
                 int isInverse = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x50,0x50");
                 int isEndless = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x50,0x51");
+                int hasRandomEvents = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x50,0x58");
                 int isHyper_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4C");
                 int isHurry_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4D");
                 int hasArcanas_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4E");
                 int hasLimitbreak_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x4F");
                 int isInverse_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x50");
                 int isEndless_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x51");
+                int hasRandomEvents_adventure = mem.ReadByte("GameAssembly.dll+048F8858,0x78,0xB8,0x0,0x40,0x10,0x60,0x58");
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(time);
                 string formattedTime = string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
@@ -84,6 +86,8 @@ namespace MultiPresence.Presence
                     modesList.Add("Inverse");
                 if (isEndless == 1 || isEndless_adventure == 1)
                     modesList.Add("Endless");
+                if (hasRandomEvents == 1 || hasRandomEvents_adventure == 1)
+                    modesList.Add("Random Events");
 
                 string modes = string.Join(", ", modesList);
                 if (modesList.Count == 0)
