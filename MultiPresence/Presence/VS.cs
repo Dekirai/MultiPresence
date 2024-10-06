@@ -91,7 +91,7 @@ namespace MultiPresence.Presence
                 if (hasRandomEvents == 1 || hasRandomEvents_adventure == 1)
                     modesList.Add("Random Events");
                 if (hasRandomItems == 1 || hasRandomItems_adventure == 1)
-                    modesList.Add("Random Items");
+                    modesList.Add("Random LevelUp");
 
                 string modes = string.Join(", ", modesList);
                 if (modesList.Count == 0)
