@@ -48,6 +48,8 @@ namespace MultiPresence
         public bool ResidentEvilRevelations2 { get; set; }
         [JsonProperty("Sonic Adventure 2")]
         public bool SonicAdventure2 { get; set; }
+        [JsonProperty("Streets of Rage Remake")]
+        public bool StreetsofRageRemake { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
         public bool TYTheTasmanianTiger { get; set; }
         [JsonProperty("Zelda: The Wind Waker HD")]
@@ -101,6 +103,8 @@ namespace MultiPresence
                     return ResidentEvilRevelations2;
                 case "Sonic Adventure 2":
                     return SonicAdventure2;
+                case "Streets of Rage Remake":
+                    return StreetsofRageRemake;
                 case "TY the Tasmanian Tiger":
                     return TYTheTasmanianTiger;
                 case "Zelda: The Wind Waker HD":
