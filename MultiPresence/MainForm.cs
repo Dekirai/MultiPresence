@@ -176,6 +176,11 @@ namespace MultiPresence
                         MMBN6F.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Streets of Rage Remake":
+                        Balloon(game);
+                        SORR.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Vampire Survivors":
                         Balloon(game);
                         VS.DoAction();
