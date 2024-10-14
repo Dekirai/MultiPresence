@@ -2,6 +2,7 @@
 using Memory;
 using MultiPresence.Models.PYRE;
 using System.Diagnostics;
+using static System.Formats.Asn1.AsnWriter;
 using Button = DiscordRPC.Button;
 
 namespace MultiPresence.Presence
@@ -46,30 +47,27 @@ namespace MultiPresence.Presence
                 int isIngame = mem.ReadByte($"{process}.exe+A47E2C,0x10B27");
                 int currenthole = mem.ReadByte($"{process}.exe+A47E2C,0xFFEC");
                 int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
-                int isOpen = mem.ReadByte($"{process}.exe+A47E2C,0x10934");
-                int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
+                int isOpen = mem.ReadByte($"{process}.exe+A47E2C,0x10934");                
 
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);
                 var level = await Levels.GetLevel(level_get);
 
-                var placeholders = new Dictionary<string, object>
-                {
-                    { "nickname", nickname },
-                    { "level", level[0] },
-                    { "room", room },
-                    { "map", stage[0] },
-                    { "map_icon_name", stage_get },
-                    { "players", players },
-                    { "playersmax", playersmax },
-                    { "currenthole", currenthole },
-                    { "maxholes", maxholes },
-                    { "score", score },
-                    { "mode", mode[0] }
-                };
-
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
                 {
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "nickname", nickname },
+                        { "level", level[0] },
+                        { "room", room },
+                        { "map", stage[0] },
+                        { "map_icon_name", stage_get },
+                        { "players", players },
+                        { "playersmax", playersmax },
+                        { "currenthole", currenthole },
+                        { "maxholes", maxholes },
+                        { "mode", mode[0] }
+                    };
                     discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                     string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
                     string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
@@ -88,6 +86,19 @@ namespace MultiPresence.Presence
                             discord.UpdateSmallAsset($"playing", $"Private Room — {players}/{playersmax} Players");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 7 || mode_get == 10)
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "nickname", nickname },
+                                { "level", level[0] },
+                                { "room", room },
+                                { "map", stage[0] },
+                                { "map_icon_name", stage_get },
+                                { "players", players },
+                                { "playersmax", playersmax },
+                                { "currenthole", currenthole },
+                                { "maxholes", maxholes },
+                                { "mode", mode[0] }
+                             };
                             string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Match");
                             string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Match");
                             discord.UpdateDetails(details);
@@ -95,6 +106,22 @@ namespace MultiPresence.Presence
                         }
                         else if (mode_get == 4)
                         {
+
+                            int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "nickname", nickname },
+                                { "level", level[0] },
+                                { "room", room },
+                                { "map", stage[0] },
+                                { "map_icon_name", stage_get },
+                                { "players", players },
+                                { "playersmax", playersmax },
+                                { "currenthole", currenthole },
+                                { "maxholes", maxholes },
+                                { "score", score },
+                                { "mode", mode[0] }
+                            };
                             string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Tourney");
                             string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Tourney");
                             discord.UpdateDetails(details);
@@ -102,6 +129,19 @@ namespace MultiPresence.Presence
                         }
                         else if (mode_get == 2)
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "nickname", nickname },
+                                { "level", level[0] },
+                                { "room", room },
+                                { "map", stage[0] },
+                                { "map_icon_name", stage_get },
+                                { "players", players },
+                                { "playersmax", playersmax },
+                                { "currenthole", currenthole },
+                                { "maxholes", maxholes },
+                                { "mode", mode[0] }
+                             };
                             string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Lounge");
                             string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Lounge");
                             discord.UpdateDetails(details);
@@ -117,6 +157,19 @@ namespace MultiPresence.Presence
                     {
                         if (mode_get == 2)
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "nickname", nickname },
+                                { "level", level[0] },
+                                { "room", room },
+                                { "map", stage[0] },
+                                { "map_icon_name", stage_get },
+                                { "players", players },
+                                { "playersmax", playersmax },
+                                { "currenthole", currenthole },
+                                { "maxholes", maxholes },
+                                { "mode", mode[0] }
+                             };
                             discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
                             string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
                             string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
@@ -126,6 +179,19 @@ namespace MultiPresence.Presence
                         }
                         else
                         {
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "nickname", nickname },
+                                { "level", level[0] },
+                                { "room", room },
+                                { "map", stage[0] },
+                                { "map_icon_name", stage_get },
+                                { "players", players },
+                                { "playersmax", playersmax },
+                                { "currenthole", currenthole },
+                                { "maxholes", maxholes },
+                                { "mode", mode[0] }
+                             };
                             string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Waiting_Room");
                             string state = updater.UpdateState("Pangya Reborn", placeholders, "Waiting_Room");
                             discord.UpdateDetails(details);
