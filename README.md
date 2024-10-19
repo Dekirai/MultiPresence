@@ -1,9 +1,6 @@
 # MultiPresence
 Let your friends see what you are currently doing in your active game!      
 
-![Discord Banner](https://discord.com/api/guilds/1269723725528432712/widget.png?style=banner2)  
-[Join here](https://discord.gg/56zeuwy6Gx)
-
 ## About MultiPresence
 MultiPresence is designed for games that don't use Discord's "Rich Presence" feature.  
 It can be extended to a wide range of games, as long as it's not too complicated to read the game's memory.  
