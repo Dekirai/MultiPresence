@@ -1,5 +1,6 @@
 # MultiPresence
-Let your friends see what you are currently doing in your active game!      
+> [!WARNING]  
+> The project is currently not actively maintained and updates are rather infrequent.
 
 ## About MultiPresence
 MultiPresence is designed for games that don't use Discord's "Rich Presence" feature.  
