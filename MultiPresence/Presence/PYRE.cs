@@ -15,7 +15,6 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
             GetPID();
             discord = new DiscordRpcClient("1226462236181004338");
             InitializeDiscord();
@@ -26,10 +25,16 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("ProjectG")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
@@ -37,17 +42,17 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                string nickname = mem.ReadString($"{process}.exe+00A7D6A4,0x5AC");
-                int stage_get = mem.ReadByte($"{process}.exe+A47E2C,0x10950");
-                int mode_get = mem.ReadByte($"{process}.exe+A47E2C,0x1094C");
-                int level_get = mem.ReadByte($"{process}.exe+00A7D6A4,0x711");
-                int room = mem.ReadByte($"{process}.exe+A47E2C,0x1094D");
-                int players = mem.ReadByte($"{process}.exe+A47E2C,0x10938");
-                int playersmax = mem.ReadByte($"{process}.exe+A47E2C,0x10937");
-                int isIngame = mem.ReadByte($"{process}.exe+A47E2C,0x10B27");
-                int currenthole = mem.ReadByte($"{process}.exe+A47E2C,0xFFEC");
-                int maxholes = mem.ReadByte($"{process}.exe+A47E2C,0x1094B");
-                int isOpen = mem.ReadByte($"{process}.exe+A47E2C,0x10934");                
+                string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+                var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
+                var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
+                var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+                var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
+                var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
+                var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+                var isIngame = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10B27]), true);
+                int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
+                int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+                int isOpen = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10934]), true);
 
                 var stage = await Stages.GetStage(stage_get);
                 var mode = await Modes.GetMode(mode_get);
@@ -106,8 +111,7 @@ namespace MultiPresence.Presence
                         }
                         else if (mode_get == 4)
                         {
-
-                            int score = mem.ReadInt("ProjectG.exe+00B006E8,0x0,0x40,0x18,0x0,0x14,0xC8,0x4F4");
+                            var score = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xB006E8, [0x0, 0x40, 0x18, 0x0, 0x14, 0xC8, 0x4F4]), true);
                             var placeholders = new Dictionary<string, object>
                             {
                                 { "nickname", nickname },
