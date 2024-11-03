@@ -121,7 +121,7 @@ namespace MultiPresence.Presence
                     else
                         adventure = "Adventure";
 
-                    if (time == 0)
+                    if (time <= 0)
                     {
                         if (stageid_adventure > 0)
                         {
