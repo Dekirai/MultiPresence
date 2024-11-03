@@ -41,37 +41,40 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName(process);
             if (game.Length > 0)
             {
-                var characterid = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x44], false, "GameAssembly.dll"), true);
-                var characterid_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x44], false, "GameAssembly.dll"), true);
-                var stageid = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x48], false, "GameAssembly.dll"), true);
-                var stageid_adventure = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x48], false, "GameAssembly.dll"), true);
-                var coins = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x78], false, "GameAssembly.dll"), true);
-                var coins_adventure = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x78], false, "GameAssembly.dll"), true);
-                var coinsingame = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x7C], false, "GameAssembly.dll"), true);
-                var coinsingame_adventure = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x7C], false, "GameAssembly.dll"), true);
-                var kills = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x80], false, "GameAssembly.dll"), true);
-                var kills_adventure = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x80], false, "GameAssembly.dll"), true);
-                var health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C559B0, [0xB8, 0x0, 0xF0, 0x18, 0x30, 0x10, 0x1C0], false, "GameAssembly.dll"), true);
-                var level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04C559B0, [0xB8, 0x0, 0xF0, 0x18, 0x30, 0x10, 0x1C4], false, "GameAssembly.dll"), true);
-                var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x04C559B0, [0xB8, 0x0, 0x10, 0xA8, 0x28, 0x398], false, "GameAssembly.dll"), true);
-                var isIngame = Hypervisor.Read<byte>(0x4F897EC, false, "GameAssemblyw.dll");
-                var isHyper = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x4C], false, "GameAssembly.dll"), true);
-                var isHurry = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x4D], false, "GameAssembly.dll"), true);
-                var hasArcanas = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x4E], false, "GameAssembly.dll"), true);
-                var hasLimitbreak = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x4F], false, "GameAssembly.dll"), true);
-                var isInverse = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x50], false, "GameAssembly.dll"), true);
-                var isEndless = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x51], false, "GameAssembly.dll"), true);
-                var hasRandomEvents = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x58], false, "GameAssembly.dll"), true);
-                var hasRandomItems = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x50, 0x59], false, "GameAssembly.dll"), true);
-                var isHyper_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x4C], false, "GameAssembly.dll"), true);
-                var isHurry_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x4D], false, "GameAssembly.dll"), true);
-                var hasArcanas_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x4E], false, "GameAssembly.dll"), true);
-                var hasLimitbreak_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x4F], false, "GameAssembly.dll"), true);
-                var isInverse_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x50], false, "GameAssembly.dll"), true);
-                var isEndless_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x51], false, "GameAssembly.dll"), true);
-                var hasRandomEvents_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x58], false, "GameAssembly.dll"), true);
-                var hasRandomItems_adventure = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x04C55460, [0x78, 0xB8, 0x0, 0x40, 0x10, 0x60, 0x59], false, "GameAssembly.dll"), true);
+                var characterid_base = Hypervisor.GetPointer64(0x01B36ED0, [0x130, 0x58, 0xB8, 0x8, 0xA8, 0xD0, 0x44], false, "UnityPlayer.dll");
+                var characterid_adventure_base = Hypervisor.GetPointer64(0x01B36ED0, [0x130, 0x58, 0xB8, 0x8, 0xA8, 0xE0, 0x44], false, "UnityPlayer.dll");
 
+                var health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0x348, 0xC8, 0x40, 0x110, 0x60, 0x60, 0x1C0], false, "UnityPlayer.dll"), true);
+                var level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01AE0888, [0x348, 0xC8, 0x40, 0x110, 0x60, 0x60, 0x1C4], false, "UnityPlayer.dll"), true);
+                var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0xF8, 0xC0, 0x30, 0x28, 0xE0, 0x60, 0x398], false, "UnityPlayer.dll"), true);
+
+                var characterid = Hypervisor.Read<byte>(characterid_base, true);
+                var stageid = Hypervisor.Read<int>(characterid_base + 0x04, true);
+                var coins = Hypervisor.Read<float>(characterid_base + 0x34, true);
+                var coinsingame = Hypervisor.Read<float>(characterid_base + 0x38, true);
+                var kills = Hypervisor.Read<int>(characterid_base + 0x3C, true);
+                var isHyper = Hypervisor.Read<byte>(characterid_base + 0x08, true);
+                var isHurry = Hypervisor.Read<byte>(characterid_base + 0x09, true);
+                var hasArcanas = Hypervisor.Read<byte>(characterid_base + 0x0A, true);
+                var hasLimitbreak = Hypervisor.Read<byte>(characterid_base + 0x0B, true);
+                var isInverse = Hypervisor.Read<byte>(characterid_base + 0x0C, true);
+                var isEndless = Hypervisor.Read<byte>(characterid_base + 0x0D, true);
+                var hasRandomEvents = Hypervisor.Read<byte>(characterid_base + 0x14, true);
+                var hasRandomItems = Hypervisor.Read<byte>(characterid_base + 0x15, true);
+
+                var characterid_adventure = Hypervisor.Read<byte>(characterid_adventure_base, true);
+                var stageid_adventure = Hypervisor.Read<int>(characterid_adventure_base + 0x04, true);
+                var coins_adventure = Hypervisor.Read<float>(characterid_adventure_base + 0x34, true);
+                var coinsingame_adventure = Hypervisor.Read<float>(characterid_adventure_base + 0x38, true);
+                var kills_adventure = Hypervisor.Read<int>(characterid_adventure_base + 0x3C, true);
+                var isHyper_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x08, true);
+                var isHurry_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x09, true);
+                var hasArcanas_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x0A, true);
+                var hasLimitbreak_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x0B, true);
+                var isInverse_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x0C, true);
+                var isEndless_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x0D, true);
+                var hasRandomEvents_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x14, true);
+                var hasRandomItems_adventure = Hypervisor.Read<byte>(characterid_adventure_base + 0x15, true);
 
                 TimeSpan timeSpan = TimeSpan.FromSeconds(time);
                 string formattedTime = string.Format("{0:D2}:{1:D2}", (int)timeSpan.TotalMinutes, timeSpan.Seconds);
