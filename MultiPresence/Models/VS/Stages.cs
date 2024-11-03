@@ -182,6 +182,12 @@
                 case 1046:
                     getstage = "Alien Revengeance";
                     break;
+                case 1047:
+                    getstage = "Unused Stage";
+                    break;
+                case 1048:
+                    getstage = "Ode to Castlevania";
+                    break;
 
                 default:
                     getstage = "Unknown";

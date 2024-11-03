@@ -263,6 +263,66 @@
                 case 131:
                     getcharacter = "Newt Plissken";
                     break;
+                case 202:
+                    getcharacter = "Alucard";
+                    break;
+                case 206:
+                    getcharacter = "Charlotte Aulin";
+                    break;
+                case 211:
+                    getcharacter = "Eric Lecarde";
+                    break;
+                case 213:
+                    getcharacter = "Grant Danasty";
+                    break;
+                case 214:
+                    getcharacter = "Hector";
+                    break;
+                case 217:
+                    getcharacter = "Jonathan Morris";
+                    break;
+                case 218:
+                    getcharacter = "John Morris";
+                    break;
+                case 219:
+                    getcharacter = "Julius Belmont";
+                    break;
+                case 221:
+                    getcharacter = "Juste Belmont";
+                    break;
+                case 222:
+                    getcharacter = "Leon Belmont";
+                    break;
+                case 224:
+                    getcharacter = "Maria Renard";
+                    break;
+                case 229:
+                    getcharacter = "Richter Belmont";
+                    break;
+                case 231:
+                    getcharacter = "Shanoa";
+                    break;
+                case 232:
+                    getcharacter = "Simon Belmont";
+                    break;
+                case 233:
+                    getcharacter = "Soma Cruz";
+                    break;
+                case 234:
+                    getcharacter = "Sonia Belmont";
+                    break;
+                case 238:
+                    getcharacter = "Sypha Belnades";
+                    break;
+                case 239:
+                    getcharacter = "Trevor Belmont";
+                    break;
+                case 240:
+                    getcharacter = "Yoko Belnades";
+                    break;
+                case 241:
+                    getcharacter = "Christopher Belmont";
+                    break;
 
                 default:
                     getcharacter = "Unknown";
