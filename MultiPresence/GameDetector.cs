@@ -36,6 +36,7 @@ namespace MultiPresence
             var game_rev2 = Process.GetProcessesByName("rerev2");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_sorr = Process.GetProcessesByName("SorR");
+            var game_tts = Process.GetProcessesByName("TemtemSwarm");
             var game_ty = Process.GetProcessesByName("TY");
             var game_vs = Process.GetProcessesByName("VampireSurvivors");
             var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
@@ -148,6 +149,8 @@ namespace MultiPresence
                 game = "Sonic Adventure 2";
             else if (game_sorr.Length > 0)
                 game = "Streets of Rage Remake";
+            else if (game_tts.Length > 0)
+                game = "Temtem: Swarm";
             else if (game_ty.Length > 0)
                 game = "TY the Tasmanian Tiger";
             else if (game_vs.Length > 0)

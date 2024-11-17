@@ -43,6 +43,8 @@ namespace MultiPresence
                 blacklist = JsonConvert.DeserializeObject<Blacklist>(json);
                 isBlacklistLoaded = true;
             }
+            if (File.Exists("steam_appid.txt"))
+                File.Delete("steam_appid.txt");
 
             if (isBlacklistLoaded && blacklist != null)
                 status = blacklist.GetValue(game);
@@ -179,6 +181,11 @@ namespace MultiPresence
                     case "Streets of Rage Remake":
                         Balloon(game);
                         SORR.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Temtem: Swarm":
+                        Balloon(game);
+                        TTS.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Vampire Survivors":

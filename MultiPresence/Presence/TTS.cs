@@ -2,12 +2,13 @@
 
 namespace MultiPresence.Presence
 {
-    public class OW
+    public class TTS
     {
+
         public static async void DoAction()
         {
             if (!File.Exists("steam_appid.txt"))
-                File.WriteAllText("steam_appid.txt", "2357570");
+                File.WriteAllText("steam_appid.txt", "2510960");
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // Combine the directory path with the file name

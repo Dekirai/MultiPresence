@@ -230,20 +230,6 @@
         "Button2URL": ""
       }
     },
-    "Overwatch": {
-      "Default": {
-        "Details": "41639699",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Overwatch 2",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
     "Pangya Reborn": {
       "Ingame_Match": {
         "Details": "{nickname} - {level}",
