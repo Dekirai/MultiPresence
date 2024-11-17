@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using Steamworks;
+using System;
+using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
@@ -15,7 +17,23 @@ namespace MultiPresence.Presence
 
             // Start the process
             Process.Start(filePath);
+            Thread thread = new Thread(Blabla);
+            thread.Start();
+        }
 
+        private static async void Blabla()
+        {
+            while (true)
+            {
+                Process[] game = Process.GetProcessesByName("Overwatch");
+                if (game.Length > 0)
+                    await Task.Delay(3000); // Wait before checking again
+                else
+                {
+                    MainForm.gameUpdater.Start();
+                    break;
+                }
+            }
         }
     }
 }
