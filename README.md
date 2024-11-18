@@ -43,7 +43,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Marvel's Spider-Man: Miles Morales](https://github.com/Dekirai/MultiPresence/wiki/Marvel's-Spider%E2%80%90Man:-Miles-Morales)|[Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)| |
 |[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)| |
-|[Overwatch 2](https://github.com/Dekirai/MultiPresence/wiki/Overwatch-2)|[Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)|Uses Steamworks|
+|[Overwatch 2²](https://github.com/Dekirai/MultiPresence/wiki/Overwatch-2)|[Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)|Uses Steamworks|
 |[Pangya Reborn](https://github.com/Dekirai/MultiPresence/wiki/Pangya-Reborn)|[Private Server](https://www.pangyareborn.com/)| |
 |[Resident Evil](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil)|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
 |[Resident Evil 4 (2005)¹](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|Currently broken|
@@ -52,7 +52,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Resident Evil Revelations 2](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-Revelations-2)|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
 |[Streets of Rage Remake](https://github.com/Dekirai/MultiPresence/)|[Windows](https://sorr.forumotion.net/t838-new-streets-of-rage-remake-v5-2-download-and-info)|Only game detection|
-|[Temtem: Swarm](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)|Uses Steamworks|
+|[Temtem: Swarm²](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)|Uses Steamworks|
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
 |[Vampire Survivors](https://github.com/Dekirai/MultiPresence/wiki/Vampire-Survivors)|[Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)| |
 |[Visions of Mana](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)| |
@@ -60,7 +60,8 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Zelda: Twilight Princess HD¹](https://github.com/Dekirai/MultiPresence/wiki/Zelda:-Twilight-Princess-HD)|[Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight_Princess_HD)|Works on EUR and USA|
 
 ## Information
-¹: Requires pattern search.
+¹: Requires pattern search.  
+²: Requires **MultiPresenceGame.exe** & **steam_api64.dll**.
 > [!IMPORTANT]  
 > A pattern search can cause a short lag on your machine because the program is currently scanning a lot of memory to find the right address to work with.  
 <details>
