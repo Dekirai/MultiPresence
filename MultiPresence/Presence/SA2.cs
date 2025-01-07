@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.SA2;
 using System.Diagnostics;
 
@@ -7,10 +6,8 @@ namespace MultiPresence.Presence
 {
     public class SA2
     {
-        static Mem mem = new Mem();
-        static string process = "sonic2app";
-        private static DiscordRpcClient discord;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("982562008228560986");
@@ -21,23 +18,29 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("sonic2app")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("sonic2app");
             if (game.Length > 0)
             {
-                int stage = mem.ReadByte($"{process}.exe+1534B70");
-                int character = mem.ReadByte($"{process}.exe+1534B80");
-                int lives = mem.ReadByte($"{process}.exe+134B024");
-                int rings = mem.ReadInt($"{process}.exe+134B028");
-                int p1_costume = mem.ReadByte($"{process}.exe+134B015");
-                int islevel = mem.ReadByte($"{process}.exe+15420FF");
+                int stage = Hypervisor.Read<byte>(0x1534B70);
+                int character = Hypervisor.Read<byte>(0x1534B80);
+                int lives = Hypervisor.Read<byte>(0x134B024);
+                int rings = Hypervisor.Read<byte>(0x134B028);
+                int p1_costume = Hypervisor.Read<byte>(0x134B015);
+                int islevel = Hypervisor.Read<byte>(0x15420FF);
 
                 var stage_name = await Stages.GetStage(stage);
                 var character_name = await Characters.GetCharacter(character);

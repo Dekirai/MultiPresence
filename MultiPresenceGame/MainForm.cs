@@ -18,6 +18,8 @@ namespace MultiPresenceGame
         {
             Process[] ow = Process.GetProcessesByName("Overwatch");
             Process[] tts = Process.GetProcessesByName("TemtemSwarm");
+            Process[] hl = Process.GetProcessesByName("HogwartsLegacy");
+            Process[] cod = Process.GetProcessesByName("cod");
             if (ow.Length > 0)
             {
                 discord = new DiscordRpcClient("1270342180623487089");
@@ -42,6 +44,32 @@ namespace MultiPresenceGame
                     //Do nothing
                 }
                 Thread thread = new Thread(RPCTTS);
+                thread.Start();
+            }
+            else if (hl.Length > 0)
+            {
+                discord = new DiscordRpcClient("1324797968682979481");
+                InitializeDiscord();
+                File.WriteAllText("steam_appid.txt", "990080");
+                // Initialize Steamworks
+                if (!SteamAPI.Init())
+                {
+                    //Do nothing
+                }
+                Thread thread = new Thread(RPCHL);
+                thread.Start();
+            }
+            else if (cod.Length > 0)
+            {
+                discord = new DiscordRpcClient("1326219194316099696");
+                InitializeDiscord();
+                File.WriteAllText("steam_appid.txt", "1938090");
+                // Initialize Steamworks
+                if (!SteamAPI.Init())
+                {
+                    //Do nothing
+                }
+                Thread thread = new Thread(RPCCOD);
                 thread.Start();
             }
         }
@@ -81,6 +109,58 @@ namespace MultiPresenceGame
                 {
                     string presence = GetSteamRichPresence();
                     discord.UpdateLargeAsset("logo", "Temtem: Swarm");
+                    discord.UpdateDetails(presence);
+
+                    await Task.Delay(3000); // Wait before checking again
+                }
+                else
+                {
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("steam_appid.txt", "");
+                    SteamAPI.Shutdown();
+
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
+                }
+            }
+        }
+
+        private static async void RPCHL()
+        {
+            while (true)
+            {
+                Process[] game = Process.GetProcessesByName("HogwartsLegacy");
+                if (game.Length > 0)
+                {
+                    string presence = GetSteamRichPresence();
+                    discord.UpdateLargeAsset("logo", "Hogwarts Legacy");
+                    discord.UpdateDetails(presence);
+
+                    await Task.Delay(3000); // Wait before checking again
+                }
+                else
+                {
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("steam_appid.txt", "");
+                    SteamAPI.Shutdown();
+
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
+                }
+            }
+        }
+
+        private static async void RPCCOD()
+        {
+            while (true)
+            {
+                Process[] game = Process.GetProcessesByName("cod");
+                if (game.Length > 0)
+                {
+                    string presence = GetSteamRichPresence();
+                    discord.UpdateLargeAsset("logo", "Call of Duty®");
                     discord.UpdateDetails(presence);
 
                     await Task.Delay(3000); // Wait before checking again

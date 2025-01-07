@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.RE6;
 using System.Diagnostics;
 
@@ -7,11 +6,9 @@ namespace MultiPresence.Presence
 {
     public class RE6
     {
-        static Mem mem = new Mem();
-        static string process = "BH6";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212349543463518268");
@@ -23,19 +20,25 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("BH6")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("BH6");
             if (game.Length > 0)
             {
-                int stage_get = mem.Read2Byte("BH6.exe+1466884,0xA422C");
-                int state_get = mem.Read2Byte("BH6.exe+1466884,0xA4228");
+                int stage_get = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x1466884, [0xA422C]), true);
+                int state_get = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x1466884, [0xA4228]), true);
                 var stagevalue = await Stages.GetStage(stage_get);
 
                 string[] stage = stagevalue.Split(':');

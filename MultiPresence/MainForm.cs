@@ -11,7 +11,7 @@ namespace MultiPresence
     public partial class MainForm : Form
     {
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
-        Blacklist blacklist = null;
+        Blacklist? blacklist = null;
         public static bool status = false;
         public static bool isBlacklistLoaded = false;
         public MainForm()
@@ -53,11 +53,6 @@ namespace MultiPresence
             {
                 switch (game)
                 {
-                    case "AsobiSW":
-                        Balloon(game);
-                        ASW.DoAction();
-                        gameUpdater.Stop();
-                        break;
                     case "CRISIS CORE –FINAL FANTASY VII– REUNION":
                         Balloon(game);
                         CCFFVII.DoAction();
@@ -71,6 +66,11 @@ namespace MultiPresence
                     case "Final Fantasy XVI":
                         Balloon(game);
                         FFXVI.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Hogwarts Legacy":
+                        Balloon(game);
+                        HL.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Kingdom Hearts Final Mix":
@@ -105,7 +105,7 @@ namespace MultiPresence
                         break;
                     case "Resident Evil 4 (2005)":
                         Balloon(game);
-                        RE4.DoAction();
+                        //RE4.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Sonic Adventure 2":

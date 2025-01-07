@@ -1,17 +1,15 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.MSMR;
+using System;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class MSMR
     {
-        static Mem mem = new Mem();
-        static string process = "Spider-Man";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1266485584822796331");
@@ -23,21 +21,26 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("Spider-Man")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("Spider-Man");
             if (game.Length > 0)
             {
-                int level = mem.ReadByte($"{process}.exe+5DB60A0");
-                int location_get = mem.ReadByte($"{process}.exe+5DC06D0");
-
-                float health_get = mem.ReadFloat($"{process}.exe+6D302D8");
+                int level = Hypervisor.Read<byte>(0x5DB60A0);
+                int location_get = Hypervisor.Read<byte>(0x5DC06D0);
+                float health_get = Hypervisor.Read<float>(0x6D302D8);
                 var location = await Locations.GetLocations(location_get);
                 int health = (int)Math.Floor(health_get);
 

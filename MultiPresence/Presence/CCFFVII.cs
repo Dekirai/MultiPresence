@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.CCFFVII;
 using System.Diagnostics;
 
@@ -7,11 +6,10 @@ namespace MultiPresence.Presence
 {
     public class CCFFVII
     {
-        static Mem mem = new Mem();
-        static string process = "CCFF7R-Win64-Shipping";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1271522314248523837");
@@ -23,36 +21,42 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("CCFF7R-Win64-Shipping")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             if (game.Length > 0)
             {
-                int level = mem.ReadByte($"{process}.exe+71B3F36");
-                int gil = mem.ReadInt($"{process}.exe+71B3FB0");
-                int difficulty_get = mem.ReadByte($"{process}.exe+71B3FD7");
+                int level = Hypervisor.Read<byte>(0x71B3F36);
+                int gil = Hypervisor.Read<int>(0x71B3FB0);
+                int difficulty_get = Hypervisor.Read<byte>(0x71B3FD7);
 
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
-                int hp = mem.ReadInt($"{process}.exe+71B3F10");
-                int maxhp = mem.ReadInt($"{process}.exe+71B3F14");
-                int mp = mem.ReadInt($"{process}.exe+71B3F1C");
-                int maxmp = mem.ReadInt($"{process}.exe+71B3F20");
-                int ap = mem.ReadInt($"{process}.exe+71B3F28");
-                int maxap = mem.ReadInt($"{process}.exe+71B3F2C");
+                int hp = Hypervisor.Read<int>(0x71B3F10);
+                int maxhp = Hypervisor.Read<int>(0x71B3F14);
+                int mp = Hypervisor.Read<int>(0x71B3F1C);
+                int maxmp = Hypervisor.Read<int>(0x71B3F20);
+                int ap = Hypervisor.Read<int>(0x71B3F28);
+                int maxap = Hypervisor.Read<int>(0x71B3F2C);
 
-                int hp_mission = mem.ReadInt($"{process}.exe+718DC28");
-                int maxhp_mission = mem.ReadInt($"{process}.exe+718DC2C");
-                int mp_mission = mem.ReadInt($"{process}.exe+718DC30");
-                int maxmp_mission = mem.ReadInt($"{process}.exe+718DC34");
-                int ap_mission = mem.ReadInt($"{process}.exe+718DC38");
-                int maxap_mission = mem.ReadInt($"{process}.exe+718DC3C");
+                int hp_mission = Hypervisor.Read<int>(0x718DC28);
+                int maxhp_mission = Hypervisor.Read<int>(0x718DC2C);
+                int mp_mission = Hypervisor.Read<int>(0x718DC30);
+                int maxmp_mission = Hypervisor.Read<int>(0x718DC34);
+                int ap_mission = Hypervisor.Read<int>(0x718DC38);
+                int maxap_mission = Hypervisor.Read<int>(0x718DC3C);
 
                 var placeholders = new Dictionary<string, object>
                 {

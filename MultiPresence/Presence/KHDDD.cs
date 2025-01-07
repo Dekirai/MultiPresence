@@ -1,16 +1,14 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.KHDDD;
+using System;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class KHDDD
     {
-        static Mem mem = new Mem();
-        static string process = "KINGDOM HEARTS Dream Drop Distance";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -23,22 +21,29 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+A40764");
-                int room_get = mem.ReadByte($"{process}.exe+A40765");
-                int difficulty_get = mem.ReadByte($"{process}.exe+A40762");
-                int character_get = mem.ReadByte($"{process}.exe+A40760");
-                int level = mem.ReadByte($"{process}.exe+A98034");
+                int world_get = Hypervisor.Read<byte>(0xA40764);
+                int room_get = Hypervisor.Read<byte>(0xA40765);
+                int difficulty_get = Hypervisor.Read<byte>(0xA40762);
+                int character_get = Hypervisor.Read<byte>(0xA40760);
+                int level = Hypervisor.Read<byte>(0xA98034);
+
                 var world = await Worlds.GetWorld(world_get);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
                 var room = await Rooms.GetRoom(world[0]);

@@ -1,18 +1,16 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.MSMMM;
+using System;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class MSMMMM
     {
-        static Mem mem = new Mem();
-        static string process = "MilesMorales";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
 
-        public static async void DoAction()
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1266464310360670241");
@@ -24,21 +22,26 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("MilesMorales")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("MilesMorales");
             if (game.Length > 0)
             {
-                int level = mem.ReadByte($"{process}.exe+671CA70");
-                int location_get = mem.ReadByte($"{process}.exe+6724900");
-
-                float health_get = mem.ReadFloat($"{process}.exe+7796D68");
+                int level = Hypervisor.Read<byte>(0x671CA70);
+                int location_get = Hypervisor.Read<byte>(0x6724900);
+                float health_get = Hypervisor.Read<float>(0x7796D68);
                 var location = await Locations.GetLocations(location_get);
                 int health = (int)Math.Floor(health_get);
 

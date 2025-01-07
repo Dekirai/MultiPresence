@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.MMBN6;
 using System.Diagnostics;
 
@@ -7,10 +6,8 @@ namespace MultiPresence.Presence
 {
     public class MMBN6G
     {
-        static Mem mem = new Mem();
-        static string process = "MMBN_LC2";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -23,19 +20,25 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("MMBN_LC2")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("MMBN_LC2");
             if (game.Length > 0)
             {
 
-                int _game = mem.ReadByte("MMBN_LC2.exe+ABEF0A0");
+                int _game = Hypervisor.Read<byte>(0xABEF0A0);
                 if (_game != 9)
                 {
                     discord.Deinitialize();
@@ -43,13 +46,13 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
-                    int area_get = mem.ReadByte("80205944");
-                    int room_get = mem.ReadByte("80205945");
-                    int hp = mem.Read2Byte("8020858C");
-                    int maxhp = mem.Read2Byte("8020858E");
-                    int hp_battle = mem.Read2Byte("8020A8F4");
-                    int maxhp_battle = mem.Read2Byte("8020A8F6");
-                    int gamestate = mem.ReadByte("80205940");
+                    int area_get = Hypervisor.Read<byte>(0x80205944);
+                    int room_get = Hypervisor.Read<byte>(0x80205945);
+                    int hp = Hypervisor.Read<byte>(0x8020858C);
+                    int maxhp = Hypervisor.Read<byte>(0x8020858E);
+                    int hp_battle = Hypervisor.Read<byte>(0x8020A8F4);
+                    int maxhp_battle = Hypervisor.Read<byte>(0x8020A8F6);
+                    int gamestate = Hypervisor.Read<byte>(0x80205940);
                     var location = await Areas.GetArea(area_get);
 
                     var placeholders = new Dictionary<string, object>

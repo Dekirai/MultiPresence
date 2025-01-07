@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.RE5;
 using System.Diagnostics;
 
@@ -7,11 +6,9 @@ namespace MultiPresence.Presence
 {
     public class RE5
     {
-        static Mem mem = new Mem();
-        static string process = "re5dx9";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212083539567186002");
@@ -23,20 +20,26 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("re5dx9")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("re5dx9");
             if (game.Length > 0)
             {
-                int stage_get = mem.ReadInt("re5dx9.exe+00DB2158,0x273D8");
-                int chris_health = mem.Read2Byte("re5dx9.exe+00DB27DC,0x24,0x1364");
-                int sheva_health = mem.Read2Byte("re5dx9.exe+00DB27DC,0x28,0x1364");
+                int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x00DB2158, [0x273D8]), true);
+                int chris_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x24, 0x1364]), true);
+                int sheva_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x28, 0x1364]), true);
                 var stagevalue = await Stages.GetStage(stage_get);
 
                 string[] stage = stagevalue.Split(':');

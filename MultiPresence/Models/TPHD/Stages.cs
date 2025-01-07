@@ -2,7 +2,7 @@
 {
     public class Stages
     {
-        public static async Task<string> MapName(string mapname)
+        public static string MapName(string mapname)
         {
             string getmap;
 

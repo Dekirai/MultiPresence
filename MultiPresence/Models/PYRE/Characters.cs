@@ -2,7 +2,7 @@
 {
     public class Characters
     {
-        public static async Task<string[]> GetCharacter(int character)
+        public static string[] GetCharacter(int character)
         {
             List<string> getcharacter = new List<string>();
             switch (character)

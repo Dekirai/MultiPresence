@@ -1,19 +1,17 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.PYRE;
 using System.Diagnostics;
-using static System.Formats.Asn1.AsnWriter;
 using Button = DiscordRPC.Button;
 
 namespace MultiPresence.Presence
 {
     public class PYRE
     {
-        static Mem mem = new Mem();
+
         static string process = "ProjectG";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1226462236181004338");

@@ -1,13 +1,12 @@
-﻿using Memory;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace MultiPresence
 {
     public static class GameDetector
     {
-        static Mem mem = new Mem();
-        public static string _cemu_titleid_address = "";
+
+        public static ulong _cemu_titleid_address = 0;
         public static string _cemu_titleid = "";
         public static bool _cemu_foundGame = false;
 
@@ -15,9 +14,11 @@ namespace MultiPresence
         {
             var game_asw = Process.GetProcessesByName("SoulWorker");
             var game_cemu = Process.GetProcessesByName("Cemu");
+            var game_cod = Process.GetProcessesByName("cod");
             var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_ffxvi = Process.GetProcessesByName("ffxvi");
+            var game_hl = Process.GetProcessesByName("HogwartsLegacy");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
@@ -42,21 +43,16 @@ namespace MultiPresence
             var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
 
             string game = "";
-
-            if (game_asw.Length > 0)
-            {
-                var title = Process.GetProcessesByName("SoulWorker").FirstOrDefault();
-                if (title.MainWindowTitle.Contains("asobiSW"))
-                {
-                    game = "AsobiSW";
-                }
-            }
+            if (game_cod.Length > 0)
+                game = "Call of Duty®";
             else if (game_ccffvii.Length > 0)
                 game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";
             else if (game_ffxvi.Length > 0)
                 game = "Final Fantasy XVI";
+            else if (game_hl.Length > 0)
+                game = "Hogwarts Legacy";
             else if (game_cemu.Length > 0)
             {
                 string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";
@@ -67,9 +63,8 @@ namespace MultiPresence
                     var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
                     if (title.MainWindowTitle.Contains("TitleId"))
                     {
-                        long _gettitleid = (await mem.AoBScan("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B", true)).FirstOrDefault();
-                        _cemu_titleid_address = _gettitleid.ToString("X11");
-                        string _game = mem.ReadString($"{_cemu_titleid_address}");
+                        _cemu_titleid_address = (ulong)Hypervisor.FindSignature("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B");
+                        string _game = Hypervisor.ReadString(_cemu_titleid_address, 32, true);
 
                         Match match = Regex.Match(_game, pattern);
                         if (match.Success)
@@ -121,7 +116,7 @@ namespace MultiPresence
             else if (game_mmbn6g.Length > 0)
             {
                 GetMMBNLC2();
-                int _game = mem.ReadByte("MMBN_LC2.exe+ABEF0A0");
+                int _game = Hypervisor.Read<byte>(0xABEF0A0);
                 if (_game == 9)
                     game = "Mega Man Battle Network 6: Cybeast Gregar";
                 if (_game == 10)
@@ -162,17 +157,29 @@ namespace MultiPresence
         }
         private static void GetCemu()
         {
-            int pid = mem.GetProcIdFromName("Cemu");
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("Cemu")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
         private static void GetMMBNLC2()
         {
-            int pid = mem.GetProcIdFromName("MMBN_LC2");
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("MMBN_LC2")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
     }
 }

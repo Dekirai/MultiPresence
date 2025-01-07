@@ -1,12 +1,12 @@
 {
   "Games": {
-    "asobiSW": {
+    "Call of Duty®": {
       "Default": {
-        "Details": "{nickname} (Lv. {level})",
-        "State": "Playing as {character}",
-        "LargeAsset": "{character_icon_name}",
+        "Details": "",
+        "State": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "asobiSW",
+        "LargeAssetText": "Call of Duty®",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -61,6 +61,20 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Final Fantasy XVI",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Hogwarts Legacy": {
+      "Default": {
+        "Details": "",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Hogwarts Legacy",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",

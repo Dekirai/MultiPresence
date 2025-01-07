@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.KH2;
 using MultiPresence.Properties;
 using System.Diagnostics;
@@ -8,13 +7,13 @@ namespace MultiPresence.Presence
 {
     public class KH2
     {
-        static Mem mem = new Mem();
+
         static string process = "KINGDOM HEARTS II FINAL MIX";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static string difficulty = "";
-        public static string[] room = null;
-        public static string[] world = null;
+        public static string[]? room = null;
+        public static string[]? world = null;
         public static void DoAction()
         {
             GetPID();
@@ -27,21 +26,27 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+717008");
-                int room_get = mem.ReadByte($"{process}.exe+717009");
-                int difficulty_get = mem.ReadByte($"{process}.exe+9ABD48");
-                int level = mem.ReadByte($"{process}.exe+9ABDAF");
+                int world_get = Hypervisor.Read<byte>(0x717008);
+                int room_get = Hypervisor.Read<byte>(0x717009);
+                int difficulty_get = Hypervisor.Read<byte>(0x9ABD48);
+                int level = Hypervisor.Read<byte>(0x9ABDAF);
 
                 try
                 {

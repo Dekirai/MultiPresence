@@ -2,13 +2,12 @@
 
 namespace MultiPresence.Presence
 {
-    public class TTS
+    public class COD
     {
-
         public static void DoAction()
         {
             if (!File.Exists("steam_appid.txt"))
-                File.WriteAllText("steam_appid.txt", "2510960");
+                File.WriteAllText("steam_appid.txt", "1938090");
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // Combine the directory path with the file name
@@ -24,7 +23,7 @@ namespace MultiPresence.Presence
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("TemtemSwarm");
+                Process[] game = Process.GetProcessesByName("cod");
                 if (game.Length > 0)
                     await Task.Delay(3000); // Wait before checking again
                 else

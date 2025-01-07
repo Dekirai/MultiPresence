@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.WWHD;
 using System.Diagnostics;
 
@@ -7,19 +6,15 @@ namespace MultiPresence.Presence
 {
     public class WWHD
     {
-        static Mem mem = new Mem();
-        static string process = "Cemu";
-        public static string _main_address = "";
-        public static string _spoof_address = "";
-        private static DiscordRpcClient discord;
+        public static ulong _main_address = 0;
+        public static ulong _spoof_address = 0;
+        private static DiscordRpcClient? discord;
         public static async void DoAction()
         {
             await Task.Delay(7000);
             GetPID();
-            long main_get = (await mem.AoBScan("14 50 ?? A4 14 50 ?? 18 00 F0 2E 1C 00 00 00 00 14 50 ?? 70 14 50 ?? 0C 14 ?? ?? 1C 10 14 5B ?? 10 00 66 C8 10 14 5C ?? 10 14 5C ?? 14 5B ?? C4 00 F0 2E 1C 14 50 ?? 70 14 5B ?? EC 14 5B ?? EC 00 00 00 00 00 00 00 38 14 50 ?? EC 14 50 ?? 98 14 5B ?? 64 14 5B ?? 74 00 00 00 02 00 00 00 04 00 00 00 01 14 50 ?? 70 14 5B ?? C8 14 50 ?? B0 10 15 E6", true)).FirstOrDefault();
-            long spoof_get = (await mem.AoBScan("17 B3 C0 04 00 00 00 1A 17 B3 C0 28 10 00 1E 70 00 00 00 2D 17 B3 C1 54 10 00 1E 80 00 00 00 1A 00 00 00 2D 17 B3 C3 18 10 00 1E 90 00 00 00 00", true)).FirstOrDefault();
-            _main_address = main_get.ToString("X11");
-            _spoof_address = spoof_get.ToString("X11");
+            _main_address = (ulong)Hypervisor.FindSignature("14 50 ?? A4 14 50 ?? 18 00 F0 2E 1C 00 00 00 00 14 50 ?? 70 14 50 ?? 0C 14 ?? ?? 1C 10 14 5B ?? 10 00 66 C8 10 14 5C ?? 10 14 5C ?? 14 5B ?? C4 00 F0 2E 1C 14 50 ?? 70 14 5B ?? EC 14 5B ?? EC 00 00 00 00 00 00 00 38 14 50 ?? EC 14 50 ?? 98 14 5B ?? 64 14 5B ?? 74 00 00 00 02 00 00 00 04 00 00 00 01 14 50 ?? 70 14 5B ?? C8 14 50 ?? B0 10 15 E6");
+            _spoof_address = (ulong)Hypervisor.FindSignature("17 B3 C0 04 00 00 00 1A 17 B3 C0 28 10 00 1E 70 00 00 00 2D 17 B3 C1 54 10 00 1E 80 00 00 00 1A 00 00 00 2D 17 B3 C3 18 10 00 1E 90 00 00 00 00");
             discord = new DiscordRpcClient("983295791504429116");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
@@ -28,21 +23,27 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("Cemu")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("Cemu");
             if (game.Length > 0)
             {
-                string stage = mem.ReadString($"{_spoof_address}+0xA4");
+                string stage = Hypervisor.ReadString(_spoof_address + 0xA4, 32, true);
                 string realstage = await Stages.GetRealName(stage);
-                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0xCF"));
-                int rupees_source = mem.Read2Byte($"{_main_address}+D0");
+                string hearts = await Hearts.GetHearts(Hypervisor.Read<byte>(_main_address + 0xCF, true));
+                int rupees_source = Hypervisor.Read<short>(_main_address + 0xD0, true);
                 byte[] getbytes = BitConverter.GetBytes(rupees_source);
                 Array.Reverse(getbytes);
                 int rupees = BitConverter.ToInt16(getbytes, 2);

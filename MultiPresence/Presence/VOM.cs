@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.VOM;
 using MultiPresence.Properties;
 using System.Diagnostics;
@@ -8,10 +7,8 @@ namespace MultiPresence.Presence
 {
     public class VOM
     {
-        static Mem mem = new Mem();
-        static string process = "VisionsofMana-Win64-Shipping";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static string difficulty = "";
 
         public static void DoAction()
@@ -26,23 +23,29 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("VisionsofMana-Win64-Shipping")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
             if (game.Length > 0)
             {
-                float hp = mem.ReadFloat($"{process}.exe+067F3510,0x30,0x228,0x338,0x9A8,0x140,0x0,0x48");
-                float hpmax = mem.ReadFloat($"{process}.exe+067F3510,0x30,0x228,0x338,0x9A8,0x140,0x0,0x68");
-                float mp = mem.ReadFloat($"{process}.exe+067F3510,0x30,0x228,0x338,0x9A8,0x140,0x0,0x88");
-                float mpmax = mem.ReadFloat($"{process}.exe+067F3510,0x30,0x228,0x338,0x9A8,0x140,0x0,0x98");
-                int difficulty_get = mem.ReadByte($"{process}.exe+06232B70,0x3A0,0x780,0x80,0xF0,0x140,0x88,0xC30");
-                float level = mem.ReadFloat($"{process}.exe+067F3510,0x30,0x228,0x338,0x9A8,0x140,0x0,0x38");
+                float hp = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x48]), true);
+                float hpmax = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x68]), true);
+                float mp = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x88]), true);
+                float mpmax = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x98]), true);
+                int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x06232B70, [0x3A0, 0x780, 0x80, 0xF0, 0x140, 0x88, 0xC30]), true);
+                float level = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x38]), true);
 
                 try
                 {

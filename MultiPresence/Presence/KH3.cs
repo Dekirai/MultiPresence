@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.KH3;
 using MultiPresence.Models.KHIII;
 using MultiPresence.Properties;
@@ -9,22 +8,19 @@ namespace MultiPresence.Presence
 {
     public class KH3
     {
-        static Mem mem = new Mem();
-        static string process = "KINGDOM HEARTS III";
-        public static string _room_address = "";
-        static private DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        public static ulong _room_address = 0;
+        static private DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static string difficulty = "";
-        public static string room = null;
+        public static string? room = null;
         public static int level = 0;
         public static int gummilevel = 0;
-        public static string[] world = null;
+        public static string[]? world = null;
         public static async void DoAction()
         {
             await Task.Delay(7500); // Wait 7.5 seconds to make sure that the AoB is actually findable
             GetPID();
-            long room_get = (await mem.AoBScan("?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2F 53 63 72 69 70 74 2F 54 72 65 73 47 61 6D 65 2E 54 72 65 73 50 6C 61 79 65 72 43 6F 6E 74 72 6F 6C 6C 65 72 53 6F 72 61", true)).FirstOrDefault();
-            _room_address = room_get.ToString("X8");
+            _room_address = (ulong)Hypervisor.FindSignature("?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2F 53 63 72 69 70 74 2F 54 72 65 73 47 61 6D 65 2E 54 72 65 73 50 6C 61 79 65 72 43 6F 6E 74 72 6F 6C 6C 65 72 53 6F 72 61");
             discord = new DiscordRpcClient("827190870724837406");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("config.json");
@@ -34,21 +30,27 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS III")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS III");
             if (game.Length > 0)
             {
                 try
                 {
-                    string level_path = mem.ReadString($"{_room_address}", "", 27);
-                    int difficulty_get = mem.ReadByte($"{process}.exe+87ECC8C");
+                    string level_path = Hypervisor.ReadString(_room_address, 27, true);
+                    int difficulty_get = Hypervisor.Read<byte>(0x87ECC8C);
 
                     if (Settings.Default.langDE == true)
                     {
@@ -120,7 +122,7 @@ namespace MultiPresence.Presence
                         }
                         else if (level_path.Contains("gm"))
                         {
-                            gummilevel = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x470,0x550,0x250,0xD0,0x228,0x16C");
+                            gummilevel = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x09D8E920, [0x48, 0x470, 0x550, 0x250, 0xD0, 0x228, 0x16C]), true);
 
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "Gummi_Ship");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "Gummi_Ship");
@@ -159,7 +161,7 @@ namespace MultiPresence.Presence
                         }
                         else
                         {
-                            level = mem.ReadByte($"{process}.exe+09D8E920,0x48,0x458,0x188,0x1B8,0x4D0,0x40");
+                            level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x09D8E920, [0x48, 0x458, 0x188, 0x1B8, 0x4D0, 0x40]), true);
 
                             string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "In_World");
                             string state = updater.UpdateState("Kingdom Hearts III", placeholders, "In_World");

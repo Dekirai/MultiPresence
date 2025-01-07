@@ -7,8 +7,8 @@ namespace MultiPresence.Presence
     public class VS
     {
         static string process = "VampireSurvivors";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static string adventure = "";
 
         public static void DoAction()

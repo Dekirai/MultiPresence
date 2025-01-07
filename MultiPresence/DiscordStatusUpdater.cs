@@ -13,9 +13,9 @@ public class DiscordStatusUpdater
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
-    { "asobiSW", new Dictionary<string, GameDetails>
+    { "Call of Duty®", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "{nickname} (Lv. {level})", State = "Playing as {character}", LargeAsset = "{character_icon_name}", LargeAssetText = "asobiSW", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "", State = "", LargeAsset = "logo", LargeAssetText = "Call of Duty®", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
@@ -32,6 +32,11 @@ public class DiscordStatusUpdater
     { "Final Fantasy XVI", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "Gil: {gil}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XVI", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Hogwarts Legacy", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "", State = "", LargeAsset = "logo", LargeAssetText = "Hogwarts Legacy", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
@@ -488,14 +493,14 @@ public class DiscordStatusUpdater
 
 public class GameDetails
 {
-    public string Details { get; set; }
-    public string State { get; set; }
-    public string LargeAsset { get; set; }
-    public string SmallAsset { get; set; }
-    public string LargeAssetText { get; set; }
-    public string SmallAssetText { get; set; }
-    public string Button1Text { get; set; }
-    public string Button1URL { get; set; }
-    public string Button2Text { get; set; }
-    public string Button2URL { get; set; }
+    public string? Details { get; set; }
+    public string? State { get; set; }
+    public string? LargeAsset { get; set; }
+    public string? SmallAsset { get; set; }
+    public string? LargeAssetText { get; set; }
+    public string? SmallAssetText { get; set; }
+    public string? Button1Text { get; set; }
+    public string? Button1URL { get; set; }
+    public string? Button2Text { get; set; }
+    public string? Button2URL { get; set; }
 }

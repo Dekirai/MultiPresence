@@ -4,8 +4,6 @@ namespace MultiPresence
 {
     public class Blacklist
     {
-        [JsonProperty("AsobiSW")]
-        public bool AsobiSW { get; set; }
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]
@@ -65,8 +63,6 @@ namespace MultiPresence
         {
             switch (gameTitle)
             {
-                case "AsobiSW":
-                    return AsobiSW;
                 case "CRISIS CORE –FINAL FANTASY VII– REUNION":
                     return CrisisCoreFinalFantasyVIIReunion;
                 case "Final Fantasy VII Remake":

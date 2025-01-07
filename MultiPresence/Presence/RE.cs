@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.RE;
 using System.Diagnostics;
 
@@ -7,11 +6,11 @@ namespace MultiPresence.Presence
 {
     public class RE
     {
-        static Mem mem = new Mem();
+
         static string process = "bhd";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1212466561068171294");
@@ -23,20 +22,26 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("bhd")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("bhd");
             if (game.Length > 0)
             {
-                int floor_get = mem.ReadInt("bhd.exe+0098A0B0,0x74,0x1C,0x48,0x4,0x314");
-                int stage_get = mem.ReadInt("bhd.exe+0098A0B0,0x74,0x1C,0x48,0x4,0x318");
-                int character_get = mem.ReadByte("bhd.exe+97C9C0,0x5118");
+                int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x314]), true);
+                int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x318]), true);
+                int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x97C9C0, [0x5118]), true);
                 var stagevalue = await Stages.GetStage(floor_get);
 
                 string[] stage = stagevalue[stage_get].Split(':');

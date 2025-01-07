@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.REV2;
 using System.Diagnostics;
 
@@ -7,12 +6,10 @@ namespace MultiPresence.Presence
 {
     public class REV2
     {
-        static Mem mem = new Mem();
-        static string process = "rerev2";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         static int mission = 0;
-        public static async void DoAction()
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1213180163446149121");
@@ -24,22 +21,28 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("rerev2")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("rerev2");
             if (game.Length > 0)
             {
-                int raid_character_get = mem.ReadByte("rerev2.exe+117ED54,0x4A58");
-                int raid_chapter_get = mem.ReadByte("rerev2.exe+117ED54,0x30");
-                int raid_character_level = mem.ReadByte("rerev2.exe+117ED54,0x4A59");
-                int raid_money = mem.ReadInt("rerev2.exe+117D120,0xBA08");
-                int stage_get = mem.Read2Byte("rerev2.exe+115AACC");
+                int raid_character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x117ED54, [0x4A58]), true);
+                int raid_chapter_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x117ED54, [0x30]), true);
+                int raid_character_level = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x117ED54, [0x4A59]), true);
+                int raid_money = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x117D120, [0xBA08]), true);
+                int stage_get = Hypervisor.Read<short>(0x115AACC);
 
                 var stage = await Stages.GetStage(stage_get);
                 var chapter = await Chapters.GetChapter(raid_chapter_get);
@@ -59,7 +62,7 @@ namespace MultiPresence.Presence
                 {
                     if (stage[1] == "In Lobby")
                     {
-                        mission = mem.ReadByte("rerev2.exe+011DE690,0x1E0,0x4C,0x3C,0x14,0x3C,0x74,0x7C4") + 1;
+                        mission = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x011DE690, [0x1E0, 0x4C, 0x3C, 0x14, 0x3C, 0x74, 0x7C4]), true) + 1;
                         string details = updater.UpdateDetails("Resident Evil Revelations 2", placeholders, "Lobby");
                         string state = updater.UpdateState("Resident Evil Revelations 2", placeholders, "Lobby");
                         string largeasset = updater.UpdateLargeAsset("Resident Evil Revelations 2", placeholders, "Lobby");

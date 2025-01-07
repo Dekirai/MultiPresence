@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.MM11;
 using System.Diagnostics;
 
@@ -7,11 +6,9 @@ namespace MultiPresence.Presence
 {
     public class MM11
     {
-        static Mem mem = new Mem();
-        static string process = "game";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async void DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("981534050781122570");
@@ -23,22 +20,26 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("game")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("game");
             if (game.Length > 0)
             {
-                string _save = "140C3F6C0";
-                string _game = "140B87A20";
-                int lives = mem.ReadByte($"{_save},0x3A40");
-                int difficulty = mem.ReadByte($"{_save},0x388C");
-                int stage = mem.ReadByte($"{_game},0xDF0,0xA8,0x18,0xA0");
+                int lives = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x3A40]), true);
+                int difficulty = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x388C]), true);
+                int stage = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140B87A20, [0xDF0, 0xA8, 0x18, 0xA0]), true);
 
                 var stagename = await Stages.GetStage(stage);
                 var difficultyname = await Difficulties.GetDifficulty(difficulty);

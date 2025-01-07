@@ -12,28 +12,29 @@ This means that online games, especially those with anti-cheat, are less likely 
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ## How to use it
-All you have to do is run the exe and you're ready to go.  
-If a game is not showing properly on discord, try running it as administrator.    
+All you have to do is run **MultiPresence.exe** and you're ready to go.  
+If a game is not showing properly on discord, try running MultiPresence as administrator.    
 
 Using the context menu (right-click on the tray icon), you can easily open the config and blacklist file.  
 You can also choose to launch MultiPresence with Windows, so you don't have to open it every time you switch on your PC.
  
 ## Blacklist (Optional)
 MultiPresence also allows you to block certain games from being detected.  
-As of version 1.6.0, you can use a file called "blacklist.json" to block games.  
+You can use a file called "blacklist.json" to block games.  
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
 
 ## Placeholder (Optional)
-Introduced in Release 20, you can customize your presence to your liking using a config.json  
+You can customize your presence to your liking using a config.json  
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Config).
  
 ## Supported games
 |Game|Platform|Notes|
 |--|--|--|
-|[asobiSW](https://github.com/Dekirai/MultiPresence/)|[Private Server](https://playasobi.gg/)| |
+|[Call of Duty²](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)||
 |[Crisis Core -Final Fantasy VII- Reunion](https://github.com/Dekirai/MultiPresence/wiki/Crisis-Core-%E2%80%90Final-Fantasy-VII%E2%80%90-Reunion)|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||
 |[Final Fantasy VII Remake](https://github.com/Dekirai/MultiPresence/wiki/Final-Fantasy-VII-Remake)|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |[Final Fantasy XVI](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
+|[Hogwarts Legacy²](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||
 |[Kingdom Hearts Birth by Sleep Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Birth-by-Sleep-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |[Kingdom Hearts Dream Drop Distance](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Dream-Drop-Distance)|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)||
 |[Kingdom Hearts Final Mix](https://github.com/Dekirai/MultiPresence/wiki/Kingdom-Hearts-Final-Mix)|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
@@ -43,7 +44,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Marvel's Spider-Man: Miles Morales](https://github.com/Dekirai/MultiPresence/wiki/Marvel's-Spider%E2%80%90Man:-Miles-Morales)|[Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)| |
 |[Mega Man 11](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-11)|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)| |
 |[Mega Man Battle Network 6](https://github.com/Dekirai/MultiPresence/wiki/Mega-Man-Battle-Network-6)|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)| |
-|[Overwatch 2²](https://github.com/Dekirai/MultiPresence/wiki/Overwatch-2)|[Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)|Uses Steamworks|
+|[Overwatch 2²](https://github.com/Dekirai/MultiPresence/wiki/Overwatch-2)|[Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)||
 |[Pangya Reborn](https://github.com/Dekirai/MultiPresence/wiki/Pangya-Reborn)|[Private Server](https://www.pangyareborn.com/)| |
 |[Resident Evil](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil)|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
 |[Resident Evil 4 (2005)¹](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-4)|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)|Currently broken|
@@ -52,7 +53,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |[Resident Evil Revelations 2](https://github.com/Dekirai/MultiPresence/wiki/Resident-Evil-Revelations-2)|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
 |[Sonic Adventure 2](https://github.com/Dekirai/MultiPresence/wiki/Sonic-Adventure-2)|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
 |[Streets of Rage Remake](https://github.com/Dekirai/MultiPresence/)|[Windows](https://sorr.forumotion.net/t838-new-streets-of-rage-remake-v5-2-download-and-info)|Only game detection|
-|[Temtem: Swarm²](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)|Uses Steamworks|
+|[Temtem: Swarm²](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)||
 |[TY the Tasmanian Tiger](https://github.com/Dekirai/MultiPresence/wiki/TY-the-Tasmanian-Tiger)|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
 |[Vampire Survivors](https://github.com/Dekirai/MultiPresence/wiki/Vampire-Survivors)|[Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)| |
 |[Visions of Mana](https://github.com/Dekirai/MultiPresence/)|[Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)| |
@@ -64,6 +65,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 ²: Requires **MultiPresenceGame.exe** & **steam_api64.dll**.
 > [!IMPORTANT]  
 > A pattern search can cause a short lag on your machine because the program is currently scanning a lot of memory to find the right address to work with.  
+> Depending on the game, it can take a long time to find the address, so be patient.  
 <details>
 <summary>CEMU</summary>
 You have to disable the "Discord Presence" option found in Options -> General settings.<br />

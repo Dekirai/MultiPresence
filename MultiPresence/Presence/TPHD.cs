@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.TPHD;
 using System.Diagnostics;
 
@@ -7,18 +6,15 @@ namespace MultiPresence.Presence
 {
     public class TPHD
     {
-        static Mem mem = new Mem();
-        static string process = "Cemu";
         static string location = "";
         static string area = "";
-        public static string _main_address = "";
-        private static DiscordRpcClient discord;
+        public static ulong _main_address = 0;
+        private static DiscordRpcClient? discord;
         public static async void DoAction()
         {
             await Task.Delay(5500);
             GetPID();
-            long main_get = (await mem.AoBScan("00 00 00 00 00 4C 6F 61 64 69 6E 67 20", true)).FirstOrDefault();
-            _main_address = main_get.ToString("X11");
+            _main_address = (ulong)Hypervisor.FindSignature("00 00 00 00 00 4C 6F 61 64 69 6E 67 20");
             discord = new DiscordRpcClient("983296451453022220");
             InitializeDiscord();
             Thread thread = new Thread(RPC);
@@ -27,16 +23,22 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("Cemu")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
-            string[] stage = mem.ReadString($"{_main_address}+D").Split(':');
+            Process[] game = Process.GetProcessesByName("Cemu");
+            string[] stage = Hypervisor.ReadString(_main_address + 0x0D, 32, true).Split(':');
             if (game.Length > 0)
             {
 
@@ -47,18 +49,18 @@ namespace MultiPresence.Presence
                 }
                 catch
                 {
-                    location = mem.ReadString($"{_main_address}+D");
+                    location = Hypervisor.ReadString(_main_address + 0x0D, 32, true);
                 }
 
-                int form = mem.ReadByte($"{_main_address}+12369");
-                int poes = mem.ReadByte($"{_main_address}+12455");
-                int rupees_source = mem.Read2Byte($"{_main_address}+1234F");
+                int form = Hypervisor.Read<byte>(_main_address + 0x12369, true);
+                int poes = Hypervisor.Read<byte>(_main_address + 0x12455, true);
+                int rupees_source = Hypervisor.Read<byte>(_main_address + 0x1234F, true);
                 byte[] getbytes = BitConverter.GetBytes(rupees_source);
                 Array.Reverse(getbytes);
                 int rupees = BitConverter.ToInt16(getbytes, 2);
                 string realstage = await Stages_Old.MapName(location);
-                string hearts = await Hearts.GetHearts(mem.ReadByte($"{_main_address}+0x1234E"));
-                int hearts_max = mem.ReadByte($"{_main_address}+0x1234C") / 5;
+                string hearts = await Hearts.GetHearts(Hypervisor.Read<byte>(_main_address + 0x1234E, true));
+                int hearts_max = Hypervisor.Read<byte>(_main_address + 0x1234C, true) / 5;
 
                 if (location == "Opening Scene" || location == "Name Scene")
                 {

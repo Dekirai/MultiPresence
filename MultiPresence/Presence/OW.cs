@@ -1,12 +1,10 @@
-﻿using Steamworks;
-using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class OW
     {
-        public static async void DoAction()
+        public static void DoAction()
         {
             if (!File.Exists("steam_appid.txt"))
                 File.WriteAllText("steam_appid.txt", "2357570");

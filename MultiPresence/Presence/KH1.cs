@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Memory;
 using MultiPresence.Models.KH1;
 using System.Diagnostics;
 
@@ -7,10 +6,8 @@ namespace MultiPresence.Presence
 {
     public class KH1
     {
-        static Mem mem = new Mem();
-        static string process = "KINGDOM HEARTS FINAL MIX";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -23,21 +20,27 @@ namespace MultiPresence.Presence
 
         private static void GetPID()
         {
-            int pid = mem.GetProcIdFromName(process);
-            bool openProc = false;
-
-            if (pid > 0) openProc = mem.OpenProcess(pid);
+            try
+            {
+                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX")[0];
+                if (_myProcess.Id > 0)
+                    Hypervisor.AttachProcess(_myProcess);
+            }
+            catch
+            {
+                //nothing?
+            }
         }
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
+            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             if (game.Length > 0)
             {
-                int world_get = mem.ReadByte($"{process}.exe+233FE94");
-                int room_get = mem.ReadByte($"{process}.exe+233FE8C");
-                int difficulty_get = mem.ReadByte($"{process}.exe+2DFF78C");
-                int level = mem.ReadByte($"{process}.exe+2DE9364");
+                int world_get = Hypervisor.Read<byte>(0x233FE94);
+                int room_get = Hypervisor.Read<byte>(0x233FE8C);
+                int difficulty_get = Hypervisor.Read<byte>(0x2DFF78C);
+                int level = Hypervisor.Read<byte>(0x2DE9364);
                 var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
 
