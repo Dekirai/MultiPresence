@@ -8,6 +8,14 @@ namespace MultiPresence
 {
     public static class Hypervisor
     {
+        //Hypervisor was originally created by TopazTK
+        //It got modified by Dekirai to make it properly work with MultiPresence
+
+        //Things changed/added:
+        //- Read/Write to a module of a process, for example "GameAssembly.dll"
+        //- Read/Write Strings (Only Read has been tested)
+        //- Changed how "FindSignature" works, to find pattern across all memory regions of the process
+
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint flNewProtect, ref int lpflOldProtect);
 
