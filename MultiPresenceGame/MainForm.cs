@@ -160,10 +160,53 @@ namespace MultiPresenceGame
                 if (game.Length > 0)
                 {
                     string presence = GetSteamRichPresence();
-                    discord.UpdateLargeAsset("logo", "Call of Duty®");
-                    discord.UpdateDetails(presence);
 
-                    await Task.Delay(3000); // Wait before checking again
+                    if (presence.Length >= 5)
+                    {
+                        discord.UpdateDetails(presence);
+                        discord.UpdateState("");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            int mapkey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "mapname"));
+                            int modekey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "gamemode"));
+
+                            if (mapkey > 0)
+                            {
+                                if (modekey == 1371735337)
+                                    discord.UpdateDetails("Black Ops 6 - Zombies (Directed)"); //Geführt
+                                else if (modekey == 1803630921)
+                                    discord.UpdateDetails("Black Ops 6 - Zombies (Standard)");
+                                else if (modekey == 2103910687)
+                                    discord.UpdateDetails("Black Ops 6 - Zombies (Dead Light, Green Light)"); //Totes Licht, Grünes Licht
+                                else if (modekey == 1803630921)
+                                    discord.UpdateDetails("Black Ops 6 - Zombies (Training Course)"); //Trainingskurs
+
+                                if (mapkey == 1320634394)
+                                    discord.UpdateState("Playing on Liberty Falls");
+                                else if (mapkey == 211748868)
+                                    discord.UpdateState("Playing on Terminus");
+                                else if (mapkey == 1738814346)
+                                    discord.UpdateState("Playing on Citalle Des Morts");
+                            }
+                            else
+                            {
+                                discord.UpdateDetails(presence);
+                                discord.UpdateState("");
+                            }
+                        }
+                        catch
+                        {
+                            discord.UpdateDetails(presence);
+                            discord.UpdateState("");
+                        }
+                    }
+
+                    discord.UpdateLargeAsset("logo", "Call of Duty®");
+
+                    await Task.Delay(3000);
                 }
                 else
                 {
