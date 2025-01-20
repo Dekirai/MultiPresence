@@ -36,11 +36,11 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ff7remake_");
             if (game.Length > 0)
             {
-                int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x57B9268, [0x8A0]), true);
-                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x57B9268, [0x8B0]), true);
-                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x57B9268, [0x8B4]), true);
-                int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x57B9268, [0x8B8]), true);
-                int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x57B9268, [0x8BC]), true);
+                int level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x057CA5E8, [0x8A0]), true);
+                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B0]), true);
+                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B4]), true);
+                int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B8]), true);
+                int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8BC]), true);
 
                 var placeholders = new Dictionary<string, object>
                 {

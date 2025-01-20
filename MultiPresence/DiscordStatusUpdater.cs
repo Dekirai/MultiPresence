@@ -13,11 +13,6 @@ public class DiscordStatusUpdater
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
-    { "Call of Duty®", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "", State = "", LargeAsset = "logo", LargeAssetText = "Call of Duty®", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
     { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

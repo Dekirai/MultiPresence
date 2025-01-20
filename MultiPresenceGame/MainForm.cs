@@ -11,7 +11,32 @@ namespace MultiPresenceGame
         public MainForm()
         {
             InitializeComponent();
+#if DEBUG
+            File.WriteAllText("steam_appid.txt", "2510960");
+            if (!SteamAPI.Init())
+            {
+                //Do nothing
+            }
+            int keyCount = SteamFriends.GetFriendRichPresenceKeyCount(SteamUser.GetSteamID());
+
+            if (keyCount == 0)
+            {
+                MessageBox.Show("No Rich Presence keys found.");
+            }
+            else
+            {
+                for (int i = 0; i < keyCount; i++)
+                {
+                    string key = SteamFriends.GetFriendRichPresenceKeyByIndex(SteamUser.GetSteamID(), i);
+                    string value = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), key);
+
+                    MessageBox.Show($"Key: {key}, Value: {value}");
+                }
+            }
+            //DoAction();
+#else
             DoAction();
+#endif
         }
 
         public static async void DoAction()
@@ -84,6 +109,33 @@ namespace MultiPresenceGame
                     string presence = GetSteamRichPresence();
                     discord.UpdateLargeAsset("logo", "Overwatch 2");
                     discord.UpdateDetails(presence);
+                    try
+                    {
+                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+
+                        if (partysize > 1)
+                        {
+                            discord.UpdateParty(new Party
+                            {
+                                ID = partyid,
+                                Size = partysize,
+                                Max = 6,
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateDetails(presence);
+                            discord.UpdateParty(null);
+                            discord.UpdateState("");
+                        }
+                    }
+                    catch
+                    {
+                        discord.UpdateDetails(presence);
+                        discord.UpdateParty(null);
+                        discord.UpdateState("");
+                    }
 
                     await Task.Delay(3000); // Wait before checking again
                 }
@@ -109,7 +161,28 @@ namespace MultiPresenceGame
                 {
                     string presence = GetSteamRichPresence();
                     discord.UpdateLargeAsset("logo", "Temtem: Swarm");
-                    discord.UpdateDetails(presence);
+                    try
+                    {
+                        string temtem = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "temtem");
+                        string stage = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "stage");
+                        string round = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "round");
+
+                        if (temtem.Length > 0)
+                        {
+                            discord.UpdateDetails($"Stage: {stage} - {round} minute(s)");
+                            discord.UpdateState($"Temtem: {temtem}");
+                        }
+                        else
+                        {
+                            discord.UpdateDetails(presence);
+                            discord.UpdateState("");
+                        }
+                    }
+                    catch
+                    {
+                        discord.UpdateDetails(presence);
+                        discord.UpdateState("");
+                    }
 
                     await Task.Delay(3000); // Wait before checking again
                 }
@@ -181,7 +254,7 @@ namespace MultiPresenceGame
                                     discord.UpdateDetails("Black Ops 6 - Zombies (Standard)");
                                 else if (modekey == 2103910687)
                                     discord.UpdateDetails("Black Ops 6 - Zombies (Dead Light, Green Light)"); //Totes Licht, Grünes Licht
-                                else if (modekey == 1803630921)
+                                else if (modekey == 1751835769)
                                     discord.UpdateDetails("Black Ops 6 - Zombies (Training Course)"); //Trainingskurs
 
                                 if (mapkey == 1320634394)
