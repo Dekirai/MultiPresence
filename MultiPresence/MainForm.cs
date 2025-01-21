@@ -55,7 +55,7 @@ namespace MultiPresence
                 {
                     case "Call of Duty®":
                         Balloon(game);
-                        COD.DoAction();
+                        await COD.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "CRISIS CORE –FINAL FANTASY VII– REUNION":
