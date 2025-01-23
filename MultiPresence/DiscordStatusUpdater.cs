@@ -21,7 +21,7 @@ public class DiscordStatusUpdater
     },
     { "Final Fantasy VII Remake", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Remake", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Remake", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Final Fantasy XVI", new Dictionary<string, GameDetails>

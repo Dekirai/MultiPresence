@@ -41,6 +41,7 @@ namespace MultiPresence.Presence
                 int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B4]), true);
                 int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B8]), true);
                 int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8BC]), true);
+                int chapter = Hypervisor.Read<byte>(0x59ADBF0);
 
                 var placeholders = new Dictionary<string, object>
                 {
@@ -48,7 +49,8 @@ namespace MultiPresence.Presence
                     { "hp", hp },
                     { "maxhp", maxhp },
                     { "mp", mp },
-                    { "maxmp", maxmp }
+                    { "maxmp", maxmp },
+                    { "chapter", chapter }
                 };
 
                 discord.UpdateLargeAsset($"logo", $"Final Fantasy VII Remake");
