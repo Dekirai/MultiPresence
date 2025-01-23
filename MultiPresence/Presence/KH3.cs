@@ -52,18 +52,9 @@ namespace MultiPresence.Presence
                     string level_path = Hypervisor.ReadString(_room_address, 27, true);
                     int difficulty_get = Hypervisor.Read<byte>(0x87ECC8C);
 
-                    if (Settings.Default.langDE == true)
-                    {
-                        room = await Rooms.GetRoomDE(level_path.Split('/')[4]);
-                        world = await Worlds.GetWorldDE(level_path.Split('/')[3]);
-                        difficulty = await Difficulties.GetDifficultyDE(difficulty_get);
-                    }
-                    else
-                    {
-                        room = await Rooms.GetRoom(level_path.Split('/')[4]);
-                        world = await Worlds.GetWorld(level_path.Split('/')[3]);
-                        difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                    }
+                    room = await Rooms.GetRoom(level_path.Split('/')[4]);
+                    world = await Worlds.GetWorld(level_path.Split('/')[3]);
+                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                     var placeholders = new Dictionary<string, object>
                     {

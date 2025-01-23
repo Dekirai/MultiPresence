@@ -50,18 +50,9 @@ namespace MultiPresence.Presence
 
                 try
                 {
-                    if (Settings.Default.langDE == true)
-                    {
-                        world = await Worlds.GetWorldDE(world_get);
-                        room = await Rooms.GetRoomDE(world[0]);
-                        difficulty = await Difficulties.GetDifficultyDE(difficulty_get);
-                    }
-                    else
-                    {
-                        world = await Worlds.GetWorld(world_get);
-                        room = await Rooms.GetRoom(world[0]);
-                        difficulty = await Difficulties.GetDifficulty(difficulty_get);
-                    }
+                    world = await Worlds.GetWorld(world_get);
+                    room = await Rooms.GetRoom(world[0]);
+                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                     var placeholders = new Dictionary<string, object>
                     {

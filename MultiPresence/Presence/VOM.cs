@@ -49,10 +49,7 @@ namespace MultiPresence.Presence
 
                 try
                 {
-                    if (Settings.Default.langDE == true)
-                        difficulty = await Difficulties.GetDifficultyDE(difficulty_get);
-                    else
-                        difficulty = await Difficulties.GetDifficulty(difficulty_get);
+                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
                     var placeholders = new Dictionary<string, object>
                     {
