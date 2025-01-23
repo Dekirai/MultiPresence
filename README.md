@@ -51,7 +51,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |Resident Evil 5|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)| |
 |Resident Evil 6|[Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)| |
 |Resident Evil Revelations 2|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
-|Sonic Adventure 2(|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
+|Sonic Adventure 2|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
 |Streets of Rage Remake|[Windows](https://sorr.forumotion.net/t838-new-streets-of-rage-remake-v5-2-download-and-info)|Only game detection|
 |Temtem: Swarm²|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)||
 |TY the Tasmanian Tiger|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
