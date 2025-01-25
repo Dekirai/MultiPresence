@@ -66,6 +66,11 @@ namespace MultiPresence
                         FFVIIR.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Final Fantasy VII Rebirth":
+                        Balloon(game);
+                        FFVIIRB.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Final Fantasy XVI":
                         Balloon(game);
                         FFXVI.DoAction();

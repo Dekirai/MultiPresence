@@ -32,6 +32,7 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 |--|--|--|
 |Call of Duty²|[Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)||
 |Crisis Core -Final Fantasy VII- Reunion|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||
+|Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||
 |Final Fantasy VII Remake|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |Final Fantasy XVI|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
 |Hogwarts Legacy²|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||

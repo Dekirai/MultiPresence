@@ -1,21 +1,16 @@
 ﻿using DiscordRPC;
-using MultiPresence.Models.KH2;
-using MultiPresence.Properties;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
-    public class KH2
+    public class FFVIIRB
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
-        public static string difficulty = "";
-        public static string[]? room = null;
-        public static string[]? world = null;
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("826145131152408625");
+            discord = new DiscordRpcClient("1332349500572045312");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
@@ -26,7 +21,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX")[0];
+                var _myProcess = Process.GetProcessesByName("ff7rebirth_")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -38,39 +33,39 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
+            Process[] game = Process.GetProcessesByName("ff7rebirth_");
             if (game.Length > 0)
             {
-                int world_get = Hypervisor.Read<byte>(0x717008);
-                int room_get = Hypervisor.Read<byte>(0x717009);
-                int difficulty_get = Hypervisor.Read<byte>(0x9ABD48);
-                int level = Hypervisor.Read<byte>(0x9ABDAF);
+                int level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x87C]), true);
+                int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x880]), true);
+                int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x884]), true);
+                int chapter = Hypervisor.Read<byte>(0x7833FB2);
 
-                try
+                var placeholders = new Dictionary<string, object>
                 {
-                    world = await Worlds.GetWorld(world_get);
-                    room = await Rooms.GetRoom(world[0]);
-                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
+                    { "level", level },
+                    { "hp", hp },
+                    { "maxhp", maxhp },
+                    { "mp", mp },
+                    { "maxmp", maxmp },
+                    { "chapter", chapter }
+                };
 
-                    var placeholders = new Dictionary<string, object>
-                    {
-                        { "level", level },
-                        { "room", room[room_get] },
-                        { "world", world[0] },
-                        { "world_icon_name", world[1] },
-                        { "difficulty", difficulty }
-                    };
-
-                    string details = updater.UpdateDetails("Kingdom Hearts II Final Mix", placeholders);
-                    string state = updater.UpdateState("Kingdom Hearts II Final Mix", placeholders);
-                    string largeasset = updater.UpdateLargeAsset("Kingdom Hearts II Final Mix", placeholders);
-                    string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts II Final Mix", placeholders);
-                    string smallasset = updater.UpdateSmallAsset("Kingdom Hearts II Final Mix", placeholders);
-                    string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts II Final Mix", placeholders);
-                    string button1text = updater.UpdateButton1Text("Kingdom Hearts II Final Mix", placeholders);
-                    string button2text = updater.UpdateButton2Text("Kingdom Hearts II Final Mix", placeholders);
-                    string button1url = updater.UpdateButton1URL("Kingdom Hearts II Final Mix", placeholders);
-                    string button2url = updater.UpdateButton2URL("Kingdom Hearts II Final Mix", placeholders);
+                discord.UpdateLargeAsset($"logo", $"Final Fantasy VII Rebirth");
+                if (hp > 0)
+                {
+                    string details = updater.UpdateDetails("Final Fantasy VII Rebirth", placeholders);
+                    string state = updater.UpdateState("Final Fantasy VII Rebirth", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Final Fantasy VII Rebirth", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Final Fantasy VII Rebirth", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Final Fantasy VII Rebirth", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Final Fantasy VII Rebirth", placeholders);
+                    string button1text = updater.UpdateButton1Text("Final Fantasy VII Rebirth", placeholders);
+                    string button2text = updater.UpdateButton2Text("Final Fantasy VII Rebirth", placeholders);
+                    string button1url = updater.UpdateButton1URL("Final Fantasy VII Rebirth", placeholders);
+                    string button2url = updater.UpdateButton2URL("Final Fantasy VII Rebirth", placeholders);
                     discord.UpdateLargeAsset(largeasset, largeassettext);
                     discord.UpdateSmallAsset(smallasset, smallassettext);
                     discord.UpdateDetails(details);
@@ -96,10 +91,9 @@ namespace MultiPresence.Presence
                         discord.UpdateButtons(null);
                     }
                 }
-                catch
+                else
                 {
-                    discord.UpdateLargeAsset("logo", "Kingdom Hearts II Final Mix");
-                    discord.UpdateDetails($"In Main Menu");
+                    discord.UpdateDetails("In Main Menu");
                     discord.UpdateState("");
                 }
 

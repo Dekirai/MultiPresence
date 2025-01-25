@@ -54,6 +54,20 @@
         "Button2URL": ""
       }
     },
+    "Final Fantasy VII Rebirth": {
+      "Default": {
+        "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
+        "State": "Level {level}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Final Fantasy VII Rebirth",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Final Fantasy XVI": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
