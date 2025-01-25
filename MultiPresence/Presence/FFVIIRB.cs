@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ff7rebirth_");
             if (game.Length > 0)
             {
-                int level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+                int level = Hypervisor.Read<byte>(0x70C1F60);
                 int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
                 int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x87C]), true);
                 int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x880]), true);
