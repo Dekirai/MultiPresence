@@ -6,6 +6,8 @@ namespace MultiPresence
     {
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
+        [JsonProperty("Final Fantasy VII Rebirth")]
+        public bool FinalFantasyVIIRebirth { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]
         public bool FinalFantasyVIIRemake { get; set; }
         [JsonProperty("Final Fantasy XVI")]

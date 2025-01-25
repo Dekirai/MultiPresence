@@ -40,13 +40,13 @@
         "Button2URL": ""
       }
     },
-    "Final Fantasy VII Remake": {
+    "Final Fantasy VII Rebirth": {
       "Default": {
         "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
         "State": "Level {level} - Chapter {chapter}",
         "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "Final Fantasy VII Remake",
+        "LargeAssetText": "Final Fantasy VII Rebirth",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -54,13 +54,13 @@
         "Button2URL": ""
       }
     },
-    "Final Fantasy VII Rebirth": {
+    "Final Fantasy VII Remake": {
       "Default": {
         "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
-        "State": "Level {level}",
+        "State": "Level {level} - Chapter {chapter}",
         "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "Final Fantasy VII Rebirth",
+        "LargeAssetText": "Final Fantasy VII Remake",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
