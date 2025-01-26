@@ -212,9 +212,30 @@ namespace MultiPresence
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            Settings.Default.Notifications = cb_DisableNotifications.Checked;
-            Settings.Default.Save();
-            Application.Exit();
+            try
+            {
+                var processes = Process.GetProcessesByName("MultiPresenceGame");
+                if (processes.Any())
+                {
+                    // Kill the process
+                    foreach (var process in processes)
+                    {
+                        process.Kill();
+                        process.WaitForExit();
+                    }
+                }
+
+                // Save settings
+                Settings.Default.Notifications = cb_DisableNotifications.Checked;
+                Settings.Default.Save();
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                Settings.Default.Notifications = cb_DisableNotifications.Checked;
+                Settings.Default.Save();
+                Application.Exit();
+            }
         }
 
         private void Balloon(string text)
