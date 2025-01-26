@@ -4,17 +4,24 @@ namespace MultiPresence.Presence
 {
     public class HL
     {
-        public static void DoAction()
+        public static async Task DoAction()
         {
+            await FileChecker.EnsureFilesExistAsync();
+
             if (!File.Exists("steam_appid.txt"))
                 File.WriteAllText("steam_appid.txt", "990080");
+
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // Combine the directory path with the file name
-            string filePath = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
+            // Define the files to check
+            string file1 = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
+            string file2 = Path.Combine(currentDirectory, "steam_api64.dll");
 
-            // Start the process
-            Process.Start(filePath);
+            // Check if the files exist
+            if (!File.Exists(file1) || !File.Exists(file2))
+                return;
+
+            Process.Start(file1);
             Thread thread = new Thread(Blabla);
             thread.Start();
         }

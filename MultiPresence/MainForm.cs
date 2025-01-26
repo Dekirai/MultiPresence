@@ -78,7 +78,7 @@ namespace MultiPresence
                         break;
                     case "Hogwarts Legacy":
                         Balloon(game);
-                        HL.DoAction();
+                        await HL.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Kingdom Hearts Final Mix":
@@ -123,7 +123,7 @@ namespace MultiPresence
                         break;
                     case "Overwatch 2":
                         Balloon(game);
-                        OW.DoAction();
+                        await OW.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Zelda: The Wind Waker HD":

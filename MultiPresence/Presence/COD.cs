@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Text.Json;
 
 namespace MultiPresence.Presence
 {
@@ -14,16 +13,18 @@ namespace MultiPresence.Presence
 
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            string filePath = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
+            // Define the files to check
+            string file1 = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
+            string file2 = Path.Combine(currentDirectory, "steam_api64.dll");
 
-            if (!File.Exists(filePath))
+            // Check if the files exist
+            if (!File.Exists(file1) || !File.Exists(file2))
                 return;
 
-            Process.Start(filePath);
+            Process.Start(file1);
             Thread thread = new Thread(Blabla);
             thread.Start();
         }
-
 
         private static async void Blabla()
         {
