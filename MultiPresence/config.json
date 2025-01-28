@@ -2,7 +2,7 @@
   "Games": {
     "Call of Duty®": {
       "Default": {
-        "Details": "",
+        "Details": "{steam_display}",
         "State": "",
         "LargeAsset": "logo",
         "SmallAsset": "",
@@ -14,8 +14,8 @@
         "Button2URL": ""
       },
       "Zombies": {
-        "Details": "",
-        "State": "",
+        "Details": "Playing {mode}",
+        "State": "Surviving on {map}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Call of Duty®",
@@ -96,7 +96,7 @@
     },
     "Hogwarts Legacy": {
       "Default": {
-        "Details": "",
+        "Details": "{steam_display}",
         "State": "",
         "LargeAsset": "logo",
         "SmallAsset": "",
@@ -254,8 +254,8 @@
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
+        "Button2URL": "",
+        "Button2Text": ""
       },
       "In_Battle": {
         "Details": "HP: {hp_battle}/{maxhp_battle}",
@@ -263,6 +263,20 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Mega Man Battle Network 6",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Overwatch": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Overwatch 2",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
