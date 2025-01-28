@@ -12,6 +12,18 @@
         "Button1URL": "",
         "Button2Text": "",
         "Button2URL": ""
+      },
+      "Zombies": {
+        "Details": "",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Call of Duty®",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "CRISIS CORE –FINAL FANTASY VII– REUNION": {
@@ -262,7 +274,7 @@
       "Ingame_Match": {
         "Details": "{nickname} - {level}",
         "State": "{mode} — H{currenthole}/{maxholes}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -274,7 +286,7 @@
       "Ingame_Tourney": {
         "Details": "{nickname} - {level}",
         "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -286,7 +298,7 @@
       "Ingame_Lounge": {
         "Details": "{nickname} - {level}",
         "State": "{mode}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -298,7 +310,7 @@
       "Waiting_Room": {
         "Details": "{nickname} - {level}",
         "State": "{mode}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -310,7 +322,7 @@
       "Lobby": {
         "Details": "{nickname} - {level}",
         "State": "In Lobby",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -324,7 +336,7 @@
       "Default": {
         "Details": "{floor}",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "",
         "SmallAssetText": "",
@@ -338,9 +350,9 @@
       "Title_Screen": {
         "Details": "At the Title Screen",
         "State": "",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 4",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -362,9 +374,9 @@
       "Mercenaries": {
         "Details": "Score: {score}",
         "State": "Playing as '{character}' on '{room}'",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 4",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -374,9 +386,9 @@
       "Assignment_Ada": {
         "Details": "Weapon: {weapon}",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 4",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -386,9 +398,9 @@
       "Separate_Ways": {
         "Details": "Weapon: {weapon}",
         "State": "Chapter {chapter}: {room}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 4",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -400,9 +412,9 @@
       "Default": {
         "Details": "{chapter}",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 5",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -414,9 +426,9 @@
       "Booting": {
         "Details": "Starting the game...",
         "State": "",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 6",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -426,9 +438,9 @@
       "Ingame": {
         "Details": "{chapter}",
         "State": "{room}",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 6",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -438,9 +450,9 @@
       "Main_Menu": {
         "Details": "In Main Menu",
         "State": "",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 6",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -450,9 +462,9 @@
       "Saving": {
         "Details": "Saving the game...",
         "State": "",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 6",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -462,9 +474,9 @@
       "Cutscene": {
         "Details": "{chapter}",
         "State": "In a cutscene",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 6",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -476,9 +488,9 @@
       "Lobby": {
         "Details": "Raid Mode: In Lobby",
         "State": "{character} (Lv. {level})",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil Revelations 2",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -488,9 +500,35 @@
       "Ingame": {
         "Details": "Raid Mode: Mission {chapter}-0{mission}",
         "State": "{character} (Lv. {level})",
-        "LargeAsset": "",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil Revelations 2",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Temtem Swarm": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Temtem Swarm",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Ingame": {
+        "Details": "Stage: {stage} - {round} minute(s)",
+        "State": "Temtem: {temtem}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Temtem Swarm",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",

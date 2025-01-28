@@ -1,4 +1,4 @@
-﻿using MultiPresence;
+﻿using MultiPresenceGame;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
@@ -13,131 +13,28 @@ public class DiscordStatusUpdater
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
-    { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
+    { "Call of Duty", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Mission", new GameDetails { Details = "[In Mission] Lv. {level} ({difficulty})}", State = "HP: {hp_mission}/{maxhp_mission} | MP: {mp_mission}/{maxmp_mission}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Call of Duty", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Zombies", new GameDetails { Details = "Playing {mode}", State = "Surviving on {map}", LargeAsset = "logo", LargeAssetText = "Call of Duty", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Final Fantasy VII Remake", new Dictionary<string, GameDetails>
+    { "Hogwarts Legacy", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Remake", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Hogwarts Legacy", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Final Fantasy VII Rebirth", new Dictionary<string, GameDetails>
+    { "Overwatch", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Rebirth", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Overwatch 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Final Fantasy XVI", new Dictionary<string, GameDetails>
+    { "Temtem Swarm", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "Gil: {gil}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XVI", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Temtem Swarm", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "Stage: {stage} - {round} minute(s)", State = "Temtem: {temtem}", LargeAsset = "logo", LargeAssetText = "Temtem Swarm", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Kingdom Hearts Dream Drop Distance", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Kingdom Hearts Final Mix", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Kingdom Hearts II Final Mix", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Kingdom Hearts III", new Dictionary<string, GameDetails>
-        {
-            { "World_Map", new GameDetails { Details = "Playing on {difficulty}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Gummi_Ship", new GameDetails { Details = "Gummi Lv. {gummilevel} ({difficulty})", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "In_World", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Marvel's Spider-Man Remastered", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man Remastered", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Marvel's Spider-Man: Miles Morales", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man: Miles Morales", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Mega Man 11", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lives: {lives} ({difficulty})", State = "{stage}", LargeAsset = "{stage_icon_name}", LargeAssetText = "{stage}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Mega Man Battle Network 6", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Pangya Reborn", new Dictionary<string, GameDetails>
-        {
-            { "Ingame_Match", new GameDetails { Details = "{nickname} - {level}", State = "{mode} — H{currenthole}/{maxholes}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame_Tourney", new GameDetails { Details = "{nickname} - {level}", State = "{mode} — H{currenthole}/{maxholes} — Score: {score}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame_Lounge", new GameDetails { Details = "{nickname} - {level}", State = "{mode}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Waiting_Room", new GameDetails { Details = "{nickname} - {level}", State = "{mode}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Lobby", new GameDetails { Details = "{nickname} - {level}", State = "In Lobby", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Resident Evil", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "{floor}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-        }
-    },
-    { "Resident Evil 4 (2005)", new Dictionary<string, GameDetails>
-        {
-            { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Main", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Assignment_Ada", new GameDetails { Details = "Weapon: {weapon}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Separate_Ways", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Mercenaries", new GameDetails { Details = "Score: {score}", State = "Playing as '{character}' on '{room}'", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Resident Evil 5", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "{chapter}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Resident Evil 6", new Dictionary<string, GameDetails>
-        {
-            { "Booting", new GameDetails { Details = "Starting the game...", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame", new GameDetails { Details = "{chapter}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Main_Menu", new GameDetails { Details = "In Main Menu", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Saving", new GameDetails { Details = "Saving the game...", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Cutscene", new GameDetails { Details = "{chapter}", State = "In a cutscene", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-        }
-    },
-    { "Resident Evil Revelations 2", new Dictionary<string, GameDetails>
-        {
-            { "Lobby", new GameDetails { Details = "Raid Mode: In Lobby", State = "{character} (Lv. {level})", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
-    { "Vampire Survivors", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "In Main Menu", State = "Coins: {coins}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Default_Adventure", new GameDetails { Details = "In Main Menu", State = "{adventure} - Coins: {coinsadventure}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame", new GameDetails { Details = "{character} - Lv. {level} - Coins: {coinsingame}", State = "🕑{time} {stage} - Kills: {kills}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame_Adventure", new GameDetails { Details = "{characteradventure} - Lv. {level} - Coins: {coinsingameadventure}", State = "🕑{time} {stageadventure} - Kills: {killsadventure}", LargeAsset = "logo", LargeAssetText = "Vampire Survivors", SmallAsset = "book", SmallAssetText = "Playing {adventure}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-        }
-    },
-    { "Visions of Mana", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}", LargeAsset = "logo", LargeAssetText = "Visions of Mana", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    }
 };
 
 

@@ -2,17 +2,20 @@ using DiscordRPC;
 using Steamworks;
 using System;
 using System.Diagnostics;
+using System.Text;
 
 namespace MultiPresenceGame
 {
     public partial class MainForm : Form
     {
         private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater? updater;
         public MainForm()
         {
             InitializeComponent();
+            updater = new DiscordStatusUpdater("config.json");
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "2510960");
+            File.WriteAllText("steam_appid.txt", "1938090");
             if (!SteamAPI.Init())
             {
                 //Do nothing
@@ -107,8 +110,10 @@ namespace MultiPresenceGame
                 if (game.Length > 0)
                 {
                     string presence = GetSteamRichPresence();
-                    discord.UpdateLargeAsset("logo", "Overwatch 2");
-                    discord.UpdateDetails(presence);
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "steam_display", presence }
+                    };
                     try
                     {
                         string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
@@ -122,19 +127,117 @@ namespace MultiPresenceGame
                                 Size = partysize,
                                 Max = 6,
                             });
+                            string details = updater.UpdateDetails("Overwatch", placeholders);
+                            string state = updater.UpdateState("Overwatch", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Overwatch", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Overwatch", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Overwatch", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Overwatch", placeholders);
+                            string button1text = updater.UpdateButton1Text("Overwatch", placeholders);
+                            string button2text = updater.UpdateButton2Text("Overwatch", placeholders);
+                            string button1url = updater.UpdateButton1URL("Overwatch", placeholders);
+                            string button2url = updater.UpdateButton2URL("Overwatch", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                    new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else
                         {
-                            discord.UpdateDetails(presence);
                             discord.UpdateParty(null);
-                            discord.UpdateState("");
+                            string details = updater.UpdateDetails("Overwatch", placeholders);
+                            string state = updater.UpdateState("Overwatch", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Overwatch", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Overwatch", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Overwatch", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Overwatch", placeholders);
+                            string button1text = updater.UpdateButton1Text("Overwatch", placeholders);
+                            string button2text = updater.UpdateButton2Text("Overwatch", placeholders);
+                            string button1url = updater.UpdateButton1URL("Overwatch", placeholders);
+                            string button2url = updater.UpdateButton2URL("Overwatch", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                    new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
                     catch
                     {
-                        discord.UpdateDetails(presence);
                         discord.UpdateParty(null);
-                        discord.UpdateState("");
+                        string details = updater.UpdateDetails("Overwatch", placeholders);
+                        string state = updater.UpdateState("Overwatch", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Overwatch", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Overwatch", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Overwatch", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Overwatch", placeholders);
+                        string button1text = updater.UpdateButton1Text("Overwatch", placeholders);
+                        string button2text = updater.UpdateButton2Text("Overwatch", placeholders);
+                        string button1url = updater.UpdateButton1URL("Overwatch", placeholders);
+                        string button2url = updater.UpdateButton2URL("Overwatch", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
                     }
 
                     await Task.Delay(3000); // Wait before checking again
@@ -160,7 +263,6 @@ namespace MultiPresenceGame
                 if (game.Length > 0)
                 {
                     string presence = GetSteamRichPresence();
-                    discord.UpdateLargeAsset("logo", "Temtem: Swarm");
                     try
                     {
                         string temtem = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "temtem");
@@ -169,19 +271,130 @@ namespace MultiPresenceGame
 
                         if (temtem.Length > 0)
                         {
-                            discord.UpdateDetails($"Stage: {stage} - {round} minute(s)");
-                            discord.UpdateState($"Temtem: {temtem}");
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "steam_display", presence },
+                                { "temtem", temtem },
+                                { "stage", stage },
+                                { "round", round },
+                            };
+                            string details = updater.UpdateDetails("Temtem Swarm", placeholders, "Ingame");
+                            string state = updater.UpdateState("Temtem Swarm", placeholders, "Ingame");
+                            string largeasset = updater.UpdateLargeAsset("Temtem Swarm", placeholders, "Ingame");
+                            string largeassettext = updater.UpdateLargeAssetText("Temtem Swarm", placeholders, "Ingame");
+                            string smallasset = updater.UpdateSmallAsset("Temtem Swarm", placeholders, "Ingame");
+                            string smallassettext = updater.UpdateSmallAssetText("Temtem Swarm", placeholders, "Ingame");
+                            string button1text = updater.UpdateButton1Text("Temtem Swarm", placeholders, "Ingame");
+                            string button2text = updater.UpdateButton2Text("Temtem Swarm", placeholders, "Ingame");
+                            string button1url = updater.UpdateButton1URL("Temtem Swarm", placeholders, "Ingame");
+                            string button2url = updater.UpdateButton2URL("Temtem Swarm", placeholders, "Ingame");
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                    new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                         else
                         {
-                            discord.UpdateDetails(presence);
-                            discord.UpdateState("");
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "steam_display", presence }
+                            };
+                            string details = updater.UpdateDetails("Temtem Swarm", placeholders);
+                            string state = updater.UpdateState("Temtem Swarm", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Temtem Swarm", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Temtem Swarm", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Temtem Swarm", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Temtem Swarm", placeholders);
+                            string button1text = updater.UpdateButton1Text("Temtem Swarm", placeholders);
+                            string button2text = updater.UpdateButton2Text("Temtem Swarm", placeholders);
+                            string button1url = updater.UpdateButton1URL("Temtem Swarm", placeholders);
+                            string button2url = updater.UpdateButton2URL("Temtem Swarm", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                    new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
                     catch
                     {
-                        discord.UpdateDetails(presence);
-                        discord.UpdateState("");
+                        var placeholders = new Dictionary<string, object>
+                        {
+                            { "steam_display", presence }
+                        };
+                        string details = updater.UpdateDetails("Temtem Swarm", placeholders);
+                        string state = updater.UpdateState("Temtem Swarm", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Temtem Swarm", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Temtem Swarm", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Temtem Swarm", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Temtem Swarm", placeholders);
+                        string button1text = updater.UpdateButton1Text("Temtem Swarm", placeholders);
+                        string button2text = updater.UpdateButton2Text("Temtem Swarm", placeholders);
+                        string button1url = updater.UpdateButton1URL("Temtem Swarm", placeholders);
+                        string button2url = updater.UpdateButton2URL("Temtem Swarm", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
                     }
 
                     await Task.Delay(3000); // Wait before checking again
@@ -207,8 +420,44 @@ namespace MultiPresenceGame
                 if (game.Length > 0)
                 {
                     string presence = GetSteamRichPresence();
-                    discord.UpdateLargeAsset("logo", "Hogwarts Legacy");
-                    discord.UpdateDetails(presence);
+                    var placeholders = new Dictionary<string, object>
+                        {
+                            { "steam_display", presence }
+                        };
+                    string details = updater.UpdateDetails("Hogwarts Legacy", placeholders);
+                    string state = updater.UpdateState("Hogwarts Legacy", placeholders);
+                    string largeasset = updater.UpdateLargeAsset("Hogwarts Legacy", placeholders);
+                    string largeassettext = updater.UpdateLargeAssetText("Hogwarts Legacy", placeholders);
+                    string smallasset = updater.UpdateSmallAsset("Hogwarts Legacy", placeholders);
+                    string smallassettext = updater.UpdateSmallAssetText("Hogwarts Legacy", placeholders);
+                    string button1text = updater.UpdateButton1Text("Hogwarts Legacy", placeholders);
+                    string button2text = updater.UpdateButton2Text("Hogwarts Legacy", placeholders);
+                    string button1url = updater.UpdateButton1URL("Hogwarts Legacy", placeholders);
+                    string button2url = updater.UpdateButton2URL("Hogwarts Legacy", placeholders);
+                    discord.UpdateLargeAsset(largeasset, largeassettext);
+                    discord.UpdateSmallAsset(smallasset, smallassettext);
+                    discord.UpdateDetails(details);
+                    discord.UpdateState(state);
+
+                    if (button1url.Length > 0 && button2url.Length == 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                        });
+                    }
+                    else if (button1url.Length > 0 && button2url.Length > 0)
+                    {
+                        discord.UpdateButtons(new DiscordRPC.Button[]
+                        {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                        });
+                    }
+                    else
+                    {
+                        discord.UpdateButtons(null);
+                    }
 
                     await Task.Delay(3000); // Wait before checking again
                 }
@@ -234,10 +483,46 @@ namespace MultiPresenceGame
                 {
                     string presence = GetSteamRichPresence();
 
-                    if (presence.Length >= 5)
+                    if (presence.Length >= 3)
                     {
-                        discord.UpdateDetails(presence);
-                        discord.UpdateState("");
+                        var placeholders = new Dictionary<string, object>
+                        {
+                            { "steam_display", presence }
+                        };
+                        string details = updater.UpdateDetails("Call of Duty", placeholders);
+                        string state = updater.UpdateState("Call of Duty", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Call of Duty", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Call of Duty", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Call of Duty", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Call of Duty", placeholders);
+                        string button1text = updater.UpdateButton1Text("Call of Duty", placeholders);
+                        string button2text = updater.UpdateButton2Text("Call of Duty", placeholders);
+                        string button1url = updater.UpdateButton1URL("Call of Duty", placeholders);
+                        string button2url = updater.UpdateButton2URL("Call of Duty", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                                new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
                     }
                     else
                     {
@@ -246,38 +531,152 @@ namespace MultiPresenceGame
                             int mapkey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "mapname"));
                             int modekey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "gamemode"));
 
+                            string mode = "";
+                            string map = "";
+
                             if (mapkey > 0)
                             {
                                 if (modekey == 1371735337)
-                                    discord.UpdateDetails("Black Ops 6 - Zombies (Directed)"); //Geführt
+                                    mode = "Zombies (Directed)";
                                 else if (modekey == 1803630921)
-                                    discord.UpdateDetails("Black Ops 6 - Zombies (Standard)");
-                                else if (modekey == 2103910687)
-                                    discord.UpdateDetails("Black Ops 6 - Zombies (Dead Light, Green Light)"); //Totes Licht, Grünes Licht
+                                    mode = "Zombies (Standard)";
                                 else if (modekey == 1751835769)
-                                    discord.UpdateDetails("Black Ops 6 - Zombies (Training Course)"); //Trainingskurs
+                                    mode = "Zombies (Training Course)";
 
                                 if (mapkey == 1320634394)
-                                    discord.UpdateState("Playing on Liberty Falls");
+                                    map = "Liberty Falls";
                                 else if (mapkey == 211748868)
-                                    discord.UpdateState("Playing on Terminus");
+                                    map = "Terminus";
                                 else if (mapkey == 1738814346)
-                                    discord.UpdateState("Playing on Citalle Des Morts");
+                                    map = "Citadelle Des Morts";
+                                else if (mapkey == 51790153)
+                                    map = "The Tomb";
+
+                                var placeholders = new Dictionary<string, object>
+                                {
+                                    { "steam_display", presence },
+                                    { "mode", mode },
+                                    { "map", map },
+                                };
+                                string details = updater.UpdateDetails("Call of Duty", placeholders, "Zombies");
+                                string state = updater.UpdateState("Call of Duty", placeholders, "Zombies");
+                                string largeasset = updater.UpdateLargeAsset("Call of Duty", placeholders, "Zombies");
+                                string largeassettext = updater.UpdateLargeAssetText("Call of Duty", placeholders, "Zombies");
+                                string smallasset = updater.UpdateSmallAsset("Call of Duty", placeholders, "Zombies");
+                                string smallassettext = updater.UpdateSmallAssetText("Call of Duty", placeholders, "Zombies");
+                                string button1text = updater.UpdateButton1Text("Call of Duty", placeholders, "Zombies");
+                                string button2text = updater.UpdateButton2Text("Call of Duty", placeholders, "Zombies");
+                                string button1url = updater.UpdateButton1URL("Call of Duty", placeholders, "Zombies");
+                                string button2url = updater.UpdateButton2URL("Call of Duty", placeholders, "Zombies");
+                                discord.UpdateLargeAsset(largeasset, largeassettext);
+                                discord.UpdateSmallAsset(smallasset, smallassettext);
+                                discord.UpdateDetails(details);
+                                discord.UpdateState(state);
+
+                                if (button1url.Length > 0 && button2url.Length == 0)
+                                {
+                                    discord.UpdateButtons(new DiscordRPC.Button[]
+                                    {
+                                        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                    });
+                                }
+                                else if (button1url.Length > 0 && button2url.Length > 0)
+                                {
+                                    discord.UpdateButtons(new DiscordRPC.Button[]
+                                    {
+                                        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                    });
+                                }
+                                else
+                                {
+                                    discord.UpdateButtons(null);
+                                }
                             }
                             else
                             {
-                                discord.UpdateDetails(presence);
-                                discord.UpdateState("");
+                                var placeholders = new Dictionary<string, object>
+                                {
+                                    { "steam_display", presence }
+                                };
+                                string details = updater.UpdateDetails("Call of Duty", placeholders);
+                                string state = updater.UpdateState("Call of Duty", placeholders);
+                                string largeasset = updater.UpdateLargeAsset("Call of Duty", placeholders);
+                                string largeassettext = updater.UpdateLargeAssetText("Call of Duty", placeholders);
+                                string smallasset = updater.UpdateSmallAsset("Call of Duty", placeholders);
+                                string smallassettext = updater.UpdateSmallAssetText("Call of Duty", placeholders);
+                                string button1text = updater.UpdateButton1Text("Call of Duty", placeholders);
+                                string button2text = updater.UpdateButton2Text("Call of Duty", placeholders);
+                                string button1url = updater.UpdateButton1URL("Call of Duty", placeholders);
+                                string button2url = updater.UpdateButton2URL("Call of Duty", placeholders);
+                                discord.UpdateLargeAsset(largeasset, largeassettext);
+                                discord.UpdateSmallAsset(smallasset, smallassettext);
+                                discord.UpdateDetails(details);
+                                discord.UpdateState(state);
+
+                                if (button1url.Length > 0 && button2url.Length == 0)
+                                {
+                                    discord.UpdateButtons(new DiscordRPC.Button[]
+                                    {
+                                        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                    });
+                                }
+                                else if (button1url.Length > 0 && button2url.Length > 0)
+                                {
+                                    discord.UpdateButtons(new DiscordRPC.Button[]
+                                    {
+                                        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                        new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                    });
+                                }
+                                else
+                                {
+                                    discord.UpdateButtons(null);
+                                }
                             }
                         }
                         catch
                         {
-                            discord.UpdateDetails(presence);
-                            discord.UpdateState("");
+                            var placeholders = new Dictionary<string, object>
+                            {
+                                { "steam_display", presence }
+                            };
+                            string details = updater.UpdateDetails("Call of Duty", placeholders);
+                            string state = updater.UpdateState("Call of Duty", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Call of Duty", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Call of Duty", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Call of Duty", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Call of Duty", placeholders);
+                            string button1text = updater.UpdateButton1Text("Call of Duty", placeholders);
+                            string button2text = updater.UpdateButton2Text("Call of Duty", placeholders);
+                            string button1url = updater.UpdateButton1URL("Call of Duty", placeholders);
+                            string button2url = updater.UpdateButton2URL("Call of Duty", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                                    new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                                    new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
                         }
                     }
-
-                    discord.UpdateLargeAsset("logo", "Call of Duty®");
 
                     await Task.Delay(3000);
                 }
