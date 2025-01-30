@@ -19,6 +19,7 @@ namespace MultiPresence
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_ffviirb = Process.GetProcessesByName("ff7rebirth_");
             var game_ffxvi = Process.GetProcessesByName("ffxvi");
+            var game_hk = Process.GetProcessesByName("Hello Kitty");
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
@@ -54,6 +55,8 @@ namespace MultiPresence
                 game = "Final Fantasy VII Rebirth";
             else if (game_ffxvi.Length > 0)
                 game = "Final Fantasy XVI";
+            else if (game_hk.Length > 0)
+                game = "Hello Kitty Island Adventure";
             else if (game_hl.Length > 0)
                 game = "Hogwarts Legacy";
             else if (game_cemu.Length > 0)

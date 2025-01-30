@@ -76,6 +76,11 @@ namespace MultiPresence
                         FFXVI.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Hello Kitty Island Adventure":
+                        Balloon(game);
+                        await HK.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Hogwarts Legacy":
                         Balloon(game);
                         await HL.DoAction();
@@ -217,7 +222,6 @@ namespace MultiPresence
                 var processes = Process.GetProcessesByName("MultiPresenceGame");
                 if (processes.Any())
                 {
-                    // Kill the process
                     foreach (var process in processes)
                     {
                         process.Kill();
@@ -225,12 +229,11 @@ namespace MultiPresence
                     }
                 }
 
-                // Save settings
                 Settings.Default.Notifications = cb_DisableNotifications.Checked;
                 Settings.Default.Save();
                 Application.Exit();
             }
-            catch (Exception ex)
+            catch
             {
                 Settings.Default.Notifications = cb_DisableNotifications.Checked;
                 Settings.Default.Save();
@@ -270,7 +273,6 @@ namespace MultiPresence
                         }
                         catch (Exception ex)
                         {
-                            // Handle any exceptions that occur during the download
                             MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -303,7 +305,6 @@ namespace MultiPresence
                         }
                         catch (Exception ex)
                         {
-                            // Handle any exceptions that occur during the download
                             MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }

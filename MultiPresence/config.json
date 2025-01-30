@@ -94,6 +94,20 @@
         "Button2URL": ""
       }
     },
+    "Hello Kitty": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Hello Kitty",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Hogwarts Legacy": {
       "Default": {
         "Details": "{steam_display}",
@@ -579,9 +593,9 @@
         "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
         "State": "🕑{time} {stage} - Kills: {kills}",
         "LargeAsset": "logo",
-        "SmallAsset": "",
+        "SmallAsset": "book",
         "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "",
+        "SmallAssetText": "{modes}",
         "Button1Text": "",
         "Button1URL": "",
         "Button2Text": "",

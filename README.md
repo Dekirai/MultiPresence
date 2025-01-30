@@ -38,6 +38,7 @@ Here is a video showcasing how placeholders work:
 |Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||
 |Final Fantasy VII Remake|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |Final Fantasy XVI|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
+|Hello Kitty Island Adventure ²|[Steam](https://store.steampowered.com/app/2495100/Hello_Kitty_Island_Adventure/)||
 |Hogwarts Legacy ²|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||
 |Kingdom Hearts Birth by Sleep Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |Kingdom Hearts Dream Drop Distance|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)||
