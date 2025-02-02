@@ -6,3 +6,8 @@
 |{world}|Shows the current world|
 |{difficulty}|Shows the current difficulty|
 |{world_icon_name}|Icon name of the current world, to be used with Large/Smallasset|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo

@@ -7,3 +7,8 @@
 |{mp}|Shows the current MP of Member 1|
 |{maxmp}|Shows the max MP of Member 1|
 |{chapter}|Shows the current chapter|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo

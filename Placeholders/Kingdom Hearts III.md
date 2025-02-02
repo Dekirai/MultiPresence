@@ -7,3 +7,9 @@
 |{world}|Shows the current world|Everywhere|
 |{difficulty}|Shows the current difficulty|Everywhere|
 |{world_icon_name}|Icon name of the current world, to be used with Large/Smallasset
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo  
+remind = Remind game logo

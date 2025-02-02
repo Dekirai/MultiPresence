@@ -36,60 +36,12 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ff7remake_");
             if (game.Length > 0)
             {
-                int level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x057CA5E8, [0x8A0]), true);
                 int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B0]), true);
-                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B4]), true);
-                int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B8]), true);
-                int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8BC]), true);
-                int chapter = Hypervisor.Read<byte>(0x59ADBF0);
 
-                var placeholders = new Dictionary<string, object>
-                {
-                    { "level", level },
-                    { "hp", hp },
-                    { "maxhp", maxhp },
-                    { "mp", mp },
-                    { "maxmp", maxmp },
-                    { "chapter", chapter }
-                };
-
-                discord.UpdateLargeAsset($"logo", $"Final Fantasy VII Remake");
                 if (hp > 0)
                 {
-                    string details = updater.UpdateDetails("Final Fantasy VII Remake", placeholders);
-                    string state = updater.UpdateState("Final Fantasy VII Remake", placeholders);
-                    string largeasset = updater.UpdateLargeAsset("Final Fantasy VII Remake", placeholders);
-                    string largeassettext = updater.UpdateLargeAssetText("Final Fantasy VII Remake", placeholders);
-                    string smallasset = updater.UpdateSmallAsset("Final Fantasy VII Remake", placeholders);
-                    string smallassettext = updater.UpdateSmallAssetText("Final Fantasy VII Remake", placeholders);
-                    string button1text = updater.UpdateButton1Text("Final Fantasy VII Remake", placeholders);
-                    string button2text = updater.UpdateButton2Text("Final Fantasy VII Remake", placeholders);
-                    string button1url = updater.UpdateButton1URL("Final Fantasy VII Remake", placeholders);
-                    string button2url = updater.UpdateButton2URL("Final Fantasy VII Remake", placeholders);
-                    discord.UpdateLargeAsset(largeasset, largeassettext);
-                    discord.UpdateSmallAsset(smallasset, smallassettext);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
-
-                    if (button1url.Length > 0 && button2url.Length == 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                        });
-                    }
-                    else if (button1url.Length > 0 && button2url.Length > 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
-                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                        });
-                    }
-                    else
-                    {
-                        discord.UpdateButtons(null);
-                    }
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Final Fantasy VII Remake", placeholders);
                 }
                 else
                 {
@@ -106,6 +58,26 @@ namespace MultiPresence.Presence
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
             }
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        {
+            int level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x057CA5E8, [0x8A0]), true);
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B0]), true);
+            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B4]), true);
+            int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8B8]), true);
+            int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x057CA5E8, [0x8BC]), true);
+            int chapter = Hypervisor.Read<byte>(0x59ADBF0);
+
+            return new Dictionary<string, object>
+            {
+                { "level", level },
+                { "hp", hp },
+                { "maxhp", maxhp },
+                { "mp", mp },
+                { "maxmp", maxmp },
+                { "chapter", chapter }
+            };
         }
 
         private static void InitializeDiscord()

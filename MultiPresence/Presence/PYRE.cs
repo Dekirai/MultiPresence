@@ -1,6 +1,7 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.PYRE;
 using System.Diagnostics;
+using static System.Formats.Asn1.AsnWriter;
 using Button = DiscordRPC.Button;
 
 namespace MultiPresence.Presence
@@ -42,14 +43,9 @@ namespace MultiPresence.Presence
             {
                 string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
                 var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
-                var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
                 var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
-                var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
-                var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
-                var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+                var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
                 var isIngame = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10B27]), true);
-                int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
-                int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
                 int isOpen = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10934]), true);
 
                 var stage = await Stages.GetStage(stage_get);
@@ -58,96 +54,51 @@ namespace MultiPresence.Presence
 
                 if (mode_get == 23 || mode_get == 255 || mode_get == 40)
                 {
-                    var placeholders = new Dictionary<string, object>
-                    {
-                        { "nickname", nickname },
-                        { "level", level[0] },
-                        { "room", room },
-                        { "map", stage[0] },
-                        { "map_icon_name", stage_get },
-                        { "players", players },
-                        { "playersmax", playersmax },
-                        { "currenthole", currenthole },
-                        { "maxholes", maxholes },
-                        { "mode", mode[0] }
-                    };
-                    discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
-                    string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
-                    string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
-                    discord.UpdateSmallAsset("", "");
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersLobby);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Lobby");
                 }
                 else
                 {
                     if (isIngame == 1)
                     {
-                        discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
-                        if (isOpen == 1)
-                            discord.UpdateSmallAsset($"playing", $"Room #{room} — {players}/{playersmax} Players");
-                        else
-                            discord.UpdateSmallAsset($"playing", $"Private Room — {players}/{playersmax} Players");
                         if (mode_get == 0 || mode_get == 1 || mode_get == 7 || mode_get == 10)
                         {
-                            var placeholders = new Dictionary<string, object>
+                            if (isOpen == 1)
                             {
-                                { "nickname", nickname },
-                                { "level", level[0] },
-                                { "room", room },
-                                { "map", stage[0] },
-                                { "map_icon_name", stage_get },
-                                { "players", players },
-                                { "playersmax", playersmax },
-                                { "currenthole", currenthole },
-                                { "maxholes", maxholes },
-                                { "mode", mode[0] }
-                             };
-                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Match");
-                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Match");
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersIngame);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Match");
+                            }
+                            else
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersIngame);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Match_Private");
+                            }
                         }
                         else if (mode_get == 4)
                         {
-                            var score = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xB006E8, [0x0, 0x40, 0x18, 0x0, 0x14, 0xC8, 0x4F4]), true);
-                            var placeholders = new Dictionary<string, object>
+                            if (isOpen == 1)
                             {
-                                { "nickname", nickname },
-                                { "level", level[0] },
-                                { "room", room },
-                                { "map", stage[0] },
-                                { "map_icon_name", stage_get },
-                                { "players", players },
-                                { "playersmax", playersmax },
-                                { "currenthole", currenthole },
-                                { "maxholes", maxholes },
-                                { "score", score },
-                                { "mode", mode[0] }
-                            };
-                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Tourney");
-                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Tourney");
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersTourney);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Tourney");
+                            }
+                            else
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersTourney);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Tourney_Private");
+                            }
                         }
                         else if (mode_get == 2)
                         {
-                            var placeholders = new Dictionary<string, object>
+                            if (isOpen == 1)
                             {
-                                { "nickname", nickname },
-                                { "level", level[0] },
-                                { "room", room },
-                                { "map", stage[0] },
-                                { "map_icon_name", stage_get },
-                                { "players", players },
-                                { "playersmax", playersmax },
-                                { "currenthole", currenthole },
-                                { "maxholes", maxholes },
-                                { "mode", mode[0] }
-                             };
-                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Ingame_Lounge");
-                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Ingame_Lounge");
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersLounge);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Lounge");
+                            }
+                            else
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersLounge);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Ingame_Lounge_Private");
+                            }
                         }
                         else
                         {
@@ -159,50 +110,21 @@ namespace MultiPresence.Presence
                     {
                         if (mode_get == 2)
                         {
-                            var placeholders = new Dictionary<string, object>
-                            {
-                                { "nickname", nickname },
-                                { "level", level[0] },
-                                { "room", room },
-                                { "map", stage[0] },
-                                { "map_icon_name", stage_get },
-                                { "players", players },
-                                { "playersmax", playersmax },
-                                { "currenthole", currenthole },
-                                { "maxholes", maxholes },
-                                { "mode", mode[0] }
-                             };
-                            discord.UpdateLargeAsset($"logo", $"Pangya Reborn");
-                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Lobby");
-                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Lobby");
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
-                            discord.UpdateSmallAsset("", "");
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersLobby);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Lobby");
                         }
                         else
                         {
-                            var placeholders = new Dictionary<string, object>
-                            {
-                                { "nickname", nickname },
-                                { "level", level[0] },
-                                { "room", room },
-                                { "map", stage[0] },
-                                { "map_icon_name", stage_get },
-                                { "players", players },
-                                { "playersmax", playersmax },
-                                { "currenthole", currenthole },
-                                { "maxholes", maxholes },
-                                { "mode", mode[0] }
-                             };
-                            string details = updater.UpdateDetails("Pangya Reborn", placeholders, "Waiting_Room");
-                            string state = updater.UpdateState("Pangya Reborn", placeholders, "Waiting_Room");
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
-                            discord.UpdateLargeAsset($"{stage_get}", $"{stage[0]}");
                             if (isOpen == 1)
-                                discord.UpdateSmallAsset($"waiting", $"Room #{room} — {players}/{playersmax} Players");
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersWaiting);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Waiting_Room");
+                            }
                             else
-                                discord.UpdateSmallAsset($"waiting", $"Private Room — {players}/{playersmax} Players");
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersWaiting);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Pangya Reborn", placeholders, "Waiting_Room_Private");
+                            }
                         }
                     }
                 }
@@ -219,16 +141,145 @@ namespace MultiPresence.Presence
             }
         }
 
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersLobby()
+        {
+            string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+            var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+
+            var level = await Levels.GetLevel(level_get);
+
+            return new Dictionary<string, object>
+            {
+                { "nickname", nickname },
+                { "level", level[0] },
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersIngame()
+        {
+            string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+            var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
+            var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
+            var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+            var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
+            var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
+            var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+            int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
+            int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+
+            var stage = await Stages.GetStage(stage_get);
+            var mode = await Modes.GetMode(mode_get);
+            var level = await Levels.GetLevel(level_get);
+
+            return new Dictionary<string, object>
+            {
+                { "nickname", nickname },
+                { "level", level[0] },
+                { "room", room },
+                { "map", stage[0] },
+                { "map_icon_name", stage_get },
+                { "players", players },
+                { "playersmax", playersmax },
+                { "currenthole", currenthole },
+                { "maxholes", maxholes },
+                { "mode", mode[0] }
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersTourney()
+        {
+            string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+            var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
+            var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
+            var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+            var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
+            var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
+            var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+            int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
+            int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+            var score = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xB006E8, [0x0, 0x40, 0x18, 0x0, 0x14, 0xC8, 0x4F4]), true);
+
+            var stage = await Stages.GetStage(stage_get);
+            var mode = await Modes.GetMode(mode_get);
+            var level = await Levels.GetLevel(level_get);
+
+            return new Dictionary<string, object>
+            {
+                { "nickname", nickname },
+                { "level", level[0] },
+                { "room", room },
+                { "map", stage[0] },
+                { "map_icon_name", stage_get },
+                { "players", players },
+                { "playersmax", playersmax },
+                { "currenthole", currenthole },
+                { "maxholes", maxholes },
+                { "score", score },
+                { "mode", mode[0] }
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersLounge()
+        {
+            string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+            var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
+            var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
+            var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+            var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
+            var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
+            var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+
+            var stage = await Stages.GetStage(stage_get);
+            var mode = await Modes.GetMode(mode_get);
+            var level = await Levels.GetLevel(level_get);
+
+            return new Dictionary<string, object>
+            {
+                { "nickname", nickname },
+                { "level", level[0] },
+                { "room", room },
+                { "map", stage[0] },
+                { "map_icon_name", stage_get },
+                { "players", players },
+                { "playersmax", playersmax },
+                { "mode", mode[0] }
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersWaiting()
+        {
+            string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
+            var stage_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10950]), true);
+            var mode_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094C]), true);
+            var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+            var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
+            var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
+            var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+            int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+
+            var stage = await Stages.GetStage(stage_get);
+            var mode = await Modes.GetMode(mode_get);
+            var level = await Levels.GetLevel(level_get);
+
+            return new Dictionary<string, object>
+            {
+                { "nickname", nickname },
+                { "level", level[0] },
+                { "room", room },
+                { "map", stage[0] },
+                { "map_icon_name", stage_get },
+                { "players", players },
+                { "playersmax", playersmax },
+                { "maxholes", maxholes },
+                { "mode", mode[0] }
+            };
+        }
+
         private static void InitializeDiscord()
         {
             discord.Initialize();
             discord.SetPresence(new RichPresence()
             {
-                Buttons = new Button[]
-                {
-                    new Button() { Label = $"Website", Url = "https://www.pangyareborn.com/" },
-                    new Button() { Label = $"Discord", Url = "https://www.discord.com/invite/D9gC9Hhpss" }
-                },
                 Timestamps = new Timestamps()
                 {
                     Start = DateTime.UtcNow.AddSeconds(1)

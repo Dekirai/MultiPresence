@@ -118,7 +118,7 @@ namespace MultiPresence
                         break;
                     case "Resident Evil 4 (2005)":
                         Balloon(game);
-                        //RE4.DoAction();
+                        RE4.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Sonic Adventure 2":

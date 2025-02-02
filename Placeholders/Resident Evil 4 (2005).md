@@ -9,3 +9,10 @@
 |{character}|Shows the current character|Mercenaries|
 |{score}|Shows the current score|Mercenaries|
 |{area_icon_name}|Icon name of the current area, to be used with Large/Smallasset|Main & Separate Ways|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo  
+logo_alt = Alternative game logo  
+ada = Alternative game logo with ada

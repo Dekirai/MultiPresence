@@ -16,3 +16,8 @@
 |{maxmp_mission}|Shows the max MP in mission|Mission|
 |{ap_mission}|Shows the current AP in mission|Mission|
 |{maxap_mission}|Shows the max AP in mission|Mission|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo

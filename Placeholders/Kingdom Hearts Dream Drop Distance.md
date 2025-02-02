@@ -8,3 +8,8 @@
 |{world_icon_name}|Icon name of the current world, to be used with Large/Smallasset|
 |{character}|Shows the name of the current playing character|
 |{character_icon_name}|Icon name of the current character, to be used with Large/Smallasset|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo

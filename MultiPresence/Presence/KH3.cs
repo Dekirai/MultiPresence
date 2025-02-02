@@ -50,21 +50,7 @@ namespace MultiPresence.Presence
                 try
                 {
                     string level_path = Hypervisor.ReadString(_room_address, 27, true);
-                    int difficulty_get = Hypervisor.Read<byte>(0x87ECC8C);
-
-                    room = await Rooms.GetRoom(level_path.Split('/')[4]);
                     world = await Worlds.GetWorld(level_path.Split('/')[3]);
-                    difficulty = await Difficulties.GetDifficulty(difficulty_get);
-
-                    var placeholders = new Dictionary<string, object>
-                    {
-                        { "level", level },
-                        { "gummilevel", gummilevel },
-                        { "room", room },
-                        { "world", world[0] },
-                        { "world_icon_name", world[1] },
-                        { "difficulty", difficulty }
-                    };
 
                     if (world[0] == "Main Menu")
                     {
@@ -76,118 +62,22 @@ namespace MultiPresence.Presence
                     {
                         if (level_path.Contains("wm"))
                         {
-                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "World_Map");
-                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "World_Map");
-                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "World_Map");
-                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "World_Map");
-                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "World_Map");
-                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "World_Map");
-                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "World_Map");
-                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "World_Map");
-                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "World_Map");
-                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "World_Map");
-                            discord.UpdateLargeAsset(largeasset, largeassettext);
-                            discord.UpdateSmallAsset(smallasset, smallassettext);
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
-
-                            if (button1url.Length > 0 && button2url.Length == 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                                });
-                            }
-                            else if (button1url.Length > 0 && button2url.Length > 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url },
-        new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                                });
-                            }
-                            else
-                            {
-                                discord.UpdateButtons(null);
-                            }
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts III", placeholders, "World_Map");
                         }
                         else if (level_path.Contains("gm"))
                         {
                             gummilevel = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x09D8E920, [0x48, 0x470, 0x550, 0x250, 0xD0, 0x228, 0x16C]), true);
 
-                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "Gummi_Ship");
-                            discord.UpdateLargeAsset(largeasset, largeassettext);
-                            discord.UpdateSmallAsset(smallasset, smallassettext);
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
-
-                            if (button1url.Length > 0 && button2url.Length == 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                                });
-                            }
-                            else if (button1url.Length > 0 && button2url.Length > 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url },
-        new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                                });
-                            }
-                            else
-                            {
-                                discord.UpdateButtons(null);
-                            }
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts III", placeholders, "Gummi_Ship");
                         }
                         else
                         {
                             level = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x09D8E920, [0x48, 0x458, 0x188, 0x1B8, 0x4D0, 0x40]), true);
 
-                            string details = updater.UpdateDetails("Kingdom Hearts III", placeholders, "In_World");
-                            string state = updater.UpdateState("Kingdom Hearts III", placeholders, "In_World");
-                            string largeasset = updater.UpdateLargeAsset("Kingdom Hearts III", placeholders, "In_World");
-                            string largeassettext = updater.UpdateLargeAssetText("Kingdom Hearts III", placeholders, "In_World");
-                            string smallasset = updater.UpdateSmallAsset("Kingdom Hearts III", placeholders, "In_World");
-                            string smallassettext = updater.UpdateSmallAssetText("Kingdom Hearts III", placeholders, "In_World");
-                            string button1text = updater.UpdateButton1Text("Kingdom Hearts III", placeholders, "In_World");
-                            string button2text = updater.UpdateButton2Text("Kingdom Hearts III", placeholders, "In_World");
-                            string button1url = updater.UpdateButton1URL("Kingdom Hearts III", placeholders, "In_World");
-                            string button2url = updater.UpdateButton2URL("Kingdom Hearts III", placeholders, "In_World");
-                            discord.UpdateLargeAsset(largeasset, largeassettext);
-                            discord.UpdateSmallAsset(smallasset, smallassettext);
-                            discord.UpdateDetails(details);
-                            discord.UpdateState(state);
-
-                            if (button1url.Length > 0 && button2url.Length == 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                                });
-                            }
-                            else if (button1url.Length > 0 && button2url.Length > 0)
-                            {
-                                discord.UpdateButtons(new DiscordRPC.Button[]
-                                {
-        new DiscordRPC.Button() { Label = button1text, Url = button1url },
-        new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                                });
-                            }
-                            else
-                            {
-                                discord.UpdateButtons(null);
-                            }
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts III", placeholders, "In_World");
                         }
                     }
                 }
@@ -206,6 +96,26 @@ namespace MultiPresence.Presence
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
             }
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        {
+            string level_path = Hypervisor.ReadString(_room_address, 27, true);
+            int difficulty_get = Hypervisor.Read<byte>(0x87ECC8C);
+
+            room = await Rooms.GetRoom(level_path.Split('/')[4]);
+            world = await Worlds.GetWorld(level_path.Split('/')[3]);
+            difficulty = await Difficulties.GetDifficulty(difficulty_get);
+
+            return new Dictionary<string, object>
+            {
+                { "level", level },
+                { "gummilevel", gummilevel },
+                { "room", room },
+                { "world", world[0] },
+                { "world_icon_name", world[1] },
+                { "difficulty", difficulty }
+            };
         }
 
         private static void InitializeDiscord()

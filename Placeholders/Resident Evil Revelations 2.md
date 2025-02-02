@@ -6,3 +6,8 @@
 |{money}|Shows the current amount of money|Lobby, Ingame|
 |{chapter}|Shows the current chapter|Ingame|
 |{mission}|Shows the current mission|Ingame|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo 

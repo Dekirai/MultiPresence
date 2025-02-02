@@ -37,55 +37,8 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("game");
             if (game.Length > 0)
             {
-                int lives = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x3A40]), true);
-                int difficulty = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x388C]), true);
-                int stage = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140B87A20, [0xDF0, 0xA8, 0x18, 0xA0]), true);
-
-                var stagename = await Stages.GetStage(stage);
-                var difficultyname = await Difficulties.GetDifficulty(difficulty);
-
-                var placeholders = new Dictionary<string, object>
-                    {
-                        { "lives", lives },
-                        { "difficulty", difficultyname[0] },
-                        { "stage", stagename[0] },
-                        { "stage_icon_name", stagename[1] }
-                    };
-
-                string details = updater.UpdateDetails("Mega Man 11", placeholders);
-                string state = updater.UpdateState("Mega Man 11", placeholders);
-                string largeasset = updater.UpdateLargeAsset("Mega Man 11", placeholders);
-                string largeassettext = updater.UpdateLargeAssetText("Mega Man 11", placeholders);
-                string smallasset = updater.UpdateSmallAsset("Mega Man 11", placeholders);
-                string smallassettext = updater.UpdateSmallAssetText("Mega Man 11", placeholders);
-                string button1text = updater.UpdateButton1Text("Mega Man 11", placeholders);
-                string button2text = updater.UpdateButton2Text("Mega Man 11", placeholders);
-                string button1url = updater.UpdateButton1URL("Mega Man 11", placeholders);
-                string button2url = updater.UpdateButton2URL("Mega Man 11", placeholders);
-                discord.UpdateLargeAsset(largeasset, largeassettext);
-                discord.UpdateSmallAsset(smallasset, smallassettext);
-                discord.UpdateDetails(details);
-                discord.UpdateState(state);
-
-                if (button1url.Length > 0 && button2url.Length == 0)
-                {
-                    discord.UpdateButtons(new DiscordRPC.Button[]
-                    {
-                        new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                    });
-                }
-                else if (button1url.Length > 0 && button2url.Length > 0)
-                {
-                    discord.UpdateButtons(new DiscordRPC.Button[]
-                    {
-                        new DiscordRPC.Button() { Label = button1text, Url = button1url },
-                        new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                    });
-                }
-                else
-                {
-                    discord.UpdateButtons(null);
-                }
+                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man 11", placeholders);
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
@@ -96,6 +49,24 @@ namespace MultiPresence.Presence
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
             }
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        {
+            int lives = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x3A40]), true);
+            int difficulty = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140C3F6C0, [0x388C]), true);
+            int stage = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x140B87A20, [0xDF0, 0xA8, 0x18, 0xA0]), true);
+
+            var stagename = await Stages.GetStage(stage);
+            var difficultyname = await Difficulties.GetDifficulty(difficulty);
+
+            return new Dictionary<string, object>
+            {
+                { "lives", lives },
+                { "difficulty", difficultyname[0] },
+                { "stage", stagename[0] },
+                { "stage_icon_name", stagename[1] }
+            };
         }
 
         private static void InitializeDiscord()

@@ -38,118 +38,17 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             if (game.Length > 0)
             {
-                int level = Hypervisor.Read<byte>(0x71B3F36);
-                int gil = Hypervisor.Read<int>(0x71B3FB0);
-                int difficulty_get = Hypervisor.Read<byte>(0x71B3FD7);
-
-                var difficulty = await Difficulties.GetDifficulty(difficulty_get);
-
-                int hp = Hypervisor.Read<int>(0x71B3F10);
-                int maxhp = Hypervisor.Read<int>(0x71B3F14);
-                int mp = Hypervisor.Read<int>(0x71B3F1C);
-                int maxmp = Hypervisor.Read<int>(0x71B3F20);
-                int ap = Hypervisor.Read<int>(0x71B3F28);
-                int maxap = Hypervisor.Read<int>(0x71B3F2C);
-
                 int hp_mission = Hypervisor.Read<int>(0x718DC28);
-                int maxhp_mission = Hypervisor.Read<int>(0x718DC2C);
-                int mp_mission = Hypervisor.Read<int>(0x718DC30);
-                int maxmp_mission = Hypervisor.Read<int>(0x718DC34);
-                int ap_mission = Hypervisor.Read<int>(0x718DC38);
-                int maxap_mission = Hypervisor.Read<int>(0x718DC3C);
-
-                var placeholders = new Dictionary<string, object>
-                {
-                    { "level", level },
-                    { "gil", gil },
-                    { "difficulty", difficulty },
-                    { "hp", hp },
-                    { "maxhp", maxhp },
-                    { "mp", mp },
-                    { "maxmp", maxmp },
-                    { "ap", ap },
-                    { "maxap", maxap },
-                    { "hp_mission", hp_mission },
-                    { "maxhp_mission", maxhp_mission },
-                    { "mp_mission", mp_mission },
-                    { "maxmp_mission", maxmp_mission },
-                    { "ap_mission", ap_mission },
-                    { "maxap_mission", maxap_mission }
-                };
 
                 if (hp_mission > 0)
                 {
-                    string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string largeasset = updater.UpdateLargeAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string button1text = updater.UpdateButton1Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string button2text = updater.UpdateButton2Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string button1url = updater.UpdateButton1URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    string button2url = updater.UpdateButton2URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
-                    discord.UpdateLargeAsset(largeasset, largeassettext);
-                    discord.UpdateSmallAsset(smallasset, smallassettext);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
-
-                    if (button1url.Length > 0 && button2url.Length == 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                        });
-                    }
-                    else if (button1url.Length > 0 && button2url.Length > 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
-                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                        });
-                    }
-                    else
-                    {
-                        discord.UpdateButtons(null);
-                    }
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders, "Mission");
                 }
                 else
                 {
-                    string details = updater.UpdateDetails("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string state = updater.UpdateState("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string largeasset = updater.UpdateLargeAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string largeassettext = updater.UpdateLargeAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string smallasset = updater.UpdateSmallAsset("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string smallassettext = updater.UpdateSmallAssetText("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string button1text = updater.UpdateButton1Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string button2text = updater.UpdateButton2Text("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string button1url = updater.UpdateButton1URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    string button2url = updater.UpdateButton2URL("CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
-                    discord.UpdateLargeAsset(largeasset, largeassettext);
-                    discord.UpdateSmallAsset(smallasset, smallassettext);
-                    discord.UpdateDetails(details);
-                    discord.UpdateState(state);
-
-                    if (button1url.Length > 0 && button2url.Length == 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                             new DiscordRPC.Button() { Label = button1text, Url = button1url }
-                        });
-                    }
-                    else if (button1url.Length > 0 && button2url.Length > 0)
-                    {
-                        discord.UpdateButtons(new DiscordRPC.Button[]
-                        {
-                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
-                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
-                        });
-                    }
-                    else
-                    {
-                        discord.UpdateButtons(null);
-                    }
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                 }
 
                 await Task.Delay(3000);
@@ -161,6 +60,48 @@ namespace MultiPresence.Presence
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
             }
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        {
+            int level = Hypervisor.Read<byte>(0x71B3F36);
+            int gil = Hypervisor.Read<int>(0x71B3FB0);
+            int difficulty_get = Hypervisor.Read<byte>(0x71B3FD7);
+
+            var difficulty = await Difficulties.GetDifficulty(difficulty_get);
+
+            int hp = Hypervisor.Read<int>(0x71B3F10);
+            int maxhp = Hypervisor.Read<int>(0x71B3F14);
+            int mp = Hypervisor.Read<int>(0x71B3F1C);
+            int maxmp = Hypervisor.Read<int>(0x71B3F20);
+            int ap = Hypervisor.Read<int>(0x71B3F28);
+            int maxap = Hypervisor.Read<int>(0x71B3F2C);
+
+            int hp_mission = Hypervisor.Read<int>(0x718DC28);
+            int maxhp_mission = Hypervisor.Read<int>(0x718DC2C);
+            int mp_mission = Hypervisor.Read<int>(0x718DC30);
+            int maxmp_mission = Hypervisor.Read<int>(0x718DC34);
+            int ap_mission = Hypervisor.Read<int>(0x718DC38);
+            int maxap_mission = Hypervisor.Read<int>(0x718DC3C);
+
+            return new Dictionary<string, object>
+            {
+                { "level", level },
+                { "gil", gil },
+                { "difficulty", difficulty },
+                { "hp", hp },
+                { "maxhp", maxhp },
+                { "mp", mp },
+                { "maxmp", maxmp },
+                { "ap", ap },
+                { "maxap", maxap },
+                { "hp_mission", hp_mission },
+                { "maxhp_mission", maxhp_mission },
+                { "mp_mission", mp_mission },
+                { "maxmp_mission", maxmp_mission },
+                { "ap_mission", ap_mission },
+                { "maxap_mission", maxap_mission }
+            };
         }
 
         private static void InitializeDiscord()

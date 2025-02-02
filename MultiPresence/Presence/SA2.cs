@@ -7,11 +7,13 @@ namespace MultiPresence.Presence
     public class SA2
     {
         private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("982562008228560986");
             InitializeDiscord();
+            updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -47,18 +49,13 @@ namespace MultiPresence.Presence
 
                 if (islevel == 0)
                 {
-                    discord.UpdateLargeAsset($"logo", $"Sonic Adventure 2");
-                    discord.UpdateDetails($"Idle");
-                    discord.UpdateState(null);
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Sonic Adventure 2", placeholders);
                 }
                 else
                 {
-                    if (p1_costume > 0)
-                        discord.UpdateLargeAsset($"{character_name[3]}", $"{character_name[2]}");
-                    else
-                        discord.UpdateLargeAsset($"{character_name[1]}", $"{character_name[0]}");
-                    discord.UpdateDetails($"Lives: {lives}, Rings: {rings}");
-                    discord.UpdateState($"{stage_name}");
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Sonic Adventure 2", placeholders, "Ingame");
                 }
 
                 await Task.Delay(3000);
@@ -69,6 +66,40 @@ namespace MultiPresence.Presence
             {
                 discord.Deinitialize();
                 MainForm.gameUpdater.Start();
+            }
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        {
+            int stage = Hypervisor.Read<byte>(0x1534B70);
+            int character = Hypervisor.Read<byte>(0x1534B80);
+            int lives = Hypervisor.Read<byte>(0x134B024);
+            int rings = Hypervisor.Read<byte>(0x134B028);
+            int p1_costume = Hypervisor.Read<byte>(0x134B015);
+
+            var stage_name = await Stages.GetStage(stage);
+            var character_name = await Characters.GetCharacter(character);
+            if (p1_costume > 0)
+            {
+                return new Dictionary<string, object>
+                {
+                    { "level", stage_name },
+                    { "character_icon", character_name[3] },
+                    { "character", character_name[2] },
+                    { "lives", lives },
+                    { "rings", rings }
+                };
+            }
+            else
+            {
+                return new Dictionary<string, object>
+                {
+                    { "level", stage_name },
+                    { "character_icon", character_name[1] },
+                    { "character", character_name[0] },
+                    { "lives", lives },
+                    { "rings", rings }
+                };
             }
         }
 

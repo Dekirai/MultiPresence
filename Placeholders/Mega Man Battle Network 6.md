@@ -6,3 +6,8 @@
 |{maxhp}|Shows your current max HP|Default|
 |{maxhp_battle}|Shows your current max HP|In Battle|
 |{location}|Shows the current location|Everywhere|
+
+# Pre-made icons for Large-/Smallasset
+**Do not use them with {}**    
+
+logo = Game logo
