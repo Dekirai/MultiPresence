@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ff7rebirth_");
             if (game.Length > 0)
             {
-                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086EDCB0, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
                 if (hp > 0)
                 {
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
@@ -61,12 +61,12 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int level = Hypervisor.Read<byte>(0x70C1F60);
-            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
-            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x87C]), true);
-            int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x880]), true);
-            int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x871DD30, [0x6A0, 0x40, 0x48, 0x3A8, 0x884]), true);
-            int chapter = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x092A0100, [0x20]), true);
+            int level = Hypervisor.Read<byte>(0x7091EE0);
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086EDCB0, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086EDCB0, [0x6A0, 0x40, 0x48, 0x3A8, 0x87C]), true);
+            int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086EDCB0, [0x6A0, 0x40, 0x48, 0x3A8, 0x880]), true);
+            int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086EDCB0, [0x6A0, 0x40, 0x48, 0x3A8, 0x884]), true);
+            int chapter = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x09270090, [0x20]), true);
 
             return new Dictionary<string, object>
             {
