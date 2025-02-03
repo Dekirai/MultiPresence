@@ -27,6 +27,10 @@ A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/
 You can customize your presence to your liking using a config.json  
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Config).    
 
+If you use Button1 or Button2 for placeholders, yourself won't see the buttons on discord, but others will.  
+It's impossible for me to fix this because this is an issue related to discord.  
+You can see the buttons though if you login to a different account and view your profile or asking a friend.    
+
 Here is a video showcasing how placeholders work:  
 [![Video](https://img.youtube.com/vi/x0avvmvQ5BQ/0.jpg)](https://www.youtube.com/watch?v=x0avvmvQ5BQ)
  
