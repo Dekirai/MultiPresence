@@ -17,5 +17,5 @@
 **Do not use them with {}**    
 
 logo = Game logo  
-playing = playing icon, intentioned for being ingame
+playing = playing icon, intentioned for being ingame  
 waiting = waiting icon, intentioned for waiting in a room
