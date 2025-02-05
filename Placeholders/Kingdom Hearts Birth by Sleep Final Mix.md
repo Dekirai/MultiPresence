@@ -1,6 +1,8 @@
 # Placeholders
 |Placeholder|Function|
 |--|--|
+|{hp}|Shows your current HP|
+|{hpmax}|Shows your current max HP|
 |{level}|Shows your current level|
 |{room}|Shows the current room|
 |{world}|Shows the current world|
