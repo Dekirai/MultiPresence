@@ -29,7 +29,7 @@
     "CRISIS CORE –FINAL FANTASY VII– REUNION": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
+        "State": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
@@ -41,7 +41,7 @@
       },
       "Mission": {
         "Details": "[In Mission] Lv. {level} ({difficulty})",
-        "State": "HP: {hp_mission}/{maxhp_mission} | MP: {mp_mission}/{maxmp_mission}",
+        "State": "HP: {hp_mission}/{maxhp_mission} - MP: {mp_mission}/{maxmp_mission}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
@@ -54,7 +54,7 @@
     },
     "Final Fantasy VII Rebirth": {
       "Default": {
-        "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
+        "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
         "State": "Level {level} - Chapter {chapter}",
         "LargeAsset": "logo",
         "SmallAsset": "",
@@ -68,7 +68,7 @@
     },
     "Final Fantasy VII Remake": {
       "Default": {
-        "Details": "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}",
+        "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
         "State": "Level {level} - Chapter {chapter}",
         "LargeAsset": "logo",
         "SmallAsset": "",
@@ -134,6 +134,18 @@
         "Button1URL": "",
         "Button2Text": "",
         "Button2URL": ""
+      },
+      "Battle": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax}",
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "battle",
+        "LargeAssetText": "{world} - {room}",
+        "SmallAssetText": "In Battle",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts Dream Drop Distance": {
@@ -162,6 +174,18 @@
         "Button1URL": "",
         "Button2Text": "",
         "Button2URL": ""
+      },
+      "Battle": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "battle_",
+        "LargeAssetText": "{world} - {room}",
+        "SmallAssetText": "In Battle",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
       }
     },
     "Kingdom Hearts II Final Mix": {
@@ -179,7 +203,7 @@
       },
       "FieldBattle": {
         "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+        "State": "HP: {hp}/{hpmax} - Form: {form}",
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "field",
         "LargeAssetText": "{world} - {room}",
@@ -330,8 +354,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -342,8 +366,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "Private Room",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -354,8 +378,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -366,8 +390,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "Private Room",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -378,8 +402,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -390,8 +414,8 @@
         "SmallAsset": "playing",
         "LargeAssetText": "{map}",
         "SmallAssetText": "Private Room",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -402,8 +426,8 @@
         "SmallAsset": "waiting",
         "LargeAssetText": "{map}",
         "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -414,8 +438,8 @@
         "SmallAsset": "waiting",
         "LargeAssetText": "{map}",
         "SmallAssetText": "Private Room",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       },
@@ -426,8 +450,8 @@
         "SmallAsset": "",
         "LargeAssetText": "PangYa Reborn",
         "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
+        "Button1Text": "Join the discord",
+        "Button1URL": "https://discord.gg/pangya",
         "Button2Text": "",
         "Button2URL": ""
       }
@@ -741,7 +765,7 @@
     "Visions of Mana": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}",
+        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Visions of Mana",

@@ -37,10 +37,11 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             if (game.Length > 0)
             {
+                int world_get = Hypervisor.Read<byte>(0x233FE94);
+                int room_get = Hypervisor.Read<byte>(0x233FE8C);
+                int battleflag = Hypervisor.Read<byte>(0x2867364);
                 try
                 {
-                    int world_get = Hypervisor.Read<byte>(0x233FE94);
-                    int room_get = Hypervisor.Read<byte>(0x233FE8C);
                     if (room_get == 255 || world_get == 255)
                     {
                         discord.UpdateLargeAsset($"logo", $"Main Menu");
@@ -49,8 +50,16 @@ namespace MultiPresence.Presence
                     }
                     else
                     {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders);
+                        if (battleflag == 0)
+                        {
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders);
+                        }
+                        else if (battleflag == 1)
+                        {
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders, "Battle");
+                        }
                     }
                 }
                 catch
@@ -73,10 +82,14 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int world_get = Hypervisor.Read<byte>(0x717008);
-            int room_get = Hypervisor.Read<byte>(0x717009);
-            int difficulty_get = Hypervisor.Read<byte>(0x9ABD48);
-            int level = Hypervisor.Read<byte>(0x9ABDAF);
+            int world_get = Hypervisor.Read<byte>(0x233FE94);
+            int room_get = Hypervisor.Read<byte>(0x233FE8C);
+            int difficulty_get = Hypervisor.Read<byte>(0x2DFF78C);
+            int level = Hypervisor.Read<byte>(0x2DE9364);
+            int hp = Hypervisor.Read<int>(0x2D5CC4C);
+            int hpmax = Hypervisor.Read<int>(0x2D5CC50);
+            int mp = Hypervisor.Read<int>(0x2D5CC54);
+            int mpmax = Hypervisor.Read<int>(0x2D5CC58);
 
             var world = await Worlds.GetWorld(world_get);
             var room = await Rooms.GetRoom(world[0]);
@@ -85,6 +98,10 @@ namespace MultiPresence.Presence
             return new Dictionary<string, object>
             {
                 { "level", level },
+                { "hp", hp },
+                { "hpmax", hpmax },
+                { "mp", mp },
+                { "mpmax", mp },
                 { "room", room[room_get] },
                 { "world", world[0] },
                 { "world_icon_name", world[1] },

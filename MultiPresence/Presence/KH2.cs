@@ -88,10 +88,27 @@ namespace MultiPresence.Presence
             int hpmax = Hypervisor.Read<int>(0x2A2359C);
             int mp = Hypervisor.Read<int>(0x2A23718);
             int mpmax = Hypervisor.Read<int>(0x2A2371C);
+            int form_get = Hypervisor.Read<byte>(0x09ACDD4);
 
             var world = await Worlds.GetWorld(world_get);
             var room = await Rooms.GetRoom(world[0]);
             var difficulty = await Difficulties.GetDifficulty(difficulty_get);
+            string form = "";
+
+            if (form_get == 0)
+                form = "None";
+            else if (form_get == 1)
+                form = "Valor";
+            else if (form_get == 2)
+                form = "Wisdom";
+            else if (form_get == 3)
+                form = "Limit";
+            else if (form_get == 4)
+                form = "Master";
+            else if (form_get == 5)
+                form = "Final";
+            else if (form_get == 6)
+                form = "Anti";
 
             return new Dictionary<string, object>
             {
@@ -100,6 +117,7 @@ namespace MultiPresence.Presence
                 { "hpmax", hpmax },
                 { "mp", mp },
                 { "mpmax", mp },
+                { "form", form },
                 { "room", room[room_get] },
                 { "world", world[0] },
                 { "world_icon_name", world[1] },

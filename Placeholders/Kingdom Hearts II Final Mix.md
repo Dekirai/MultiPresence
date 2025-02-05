@@ -5,6 +5,7 @@
 |{hpmax}|Shows your current max HP|
 |{mp}|Shows your current MP|
 |{mpmax}|Shows your current max MP|
+|{form}|Shows your current form|
 |{level}|Shows your current level|
 |{room}|Shows the current room|
 |{world}|Shows the current world|
@@ -14,7 +15,7 @@
 # Pre-made icons for Large-/Smallasset
 **Do not use them with {}**    
 
-logo = Kingdom Hearts II logo  
+logo = Game logo  
 idle = blue circle icon, intended for field/boss fights  
 field = yellow circle icon, intended for field/boss fights  
 boss = red circle icon, intended for field/boss fights  

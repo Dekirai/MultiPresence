@@ -36,7 +36,8 @@ public class DiscordStatusUpdater
     },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world} - {room}", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Kingdom Hearts Dream Drop Distance", new Dictionary<string, GameDetails>
@@ -46,7 +47,8 @@ public class DiscordStatusUpdater
     },
     { "Kingdom Hearts Final Mix", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world} - {room}", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Kingdom Hearts II Final Mix", new Dictionary<string, GameDetails>
