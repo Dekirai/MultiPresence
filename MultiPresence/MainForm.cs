@@ -176,6 +176,11 @@ namespace MultiPresence
                         MSMR.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Marvel's Spider-Man 2":
+                        Balloon(game);
+                        MSM2.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Marvel's Spider-Man: Miles Morales":
                         Balloon(game);
                         MSMMMM.DoAction();

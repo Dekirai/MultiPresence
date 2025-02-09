@@ -4,6 +4,8 @@ namespace MultiPresence
 {
     public class Blacklist
     {
+        [JsonProperty("Call of Duty®")]
+        public bool CallofDuty { get; set; }
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("Final Fantasy VII Rebirth")]
@@ -24,6 +26,8 @@ namespace MultiPresence
         public bool KingdomHeartsIII { get; set; }
         [JsonProperty("Marvel's Spider-Man Remastered")]
         public bool MarvelsSpiderManRemastered { get; set; }
+        [JsonProperty("Marvel's Spider-Man 2")]
+        public bool MarvelsSpiderMan2 { get; set; }
         [JsonProperty("Marvel's Spider-Man: Miles Morales")]
         public bool MarvelsSpiderManMilesMorales { get; set; }
         [JsonProperty("Mega Man 11")]
@@ -50,6 +54,8 @@ namespace MultiPresence
         public bool SonicAdventure2 { get; set; }
         [JsonProperty("Streets of Rage Remake")]
         public bool StreetsofRageRemake { get; set; }
+        [JsonProperty("Temtem: Swarm")]
+        public bool TemtemSwarm { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
         public bool TYTheTasmanianTiger { get; set; }
         [JsonProperty("Zelda: The Wind Waker HD")]

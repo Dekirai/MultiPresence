@@ -30,6 +30,7 @@ namespace MultiPresence
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
             var game_msmmm = Process.GetProcessesByName("MilesMorales");
             var game_msmr = Process.GetProcessesByName("Spider-Man");
+            var game_msm2 = Process.GetProcessesByName("Spider-Man2");
             var game_ow = Process.GetProcessesByName("Overwatch");
             var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_re = Process.GetProcessesByName("bhd");
@@ -132,6 +133,8 @@ namespace MultiPresence
                 game = "Marvel's Spider-Man: Miles Morales";
             else if (game_msmr.Length > 0)
                 game = "Marvel's Spider-Man Remastered";
+            else if (game_msm2.Length > 0)
+                game = "Marvel's Spider-Man 2";
             else if (game_ow.Length > 0)
                 game = "Overwatch 2";
             else if (game_pyre.Length > 0)

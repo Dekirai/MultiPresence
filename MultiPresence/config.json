@@ -278,6 +278,20 @@
         "Button2URL": ""
       }
     },
+    "Marvel's Spider-Man 2": {
+      "Default": {
+        "Details": "Level {level}",
+        "State": "Swinging in {location}",
+        "LargeAsset": "logo",
+        "SmallAsset": "{character_icon}",
+        "LargeAssetText": "Marvel's Spider-Man 2",
+        "SmallAssetText": "Playing as {character}",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Marvel's Spider-Man: Miles Morales": {
       "Default": {
         "Details": "Health: {health} (Level {level})",
