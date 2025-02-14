@@ -50,7 +50,7 @@ Here is a video showcasing how placeholders work:
 |Kingdom Hearts II Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |Kingdom Hearts III ¹|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)||
 |Marvel's Spider-Man Remastered|[Steam](https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/)|Only base game tested|
-|Marvel's Spider-Man 2|[Steam](https://store.steampowered.com/app/2651280/Marvels_SpiderMan_2/)|Currently broken - See this [release](https://github.com/Dekirai/MultiPresence/releases/tag/10.02.2025)|
+|Marvel's Spider-Man 2|[Steam](https://store.steampowered.com/app/2651280/Marvels_SpiderMan_2/)|See this [release](https://github.com/Dekirai/MultiPresence/releases/tag/10.02.2025)|
 |Marvel's Spider-Man: Miles Morales|[Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)| |
 |Mega Man 11|[Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)| |
 |Mega Man Battle Network 6|[Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)| |
