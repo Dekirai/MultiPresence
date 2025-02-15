@@ -4,6 +4,8 @@ using MultiPresence.Presence;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net;
+using System.Text.Json;
 using System.Timers;
 
 namespace MultiPresence
@@ -14,9 +16,16 @@ namespace MultiPresence
         Blacklist? blacklist = null;
         public static bool status = false;
         public static bool isBlacklistLoaded = false;
+
+        private static readonly string githubRepo = "Dekirai/MultiPresence";
+        private static readonly string currentVersion = "15.02.2025";
+        private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
+        private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
+
         public MainForm()
         {
             InitializeComponent();
+            CheckForUpdate();
 
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
@@ -28,6 +37,102 @@ namespace MultiPresence
             gameUpdater.Enabled = true;
 
             gameUpdater.Start();
+        }
+
+        public static void CheckForUpdate()
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("User-Agent", "CSharpApp");
+                    string apiUrl = $"https://api.github.com/repos/{githubRepo}/releases/latest";
+                    string jsonResponse = client.DownloadString(apiUrl);
+
+                    using (JsonDocument doc = JsonDocument.Parse(jsonResponse))
+                    {
+                        JsonElement root = doc.RootElement;
+                        string latestVersion = root.GetProperty("tag_name").GetString()?.Trim('v');
+                        string releaseUrl = root.GetProperty("html_url").GetString();
+
+                        if (IsNewerVersion(latestVersion, currentVersion))
+                        {
+                            DialogResult result = MessageBox.Show(
+                                $"A new version ({latestVersion}) is available. Do you want to update?",
+                                "Update Available",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Information
+                            );
+
+                            if (result == DialogResult.Yes)
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = releaseUrl,
+                                    UseShellExecute = true
+                                });
+
+                                string updateUrl = root.GetProperty("assets")[0].GetProperty("browser_download_url").GetString();
+                                string updaterUrl = root.GetProperty("assets")[1].GetProperty("browser_download_url").GetString();
+
+                                DownloadFile(updaterUrl, tempUpdaterPath);
+                                DownloadFile(updateUrl, tempUpdateZip);
+
+                                KillProcess("MultiPresenceGame");
+
+                                Process.Start(tempUpdaterPath, $"\"{tempUpdateZip}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
+                                Environment.Exit(0);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking for updates: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static void DownloadFile(string url, string destination)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(url, destination);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error downloading {Path.GetFileName(destination)}: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static bool IsNewerVersion(string latest, string current)
+        {
+            try
+            {
+                DateTime latestDate = DateTime.ParseExact(latest, "dd.MM.yyyy", null);
+                DateTime currentDate = DateTime.ParseExact(current, "dd.MM.yyyy", null);
+                return latestDate > currentDate;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static void KillProcess(string processName)
+        {
+            foreach (var process in Process.GetProcessesByName(processName))
+            {
+                try
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                }
+                catch { }
+            }
         }
 
         private async void gameUpdater_Tick(object sender, EventArgs e)

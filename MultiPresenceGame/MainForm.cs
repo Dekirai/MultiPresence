@@ -15,7 +15,7 @@ namespace MultiPresenceGame
             InitializeComponent();
             updater = new DiscordStatusUpdater("config.json");
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "2495100");
+            File.WriteAllText("steam_appid.txt", "1217060");
             if (!SteamAPI.Init())
             {
                 //Do nothing
