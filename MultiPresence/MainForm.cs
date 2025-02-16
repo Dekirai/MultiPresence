@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "15.02.2025";
+        private static readonly string currentVersion = "16.02.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -214,6 +214,11 @@ namespace MultiPresence
                     case "Kingdom Hearts Dream Drop Distance":
                         Balloon(game);
                         KHDDD.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Labyrinthine":
+                        Balloon(game);
+                        LR.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Mega Man 11":

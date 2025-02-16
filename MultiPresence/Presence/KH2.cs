@@ -41,7 +41,15 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
             if (game.Length > 0)
             {
-                int battleflag = Hypervisor.Read<byte>(0x2A11404);
+                bool isEpicGames = false;
+                int battleflag = 0;
+                string version = Hypervisor.ReadString(0x9A9330, 4);
+                if (version == "KH2J")
+                    isEpicGames = true;
+                if (isEpicGames)
+                    battleflag = Hypervisor.Read<byte>(0x2A10E84);
+                else
+                    battleflag = Hypervisor.Read<byte>(0x2A11404);
                 try
                 {
                     if (battleflag == 0)
@@ -80,15 +88,44 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int world_get = Hypervisor.Read<byte>(0x717008);
-            int room_get = Hypervisor.Read<byte>(0x717009);
-            int difficulty_get = Hypervisor.Read<byte>(0x9ABD48);
-            int level = Hypervisor.Read<byte>(0x9ABDAF);
-            int hp = Hypervisor.Read<int>(0x2A23598);
-            int hpmax = Hypervisor.Read<int>(0x2A2359C);
-            int mp = Hypervisor.Read<int>(0x2A23718);
-            int mpmax = Hypervisor.Read<int>(0x2A2371C);
-            int form_get = Hypervisor.Read<byte>(0x09ACDD4);
+            bool isEpicGames = false;
+            string version = Hypervisor.ReadString(0x9A9330, 4);
+            if (version == "KH2J")
+                isEpicGames = true;
+            int world_get = 0;
+            int room_get = 0;
+            int difficulty_get = 0;
+            int level = 0;
+            int hp = 0;
+            int hpmax = 0;
+            int mp = 0;
+            int mpmax = 0;
+            int form_get = 0;
+
+            if (isEpicGames)
+            {
+                world_get = Hypervisor.Read<byte>(0x716DF8);
+                room_get = Hypervisor.Read<byte>(0x716DF9);
+                difficulty_get = Hypervisor.Read<byte>(0x9ABD48 - 0x580);
+                level = Hypervisor.Read<byte>(0x9ABDAF - 0x580);
+                hp = Hypervisor.Read<int>(0x2A23598 - 0x580);
+                hpmax = Hypervisor.Read<int>(0x2A2359C - 0x580);
+                mp = Hypervisor.Read<int>(0x2A23718 - 0x580);
+                mpmax = Hypervisor.Read<int>(0x2A2371C - 0x580);
+                form_get = Hypervisor.Read<byte>(0x9ACDD4 - 0x580);
+            }
+            else
+            {
+                world_get = Hypervisor.Read<byte>(0x717008);
+                room_get = Hypervisor.Read<byte>(0x717009);
+                difficulty_get = Hypervisor.Read<byte>(0x9ABD48);
+                level = Hypervisor.Read<byte>(0x9ABDAF);
+                hp = Hypervisor.Read<int>(0x2A23598);
+                hpmax = Hypervisor.Read<int>(0x2A2359C);
+                mp = Hypervisor.Read<int>(0x2A23718);
+                mpmax = Hypervisor.Read<int>(0x2A2371C);
+                form_get = Hypervisor.Read<byte>(0x9ACDD4);
+            }
 
             var world = await Worlds.GetWorld(world_get);
             var room = await Rooms.GetRoom(world[0]);

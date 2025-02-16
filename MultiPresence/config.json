@@ -264,6 +264,20 @@
         "Button2URL": ""
       }
     },
+    "Labyrinthine": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Labyrinthine",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Marvel's Spider-Man Remastered": {
       "Default": {
         "Details": "Health: {health} (Level {level})",

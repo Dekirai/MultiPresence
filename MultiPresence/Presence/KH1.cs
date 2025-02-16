@@ -37,9 +37,27 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
             if (game.Length > 0)
             {
-                int world_get = Hypervisor.Read<byte>(0x233FE94);
-                int room_get = Hypervisor.Read<byte>(0x233FE8C);
-                int battleflag = Hypervisor.Read<byte>(0x2867364);
+                bool isEpicGames = false;
+                int world_get = 0;
+                int room_get = 0;
+                int battleflag = 0;
+
+                string version = Hypervisor.ReadString(0x46A822, 8);
+                if (version.Contains("japanese"))
+                    isEpicGames = true;
+
+                if (isEpicGames)
+                {
+                    world_get = Hypervisor.Read<byte>(0x2340ECC);
+                    room_get = Hypervisor.Read<byte>(0x2340EC4);
+                    battleflag = Hypervisor.Read<byte>(0x2867CD8);
+                }
+                else
+                {
+                    world_get = Hypervisor.Read<byte>(0x233FE94);
+                    room_get = Hypervisor.Read<byte>(0x233FE8C);
+                    battleflag = Hypervisor.Read<byte>(0x2867364);
+                }
                 try
                 {
                     if (room_get == 255 || world_get == 255)
@@ -82,14 +100,43 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int world_get = Hypervisor.Read<byte>(0x233FE94);
-            int room_get = Hypervisor.Read<byte>(0x233FE8C);
-            int difficulty_get = Hypervisor.Read<byte>(0x2DFF78C);
-            int level = Hypervisor.Read<byte>(0x2DE9364);
-            int hp = Hypervisor.Read<int>(0x2D5CC4C);
-            int hpmax = Hypervisor.Read<int>(0x2D5CC50);
-            int mp = Hypervisor.Read<int>(0x2D5CC54);
-            int mpmax = Hypervisor.Read<int>(0x2D5CC58);
+            bool isEpicGames = false;
+
+            int world_get = 0;
+            int room_get = 0;
+            int difficulty_get = 0;
+            int level = 0;
+            int hp = 0;
+            int hpmax = 0;
+            int mp = 0;
+            int mpmax = 0;
+
+            string version = Hypervisor.ReadString(0x46A822, 8);
+            if (version.Contains("japanese"))
+                isEpicGames = true;
+
+            if (isEpicGames)
+            {
+                world_get = Hypervisor.Read<byte>(0x2340ECC);
+                room_get = Hypervisor.Read<byte>(0x2340EC4);
+                difficulty_get = Hypervisor.Read<byte>(0x2DFF78C + 0xA00);
+                level = Hypervisor.Read<byte>(0x2DE9364 + 0xA00);
+                hp = Hypervisor.Read<int>(0x2D5CC4C + 0xA00);
+                hpmax = Hypervisor.Read<int>(0x2D5CC50 + 0xA00);
+                mp = Hypervisor.Read<int>(0x2D5CC54 + 0xA00);
+                mpmax = Hypervisor.Read<int>(0x2D5CC58 + 0xA00);
+            }
+            else
+            {
+                world_get = Hypervisor.Read<byte>(0x233FE94);
+                room_get = Hypervisor.Read<byte>(0x233FE8C);
+                difficulty_get = Hypervisor.Read<byte>(0x2DFF78C);
+                level = Hypervisor.Read<byte>(0x2DE9364);
+                hp = Hypervisor.Read<int>(0x2D5CC4C);
+                hpmax = Hypervisor.Read<int>(0x2D5CC50);
+                mp = Hypervisor.Read<int>(0x2D5CC54);
+                mpmax = Hypervisor.Read<int>(0x2D5CC58);
+            }
 
             var world = await Worlds.GetWorld(world_get);
             var room = await Rooms.GetRoom(world[0]);

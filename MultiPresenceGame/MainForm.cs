@@ -15,7 +15,7 @@ namespace MultiPresenceGame
             InitializeComponent();
             updater = new DiscordStatusUpdater("config.json");
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "1217060");
+            File.WriteAllText("steam_appid.txt", "1302240");
             if (!SteamAPI.Init())
             {
                 //Do nothing
@@ -49,6 +49,7 @@ namespace MultiPresenceGame
             Process[] hl = Process.GetProcessesByName("HogwartsLegacy");
             Process[] cod = Process.GetProcessesByName("cod");
             Process[] hk = Process.GetProcessesByName("Hello Kitty");
+            Process[] lr = Process.GetProcessesByName("Labyrinthine");
             if (ow.Length > 0)
             {
                 discord = new DiscordRpcClient("1270342180623487089");
@@ -112,6 +113,19 @@ namespace MultiPresenceGame
                     //Do nothing
                 }
                 Thread thread = new Thread(RPCHK);
+                thread.Start();
+            }
+            else if (lr.Length > 0)
+            {
+                discord = new DiscordRpcClient("1340678671123349546");
+                InitializeDiscord();
+                File.WriteAllText("steam_appid.txt", "1302240");
+                // Initialize Steamworks
+                if (!SteamAPI.Init())
+                {
+                    //Do nothing
+                }
+                Thread thread = new Thread(RPCLR);
                 thread.Start();
             }
         }
@@ -770,7 +784,7 @@ namespace MultiPresenceGame
                         else
                         {
                             discord.UpdateParty(null);
-                            string details = updater.UpdateDetails("OverwHello Kittyatch", placeholders);
+                            string details = updater.UpdateDetails("Hello Kitty", placeholders);
                             string state = updater.UpdateState("Hello Kitty", placeholders);
                             string largeasset = updater.UpdateLargeAsset("Hello Kitty", placeholders);
                             string largeassettext = updater.UpdateLargeAssetText("Hello Kitty", placeholders);
@@ -837,6 +851,159 @@ namespace MultiPresenceGame
                             {
                                 new DiscordRPC.Button() { Label = button1text, Url = button1url },
                                 new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                            });
+                        }
+                        else
+                        {
+                            discord.UpdateButtons(null);
+                        }
+                    }
+
+                    await Task.Delay(3000); // Wait before checking again
+                }
+                else
+                {
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("steam_appid.txt", "");
+                    SteamAPI.Shutdown();
+
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
+                }
+            }
+        }
+
+        private static async void RPCLR()
+        {
+            while (true)
+            {
+                Process[] game = Process.GetProcessesByName("Labyrinthine");
+                if (game.Length > 0)
+                {
+                    string presence = GetSteamRichPresence();
+                    var placeholders = new Dictionary<string, object>
+                    {
+                        { "steam_display", presence }
+                    };
+                    try
+                    {
+                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+
+                        if (partysize > 1)
+                        {
+                            discord.UpdateParty(new Party
+                            {
+                                ID = partyid,
+                                Size = partysize,
+                                Max = 8,
+                            });
+                            string details = updater.UpdateDetails("Labyrinthine", placeholders);
+                            string state = updater.UpdateState("Labyrinthine", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Labyrinthine", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Labyrinthine", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Labyrinthine", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Labyrinthine", placeholders);
+                            string button1text = updater.UpdateButton1Text("Labyrinthine", placeholders);
+                            string button2text = updater.UpdateButton2Text("Labyrinthine", placeholders);
+                            string button1url = updater.UpdateButton1URL("Labyrinthine", placeholders);
+                            string button2url = updater.UpdateButton2URL("Labyrinthine", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
+                        }
+                        else
+                        {
+                            discord.UpdateParty(null);
+                            string details = updater.UpdateDetails("Labyrinthine", placeholders);
+                            string state = updater.UpdateState("Labyrinthine", placeholders);
+                            string largeasset = updater.UpdateLargeAsset("Labyrinthine", placeholders);
+                            string largeassettext = updater.UpdateLargeAssetText("Labyrinthine", placeholders);
+                            string smallasset = updater.UpdateSmallAsset("Labyrinthine", placeholders);
+                            string smallassettext = updater.UpdateSmallAssetText("Labyrinthine", placeholders);
+                            string button1text = updater.UpdateButton1Text("Labyrinthine", placeholders);
+                            string button2text = updater.UpdateButton2Text("Labyrinthine", placeholders);
+                            string button1url = updater.UpdateButton1URL("Labyrinthine", placeholders);
+                            string button2url = updater.UpdateButton2URL("Labyrinthine", placeholders);
+                            discord.UpdateLargeAsset(largeasset, largeassettext);
+                            discord.UpdateSmallAsset(smallasset, smallassettext);
+                            discord.UpdateDetails(details);
+                            discord.UpdateState(state);
+
+                            if (button1url.Length > 0 && button2url.Length == 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                                });
+                            }
+                            else if (button1url.Length > 0 && button2url.Length > 0)
+                            {
+                                discord.UpdateButtons(new DiscordRPC.Button[]
+                                {
+                            new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                            new DiscordRPC.Button() { Label = button2text, Url = button2url }
+                                });
+                            }
+                            else
+                            {
+                                discord.UpdateButtons(null);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        discord.UpdateParty(null);
+                        string details = updater.UpdateDetails("Labyrinthine", placeholders);
+                        string state = updater.UpdateState("Labyrinthine", placeholders);
+                        string largeasset = updater.UpdateLargeAsset("Labyrinthine", placeholders);
+                        string largeassettext = updater.UpdateLargeAssetText("Labyrinthine", placeholders);
+                        string smallasset = updater.UpdateSmallAsset("Labyrinthine", placeholders);
+                        string smallassettext = updater.UpdateSmallAssetText("Labyrinthine", placeholders);
+                        string button1text = updater.UpdateButton1Text("Labyrinthine", placeholders);
+                        string button2text = updater.UpdateButton2Text("Labyrinthine", placeholders);
+                        string button1url = updater.UpdateButton1URL("Labyrinthine", placeholders);
+                        string button2url = updater.UpdateButton2URL("Labyrinthine", placeholders);
+                        discord.UpdateLargeAsset(largeasset, largeassettext);
+                        discord.UpdateSmallAsset(smallasset, smallassettext);
+                        discord.UpdateDetails(details);
+                        discord.UpdateState(state);
+
+                        if (button1url.Length > 0 && button2url.Length == 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                        new DiscordRPC.Button() { Label = button1text, Url = button1url }
+                            });
+                        }
+                        else if (button1url.Length > 0 && button2url.Length > 0)
+                        {
+                            discord.UpdateButtons(new DiscordRPC.Button[]
+                            {
+                        new DiscordRPC.Button() { Label = button1text, Url = button1url },
+                        new DiscordRPC.Button() { Label = button2text, Url = button2url }
                             });
                         }
                         else
