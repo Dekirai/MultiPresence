@@ -122,6 +122,20 @@
         "Button2URL": ""
       }
     },
+    "Labyrinthine": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "{map_icon}",
+        "SmallAsset": "",
+        "LargeAssetText": "Labyrinthine",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Kingdom Hearts Birth by Sleep Final Mix": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",

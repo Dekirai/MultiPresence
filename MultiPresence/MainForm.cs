@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "16.02.2025";
+        private static readonly string currentVersion = "19.02.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -59,18 +59,13 @@ namespace MultiPresence
                         {
                             DialogResult result = MessageBox.Show(
                                 $"A new version ({latestVersion}) is available. Do you want to update?",
-                                "Update Available",
+                                "MultiPresence - Update available",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Information
                             );
 
                             if (result == DialogResult.Yes)
                             {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = releaseUrl,
-                                    UseShellExecute = true
-                                });
 
                                 string updateUrl = root.GetProperty("assets")[0].GetProperty("browser_download_url").GetString();
                                 string updaterUrl = root.GetProperty("assets")[1].GetProperty("browser_download_url").GetString();
@@ -79,6 +74,22 @@ namespace MultiPresence
                                 DownloadFile(updateUrl, tempUpdateZip);
 
                                 KillProcess("MultiPresenceGame");
+
+                                DialogResult result2 = MessageBox.Show(
+                                $"Do you want to view the changelogs?",
+                                "MultiPresence - Update available",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Information
+                                );
+
+                                if (result2 == DialogResult.Yes)
+                                {
+                                    Process.Start(new ProcessStartInfo
+                                    {
+                                        FileName = releaseUrl,
+                                        UseShellExecute = true
+                                    });
+                                }
 
                                 Process.Start(tempUpdaterPath, $"\"{tempUpdateZip}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
                                 Environment.Exit(0);
