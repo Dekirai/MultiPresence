@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "19.02.2025";
+        private static readonly string currentVersion = "20.02.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -200,6 +200,11 @@ namespace MultiPresence
                     case "Hogwarts Legacy":
                         Balloon(game);
                         await HL.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Kingdom Hearts Re:Chain of Memories":
+                        Balloon(game);
+                        KHCOM.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Kingdom Hearts Final Mix":

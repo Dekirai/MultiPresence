@@ -23,12 +23,12 @@ namespace MultiPresenceGame.Presence
                     //Do nothing
                 }
                 updater = new DiscordStatusUpdater("config.json");
-                Thread thread = new Thread(RPCTTS);
+                Thread thread = new Thread(RPC);
                 thread.Start();
             }
         }
 
-        private static async void RPCTTS()
+        private static async void RPC()
         {
             while (true)
             {

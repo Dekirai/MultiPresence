@@ -26,6 +26,7 @@ namespace MultiPresence
             var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
             var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
+            var game_khcom = Process.GetProcessesByName("KINGDOM HEARTS Re_Chain of Memories");
             var game_lr = Process.GetProcessesByName("Labyrinthine");
             var game_mm11 = Process.GetProcessesByName("game");
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
@@ -115,6 +116,8 @@ namespace MultiPresence
                 game = "Kingdom Hearts Birth by Sleep Final Mix";
             else if (game_khddd.Length > 0)
                 game = "Kingdom Hearts Dream Drop Distance";
+            else if (game_khcom.Length > 0)
+                game = "Kingdom Hearts Re:Chain of Memories";
             else if (game_lr.Length > 0)
                 game = "Labyrinthine";
             else if (game_mm11.Length > 0)

@@ -45,6 +45,12 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "{character_icon_name}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Kingdom Hearts Re:Chain of Memories", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{world}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Kingdom Hearts Final Mix", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

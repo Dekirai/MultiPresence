@@ -176,6 +176,32 @@
         "Button2URL": ""
       }
     },
+    "Kingdom Hearts Re:Chain of Memories": {
+      "Default": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "{world}",
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "",
+        "LargeAssetText": "{world}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Battle": {
+        "Details": "Lv. {level} ({difficulty})",
+        "State": "HP: {hp}/{hpmax}",
+        "LargeAsset": "{world_icon_name}",
+        "SmallAsset": "battle",
+        "LargeAssetText": "{world} - {room}",
+        "SmallAssetText": "In Battle",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Kingdom Hearts Final Mix": {
       "Default": {
         "Details": "Lv. {level} ({difficulty})",
@@ -193,7 +219,7 @@
         "Details": "Lv. {level} ({difficulty})",
         "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
         "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "battle_",
+        "SmallAsset": "battle",
         "LargeAssetText": "{world} - {room}",
         "SmallAssetText": "In Battle",
         "Button1Text": "",

@@ -46,6 +46,7 @@ Here is a video showcasing how placeholders work:
 |Hogwarts Legacy ²|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||
 |Kingdom Hearts Birth by Sleep Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |Kingdom Hearts Dream Drop Distance|[Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)||
+|Kingdom Hearts Re:Chain of Memories|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
 |Kingdom Hearts Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/) & EGS||
 |Kingdom Hearts II Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/) & EGS||
 |Kingdom Hearts III ¹|[Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)||
