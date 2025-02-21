@@ -35,6 +35,9 @@ Here is a video showcasing how placeholders work:
 [![Video](https://img.youtube.com/vi/x0avvmvQ5BQ/0.jpg)](https://www.youtube.com/watch?v=x0avvmvQ5BQ)
  
 ## Supported games
+> [!TIP]
+> The platform(s) mentioned indicates that it has been confirmed to work there, games **MAY** work on other platforms as well.
+
 |Game|Platform|Notes|
 |--|--|--|
 |Call of Duty ²|[Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)||
