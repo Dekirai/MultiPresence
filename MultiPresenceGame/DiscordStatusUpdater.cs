@@ -19,6 +19,11 @@ public class DiscordStatusUpdater
             { "Zombies", new GameDetails { Details = "Playing {mode}", State = "Surviving on {map}", LargeAsset = "logo", LargeAssetText = "Call of Duty", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Gunfire Reborn", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Gunfire Reborn", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Hello Kitty", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Hello Kitty Island Adventure", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

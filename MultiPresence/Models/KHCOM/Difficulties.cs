@@ -17,6 +17,9 @@
                 case 2:
                     getdifficulty = "Proud";
                     break;
+                case 3:
+                    getdifficulty = "Extreme";
+                    break;
 
                 default:
                     getdifficulty = "Standard";

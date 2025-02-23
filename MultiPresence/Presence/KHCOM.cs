@@ -98,7 +98,6 @@ namespace MultiPresence.Presence
                 { "hpmax", hpmax },
                 { "world", world[0] },
                 { "world_icon_name", world[1] },
-                { "difficulty", difficulty }
             };
         }
 

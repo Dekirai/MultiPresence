@@ -11,7 +11,7 @@ namespace MultiPresenceGame
         {
             InitializeComponent();
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "2357570");
+            File.WriteAllText("steam_appid.txt", "1217060");
             if (!SteamAPI.Init())
             {
                 //Do nothing
@@ -53,6 +53,10 @@ namespace MultiPresenceGame
             {
                 case "Call of Duty®":
                     COD.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Gunfire Reborn":
+                    GFR.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Hello Kitty Island Adventure":

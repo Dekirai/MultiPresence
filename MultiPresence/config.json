@@ -94,6 +94,20 @@
         "Button2URL": ""
       }
     },
+    "Gunfire Reborn": {
+      "Default": {
+        "Details": "{steam_display}",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Gunfire Reborn",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Hello Kitty": {
       "Default": {
         "Details": "{steam_display}",
@@ -115,20 +129,6 @@
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Hogwarts Legacy",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Labyrinthine": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "{map_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Labyrinthine",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -178,7 +178,7 @@
     },
     "Kingdom Hearts Re:Chain of Memories": {
       "Default": {
-        "Details": "Lv. {level} ({difficulty})",
+        "Details": "Lv. {level}",
         "State": "{world}",
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "",
@@ -190,7 +190,7 @@
         "Button2URL": ""
       },
       "Battle": {
-        "Details": "Lv. {level} ({difficulty})",
+        "Details": "Lv. {level}",
         "State": "HP: {hp}/{hpmax}",
         "LargeAsset": "{world_icon_name}",
         "SmallAsset": "battle",
@@ -308,7 +308,7 @@
       "Default": {
         "Details": "{steam_display}",
         "State": "",
-        "LargeAsset": "logo",
+        "LargeAsset": "{map_icon}",
         "SmallAsset": "",
         "LargeAssetText": "Labyrinthine",
         "SmallAssetText": "",
@@ -578,6 +578,68 @@
       "Assignment_Ada": {
         "Details": "Weapon: {weapon}",
         "State": "{room}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Resident Evil 4",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Separate_Ways": {
+        "Details": "Weapon: {weapon}",
+        "State": "Chapter {chapter}: {room}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Resident Evil 4",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Resident Evil 4": {
+      "Main Menu": {
+        "Details": "At the Title Screen",
+        "State": "",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Resident Evil 4",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Main Story": {
+        "Details": "{state} - {difficulty}",
+        "State": "Health: {healthpercentage}% - Chapter {chapter}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Resident Evil 4",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Separate Ways": {
+        "Details": "",
+        "State": "",
+        "LargeAsset": "",
+        "SmallAsset": "",
+        "LargeAssetText": "",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Mercenaries": {
+        "Details": "",
+        "State": "",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Resident Evil 4",

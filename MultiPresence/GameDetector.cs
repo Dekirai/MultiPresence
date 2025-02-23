@@ -12,13 +12,13 @@ namespace MultiPresence
 
         public static async Task<string> GetGameAsync()
         {
-            var game_asw = Process.GetProcessesByName("SoulWorker");
             var game_cemu = Process.GetProcessesByName("Cemu");
             var game_cod = Process.GetProcessesByName("cod");
             var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_ffviirb = Process.GetProcessesByName("ff7rebirth_");
             var game_ffxvi = Process.GetProcessesByName("ffxvi");
+            var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
             var game_hk = Process.GetProcessesByName("Hello Kitty");
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
             var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
@@ -37,6 +37,7 @@ namespace MultiPresence
             var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_re = Process.GetProcessesByName("bhd");
             var game_re4 = Process.GetProcessesByName("bio4");
+            var game_re4r = Process.GetProcessesByName("re4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
             var game_re6 = Process.GetProcessesByName("BH6");
             var game_rev2 = Process.GetProcessesByName("rerev2");
@@ -50,6 +51,8 @@ namespace MultiPresence
             string game = "";
             if (game_cod.Length > 0)
                 game = "Call of Duty®";
+            else if (game_gfr.Length > 0)
+                game = "Gunfire Reborn";
             else if (game_ccffvii.Length > 0)
                 game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
             else if (game_ffviir.Length > 0)
@@ -149,6 +152,8 @@ namespace MultiPresence
                 game = "Resident Evil";
             else if (game_re4.Length > 0)
                 game = "Resident Evil 4 (2005)";
+            else if (game_re4r.Length > 0)
+                game = "Resident Evil 4 Remake";
             else if (game_re5.Length > 0)
                 game = "Resident Evil 5";
             else if (game_re6.Length > 0)

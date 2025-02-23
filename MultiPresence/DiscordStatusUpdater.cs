@@ -47,8 +47,8 @@ public class DiscordStatusUpdater
     },
     { "Kingdom Hearts Re:Chain of Memories", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{world}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Lv. {level}", State = "{world}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level}", State = "HP: {hp}/{hpmax}", LargeAsset = "{world_icon_name}", LargeAssetText = "{world}", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Kingdom Hearts Final Mix", new Dictionary<string, GameDetails>
@@ -122,6 +122,14 @@ public class DiscordStatusUpdater
             { "Assignment_Ada", new GameDetails { Details = "Weapon: {weapon}", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Separate_Ways", new GameDetails { Details = "Weapon: {weapon}", State = "Chapter {chapter}: {room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Mercenaries", new GameDetails { Details = "Score: {score}", State = "Playing as '{character}' on '{room}'", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Resident Evil 4", new Dictionary<string, GameDetails>
+        {
+            { "Main Menu", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Main Story", new GameDetails { Details = "{state} - {difficulty}", State = "Health: {healthpercentage}% - Chapter {chapter}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Separate Ways", new GameDetails { Details = "", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Mercenaries", new GameDetails { Details = "", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Resident Evil 5", new Dictionary<string, GameDetails>

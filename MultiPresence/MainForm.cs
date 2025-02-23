@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "20.02.2025";
+        private static readonly string currentVersion = "23.02.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -39,7 +39,7 @@ namespace MultiPresence
             gameUpdater.Start();
         }
 
-        public static void CheckForUpdate()
+        public void CheckForUpdate()
         {
             try
             {
@@ -61,7 +61,9 @@ namespace MultiPresence
                                 $"A new version ({latestVersion}) is available. Do you want to update?",
                                 "MultiPresence - Update available",
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Information
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.ServiceNotification
                             );
 
                             if (result == DialogResult.Yes)
@@ -79,7 +81,9 @@ namespace MultiPresence
                                 $"Do you want to view the changelogs?",
                                 "MultiPresence - Update available",
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Information
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.ServiceNotification
                                 );
 
                                 if (result2 == DialogResult.Yes)
@@ -92,6 +96,7 @@ namespace MultiPresence
                                 }
 
                                 Process.Start(tempUpdaterPath, $"\"{tempUpdateZip}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
+                                BalloonUpdate("Update completed, MultiPresence is now restarting!");
                                 Environment.Exit(0);
                             }
                         }
@@ -177,6 +182,11 @@ namespace MultiPresence
                         CCFFVII.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Gunfire Reborn":
+                        Balloon(game);
+                        await GFR.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Final Fantasy VII Remake":
                         Balloon(game);
                         FFVIIR.DoAction();
@@ -245,6 +255,11 @@ namespace MultiPresence
                     case "Resident Evil 4 (2005)":
                         Balloon(game);
                         RE4.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Resident Evil 4 Remake":
+                        Balloon(game);
+                        RE4R.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Sonic Adventure 2":
@@ -378,6 +393,13 @@ namespace MultiPresence
                 return;
             notify.BalloonTipTitle = "System";
             notify.BalloonTipText = $"Keeping track of {text}.";
+            notify.ShowBalloonTip(3000);
+        }
+
+        private void BalloonUpdate(string text)
+        {
+            notify.BalloonTipTitle = "MultiPresence - Update status";
+            notify.BalloonTipText = text;
             notify.ShowBalloonTip(3000);
         }
 

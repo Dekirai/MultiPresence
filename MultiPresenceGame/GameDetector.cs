@@ -8,6 +8,7 @@ namespace MultiPresenceGame
         public static async Task<string> GetGameAsync()
         {
             var game_cod = Process.GetProcessesByName("cod");
+            var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
             var game_hk = Process.GetProcessesByName("Hello Kitty");
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
             var game_lr = Process.GetProcessesByName("Labyrinthine");
@@ -17,6 +18,8 @@ namespace MultiPresenceGame
             string game = "";
             if (game_cod.Length > 0)
                 game = "Call of Duty®";
+            else if (game_gfr.Length > 0)
+                game = "Gunfire Reborn";
             else if (game_hk.Length > 0)
                 game = "Hello Kitty Island Adventure";
             else if (game_hl.Length > 0)

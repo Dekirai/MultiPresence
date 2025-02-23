@@ -42,6 +42,7 @@ Here is a video showcasing how placeholders work:
 |Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||
 |Final Fantasy VII Remake|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |Final Fantasy XVI|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
+|Gunfire Reborn ²|[Steam](https://store.steampowered.com/app/1217060/Gunfire_Reborn/)||
 |Hello Kitty Island Adventure ²|[Steam](https://store.steampowered.com/app/2495100/Hello_Kitty_Island_Adventure/)||
 |Hogwarts Legacy ²|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||
 |Kingdom Hearts Birth by Sleep Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||
@@ -60,6 +61,7 @@ Here is a video showcasing how placeholders work:
 |Pangya Reborn|[Private Server](https://www.pangyareborn.com/)| |
 |Resident Evil|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
 |Resident Evil 4 (2005) ¹|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)||
+|Resident Evil 4|[Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)||
 |Resident Evil 5|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)| |
 |Resident Evil 6|[Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)| |
 |Resident Evil Revelations 2|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
