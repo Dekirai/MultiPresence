@@ -9,7 +9,7 @@
 |{map}|Shows the current map|Mercenaries|
 |{character}|Shows the current character|Mercenaries|
 |{score}|Shows the current score|Mercenaries|
-|{state}|Shows the current game state|Main Story, Separate Ways, Mercenaries|
+|{state}|Shows the current game state|Main Menu, Main Story, Separate Ways, Mercenaries|
 
 # Pre-made icons for Large-/Smallasset
 **Do not use them with {}**    
