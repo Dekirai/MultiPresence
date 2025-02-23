@@ -64,7 +64,7 @@ Here is a video showcasing how placeholders work:
 |Pangya Reborn|[Private Server](https://www.pangyareborn.com/)| |
 |Resident Evil|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
 |Resident Evil 4 (2005) ¹|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)||
-|Resident Evil 4|[Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)||
+|Resident Evil 4 Remake|[Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)||
 |Resident Evil 5|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)| |
 |Resident Evil 6|[Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)| |
 |Resident Evil Revelations 2|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
