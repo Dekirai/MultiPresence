@@ -14,6 +14,8 @@ namespace MultiPresence
         public bool FinalFantasyVIIRemake { get; set; }
         [JsonProperty("Final Fantasy XVI")]
         public bool FinalFantasyXVI { get; set; }
+        [JsonProperty("Gunfire Reborn")]
+        public bool GunfireReborn { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts Dream Drop Distance")]
@@ -46,6 +48,8 @@ namespace MultiPresence
         public bool ResidentEvil { get; set; }
         [JsonProperty("Resident Evil 4 (2005)")]
         public bool ResidentEvil42005 { get; set; }
+        [JsonProperty("Resident Evil 4 Remake")]
+        public bool ResidentEvil4Remake { get; set; }
         [JsonProperty("Resident Evil 5")]
         public bool ResidentEvil5 { get; set; }
         [JsonProperty("Resident Evil 6")]
