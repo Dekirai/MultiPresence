@@ -48,7 +48,7 @@ namespace MultiPresenceGame.Presence
                             {
                                 ID = partyid,
                                 Size = partysize,
-                                Max = 2,
+                                Max = 6,
                             });
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders);
