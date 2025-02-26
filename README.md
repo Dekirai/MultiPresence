@@ -1,4 +1,5 @@
 # MultiPresence
+Join the official discord server by clicking the button below! 
 [![](https://dcbadge.limes.pink/api/server/https://discord.gg/AC6rVgV2Jj)](https://discord.gg/AC6rVgV2Jj)
 > [!WARNING]  
 > The project is currently not actively maintained and updates are rather infrequent.
