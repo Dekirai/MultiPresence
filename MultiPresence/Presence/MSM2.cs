@@ -1,6 +1,5 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.MSM2;
-using System;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence

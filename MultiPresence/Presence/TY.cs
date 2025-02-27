@@ -1,6 +1,5 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.TY;
-using MultiPresence.Properties;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence

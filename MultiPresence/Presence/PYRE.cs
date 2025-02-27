@@ -1,8 +1,6 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.PYRE;
 using System.Diagnostics;
-using static System.Formats.Asn1.AsnWriter;
-using Button = DiscordRPC.Button;
 
 namespace MultiPresence.Presence
 {

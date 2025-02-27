@@ -1,8 +1,6 @@
 ﻿using DiscordRPC;
-using MultiPresence.Models.MMBN6;
 using MultiPresence.Models.RE4;
 using System.Diagnostics;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace MultiPresence.Presence
 {

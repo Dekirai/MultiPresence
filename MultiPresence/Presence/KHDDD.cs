@@ -1,6 +1,5 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.KHDDD;
-using System;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
