@@ -78,7 +78,7 @@ namespace MultiPresence.Presence
                     }
                 }
 
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

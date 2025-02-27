@@ -44,6 +44,10 @@ Here is a video showcasing how placeholders work:
 |--|--|--|
 |Call of Duty ²|[Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)||
 |Crisis Core -Final Fantasy VII- Reunion|[Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)||
+|Dark Souls Remastered|[Steam](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/)||
+|Dark Souls II SotFS|[Steam](https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/)||
+|Dark Souls III|[Steam](https://store.steampowered.com/app/374320/DARK_SOULS_III/)||
+|Elden Ring|[Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)|Only with EAC disabled|
 |Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||
 |Final Fantasy VII Remake|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
 |Final Fantasy XVI|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|

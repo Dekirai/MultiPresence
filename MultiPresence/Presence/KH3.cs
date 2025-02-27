@@ -87,7 +87,7 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
                 }
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

@@ -65,7 +65,7 @@ namespace MultiPresence.Presence
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 6", placeholders, "Cutscene");
                 }
 
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

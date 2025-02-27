@@ -18,6 +18,10 @@ namespace MultiPresence
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_ffviirb = Process.GetProcessesByName("ff7rebirth_");
             var game_ffxvi = Process.GetProcessesByName("ffxvi");
+            var game_dsr = Process.GetProcessesByName("DarkSoulsRemastered");
+            var game_dsii = Process.GetProcessesByName("DarkSoulsII");
+            var game_dsiii = Process.GetProcessesByName("DarkSoulsIII");
+            var game_er = Process.GetProcessesByName("eldenring");
             var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
             var game_hk = Process.GetProcessesByName("Hello Kitty");
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
@@ -31,6 +35,7 @@ namespace MultiPresence
             var game_mm11 = Process.GetProcessesByName("game");
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
             var game_msmmm = Process.GetProcessesByName("MilesMorales");
+            var game_eac = Process.GetProcessesByName("EasyAntiCheat_EOS");
             var game_msmr = Process.GetProcessesByName("Spider-Man");
             var game_msm2 = Process.GetProcessesByName("Spider-Man2");
             var game_ow = Process.GetProcessesByName("Overwatch");
@@ -55,6 +60,12 @@ namespace MultiPresence
                 game = "Gunfire Reborn";
             else if (game_ccffvii.Length > 0)
                 game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
+            else if (game_dsr.Length > 0)
+                game = "Dark Souls: Remastered";
+            else if (game_dsii.Length > 0)
+                game = "Dark Souls II";
+            else if (game_dsiii.Length > 0)
+                game = "Dark Souls III";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";
             else if (game_ffviirb.Length > 0)
@@ -172,6 +183,11 @@ namespace MultiPresence
                 game = "Vampire Survivors";
             else if (game_vom.Length > 0)
                 game = "Visions of Mana";
+            else if (game_er.Length > 0)
+            {
+                if (game_eac.Length == 0)
+                    game = "Elden Ring";
+            }
 
             return game;
         }

@@ -8,6 +8,14 @@ namespace MultiPresence
         public bool CallofDuty { get; set; }
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
+        [JsonProperty("Dark Souls: Remastered")]
+        public bool DarkSoulsRemastered { get; set; }
+        [JsonProperty("Dark Souls II")]
+        public bool DarkSoulsII { get; set; }
+        [JsonProperty("Dark Souls III")]
+        public bool DarkSoulsIII { get; set; }
+        [JsonProperty("Elden Ring")]
+        public bool EldenRing { get; set; }
         [JsonProperty("Final Fantasy VII Rebirth")]
         public bool FinalFantasyVIIRebirth { get; set; }
         [JsonProperty("Final Fantasy VII Remake")]

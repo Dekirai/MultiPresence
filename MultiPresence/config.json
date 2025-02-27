@@ -52,6 +52,62 @@
         "Button2URL": ""
       }
     },
+    "Dark Souls: Remastered": {
+      "Default": {
+        "Details": "Lv. {level} - {class}",
+        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Dark Souls: Remastered",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Dark Souls II": {
+      "Default": {
+        "Details": "Lv. {level} - {class}",
+        "State": "{hp}/{maxhp} HP",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Dark Souls II",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Dark Souls III": {
+      "Default": {
+        "Details": "Lv. {level} - {class}",
+        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Dark Souls III",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Elden Ring": {
+      "Default": {
+        "Details": "Lv. {level} - {class}",
+        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "ELDEN RING",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Final Fantasy VII Rebirth": {
       "Default": {
         "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",

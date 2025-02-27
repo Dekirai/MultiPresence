@@ -52,7 +52,7 @@ namespace MultiPresence.Presence
                 discord.UpdateDetails($"Health: {hearts} ❤ | Rupees: {rupees}");
                 discord.UpdateState($"{realstage}");
 
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

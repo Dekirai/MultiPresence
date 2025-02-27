@@ -276,14 +276,15 @@ namespace MultiPresence
         }
 
         /// <summary>
-        /// Reads a string from a memory address.
+        /// Reads a string from a memory address, with optional Unicode support.
         /// </summary>
         /// <param name="Address">The address of the string to read.</param>
         /// <param name="length">The maximum length of the string to read.</param>
         /// <param name="Absolute">If the address is absolute, false by default.</param>
         /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
+        /// <param name="IsUnicode">If true, reads the string as Unicode (UTF-16). Default is false (UTF-8).</param>
         /// <returns>The string read from memory.</returns>
-        public static string ReadString(ulong Address, int length, bool Absolute = false, string? ModuleName = null)
+        public static string ReadString(ulong Address, int length, bool Absolute = false, string? ModuleName = null, bool IsUnicode = false)
         {
             var _address = (IntPtr)Address;
 
@@ -301,25 +302,42 @@ namespace MultiPresence
 
             ReadProcessMemory(Handle, _address, buffer, length, ref bytesRead);
 
-            // Find the first occurrence of the string terminator (\0)
-            int terminatorIndex = Array.IndexOf(buffer, (byte)0);
-            if (terminatorIndex >= 0) // If \0 is found
-            {
-                return Encoding.UTF8.GetString(buffer, 0, terminatorIndex); // Only decode up to the terminator
-            }
+            if (bytesRead == 0)
+                return string.Empty;
 
-            // If no \0 is found, return the whole string trimmed
-            return Encoding.UTF8.GetString(buffer).TrimEnd('\0');
+            if (IsUnicode)
+            {
+                for (int i = 0; i < bytesRead - 1; i += 2)
+                {
+                    if (buffer[i] == 0 && buffer[i + 1] == 0)
+                    {
+                        bytesRead = i;
+                        break;
+                    }
+                }
+
+                return Encoding.Unicode.GetString(buffer, 0, bytesRead);
+            }
+            else
+            {
+                // Find the first single-byte null terminator
+                int terminatorIndex = Array.IndexOf(buffer, (byte)0);
+                if (terminatorIndex >= 0)
+                    bytesRead = terminatorIndex;
+
+                return Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            }
         }
 
-
         /// <summary>
-        /// Writes a string to a memory address.
+        /// Writes a string to a memory address, with optional Unicode support.
         /// </summary>
         /// <param name="Address">The address to write the string to.</param>
         /// <param name="value">The string to write.</param>
         /// <param name="Absolute">If the address is absolute, false by default.</param>
-        public static void WriteString(ulong Address, string value, bool Absolute = false, string? ModuleName = null)
+        /// <param name="ModuleName">The name of the module to write to. Defaults to main executable.</param>
+        /// <param name="IsUnicode">If true, writes the string as Unicode (UTF-16). Default is false (UTF-8).</param>
+        public static void WriteString(ulong Address, string value, bool Absolute = false, string? ModuleName = null, bool IsUnicode = false)
         {
             var _address = (IntPtr)Address;
 
@@ -332,9 +350,18 @@ namespace MultiPresence
                 _address = (IntPtr)(baseAddress + Address);
             }
 
-            var buffer = Encoding.UTF8.GetBytes(value + '\0');
-            int bytesWritten = 0;
+            byte[] buffer;
 
+            if (IsUnicode)
+            {
+                buffer = Encoding.Unicode.GetBytes(value + '\0');
+            }
+            else
+            {
+                buffer = Encoding.UTF8.GetBytes(value + '\0');
+            }
+
+            int bytesWritten = 0;
             WriteProcessMemory(Handle, _address, buffer, buffer.Length, ref bytesWritten);
         }
 

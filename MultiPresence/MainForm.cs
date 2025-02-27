@@ -182,6 +182,26 @@ namespace MultiPresence
                         CCFFVII.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Dark Souls: Remastered":
+                        Balloon(game);
+                        DSR.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Dark Souls II":
+                        Balloon(game);
+                        DSII.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Dark Souls III":
+                        Balloon(game);
+                        DSIII.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Elden Ring":
+                        Balloon(game);
+                        ER.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Gunfire Reborn":
                         Balloon(game);
                         await GFR.DoAction();

@@ -57,7 +57,7 @@ namespace MultiPresence.Presence
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 6", placeholders);
                     }
-                    await Task.Delay(3000);
+                    await Task.Delay(300);
                     Thread thread = new Thread(RPC);
                     thread.Start();
                 }

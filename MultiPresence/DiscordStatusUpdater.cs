@@ -19,6 +19,26 @@ public class DiscordStatusUpdater
             { "Mission", new GameDetails { Details = "[In Mission] Lv. {level} ({difficulty})}", State = "HP: {hp_mission}/{maxhp_mission} | MP: {mp_mission}/{maxmp_mission}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Dark Souls: Remastered", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - {class}", State = "{hp}/{maxhp} HP - {mp}/{maxmp} MP", LargeAsset = "logo", LargeAssetText = "Dark Souls: Remastered", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Dark Souls II", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - {class}", State = "{hp}/{maxhp} HP", LargeAsset = "logo", LargeAssetText = "Dark Souls II", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Dark Souls III", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - {class}", State = "{hp}/{maxhp} HP - {mp}/{maxmp} MP", LargeAsset = "logo", LargeAssetText = "Dark Souls III", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Elden Ring", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - {class}", State = "{hp}/{maxhp} HP - {mp}/{maxmp} MP", LargeAsset = "logo", LargeAssetText = "ELDEN RING", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Final Fantasy VII Remake", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Remake", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

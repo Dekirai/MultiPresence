@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("SorR");
             if (game.Length > 0)
             {
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
