@@ -374,6 +374,20 @@
         "Button2URL": ""
       }
     },
+    "Lies of P": {
+      "Default": {
+        "Details": "Lv. {level} - {deaths} Deaths",
+        "State": "{hp}/{maxhp} HP - {fable}/{maxfable} Fable",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Lies of P",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
     "Marvel's Spider-Man Remastered": {
       "Default": {
         "Details": "Health: {health} (Level {level})",

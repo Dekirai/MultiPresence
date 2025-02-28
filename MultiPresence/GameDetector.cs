@@ -32,6 +32,7 @@ namespace MultiPresence
             var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
             var game_khcom = Process.GetProcessesByName("KINGDOM HEARTS Re_Chain of Memories");
             var game_lr = Process.GetProcessesByName("Labyrinthine");
+            var game_lop = Process.GetProcessesByName("LOP-Win64-Shipping");
             var game_mm11 = Process.GetProcessesByName("game");
             var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
             var game_msmmm = Process.GetProcessesByName("MilesMorales");
@@ -134,6 +135,8 @@ namespace MultiPresence
                 game = "Kingdom Hearts Re:Chain of Memories";
             else if (game_lr.Length > 0)
                 game = "Labyrinthine";
+            else if (game_lop.Length > 0)
+                game = "Lies of P";
             else if (game_mm11.Length > 0)
             {
                 var title = Process.GetProcessesByName("game").FirstOrDefault();

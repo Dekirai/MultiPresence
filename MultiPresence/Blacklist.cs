@@ -36,6 +36,8 @@ namespace MultiPresence
         public bool KingdomHeartsIII { get; set; }
         [JsonProperty("Labyrinthine")]
         public bool Labyrinthine { get; set; }
+        [JsonProperty("Lies of P")]
+        public bool LiesofP { get; set; }
         [JsonProperty("Marvel's Spider-Man Remastered")]
         public bool MarvelsSpiderManRemastered { get; set; }
         [JsonProperty("Marvel's Spider-Man 2")]

@@ -91,6 +91,11 @@ public class DiscordStatusUpdater
             { "In_World", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "{room}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Lies of P", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - {deaths} Deaths", State = "{hp}/{maxhp} HP - {fable}/{maxfable} Fable", LargeAsset = "logo", LargeAssetText = "Lies of P", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Marvel's Spider-Man Remastered", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man Remastered", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

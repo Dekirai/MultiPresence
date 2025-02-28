@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "27.02.2025";
+        private static readonly string currentVersion = "28.02.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -105,6 +105,7 @@ namespace MultiPresence
             }
             catch (Exception ex)
             {
+                BalloonUpdate("Failed to update MultiPresence!");
                 MessageBox.Show($"Error checking for updates: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -265,6 +266,11 @@ namespace MultiPresence
                     case "Labyrinthine":
                         Balloon(game);
                         LR.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Lies of P":
+                        Balloon(game);
+                        LOP.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Mega Man 11":
