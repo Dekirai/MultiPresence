@@ -26,6 +26,8 @@ namespace MultiPresence
         public bool GunfireReborn { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
+        [JsonProperty("Kingdom Hearts Re:Chain of Memories")]
+        public bool KingdomHeartsReChainofMemories { get; set; }
         [JsonProperty("Kingdom Hearts Dream Drop Distance")]
         public bool KingdomHeartsDreamDropDistance { get; set; }
         [JsonProperty("Kingdom Hearts Final Mix")]
@@ -109,6 +111,8 @@ namespace MultiPresence
                     return GunfireReborn;
                 case "Kingdom Hearts Birth by Sleep Final Mix":
                     return KingdomHeartsBirthBySleepFinalMix;
+                case "Kingdom Hearts Re:Chain of Memories":
+                    return KingdomHeartsReChainofMemories;
                 case "Kingdom Hearts Dream Drop Distance":
                     return KingdomHeartsDreamDropDistance;
                 case "Kingdom Hearts Final Mix":

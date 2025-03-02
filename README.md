@@ -75,7 +75,6 @@ Here is a video showcasing how placeholders work:
 |Resident Evil Revelations 2|[Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)|Raid Mode only|
 |Sonic Adventure DX|[Steam](https://store.steampowered.com/app/71250/Sonic_Adventure_DX/)|Probably won't work with mods|
 |Sonic Adventure 2|[Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)| |
-|Streets of Rage Remake|[Windows](https://sorr.forumotion.net/t838-new-streets-of-rage-remake-v5-2-download-and-info)|Only game detection|
 |Temtem: Swarm ²|[Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)||
 |TY the Tasmanian Tiger|[Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)| |
 |Vampire Survivors|[Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)| |
