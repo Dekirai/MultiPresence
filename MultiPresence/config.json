@@ -734,8 +734,8 @@
     },
     "Resident Evil 5": {
       "Default": {
-        "Details": "{chapter}",
-        "State": "{room}",
+        "Details": "{chapter} - {room}",
+        "State": "{item} - {ammo}/{pouch} Ammo",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Resident Evil 5",

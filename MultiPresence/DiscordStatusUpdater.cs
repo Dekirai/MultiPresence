@@ -159,7 +159,7 @@ public class DiscordStatusUpdater
     },
     { "Resident Evil 5", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "{chapter}", State = "{room}", LargeAsset = "logo", LargeAssetText = "Resident Evil 5", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{chapter} - {room}", State = "{item} - {ammo}/{pouch} Ammo", LargeAsset = "logo", LargeAssetText = "Resident Evil 5", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Resident Evil 6", new Dictionary<string, GameDetails>
