@@ -38,7 +38,9 @@ namespace MultiPresenceGame
                 Assets = new Assets()
                 {
                     LargeImageKey = updater.UpdateLargeAsset(gameName, placeholders, state),
-                    LargeImageText = updater.UpdateLargeAssetText(gameName, placeholders, state)
+                    LargeImageText = updater.UpdateLargeAssetText(gameName, placeholders, state),
+                    SmallImageKey = updater.UpdateSmallAsset(gameName, placeholders, state),
+                    SmallImageText = updater.UpdateSmallAssetText(gameName, placeholders, state)
                 },
                 Timestamps = _startTimestamp,
                 Buttons = buttons.Count > 0 ? buttons.ToArray() : null

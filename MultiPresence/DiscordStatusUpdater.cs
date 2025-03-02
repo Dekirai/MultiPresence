@@ -177,16 +177,16 @@ public class DiscordStatusUpdater
             { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})", LargeAsset = "logo", LargeAssetText = "Resident Evil Revelations 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Sonic Adventure 2", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "In Main Menu", State = "", LargeAsset = "logo", LargeAssetText = "Sonic Adventure 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Ingame", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
     { "Sonic Adventure DX", new Dictionary<string, GameDetails>
         {
             { "Adventure Field", new GameDetails { Details = "In Adventure Field", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Level", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Sonic Adventure 2", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "In Main Menu", State = "", LargeAsset = "logo", LargeAssetText = "Sonic Adventure 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "TY The Tasmanian Tiger", new Dictionary<string, GameDetails>
