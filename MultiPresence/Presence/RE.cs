@@ -39,12 +39,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("bhd");
             if (game.Length > 0)
             {
-                int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x314]), true);
-                int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x318]), true);
-                int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x97C9C0, [0x5118]), true);
-                var stagevalue = await Stages.GetStage(floor_get);
-
-                string[] stage = stagevalue[stage_get].Split(':');
+                int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE472C]), true);
 
                 if (floor_get > 0)
                 {
@@ -53,13 +48,20 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
-                    discord.UpdateDetails("In Main Menu");
-                    discord.UpdateState("");
-                    discord.UpdateLargeAsset("");
-                    discord.UpdateSmallAsset("");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Resident Evil"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -72,14 +74,34 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x314]), true);
-            int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x0098A0B0, [0x74, 0x1C, 0x48, 0x4, 0x318]), true);
+            int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE472C]), true);
+            int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE4730]), true);
             int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x97C9C0, [0x5118]), true);
+            int health = Hypervisor.Read<int>(0x2E5D470C, true);
+            int weapon_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0x80]), true);
+            int ammoclip = Hypervisor.Read<int>(0x2E5FF8BC, true);
+            int maxammoclip = Hypervisor.Read<int>(0x2E5FF8C0, true);
+            int maxhealth = Hypervisor.Read<int>(0x2E5D4710, true);
             var stagevalue = await Stages.GetStage(floor_get);
             string character = "";
             string character_icon = "";
 
-            string[] stage = stagevalue[stage_get].Split(':');
+            string weapon = await Weapons.GetWeapon(weapon_get);
+
+            string healthstatus = "";
+
+            double percentage = (double)health / maxhealth * 100;
+
+            if (percentage > 75)
+                healthstatus = "Fine";
+            else if (percentage > 50)
+                healthstatus = "Caution";
+            else if (percentage > 25)
+                healthstatus = "Caution";
+            else
+                healthstatus = "Danger";
+
+        string[] stage = stagevalue[stage_get].Split(':');
 
             if (character_get == 0)
             {
@@ -102,20 +124,19 @@ namespace MultiPresence.Presence
                 { "floor", stage[0] },
                 { "room", stage[1] },
                 { "character", character },
-                { "character_icon", character_icon }
+                { "character_icon", character_icon },
+                { "health", health },
+                { "maxhealth", maxhealth },
+                { "healthstatus", healthstatus },
+                { "weapon", weapon },
+                { "ammoclip", ammoclip },
+                { "maxammoclip", maxammoclip }
             };
         }
 
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

@@ -58,12 +58,20 @@ namespace MultiPresence.Presence
                 }
                 else
                 {
-                    discord.UpdateLargeAsset($"logo", $"Resident Evil Revelations 2");
-                    discord.UpdateDetails($"");
-                    discord.UpdateState($"");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Resident Evil Revelations 2"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -100,13 +108,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

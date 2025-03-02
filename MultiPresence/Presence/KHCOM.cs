@@ -44,9 +44,17 @@ namespace MultiPresence.Presence
                 {
                     if (world_get == 255)
                     {
-                        discord.UpdateLargeAsset($"logo", $"Main Menu");
-                        discord.UpdateState($"Main Menu");
-                        discord.UpdateDetails("");
+                        discord.SetPresence(new RichPresence()
+                        {
+                            Details = "In Main Menu",
+                            State = "",
+                            Assets = new Assets()
+                            {
+                                LargeImageKey = "logo",
+                                LargeImageText = "Kingdom Hearts Re:Chain of Memories"
+                            },
+                            Timestamps = PlaceholderHelper._startTimestamp
+                        });
                     }
                     else
                     {
@@ -64,12 +72,20 @@ namespace MultiPresence.Presence
                 }
                 catch
                 {
-                    discord.UpdateLargeAsset("logo", "Kingdom Hearts Re:Chain of Memories");
-                    discord.UpdateDetails("In Main Menu");
-                    discord.UpdateState("");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Kingdom Hearts Re:Chain of Memories"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -104,13 +120,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

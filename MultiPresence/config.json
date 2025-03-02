@@ -596,8 +596,8 @@
     },
     "Resident Evil": {
       "Default": {
-        "Details": "{floor}",
-        "State": "{room}",
+        "Details": "{floor} - {room}",
+        "State": "Status: {healthstatus} - Weapon: {weapon}",
         "LargeAsset": "logo",
         "SmallAsset": "{character_icon}",
         "LargeAssetText": "Resident Evil",
@@ -848,6 +848,32 @@
         "Button2URL": ""
       },
       "Ingame": {
+        "Details": "Rings: {rings} - Lives: {lives}",
+        "State": "{level}",
+        "LargeAsset": "{character_icon}",
+        "SmallAsset": "",
+        "LargeAssetText": "Playing as {character}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Sonic Adventure DX": {
+      "Adventure Field": {
+        "Details": "In Adventure Field",
+        "State": "{level}",
+        "LargeAsset": "{character_icon}",
+        "SmallAsset": "",
+        "LargeAssetText": "Playing as {character}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Level": {
         "Details": "Rings: {rings} - Lives: {lives}",
         "State": "{level}",
         "LargeAsset": "{character_icon}",

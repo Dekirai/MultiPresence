@@ -119,13 +119,6 @@ namespace MultiPresenceGame.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

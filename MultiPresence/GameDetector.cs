@@ -47,8 +47,8 @@ namespace MultiPresence
             var game_re5 = Process.GetProcessesByName("re5dx9");
             var game_re6 = Process.GetProcessesByName("BH6");
             var game_rev2 = Process.GetProcessesByName("rerev2");
+            var game_sadx = Process.GetProcessesByName("Sonic Adventure DX");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
-            var game_sorr = Process.GetProcessesByName("SorR");
             var game_tts = Process.GetProcessesByName("TemtemSwarm");
             var game_ty = Process.GetProcessesByName("TY");
             var game_vs = Process.GetProcessesByName("VampireSurvivors");
@@ -176,8 +176,8 @@ namespace MultiPresence
                 game = "Resident Evil Revelations 2";
             else if (game_sa2.Length > 0)
                 game = "Sonic Adventure 2";
-            else if (game_sorr.Length > 0)
-                game = "Streets of Rage Remake";
+            else if (game_sadx.Length > 0)
+                game = "Sonic Adventure DX";
             else if (game_tts.Length > 0)
                 game = "Temtem: Swarm";
             else if (game_ty.Length > 0)

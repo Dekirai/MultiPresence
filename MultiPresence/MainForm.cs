@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "28.02.2025";
+        private static readonly string currentVersion = "02.03.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -288,6 +288,11 @@ namespace MultiPresence
                         RE4R.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Sonic Adventure DX":
+                        Balloon(game);
+                        SADX.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "Sonic Adventure 2":
                         Balloon(game);
                         SA2.DoAction();
@@ -361,11 +366,6 @@ namespace MultiPresence
                     case "Mega Man Battle Network 6: Cybeast Falzar":
                         Balloon(game);
                         MMBN6F.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Streets of Rage Remake":
-                        Balloon(game);
-                        SORR.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Temtem: Swarm":

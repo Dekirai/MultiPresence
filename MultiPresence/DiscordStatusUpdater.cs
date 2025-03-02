@@ -137,7 +137,7 @@ public class DiscordStatusUpdater
     },
     { "Resident Evil", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "{floor}", State = "{room}", LargeAsset = "logo", LargeAssetText = "Resident Evil", SmallAsset = "{character_icon}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Default", new GameDetails { Details = "{floor} - {room}", State = "Status: {healthstatus} - Weapon: {weapon}", LargeAsset = "logo", LargeAssetText = "Resident Evil", SmallAsset = "{character_icon}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
         }
     },
     { "Resident Evil 4 (2005)", new Dictionary<string, GameDetails>
@@ -181,6 +181,12 @@ public class DiscordStatusUpdater
         {
             { "Default", new GameDetails { Details = "In Main Menu", State = "", LargeAsset = "logo", LargeAssetText = "Sonic Adventure 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Ingame", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Sonic Adventure DX", new Dictionary<string, GameDetails>
+        {
+            { "Adventure Field", new GameDetails { Details = "In Adventure Field", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Level", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "TY The Tasmanian Tiger", new Dictionary<string, GameDetails>

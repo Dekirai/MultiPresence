@@ -32,7 +32,7 @@ namespace MultiPresence.Presence
             {
                 Process[] game = Process.GetProcessesByName("Labyrinthine");
                 if (game.Length > 0)
-                    await Task.Delay(300); // Wait before checking again
+                    await Task.Delay(1000); // Wait before checking again
                 else
                 {
                     MainForm.gameUpdater.Start();

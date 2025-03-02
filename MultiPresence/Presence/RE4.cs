@@ -76,7 +76,7 @@ namespace MultiPresence.Presence
                     }
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -135,13 +135,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

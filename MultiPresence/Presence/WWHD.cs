@@ -1,6 +1,8 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.WWHD;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MultiPresence.Presence
 {
@@ -48,11 +50,19 @@ namespace MultiPresence.Presence
                 Array.Reverse(getbytes);
                 int rupees = BitConverter.ToInt16(getbytes, 2);
 
-                discord.UpdateLargeAsset("name", $"The Legend of Zelda: The Wind Waker HD");
-                discord.UpdateDetails($"Health: {hearts} ❤ | Rupees: {rupees}");
-                discord.UpdateState($"{realstage}");
+                discord.SetPresence(new RichPresence()
+                {
+                    Details = $"Health: {hearts} ❤️ | Rupees: {rupees}",
+                    State = $"{realstage}",
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "name",
+                        LargeImageText = "The Legend of Zelda: The Wind Waker HD"
+                    },
+                    Timestamps = PlaceholderHelper._startTimestamp
+                });
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -66,13 +76,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

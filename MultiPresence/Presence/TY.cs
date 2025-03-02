@@ -46,7 +46,6 @@ namespace MultiPresence.Presence
 
                     levelvalue = await Levels.GetLevel(level);
 
-                    discord.UpdateLargeAsset($"logo", $"TY the Tasmanian Tiger");
                     if (level == 4 || level == 5 || level == 6 || level == 8 || level == 9 || level == 10 || level == 12 || level == 13 || level == 14)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
@@ -58,7 +57,7 @@ namespace MultiPresence.Presence
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders);
                     }
 
-                    await Task.Delay(300);
+                    await Task.Delay(1000);
                 }
                 else
                 {
@@ -89,13 +88,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

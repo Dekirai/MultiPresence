@@ -64,21 +64,34 @@ namespace MultiPresence.Presence
 
                 if (location == "Opening Scene" || location == "Name Scene")
                 {
-                    discord.UpdateLargeAsset("logo", $"The Legend of Zelda: Twilight Princess HD");
-                    discord.UpdateDetails($"At the Title Sceen");
-                    discord.UpdateState($"");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "The Legend of Zelda: Twilight Princess HD"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
                 else
                 {
-                    if (form == 0)
-                        discord.UpdateLargeAsset("link", "In Human Form");
-                    else
-                        discord.UpdateLargeAsset("wolf", "In Wolf Form");
-                    discord.UpdateDetails($"Health: {hearts}/{hearts_max} ❤️ | Rupees: {rupees}");
-                    discord.UpdateState($"{realstage} | Poes: {poes}/60");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = $"Health: {hearts}/{hearts_max} ❤️ | Rupees: {rupees}",
+                        State = $"{realstage} | Poes: {poes}/60",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = form == 0 ? "link" : "wolf",
+                            LargeImageText = form == 0 ? "In Human Form" : "In Wolf Form"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -92,13 +105,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

@@ -53,9 +53,17 @@ namespace MultiPresence.Presence
 
                     if (world[0] == "Main Menu")
                     {
-                        discord.UpdateLargeAsset("logo", "Kingdom Hearts III");
-                        discord.UpdateDetails($"In Main Menu");
-                        discord.UpdateState("");
+                        discord.SetPresence(new RichPresence()
+                        {
+                            Details = "In Main Menu",
+                            State = "",
+                            Assets = new Assets()
+                            {
+                                LargeImageKey = "logo",
+                                LargeImageText = "Kingdom Hearts III"
+                            },
+                            Timestamps = PlaceholderHelper._startTimestamp
+                        });
                     }
                     else
                     {
@@ -86,7 +94,7 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
                 }
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -120,13 +128,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

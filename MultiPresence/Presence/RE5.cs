@@ -46,9 +46,21 @@ namespace MultiPresence.Presence
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 5", placeholders);
                 }
                 else
-                    discord.UpdateDetails("In Main Menu");
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Resident Evil 5"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
+                }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -61,17 +73,28 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x00DB2158, [0x273D8]), true);
-            int chris_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x24, 0x1364]), true);
-            int sheva_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x28, 0x1364]), true);
+            int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xDB2158, [0x273D8]), true);
+            int money = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xDB2158, [0x1C0]), true);
+            int chris_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0xDB27DC, [0x24, 0x1364]), true);
+            int sheva_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0xDB27DC, [0x28, 0x1364]), true);
+            int item_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xE340B0, [0x38C, 0x104]), true);
+            int item_ammo = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xE340B0, [0x38C, 0x108]), true);
+            int item_maxammo = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xE340B0, [0x38C, 0x118]), true);
+            int item_pouch = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xE340B0, [0x38C, 0x120]), true);
             var stagevalue = await Stages.GetStage(stage_get);
 
             string[] stage = stagevalue.Split(':');
+            string item = await Weapons.GetWeapon(item_get);
 
             return new Dictionary<string, object>
             {
                 { "chapter", stage[0] },
                 { "room", stage[1] },
+                { "money", money },
+                { "item", item },
+                { "ammo", item_ammo },
+                { "maxammo", item_maxammo },
+                { "pouch", item_pouch },
                 { "chris_health", chris_health },
                 { "sheva_health", sheva_health }
             };
@@ -80,13 +103,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }

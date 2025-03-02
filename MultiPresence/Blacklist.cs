@@ -68,8 +68,8 @@ namespace MultiPresence
         public bool ResidentEvilRevelations2 { get; set; }
         [JsonProperty("Sonic Adventure 2")]
         public bool SonicAdventure2 { get; set; }
-        [JsonProperty("Streets of Rage Remake")]
-        public bool StreetsofRageRemake { get; set; }
+        [JsonProperty("Sonic Adventure DX")]
+        public bool SonicAdventureDX { get; set; }
         [JsonProperty("Temtem: Swarm")]
         public bool TemtemSwarm { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
@@ -87,10 +87,26 @@ namespace MultiPresence
         {
             switch (gameTitle)
             {
+                case "Call of Duty®":
+                    return CallofDuty;
                 case "CRISIS CORE –FINAL FANTASY VII– REUNION":
                     return CrisisCoreFinalFantasyVIIReunion;
+                case "Dark Souls: Remastered":
+                    return DarkSoulsRemastered;
+                case "Dark Souls II":
+                    return DarkSoulsII;
+                case "Dark Souls III":
+                    return DarkSoulsIII;
+                case "Elden Ring":
+                    return EldenRing;
+                case "Final Fantasy VII Rebirth":
+                    return FinalFantasyVIIRebirth;
                 case "Final Fantasy VII Remake":
                     return FinalFantasyVIIRemake;
+                case "Final Fantasy XVI":
+                    return FinalFantasyXVI;
+                case "Gunfire Reborn":
+                    return GunfireReborn;
                 case "Kingdom Hearts Birth by Sleep Final Mix":
                     return KingdomHeartsBirthBySleepFinalMix;
                 case "Kingdom Hearts Dream Drop Distance":
@@ -101,6 +117,16 @@ namespace MultiPresence
                     return KingdomHeartsIIFinalMix;
                 case "Kingdom Hearts III":
                     return KingdomHeartsIII;
+                case "Labyrinthine":
+                    return Labyrinthine;
+                case "Lies of P":
+                    return LiesofP;
+                case "Marvel's Spider-Man Remastered":
+                    return MarvelsSpiderManRemastered;
+                case "Marvel's Spider-Man 2":
+                    return MarvelsSpiderMan2;
+                case "Marvel's Spider-Man: Miles Morales":
+                    return MarvelsSpiderManMilesMorales;
                 case "Mega Man 11":
                     return MegaMan11;
                 case "Mega Man Battle Network 6: Cybeast Gregar":
@@ -115,6 +141,8 @@ namespace MultiPresence
                     return ResidentEvil;
                 case "Resident Evil 4 (2005)":
                     return ResidentEvil42005;
+                case "Resident Evil 4 Remake":
+                    return ResidentEvil4Remake;
                 case "Resident Evil 5":
                     return ResidentEvil5;
                 case "Resident Evil 6":
@@ -123,8 +151,10 @@ namespace MultiPresence
                     return ResidentEvilRevelations2;
                 case "Sonic Adventure 2":
                     return SonicAdventure2;
-                case "Streets of Rage Remake":
-                    return StreetsofRageRemake;
+                case "Sonic Adventure DX":
+                    return SonicAdventureDX;
+                case "Temtem: Swarm":
+                    return TemtemSwarm;
                 case "TY the Tasmanian Tiger":
                     return TYTheTasmanianTiger;
                 case "Zelda: The Wind Waker HD":
@@ -139,5 +169,6 @@ namespace MultiPresence
                     return false;
             }
         }
+
     }
 }

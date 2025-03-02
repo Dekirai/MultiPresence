@@ -47,19 +47,35 @@ namespace MultiPresence.Presence
                     }
                     else
                     {
-                        discord.UpdateLargeAsset("logo", "Lies of P");
-                        discord.UpdateDetails("In Main Menu");
-                        discord.UpdateState("");
+                        discord.SetPresence(new RichPresence()
+                        {
+                            Details = "In Main Menu",
+                            State = "",
+                            Assets = new Assets()
+                            {
+                                LargeImageKey = "logo",
+                                LargeImageText = "Lies of P"
+                            },
+                            Timestamps = PlaceholderHelper._startTimestamp
+                        });
                     }
                 }
                 catch
                 {
-                    discord.UpdateLargeAsset("logo", "Lies of P");
-                    discord.UpdateDetails("In Main Menu");
-                    discord.UpdateState("");
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Lies of P"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
 
-                await Task.Delay(300);
+                await Task.Delay(1000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -113,13 +129,6 @@ namespace MultiPresence.Presence
         private static void InitializeDiscord()
         {
             discord.Initialize();
-            discord.SetPresence(new RichPresence()
-            {
-                Timestamps = new Timestamps()
-                {
-                    Start = DateTime.UtcNow.AddSeconds(1)
-                }
-            });
         }
     }
 }
