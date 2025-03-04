@@ -90,12 +90,12 @@ namespace MultiPresence
                         }
                         else
                         {
-                            Console.WriteLine($"Failed to fetch the latest release info. Status: {response.StatusCode}");
+                            MessageBox.Show($"Failed to fetch the latest release info. Status: {response.StatusCode}");
                         }
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error: {ex.Message}");
+                        MessageBox.Show($"Error: {ex.Message}");
                     }
                 }
             }

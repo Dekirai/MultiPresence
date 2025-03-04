@@ -152,9 +152,9 @@ public class DiscordStatusUpdater
     { "Resident Evil 4", new Dictionary<string, GameDetails>
         {
             { "Main Menu", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Main Story", new GameDetails { Details = "{state} - {difficulty}", State = "Health: {healthpercentage}% - Chapter {chapter}", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Separate Ways", new GameDetails { Details = "", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Mercenaries", new GameDetails { Details = "", State = "", LargeAsset = "", LargeAssetText = "", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Main Story", new GameDetails { Details = "{state} - {difficulty}", State = "Health: {healthpercentage}% - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Resident Evil 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Separate Ways", new GameDetails { Details = "{state} - {difficulty}", State = "Health: {healthpercentage}% - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Resident Evil 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Mercenaries", new GameDetails { Details = "{state} - {map}", State = "", LargeAsset = "{character} - Score: {score}", LargeAssetText = "", SmallAsset = "logo", SmallAssetText = "Resident Evil 4", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Resident Evil 5", new Dictionary<string, GameDetails>
