@@ -696,11 +696,11 @@
         "Button2URL": ""
       },
       "Separate Ways": {
-        "Details": "",
-        "State": "",
-        "LargeAsset": "",
+        "Details": "{state} - {difficulty}",
+        "State": "Health: {healthpercentage}% - Chapter {chapter}",
+        "LargeAsset": "logo",
         "SmallAsset": "",
-        "LargeAssetText": "",
+        "LargeAssetText": "Resident Evil 4",
         "SmallAssetText": "",
         "Button1Text": "",
         "Button1URL": "",
@@ -708,8 +708,8 @@
         "Button2URL": ""
       },
       "Mercenaries": {
-        "Details": "",
-        "State": "",
+        "Details": "{state} - {map}",
+        "State": "{character} - Score: {score}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Resident Evil 4",
@@ -734,8 +734,8 @@
     },
     "Resident Evil 5": {
       "Default": {
-        "Details": "{chapter} - {room}",
-        "State": "{item} - {ammo}/{pouch} Ammo",
+        "Details": "{chapter}",
+        "State": "{room}",
         "LargeAsset": "logo",
         "SmallAsset": "",
         "LargeAssetText": "Resident Evil 5",
@@ -834,32 +834,6 @@
         "Button2URL": ""
       }
     },
-    "Sonic Adventure DX": {
-      "Adventure Field": {
-        "Details": "In Adventure Field",
-        "State": "{level}",
-        "LargeAsset": "{character_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Playing as {character}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Level": {
-        "Details": "Rings: {rings} - Lives: {lives}",
-        "State": "{level}",
-        "LargeAsset": "{character_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Playing as {character}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
     "Sonic Adventure 2": {
       "Default": {
         "Details": "In Main Menu",
@@ -874,6 +848,32 @@
         "Button2URL": ""
       },
       "Ingame": {
+        "Details": "Rings: {rings} - Lives: {lives}",
+        "State": "{level}",
+        "LargeAsset": "{character_icon}",
+        "SmallAsset": "",
+        "LargeAssetText": "Playing as {character}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    },
+    "Sonic Adventure DX": {
+      "Adventure Field": {
+        "Details": "In Adventure Field",
+        "State": "{level}",
+        "LargeAsset": "{character_icon}",
+        "SmallAsset": "",
+        "LargeAssetText": "Playing as {character}",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      },
+      "Level": {
         "Details": "Rings: {rings} - Lives: {lives}",
         "State": "{level}",
         "LargeAsset": "{character_icon}",
