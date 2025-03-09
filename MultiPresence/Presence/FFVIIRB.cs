@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ff7rebirth_");
             if (game.Length > 0)
             {
-                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086ECCF0, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
+                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086E86B0, [0x6A0, 0x40, 0x48, 0x3A8, 0x878]), true);
                 if (hp > 0)
                 {
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
