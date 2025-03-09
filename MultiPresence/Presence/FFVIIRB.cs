@@ -75,7 +75,7 @@ namespace MultiPresence.Presence
             int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086E86B0, [0x6A0, 0x40, 0x48, 0x3A8, 0x87C]), true);
             int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086E86B0, [0x6A0, 0x40, 0x48, 0x3A8, 0x880]), true);
             int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086E86B0, [0x6A0, 0x40, 0x48, 0x3A8, 0x884]), true);
-            int chapter = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x0926F0E0, [0x20]), true);
+            int chapter = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x092714D0, [0x20]), true);
 
             return new Dictionary<string, object>
             {
