@@ -1,1006 +1,1020 @@
 {
-  "Games": {
-    "Call of Duty®": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Call of Duty®",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Zombies": {
-        "Details": "Playing {mode}",
-        "State": "Surviving on {map}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Call of Duty®",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "CRISIS CORE –FINAL FANTASY VII– REUNION": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Mission": {
-        "Details": "[In Mission] Lv. {level} ({difficulty})",
-        "State": "HP: {hp_mission}/{maxhp_mission} - MP: {mp_mission}/{maxmp_mission}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Dark Souls: Remastered": {
-      "Default": {
-        "Details": "Lv. {level} - {class}",
-        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Dark Souls: Remastered",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Dark Souls II": {
-      "Default": {
-        "Details": "Lv. {level} - {class}",
-        "State": "{hp}/{maxhp} HP",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Dark Souls II",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Dark Souls III": {
-      "Default": {
-        "Details": "Lv. {level} - {class}",
-        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Dark Souls III",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Elden Ring": {
-      "Default": {
-        "Details": "Lv. {level} - {class}",
-        "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "ELDEN RING",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Final Fantasy VII Rebirth": {
-      "Default": {
-        "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-        "State": "Level {level} - Chapter {chapter}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Final Fantasy VII Rebirth",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Final Fantasy VII Remake": {
-      "Default": {
-        "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-        "State": "Level {level} - Chapter {chapter}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Final Fantasy VII Remake",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Final Fantasy XVI": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "Health: {hp} - Gil: {gil}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Final Fantasy XVI",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Gunfire Reborn": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Gunfire Reborn",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Hello Kitty": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Hello Kitty Island Adventure",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Hogwarts Legacy": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Hogwarts Legacy",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts Birth by Sleep Final Mix": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "{character_icon_name}",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "Playing as {character}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Battle": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "battle",
-        "LargeAssetText": "{world} - {room}",
-        "SmallAssetText": "In Battle",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts Dream Drop Distance": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "{character_icon_name}",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "Playing as {character}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts Re:Chain of Memories": {
-      "Default": {
-        "Details": "Lv. {level}",
-        "State": "{world}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Battle": {
-        "Details": "Lv. {level}",
-        "State": "HP: {hp}/{hpmax}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "battle",
-        "LargeAssetText": "{world} - {room}",
-        "SmallAssetText": "In Battle",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts Final Mix": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Battle": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "battle",
-        "LargeAssetText": "{world} - {room}",
-        "SmallAssetText": "In Battle",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts II Final Mix": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "FieldBattle": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} - Form: {form}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "field",
-        "LargeAssetText": "{world} - {room}",
-        "SmallAssetText": "Field Battle",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "BossBattle": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "boss",
-        "LargeAssetText": "{world} - {room}",
-        "SmallAssetText": "Boss Battle",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Kingdom Hearts III": {
-      "World_Map": {
-        "Details": "Playing on {difficulty}",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Gummi_Ship": {
-        "Details": "Gummi Lv. {gummilevel} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "In_World": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "{room}",
-        "LargeAsset": "{world_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{world}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Labyrinthine": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "{map_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Labyrinthine",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Lies of P": {
-      "Default": {
-        "Details": "Lv. {level} - {deaths} Deaths",
-        "State": "{hp}/{maxhp} HP - {fable}/{maxfable} Fable",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Lies of P",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Marvel's Spider-Man Remastered": {
-      "Default": {
-        "Details": "Health: {health} (Level {level})",
-        "State": "Swinging in {location}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Marvel's Spider-Man Remastered",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Marvel's Spider-Man 2": {
-      "Default": {
-        "Details": "Level {level}",
-        "State": "Swinging in {location}",
-        "LargeAsset": "logo",
-        "SmallAsset": "{character_icon}",
-        "LargeAssetText": "Marvel's Spider-Man 2",
-        "SmallAssetText": "Playing as {character}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Marvel's Spider-Man: Miles Morales": {
-      "Default": {
-        "Details": "Health: {health} (Level {level})",
-        "State": "Swinging in {location}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Marvel's Spider-Man: Miles Morales",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Mega Man 11": {
-      "Default": {
-        "Details": "Lives: {lives} ({difficulty})",
-        "State": "{stage}",
-        "LargeAsset": "{stage_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{stage}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Mega Man Battle Network 6": {
-      "Default": {
-        "Details": "HP: {hp}/{maxhp}",
-        "State": "{location}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Mega Man Battle Network 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2URL": "",
-        "Button2Text": ""
-      },
-      "In_Battle": {
-        "Details": "HP: {hp_battle}/{maxhp_battle}",
-        "State": "{location} (In Battle)",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Mega Man Battle Network 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Overwatch": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Overwatch 2",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Pangya Reborn": {
-      "Ingame_Match": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode} — H{currenthole}/{maxholes}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Match_Private": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode} — H{currenthole}/{maxholes}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "Private Room",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Tourney": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Tourney_Private": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "Private Room",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Lounge": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Lounge_Private": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "playing",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "Private Room",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Waiting_Room": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "waiting",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "#{room} - {players}/{playersmax} Players",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Waiting_Room_Private": {
-        "Details": "{nickname} - {level}",
-        "State": "{mode}",
-        "LargeAsset": "{map_icon_name}",
-        "SmallAsset": "waiting",
-        "LargeAssetText": "{map}",
-        "SmallAssetText": "Private Room",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Lobby": {
-        "Details": "{nickname} - {level}",
-        "State": "In Lobby",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "PangYa Reborn",
-        "SmallAssetText": "",
-        "Button1Text": "Join the discord",
-        "Button1URL": "https://discord.gg/pangya",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil": {
-      "Default": {
-        "Details": "{floor} - {room}",
-        "State": "Status: {healthstatus} - Weapon: {weapon}",
-        "LargeAsset": "logo",
-        "SmallAsset": "{character_icon}",
-        "LargeAssetText": "Resident Evil",
-        "SmallAssetText": "Playing as {character}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil 4 (2005)": {
-      "Title_Screen": {
-        "Details": "At the Title Screen",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Main": {
-        "Details": "Weapon: {weapon}",
-        "State": "Chapter {chapter}: {room}",
-        "LargeAsset": "{area_icon_name}",
-        "SmallAsset": "",
-        "LargeAssetText": "{area}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Mercenaries": {
-        "Details": "Score: {score}",
-        "State": "Playing as '{character}' on '{room}'",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Assignment_Ada": {
-        "Details": "Weapon: {weapon}",
-        "State": "{room}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Separate_Ways": {
-        "Details": "Weapon: {weapon}",
-        "State": "Chapter {chapter}: {room}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil 4": {
-      "Main Menu": {
-        "Details": "At the Title Screen",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Main Story": {
-        "Details": "{state} - {difficulty}",
-        "State": "Health: {healthpercentage}% - Chapter {chapter}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Separate Ways": {
-        "Details": "{state} - {difficulty}",
-        "State": "Health: {healthpercentage}% - Chapter {chapter}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Mercenaries": {
-        "Details": "{state} - {map}",
-        "State": "{character} - Score: {score}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Separate_Ways": {
-        "Details": "Weapon: {weapon}",
-        "State": "Chapter {chapter}: {room}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 4",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil 5": {
-      "Default": {
-        "Details": "{chapter}",
-        "State": "{room}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 5",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil 6": {
-      "Booting": {
-        "Details": "Starting the game...",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame": {
-        "Details": "{chapter}",
-        "State": "{room}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Main_Menu": {
-        "Details": "In Main Menu",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Saving": {
-        "Details": "Saving the game...",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Cutscene": {
-        "Details": "{chapter}",
-        "State": "In a cutscene",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil 6",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Resident Evil Revelations 2": {
-      "Lobby": {
-        "Details": "Raid Mode: In Lobby",
-        "State": "{character} (Lv. {level})",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil Revelations 2",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame": {
-        "Details": "Raid Mode: Mission {chapter}-0{mission}",
-        "State": "{character} (Lv. {level})",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Resident Evil Revelations 2",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Sonic Adventure DX": {
-      "Adventure Field": {
-        "Details": "In Adventure Field",
-        "State": "{level}",
-        "LargeAsset": "{character_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Playing as {character}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Level": {
-        "Details": "Rings: {rings} - Lives: {lives}",
-        "State": "{level}",
-        "LargeAsset": "{character_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Playing as {character}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Sonic Adventure 2": {
-      "Default": {
-        "Details": "In Main Menu",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Sonic Adventure 2",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame": {
-        "Details": "Rings: {rings} - Lives: {lives}",
-        "State": "{level}",
-        "LargeAsset": "{character_icon}",
-        "SmallAsset": "",
-        "LargeAssetText": "Playing as {character}",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Temtem Swarm": {
-      "Default": {
-        "Details": "{steam_display}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Temtem Swarm",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame": {
-        "Details": "Stage: {stage} - {round} minute(s)",
-        "State": "Temtem: {temtem}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Temtem Swarm",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "TY The Tasmanian Tiger": {
-      "Default": {
-        "Details": "Health: {health}",
-        "State": "",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "TY The Tasmanian Tiger",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Level": {
-        "Details": "Health: {health} - Opals: {opals}/300",
-        "State": "{level}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "TY The Tasmanian Tiger",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Vampire Survivors": {
-      "Default": {
-        "Details": "In Main Menu",
-        "State": "Coins: {coins}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Default_Adventure": {
-        "Details": "In Main Menu",
-        "State": "{adventure} - Coins: {coins}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame": {
-        "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
-        "State": "🕑{time} {stage} - Kills: {kills}",
-        "LargeAsset": "logo",
-        "SmallAsset": "book",
-        "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "{modes}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      },
-      "Ingame_Adventure": {
-        "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
-        "State": "🕑{time} {stage} - Kills: {kills}",
-        "LargeAsset": "logo",
-        "SmallAsset": "book",
-        "LargeAssetText": "Vampire Survivors",
-        "SmallAssetText": "Playing {adventure} - Modes: {modes}",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
-    },
-    "Visions of Mana": {
-      "Default": {
-        "Details": "Lv. {level} ({difficulty})",
-        "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
-        "LargeAsset": "logo",
-        "SmallAsset": "",
-        "LargeAssetText": "Visions of Mana",
-        "SmallAssetText": "",
-        "Button1Text": "",
-        "Button1URL": "",
-        "Button2Text": "",
-        "Button2URL": ""
-      }
+    "Games": {
+        "Call of Duty®": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Call of Duty®",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Zombies": {
+                "Details": "Playing {mode}",
+                "State": "Surviving on {map}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Call of Duty®",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "CRISIS CORE –FINAL FANTASY VII– REUNION": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mission": {
+                "Details": "[In Mission] Lv. {level} ({difficulty})",
+                "State": "HP: {hp_mission}/{maxhp_mission} - MP: {mp_mission}/{maxmp_mission}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Dark Souls: Remastered": {
+            "Default": {
+                "Details": "Lv. {level} - {class}",
+                "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Dark Souls: Remastered",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Dark Souls II": {
+            "Default": {
+                "Details": "Lv. {level} - {class}",
+                "State": "{hp}/{maxhp} HP",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Dark Souls II",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Dark Souls III": {
+            "Default": {
+                "Details": "Lv. {level} - {class}",
+                "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Dark Souls III",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Elden Ring": {
+            "Default": {
+                "Details": "Lv. {level} - {class}",
+                "State": "{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "ELDEN RING",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Final Fantasy VII Rebirth": {
+            "Default": {
+                "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
+                "State": "Level {level} - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy VII Rebirth",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Final Fantasy VII Remake": {
+            "Default": {
+                "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
+                "State": "Level {level} - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy VII Remake",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Final Fantasy XVI": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "Health: {hp} - Gil: {gil}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy XVI",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Gunfire Reborn": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Gunfire Reborn",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Hello Kitty": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Hello Kitty Island Adventure",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Hogwarts Legacy": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Hogwarts Legacy",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts Birth by Sleep Final Mix": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "{character_icon_name}",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "Playing as {character}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Battle": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{hpmax}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "battle",
+                "LargeAssetText": "{world} - {room}",
+                "SmallAssetText": "In Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts Dream Drop Distance": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "{character_icon_name}",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "Playing as {character}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts Re:Chain of Memories": {
+            "Default": {
+                "Details": "Lv. {level}",
+                "State": "{world}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Battle": {
+                "Details": "Lv. {level}",
+                "State": "HP: {hp}/{hpmax}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "battle",
+                "LargeAssetText": "{world} - {room}",
+                "SmallAssetText": "In Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts Final Mix": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Battle": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "battle",
+                "LargeAssetText": "{world} - {room}",
+                "SmallAssetText": "In Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts II Final Mix": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "FieldBattle": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{hpmax} - Form: {form}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "field",
+                "LargeAssetText": "{world} - {room}",
+                "SmallAssetText": "Field Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "BossBattle": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "boss",
+                "LargeAssetText": "{world} - {room}",
+                "SmallAssetText": "Boss Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Kingdom Hearts III": {
+            "World_Map": {
+                "Details": "Playing on {difficulty}",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Gummi_Ship": {
+                "Details": "Gummi Lv. {gummilevel} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "In_World": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Labyrinthine": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "{map_icon}",
+                "SmallAsset": "",
+                "LargeAssetText": "Labyrinthine",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Lies of P": {
+            "Default": {
+                "Details": "Lv. {level} - {deaths} Deaths",
+                "State": "{hp}/{maxhp} HP - {fable}/{maxfable} Fable",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Lies of P",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Marvel's Spider-Man Remastered": {
+            "Default": {
+                "Details": "Health: {health} (Level {level})",
+                "State": "Swinging in {location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Marvel's Spider-Man Remastered",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Marvel's Spider-Man 2": {
+            "Default": {
+                "Details": "Level {level}",
+                "State": "Swinging in {location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "{character_icon}",
+                "LargeAssetText": "Marvel's Spider-Man 2",
+                "SmallAssetText": "Playing as {character}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Marvel's Spider-Man: Miles Morales": {
+            "Default": {
+                "Details": "Health: {health} (Level {level})",
+                "State": "Swinging in {location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Marvel's Spider-Man: Miles Morales",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Mega Man 11": {
+            "Default": {
+                "Details": "Lives: {lives} ({difficulty})",
+                "State": "{stage}",
+                "LargeAsset": "{stage_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{stage}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Mega Man Battle Network 6": {
+            "Default": {
+                "Details": "HP: {hp}/{maxhp}",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Mega Man Battle Network 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2URL": "",
+                "Button2Text": ""
+            },
+            "In_Battle": {
+                "Details": "HP: {hp_battle}/{maxhp_battle}",
+                "State": "{location} (In Battle)",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Mega Man Battle Network 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Overwatch": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Overwatch 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Pangya Reborn": {
+            "Ingame_Match": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode} — H{currenthole}/{maxholes}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "#{room} - {players}/{playersmax} Players",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Match_Private": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode} — H{currenthole}/{maxholes}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "Private Room",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Tourney": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "#{room} - {players}/{playersmax} Players",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Tourney_Private": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "Private Room",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Lounge": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "#{room} - {players}/{playersmax} Players",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Lounge_Private": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "playing",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "Private Room",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Waiting_Room": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "waiting",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "#{room} - {players}/{playersmax} Players",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Waiting_Room_Private": {
+                "Details": "{nickname} - {level}",
+                "State": "{mode}",
+                "LargeAsset": "{map_icon_name}",
+                "SmallAsset": "waiting",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "Private Room",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "{nickname} - {level}",
+                "State": "In Lobby",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "PangYa Reborn",
+                "SmallAssetText": "",
+                "Button1Text": "Join the discord",
+                "Button1URL": "https://discord.gg/pangya",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil": {
+            "Default": {
+                "Details": "{floor} - {room}",
+                "State": "Status: {healthstatus} - Weapon: {weapon}",
+                "LargeAsset": "logo",
+                "SmallAsset": "{character_icon}",
+                "LargeAssetText": "Resident Evil",
+                "SmallAssetText": "Playing as {character}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil 2": {
+            "Default": {
+                "Details": "Weapon: {weapon} - Ammo: {ammo}",
+                "State": "Status: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil 4 (2005)": {
+            "Title_Screen": {
+                "Details": "At the Title Screen",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Main": {
+                "Details": "Weapon: {weapon}",
+                "State": "Chapter {chapter}: {room}",
+                "LargeAsset": "{area_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{area}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mercenaries": {
+                "Details": "Score: {score}",
+                "State": "Playing as '{character}' on '{room}'",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Assignment_Ada": {
+                "Details": "Weapon: {weapon}",
+                "State": "{room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Separate_Ways": {
+                "Details": "Weapon: {weapon}",
+                "State": "Chapter {chapter}: {room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil 4": {
+            "Main Menu": {
+                "Details": "At the Title Screen",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Main Story": {
+                "Details": "{state} - {difficulty}",
+                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Separate Ways": {
+                "Details": "{state} - {difficulty}",
+                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mercenaries": {
+                "Details": "{state} - {map}",
+                "State": "{character} - Score: {score}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Separate_Ways": {
+                "Details": "Weapon: {weapon}",
+                "State": "Chapter {chapter}: {room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil 5": {
+            "Default": {
+                "Details": "{chapter}",
+                "State": "{room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 5",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil 6": {
+            "Booting": {
+                "Details": "Starting the game...",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{chapter}",
+                "State": "{room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Main_Menu": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Saving": {
+                "Details": "Saving the game...",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Cutscene": {
+                "Details": "{chapter}",
+                "State": "In a cutscene",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 6",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Resident Evil Revelations 2": {
+            "Lobby": {
+                "Details": "Raid Mode: In Lobby",
+                "State": "{character} (Lv. {level})",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil Revelations 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "Raid Mode: Mission {chapter}-0{mission}",
+                "State": "{character} (Lv. {level})",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil Revelations 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Sonic Adventure DX": {
+            "Adventure Field": {
+                "Details": "In Adventure Field",
+                "State": "{level}",
+                "LargeAsset": "{character_icon}",
+                "SmallAsset": "",
+                "LargeAssetText": "Playing as {character}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Level": {
+                "Details": "Rings: {rings} - Lives: {lives}",
+                "State": "{level}",
+                "LargeAsset": "{character_icon}",
+                "SmallAsset": "",
+                "LargeAssetText": "Playing as {character}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Sonic Adventure 2": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Sonic Adventure 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "Rings: {rings} - Lives: {lives}",
+                "State": "{level}",
+                "LargeAsset": "{character_icon}",
+                "SmallAsset": "",
+                "LargeAssetText": "Playing as {character}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Temtem Swarm": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Temtem Swarm",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "Stage: {stage} - {round} minute(s)",
+                "State": "Temtem: {temtem}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Temtem Swarm",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "TY The Tasmanian Tiger": {
+            "Default": {
+                "Details": "Health: {health}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "TY The Tasmanian Tiger",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Level": {
+                "Details": "Health: {health} - Opals: {opals}/300",
+                "State": "{level}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "TY The Tasmanian Tiger",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Vampire Survivors": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "Coins: {coins}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Vampire Survivors",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Default_Adventure": {
+                "Details": "In Main Menu",
+                "State": "{adventure} - Coins: {coins}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Vampire Survivors",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
+                "State": "🕑{time} {stage} - Kills: {kills}",
+                "LargeAsset": "logo",
+                "SmallAsset": "book",
+                "LargeAssetText": "Vampire Survivors",
+                "SmallAssetText": "{modes}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame_Adventure": {
+                "Details": "{character} - Lv. {level} - Coins: {coinsingame}",
+                "State": "🕑{time} {stage} - Kills: {kills}",
+                "LargeAsset": "logo",
+                "SmallAsset": "book",
+                "LargeAssetText": "Vampire Survivors",
+                "SmallAssetText": "Playing {adventure} - Modes: {modes}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
+        "Visions of Mana": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Visions of Mana",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
     }
-  }
 }

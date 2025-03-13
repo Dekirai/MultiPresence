@@ -68,6 +68,7 @@ Here is a video showcasing how placeholders work:
 |Overwatch 2 ²|[Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)||
 |Pangya Reborn|[Private Server](https://www.pangyareborn.com/)| |
 |Resident Evil|[Steam](https://store.steampowered.com/app/304240/Resident_Evil/)| |
+|Resident Evil 2|[Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)| |
 |Resident Evil 4 (2005) ¹|[Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)||
 |Resident Evil 4 Remake|[Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)||
 |Resident Evil 5|[Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)| |

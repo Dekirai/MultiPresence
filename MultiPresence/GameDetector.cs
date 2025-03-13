@@ -42,6 +42,7 @@ namespace MultiPresence
             var game_ow = Process.GetProcessesByName("Overwatch");
             var game_pyre = Process.GetProcessesByName("ProjectG");
             var game_re = Process.GetProcessesByName("bhd");
+            var game_re2 = Process.GetProcessesByName("re2");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_re4r = Process.GetProcessesByName("re4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
@@ -164,6 +165,8 @@ namespace MultiPresence
                 game = "Pangya Reborn";
             else if (game_re.Length > 0)
                 game = "Resident Evil";
+            else if (game_re2.Length > 0)
+                game = "Resident Evil 2";
             else if (game_re4.Length > 0)
                 game = "Resident Evil 4 (2005)";
             else if (game_re4r.Length > 0)

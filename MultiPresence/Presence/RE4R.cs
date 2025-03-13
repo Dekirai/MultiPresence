@@ -79,6 +79,17 @@ namespace MultiPresence.Presence
             int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBE9038, [0x30]), true);
             string difficultystring = await Difficulties.GetDifficulty(difficulty);
             string state = "";
+            string healthstatus = "";
+
+            if (healthpercentage > 75)
+                healthstatus = "Fine";
+            else if (healthpercentage > 50)
+                healthstatus = "Caution";
+            else if (healthpercentage > 25)
+                healthstatus = "Caution";
+            else
+                healthstatus = "Danger";
+
             if (chapter == 30100 || chapter == 31100 || chapter == 31200 || chapter == 32100 || chapter == 32200 || chapter == 33100 || chapter == 33200 || chapter == 34100 || chapter == 35100)
             {
                 string realchapter = await Chapters.GetChapter(chapter);
@@ -90,7 +101,7 @@ namespace MultiPresence.Presence
                     { "health", health },
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
-                    { "state", state },
+                    { "state", state }
                 };
             }
             else if (chapter >= 21100 && chapter <= 35100)
@@ -104,7 +115,7 @@ namespace MultiPresence.Presence
                     { "health", health },
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
-                    { "state", state },
+                    { "state", state }
                 };
             }
             else if (chapter >= 41000 && chapter <= 44600)
@@ -158,7 +169,7 @@ namespace MultiPresence.Presence
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
                     { "score", score },
-                    { "state", state },
+                    { "state", state }
                 };
             }
 

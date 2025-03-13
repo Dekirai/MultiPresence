@@ -58,6 +58,8 @@ namespace MultiPresence
         public bool PangyaReborn { get; set; }
         [JsonProperty("Resident Evil")]
         public bool ResidentEvil { get; set; }
+        [JsonProperty("Resident Evil 2")]
+        public bool ResidentEvil2 { get; set; }
         [JsonProperty("Resident Evil 4 (2005)")]
         public bool ResidentEvil42005 { get; set; }
         [JsonProperty("Resident Evil 4 Remake")]
@@ -143,6 +145,8 @@ namespace MultiPresence
                     return PangyaReborn;
                 case "Resident Evil":
                     return ResidentEvil;
+                case "Resident Evi 2":
+                    return ResidentEvil2;
                 case "Resident Evil 4 (2005)":
                     return ResidentEvil42005;
                 case "Resident Evil 4 Remake":
