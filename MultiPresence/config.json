@@ -136,6 +136,20 @@
                 "Button2URL": ""
             }
         },
+        "Final Fantasy XV": {
+            "Default": {
+                "Details": "HP: {hp} (Lv. {level})",
+                "State": "{story}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy XV",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
         "Final Fantasy XVI": {
             "Default": {
                 "Details": "Lv. {level} ({difficulty})",

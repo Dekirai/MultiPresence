@@ -70,9 +70,9 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int location_get = Hypervisor.Read<byte>(0x9A36D28);
-            int level = Hypervisor.Read<byte>(0xB0046F0);
-            int character_get = Hypervisor.Read<byte>(0x9A2860C);
+            int location_get = Hypervisor.Read<byte>(0x9A42D28);
+            int level = Hypervisor.Read<byte>(0xB010A68);
+            int character_get = Hypervisor.Read<byte>(0x9A3460C);
             var location = await Locations.GetLocations(location_get);
             string character = "";
             string character_icon = "";

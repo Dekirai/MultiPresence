@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "13.03.2025";
+        private static readonly string currentVersion = "17.03.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
         private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
@@ -216,6 +216,11 @@ namespace MultiPresence
                     case "Final Fantasy VII Rebirth":
                         Balloon(game);
                         FFVIIRB.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Final Fantasy XV":
+                        Balloon(game);
+                        FFXV.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Final Fantasy XVI":

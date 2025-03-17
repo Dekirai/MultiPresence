@@ -17,6 +17,7 @@ namespace MultiPresence
             var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
             var game_ffviir = Process.GetProcessesByName("ff7remake_");
             var game_ffviirb = Process.GetProcessesByName("ff7rebirth_");
+            var game_ffxv = Process.GetProcessesByName("ffxv_s");
             var game_ffxvi = Process.GetProcessesByName("ffxvi");
             var game_dsr = Process.GetProcessesByName("DarkSoulsRemastered");
             var game_dsii = Process.GetProcessesByName("DarkSoulsII");
@@ -72,6 +73,8 @@ namespace MultiPresence
                 game = "Final Fantasy VII Remake";
             else if (game_ffviirb.Length > 0)
                 game = "Final Fantasy VII Rebirth";
+            else if (game_ffxv.Length > 0)
+                game = "Final Fantasy XV";
             else if (game_ffxvi.Length > 0)
                 game = "Final Fantasy XVI";
             else if (game_hk.Length > 0)

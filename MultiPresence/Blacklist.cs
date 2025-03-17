@@ -22,6 +22,8 @@ namespace MultiPresence
         public bool FinalFantasyVIIRemake { get; set; }
         [JsonProperty("Final Fantasy XVI")]
         public bool FinalFantasyXVI { get; set; }
+        [JsonProperty("Final Fantasy XV")]
+        public bool FinalFantasyXV { get; set; }
         [JsonProperty("Gunfire Reborn")]
         public bool GunfireReborn { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
@@ -107,6 +109,8 @@ namespace MultiPresence
                     return FinalFantasyVIIRebirth;
                 case "Final Fantasy VII Remake":
                     return FinalFantasyVIIRemake;
+                case "Final Fantasy XV":
+                    return FinalFantasyXV;
                 case "Final Fantasy XVI":
                     return FinalFantasyXVI;
                 case "Gunfire Reborn":

@@ -49,6 +49,11 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Rebirth", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Final Fantasy XV", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "{story}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XV", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Final Fantasy XVI", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "Gil: {gil}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XVI", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
