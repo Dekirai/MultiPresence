@@ -99,7 +99,8 @@ namespace MultiPresence.Presence
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
             int world_get = Hypervisor.Read<byte>(0x87B862);
-            int difficulty_get = Hypervisor.Read<byte>(0xC87660);
+            int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x87B0E8, [0x8, 0x60]), true);
+            int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x87B0E8, [0x8, 0x61]), true);
             int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x87B380, [0x444]), true);
             int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x87B380, [0x42C]), true);
             int hpmax = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x87B380, [0x430]), true);
@@ -107,13 +108,22 @@ namespace MultiPresence.Presence
             var world = await Worlds.GetWorld(world_get);
             var difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
+            string character = character_get switch
+            {
+                0 => "Sora",
+                1 => "Riku"
+            };
+
             return new Dictionary<string, object>
             {
                 { "level", level },
                 { "hp", hp },
                 { "hpmax", hpmax },
+                { "character", character },
+                { "difficulty", difficulty },
                 { "world", world[0] },
                 { "world_icon_name", world[1] },
+                { "character_icon_name", character.ToLower() }
             };
         }
 

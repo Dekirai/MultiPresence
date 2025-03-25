@@ -4,7 +4,7 @@ namespace MultiPresence
 {
     public static class PlaceholderHelper
     {
-        public static Timestamps _startTimestamp = Timestamps.Now; // Stores initial timestamp
+        public static Timestamps _startTimestamp = Timestamps.Now;
 
         public static async Task<Dictionary<string, object>> GetPlaceholders(Func<Task<Dictionary<string, object>>> generatePlaceholders)
         {
@@ -28,8 +28,6 @@ namespace MultiPresence
             {
                 buttons.Add(new DiscordRPC.Button { Label = button2text, Url = button2url });
             }
-
-            // Set presence with buttons included
 
             discord.SetPresence(new RichPresence()
             {

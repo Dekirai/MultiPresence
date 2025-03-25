@@ -101,6 +101,7 @@ namespace MultiPresence.Presence
                     { "health", health },
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
+                    { "healthstatus", healthstatus },
                     { "state", state }
                 };
             }
@@ -115,6 +116,7 @@ namespace MultiPresence.Presence
                     { "health", health },
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
+                    { "healthstatus", healthstatus },
                     { "state", state }
                 };
             }
@@ -168,6 +170,7 @@ namespace MultiPresence.Presence
                     { "character", charactername },
                     { "maxhealth", maxhealth },
                     { "healthpercentage", healthpercentage },
+                    { "healthstatus", healthstatus },
                     { "score", score },
                     { "state", state }
                 };
