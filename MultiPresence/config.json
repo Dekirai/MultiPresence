@@ -248,19 +248,19 @@
         },
         "Kingdom Hearts Re:Chain of Memories": {
             "Default": {
-                "Details": "Lv. {level}",
+                "Details": "Lv. {level} ({difficulty})",
                 "State": "{world}",
                 "LargeAsset": "{world_icon_name}",
-                "SmallAsset": "",
+                "SmallAsset": "{character_icon_name}",
                 "LargeAssetText": "{world}",
-                "SmallAssetText": "",
+                "SmallAssetText": "Playing as {character}",
                 "Button1Text": "",
                 "Button1URL": "",
                 "Button2Text": "",
                 "Button2URL": ""
             },
             "Battle": {
-                "Details": "Lv. {level}",
+                "Details": "Lv. {level} ({difficulty})",
                 "State": "HP: {hp}/{hpmax}",
                 "LargeAsset": "{world_icon_name}",
                 "SmallAsset": "battle",
