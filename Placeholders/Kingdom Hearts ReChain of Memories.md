@@ -4,6 +4,9 @@
 |{hp}|Shows your current HP|
 |{hpmax}|Shows your current max HP|
 |{level}|Shows your current level|
+|{difficulty}|Shows the current difficulty|
+|{character}|Shows the name of the current character|
+|{character_icon_name}|Icon name of the current character, to be used with Large-/Smallasset|
 |{world}|Shows the current world|
 |{world_icon_name}|Icon name of the current world, to be used with Large-/Smallasset|
 
