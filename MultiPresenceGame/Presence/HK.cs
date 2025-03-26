@@ -42,27 +42,27 @@ namespace MultiPresenceGame.Presence
                         string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
                         int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
 
+                        Party party = null;
+
                         if (partysize > 1)
                         {
-                            discord.UpdateParty(new Party
+                            party = new Party
                             {
                                 ID = partyid,
                                 Size = partysize,
                                 Max = 2,
-                            });
+                            };
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders, "Default", party);
                         }
                         else
                         {
-                            discord.UpdateParty(null);
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
                         }
                     }
                     catch
                     {
-                        discord.UpdateParty(null);
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
                     }

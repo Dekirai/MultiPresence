@@ -11,7 +11,7 @@ namespace MultiPresenceGame
             return await generatePlaceholders();
         }
 
-        public static void UpdateDiscordStatus(DiscordRpcClient discord, DiscordStatusUpdater updater, string gameName, Dictionary<string, object> placeholders, string state = "Default")
+        public static void UpdateDiscordStatus(DiscordRpcClient discord, DiscordStatusUpdater updater, string gameName, Dictionary<string, object> placeholders, string state = "Default", Party party = null)
         {
             string button1text = updater.UpdateButton1Text(gameName, placeholders, state);
             string button1url = updater.UpdateButton1URL(gameName, placeholders, state);
@@ -29,8 +29,7 @@ namespace MultiPresenceGame
                 buttons.Add(new DiscordRPC.Button { Label = button2text, Url = button2url });
             }
 
-            // Set presence with buttons included
-
+            // Set presence with optional party info
             discord.SetPresence(new RichPresence()
             {
                 Details = updater.UpdateDetails(gameName, placeholders, state),
@@ -43,8 +42,10 @@ namespace MultiPresenceGame
                     SmallImageText = updater.UpdateSmallAssetText(gameName, placeholders, state)
                 },
                 Timestamps = _startTimestamp,
-                Buttons = buttons.Count > 0 ? buttons.ToArray() : null
+                Buttons = buttons.Count > 0 ? buttons.ToArray() : null,
+                Party = party
             });
         }
+
     }
 }
