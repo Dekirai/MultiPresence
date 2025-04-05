@@ -14,6 +14,8 @@ namespace MultiPresence
         public bool DarkSoulsII { get; set; }
         [JsonProperty("Dark Souls III")]
         public bool DarkSoulsIII { get; set; }
+        [JsonProperty("Devil May Cry 5")]
+        public bool DevilMayCry5 { get; set; }
         [JsonProperty("Elden Ring")]
         public bool EldenRing { get; set; }
         [JsonProperty("Final Fantasy VII Rebirth")]
@@ -103,6 +105,8 @@ namespace MultiPresence
                     return DarkSoulsII;
                 case "Dark Souls III":
                     return DarkSoulsIII;
+                case "Devil May Cry 5":
+                    return DevilMayCry5;
                 case "Elden Ring":
                     return EldenRing;
                 case "Final Fantasy VII Rebirth":

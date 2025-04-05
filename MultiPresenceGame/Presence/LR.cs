@@ -56,14 +56,12 @@ namespace MultiPresenceGame.Presence
                         }
                         else
                         {
-                            discord.UpdateParty(null);
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
                         }
                     }
                     catch
                     {
-                        discord.UpdateParty(null);
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
                     }

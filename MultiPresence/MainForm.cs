@@ -18,9 +18,8 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "25.03.2025";
+        private static readonly string currentVersion = "05.04.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
-        private static readonly string tempUpdateZip = Path.Combine(Path.GetTempPath(), "update.zip");
 
         public MainForm()
         {
@@ -68,36 +67,62 @@ namespace MultiPresence
 
                             if (result == DialogResult.Yes)
                             {
+                                string updateUrl = null;
+                                string updaterUrl = null;
+                                string actualZipName = null;
 
-                                string updateUrl = root.GetProperty("assets")[0].GetProperty("browser_download_url").GetString();
-                                string updaterUrl = root.GetProperty("assets")[1].GetProperty("browser_download_url").GetString();
+                                JsonElement assets = root.GetProperty("assets");
 
-                                DownloadFile(updaterUrl, tempUpdaterPath);
-                                DownloadFile(updateUrl, tempUpdateZip);
-
-                                KillProcess("MultiPresenceGame");
-
-                                DialogResult result2 = MessageBox.Show(
-                                $"Do you want to view the changelogs?",
-                                "MultiPresence - Update available",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification
-                                );
-
-                                if (result2 == DialogResult.Yes)
+                                foreach (JsonElement asset in assets.EnumerateArray())
                                 {
-                                    Process.Start(new ProcessStartInfo
+                                    string name = asset.GetProperty("name").GetString();
+
+                                    if (name.Equals("Updater.exe", StringComparison.OrdinalIgnoreCase))
                                     {
-                                        FileName = releaseUrl,
-                                        UseShellExecute = true
-                                    });
+                                        updaterUrl = asset.GetProperty("browser_download_url").GetString();
+                                    }
+                                    else if (name.Equals("update.zip", StringComparison.OrdinalIgnoreCase) || name.Equals("MultiPresence.zip", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        updateUrl = asset.GetProperty("browser_download_url").GetString();
+                                        actualZipName = name;
+                                    }
                                 }
 
-                                Process.Start(tempUpdaterPath, $"\"{tempUpdateZip}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
-                                BalloonUpdate("Update completed, MultiPresence is now restarting!");
-                                Environment.Exit(0);
+                                if (updaterUrl != null && updateUrl != null)
+                                {
+                                    string dynamicZipPath = Path.Combine(Path.GetTempPath(), actualZipName);
+
+                                    DownloadFile(updaterUrl, tempUpdaterPath);
+                                    DownloadFile(updateUrl, dynamicZipPath);
+
+                                    KillProcess("MultiPresenceGame");
+
+                                    DialogResult result2 = MessageBox.Show(
+                                        $"Do you want to view the changelogs?",
+                                        "MultiPresence - Update available",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Information,
+                                        MessageBoxDefaultButton.Button1,
+                                        MessageBoxOptions.ServiceNotification
+                                    );
+
+                                    if (result2 == DialogResult.Yes)
+                                    {
+                                        Process.Start(new ProcessStartInfo
+                                        {
+                                            FileName = releaseUrl,
+                                            UseShellExecute = true
+                                        });
+                                    }
+
+                                    Process.Start(tempUpdaterPath, $"\"{dynamicZipPath}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
+                                    BalloonUpdate("Update downloaded, MultiPresence is now restarting and updating files!");
+                                    Environment.Exit(0);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Update or Updater file not found in the release assets.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                         }
                     }
@@ -109,6 +134,7 @@ namespace MultiPresence
                 MessageBox.Show($"Error checking for updates: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private static void DownloadFile(string url, string destination)
         {
@@ -196,6 +222,11 @@ namespace MultiPresence
                     case "Dark Souls III":
                         Balloon(game);
                         DSIII.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Devil May Cry 5":
+                        Balloon(game);
+                        DMC5.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Elden Ring":

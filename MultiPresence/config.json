@@ -94,6 +94,20 @@
                 "Button2URL": ""
             }
         },
+        "Devil May Cry 5": {
+            "Default": {
+                "Details": "Mission {mission} ({difficulty})",
+                "State": "{character} - Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Devil May Cry 5",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        },
         "Elden Ring": {
             "Default": {
                 "Details": "Lv. {level} - {class}",
