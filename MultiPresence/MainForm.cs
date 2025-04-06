@@ -18,7 +18,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "05.04.2025";
+        private static readonly string currentVersion = "06.04.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -222,6 +222,26 @@ namespace MultiPresence
                     case "Dark Souls III":
                         Balloon(game);
                         DSIII.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Devil May Cry":
+                        Balloon(game);
+                        DMC1.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Devil May Cry 2":
+                        Balloon(game);
+                        DMC2.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Devil May Cry 3":
+                        Balloon(game);
+                        DMC3.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Devil May Cry 4":
+                        Balloon(game);
+                        DMC4.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Devil May Cry 5":

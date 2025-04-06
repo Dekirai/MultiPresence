@@ -45,6 +45,8 @@ Here is a video showcasing how placeholders work:
 |Dark Souls Remastered|[Steam](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/)||
 |Dark Souls II SotFS|[Steam](https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/)||
 |Dark Souls III|[Steam](https://store.steampowered.com/app/374320/DARK_SOULS_III/)||
+|Devil May Cry HD Collection|[Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)|Supports all games|
+|Devil May Cry 4|[Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)||
 |Devil May Cry 5|[Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)||
 |Elden Ring|[Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)|Only with EAC disabled|
 |Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||

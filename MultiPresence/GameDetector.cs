@@ -22,6 +22,10 @@ namespace MultiPresence
             var game_dsr = Process.GetProcessesByName("DarkSoulsRemastered");
             var game_dsii = Process.GetProcessesByName("DarkSoulsII");
             var game_dsiii = Process.GetProcessesByName("DarkSoulsIII");
+            var game_dmc1 = Process.GetProcessesByName("dmc1");
+            var game_dmc2 = Process.GetProcessesByName("dmc2");
+            var game_dmc3 = Process.GetProcessesByName("dmc3");
+            var game_dmc4 = Process.GetProcessesByName("DevilMayCry4SpecialEdition");
             var game_dmc5 = Process.GetProcessesByName("DevilMayCry5");
             var game_er = Process.GetProcessesByName("eldenring");
             var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
@@ -70,6 +74,14 @@ namespace MultiPresence
                 game = "Dark Souls II";
             else if (game_dsiii.Length > 0)
                 game = "Dark Souls III";
+            else if (game_dmc1.Length > 0)
+                game = "Devil May Cry";
+            else if (game_dmc2.Length > 0)
+                game = "Devil May Cry 2";
+            else if (game_dmc3.Length > 0)
+                game = "Devil May Cry 3";
+            else if (game_dmc4.Length > 0)
+                game = "Devil May Cry 4";
             else if (game_dmc5.Length > 0)
                 game = "Devil May Cry 5";
             else if (game_ffviir.Length > 0)
