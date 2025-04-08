@@ -9,7 +9,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater? updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
+            await Task.Delay(5000);
             GetPID();
             discord = new DiscordRpcClient("1358474125336772771");
             InitializeDiscord();
@@ -41,8 +41,17 @@ namespace MultiPresence.Presence
 
                 if (health > 0)
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 4", placeholders);
+                    int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xEDEEC4, [0x150]), true);
+                    if (mission == 50)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 4", placeholders, "Bloody Palace");
+                    }
+                    else
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 4", placeholders);
+                    }
                 }
                 else
                 {
@@ -101,7 +110,32 @@ namespace MultiPresence.Presence
                 { "mission", mission },
                 { "difficulty", difficulty },
                 { "scenario", scenario },
+                { "health", health }
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersBP()
+        {
+            float health = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x00ED8ADC, [0x284, 0x30, 0x284]), true);
+            int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer32(0xEDEEC4, [0x184]), true);
+            int scenario_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xEDEEC4, [0x1BC]), true);
+            int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xEDEEC4, [0x150]), true);
+            int level = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xE7E340, [0xC4, 0x180]), true);
+
+            string scenario = scenario_get switch
+            {
+                0 => "Nero/Dante",
+                1 => "Vergil",
+                2 => "Lady/Trish"
+            };
+
+            return new Dictionary<string, object>
+            {
+                { "redorbs", redorbs },
+                { "mission", mission },
+                { "scenario", scenario },
                 { "health", health },
+                { "level", level }
             };
         }
 

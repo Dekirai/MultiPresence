@@ -5,6 +5,7 @@
 |{mission}|Shows the current mission number|
 |{difficulty}|Shows the current difficulty|
 |{health}|Shows your current health|
+|{maxhealth}|Shows your current max health|
 
 # Pre-made icons for Large-/Smallasset
 **Do not use them with {}**    

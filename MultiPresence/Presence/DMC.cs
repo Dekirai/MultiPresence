@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
-    public class DMC2
+    public class DMC
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
@@ -11,7 +11,7 @@ namespace MultiPresence.Presence
         {
             await Task.Delay(5000);
             GetPID();
-            discord = new DiscordRpcClient("1358481854235414598");
+            discord = new DiscordRpcClient("1358513563446022235");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("config.json");
             Thread thread = new Thread(RPC);
@@ -22,7 +22,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("dmc2")[0];
+                var _myProcess = Process.GetProcessesByName("DMC-DevilMayCry")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -34,27 +34,23 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("dmc2");
+            Process[] game = Process.GetProcessesByName("DMC-DevilMayCry");
             if (game.Length > 0)
             {
-                float maxhealth = Hypervisor.Read<float>(0x046DE36C, true);
-                int menuflag = Hypervisor.Read<byte>(0x1588C10);
+                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x844]), true);
+                int bp_level = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x026B5338, [0xAFC, 0x48]), true);
+                int mode = Hypervisor.Read<byte>(0x27546CC);
 
-                if (menuflag == 3)
+                if (bp_level > 0 && mode == 8)
                 {
-                    int difficulty_get = Hypervisor.Read<byte>(0x15884A0);
-
-                    if (difficulty_get == 3)
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 2", placeholders, "Bloody Palace");
-                    }
-                    else
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 2", placeholders);
-                    }
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "DmC Devil May Cry", placeholders, "Bloody Palace");
                 }
+                else if (maxhealth > 0 && mode < 7)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "DmC Devil May Cry", placeholders);
+                }              
                 else
                 {
                     discord.SetPresence(new RichPresence()
@@ -64,7 +60,7 @@ namespace MultiPresence.Presence
                         Assets = new Assets()
                         {
                             LargeImageKey = "logo",
-                            LargeImageText = "Devil May Cry 2"
+                            LargeImageText = "DmC Devil May Cry"
                         },
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
@@ -83,18 +79,21 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int health = Hypervisor.Read<short>(0x158A470);
-            int maxhealth = Hypervisor.Read<short>(0x158A474);
-            int redorbs = Hypervisor.Read<int>(0x1588BA8);
-            int difficulty_get = Hypervisor.Read<byte>(0x15884A0);
-            int mission = Hypervisor.Read<byte>(0x157D289);
+            float health = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x840]), true);
+            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x844]), true);
+            int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x275B0AC, [0x9F4, 0xC]), true);
+            int difficulty_get = Hypervisor.Read<byte>(0x27546CC);
+            int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x26CE348, [0x24, 0x9C]), true) + 1;
 
             string difficulty = difficulty_get switch
             {
-                0 => "Normal",
-                1 => "Hard",
-                2 => "Dante Must Die",
-                3 => "Bloody Palace"
+                0 => "Human",
+                1 => "Devil Hunter",
+                2 => "Nephilim",
+                3 => "Son of Sparda",
+                4 => "Dante Must Die",
+                5 => "Heaven or Hell",
+                6 => "Hell and Hell"
             };
 
             return new Dictionary<string, object>
@@ -103,16 +102,16 @@ namespace MultiPresence.Presence
                 { "mission", mission },
                 { "difficulty", difficulty },
                 { "health", health },
-                { "maxhealth", maxhealth }
+                { "maxhealth", maxhealth },
             };
         }
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholdersBP()
         {
-            int health = Hypervisor.Read<short>(0x158A470);
-            int maxhealth = Hypervisor.Read<short>(0x158A474);
-            int redorbs = Hypervisor.Read<int>(0x1588BA8);
-            int level = Hypervisor.Read<int>(0x1588C28) + 1;
+            float health = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C3070, [0x3C, 0xDC, 0x4, 0x840]), true);
+            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C3070, [0x3C, 0xDC, 0x4, 0x844]), true);
+            int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x275B0AC, [0x9F4, 0xC]), true);
+            int level = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x026B5338, [0xAFC, 0x48]), true);
 
             return new Dictionary<string, object>
             {

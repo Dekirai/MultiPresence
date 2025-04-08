@@ -9,7 +9,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater? updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
+            await Task.Delay(5000);
             GetPID();
             discord = new DiscordRpcClient("1358367799285649418");
             InitializeDiscord();
@@ -53,10 +53,13 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int health = Hypervisor.Read<int>(0x001378BC, true);
+            uint healthdata = Hypervisor.GetPointer32(0x5EAB88, [0x4571]);
+
+            int health = Hypervisor.Read<short>(healthdata + 0x1, true);
+            int maxhealth = Hypervisor.Read<short>(healthdata + 0x427, true);
             int redorbs = Hypervisor.Read<int>(0x001378FC, true);
-            int difficulty_get = Hypervisor.Read<byte>(0x00102066, true);
-            int mission = Hypervisor.Read<byte>(0x00102064, true);
+            int difficulty_get = Hypervisor.Read<byte>(0x27C0826);
+            int mission = Hypervisor.Read<byte>(0x27C0824);
 
             string difficulty = difficulty_get switch
             {
@@ -70,7 +73,8 @@ namespace MultiPresence.Presence
                 { "redorbs", redorbs },
                 { "mission", mission },
                 { "difficulty", difficulty },
-                { "health", health }
+                { "health", health },
+                { "maxhealth", maxhealth }
             };
         }
 

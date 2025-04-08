@@ -22,6 +22,7 @@ namespace MultiPresence
             var game_dsr = Process.GetProcessesByName("DarkSoulsRemastered");
             var game_dsii = Process.GetProcessesByName("DarkSoulsII");
             var game_dsiii = Process.GetProcessesByName("DarkSoulsIII");
+            var game_dmc = Process.GetProcessesByName("DMC-DevilMayCry");
             var game_dmc1 = Process.GetProcessesByName("dmc1");
             var game_dmc2 = Process.GetProcessesByName("dmc2");
             var game_dmc3 = Process.GetProcessesByName("dmc3");
@@ -74,6 +75,8 @@ namespace MultiPresence
                 game = "Dark Souls II";
             else if (game_dsiii.Length > 0)
                 game = "Dark Souls III";
+            else if (game_dmc.Length > 0)
+                game = "DmC Devil May Cry";
             else if (game_dmc1.Length > 0)
                 game = "Devil May Cry";
             else if (game_dmc2.Length > 0)

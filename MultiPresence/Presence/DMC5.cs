@@ -9,7 +9,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater? updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
+            await Task.Delay(5000);
             GetPID();
             discord = new DiscordRpcClient("1358118109004828802");
             InitializeDiscord();
@@ -37,7 +37,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("DevilMayCry5");
             if (game.Length > 0)
             {
-                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x7E6A7F0, [0x88, 0x310, 0x20, 0x88, 0x14]), true);
+                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x14]), true);
 
                 if (maxhealth > 0)
                 {
@@ -72,8 +72,8 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            float health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x7E6A7F0, [0x88, 0x310, 0x20, 0x88, 0x10]), true);
-            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x7E6A7F0, [0x88, 0x310, 0x20, 0x88, 0x14]), true);
+            float health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x10]), true);
+            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x14]), true);
             int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x60]), true);
             int blueorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x78]), true);
             int purpleorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x88]), true);
@@ -97,7 +97,7 @@ namespace MultiPresence.Presence
                 1 => "Dante",
                 2 => "V",
                 3 => "Vergil",
-                4 => "Sunbeam" //?
+                4 => "Vergil"
             };
 
             return new Dictionary<string, object>

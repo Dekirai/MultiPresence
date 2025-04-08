@@ -24,6 +24,8 @@ namespace MultiPresence
         public bool DevilMayCry4 { get; set; }
         [JsonProperty("Devil May Cry 5")]
         public bool DevilMayCry5 { get; set; }
+        [JsonProperty("DmC Devil May Cry")]
+        public bool DmCDevilMayCry { get; set; }
         [JsonProperty("Elden Ring")]
         public bool EldenRing { get; set; }
         [JsonProperty("Final Fantasy VII Rebirth")]

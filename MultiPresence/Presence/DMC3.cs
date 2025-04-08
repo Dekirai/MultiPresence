@@ -9,7 +9,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater? updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
+            await Task.Delay(5000);
             GetPID();
             discord = new DiscordRpcClient("1358354576310534247");
             InitializeDiscord();
@@ -41,8 +41,18 @@ namespace MultiPresence.Presence
 
                 if (maxhealth > 0)
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders);
+                    int mission = Hypervisor.Read<byte>(0xC8F250);
+
+                    if (mission == 21)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders, "Bloody Palace");
+                    }
+                    else
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders);
+                    }
                 }
                 else
                 {
@@ -109,6 +119,32 @@ namespace MultiPresence.Presence
                 { "character", character },
                 { "health", health },
                 { "maxhealth", maxhealth }
+            };
+        }
+
+        private static async Task<Dictionary<string, object>> GeneratePlaceholdersBP()
+        {
+            float health = Hypervisor.Read<float>(0x046DE39C, true);
+            float maxhealth = Hypervisor.Read<float>(0x046DE36C, true);
+            int redorbs = Hypervisor.Read<int>(0x006E0710, true);
+            int character_get = Hypervisor.Read<byte>(0xC8F264);
+            int level = Hypervisor.Read<int>(0xCB89A4);
+
+            string character = character_get switch
+            {
+                0 => "Dante",
+                1 => "Vergil",
+                2 => "Lady",
+                3 => "Vergil",
+            };
+
+            return new Dictionary<string, object>
+            {
+                { "redorbs", redorbs },
+                { "character", character },
+                { "health", health },
+                { "maxhealth", maxhealth },
+                { "level", level }
             };
         }
 

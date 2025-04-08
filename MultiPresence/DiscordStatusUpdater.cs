@@ -41,22 +41,31 @@ public class DiscordStatusUpdater
     },
     { "Devil May Cry 2", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry 3", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry 4", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{scenario} - Health: {health}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{scenario} - Health: {health}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "{scenario} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry 5", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 5", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "DmC Devil May Cry", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "DmC Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "DmC Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Elden Ring", new Dictionary<string, GameDetails>
