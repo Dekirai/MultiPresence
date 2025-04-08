@@ -48,6 +48,7 @@ Here is a video showcasing how placeholders work:
 |Devil May Cry HD Collection|[Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)|Supports all games|
 |Devil May Cry 4|[Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)||
 |Devil May Cry 5|[Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)||
+|DmC Devil May Cry|[Steam](https://store.steampowered.com/app/220440/DmC_Devil_May_Cry/)|Only base game tested|
 |Elden Ring|[Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)|Only with EAC disabled|
 |Final Fantasy VII Rebirth|[Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)||
 |Final Fantasy VII Remake|[Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)|Only base game tested|
