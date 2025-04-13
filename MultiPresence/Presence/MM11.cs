@@ -40,7 +40,7 @@ namespace MultiPresence.Presence
                 var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                 PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man 11", placeholders);
 
-                await Task.Delay(1000);
+                await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

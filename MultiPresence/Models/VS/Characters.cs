@@ -263,6 +263,54 @@
                 case 131:
                     getcharacter = "Newt Plissken";
                     break;
+                case 143:
+                    getcharacter = "Tsunanori Mido";
+                    break;
+                case 148:
+                    getcharacter = "Ameya Aisling";
+                    break;
+                case 149:
+                    getcharacter = "Bonnie Blair";
+                    break;
+                case 150:
+                    getcharacter = "Formina Franklyn";
+                    break;
+                case 151:
+                    getcharacter = "Diva No. 5 \"Retro Pod\"";
+                    break;
+                case 152:
+                    getcharacter = "Siugnas";
+                    break;
+                case 153:
+                    getcharacter = "Mr. S";
+                    break;
+                case 154:
+                    getcharacter = "Final Emperor";
+                    break;
+                case 155:
+                    getcharacter = "Macha Alter Ego";
+                    break;
+                case 156:
+                    getcharacter = "Dolores";
+                    break;
+                case 157:
+                    getcharacter = "Lita Caryx";
+                    break;
+                case 158:
+                    getcharacter = "Kugutsu : Musashi";
+                    break;
+                case 163:
+                    getcharacter = "Lolo, Hiss, Meow, and Purr";
+                    break;
+                case 164:
+                    getcharacter = "Malevolent Door Spirit";
+                    break;
+                case 165:
+                    getcharacter = "Imakoo";
+                    break;
+                case 166:
+                    getcharacter = "Kina";
+                    break;
                 case 202:
                     getcharacter = "Alucard";
                     break;
@@ -322,6 +370,117 @@
                     break;
                 case 241:
                     getcharacter = "Christopher Belmont";
+                    break;
+                case 242:
+                    getcharacter = "Sara Trantoul";
+                    break;
+                case 243:
+                    getcharacter = "Dario Bossi";
+                    break;
+                case 244:
+                    getcharacter = "Dmitrii Blinov";
+                    break;
+                case 245:
+                    getcharacter = "Celia Fortner";
+                    break;
+                case 246:
+                    getcharacter = "Rinaldo Gandolfi";
+                    break;
+                case 247:
+                    getcharacter = "Mina Hakuba";
+                    break;
+                case 248:
+                    getcharacter = "Quincy Morris";
+                    break;
+                case 249:
+                    getcharacter = "Maxim Kischine";
+                    break;
+                case 250:
+                    getcharacter = "Lisa Tepes";
+                    break;
+                case 251:
+                    getcharacter = "Vincent Dorin";
+                    break;
+                case 252:
+                    getcharacter = "Brauner";
+                    break;
+                case 253:
+                    getcharacter = "Barlowe";
+                    break;
+                case 254:
+                    getcharacter = "Wind";
+                    break;
+                case 256:
+                    getcharacter = "Master Librarian";
+                    break;
+                case 257:
+                    getcharacter = "Hammer";
+                    break;
+                case 258:
+                    getcharacter = "Graham Jones";
+                    break;
+                case 259:
+                    getcharacter = "Soleil Belmont";
+                    break;
+                case 260:
+                    getcharacter = "Joachim Armster";
+                    break;
+                case 261:
+                    getcharacter = "Cave Troll";
+                    break;
+                case 262:
+                    getcharacter = "Ferryman";
+                    break;
+                case 263:
+                    getcharacter = "Malphas";
+                    break;
+                case 264:
+                    getcharacter = "Walter Bernhard";
+                    break;
+                case 265:
+                    getcharacter = "Frozenshade";
+                    break;
+                case 266:
+                    getcharacter = "Count Olrox";
+                    break;
+                case 267:
+                    getcharacter = "Alamaric Sniper";
+                    break;
+                case 268:
+                    getcharacter = "Fleaman";
+                    break;
+                case 269:
+                    getcharacter = "Blackmore";
+                    break;
+                case 270:
+                    getcharacter = "Jonathan Morris";
+                    break;
+                case 271:
+                    getcharacter = "Charlotte Aulin";
+                    break;
+                case 272:
+                    getcharacter = "Stella Lecarde";
+                    break;
+                case 273:
+                    getcharacter = "Loretta Lecarde";
+                    break;
+                case 274:
+                    getcharacter = "Blue Crescent Moon Cornell";
+                    break;
+                case 275:
+                    getcharacter = "Megalo Elizabeth Bartley";
+                    break;
+                case 276:
+                    getcharacter = "Megalo Death";
+                    break;
+                case 277:
+                    getcharacter = "Keremet";
+                    break;
+                case 278:
+                    getcharacter = "Megalo Dracula";
+                    break;
+                case 279:
+                    getcharacter = "Megalo Olrox";
                     break;
 
                 default:

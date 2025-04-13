@@ -57,7 +57,7 @@ namespace MultiPresence.Presence
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders);
                     }
 
-                    await Task.Delay(1000);
+                    await Task.Delay(3000);
                 }
                 else
                 {

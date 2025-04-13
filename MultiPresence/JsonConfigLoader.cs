@@ -21,7 +21,7 @@ namespace MultiPresence
             else
             {
                 Console.WriteLine($"Configuration file '{configPath}' not found.");
-                return new JObject(); // Return an empty JObject or handle it as needed
+                return new JObject();
             }
         }
 

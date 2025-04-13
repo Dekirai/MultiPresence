@@ -59,7 +59,7 @@ namespace MultiPresence.Presence
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 4", placeholders, "Main Menu");
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

@@ -51,7 +51,7 @@ namespace MultiPresence.Presence
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

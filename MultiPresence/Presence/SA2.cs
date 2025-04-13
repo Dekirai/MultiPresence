@@ -58,7 +58,7 @@ namespace MultiPresence.Presence
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Sonic Adventure 2", placeholders, "Ingame");
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

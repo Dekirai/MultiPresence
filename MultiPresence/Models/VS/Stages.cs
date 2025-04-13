@@ -188,6 +188,39 @@
                 case 1048:
                     getstage = "Ode to Castlevania";
                     break;
+                case 1052:
+                    getstage = "Ice Age";
+                    break;
+                case 1053:
+                    getstage = "Ice Cream";
+                    break;
+                case 1054:
+                    getstage = "A Fiery Apparition";
+                    break;
+                case 1055:
+                    getstage = "A Pure Heart";
+                    break;
+                case 1056:
+                    getstage = "The Rebirth, The Return";
+                    break;
+                case 1058:
+                    getstage = "The World Eater";
+                    break;
+                case 1059:
+                    getstage = "The Guardian of the Lake";
+                    break;
+                case 1060:
+                    getstage = "The Sly Swashbuckler";
+                    break;
+                case 1061:
+                    getstage = "The Undefeated Champion";
+                    break;
+                case 1062:
+                    getstage = "The Star Pupil";
+                    break;
+                case 1063:
+                    getstage = "Tides of the Foscari";
+                    break;
 
                 default:
                     getstage = "Unknown";

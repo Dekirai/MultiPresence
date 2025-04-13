@@ -1,3 +1,4 @@
+using DiscordRPC;
 using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 using MultiPresence.Presence;
@@ -81,7 +82,7 @@ namespace MultiPresence
                                     {
                                         updaterUrl = asset.GetProperty("browser_download_url").GetString();
                                     }
-                                    else if (name.Equals("update.zip", StringComparison.OrdinalIgnoreCase) || name.Equals("MultiPresence.zip", StringComparison.OrdinalIgnoreCase))
+                                    else if (name.Equals("MultiPresence.zip", StringComparison.OrdinalIgnoreCase))
                                     {
                                         updateUrl = asset.GetProperty("browser_download_url").GetString();
                                         actualZipName = name;
@@ -197,6 +198,7 @@ namespace MultiPresence
 
             if (!status)
             {
+                PlaceholderHelper._startTimestamp = Timestamps.Now;
                 switch (game)
                 {
                     case "Call of Duty®":
