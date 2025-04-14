@@ -13,7 +13,7 @@ namespace MultiPresence
             _isRunning = true;
             try
             {
-                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\Assets";
                 string[] filesToCheck = { "MultiPresenceGame.exe", "steam_api64.dll" };
 
                 bool filesMissing = false;
@@ -56,9 +56,9 @@ namespace MultiPresence
                                     string name = asset.GetProperty("name").GetString();
                                     string downloadUrl = asset.GetProperty("browser_download_url").GetString();
 
-                                    if (name == "Update.zip")
+                                    if (name == "MultiPresence.zip")
                                     {
-                                        string zipPath = Path.Combine(currentDirectory, "Update.zip");
+                                        string zipPath = Path.Combine(currentDirectory, "MultiPresence.zip");
 
                                         HttpResponseMessage fileResponse = await client.GetAsync(downloadUrl);
                                         if (fileResponse.IsSuccessStatusCode)
