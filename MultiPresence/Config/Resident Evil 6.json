@@ -1,0 +1,66 @@
+{
+   "Games":{
+      "Resident Evil 6":{
+         "Booting":{
+            "Details":"Starting the game...",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 6",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame":{
+            "Details":"{chapter}",
+            "State":"{room}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 6",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Main_Menu":{
+            "Details":"In Main Menu",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 6",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Saving":{
+            "Details":"Saving the game...",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 6",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Cutscene":{
+            "Details":"{chapter}",
+            "State":"In a cutscene",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 6",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

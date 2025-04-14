@@ -1,0 +1,30 @@
+{
+   "Games":{
+      "Temtem Swarm":{
+         "Default":{
+            "Details":"{steam_display}",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Temtem Swarm",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame":{
+            "Details":"Stage: {stage} - {round} minute(s)",
+            "State":"Temtem: {temtem}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Temtem Swarm",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

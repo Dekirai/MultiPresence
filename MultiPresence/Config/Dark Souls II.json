@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Dark Souls II":{
+         "Default":{
+            "Details":"Lv. {level} - {class}",
+            "State":"{hp}/{maxhp} HP",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Dark Souls II",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

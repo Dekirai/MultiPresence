@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("983292674863943720");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/TY the Tasmanian Tiger.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

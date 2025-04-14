@@ -16,13 +16,13 @@ namespace MultiPresenceGame.Presence
             {
                 discord = new DiscordRpcClient("1307417236113195038");
                 InitializeDiscord();
-                File.WriteAllText("steam_appid.txt", "2510960");
+                File.WriteAllText("Assets/steam_appid.txt", "2510960");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("config.json");
+                updater = new DiscordStatusUpdater("Assets/config/Temtem Swarm.json");
                 Thread thread = new Thread(RPCTTS);
                 thread.Start();
             }
@@ -62,7 +62,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("steam_appid.txt", "");
+                    File.WriteAllText("Assets/steam_appid.txt", "");
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Resident Evil 5":{
+         "Default":{
+            "Details":"{chapter} - {room}",
+            "State":"{item} - {ammo}/{pouch}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 5",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

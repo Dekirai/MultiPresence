@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1342148362471866460");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts ReChain of Memories.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

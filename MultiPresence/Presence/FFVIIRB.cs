@@ -12,7 +12,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1332349500572045312");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Final Fantasy VII Rebirth.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

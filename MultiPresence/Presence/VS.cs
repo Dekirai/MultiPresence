@@ -16,7 +16,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1283783524423438409");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Vampire Survivors.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

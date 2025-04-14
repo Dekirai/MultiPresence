@@ -1,0 +1,66 @@
+{
+   "Games":{
+      "Resident Evil 4 (2005)":{
+         "Title_Screen":{
+            "Details":"At the Title Screen",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Main":{
+            "Details":"Weapon: {weapon}",
+            "State":"Chapter {chapter}: {room}",
+            "LargeAsset":"{area_icon_name}",
+            "SmallAsset":"",
+            "LargeAssetText":"{area}",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Mercenaries":{
+            "Details":"Score: {score}",
+            "State":"Playing as '{character}' on '{room}'",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Assignment_Ada":{
+            "Details":"Weapon: {weapon}",
+            "State":"{room}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Separate_Ways":{
+            "Details":"Weapon: {weapon}",
+            "State":"Chapter {chapter}: {room}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Resident Evil 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

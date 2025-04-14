@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1212349543463518268");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Resident Evil 6.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

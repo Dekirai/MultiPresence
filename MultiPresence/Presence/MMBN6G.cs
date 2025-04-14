@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1257021467699449866");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 6.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

@@ -5,6 +5,7 @@ using MultiPresence.Presence;
 using MultiPresence.Properties;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.IO.Compression;
 using System.Net;
 using System.Text.Json;
 using System.Timers;
@@ -19,23 +20,24 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "13.04.2025";
+        private static readonly string currentVersion = "14.04.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
         {
             InitializeComponent();
-            CheckForUpdate();
 
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
             cb_DisableNotifications.Checked = Settings.Default.Notifications;
             cb_LaunchWithWindowsAdmin.Checked = Settings.Default.startupadmin;
+            cb_DisableAutoUpdates.Checked = Settings.Default.autoupdate;
 
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
             gameUpdater.Enabled = true;
-
+            if (!cb_DisableAutoUpdates.Checked)
+                CheckForUpdate();
             gameUpdater.Start();
         }
 
@@ -470,12 +472,14 @@ namespace MultiPresence
                 }
 
                 Settings.Default.Notifications = cb_DisableNotifications.Checked;
+                Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
                 Settings.Default.Save();
                 Application.Exit();
             }
             catch
             {
                 Settings.Default.Notifications = cb_DisableNotifications.Checked;
+                Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
                 Settings.Default.Save();
                 Application.Exit();
             }
@@ -499,24 +503,38 @@ namespace MultiPresence
 
         private async void btn_Config_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(Environment.CurrentDirectory + "\\config.json"))
+            string configFolderPath = Path.Combine(Environment.CurrentDirectory, "Assets/Config");
+
+            if (Directory.Exists(configFolderPath) &&
+                Directory.GetFiles(configFolderPath).Length > 0)
             {
-                DialogResult result = MessageBox.Show("The config file does not exist, do you want me to create one?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                Process.Start(new ProcessStartInfo(configFolderPath) { UseShellExecute = true });
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("The config folder is empty, do you want to download the config files?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/config.json";
+                    Directory.CreateDirectory(configFolderPath);
+
+                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/Config.zip";
                     using (HttpClient client = new HttpClient())
                     {
                         try
                         {
                             HttpResponseMessage response = await client.GetAsync(url);
                             response.EnsureSuccessStatusCode();
-                            string content = await response.Content.ReadAsStringAsync();
+                            byte[] content = await response.Content.ReadAsByteArrayAsync();
 
-                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\config.json", content);
+                            string zipFilePath = Path.Combine(configFolderPath, "Config.zip");
+                            File.WriteAllBytes(zipFilePath, content);
 
-                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\config.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\config.json") { UseShellExecute = true });
+                            ZipFile.ExtractToDirectory(zipFilePath, configFolderPath, overwriteFiles: true);
+
+                            File.Delete(zipFilePath);
+
+                            MessageBox.Show($"The config folder has been set up at {configFolderPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Process.Start(new ProcessStartInfo(configFolderPath) { UseShellExecute = true });
                         }
                         catch (Exception ex)
                         {
@@ -524,14 +542,13 @@ namespace MultiPresence
                         }
                     }
                 }
+
             }
-            else
-                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\config.json") { UseShellExecute = true });
         }
 
         private async void btn_Blacklist_Click(object sender, EventArgs e)
         {
-            if (!File.Exists(Environment.CurrentDirectory + "\\blacklist.json"))
+            if (!File.Exists(Environment.CurrentDirectory + "\\Assets\\blacklist.json"))
             {
                 DialogResult result = MessageBox.Show("The blacklist file does not exist, do you want me to create one?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
@@ -545,10 +562,10 @@ namespace MultiPresence
                             response.EnsureSuccessStatusCode();
                             string content = await response.Content.ReadAsStringAsync();
 
-                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\blacklist.json", content);
+                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\Assets\\blacklist.json", content);
 
-                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\blacklist.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
+                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\Assets\\blacklist.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\Assets\\blacklist.json") { UseShellExecute = true });
                         }
                         catch (Exception ex)
                         {
@@ -558,7 +575,7 @@ namespace MultiPresence
                 }
             }
             else
-                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\blacklist.json") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\Assets\\blacklist.json") { UseShellExecute = true });
         }
 
         private void SetStartupAdmin(bool enable)
@@ -644,6 +661,18 @@ namespace MultiPresence
                 Settings.Default.startup = false;
                 Settings.Default.Save();
             }
+        }
+
+        private void cb_DisableNotifications_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.Notifications = cb_DisableNotifications.Checked;
+            Settings.Default.Save();
+        }
+
+        private void cb_DisableAutoUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
+            Settings.Default.Save();
         }
     }
 }

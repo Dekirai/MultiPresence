@@ -1,0 +1,114 @@
+{
+   "Games":{
+      "Pangya Reborn":{
+         "Ingame_Match":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode} — H{currenthole}/{maxholes}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"#{room} - {players}/{playersmax} Players",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Match_Private":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode} — H{currenthole}/{maxholes}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"Private Room",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Tourney":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode} — H{currenthole}/{maxholes} — Score: {score}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"#{room} - {players}/{playersmax} Players",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Tourney_Private":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode} — H{currenthole}/{maxholes} — Score: {score}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"Private Room",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Lounge":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"#{room} - {players}/{playersmax} Players",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Lounge_Private":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"playing",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"Private Room",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Waiting_Room":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"waiting",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"#{room} - {players}/{playersmax} Players",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Waiting_Room_Private":{
+            "Details":"{nickname} - {level}",
+            "State":"{mode}",
+            "LargeAsset":"{map_icon_name}",
+            "SmallAsset":"waiting",
+            "LargeAssetText":"{map}",
+            "SmallAssetText":"Private Room",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Lobby":{
+            "Details":"{nickname} - {level}",
+            "State":"In Lobby",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"PangYa Reborn",
+            "SmallAssetText":"",
+            "Button1Text":"Join the discord",
+            "Button1URL":"https://discord.gg/pangya",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

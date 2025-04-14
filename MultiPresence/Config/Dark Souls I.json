@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Dark Souls: Remastered":{
+         "Default":{
+            "Details":"Lv. {level} - {class}",
+            "State":"{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Dark Souls: Remastered",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

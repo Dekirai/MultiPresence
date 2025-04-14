@@ -1,0 +1,66 @@
+{
+   "Games":{
+      "Devil May Cry 3":{
+         "Default":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"{character} - Health: {health}/{maxhealth}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 3",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Bloody Palace":{
+            "Details":"Bloody Palace - Level {level}",
+            "State":"Health: {health}/{maxhealth}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 3",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Cutscene":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"In a cutscene",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 3",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Pause Menu":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"In Pause Menu",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 3",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Bloody Palace Pause Menu":{
+            "Details":"Bloody Palace - Level {level}",
+            "State":"In Pause Menu",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 3",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

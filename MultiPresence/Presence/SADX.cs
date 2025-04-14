@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1345421793787117653");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Sonic Adventure DX.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

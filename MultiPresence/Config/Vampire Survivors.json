@@ -1,0 +1,54 @@
+{
+   "Games":{
+      "Vampire Survivors":{
+         "Default":{
+            "Details":"In Main Menu",
+            "State":"Coins: {coins}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Vampire Survivors",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Default_Adventure":{
+            "Details":"In Main Menu",
+            "State":"{adventure} - Coins: {coins}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Vampire Survivors",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame":{
+            "Details":"{character} - Lv. {level} - Coins: {coinsingame}",
+            "State":"🕑{time} {stage} - Kills: {kills}",
+            "LargeAsset":"logo",
+            "SmallAsset":"book",
+            "LargeAssetText":"Vampire Survivors",
+            "SmallAssetText":"{modes}",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame_Adventure":{
+            "Details":"{character} - Lv. {level} - Coins: {coinsingame}",
+            "State":"🕑{time} {stage} - Kills: {kills}",
+            "LargeAsset":"logo",
+            "SmallAsset":"book",
+            "LargeAssetText":"Vampire Survivors",
+            "SmallAssetText":"Playing {adventure} - Modes: {modes}",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

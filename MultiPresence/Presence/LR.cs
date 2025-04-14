@@ -8,14 +8,14 @@ namespace MultiPresence.Presence
         {
             await FileChecker.EnsureFilesExistAsync();
 
-            if (!File.Exists("steam_appid.txt"))
-                File.WriteAllText("steam_appid.txt", "1302240");
+            if (!File.Exists("Assets/steam_appid.txt"))
+                File.WriteAllText("Assets/steam_appid.txt", "1302240");
 
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             // Define the files to check
-            string file1 = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
-            string file2 = Path.Combine(currentDirectory, "steam_api64.dll");
+            string file1 = Path.Combine(currentDirectory, "Assets/MultiPresenceGame.exe");
+            string file2 = Path.Combine(currentDirectory, "Assets/steam_api64.dll");
 
             // Check if the files exist
             if (!File.Exists(file1) || !File.Exists(file2))

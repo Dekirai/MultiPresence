@@ -1,0 +1,30 @@
+{
+   "Games":{
+      "Sonic Adventure 2":{
+         "Default":{
+            "Details":"In Main Menu",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Sonic Adventure 2",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Ingame":{
+            "Details":"Rings: {rings} - Lives: {lives}",
+            "State":"{level}",
+            "LargeAsset":"{character_icon}",
+            "SmallAsset":"",
+            "LargeAssetText":"Playing as {character}",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

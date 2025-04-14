@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1358367799285649418");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Devil May Cry 1.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -37,8 +37,49 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("dmc1");
             if (game.Length > 0)
             {
-                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders);
+                uint healthdata = Hypervisor.GetPointer32(0x5EAB88, [0x4571]);
+                int maxhealth = Hypervisor.Read<short>(healthdata + 0x427, true);
+                int menuflag = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x5EAB88, [0x1CA5]), true);
+
+                if (menuflag == 0xA0)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders);
+                }
+                else if (menuflag == 0x80)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders, "Pause Menu");
+                }
+                else if (menuflag == 0xA1)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders, "Shop Menu");
+                }
+                else if (menuflag == 0xA4)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders, "Mission End");
+                }
+                else if (menuflag == 0x2C || menuflag == 0x28)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry", placeholders, "Mission Start");
+                }
+                else
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Devil May Cry"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
+                }
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

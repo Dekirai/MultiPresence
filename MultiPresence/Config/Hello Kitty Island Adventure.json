@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Hello Kitty":{
+         "Default":{
+            "Details":"{steam_display}",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Hello Kitty Island Adventure",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

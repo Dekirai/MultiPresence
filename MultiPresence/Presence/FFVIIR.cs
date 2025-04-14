@@ -12,7 +12,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1270065791957471242");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Final Fantasy VII Remake.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

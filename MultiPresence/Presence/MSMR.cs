@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1266485584822796331");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Marvel's Spider-Man Remastered.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

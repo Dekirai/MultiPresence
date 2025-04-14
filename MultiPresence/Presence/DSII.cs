@@ -12,7 +12,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1344011274803220542");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Dark Souls II.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

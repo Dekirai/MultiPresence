@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1266464310360670241");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Marvel's Spider-Man Miles Morales.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

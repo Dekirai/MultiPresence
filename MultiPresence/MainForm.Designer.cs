@@ -34,6 +34,7 @@
             notify = new NotifyIcon(components);
             cms = new ContextMenuStrip(components);
             cb_DisableNotifications = new ToolStripMenuItem();
+            cb_DisableAutoUpdates = new ToolStripMenuItem();
             btn_Config = new ToolStripMenuItem();
             btn_Blacklist = new ToolStripMenuItem();
             cb_LaunchWithWindows = new ToolStripMenuItem();
@@ -61,9 +62,9 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { cb_DisableNotifications, btn_Config, btn_Blacklist, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, btn_Blacklist, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(239, 164);
+            cms.Size = new Size(239, 186);
             // 
             // cb_DisableNotifications
             // 
@@ -71,12 +72,21 @@
             cb_DisableNotifications.Name = "cb_DisableNotifications";
             cb_DisableNotifications.Size = new Size(238, 22);
             cb_DisableNotifications.Text = "Disable System Notifications";
+            cb_DisableNotifications.CheckedChanged += cb_DisableNotifications_CheckedChanged;
+            // 
+            // cb_DisableAutoUpdates
+            // 
+            cb_DisableAutoUpdates.CheckOnClick = true;
+            cb_DisableAutoUpdates.Name = "cb_DisableAutoUpdates";
+            cb_DisableAutoUpdates.Size = new Size(238, 22);
+            cb_DisableAutoUpdates.Text = "Disable Auto-Updates";
+            cb_DisableAutoUpdates.CheckedChanged += cb_DisableAutoUpdates_CheckedChanged;
             // 
             // btn_Config
             // 
             btn_Config.Name = "btn_Config";
             btn_Config.Size = new Size(238, 22);
-            btn_Config.Text = "Open config";
+            btn_Config.Text = "Open config folder";
             btn_Config.Click += btn_Config_Click;
             // 
             // btn_Blacklist
@@ -143,5 +153,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem cb_LaunchWithWindowsAdmin;
         private ToolStripMenuItem cb_LaunchWithWindows;
+        private ToolStripMenuItem cb_DisableAutoUpdates;
     }
 }

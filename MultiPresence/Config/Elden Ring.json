@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Elden Ring":{
+         "Default":{
+            "Details":"Lv. {level} - {class}",
+            "State":"{hp}/{maxhp} HP - {mp}/{maxmp} MP",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"ELDEN RING",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

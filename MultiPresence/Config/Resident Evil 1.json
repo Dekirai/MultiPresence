@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Resident Evil":{
+         "Default":{
+            "Details":"{floor} - {room}",
+            "State":"Status: {healthstatus} - Weapon: {weapon}",
+            "LargeAsset":"logo",
+            "SmallAsset":"{character_icon}",
+            "LargeAssetText":"Resident Evil",
+            "SmallAssetText":"Playing as {character}",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

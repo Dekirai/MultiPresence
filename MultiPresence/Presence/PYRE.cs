@@ -15,7 +15,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1226462236181004338");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Pangya Reborn.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

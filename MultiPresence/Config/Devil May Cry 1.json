@@ -1,0 +1,66 @@
+{
+   "Games":{
+      "Devil May Cry":{
+         "Default":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"Health: {health}/{maxhealth}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Pause Menu":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"In Pause Menu",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Shop Menu":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"In Shop Menu",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Mission End":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"Mission is ending",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Mission Start":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"Starting the next mission",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

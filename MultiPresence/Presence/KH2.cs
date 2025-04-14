@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("826145131152408625");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts II.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

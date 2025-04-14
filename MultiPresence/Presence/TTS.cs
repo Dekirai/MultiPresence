@@ -4,18 +4,22 @@ namespace MultiPresence.Presence
 {
     public class TTS
     {
-
-        public static void DoAction()
+        public static async Task DoAction()
         {
-            if (!File.Exists("steam_appid.txt"))
-                File.WriteAllText("steam_appid.txt", "2510960");
+            await FileChecker.EnsureFilesExistAsync();
+
+            if (!File.Exists("Assets/steam_appid.txt"))
+                File.WriteAllText("Assets/steam_appid.txt", "2510960");
+
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // Combine the directory path with the file name
-            string filePath = Path.Combine(currentDirectory, "MultiPresenceGame.exe");
+            string file1 = Path.Combine(currentDirectory, "Assets/MultiPresenceGame.exe");
+            string file2 = Path.Combine(currentDirectory, "Assets/steam_api64.dll");
 
-            // Start the process
-            Process.Start(filePath);
+            if (!File.Exists(file1) || !File.Exists(file2))
+                return;
+
+            Process.Start(file1);
             Thread thread = new Thread(Blabla);
             thread.Start();
         }

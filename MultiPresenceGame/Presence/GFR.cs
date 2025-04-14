@@ -16,13 +16,13 @@ namespace MultiPresenceGame.Presence
             {
                 discord = new DiscordRpcClient("1342886727953416313");
                 InitializeDiscord();
-                File.WriteAllText("steam_appid.txt", "1217060");
+                File.WriteAllText("Assets/steam_appid.txt", "1217060");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("config.json");
+                updater = new DiscordStatusUpdater("Assets/config/Gunfire Reborn.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -70,7 +70,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("steam_appid.txt", "");
+                    File.WriteAllText("Assets/steam_appid.txt", "");
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

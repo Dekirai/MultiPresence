@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1213180163446149121");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Resident Evil Revelations 2.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

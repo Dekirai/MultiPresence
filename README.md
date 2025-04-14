@@ -9,7 +9,7 @@ This means that online games, especially those with anti-cheat, are less likely 
 
 ## Requirements  
 - Windows 10/11 64 Bit
-- [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET 9 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ## How to use it
 All you have to do is run **MultiPresence.exe** and you're ready to go.  
@@ -24,8 +24,8 @@ You can use a file called "blacklist.json" to block games.
 A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
 
 ## Placeholder (Optional)
-You can customize your presence to your liking using a config.json  
-A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Config).    
+You can customize your presence to your liking using a config file of your game.  
+The tutorial is currently undergoing a rewrite since I changed the config structure.    
 
 If you use Button1 or Button2 for placeholders, yourself won't see the buttons on discord, but others will.  
 It's impossible for me to fix this because this is an issue related to discord.  

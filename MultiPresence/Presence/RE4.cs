@@ -16,7 +16,7 @@ namespace MultiPresence.Presence
             _main_address = (ulong)Hypervisor.FindSignature("00 00 00 00 60 BB ?? ?? ?? ?? 96 40 00 00 00 00 E4 CB 96 40 ?? ?? ?? ?? E4 CB 96 40 00 00 00 00 E4 CB 96 40");
             discord = new DiscordRpcClient("982193093388427314");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Resident Evil 4 (2005).json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

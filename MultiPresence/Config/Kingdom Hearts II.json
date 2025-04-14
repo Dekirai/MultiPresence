@@ -1,0 +1,42 @@
+{
+   "Games":{
+      "Kingdom Hearts II Final Mix":{
+         "Default":{
+            "Details":"Lv. {level} ({difficulty})",
+            "State":"{room}",
+            "LargeAsset":"{world_icon_name}",
+            "SmallAsset":"",
+            "LargeAssetText":"{world}",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "FieldBattle":{
+            "Details":"Lv. {level} ({difficulty})",
+            "State":"HP: {hp}/{hpmax} - Form: {form}",
+            "LargeAsset":"{world_icon_name}",
+            "SmallAsset":"field",
+            "LargeAssetText":"{world} - {room}",
+            "SmallAssetText":"Field Battle",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "BossBattle":{
+            "Details":"Lv. {level} ({difficulty})",
+            "State":"HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+            "LargeAsset":"{world_icon_name}",
+            "SmallAsset":"boss",
+            "LargeAssetText":"{world} - {room}",
+            "SmallAssetText":"Boss Battle",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

@@ -1,0 +1,30 @@
+{
+   "Games":{
+      "Devil May Cry 4":{
+         "Default":{
+            "Details":"Mission {mission} ({difficulty})",
+            "State":"{scenario} - Health: {health}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Bloody Palace":{
+            "Details":"Bloody Palace - Level {level}",
+            "State":"{scenario} - Health: {health}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Devil May Cry 4",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

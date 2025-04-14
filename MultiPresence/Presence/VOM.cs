@@ -15,7 +15,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1279828464613982333");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Visions of Mana.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

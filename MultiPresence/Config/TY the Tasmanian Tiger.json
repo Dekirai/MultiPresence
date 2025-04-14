@@ -1,0 +1,30 @@
+{
+   "Games":{
+      "TY The Tasmanian Tiger":{
+         "Default":{
+            "Details":"Health: {health}",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"TY The Tasmanian Tiger",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+         "Level":{
+            "Details":"Health: {health} - Opals: {opals}/300",
+            "State":"{level}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"TY The Tasmanian Tiger",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

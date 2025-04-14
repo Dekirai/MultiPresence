@@ -14,7 +14,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1271522314248523837");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/CRISIS CORE –FINAL FANTASY VII– REUNION.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }

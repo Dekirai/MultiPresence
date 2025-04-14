@@ -13,7 +13,7 @@ namespace MultiPresence.Presence
             GetPID();
             discord = new DiscordRpcClient("1358354576310534247");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("config.json");
+            updater = new DiscordStatusUpdater("Assets/config/Devil May Cry 3.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -38,11 +38,11 @@ namespace MultiPresence.Presence
             if (game.Length > 0)
             {
                 float maxhealth = Hypervisor.Read<float>(0x046DE36C, true);
+                int menuflag = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x00C90DF8, [0x40, 0x20]), true);
+                int mission = Hypervisor.Read<byte>(0xC8F250);
 
-                if (maxhealth > 0)
+                if (menuflag == 1)
                 {
-                    int mission = Hypervisor.Read<byte>(0xC8F250);
-
                     if (mission == 21)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
@@ -53,6 +53,80 @@ namespace MultiPresence.Presence
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders);
                     }
+                }
+                else if (menuflag == 2)
+                {
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders, "Cutscene");
+                }
+                else if (menuflag == 3)
+                {
+                    if (mission == 21)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBP);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders, "Bloody Palace Pause Menu");
+                    }
+                    else
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 3", placeholders, "Pause Menu");
+                    }
+                }
+                else if (menuflag == 4)
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Status/Mission start",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Devil May Cry 3"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
+                }
+                else if (menuflag == 6)
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "Game Over",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Devil May Cry 3"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
+                }
+                else if (menuflag == 10)
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Save Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Devil May Cry 3"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
+                }
+                else if (menuflag == 12)
+                {
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Mission Select",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Devil May Cry 3"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
                 else
                 {

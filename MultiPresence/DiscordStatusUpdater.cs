@@ -36,7 +36,11 @@ public class DiscordStatusUpdater
     },
     { "Devil May Cry", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Pause Menu", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "In Pause Menu", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Shop Menu", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "In Shop Menu", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Mission End", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Mission is ending", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Mission Start", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Starting the next mission", LargeAsset = "logo", LargeAssetText = "Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry 2", new Dictionary<string, GameDetails>
@@ -48,7 +52,10 @@ public class DiscordStatusUpdater
     { "Devil May Cry 3", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Bloody Palace", new GameDetails { Details = "Bloody Palace - Level {level}", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Cutscene", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "In a cutscene", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Pause Menu", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "In Pause Menu", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Bloody Palace Pause Menu", new GameDetails { Details = "Bloody Palace - Level {level}", State = "In Pause Menu", LargeAsset = "logo", LargeAssetText = "Devil May Cry 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry 4", new Dictionary<string, GameDetails>

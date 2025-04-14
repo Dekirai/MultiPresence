@@ -16,13 +16,13 @@ namespace MultiPresenceGame.Presence
             {
                 discord = new DiscordRpcClient("1270342180623487089");
                 InitializeDiscord();
-                File.WriteAllText("steam_appid.txt", "2357570");
+                File.WriteAllText("Assets/steam_appid.txt", "2357570");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("config.json");
+                updater = new DiscordStatusUpdater("Assets/config/Overwatch.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
@@ -72,7 +72,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("steam_appid.txt", "");
+                    File.WriteAllText("Assets/steam_appid.txt", "");
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();
