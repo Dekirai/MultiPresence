@@ -27,7 +27,7 @@ A ready-made file and a tutorial can be found here: [Wiki -> Blacklist](https://
 You can customize your presence to your liking using a config file of your game.  
 A tutorial written by me can be found here: [Wiki -> How to use placeholders](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders)
 
-Here is a video showcasing how placeholders work:  
+Here is a video showcasing how placeholders work (Outdated but similar):  
 [![Video](https://img.youtube.com/vi/x0avvmvQ5BQ/0.jpg)](https://www.youtube.com/watch?v=x0avvmvQ5BQ)
  
 ## Supported games
