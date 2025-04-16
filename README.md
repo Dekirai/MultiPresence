@@ -21,15 +21,11 @@ You can also choose to launch MultiPresence with Windows, so you don't have to o
 ## Blacklist (Optional)
 MultiPresence also allows you to block certain games from being detected.  
 You can use a file called "blacklist.json" to block games.  
-A ready-made file and a tutorial can be found [here](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
+A ready-made file and a tutorial can be found here: [Wiki -> Blacklist](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).
 
 ## Placeholder (Optional)
 You can customize your presence to your liking using a config file of your game.  
-The tutorial is currently undergoing a rewrite since I changed the config structure.    
-
-If you use Button1 or Button2 for placeholders, yourself won't see the buttons on discord, but others will.  
-It's impossible for me to fix this because this is an issue related to discord.  
-You can see the buttons though if you login to a different account and view your profile or asking a friend.    
+A tutorial written by me can be found here: [Wiki -> How to use placeholders](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders)
 
 Here is a video showcasing how placeholders work:  
 [![Video](https://img.youtube.com/vi/x0avvmvQ5BQ/0.jpg)](https://www.youtube.com/watch?v=x0avvmvQ5BQ)
