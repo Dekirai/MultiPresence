@@ -76,15 +76,15 @@ namespace MultiPresence.Presence
                     }
                     else
                     {
-                        if (battleflag == 0)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders);
-                        }
-                        else if (battleflag == 1)
+                        if (battleflag == 1)
                         {
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders, "Battle");
+                        }
+                        else
+                        {
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Kingdom Hearts Final Mix", placeholders);
                         }
                     }
                 }
