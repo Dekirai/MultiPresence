@@ -91,7 +91,10 @@ namespace MultiPresence.Presence
                 story = "Episode Ignis";
             else if (character == "Ardyn")
                 story = "Episode Ardyn";
+            else if (character.Length > 0)
+                story = "Multiplayer: Comrades";
             else story = "Main Story";
+
 
             return new Dictionary<string, object>
             {
