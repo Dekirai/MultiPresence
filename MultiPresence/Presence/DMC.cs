@@ -37,7 +37,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("DMC-DevilMayCry");
             if (game.Length > 0)
             {
-                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x844]), true);
+                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x02735220, [0x0, 0x238, 0x844]), true);
                 int bp_level = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x026B5338, [0xAFC, 0x48]), true);
                 int mode = Hypervisor.Read<byte>(0x27546CC);
 
@@ -79,11 +79,11 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            float health = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x840]), true);
-            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x26C31FC, [0x184, 0x14, 0x14, 0x844]), true);
+            float health = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x02735220, [0x0, 0x238, 0x840]), true);
+            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x02735220, [0x0, 0x238, 0x844]), true);
             int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x275B0AC, [0x9F4, 0xC]), true);
             int difficulty_get = Hypervisor.Read<byte>(0x27546CC);
-            int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x26CE348, [0x24, 0x9C]), true) + 1;
+            int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x02733378, [0x7D4, 0x9C]), true) + 1;
 
             string difficulty = difficulty_get switch
             {
