@@ -51,6 +51,7 @@ Here is a video showcasing how placeholders work (Outdated but similar):
 |Final Fantasy XV|[Steam](https://store.steampowered.com/app/637650/FINAL_FANTASY_XV_WINDOWS_EDITION/)||
 |Final Fantasy XVI|[Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)|Only base game tested|
 |Gunfire Reborn ²|[Steam](https://store.steampowered.com/app/1217060/Gunfire_Reborn/)||
+|Hatsune Miku: Project DIVA Mega Mix+|[Steam](https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA_Mega_Mix/)||
 |Hello Kitty Island Adventure ²|[Steam](https://store.steampowered.com/app/2495100/Hello_Kitty_Island_Adventure/)||
 |Hogwarts Legacy ²|[Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)||
 |Kingdom Hearts Birth by Sleep Final Mix|[Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)||

@@ -181,6 +181,12 @@ public class DiscordStatusUpdater
             { "Lobby", new GameDetails { Details = "{nickname} - {level}", State = "In Lobby", LargeAsset = "logo", LargeAssetText = "PangYa Reborn", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Project Diva Mega Mix+", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "In Menu", State = "", LargeAsset = "logo", LargeAssetText = "Project Diva: Mega Mix+", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "[{difficulty}] Score: {score} - Combo: {currentcombo}", State = "Song: {song}", LargeAsset = "logo", LargeAssetText = "Project Diva: Mega Mix+", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Resident Evil", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{floor} - {room}", State = "Status: {healthstatus} - Weapon: {weapon}", LargeAsset = "logo", LargeAssetText = "Resident Evil", SmallAsset = "{character_icon}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

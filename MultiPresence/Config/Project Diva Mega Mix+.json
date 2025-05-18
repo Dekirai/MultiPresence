@@ -1,0 +1,30 @@
+{
+   "Games":{
+      "Project Diva Mega Mix+":{
+         "Default":{
+            "Details":"In Menu",
+            "State":"",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Project Diva: Mega Mix+",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         },
+		 "Ingame":{
+            "Details":"[{difficulty}] Score: {score} - Combo: {currentcombo}",
+            "State":"Song: {song}",
+            "LargeAsset":"logo",
+            "SmallAsset":"",
+            "LargeAssetText":"Project Diva: Mega Mix+",
+            "SmallAssetText":"",
+            "Button1Text":"",
+            "Button1URL":"",
+            "Button2Text":"",
+            "Button2URL":""
+         }
+      }
+   }
+}

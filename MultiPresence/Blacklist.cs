@@ -38,6 +38,8 @@ namespace MultiPresence
         public bool FinalFantasyXV { get; set; }
         [JsonProperty("Gunfire Reborn")]
         public bool GunfireReborn { get; set; }
+        [JsonProperty("Project Diva Mega Mix+")]
+        public bool ProjectDivaMegaMixPlus { get; set; }
         [JsonProperty("Kingdom Hearts Birth by Sleep Final Mix")]
         public bool KingdomHeartsBirthBySleepFinalMix { get; set; }
         [JsonProperty("Kingdom Hearts Re:Chain of Memories")]
@@ -169,6 +171,8 @@ namespace MultiPresence
                     return Overwatch2;
                 case "Pangya Reborn":
                     return PangyaReborn;
+                case "Project Diva Mega Mix+":
+                    return ProjectDivaMegaMixPlus;
                 case "Resident Evil":
                     return ResidentEvil;
                 case "Resident Evi 2":

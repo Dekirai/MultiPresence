@@ -28,6 +28,7 @@ namespace MultiPresence
             var game_dmc3 = Process.GetProcessesByName("dmc3");
             var game_dmc4 = Process.GetProcessesByName("DevilMayCry4SpecialEdition");
             var game_dmc5 = Process.GetProcessesByName("DevilMayCry5");
+            var game_dmm = Process.GetProcessesByName("DivaMegaMix");
             var game_er = Process.GetProcessesByName("eldenring");
             var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
             var game_hk = Process.GetProcessesByName("Hello Kitty");
@@ -87,6 +88,8 @@ namespace MultiPresence
                 game = "Devil May Cry 4";
             else if (game_dmc5.Length > 0)
                 game = "Devil May Cry 5";
+            else if (game_dmm.Length > 0)
+                game = "Project Diva Mega Mix+";
             else if (game_ffviir.Length > 0)
                 game = "Final Fantasy VII Remake";
             else if (game_ffviirb.Length > 0)
