@@ -95,24 +95,29 @@ namespace MultiPresence.Presence
             int notes_appeared = Hypervisor.Read<int>(0x12EF628);
             int longestcombo = Hypervisor.Read<int>(0x12EF58C);
             int currentcombo = Hypervisor.Read<int>(0x12EEFEC);
+            string songname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x0CC0B5F8, [0x0]), 255, true);
+            int exextreme = Hypervisor.Read<byte>(0x16E2B94);
 
-            string song = await SongIDs.GetSong(songid_get);
+            if (songname == null || songname == "")
+                songname = await SongIDs.GetSong(songid_get);
 
             string difficulty = difficulty_get switch
             {
                 0 => "Easy",
                 1 => "Normal",
                 2 => "Hard",
-                3 => "Extreme",
-                4 => "Extra Extreme"
+                3 => "Extreme"
             };
+
+            if (exextreme == 1)
+                difficulty = "Extra Extreme";
 
             return new Dictionary<string, object>
             {
                 { "difficulty", difficulty },
                 { "life", life },
                 { "score", score },
-                { "song", song},
+                { "song", songname},
                 { "notes_appeared", notes_appeared },
                 { "longestcombo", longestcombo },
                 { "currentcombo", currentcombo }
