@@ -1,6 +1,6 @@
 # Placeholders
 |Placeholder|Function|
-|--|--|--|
+|--|--|
 |{floor}|Shows the name of the current floor|
 |{floortype}|Shows the name of the current floor type|
 |{floortypeasset}|Shows the image of the current floor type, to be used with Large-/Smallasset|
