@@ -8,6 +8,8 @@ namespace MultiPresence
         public bool CallofDuty { get; set; }
         [JsonProperty("CRISIS CORE –FINAL FANTASY VII– REUNION")]
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
+        [JsonProperty("The Binding of Isaac: Rebirth")]
+        public bool TheBindingOfIsaacRebirth { get; set; }
         [JsonProperty("Dark Souls: Remastered")]
         public bool DarkSoulsRemastered { get; set; }
         [JsonProperty("Dark Souls II")]
@@ -193,6 +195,8 @@ namespace MultiPresence
                     return SonicAdventureDX;
                 case "Temtem: Swarm":
                     return TemtemSwarm;
+                    case "The Binding of Isaac: Rebirth":
+                    return TheBindingOfIsaacRebirth;
                 case "TY the Tasmanian Tiger":
                     return TYTheTasmanianTiger;
                 case "Zelda: The Wind Waker HD":

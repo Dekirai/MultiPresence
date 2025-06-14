@@ -30,6 +30,7 @@ namespace MultiPresence
             var game_dmc5 = Process.GetProcessesByName("DevilMayCry5");
             var game_dmm = Process.GetProcessesByName("DivaMegaMix");
             var game_er = Process.GetProcessesByName("eldenring");
+            var game_tboi = Process.GetProcessesByName("isaac-ng");
             var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
             var game_hk = Process.GetProcessesByName("Hello Kitty");
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
@@ -207,6 +208,8 @@ namespace MultiPresence
                 game = "Sonic Adventure DX";
             else if (game_tts.Length > 0)
                 game = "Temtem: Swarm";
+            else if (game_tboi.Length > 0)
+                game = "The Binding of Isaac: Rebirth";
             else if (game_ty.Length > 0)
                 game = "TY the Tasmanian Tiger";
             else if (game_vs.Length > 0)

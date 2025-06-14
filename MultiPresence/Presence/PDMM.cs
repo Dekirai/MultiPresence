@@ -118,7 +118,7 @@ namespace MultiPresence.Presence
                 { "life", life },
                 { "score", score },
                 { "song", songname},
-                { "notes_appeared", notes_appeared },
+                { "notesappeared", notes_appeared },
                 { "longestcombo", longestcombo },
                 { "currentcombo", currentcombo }
             };

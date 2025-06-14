@@ -20,7 +20,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "21.05.2025";
+        private static readonly string currentVersion = "14.06.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -441,6 +441,11 @@ namespace MultiPresence
                     case "Mega Man Battle Network 6: Cybeast Falzar":
                         Balloon(game);
                         MMBN6F.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "The Binding of Isaac: Rebirth":
+                        Balloon(game);
+                        TBOI.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Temtem: Swarm":

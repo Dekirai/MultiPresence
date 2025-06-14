@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "The Binding of Isaac: Rebirth":{
+        "Default": {
+            "Details": "Time: {time} - Score: {score}",
+            "State": "🪙{coins}💣{bombs}🔑{keys}",
+            "LargeAsset": "{floortypeasset}",
+            "SmallAsset": "{characterasset}",
+            "LargeAssetText": "{floor}",
+            "SmallAssetText": "Playing as {character}",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+        }
+      }
+   }
+}
