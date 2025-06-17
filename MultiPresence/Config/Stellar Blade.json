@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "Stellar Blade":{
+        "Default": {
+            "Details": "HP: {health}/{maxhealth} - SH: {shield}/{maxshield}",
+            "State": "Level {level}",
+            "LargeAsset": "logo",
+            "SmallAsset": "",
+            "LargeAssetText": "Stellar Blade",
+            "SmallAssetText": "",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+        }
+      }
+   }
+}

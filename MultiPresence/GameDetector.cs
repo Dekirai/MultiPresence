@@ -59,6 +59,7 @@ namespace MultiPresence
             var game_rev2 = Process.GetProcessesByName("rerev2");
             var game_sadx = Process.GetProcessesByName("Sonic Adventure DX");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
+            var game_sb = Process.GetProcessesByName("SB-Win64-Shipping");
             var game_tts = Process.GetProcessesByName("TemtemSwarm");
             var game_ty = Process.GetProcessesByName("TY");
             var game_vs = Process.GetProcessesByName("VampireSurvivors");
@@ -206,6 +207,8 @@ namespace MultiPresence
                 game = "Sonic Adventure 2";
             else if (game_sadx.Length > 0)
                 game = "Sonic Adventure DX";
+            else if (game_sb.Length > 0)
+                game = "Stellar Blade";
             else if (game_tts.Length > 0)
                 game = "Temtem: Swarm";
             else if (game_tboi.Length > 0)

@@ -92,6 +92,8 @@ namespace MultiPresence
         public bool SonicAdventure2 { get; set; }
         [JsonProperty("Sonic Adventure DX")]
         public bool SonicAdventureDX { get; set; }
+        [JsonProperty("Stellar Blade")]
+        public bool StellarBlade { get; set; }
         [JsonProperty("Temtem: Swarm")]
         public bool TemtemSwarm { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
@@ -193,9 +195,11 @@ namespace MultiPresence
                     return SonicAdventure2;
                 case "Sonic Adventure DX":
                     return SonicAdventureDX;
+                    case "Stellar Blade":
+                    return StellarBlade;
                 case "Temtem: Swarm":
                     return TemtemSwarm;
-                    case "The Binding of Isaac: Rebirth":
+                case "The Binding of Isaac: Rebirth":
                     return TheBindingOfIsaacRebirth;
                 case "TY the Tasmanian Tiger":
                     return TYTheTasmanianTiger;
