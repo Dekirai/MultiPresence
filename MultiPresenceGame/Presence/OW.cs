@@ -11,8 +11,8 @@ namespace MultiPresenceGame.Presence
 
         public static void DoAction()
         {
-            Process[] cod = Process.GetProcessesByName("Overwatch");
-            if (cod.Length > 0)
+            Process[] ow = Process.GetProcessesByName("Overwatch");
+            if (ow.Length > 0)
             {
                 discord = new DiscordRpcClient("1270342180623487089");
                 InitializeDiscord();
@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Overwatch.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Overwatch.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

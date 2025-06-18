@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Temtem Swarm.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Temtem Swarm.json");
                 Thread thread = new Thread(RPCTTS);
                 thread.Start();
             }

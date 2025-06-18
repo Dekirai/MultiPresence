@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Hello Kitty Island Adventure.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Hello Kitty Island Adventure.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Call of Duty.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Call of Duty.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

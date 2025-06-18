@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Labyrinthine.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Labyrinthine.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

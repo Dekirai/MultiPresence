@@ -44,6 +44,11 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Overwatch 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Stellar Blade", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {health}/{maxhealth} - Level {level}", State = "Location: {location}", LargeAsset = "logo", LargeAssetText = "Stellar Blade", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Temtem Swarm", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Temtem Swarm", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

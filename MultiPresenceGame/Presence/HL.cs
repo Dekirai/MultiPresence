@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Hogwarts Legacy.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Hogwarts Legacy.json");
                 Thread thread = new Thread(RPCTTS);
                 thread.Start();
             }

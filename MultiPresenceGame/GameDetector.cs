@@ -13,6 +13,7 @@ namespace MultiPresenceGame
             var game_hl = Process.GetProcessesByName("HogwartsLegacy");
             var game_lr = Process.GetProcessesByName("Labyrinthine");
             var game_ow = Process.GetProcessesByName("Overwatch");
+            var game_sb = Process.GetProcessesByName("SB-Win64-Shipping");
             var game_tts = Process.GetProcessesByName("TemtemSwarm");
 
             string game = "";
@@ -28,6 +29,8 @@ namespace MultiPresenceGame
                 game = "Labyrinthine";
             else if (game_ow.Length > 0)
                 game = "Overwatch 2";
+            else if (game_sb.Length > 0)
+                game = "Stellar Blade";
             else if (game_tts.Length > 0)
                 game = "Temtem: Swarm";
 

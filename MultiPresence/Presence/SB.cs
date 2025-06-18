@@ -1,117 +1,44 @@
-﻿using DiscordRPC;
-using System.Diagnostics;
-using System.Security.AccessControl;
+﻿using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class SB
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static ulong _main_address = 0;
-        public static void DoAction()
+        public static async Task DoAction()
         {
-            GetPID();
-            discord = new DiscordRpcClient("1384106213213737002");
-            InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Stellar Blade.json");
-            Thread thread = new Thread(RPC);
+            await FileChecker.EnsureFilesExistAsync();
+
+            if (!File.Exists("Assets/steam_appid.txt"))
+                File.WriteAllText("Assets/steam_appid.txt", "3489700");
+
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Define the files to check
+            string file1 = Path.Combine(currentDirectory, "Assets/MultiPresenceGame.exe");
+            string file2 = Path.Combine(currentDirectory, "Assets/steam_api64.dll");
+
+            // Check if the files exist
+            if (!File.Exists(file1) || !File.Exists(file2))
+                return;
+
+            Process.Start(file1);
+            Thread thread = new Thread(Blabla);
             thread.Start();
         }
 
-        private static void GetPID()
+        private static async void Blabla()
         {
-            try
+            while (true)
             {
-                var _myProcess = Process.GetProcessesByName("SB-Win64-Shipping")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
-            }
-            catch
-            {
-                //nothing?
-            }
-        }
-
-        private static async void RPC()
-        {
-            Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
-            if (game.Length > 0)
-            {
-                ulong _base = Hypervisor.GetPointer64(0x07070E00, [0xC8, 0x28, 0x0, 0x11C]);
-                float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
-
-                try
+                Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
+                if (game.Length > 0)
+                    await Task.Delay(3000); // Wait before checking again
+                else
                 {
-                    if (_maxhealth > 0)
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Stellar Blade", placeholders);
-                    }
-                    else
-                    {
-                        discord.SetPresence(new RichPresence()
-                        {
-                            Details = "In Main Menu",
-                            State = "",
-                            Assets = new Assets()
-                            {
-                                LargeImageKey = "logo",
-                                LargeImageText = "Stellar Blade"
-                            },
-                            Timestamps = PlaceholderHelper._startTimestamp
-                        });
-                    }
+                    MainForm.gameUpdater.Start();
+                    break;
                 }
-                catch
-                {
-                    discord.SetPresence(new RichPresence()
-                    {
-                        Details = "In Main Menu",
-                        State = "",
-                        Assets = new Assets()
-                        {
-                            LargeImageKey = "logo",
-                            LargeImageText = "Stellar Blade"
-                        },
-                        Timestamps = PlaceholderHelper._startTimestamp
-                    });
-                }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
-            else
-            {
-                discord.Deinitialize();
-                MainForm.gameUpdater.Start();
-            }
-        }
-
-        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
-        {
-            ulong _base = Hypervisor.GetPointer64(0x07070E00, [0xC8, 0x28, 0x0, 0x11C]);
-
-            float _health = Hypervisor.Read<float>(_base, true);
-            float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
-            float _shield = Hypervisor.Read<float>(_base + 0x18, true);
-            float _maxshield = Hypervisor.Read<float>(_base + 0x1C, true);
-            float _level = Hypervisor.Read<float>(_base + 0x1A0, true);
-
-            return new Dictionary<string, object>
-            {
-                { "health", _health },
-                { "maxhealth", _maxhealth },
-                { "shield", _shield },
-                { "maxshield", _maxshield },
-                { "level", _level }
-            };
-        }
-
-        private static void InitializeDiscord()
-        {
-            discord.Initialize();
         }
     }
 }

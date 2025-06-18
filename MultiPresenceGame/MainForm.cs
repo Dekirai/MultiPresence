@@ -11,7 +11,7 @@ namespace MultiPresenceGame
         {
             InitializeComponent();
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "1217060");
+            File.WriteAllText("steam_appid.txt", "3489700");
             if (!SteamAPI.Init())
             {
                 //Do nothing
@@ -32,10 +32,10 @@ namespace MultiPresenceGame
                     MessageBox.Show($"Key: {key}, Value: {value}");
                 }
             }
-            //gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
-            //gameUpdater.Interval = 5000;
-            //gameUpdater.Enabled = true;
-            //gameUpdater.Start();
+            gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
+            gameUpdater.Interval = 5000;
+            gameUpdater.Enabled = true;
+            gameUpdater.Start();
 #else
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
@@ -73,6 +73,10 @@ namespace MultiPresenceGame
                     break;
                 case "Overwatch 2":
                     OW.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                    case "Stellar Blade":
+                    SB.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Temtem: Swarm":

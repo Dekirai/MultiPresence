@@ -246,11 +246,6 @@ public class DiscordStatusUpdater
             { "Ingame", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Stellar Blade", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "HP: {health}/{maxhealth} - SH: {shield}/{maxshield}", State = "Level {level}", LargeAsset = "logo", LargeAssetText = "Stellar Blade", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
     { "The Binding of Isaac: Rebirth", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Time: {time} - Score: {score}", State = "🪙{coins}💣{bombs}🔑{keys}", LargeAsset = "{floortypeasset}", LargeAssetText = "{floor}", SmallAsset = "{characterasset}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

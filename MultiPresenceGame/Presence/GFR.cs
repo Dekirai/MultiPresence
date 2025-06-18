@@ -22,7 +22,7 @@ namespace MultiPresenceGame.Presence
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/config/Gunfire Reborn.json");
+                updater = new DiscordStatusUpdater("Assets/Config/Gunfire Reborn.json");
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }

@@ -97,15 +97,16 @@ namespace MultiPresence.Presence
             string version = Hypervisor.ReadString(0x9A9330, 4);
             if (version == "KH2J")
                 isEpicGames = true;
-            int world_get = 0;
-            int room_get = 0;
-            int difficulty_get = 0;
-            int level = 0;
-            int hp = 0;
-            int hpmax = 0;
-            int mp = 0;
-            int mpmax = 0;
-            int form_get = 0;
+
+            int world_get;
+            int room_get;
+            int difficulty_get;
+            int level;
+            int hp;
+            int hpmax;
+            int mp;
+            int mpmax;
+            int form_get;
 
             if (isEpicGames)
             {
