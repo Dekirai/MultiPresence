@@ -96,6 +96,10 @@ namespace MultiPresence
         public bool StellarBlade { get; set; }
         [JsonProperty("Temtem: Swarm")]
         public bool TemtemSwarm { get; set; }
+        [JsonProperty("The Witcher 3")]
+        public bool TheWitcher3 { get; set; }
+        [JsonProperty("Persona 4 Golden")]
+        public bool P4G { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
         public bool TYTheTasmanianTiger { get; set; }
         [JsonProperty("Zelda: The Wind Waker HD")]

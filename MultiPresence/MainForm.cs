@@ -20,7 +20,7 @@ namespace MultiPresence
         public static bool isBlacklistLoaded = false;
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "18.06.2025";
+        private static readonly string currentVersion = "29.06.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -426,6 +426,16 @@ namespace MultiPresence
                     case "Marvel's Spider-Man 2":
                         Balloon(game);
                         MSM2.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Persona 4 Golden":
+                        Balloon(game);
+                        P4G.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "The Witcher 3":
+                        Balloon(game);
+                        TWIII.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Marvel's Spider-Man: Miles Morales":

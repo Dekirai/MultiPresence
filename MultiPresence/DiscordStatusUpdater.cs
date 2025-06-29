@@ -181,6 +181,12 @@ public class DiscordStatusUpdater
             { "Lobby", new GameDetails { Details = "{nickname} - {level}", State = "In Lobby", LargeAsset = "logo", LargeAssetText = "PangYa Reborn", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Persona 4 Golden", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level}", State = "{currenttime} - {currentday}", LargeAsset = "logo", LargeAssetText = "logo", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "logo", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Project Diva Mega Mix+", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "In Menu", State = "", LargeAsset = "logo", LargeAssetText = "Project Diva: Mega Mix+", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
@@ -249,6 +255,11 @@ public class DiscordStatusUpdater
     { "The Binding of Isaac: Rebirth", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Time: {time} - Score: {score}", State = "🪙{coins}💣{bombs}🔑{keys}", LargeAsset = "{floortypeasset}", LargeAssetText = "{floor}", SmallAsset = "{characterasset}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "The Witcher 3", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Health: {health}/{maxhealth}", State = "Lv. {level} - {xp} XP", LargeAsset = "logo", LargeAssetText = "The Witcher 3: Wild Hunt", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "TY The Tasmanian Tiger", new Dictionary<string, GameDetails>

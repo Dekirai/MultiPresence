@@ -53,6 +53,7 @@ namespace MultiPresence
             var game_re = Process.GetProcessesByName("bhd");
             var game_re2 = Process.GetProcessesByName("re2");
             var game_re4 = Process.GetProcessesByName("bio4");
+            var game_p4g = Process.GetProcessesByName("p4g");
             var game_re4r = Process.GetProcessesByName("re4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
             var game_re6 = Process.GetProcessesByName("BH6");
@@ -61,6 +62,7 @@ namespace MultiPresence
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_sb = Process.GetProcessesByName("SB-Win64-Shipping");
             var game_tts = Process.GetProcessesByName("TemtemSwarm");
+            var game_tw3 = Process.GetProcessesByName("witcher3");
             var game_ty = Process.GetProcessesByName("TY");
             var game_vs = Process.GetProcessesByName("VampireSurvivors");
             var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
@@ -162,6 +164,8 @@ namespace MultiPresence
                 game = "Kingdom Hearts Re:Chain of Memories";
             else if (game_lr.Length > 0)
                 game = "Labyrinthine";
+            else if (game_p4g.Length > 0)
+                game = "Persona 4 Golden";
             else if (game_lop.Length > 0)
                 game = "Lies of P";
             else if (game_mm11.Length > 0)
@@ -213,6 +217,8 @@ namespace MultiPresence
                 game = "Temtem: Swarm";
             else if (game_tboi.Length > 0)
                 game = "The Binding of Isaac: Rebirth";
+            else if (game_tw3.Length > 0)
+                game = "The Witcher 3";
             else if (game_ty.Length > 0)
                 game = "TY the Tasmanian Tiger";
             else if (game_vs.Length > 0)

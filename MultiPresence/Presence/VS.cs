@@ -42,7 +42,7 @@ namespace MultiPresence.Presence
             {
                 var characterid_base = Hypervisor.GetPointer64(0x01B450B8, [0x48, 0xA0, 0xC0, 0x0, 0x2C0, 0x50, 0x44], false, "UnityPlayer.dll");
                 var characterid_adventure_base = Hypervisor.GetPointer64(0x01B450B8, [0x48, 0xA0, 0xC0, 0x0, 0x2C0, 0x60, 0x44], false, "UnityPlayer.dll");
-                var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0xF8, 0x68, 0x60, 0x220, 0x10, 0x28, 0x3C0], false, "UnityPlayer.dll"), true);
+                var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE06D8, [0xBE8, 0x68, 0xE00, 0x110, 0x60, 0x88, 0x3C0], false, "UnityPlayer.dll"), true);
                 var health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01B3BFF8, [0xB8, 0x60, 0x78, 0x28, 0x20, 0xC0, 0x1C0], false, "UnityPlayer.dll"), true);
 
                 var stageid_adventure = Hypervisor.Read<int>(characterid_adventure_base + 0x04, true);
@@ -147,7 +147,7 @@ namespace MultiPresence.Presence
 
             var health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01B3BFF8, [0xB8, 0x60, 0x78, 0x28, 0x20, 0xC0, 0x1C0], false, "UnityPlayer.dll"), true);
             var level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01B3BFF8, [0xB8, 0x60, 0x78, 0x28, 0x20, 0xC0, 0x1F4], false, "UnityPlayer.dll"), true);
-            var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0xF8, 0x68, 0x60, 0x220, 0x10, 0x28, 0x3C0], false, "UnityPlayer.dll"), true);
+            var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE06D8, [0xBE8, 0x68, 0xE00, 0x110, 0x60, 0x88, 0x3C0], false, "UnityPlayer.dll"), true);
 
             var characterid_adventure = Hypervisor.Read<byte>(characterid_adventure_base, true);
             var stageid_adventure = Hypervisor.Read<int>(characterid_adventure_base + 0x04, true);
@@ -227,7 +227,7 @@ namespace MultiPresence.Presence
 
             var health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0x348, 0xC8, 0x40, 0x110, 0x60, 0x60, 0x1F0], false, "UnityPlayer.dll"), true);
             var level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01B3BFF8, [0xB8, 0x60, 0x78, 0x28, 0x20, 0xC0, 0x1F4], false, "UnityPlayer.dll"), true);
-            var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE0888, [0xF8, 0x68, 0x60, 0x220, 0x10, 0x28, 0x3C0], false, "UnityPlayer.dll"), true);
+            var time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01AE06D8, [0xBE8, 0x68, 0xE00, 0x110, 0x60, 0x88, 0x3C0], false, "UnityPlayer.dll"), true);
 
             var characterid = Hypervisor.Read<byte>(characterid_base, true);
             var stageid = Hypervisor.Read<int>(characterid_base + 0x04, true);

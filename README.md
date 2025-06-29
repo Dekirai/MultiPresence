@@ -108,6 +108,7 @@ Customize your presence text:
 | Mega Man Battle Network 6                   | [Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)                             |                                      |
 | Overwatch 2 ²                               | [Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)                                                                 |                                      |
 | Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
+| Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
 | Resident Evil                               | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2                             | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              |                                      |
 | Resident Evil 4 (2005) ¹                    | [Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)                                                              |                                      |
@@ -120,6 +121,7 @@ Customize your presence text:
 | Stellar Blade ²                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
 | Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |
 | The Binding of Isaac: Rebirth               | [Steam](https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/)                                                 | Only works on Repentance+            |
+| The Witcher 3: Wild Hunt                    | [Steam](https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/)                                                      | Only base game tested                |
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |
 | Vampire Survivors                           | [Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)                                                           |                                      |
 | Visions of Mana                             | [Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)                                                             |                                      |
