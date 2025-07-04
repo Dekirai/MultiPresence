@@ -173,6 +173,8 @@ namespace MultiPresence
                 var title = Process.GetProcessesByName("game").FirstOrDefault();
                 if (title.MainWindowTitle.Contains("MEGAMAN11"))
                     game = "Mega Man 11";
+                else if (title.MainWindowTitle.Contains("Persona 5 Strikers"))
+                    game = "Persona 5 Strikers";
             }
             else if (game_mmbn6g.Length > 0)
             {

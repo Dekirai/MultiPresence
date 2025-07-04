@@ -18,9 +18,14 @@ namespace MultiPresence
         Blacklist? blacklist = null;
         public static bool status = false;
         public static bool isBlacklistLoaded = false;
+        private string _lastDisabledGame = null;
+        private bool _disabledNotificationSent = false;
+
+        private static readonly string gameStatusUrl = "https://dekirai.crygod.de/multipresence/gamestatus.json";
+        private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "29.06.2025";
+        private static readonly string currentVersion = "04.07.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -186,17 +191,50 @@ namespace MultiPresence
             string game = await GameDetector.GetGameAsync();
             string json;
 
-            if (File.Exists("blacklist.json"))
+            if (File.Exists("Assets\\blacklist.json"))
             {
-                json = File.ReadAllText("blacklist.json");
+                json = File.ReadAllText("Assets\\blacklist.json");
                 blacklist = JsonConvert.DeserializeObject<Blacklist>(json);
                 isBlacklistLoaded = true;
             }
-            if (File.Exists("steam_appid.txt"))
-                File.Delete("steam_appid.txt");
+            if (File.Exists("Assets\\steam_appid.txt"))
+                File.Delete("Assets\\steam_appid.txt");
 
             if (isBlacklistLoaded && blacklist != null)
                 status = blacklist.GetValue(game);
+
+            try
+            {
+                using var client = new HttpClient();
+                client.DefaultRequestHeaders
+                      .UserAgent.ParseAdd("CSharpApp");
+                string gamecheck = await client.GetStringAsync(gameStatusUrl);
+                gameEnabled = JsonConvert.DeserializeObject<Dictionary<string, bool>>(gamecheck)
+                              ?? new Dictionary<string, bool>();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            bool enabled = gameEnabled.TryGetValue(game, out var isEn) ? isEn : true;
+
+            if (!enabled)
+            {
+                if (!_disabledNotificationSent || _lastDisabledGame != game)
+                {
+                    BalloonDisabled(game);
+                    _disabledNotificationSent = true;
+                    _lastDisabledGame = game;
+                }
+                return;
+            }
+
+            _disabledNotificationSent = false;
+            _lastDisabledGame = null;
+
+            if (gameEnabled.TryGetValue(game, out bool isEnabled) && !isEnabled)
+                return;
 
             if (!status)
             {
@@ -433,6 +471,11 @@ namespace MultiPresence
                         P4G.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Persona 5 Strikers":
+                        Balloon(game);
+                        P5S.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "The Witcher 3":
                         Balloon(game);
                         TWIII.DoAction();
@@ -523,6 +566,14 @@ namespace MultiPresence
         {
             notify.BalloonTipTitle = "MultiPresence - Update status";
             notify.BalloonTipText = text;
+            notify.ShowBalloonTip(3000);
+        }
+
+        private void BalloonDisabled(string game)
+        {
+            if (cb_DisableNotifications.Checked) return;
+            notify.BalloonTipTitle = "Game Disabled";
+            notify.BalloonTipText = $"{game} is currently disabled.";
             notify.ShowBalloonTip(3000);
         }
 

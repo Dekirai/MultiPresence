@@ -1,8 +1,6 @@
 # Placeholders
 |Placeholder|Function|Usable in|
 |--|--|--|
-|{currenttime}|Displays the current time|Default|
-|{currentday}|Displays the current day|Default|
 |{money}|Displays your current money|Default|
 |{level}|Displays your current level|Default, Battle|
 |{hp}|Displays your current HP|Battle|

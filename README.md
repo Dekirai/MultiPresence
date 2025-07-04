@@ -109,6 +109,7 @@ Customize your presence text:
 | Overwatch 2 ²                               | [Steam](https://store.steampowered.com/app/2357570/Overwatch_2/)                                                                 |                                      |
 | Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
 | Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
+| Persona 5 Strikers                          | [Steam](https://store.steampowered.com/app/1382330/Persona_5_Strikers/)                                                          |                                      |
 | Resident Evil                               | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2                             | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              |                                      |
 | Resident Evil 4 (2005) ¹                    | [Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)                                                              |                                      |

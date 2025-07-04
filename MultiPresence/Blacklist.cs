@@ -74,6 +74,10 @@ namespace MultiPresence
         public bool Overwatch2 { get; set; }
         [JsonProperty("Pangya Reborn")]
         public bool PangyaReborn { get; set; }
+        [JsonProperty("Persona 4 Golden")]
+        public bool P4G { get; set; }
+        [JsonProperty("Persona 5 Strikers")]
+        public bool P5S { get; set; }
         [JsonProperty("Resident Evil")]
         public bool ResidentEvil { get; set; }
         [JsonProperty("Resident Evil 2")]
@@ -98,8 +102,6 @@ namespace MultiPresence
         public bool TemtemSwarm { get; set; }
         [JsonProperty("The Witcher 3")]
         public bool TheWitcher3 { get; set; }
-        [JsonProperty("Persona 4 Golden")]
-        public bool P4G { get; set; }
         [JsonProperty("TY the Tasmanian Tiger")]
         public bool TYTheTasmanianTiger { get; set; }
         [JsonProperty("Zelda: The Wind Waker HD")]
@@ -179,6 +181,8 @@ namespace MultiPresence
                     return Overwatch2;
                 case "Pangya Reborn":
                     return PangyaReborn;
+                case "Persona 5 Strikers":
+                    return P5S;
                 case "Project Diva Mega Mix+":
                     return ProjectDivaMegaMixPlus;
                 case "Resident Evil":

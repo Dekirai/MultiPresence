@@ -64,7 +64,7 @@
             // 
             cms.Items.AddRange(new ToolStripItem[] { cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, btn_Blacklist, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(239, 186);
+            cms.Size = new Size(239, 164);
             // 
             // cb_DisableNotifications
             // 

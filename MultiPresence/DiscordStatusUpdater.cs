@@ -183,8 +183,14 @@ public class DiscordStatusUpdater
     },
     { "Persona 4 Golden", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lv. {level}", State = "{currenttime} - {currentday}", LargeAsset = "logo", LargeAssetText = "logo", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "logo", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Lv. {level}", State = "{currenttime} - {currentday}", LargeAsset = "logo", LargeAssetText = "Persona 4 Golden", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "Persona 4 Golden", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Persona 5 Strikers", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level}", State = "Money: {money}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Project Diva Mega Mix+", new Dictionary<string, GameDetails>
