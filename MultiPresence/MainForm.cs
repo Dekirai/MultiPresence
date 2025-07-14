@@ -25,7 +25,7 @@ namespace MultiPresence
         private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "04.07.2025";
+        private static readonly string currentVersion = "14.07.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -44,6 +44,7 @@ namespace MultiPresence
             if (!cb_DisableAutoUpdates.Checked)
                 CheckForUpdate();
             gameUpdater.Start();
+            lb_Version.Text = $"Version {currentVersion}";
         }
 
         public void CheckForUpdate()
@@ -244,6 +245,11 @@ namespace MultiPresence
                     case "Call of Duty®":
                         Balloon(game);
                         await COD.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "CODE VEIN":
+                        Balloon(game);
+                        CV.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "CRISIS CORE –FINAL FANTASY VII– REUNION":
@@ -476,6 +482,16 @@ namespace MultiPresence
                         P5S.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Persona 5: The Phantom X":
+                        Balloon(game);
+                        P5X.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Scott Pilgrim vs The World":
+                        Balloon(game);
+                        SPTG.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "The Witcher 3":
                         Balloon(game);
                         TWIII.DoAction();
@@ -573,7 +589,7 @@ namespace MultiPresence
         {
             if (cb_DisableNotifications.Checked) return;
             notify.BalloonTipTitle = "Game Disabled";
-            notify.BalloonTipText = $"{game} is currently disabled.";
+            notify.BalloonTipText = $"{game} is currently disabled because it requires an update.";
             notify.ShowBalloonTip(3000);
         }
 

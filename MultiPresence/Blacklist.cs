@@ -10,6 +10,8 @@ namespace MultiPresence
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("The Binding of Isaac: Rebirth")]
         public bool TheBindingOfIsaacRebirth { get; set; }
+        [JsonProperty("CODE VEIN")]
+        public bool CodeVein { get; set; }
         [JsonProperty("Dark Souls: Remastered")]
         public bool DarkSoulsRemastered { get; set; }
         [JsonProperty("Dark Souls II")]
@@ -92,6 +94,8 @@ namespace MultiPresence
         public bool ResidentEvil6 { get; set; }
         [JsonProperty("Resident Evil Revelations 2")]
         public bool ResidentEvilRevelations2 { get; set; }
+        [JsonProperty("Scott Pilgrim vs The World")]
+        public bool Scott { get; set; }
         [JsonProperty("Sonic Adventure 2")]
         public bool SonicAdventure2 { get; set; }
         [JsonProperty("Sonic Adventure DX")]
@@ -121,6 +125,8 @@ namespace MultiPresence
                     return CallofDuty;
                 case "CRISIS CORE –FINAL FANTASY VII– REUNION":
                     return CrisisCoreFinalFantasyVIIReunion;
+                case "CODE VEIN":
+                    return CodeVein;
                 case "Dark Souls: Remastered":
                     return DarkSoulsRemastered;
                 case "Dark Souls II":
@@ -199,11 +205,13 @@ namespace MultiPresence
                     return ResidentEvil6;
                 case "Resident Evil Revelations 2":
                     return ResidentEvilRevelations2;
+                case "Scott Pilgrim vs The World":
+                    return Scott;
                 case "Sonic Adventure 2":
                     return SonicAdventure2;
                 case "Sonic Adventure DX":
                     return SonicAdventureDX;
-                    case "Stellar Blade":
+                case "Stellar Blade":
                     return StellarBlade;
                 case "Temtem: Swarm":
                     return TemtemSwarm;

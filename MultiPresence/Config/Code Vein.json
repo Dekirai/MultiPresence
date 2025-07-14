@@ -1,0 +1,18 @@
+{
+   "Games":{
+      "CODE VEIN":{
+        "Default": {
+            "Details": "Lv. {level} - Haze: {haze}",
+            "State": "{hp}/{maxhp} HP - {stamina}/{maxstamina} Stamina",
+            "LargeAsset": "logo",
+            "SmallAsset": "",
+            "LargeAssetText": "CODE VEIN",
+            "SmallAssetText": "",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+        }
+      }
+   }
+}

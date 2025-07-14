@@ -13,6 +13,11 @@ public class DiscordStatusUpdater
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
+    { "CODE VEIN", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - Haze: {haze}", State = "{hp}/{maxhp} HP - {stamina}/{maxstamina} Stamina", LargeAsset = "logo", LargeAssetText = "CODE VEIN", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
@@ -159,7 +164,8 @@ public class DiscordStatusUpdater
     },
     { "Mega Man 11", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Lives: {lives} ({difficulty})", State = "{stage}", LargeAsset = "{stage_icon_name}", LargeAssetText = "{stage}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Bolts: {bolts} ({difficulty})", State = "In stage select", LargeAsset = "logo", LargeAssetText = "Mega Man 11", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "Lives: {lives} ({difficulty})", State = "{stage}", LargeAsset = "{stage_icon_name}", LargeAssetText = "{stage}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Mega Man Battle Network 6", new Dictionary<string, GameDetails>
@@ -191,6 +197,11 @@ public class DiscordStatusUpdater
         {
             { "Default", new GameDetails { Details = "Lv. {level}", State = "Money: {money}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+        { "Persona 5: The Phantom X", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "ID: {uid}", State = "", LargeAsset = "logo", LargeAssetText = "Persona 5: The Phantom X", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Project Diva Mega Mix+", new Dictionary<string, GameDetails>
@@ -244,6 +255,11 @@ public class DiscordStatusUpdater
         {
             { "Lobby", new GameDetails { Details = "Raid Mode: In Lobby", State = "{character} (Lv. {level})", LargeAsset = "logo", LargeAssetText = "Resident Evil Revelations 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Ingame", new GameDetails { Details = "Raid Mode: Mission {chapter}-0{mission}", State = "{character} (Lv. {level})", LargeAsset = "logo", LargeAssetText = "Resident Evil Revelations 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Scott Pilgrim vs The World", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lives: {lives} - Money: {money}", State = "Health: {health} - EXP: {totalexperience}", LargeAsset = "logo", LargeAssetText = "Scott Pilgrim vs The World", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Sonic Adventure DX", new Dictionary<string, GameDetails>

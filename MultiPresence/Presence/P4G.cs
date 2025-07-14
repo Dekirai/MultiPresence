@@ -36,19 +36,37 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("p4g");
             if (game.Length > 0)
             {
-                ulong _base = 0x51BCD70;
-                int inbattle = Hypervisor.Read<byte>(0xECA358);
+                try
+                {
+                    ulong _base = 0x51BCD70;
+                    int inbattle = Hypervisor.Read<byte>(0xECA358);
 
-                if (inbattle == 1)
-                {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBattle);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Persona 4 Golden", placeholders, "Battle");
+                    if (inbattle == 1)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersBattle);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Persona 4 Golden", placeholders, "Battle");
+                    }
+                    else
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Persona 4 Golden", placeholders);
+                    }
                 }
-                else
+                catch
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Persona 4 Golden", placeholders);
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Persona 4 Golden"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
+
 
                 await Task.Delay(3000);
                 Thread thread = new Thread(RPC);

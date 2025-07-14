@@ -54,10 +54,12 @@ namespace MultiPresence
             var game_re2 = Process.GetProcessesByName("re2");
             var game_re4 = Process.GetProcessesByName("bio4");
             var game_p4g = Process.GetProcessesByName("p4g");
+            var game_p5x = Process.GetProcessesByName("p5x");
             var game_re4r = Process.GetProcessesByName("re4");
             var game_re5 = Process.GetProcessesByName("re5dx9");
             var game_re6 = Process.GetProcessesByName("BH6");
             var game_rev2 = Process.GetProcessesByName("rerev2");
+            var game_scott = Process.GetProcessesByName("scott");
             var game_sadx = Process.GetProcessesByName("Sonic Adventure DX");
             var game_sa2 = Process.GetProcessesByName("sonic2app");
             var game_sb = Process.GetProcessesByName("SB-Win64-Shipping");
@@ -66,6 +68,7 @@ namespace MultiPresence
             var game_ty = Process.GetProcessesByName("TY");
             var game_vs = Process.GetProcessesByName("VampireSurvivors");
             var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
+            var game_cv = Process.GetProcessesByName("CodeVein-Win64-Shipping");
 
             string game = "";
             if (game_cod.Length > 0)
@@ -102,6 +105,8 @@ namespace MultiPresence
                 game = "Final Fantasy XV";
             else if (game_ffxvi.Length > 0)
                 game = "Final Fantasy XVI";
+            else if (game_cv.Length > 0)
+                game = "CODE VEIN";
             else if (game_hk.Length > 0)
                 game = "Hello Kitty Island Adventure";
             else if (game_hl.Length > 0)
@@ -166,6 +171,8 @@ namespace MultiPresence
                 game = "Labyrinthine";
             else if (game_p4g.Length > 0)
                 game = "Persona 4 Golden";
+            else if (game_p5x.Length > 0)
+                game = "Persona 5: The Phantom X";
             else if (game_lop.Length > 0)
                 game = "Lies of P";
             else if (game_mm11.Length > 0)
@@ -209,6 +216,8 @@ namespace MultiPresence
                 game = "Resident Evil 6";
             else if (game_rev2.Length > 0)
                 game = "Resident Evil Revelations 2";
+            else if (game_scott.Length > 0)
+                game = "Scott Pilgrim vs The World";
             else if (game_sa2.Length > 0)
                 game = "Sonic Adventure 2";
             else if (game_sadx.Length > 0)
