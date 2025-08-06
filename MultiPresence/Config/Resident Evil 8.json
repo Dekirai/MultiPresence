@@ -1,0 +1,42 @@
+{
+    "Games": {
+        "Resident Evil 8": {
+            "Main Story": {
+                "Details": "Playing the Main Story",
+                "State": "Health: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 8",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Shadow of Rose": {
+                "Details": "Playing Shadow of Rose",
+                "State": "Health: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 8",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mercenaries": {
+                "Details": "Mercenaries - {character}",
+                "State": "Health: {healthstatus} - Score: {score}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 8",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

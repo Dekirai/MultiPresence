@@ -6,8 +6,6 @@ namespace MultiPresence.Presence
 {
     public class RE
     {
-
-        static string process = "bhd";
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
         public static void DoAction()
@@ -39,14 +37,31 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("bhd");
             if (game.Length > 0)
             {
-                int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE472C]), true);
-
-                if (floor_get > 0)
+                try
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil", placeholders);
+                    int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE472C]), true);
+
+                    if (floor_get > 0)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil", placeholders);
+                    }
+                    else
+                    {
+                        discord.SetPresence(new RichPresence()
+                        {
+                            Details = "In Main Menu",
+                            State = "",
+                            Assets = new Assets()
+                            {
+                                LargeImageKey = "logo",
+                                LargeImageText = "Resident Evil"
+                            },
+                            Timestamps = PlaceholderHelper._startTimestamp
+                        });
+                    }
                 }
-                else
+                catch
                 {
                     discord.SetPresence(new RichPresence()
                     {
@@ -77,11 +92,11 @@ namespace MultiPresence.Presence
             int floor_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE472C]), true);
             int stage_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0xE4730]), true);
             int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x97C9C0, [0x5118]), true);
-            int health = Hypervisor.Read<int>(0x2E5D470C, true);
+            int health = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x9E41BC, [0x23C, 0x154, 0x2BC, 0x3BC]), true);
+            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x9E41BC, [0x23C, 0x154, 0x2BC, 0x3C0]), true);
             int weapon_get = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x97C9C0, [0x80]), true);
-            int ammoclip = Hypervisor.Read<int>(0x2E5FF8BC, true);
-            int maxammoclip = Hypervisor.Read<int>(0x2E5FF8C0, true);
-            int maxhealth = Hypervisor.Read<int>(0x2E5D4710, true);
+            int ammoclip = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x9E41BC, [0x1C4, 0xFFC]), true);
+            int maxammoclip = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x9E41BC, [0x1C4, 0x1000]), true);
             var stagevalue = await Stages.GetStage(floor_get);
             string character = "";
             string character_icon = "";

@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Gunfire Reborn":{
-         "Default":{
-            "Details":"{steam_display}",
-            "State":"",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Gunfire Reborn",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Gunfire Reborn": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Gunfire Reborn",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

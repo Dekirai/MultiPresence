@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Overwatch":{
-         "Default":{
-            "Details":"{steam_display}",
-            "State":"",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Overwatch 2",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Overwatch": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Overwatch 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

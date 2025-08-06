@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Marvel's Spider-Man: Miles Morales":{
-         "Default":{
-            "Details":"Health: {health} (Level {level})",
-            "State":"Swinging in {location}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Marvel's Spider-Man: Miles Morales",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Marvel's Spider-Man: Miles Morales": {
+            "Default": {
+                "Details": "Health: {health} (Level {level})",
+                "State": "Swinging in {location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Marvel's Spider-Man: Miles Morales",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

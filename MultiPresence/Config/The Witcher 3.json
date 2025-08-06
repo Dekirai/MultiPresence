@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "The Witcher 3":{
-        "Default": {
-            "Details": "Health: {health}/{maxhealth}",
-            "State": "Lv. {level} - {xp} XP",
-            "LargeAsset": "logo",
-            "SmallAsset": "",
-            "LargeAssetText": "The Witcher 3: Wild Hunt",
-            "SmallAssetText": "",
-            "Button1Text": "",
-            "Button1URL": "",
-            "Button2Text": "",
-            "Button2URL": ""
+    "Games": {
+        "The Witcher 3": {
+            "Default": {
+                "Details": "Health: {health}/{maxhealth}",
+                "State": "Lv. {level} - {xp} XP",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "The Witcher 3: Wild Hunt",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
         }
-      }
-   }
+    }
 }

@@ -1,54 +1,54 @@
 {
-   "Games":{
-      "Resident Evil 4":{
-         "Main Menu":{
-            "Details":"At the Title Screen",
-            "State":"",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Resident Evil 4",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Main Story":{
-            "Details":"{state} - {difficulty}",
-            "State":"Health: {healthpercentage}% - Chapter {chapter}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Resident Evil 4",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Separate Ways":{
-            "Details":"{state} - {difficulty}",
-            "State":"Health: {healthpercentage}% - Chapter {chapter}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Resident Evil 4",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Mercenaries":{
-            "Details":"{state} - {map}",
-            "State":"{character} - Score: {score}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Resident Evil 4",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Resident Evil 4": {
+            "Main Menu": {
+                "Details": "At the Title Screen",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Main Story": {
+                "Details": "{state} - {difficulty}",
+                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Separate Ways": {
+                "Details": "{state} - {difficulty}",
+                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mercenaries": {
+                "Details": "{state} - {map}",
+                "State": "{character} - Score: {score}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 4",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

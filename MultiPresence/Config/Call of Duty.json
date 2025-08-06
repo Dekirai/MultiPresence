@@ -1,30 +1,30 @@
 {
-   "Games":{
-      "Call of Duty®":{
-         "Default":{
-            "Details":"{steam_display}",
-            "State":"",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Call of Duty®",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Zombies":{
-            "Details":"Playing {mode}",
-            "State":"Surviving on {map}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Call of Duty®",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Call of Duty®": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Call of Duty®",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Zombies": {
+                "Details": "Playing {mode}",
+                "State": "Surviving on {map}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Call of Duty®",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

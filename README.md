@@ -2,7 +2,7 @@
 
 [![Discord](https://img.shields.io/discord/1343222000008560700?label=Join%20Discord&logo=discord&color=7289DA)](https://discord.gg/AC6rVgV2Jj) [![License](https://img.shields.io/github/license/Dekirai/MultiPresence)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dekirai/MultiPresence)](https://github.com/Dekirai/MultiPresence/releases)
 
-> **MultiPresence** enables Discord Rich Presence for games that don’t natively support it. Lightweight, extensible, and community-driven.
+> **MultiPresence** enables Discord Rich Presence for games that don’t natively support it.
 
 ---
 
@@ -77,10 +77,13 @@ Customize your presence text:
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | Call of Duty ²                              | [Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)                                                                |                                      |
 | Code Vein                                   | [Steam](https://store.steampowered.com/app/678960/CODE_VEIN/)                                                                    | Only base game tested                |
+| Crash Bandicoot 4: It's About Time          | [Steam](https://store.steampowered.com/app/1378990/Crash_Bandicoot_4_Its_About_Time/)                                            |                                      |
+| Crash Bandicoot N. Sane Trilogy             | [Steam](https://store.steampowered.com/app/731490/Crash_Bandicoot_N_Sane_Trilogy/)                                               | Supports all games                   |
 | Crisis Core -Final Fantasy VII- Reunion     | [Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)                                       |                                      |
 | Dark Souls Remastered                       | [Steam](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/)                                                        |                                      |
 | Dark Souls II SotFS                         | [Steam](https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/)                                       |                                      |
 | Dark Souls III                              | [Steam](https://store.steampowered.com/app/374320/DARK_SOULS_III/)                                                               |                                      |
+| Death Stranding Director's Cut              | [Steam](https://store.steampowered.com/app/1850570/DEATH_STRANDING_DIRECTORS_CUT/)                                               |                                      |
 | Devil May Cry HD Collection                 | [Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)                                                  | Supports all games                   |
 | Devil May Cry 4                             | [Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)                                              |                                      |
 | Devil May Cry 5                             | [Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)                                                              |                                      |
@@ -111,17 +114,21 @@ Customize your presence text:
 | Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
 | Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
 | Persona 5 Strikers                          | [Steam](https://store.steampowered.com/app/1382330/Persona_5_Strikers/)                                                          |                                      |
+| Persona 5: The Phantom X                    | [Steam](https://store.steampowered.com/app/3061570/Persona5_The_Phantom_X/)                                                      |                                      |
 | Resident Evil                               | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2                             | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              |                                      |
 | Resident Evil 4 (2005) ¹                    | [Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)                                                              |                                      |
 | Resident Evil 4 Remake                      | [Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)                                                             |                                      |
 | Resident Evil 5                             | [Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)                                                               |                                      |
 | Resident Evil 6                             | [Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)                                                              |                                      |
+| Resident Evil 7                             | [Steam](https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/)                                                    |                                      |
+| Resident Evil 8                             | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       |                                      |
 | Resident Evil Revelations 2                 | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Raid Mode only                       |
 | Scott Pilgrim vs The World                  | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Sonic Adventure DX                          | [Steam](https://store.steampowered.com/app/71250/Sonic_Adventure_DX/)                                                            | Probably won't work with mods        |
 | Sonic Adventure 2                           | [Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)                                                            |                                      |
 | Stellar Blade ²                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
+| Team Fortress 2 ²                           | [Steam](https://store.steampowered.com/app/440/Team_Fortress_2/)                                                                 |                                      |
 | Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |
 | The Binding of Isaac: Rebirth               | [Steam](https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/)                                                 | Only works on Repentance+            |
 | The Witcher 3: Wild Hunt                    | [Steam](https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/)                                                      | Only base game tested                |
@@ -150,7 +157,7 @@ You have to disable the "Discord Presence" option found in Options -> General se
 </details>
 
 The presences are always expected to work on the latest version of the game.  
-Games on lower versions will never be supported. They will always use the latest version from their game store.  
+Games on lower versions will never be supported on purpose. They will always use the latest version from their game store.  
 If a game receives a patch, I'll do my best to update it as soon as possible.
 
 ---

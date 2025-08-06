@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Kingdom Hearts Dream Drop Distance":{
-         "Default":{
-            "Details":"Lv. {level} ({difficulty})",
-            "State":"{room}",
-            "LargeAsset":"{world_icon_name}",
-            "SmallAsset":"{character_icon_name}",
-            "LargeAssetText":"{world}",
-            "SmallAssetText":"Playing as {character}",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Kingdom Hearts Dream Drop Distance": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "{character_icon_name}",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "Playing as {character}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

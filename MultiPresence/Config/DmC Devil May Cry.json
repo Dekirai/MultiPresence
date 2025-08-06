@@ -1,30 +1,30 @@
 {
-   "Games":{
-      "DmC Devil May Cry":{
-         "Default":{
-            "Details":"Mission {mission} ({difficulty})",
-            "State":"Health: {health}/{maxhealth}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"DmC Devil May Cry",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Bloody Palace":{
-            "Details":"Bloody Palace - Level {level}",
-            "State":"Health: {health}/{maxhealth}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"DmC Devil May Cry",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "DmC Devil May Cry": {
+            "Default": {
+                "Details": "Mission {mission} ({difficulty})",
+                "State": "Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "DmC Devil May Cry",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Bloody Palace": {
+                "Details": "Bloody Palace - Level {level}",
+                "State": "Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "DmC Devil May Cry",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

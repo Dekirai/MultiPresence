@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Hogwarts Legacy":{
-         "Default":{
-            "Details":"{steam_display}",
-            "State":"",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Hogwarts Legacy",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Hogwarts Legacy": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Hogwarts Legacy",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

@@ -10,6 +10,10 @@ namespace MultiPresence
         public bool CrisisCoreFinalFantasyVIIReunion { get; set; }
         [JsonProperty("The Binding of Isaac: Rebirth")]
         public bool TheBindingOfIsaacRebirth { get; set; }
+        [JsonProperty("Crash Bandicoot 4: It's About Time")]
+        public bool CrashBandicoot4 { get; set; }
+        [JsonProperty("Crash Bandicoot N. Sane Trilogy")]
+        public bool CrashBandicootNSaneTrilogy { get; set; }
         [JsonProperty("CODE VEIN")]
         public bool CodeVein { get; set; }
         [JsonProperty("Dark Souls: Remastered")]
@@ -18,6 +22,8 @@ namespace MultiPresence
         public bool DarkSoulsII { get; set; }
         [JsonProperty("Dark Souls III")]
         public bool DarkSoulsIII { get; set; }
+        [JsonProperty("Death Stranding")]
+        public bool DeathStranding { get; set; }
         [JsonProperty("Devil May Cry")]
         public bool DevilMayCry { get; set; }
         [JsonProperty("Devil May Cry 2")]
@@ -80,6 +86,8 @@ namespace MultiPresence
         public bool P4G { get; set; }
         [JsonProperty("Persona 5 Strikers")]
         public bool P5S { get; set; }
+        [JsonProperty("Persona 5: The Phantom X")]
+        public bool P5X { get; set; }
         [JsonProperty("Resident Evil")]
         public bool ResidentEvil { get; set; }
         [JsonProperty("Resident Evil 2")]
@@ -92,6 +100,10 @@ namespace MultiPresence
         public bool ResidentEvil5 { get; set; }
         [JsonProperty("Resident Evil 6")]
         public bool ResidentEvil6 { get; set; }
+        [JsonProperty("Resident Evil 7")]
+        public bool ResidentEvil7 { get; set; }
+        [JsonProperty("Resident Evil 8")]
+        public bool ResidentEvil8 { get; set; }
         [JsonProperty("Resident Evil Revelations 2")]
         public bool ResidentEvilRevelations2 { get; set; }
         [JsonProperty("Scott Pilgrim vs The World")]
@@ -102,6 +114,8 @@ namespace MultiPresence
         public bool SonicAdventureDX { get; set; }
         [JsonProperty("Stellar Blade")]
         public bool StellarBlade { get; set; }
+        [JsonProperty("Team Fortress 2")]
+        public bool TeamFortress2 { get; set; }
         [JsonProperty("Temtem: Swarm")]
         public bool TemtemSwarm { get; set; }
         [JsonProperty("The Witcher 3")]
@@ -123,6 +137,10 @@ namespace MultiPresence
             {
                 case "Call of Duty®":
                     return CallofDuty;
+                case "Crash Bandicoot 4: It's About Time":
+                    return CrashBandicoot4;
+                case "Crash Bandicoot N. Sane Trilogy":
+                    return CrashBandicootNSaneTrilogy;
                 case "CRISIS CORE –FINAL FANTASY VII– REUNION":
                     return CrisisCoreFinalFantasyVIIReunion;
                 case "CODE VEIN":
@@ -133,6 +151,8 @@ namespace MultiPresence
                     return DarkSoulsII;
                 case "Dark Souls III":
                     return DarkSoulsIII;
+                case "Death Stranding":
+                    return DeathStranding;
                 case "Devil May Cry ":
                     return DevilMayCry;
                 case "Devil May Cry 2":
@@ -189,6 +209,8 @@ namespace MultiPresence
                     return PangyaReborn;
                 case "Persona 5 Strikers":
                     return P5S;
+                case "Persona 5: The Phantom X":
+                    return P5X;
                 case "Project Diva Mega Mix+":
                     return ProjectDivaMegaMixPlus;
                 case "Resident Evil":
@@ -203,6 +225,10 @@ namespace MultiPresence
                     return ResidentEvil5;
                 case "Resident Evil 6":
                     return ResidentEvil6;
+                case "Resident Evil 7":
+                    return ResidentEvil7;
+                case "Resident Evil 8":
+                    return ResidentEvil8;
                 case "Resident Evil Revelations 2":
                     return ResidentEvilRevelations2;
                 case "Scott Pilgrim vs The World":
@@ -213,6 +239,8 @@ namespace MultiPresence
                     return SonicAdventureDX;
                 case "Stellar Blade":
                     return StellarBlade;
+                case "Team Fortress 2":
+                    return TeamFortress2;
                 case "Temtem: Swarm":
                     return TemtemSwarm;
                 case "The Binding of Isaac: Rebirth":

@@ -49,6 +49,12 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "HP: {health}/{maxhealth} - Level {level}", State = "Location: {location}", LargeAsset = "logo", LargeAssetText = "Stellar Blade", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Team Fortress 2", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Team Fortress 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "Playing {steam_display}", State = "Map: {currentmap}", LargeAsset = "logo", LargeAssetText = "Team Fortress 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Temtem Swarm", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Temtem Swarm", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

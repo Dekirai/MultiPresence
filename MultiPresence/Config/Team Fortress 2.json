@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Team Fortress 2": {
+            "Default": {
+                "Details": "{steam_display}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Team Fortress 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "Playing {steam_display}",
+                "State": "Map: {currentmap}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Team Fortress 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

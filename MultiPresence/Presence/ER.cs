@@ -94,12 +94,12 @@ namespace MultiPresence.Presence
             int deaths = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03D5DF38, [0x94]), true);
             int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0x68]), true);
             int souls = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0x6C]), true);
-            int hp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x138]), true);
-            int maxhp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
-            int mp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x148]), true);
-            int maxmp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x150]), true);
-            int stamina = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x154]), true);
-            int maxstamina = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x158]), true);
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x138]), true);
+            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
+            int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x148]), true);
+            int maxmp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x150]), true);
+            int stamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x154]), true);
+            int maxstamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x158]), true);
 
             string classname = archetype switch
             {

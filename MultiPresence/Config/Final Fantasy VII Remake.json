@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Final Fantasy VII Remake":{
-         "Default":{
-            "Details":"HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-            "State":"Level {level} - Chapter {chapter}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Final Fantasy VII Remake",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Final Fantasy VII Remake": {
+            "Default": {
+                "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
+                "State": "Level {level} - Chapter {chapter}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy VII Remake",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Final Fantasy XVI":{
-         "Default":{
-            "Details":"Lv. {level} ({difficulty})",
-            "State":"Health: {hp} - Gil: {gil}",
-            "LargeAsset":"logo",
-            "SmallAsset":"",
-            "LargeAssetText":"Final Fantasy XVI",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Final Fantasy XVI": {
+            "Default": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "Health: {hp} - Gil: {gil}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy XVI",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

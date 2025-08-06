@@ -1,18 +1,18 @@
 {
-   "Games":{
-      "Scott Pilgrim vs The World":{
-        "Default": {
-            "Details": "Lives: {lives} - Money: {money}",
-            "State": "Health: {health} - EXP: {totalexperience}",
-            "LargeAsset": "logo",
-            "SmallAsset": "",
-            "LargeAssetText": "Scott Pilgrim vs The World",
-            "SmallAssetText": "",
-            "Button1Text": "",
-            "Button1URL": "",
-            "Button2Text": "",
-            "Button2URL": ""
+    "Games": {
+        "Scott Pilgrim vs The World": {
+            "Default": {
+                "Details": "Lives: {lives} - Money: {money}",
+                "State": "Health: {health} - EXP: {totalexperience}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Scott Pilgrim vs The World",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
         }
-      }
-   }
+    }
 }

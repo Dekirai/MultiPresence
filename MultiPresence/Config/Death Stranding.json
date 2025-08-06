@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Death Stranding": {
+            "Default": {
+                "Details": "Health: {health}/{maxhealth}",
+                "State": "Stamina: {stamina}/{maxstamina}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Death Stranding",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

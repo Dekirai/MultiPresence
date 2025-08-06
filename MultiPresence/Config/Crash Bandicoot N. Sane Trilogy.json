@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Crash Bandicoot N. Sane Trilogy": {
+            "Hub": {
+                "Details": "Lives: {lives}",
+                "State": "Roaming around in the Hub",
+                "LargeAsset": "{gamelogo}",
+                "SmallAsset": "",
+                "LargeAssetText": "Playing {game_long}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Level": {
+                "Details": "Lives: {lives} - Crates: {currentcrates}/{maxcrates}}",
+                "State": "Level: {level}",
+                "LargeAsset": "{gamelogo}",
+                "SmallAsset": "",
+                "LargeAssetText": "Playing {game_long}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

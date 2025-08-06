@@ -18,6 +18,17 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "Lv. {level} - Haze: {haze}", State = "{hp}/{maxhp} HP - {stamina}/{maxstamina} Stamina", LargeAsset = "logo", LargeAssetText = "CODE VEIN", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Crash Bandicoot 4: It's About Time", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Wumpas: {wumpasmodern} - Deaths: {deaths}", State = "Crates: {currentcrates}/{maxcrates}", LargeAsset = "logo", LargeAssetText = "Crash Bandicoot 4: It's About Time", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Crash Bandicoot N. Sane Trilogy", new Dictionary<string, GameDetails>
+        {
+            { "Level", new GameDetails { Details = "Lives: {lives} - Crates: {currentcrates}/{maxcrates}", State = "Level: {level}", LargeAsset = "{gamelogo}", LargeAssetText = "Playing {game_long}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Hub", new GameDetails { Details = "Lives: {lives}", State = "Roaming around in the Hub", LargeAsset = "{gamelogo}", LargeAssetText = "Playing {game_long}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "CRISIS CORE –FINAL FANTASY VII– REUNION", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", LargeAsset = "logo", LargeAssetText = "CRISIS CORE –FINAL FANTASY VII– REUNION", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
@@ -37,6 +48,11 @@ public class DiscordStatusUpdater
     { "Dark Souls III", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} - {class}", State = "{hp}/{maxhp} HP - {mp}/{maxmp} MP", LargeAsset = "logo", LargeAssetText = "Dark Souls III", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Death Stranding", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Health: {health}/{maxhealth}", State = "Stamina: {stamina}/{maxstamina}", LargeAsset = "logo", LargeAssetText = "Death Stranding", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Devil May Cry", new Dictionary<string, GameDetails>
@@ -199,7 +215,7 @@ public class DiscordStatusUpdater
             { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-        { "Persona 5: The Phantom X", new Dictionary<string, GameDetails>
+    { "Persona 5: The Phantom X", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "ID: {uid}", State = "", LargeAsset = "logo", LargeAssetText = "Persona 5: The Phantom X", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
@@ -249,6 +265,20 @@ public class DiscordStatusUpdater
             { "Main_Menu", new GameDetails { Details = "In Main Menu", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Saving", new GameDetails { Details = "Saving the game...", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Cutscene", new GameDetails { Details = "{chapter}", State = "In a cutscene", LargeAsset = "logo", LargeAssetText = "Resident Evil 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
+    { "Resident Evil 7", new Dictionary<string, GameDetails>
+        {
+            { "Main Story", new GameDetails { Details = "{mode}", State = "Health: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil 7", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "DLC Story", new GameDetails { Details = "{mode}", State = "Health: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil 7", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "DLC Minigame", new GameDetails { Details = "{mode}", State = "Health: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil 7", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Resident Evil 8", new Dictionary<string, GameDetails>
+        {
+            { "Main Story", new GameDetails { Details = "Playing the Main Story", State = "Health: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil Village", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Shadow of Rose", new GameDetails { Details = "Playing Shadow of Rose", State = "Health: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil Village", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Mercenaries", new GameDetails { Details = "Mercenaries - {character}", State = "Health: {healthstatus} - Score: {score}", LargeAsset = "logo", LargeAssetText = "Resident Evil Village", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Resident Evil Revelations 2", new Dictionary<string, GameDetails>

@@ -11,7 +11,7 @@ namespace MultiPresenceGame
         {
             InitializeComponent();
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "3489700");
+            File.WriteAllText("steam_appid.txt", "440");
             if (!SteamAPI.Init())
             {
                 //Do nothing
@@ -44,9 +44,9 @@ namespace MultiPresenceGame
 #endif
         }
 
-        private async void gameUpdater_Tick(object sender, EventArgs e)
+        private void gameUpdater_Tick(object sender, EventArgs e)
         {
-            string game = await GameDetector.GetGameAsync();
+            string game = GameDetector.GetGame();
             string json;
 
             switch (game)
@@ -75,7 +75,11 @@ namespace MultiPresenceGame
                     OW.DoAction();
                     gameUpdater.Stop();
                     break;
-                    case "Stellar Blade":
+                case "Team Fortress 2":
+                    TF2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Stellar Blade":
                     SB.DoAction();
                     gameUpdater.Stop();
                     break;

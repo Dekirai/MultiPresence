@@ -1,42 +1,42 @@
 {
-   "Games":{
-      "Kingdom Hearts III":{
-         "World_Map":{
-            "Details":"Playing on {difficulty}",
-            "State":"{room}",
-            "LargeAsset":"{world_icon_name}",
-            "SmallAsset":"",
-            "LargeAssetText":"{world}",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "Gummi_Ship":{
-            "Details":"Gummi Lv. {gummilevel} ({difficulty})",
-            "State":"{room}",
-            "LargeAsset":"{world_icon_name}",
-            "SmallAsset":"",
-            "LargeAssetText":"{world}",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         },
-         "In_World":{
-            "Details":"Lv. {level} ({difficulty})",
-            "State":"{room}",
-            "LargeAsset":"{world_icon_name}",
-            "SmallAsset":"",
-            "LargeAssetText":"{world}",
-            "SmallAssetText":"",
-            "Button1Text":"",
-            "Button1URL":"",
-            "Button2Text":"",
-            "Button2URL":""
-         }
-      }
-   }
+    "Games": {
+        "Kingdom Hearts III": {
+            "World_Map": {
+                "Details": "Playing on {difficulty}",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Gummi_Ship": {
+                "Details": "Gummi Lv. {gummilevel} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "In_World": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{room}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
 }

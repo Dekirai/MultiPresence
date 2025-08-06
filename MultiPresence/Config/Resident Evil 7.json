@@ -1,0 +1,42 @@
+{
+    "Games": {
+        "Resident Evil 7": {
+            "Main Story": {
+                "Details": "{mode}",
+                "State": "Health: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 7",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "DLC Story": {
+                "Details": "{mode}",
+                "State": "Health: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 7",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "DLC Minigame": {
+                "Details": "{mode}",
+                "State": "Health: {healthstatus}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 7",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

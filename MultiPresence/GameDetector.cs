@@ -1,274 +1,175 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace MultiPresence
 {
     public static class GameDetector
     {
+        // Mapping process names to game titles
+        // {"processname", "Game Title"}
 
-        public static ulong _cemu_titleid_address = 0;
-        public static string _cemu_titleid = "";
-        public static bool _cemu_foundGame = false;
-
-        public static async Task<string> GetGameAsync()
+        private static readonly Dictionary<string, string> GameProcessMap = new(StringComparer.OrdinalIgnoreCase)
         {
-            var game_cemu = Process.GetProcessesByName("Cemu");
-            var game_cod = Process.GetProcessesByName("cod");
-            var game_ccffvii = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
-            var game_ffviir = Process.GetProcessesByName("ff7remake_");
-            var game_ffviirb = Process.GetProcessesByName("ff7rebirth_");
-            var game_ffxv = Process.GetProcessesByName("ffxv_s");
-            var game_ffxvi = Process.GetProcessesByName("ffxvi");
-            var game_dsr = Process.GetProcessesByName("DarkSoulsRemastered");
-            var game_dsii = Process.GetProcessesByName("DarkSoulsII");
-            var game_dsiii = Process.GetProcessesByName("DarkSoulsIII");
-            var game_dmc = Process.GetProcessesByName("DMC-DevilMayCry");
-            var game_dmc1 = Process.GetProcessesByName("dmc1");
-            var game_dmc2 = Process.GetProcessesByName("dmc2");
-            var game_dmc3 = Process.GetProcessesByName("dmc3");
-            var game_dmc4 = Process.GetProcessesByName("DevilMayCry4SpecialEdition");
-            var game_dmc5 = Process.GetProcessesByName("DevilMayCry5");
-            var game_dmm = Process.GetProcessesByName("DivaMegaMix");
-            var game_er = Process.GetProcessesByName("eldenring");
-            var game_tboi = Process.GetProcessesByName("isaac-ng");
-            var game_gfr = Process.GetProcessesByName("Gunfire Reborn");
-            var game_hk = Process.GetProcessesByName("Hello Kitty");
-            var game_hl = Process.GetProcessesByName("HogwartsLegacy");
-            var game_kh1 = Process.GetProcessesByName("KINGDOM HEARTS FINAL MIX");
-            var game_kh2 = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
-            var game_kh3 = Process.GetProcessesByName("KINGDOM HEARTS III");
-            var game_khbbs = Process.GetProcessesByName("KINGDOM HEARTS Birth by Sleep FINAL MIX");
-            var game_khddd = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
-            var game_khcom = Process.GetProcessesByName("KINGDOM HEARTS Re_Chain of Memories");
-            var game_lr = Process.GetProcessesByName("Labyrinthine");
-            var game_lop = Process.GetProcessesByName("LOP-Win64-Shipping");
-            var game_mm11 = Process.GetProcessesByName("game");
-            var game_mmbn6g = Process.GetProcessesByName("MMBN_LC2");
-            var game_msmmm = Process.GetProcessesByName("MilesMorales");
-            var game_eac = Process.GetProcessesByName("EasyAntiCheat_EOS");
-            var game_msmr = Process.GetProcessesByName("Spider-Man");
-            var game_msm2 = Process.GetProcessesByName("Spider-Man2");
-            var game_ow = Process.GetProcessesByName("Overwatch");
-            var game_pyre = Process.GetProcessesByName("ProjectG");
-            var game_re = Process.GetProcessesByName("bhd");
-            var game_re2 = Process.GetProcessesByName("re2");
-            var game_re4 = Process.GetProcessesByName("bio4");
-            var game_p4g = Process.GetProcessesByName("p4g");
-            var game_p5x = Process.GetProcessesByName("p5x");
-            var game_re4r = Process.GetProcessesByName("re4");
-            var game_re5 = Process.GetProcessesByName("re5dx9");
-            var game_re6 = Process.GetProcessesByName("BH6");
-            var game_rev2 = Process.GetProcessesByName("rerev2");
-            var game_scott = Process.GetProcessesByName("scott");
-            var game_sadx = Process.GetProcessesByName("Sonic Adventure DX");
-            var game_sa2 = Process.GetProcessesByName("sonic2app");
-            var game_sb = Process.GetProcessesByName("SB-Win64-Shipping");
-            var game_tts = Process.GetProcessesByName("TemtemSwarm");
-            var game_tw3 = Process.GetProcessesByName("witcher3");
-            var game_ty = Process.GetProcessesByName("TY");
-            var game_vs = Process.GetProcessesByName("VampireSurvivors");
-            var game_vom = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
-            var game_cv = Process.GetProcessesByName("CodeVein-Win64-Shipping");
+            {"cod", "Call of Duty®"},
+            {"CrashBandicoot4", "Crash Bandicoot 4: It's About Time"},
+            {"CrashBandicootNSaneTrilogy", "Crash Bandicoot N. Sane Trilogy"},
+            {"Gunfire Reborn", "Gunfire Reborn"},
+            {"CCFF7R-Win64-Shipping", "CRISIS CORE –FINAL FANTASY VII– REUNION"},
+            {"DarkSoulsRemastered", "Dark Souls: Remastered"},
+            {"DarkSoulsII", "Dark Souls II"},
+            {"DarkSoulsIII", "Dark Souls III"},
+            {"ds", "Death Stranding" },
+            {"DMC-DevilMayCry", "DmC Devil May Cry"},
+            {"dmc1", "Devil May Cry"},
+            {"dmc2", "Devil May Cry 2"},
+            {"dmc3", "Devil May Cry 3"},
+            {"DevilMayCry4SpecialEdition", "Devil May Cry 4"},
+            {"DevilMayCry5", "Devil May Cry 5"},
+            {"DivaMegaMix", "Project Diva Mega Mix+"},
+            {"ff7remake_", "Final Fantasy VII Remake"},
+            {"ff7rebirth_", "Final Fantasy VII Rebirth"},
+            {"ffxv_s", "Final Fantasy XV"},
+            {"ffxvi", "Final Fantasy XVI"},
+            {"CodeVein-Win64-Shipping", "CODE VEIN"},
+            {"Hello Kitty", "Hello Kitty Island Adventure"},
+            {"HogwartsLegacy", "Hogwarts Legacy"},
+            {"KINGDOM HEARTS FINAL MIX", "Kingdom Hearts Final Mix"},
+            {"KINGDOM HEARTS II FINAL MIX", "Kingdom Hearts II Final Mix"},
+            {"KINGDOM HEARTS III", "Kingdom Hearts III"},
+            {"KINGDOM HEARTS Birth by Sleep FINAL MIX", "Kingdom Hearts Birth by Sleep Final Mix"},
+            {"KINGDOM HEARTS Dream Drop Distance", "Kingdom Hearts Dream Drop Distance"},
+            {"KINGDOM HEARTS Re_Chain of Memories", "Kingdom Hearts Re:Chain of Memories"},
+            {"Labyrinthine", "Labyrinthine"},
+            {"LOP-Win64-Shipping", "Lies of P"},
+            {"game", "Multiple Games"},
+            {"MilesMorales", "Marvel's Spider-Man: Miles Morales"},
+            {"Spider-Man", "Marvel's Spider-Man Remastered"},
+            {"Spider-Man2", "Marvel's Spider-Man 2"},
+            {"Overwatch", "Overwatch 2"},
+            {"tf_win64", "Team Fortress 2"},
+            {"ProjectG", "Pangya Reborn"},
+            {"bhd", "Resident Evil"},
+            {"re2", "Resident Evil 2"},
+            {"bio4", "Resident Evil 4 (2005)"},
+            {"re4", "Resident Evil 4 Remake"},
+            {"re5dx9", "Resident Evil 5"},
+            {"BH6", "Resident Evil 6"},
+            {"re7", "Resident Evil 7"},
+            {"re8", "Resident Evil 8" },
+            {"rerev2", "Resident Evil Revelations 2"},
+            {"scott", "Scott Pilgrim vs The World"},
+            {"sonic2app", "Sonic Adventure 2"},
+            {"Sonic Adventure DX", "Sonic Adventure DX"},
+            {"SB-Win64-Shipping", "Stellar Blade"},
+            {"TemtemSwarm", "Temtem: Swarm"},
+            {"isaac-ng", "The Binding of Isaac: Rebirth"},
+            {"witcher3", "The Witcher 3"},
+            {"TY", "TY the Tasmanian Tiger"},
+            {"VampireSurvivors", "Vampire Survivors"},
+            {"VisionsofMana-Win64-Shipping", "Visions of Mana"}
+        };
 
-            string game = "";
-            if (game_cod.Length > 0)
-                game = "Call of Duty®";
-            else if (game_gfr.Length > 0)
-                game = "Gunfire Reborn";
-            else if (game_ccffvii.Length > 0)
-                game = "CRISIS CORE –FINAL FANTASY VII– REUNION";
-            else if (game_dsr.Length > 0)
-                game = "Dark Souls: Remastered";
-            else if (game_dsii.Length > 0)
-                game = "Dark Souls II";
-            else if (game_dsiii.Length > 0)
-                game = "Dark Souls III";
-            else if (game_dmc.Length > 0)
-                game = "DmC Devil May Cry";
-            else if (game_dmc1.Length > 0)
-                game = "Devil May Cry";
-            else if (game_dmc2.Length > 0)
-                game = "Devil May Cry 2";
-            else if (game_dmc3.Length > 0)
-                game = "Devil May Cry 3";
-            else if (game_dmc4.Length > 0)
-                game = "Devil May Cry 4";
-            else if (game_dmc5.Length > 0)
-                game = "Devil May Cry 5";
-            else if (game_dmm.Length > 0)
-                game = "Project Diva Mega Mix+";
-            else if (game_ffviir.Length > 0)
-                game = "Final Fantasy VII Remake";
-            else if (game_ffviirb.Length > 0)
-                game = "Final Fantasy VII Rebirth";
-            else if (game_ffxv.Length > 0)
-                game = "Final Fantasy XV";
-            else if (game_ffxvi.Length > 0)
-                game = "Final Fantasy XVI";
-            else if (game_cv.Length > 0)
-                game = "CODE VEIN";
-            else if (game_hk.Length > 0)
-                game = "Hello Kitty Island Adventure";
-            else if (game_hl.Length > 0)
-                game = "Hogwarts Legacy";
-            else if (game_cemu.Length > 0)
+        // Mapping Cemu Title IDs to game titles
+        private static readonly Dictionary<string, string> CemuTitleMap = new(StringComparer.OrdinalIgnoreCase)
+        {
+            {"10143600", "Zelda: The Wind Waker HD"},
+            {"10143599", "Zelda: The Wind Waker HD"},
+            {"10143500", "Zelda: The Wind Waker HD"},
+            {"1019e500", "Zelda: Twilight Princess HD"},
+            {"1019e600", "Zelda: Twilight Princess HD"}
+        };
+
+        public static string GetGame()
+        {
+            var processes = Process
+                            .GetProcesses()
+                            .DistinctBy(p => p.ProcessName, StringComparer.OrdinalIgnoreCase)
+                            .ToDictionary(
+                            p => p.ProcessName,
+                            StringComparer.OrdinalIgnoreCase
+            );
+
+            foreach (var kvp in GameProcessMap)
             {
-                string pattern = @"TitleId:\s*([0-9a-fA-F-]+)";
-
-                GetCemu();
-                try
+                if (processes.ContainsKey(kvp.Key))
                 {
-                    var title = Process.GetProcessesByName("Cemu").FirstOrDefault();
-                    if (title.MainWindowTitle.Contains("TitleId"))
-                    {
-                        _cemu_titleid_address = (ulong)Hypervisor.FindSignature("54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B");
-                        string _game = Hypervisor.ReadString(_cemu_titleid_address, 32, true);
-
-                        Match match = Regex.Match(_game, pattern);
-                        if (match.Success)
-                        {
-                            if (_cemu_foundGame == false)
-                            {
-                                string extractedPart = match.Groups[1].Value;
-                                _cemu_titleid = extractedPart;
-                                if (_cemu_titleid.Contains("10143600"))
-                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD EUR
-                                else if (_cemu_titleid.Contains("10143599"))
-                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA Randomizer
-                                else if (_cemu_titleid.Contains("10143500"))
-                                    game = "Zelda: The Wind Waker HD"; //Wind Waker HD USA
-                                else if (_cemu_titleid.Contains("1019e500"))
-                                    game = "Zelda: Twilight Princess HD"; //Twilight Princess HD USA
-                                else if (_cemu_titleid.Contains("1019e600"))
-                                    game = "Zelda: Twilight Princess HD"; //Twilight Princess HD EUR
-                                _cemu_foundGame = true;
-                            }
-                        }
-                        else
-                            _cemu_foundGame = false;
-                    }
-                    else
-                        _cemu_foundGame = false;
-                }
-                catch
-                {
-                    _cemu_foundGame = false;
+                    // Special-case 'game' for Mega Man 11, Persona 5 Strikers, etc.
+                    return kvp.Key == "game"
+                        ? DetectGameTitle(processes["game"]) ?? kvp.Value
+                        : kvp.Value;
                 }
             }
-            else if (game_kh1.Length > 0)
-                game = "Kingdom Hearts Final Mix";
-            else if (game_kh2.Length > 0)
-                game = "Kingdom Hearts II Final Mix";
-            else if (game_kh3.Length > 0)
-                game = "Kingdom Hearts III";
-            else if (game_khbbs.Length > 0)
-                game = "Kingdom Hearts Birth by Sleep Final Mix";
-            else if (game_khddd.Length > 0)
-                game = "Kingdom Hearts Dream Drop Distance";
-            else if (game_khcom.Length > 0)
-                game = "Kingdom Hearts Re:Chain of Memories";
-            else if (game_lr.Length > 0)
-                game = "Labyrinthine";
-            else if (game_p4g.Length > 0)
-                game = "Persona 4 Golden";
-            else if (game_p5x.Length > 0)
-                game = "Persona 5: The Phantom X";
-            else if (game_lop.Length > 0)
-                game = "Lies of P";
-            else if (game_mm11.Length > 0)
+
+            if (processes.ContainsKey("Cemu"))
             {
-                var title = Process.GetProcessesByName("game").FirstOrDefault();
-                if (title.MainWindowTitle.Contains("MEGAMAN11"))
-                    game = "Mega Man 11";
-                else if (title.MainWindowTitle.Contains("Persona 5 Strikers"))
-                    game = "Persona 5 Strikers";
-            }
-            else if (game_mmbn6g.Length > 0)
-            {
-                GetMMBNLC2();
-                int _game = Hypervisor.Read<byte>(0xABEF0A0);
-                if (_game == 9)
-                    game = "Mega Man Battle Network 6: Cybeast Gregar";
-                if (_game == 10)
-                    game = "Mega Man Battle Network 6: Cybeast Falzar";
-            }
-            else if (game_msmmm.Length > 0)
-                game = "Marvel's Spider-Man: Miles Morales";
-            else if (game_msmr.Length > 0)
-                game = "Marvel's Spider-Man Remastered";
-            else if (game_msm2.Length > 0)
-                game = "Marvel's Spider-Man 2";
-            else if (game_ow.Length > 0)
-                game = "Overwatch 2";
-            else if (game_pyre.Length > 0)
-                game = "Pangya Reborn";
-            else if (game_re.Length > 0)
-                game = "Resident Evil";
-            else if (game_re2.Length > 0)
-                game = "Resident Evil 2";
-            else if (game_re4.Length > 0)
-                game = "Resident Evil 4 (2005)";
-            else if (game_re4r.Length > 0)
-                game = "Resident Evil 4 Remake";
-            else if (game_re5.Length > 0)
-                game = "Resident Evil 5";
-            else if (game_re6.Length > 0)
-                game = "Resident Evil 6";
-            else if (game_rev2.Length > 0)
-                game = "Resident Evil Revelations 2";
-            else if (game_scott.Length > 0)
-                game = "Scott Pilgrim vs The World";
-            else if (game_sa2.Length > 0)
-                game = "Sonic Adventure 2";
-            else if (game_sadx.Length > 0)
-                game = "Sonic Adventure DX";
-            else if (game_sb.Length > 0)
-                game = "Stellar Blade";
-            else if (game_tts.Length > 0)
-                game = "Temtem: Swarm";
-            else if (game_tboi.Length > 0)
-                game = "The Binding of Isaac: Rebirth";
-            else if (game_tw3.Length > 0)
-                game = "The Witcher 3";
-            else if (game_ty.Length > 0)
-                game = "TY the Tasmanian Tiger";
-            else if (game_vs.Length > 0)
-                game = "Vampire Survivors";
-            else if (game_vom.Length > 0)
-                game = "Visions of Mana";
-            else if (game_er.Length > 0)
-            {
-                if (game_eac.Length == 0)
-                    game = "Elden Ring";
+                var cemuTitle = DetectCemuGame(processes["Cemu"]);
+                if (!string.IsNullOrEmpty(cemuTitle))
+                    return cemuTitle;
             }
 
-            return game;
+            if (processes.ContainsKey("MMBN_LC2"))
+            {
+                var mmbn = DetectMmbnGame(processes["MMBN_LC2"]);
+                if (!string.IsNullOrEmpty(mmbn))
+                    return mmbn;
+            }
+
+            // Elden Ring without EAC
+            if (processes.ContainsKey("eldenring") && !processes.ContainsKey("EasyAntiCheat_EOS"))
+                return "Elden Ring";
+
+            return string.Empty;
         }
-        private static void GetCemu()
+
+        private static string? DetectCemuGame(Process cemu)
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("Cemu")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                Hypervisor.AttachProcess(cemu);
+                if (!cemu.MainWindowTitle.Contains("TitleId"))
+                    return null;
+
+                var address = (ulong)Hypervisor.FindSignature(
+                    "54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B");
+                var data = Hypervisor.ReadString(address, 32, true);
+                var match = Regex.Match(data, @"TitleId:\s*([0-9a-fA-F]+)");
+                return (match.Success && CemuTitleMap.TryGetValue(match.Groups[1].Value, out var game))
+                    ? game : null;
             }
             catch
             {
-                //nothing?
+                return null;
             }
         }
-        private static void GetMMBNLC2()
+
+        private static string? DetectMmbnGame(Process mmbn)
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("MMBN_LC2")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                Hypervisor.AttachProcess(mmbn);
+                int code = Hypervisor.Read<byte>(0xABEF0A0);
+                return code switch
+                {
+                    9 => "Mega Man Battle Network 6: Cybeast Gregar",
+                    10 => "Mega Man Battle Network 6: Cybeast Falzar",
+                    _ => null
+                };
             }
             catch
             {
-                //nothing?
+                return null;
             }
+        }
+
+        private static string? DetectGameTitle(Process gameProcess)
+        {
+            var title = gameProcess.MainWindowTitle;
+            return title.Contains("MEGAMAN11") ? "Mega Man 11"
+                 : title.Contains("Persona 5 Strikers") ? "Persona 5 Strikers"
+                 : null;
         }
     }
 }

@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Persona 5: The Phantom X": {
+            "Default": {
+                "Details": "ID: {uid}",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Persona 5: The Phantom X",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}
