@@ -30,7 +30,26 @@ namespace MultiPresenceGame
                             StringComparer.OrdinalIgnoreCase
             );
 
+            foreach (var kvp in GameMap)
+            {
+                if (processes.ContainsKey(kvp.Key))
+                {
+                    // Special-case 'game' for Mega Man 11, Persona 5 Strikers, etc.
+                    return kvp.Key == "game"
+                        ? DetectGameTitle(processes["game"]) ?? kvp.Value
+                        : kvp.Value;
+                }
+            }
+
             return string.Empty;
+        }
+
+        private static string? DetectGameTitle(Process gameProcess)
+        {
+            var title = gameProcess.MainWindowTitle;
+            return title.Contains("MEGAMAN11") ? "Mega Man 11"
+                 : title.Contains("Persona 5 Strikers") ? "Persona 5 Strikers"
+                 : null;
         }
     }
 }
