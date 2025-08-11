@@ -25,7 +25,7 @@ namespace MultiPresence
         private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "06.08.2025";
+        private static readonly string currentVersion = "11.08.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -457,6 +457,11 @@ namespace MultiPresence
                     case "Persona 5 Strikers":
                         Balloon(game);
                         P5S.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Persona 5 Royal":
+                        Balloon(game);
+                        P5R.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Persona 5: The Phantom X":

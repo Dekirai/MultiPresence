@@ -114,6 +114,7 @@ Customize your presence text:
 | Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
 | Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
 | Persona 5 Strikers                          | [Steam](https://store.steampowered.com/app/1382330/Persona_5_Strikers/)                                                          |                                      |
+| Persona 5 Royal                             | [Steam](https://store.steampowered.com/app/1687950/Persona_5_Royal/)                                                             |                                      |
 | Persona 5: The Phantom X                    | [Steam](https://store.steampowered.com/app/3061570/Persona5_The_Phantom_X/)                                                      |                                      |
 | Resident Evil                               | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2                             | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              |                                      |

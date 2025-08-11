@@ -37,15 +37,32 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("re5dx9");
             if (game.Length > 0)
             {
-                int chris_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x24, 0x1364]), true);
-                int sheva_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x28, 0x1364]), true);
-
-                if (chris_health > 0 || sheva_health > 0)
+                try
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 5", placeholders);
+                    int chris_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x24, 0x1364]), true);
+                    int sheva_health = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x00DB27DC, [0x28, 0x1364]), true);
+
+                    if (chris_health > 0 || sheva_health > 0)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 5", placeholders);
+                    }
+                    else
+                    {
+                        discord.SetPresence(new RichPresence()
+                        {
+                            Details = "In Main Menu",
+                            State = "",
+                            Assets = new Assets()
+                            {
+                                LargeImageKey = "logo",
+                                LargeImageText = "Resident Evil 5"
+                            },
+                            Timestamps = PlaceholderHelper._startTimestamp
+                        });
+                    }
                 }
-                else
+                catch
                 {
                     discord.SetPresence(new RichPresence()
                     {

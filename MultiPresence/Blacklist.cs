@@ -86,6 +86,8 @@ namespace MultiPresence
         public bool P4G { get; set; }
         [JsonProperty("Persona 5 Strikers")]
         public bool P5S { get; set; }
+        [JsonProperty("Persona 5 Royal")]
+        public bool P5R { get; set; }
         [JsonProperty("Persona 5: The Phantom X")]
         public bool P5X { get; set; }
         [JsonProperty("Resident Evil")]
@@ -209,6 +211,8 @@ namespace MultiPresence
                     return PangyaReborn;
                 case "Persona 5 Strikers":
                     return P5S;
+                case "Persona 5 Royal":
+                    return P5R;
                 case "Persona 5: The Phantom X":
                     return P5X;
                 case "Project Diva Mega Mix+":

@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Persona 5 Royal": {
+            "Default": {
+                "Details": "Lv. {level}",
+                "State": "{currenttime} - {currentday}",
+                "LargeAsset": "logo",
+                "SmallAsset": "idle",
+                "LargeAssetText": "Persona 5 Royal",
+                "SmallAssetText": "Idle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Battle": {
+                "Details": "Persona: {persona}",
+                "State": "Lv. {level} - HP: {hp} - SP: {sp}",
+                "LargeAsset": "logo",
+                "SmallAsset": "battle",
+                "LargeAssetText": "Persona 5 Royal",
+                "SmallAssetText": "In Battle",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

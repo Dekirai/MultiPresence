@@ -51,6 +51,8 @@ namespace MultiPresence
             {"Overwatch", "Overwatch 2"},
             {"tf_win64", "Team Fortress 2"},
             {"ProjectG", "Pangya Reborn"},
+            {"p4g", "Persona 4 Golden"},
+            {"P5R", "Persona 5 Royal"},
             {"bhd", "Resident Evil"},
             {"re2", "Resident Evil 2"},
             {"bio4", "Resident Evil 4 (2005)"},
