@@ -12,6 +12,6 @@
 # Pre-made icons for Large-/Smallasset
 **Do not use them with {}**    
 
-logo = Game logo
-idle = blue circle icon, intended for roaming around
-battle = red circle icon, intended for battles 
+logo = Game logo  
+idle = blue circle icon, intended for roaming around  
+battle = red circle icon, intended for battles  
