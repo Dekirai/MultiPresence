@@ -479,11 +479,6 @@ namespace MultiPresence
                         RE.DoAction();
                         gameUpdater.Stop();
                         break;
-                    //case "Resident Evil 0":
-                    //    Balloon(game);
-                    //    RE0.DoAction();
-                    //    gameUpdater.Stop();
-                    //    break;
                     case "Resident Evil 2":
                         Balloon(game);
                         RE2R.DoAction();
