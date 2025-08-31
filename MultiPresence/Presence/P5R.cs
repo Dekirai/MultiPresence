@@ -475,7 +475,7 @@ namespace MultiPresence.Presence
             {
                 { "currenttime", currenttime },
                 { "currentday", currentday },
-                { "money", _base },
+                { "money", money },
                 { "level", level }
             };
         }

@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("LOP-Win64-Shipping");
             if (game.Length > 0)
             {
-                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD2C]), true);
+                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD2C]), true);
 
                 try
                 {
@@ -88,18 +88,18 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int clearcount = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DBDAE0, [0xA0, 0x7C]), true);
-            int deaths = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DBDAE0, [0xA0, 0x98]), true);
-            int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DBDAE0, [0xA0, 0xA0]), true);
-            int ergo = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DBDAE0, [0xA0, 0xA4]), true);
-            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xC]), true);
-            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD2C]), true);
-            int fable = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0x6C]), true);
-            int maxfable = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD8C]), true);
-            int legion = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xCC]), true);
-            int maxlegion = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xDEC]), true);
-            int stamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0x3C]), true);
-            int maxstamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F1B988, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD5C]), true);
+            int clearcount = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DD8760, [0xA0, 0x7C]), true);
+            int deaths = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DD8760, [0xA0, 0x98]), true);
+            int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DD8760, [0xA0, 0xA0]), true);
+            int ergo = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06DD8760, [0xA0, 0xA4]), true);
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xC]), true);
+            int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD2C]), true);
+            int fable = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0x6C]), true);
+            int maxfable = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD8C]), true);
+            int legion = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xCC]), true);
+            int maxlegion = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xDEC]), true);
+            int stamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0x3C]), true);
+            int maxstamina = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F36708, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD5C]), true);
 
             int GetFableBars(int value, int barSize = 4000)
             {

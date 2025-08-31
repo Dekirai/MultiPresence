@@ -79,10 +79,6 @@ namespace MultiPresenceGame
                     TF2.DoAction();
                     gameUpdater.Stop();
                     break;
-                case "Stellar Blade":
-                    SB.DoAction();
-                    gameUpdater.Stop();
-                    break;
                 case "Temtem: Swarm":
                     TTS.DoAction();
                     gameUpdater.Stop();

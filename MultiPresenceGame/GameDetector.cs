@@ -16,7 +16,6 @@ namespace MultiPresenceGame
             { "Labyrinthine", "Labyrinthine" },
             { "Overwatch", "Overwatch 2" },
             { "tf_win64", "Team Fortress 2" },
-            { "SB-Win64-Shipping", "Stellar Blade" },
             { "TemtemSwarm", "Temtem: Swarm" }
         };
 
