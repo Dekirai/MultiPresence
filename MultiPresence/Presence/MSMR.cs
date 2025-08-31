@@ -73,9 +73,9 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int level = Hypervisor.Read<byte>(0x671CA70);
-            int location_get = Hypervisor.Read<byte>(0x6724900);
-            float health_get = Hypervisor.Read<float>(0x7796D68);
+            int level = Hypervisor.Read<byte>(0x5DB60A0);
+            int location_get = Hypervisor.Read<byte>(0x5DC06D0);
+            float health_get = Hypervisor.Read<float>(0x6D302D8);
             var location = await Locations.GetLocations(location_get);
             int health = (int)Math.Floor(health_get);
 
