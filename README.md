@@ -1,5 +1,9 @@
 # MultiPresence 🎮
 
+> [!WARNING]  
+> Development of MultiPresence is currently on pause due to personal life issues.  
+> I don't know when I'll continue working on the project because I'm not motivated to do so right now.
+
 [![Discord](https://img.shields.io/discord/1343222000008560700?label=Join%20Discord&logo=discord&color=7289DA)](https://discord.gg/AC6rVgV2Jj) [![License](https://img.shields.io/github/license/Dekirai/MultiPresence)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dekirai/MultiPresence)](https://github.com/Dekirai/MultiPresence/releases)
 
 > **MultiPresence** enables Discord Rich Presence for games that don’t natively support it.
