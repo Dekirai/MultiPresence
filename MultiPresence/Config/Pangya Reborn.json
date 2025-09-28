@@ -3,7 +3,7 @@
         "Pangya Reborn": {
             "Ingame_Match": {
                 "Details": "{nickname} - {level}",
-                "State": "{mode} — H{currenthole}/{maxholes}",
+                "State": "{server} » {mode} — H{currenthole}/{maxholes}",
                 "LargeAsset": "{map_icon_name}",
                 "SmallAsset": "playing",
                 "LargeAssetText": "{map}",
@@ -19,7 +19,7 @@
                 "LargeAsset": "{map_icon_name}",
                 "SmallAsset": "playing",
                 "LargeAssetText": "{map}",
-                "SmallAssetText": "Private Room",
+                "SmallAssetText": "Private Room - {players}/{playersmax} Players",
                 "Button1Text": "Join the discord",
                 "Button1URL": "https://discord.gg/pangya",
                 "Button2Text": "",
@@ -27,7 +27,7 @@
             },
             "Ingame_Tourney": {
                 "Details": "{nickname} - {level}",
-                "State": "{mode} — H{currenthole}/{maxholes} — Score: {score}",
+                "State": "{server} » {mode} — H{currenthole}/{maxholes} — Score: {score}",
                 "LargeAsset": "{map_icon_name}",
                 "SmallAsset": "playing",
                 "LargeAssetText": "{map}",
@@ -51,7 +51,7 @@
             },
             "Ingame_Lounge": {
                 "Details": "{nickname} - {level}",
-                "State": "{mode}",
+                "State": "{server} » {mode}",
                 "LargeAsset": "{map_icon_name}",
                 "SmallAsset": "playing",
                 "LargeAssetText": "{map}",
@@ -75,7 +75,7 @@
             },
             "Waiting_Room": {
                 "Details": "{nickname} - {level}",
-                "State": "{mode}",
+                "State": "{server} » {mode}",
                 "LargeAsset": "{map_icon_name}",
                 "SmallAsset": "waiting",
                 "LargeAssetText": "{map}",
@@ -99,7 +99,7 @@
             },
             "Lobby": {
                 "Details": "{nickname} - {level}",
-                "State": "In Lobby",
+                "State": "{server} » In Lobby",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
                 "LargeAssetText": "PangYa Reborn",

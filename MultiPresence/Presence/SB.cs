@@ -40,7 +40,7 @@ namespace MultiPresence.Presence
                 Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
                 if (game.Length > 0)
                 {
-                    ulong _base = Hypervisor.GetPointer64(0x0702F4E0, [0xC8, 0x28, 0x0, 0x11C]);
+                    ulong _base = Hypervisor.GetPointer64(0x07030520, [0xC8, 0x28, 0x0, 0x11C]);
                     float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
 
                     try
@@ -95,7 +95,7 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            ulong _base = Hypervisor.GetPointer64(0x0702F4E0, [0xC8, 0x28, 0x0, 0x11C]);
+            ulong _base = Hypervisor.GetPointer64(0x07030520, [0xC8, 0x28, 0x0, 0x11C]);
 
             float _health = Hypervisor.Read<float>(_base, true);
             float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);

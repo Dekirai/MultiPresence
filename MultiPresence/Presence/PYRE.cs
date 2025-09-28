@@ -143,12 +143,14 @@ namespace MultiPresence.Presence
         {
             string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
             var level_get = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA7D6A4, [0x711]), true);
+            string server = Hypervisor.ReadString(Hypervisor.GetPointer32(0x00A7D6A4, [0x1089D]), 16, true);
 
             var level = await Levels.GetLevel(level_get);
 
             return new Dictionary<string, object>
             {
                 { "nickname", nickname },
+                { "server", server },
                 { "level", level[0] },
             };
         }
@@ -164,6 +166,7 @@ namespace MultiPresence.Presence
             var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
             int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
             int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+            string server = Hypervisor.ReadString(Hypervisor.GetPointer32(0x00A7D6A4, [0x1089D]), 16, true);
 
             var stage = await Stages.GetStage(stage_get);
             var mode = await Modes.GetMode(mode_get);
@@ -180,6 +183,7 @@ namespace MultiPresence.Presence
                 { "playersmax", playersmax },
                 { "currenthole", currenthole },
                 { "maxholes", maxholes },
+                { "server", server },
                 { "mode", mode[0] }
             };
         }
@@ -195,6 +199,7 @@ namespace MultiPresence.Presence
             var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
             int currenthole = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0xFFEC]), true);
             int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+            string server = Hypervisor.ReadString(Hypervisor.GetPointer32(0x00A7D6A4, [0x1089D]), 16, true);
             var score = Hypervisor.Read<sbyte>(Hypervisor.GetPointer32(0xB006E8, [0x0, 0x40, 0x18, 0x0, 0x14, 0xC8, 0x4F4]), true);
 
             var stage = await Stages.GetStage(stage_get);
@@ -213,6 +218,7 @@ namespace MultiPresence.Presence
                 { "currenthole", currenthole },
                 { "maxholes", maxholes },
                 { "score", score },
+                { "server", server },
                 { "mode", mode[0] }
             };
         }
@@ -226,6 +232,7 @@ namespace MultiPresence.Presence
             var room = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094D]), true);
             var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
             var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
+            string server = Hypervisor.ReadString(Hypervisor.GetPointer32(0x00A7D6A4, [0x1089D]), 16, true);
 
             var stage = await Stages.GetStage(stage_get);
             var mode = await Modes.GetMode(mode_get);
@@ -240,6 +247,7 @@ namespace MultiPresence.Presence
                 { "map_icon_name", stage_get },
                 { "players", players },
                 { "playersmax", playersmax },
+                { "server", server },
                 { "mode", mode[0] }
             };
         }
@@ -254,6 +262,7 @@ namespace MultiPresence.Presence
             var players = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10938]), true);
             var playersmax = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x10937]), true);
             int maxholes = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0xA47E2C, [0x1094B]), true);
+            string server = Hypervisor.ReadString(Hypervisor.GetPointer32(0x00A7D6A4, [0x1089D]), 16, true);
 
             var stage = await Stages.GetStage(stage_get);
             var mode = await Modes.GetMode(mode_get);
@@ -269,6 +278,7 @@ namespace MultiPresence.Presence
                 { "players", players },
                 { "playersmax", playersmax },
                 { "maxholes", maxholes },
+                { "server", server },
                 { "mode", mode[0] }
             };
         }

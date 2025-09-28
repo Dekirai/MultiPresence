@@ -317,7 +317,7 @@ public class DiscordStatusUpdater
     },
     { "The Binding of Isaac: Rebirth", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "Time: {time} - Score: {score}", State = "🪙{coins}💣{bombs}🔑{keys}", LargeAsset = "{floortypeasset}", LargeAssetText = "{floor}", SmallAsset = "{characterasset}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "Time: {time} - Score: {score}", State = "🪙{coins}💣{bombs}🔑{keys}", LargeAsset = "logo", LargeAssetText = "", SmallAsset = "{characterasset}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "The Witcher 3", new Dictionary<string, GameDetails>

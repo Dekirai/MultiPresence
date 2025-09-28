@@ -11,7 +11,7 @@ namespace MultiPresenceGame
         {
             InitializeComponent();
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "440");
+            File.WriteAllText("steam_appid.txt", "1285190");
             if (!SteamAPI.Init())
             {
                 //Do nothing

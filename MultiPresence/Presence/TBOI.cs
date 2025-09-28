@@ -1,6 +1,5 @@
 ﻿using DiscordRPC;
 using System.Diagnostics;
-using System.Security.AccessControl;
 
 namespace MultiPresence.Presence
 {

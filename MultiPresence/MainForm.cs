@@ -25,7 +25,7 @@ namespace MultiPresence
         private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "31.08.2025";
+        private static readonly string currentVersion = "28.09.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -236,7 +236,7 @@ namespace MultiPresence
             {
                 if (!_disabledNotificationSent || _lastDisabledGame != game)
                 {
-                    BalloonDisabled(game);
+                    //BalloonDisabled(game);
                     _disabledNotificationSent = true;
                     _lastDisabledGame = game;
                 }
@@ -549,11 +549,11 @@ namespace MultiPresence
                         TTS.DoAction();
                         gameUpdater.Stop();
                         break;
-                    case "The Binding of Isaac: Rebirth":
-                        Balloon(game);
-                        TBOI.DoAction();
-                        gameUpdater.Stop();
-                        break;
+                    //case "The Binding of Isaac: Rebirth":
+                    //    Balloon(game);
+                    //    TBOI.DoAction();
+                    //    gameUpdater.Stop();
+                    //    break;
                     case "The Witcher 3":
                         Balloon(game);
                         TWIII.DoAction();
@@ -564,11 +564,11 @@ namespace MultiPresence
                         TY.DoAction();
                         gameUpdater.Stop();
                         break;
-                    case "Vampire Survivors":
-                        Balloon(game);
-                        VS.DoAction();
-                        gameUpdater.Stop();
-                        break;
+                    //case "Vampire Survivors":
+                    //    Balloon(game);
+                    //    VS.DoAction();
+                    //    gameUpdater.Stop();
+                    //    break;
                     case "Visions of Mana":
                         Balloon(game);
                         VOM.DoAction();
