@@ -47,9 +47,10 @@
 ### Placeholders
 
 Customize your presence text:  
-1. Open your game’s config from the tray menu.  
-2. Use placeholders like `{player}`, `{level}`, etc.  
-3. See the [Placeholder Guide](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders) for full details.  
+1. Download the latest [Config.zip](https://github.com/Dekirai/MultiPresence/raw/refs/heads/main/Config.zip)
+2. Paste the "Config" folder into the "Assets" folder
+3. Find the JSON of your game and open it with any Editor
+4. See the [Placeholder Guide](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders) for full details.  
 
 <details>
 <summary>📹 Placeholder Demo (Outdated Version)</summary>
