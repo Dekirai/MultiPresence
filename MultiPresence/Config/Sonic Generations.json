@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Sonic Generations": {
+            "Default": {
+                "Details": "{stage} - Rings: {rings}",
+                "State": "Time: {time}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Sonic Generations",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

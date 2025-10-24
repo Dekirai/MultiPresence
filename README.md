@@ -1,9 +1,5 @@
 # MultiPresence 🎮
 
-> [!WARNING]  
-> Development of MultiPresence is currently on pause due to personal life issues.  
-> I don't know when I'll continue working on the project because I'm not motivated to do so right now.
-
 [![Discord](https://img.shields.io/discord/1343222000008560700?label=Join%20Discord&logo=discord&color=7289DA)](https://discord.gg/AC6rVgV2Jj) [![License](https://img.shields.io/github/license/Dekirai/MultiPresence)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dekirai/MultiPresence)](https://github.com/Dekirai/MultiPresence/releases)
 
 > **MultiPresence** enables Discord Rich Presence for games that don’t natively support it.
@@ -48,12 +44,6 @@
 
 ## 🛠 Configuration
 
-### Blacklist
-
-Prevent specific games from being detected:  
-1. Edit `blacklist.json` via the tray menu.  
-2. Follow the [Blacklist Guide](https://github.com/Dekirai/MultiPresence/wiki/Blacklist).  
-
 ### Placeholders
 
 Customize your presence text:  
@@ -91,12 +81,14 @@ Customize your presence text:
 | Devil May Cry HD Collection                 | [Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)                                                  | Supports all games                   |
 | Devil May Cry 4                             | [Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)                                              |                                      |
 | Devil May Cry 5                             | [Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)                                                              |                                      |
+| Digimon Story Time Stranger                 | [Steam](https://store.steampowered.com/app/1984270/Digimon_Story_Time_Stranger/)                                                 |                                      |
 | DmC Devil May Cry                           | [Steam](https://store.steampowered.com/app/220440/DmC_Devil_May_Cry/)                                                            | Only base game tested                |
 | Elden Ring                                  | [Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)                                                                  | Only with EAC disabled               |
 | Final Fantasy VII Rebirth                   | [Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)                                                   |                                      |
 | Final Fantasy VII Remake                    | [Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)                                         | Only base game tested                |
 | Final Fantasy XV                            | [Steam](https://store.steampowered.com/app/637650/FINAL_FANTASY_XV_WINDOWS_EDITION/)                                             |                                      |
 | Final Fantasy XVI                           | [Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)                                                           | Only base game tested                |
+| Granblue Fantasy: Relink                    | [Steam](https://store.steampowered.com/app/881020/Granblue_Fantasy_Relink/)                                                      |                                      |
 | Gunfire Reborn ²                            | [Steam](https://store.steampowered.com/app/1217060/Gunfire_Reborn/)                                                              |                                      |
 | Hatsune Miku: Project DIVA Mega Mix+        | [Steam](https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA-Mega-Mix/)                                          |                                      |
 | Hello Kitty Island Adventure ²              | [Steam](https://store.steampowered.com/app/2495100/Hello_Kitty_Island_Adventure/)                                                |                                      |
@@ -132,6 +124,7 @@ Customize your presence text:
 | Scott Pilgrim vs The World                  | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Sonic Adventure DX                          | [Steam](https://store.steampowered.com/app/71250/Sonic_Adventure_DX/)                                                            | Probably won't work with mods        |
 | Sonic Adventure 2                           | [Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)                                                            |                                      |
+| Sonic x Shadow Generations                  | [Steam](https://store.steampowered.com/app/2513280/SONIC_X_SHADOW_GENERATIONS/)                                                  | Only Sonic Generations for now       |
 | Stellar Blade ²                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
 | Team Fortress 2 ²                           | [Steam](https://store.steampowered.com/app/440/Team_Fortress_2/)                                                                 |                                      |
 | Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |

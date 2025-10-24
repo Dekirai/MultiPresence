@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
-public class DiscordStatusUpdater
+public class DiscordStatusUpdater : IDisposable
 {
     private readonly string _configPath;
     private readonly string _absoluteConfigPath;
@@ -10,6 +10,11 @@ public class DiscordStatusUpdater
     private FileSystemWatcher _fileWatcher;
     private DateTime _lastReloadTime = DateTime.MinValue;
     private static readonly TimeSpan ReloadDebounce = TimeSpan.FromSeconds(1);
+
+    public void Dispose()
+    {
+        _fileWatcher?.Dispose();
+    }
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
@@ -90,6 +95,11 @@ public class DiscordStatusUpdater
             { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "{character} - Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Devil May Cry 5", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Digimon Story Time Stranger", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{nickname} - Lv. {level} ({difficulty})", State = "{location}", LargeAsset = "logo", LargeAssetText = "Digimon Story Time Stranger", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "DmC Devil May Cry", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Mission {mission} ({difficulty})", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "DmC Devil May Cry", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
@@ -119,6 +129,11 @@ public class DiscordStatusUpdater
     { "Final Fantasy XVI", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "Gil: {gil}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XVI", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Granblue Fantasy: Relink", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{name} - Lv. {level}", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Granblue Fantasy: Relink", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Kingdom Hearts Birth by Sleep Final Mix", new Dictionary<string, GameDetails>
@@ -310,7 +325,12 @@ public class DiscordStatusUpdater
             { "Ingame", new GameDetails { Details = "Rings: {rings} - Lives: {lives}", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-        { "Stellar Blade", new Dictionary<string, GameDetails>
+    { "Sonic Generations", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{stage} - Rings: {rings}", State = "Time: {time}", LargeAsset = "logo", LargeAssetText = "SONIC X SHADOW GENERATIONS", SmallAsset = "sonic", SmallAssetText = "Playing Sonic Generations", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
+    { "Stellar Blade", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Health: {health}/{maxhealth}", State = "Skill Level {level}", LargeAsset = "logo", LargeAssetText = "Stellar Blade", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }

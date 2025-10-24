@@ -35,37 +35,20 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
-                if (game.Length > 0)
-                {
-                    ulong _base = Hypervisor.GetPointer64(0x07030520, [0xC8, 0x28, 0x0, 0x11C]);
-                    float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
+                ulong _base = Hypervisor.GetPointer64(0x07030520, [0xC8, 0x28, 0x0, 0x11C]);
+                float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
 
-                    try
+                try
+                {
+                    if (_maxhealth > 0)
                     {
-                        if (_maxhealth > 0)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Stellar Blade", placeholders);
-                        }
-                        else
-                        {
-                            discord.SetPresence(new RichPresence()
-                            {
-                                Details = "In Main Menu",
-                                State = "",
-                                Assets = new Assets()
-                                {
-                                    LargeImageKey = "logo",
-                                    LargeImageText = "Stellar Blade"
-                                },
-                                Timestamps = PlaceholderHelper._startTimestamp
-                            });
-                        }
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Stellar Blade", placeholders);
                     }
-                    catch
+                    else
                     {
                         discord.SetPresence(new RichPresence()
                         {
@@ -79,17 +62,31 @@ namespace MultiPresence.Presence
                             Timestamps = PlaceholderHelper._startTimestamp
                         });
                     }
-
-                    await Task.Delay(3000);
-                    Thread thread = new Thread(RPC);
-                    thread.Start();
                 }
-                else
+                catch
                 {
-                    discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
-                    break;
+                    discord.SetPresence(new RichPresence()
+                    {
+                        Details = "In Main Menu",
+                        State = "",
+                        Assets = new Assets()
+                        {
+                            LargeImageKey = "logo",
+                            LargeImageText = "Stellar Blade"
+                        },
+                        Timestamps = PlaceholderHelper._startTimestamp
+                    });
                 }
+
+                await Task.Delay(3000);
+                Thread thread = new Thread(RPC);
+                thread.Start();
+            }
+            else
+            {
+                discord.Deinitialize();
+                updater.Dispose();
+                MainForm.gameUpdater.Start();
             }
         }
 

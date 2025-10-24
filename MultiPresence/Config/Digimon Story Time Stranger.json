@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Digimon Story Time Stranger": {
+            "Default": {
+                "Details": "{nickname} - Lv. {level} ({difficulty})",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Digimon Story Time Stranger",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

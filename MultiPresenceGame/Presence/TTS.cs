@@ -30,45 +30,41 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPCTTS()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("TemtemSwarm");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("TemtemSwarm");
-                if (game.Length > 0)
+                string presence = GetSteamRichPresence();
+                try
                 {
-                    string presence = GetSteamRichPresence();
-                    try
-                    {
-                        string temtem = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "temtem");
+                    string temtem = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "temtem");
 
-                        if (temtem.Length > 0)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Temtem Swarm", placeholders, "Ingame");
-                        }
-                        else
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Temtem Swarm", placeholders);
-                        }
+                    if (temtem.Length > 0)
+                    {
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Temtem Swarm", placeholders, "Ingame");
                     }
-                    catch
+                    else
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Temtem Swarm", placeholders);
                     }
-
-                    await Task.Delay(3000); // Wait before checking again
                 }
-                else
+                catch
                 {
-                    SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
-                    SteamAPI.Shutdown();
-
-                    discord.Deinitialize();
-                    Environment.Exit(0);
-                    break;
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Temtem Swarm", placeholders);
                 }
+
+                await Task.Delay(3000); // Wait before checking again
+            }
+            else
+            {
+                SteamFriends.ClearRichPresence();
+                File.WriteAllText("Assets/steam_appid.txt", "");
+                SteamAPI.Shutdown();
+
+                discord.Deinitialize();
+                Environment.Exit(0);
             }
         }
 

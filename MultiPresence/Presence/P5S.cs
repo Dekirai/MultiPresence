@@ -68,13 +68,14 @@ namespace MultiPresence.Presence
                     });
                 }
 
-                    await Task.Delay(3000);
+                await Task.Delay(3000);
                 Thread thread = new Thread(RPC);
                 thread.Start();
             }
             else
             {
                 discord.Deinitialize();
+                updater.Dispose();
                 MainForm.gameUpdater.Start();
             }
         }

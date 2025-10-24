@@ -26,16 +26,12 @@ namespace MultiPresence.Presence
 
         private static async void Blabla()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("TemtemSwarm");
+            if (game.Length > 0)
+                await Task.Delay(3000); // Wait before checking again
+            else
             {
-                Process[] game = Process.GetProcessesByName("TemtemSwarm");
-                if (game.Length > 0)
-                    await Task.Delay(3000); // Wait before checking again
-                else
-                {
-                    MainForm.gameUpdater.Start();
-                    break;
-                }
+                MainForm.gameUpdater.Start();
             }
         }
     }

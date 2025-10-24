@@ -87,6 +87,7 @@ namespace MultiPresence.Presence
             else
             {
                 discord.Deinitialize();
+                updater.Dispose();
                 MainForm.gameUpdater.Start();
             }
         }

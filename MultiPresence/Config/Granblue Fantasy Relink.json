@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Granblue Fantasy Relink": {
+            "Default": {
+                "Details": "{name} - Lv. {level}",
+                "State": "Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Granblue Fantasy: Relink",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

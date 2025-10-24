@@ -30,54 +30,50 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPC()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("Labyrinthine");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("Labyrinthine");
-                if (game.Length > 0)
+                string presence = GetSteamRichPresence();
+                try
                 {
-                    string presence = GetSteamRichPresence();
-                    try
+                    string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                    int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+
+                    Party party = null;
+
+                    if (partysize > 1)
                     {
-                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
-                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
-
-                        Party party = null;
-
-                        if (partysize > 1)
+                        party = new Party
                         {
-                            party = new Party
-                            {
-                                ID = partyid,
-                                Size = partysize,
-                                Max = 8,
-                            };
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
-                        }
-                        else
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
-                        }
+                            ID = partyid,
+                            Size = partysize,
+                            Max = 8,
+                        };
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
                     }
-                    catch
+                    else
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
                     }
-
-                    await Task.Delay(3000); // Wait before checking again
                 }
-                else
+                catch
                 {
-                    SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
-                    SteamAPI.Shutdown();
-
-                    discord.Deinitialize();
-                    Environment.Exit(0);
-                    break;
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Labyrinthine", placeholders);
                 }
+
+                await Task.Delay(3000); // Wait before checking again
+            }
+            else
+            {
+                SteamFriends.ClearRichPresence();
+                File.WriteAllText("Assets/steam_appid.txt", "");
+                SteamAPI.Shutdown();
+
+                discord.Deinitialize();
+                Environment.Exit(0);
             }
         }
 

@@ -3,16 +3,16 @@ using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
-    public class SPTG
+    public class GBFR
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1394219480871342223");
+            discord = new DiscordRpcClient("1426303485208559616");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Scott Pilgrim vs The World.json");
+            updater = new DiscordStatusUpdater("Assets/config/Granblue Fantasy Relink.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -21,7 +21,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("scott")[0];
+                var _myProcess = Process.GetProcessesByName("granblue_fantasy_relink")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -33,29 +33,28 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("scott");
+            Process[] game = Process.GetProcessesByName("granblue_fantasy_relink");
             if (game.Length > 0)
             {
+                int _maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x05E59900, [0x164]), true);
+
                 try
                 {
-                    ulong _base = Hypervisor.GetPointer64(0x0230FF48, [0xC8, 0x1A8, 0x178]);
-                    float health = Hypervisor.Read<float>(_base, true);
-
-                    if (health > 0)
+                    if (_maxhealth > 0)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Scott Pilgrim vs The World", placeholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Granblue Fantasy: Relink", placeholders);
                     }
                     else
                     {
                         discord.SetPresence(new RichPresence()
                         {
-                            Details = "In Menus",
+                            Details = "In Main Menu",
                             State = "",
                             Assets = new Assets()
                             {
                                 LargeImageKey = "logo",
-                                LargeImageText = "Scott Pilgrim vs The World"
+                                LargeImageText = "Granblue Fantasy: Relink"
                             },
                             Timestamps = PlaceholderHelper._startTimestamp
                         });
@@ -65,12 +64,12 @@ namespace MultiPresence.Presence
                 {
                     discord.SetPresence(new RichPresence()
                     {
-                        Details = "In Menus",
+                        Details = "In Main Menu",
                         State = "",
                         Assets = new Assets()
                         {
                             LargeImageKey = "logo",
-                            LargeImageText = "Scott Pilgrim vs The World"
+                            LargeImageText = "Granblue Fantasy: Relink"
                         },
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
@@ -90,30 +89,19 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            ulong _base = Hypervisor.GetPointer64(0x0230FF48, [0xC8, 0x1A8, 0x178]);
-            float health = Hypervisor.Read<float>(_base, true);
-            float gutpoints = Hypervisor.Read<float>(_base + 0x1BC, true);
-            float defense = Hypervisor.Read<float>(_base + 0x6F0, true);
-            float speed = Hypervisor.Read<float>(_base + 0x6F4, true);
-            float willpower = Hypervisor.Read<float>(_base + 0x6F8, true);
-            float strength = Hypervisor.Read<float>(_base + 0x6FC, true);
-            int lives = Hypervisor.Read<int>(_base + 0x700, true);
-            float money = Hypervisor.Read<float>(_base + 0x1278, true);
-            float totalexperience = Hypervisor.Read<float>(_base + 0x127C, true);
-
-            int money_rounded = (int)Math.Round(money, 0, MidpointRounding.AwayFromZero);
+            int _health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x05E59900, [0x160]), true);
+            int _maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x05E59900, [0x164]), true);
+            int _level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x05FCA4F0, [0x140, 0x38, 0x3C]), true);
+            int _money = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x05E48228, [0x30]), true);
+            string _name = Hypervisor.ReadString(Hypervisor.GetPointer64(0x05E48228, [0x2B0]), 16, true);
 
             return new Dictionary<string, object>
             {
-                { "health", health },
-                { "gutpoints", gutpoints },
-                { "defense", defense },
-                { "speed", speed },
-                { "willpower", willpower },
-                { "strength", strength },
-                { "lives", lives },
-                { "money", money_rounded },
-                { "totalexperience", totalexperience }
+                { "health", _health },
+                { "maxhealth", _maxhealth },
+                { "level", _level },
+                { "money", _money },
+                { "name", _name }
             };
         }
 

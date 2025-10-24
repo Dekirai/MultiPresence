@@ -35,38 +35,34 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("TY");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("TY");
-                if (game.Length > 0)
+                int health = Hypervisor.Read<byte>(0x2737CC);
+                int level = Hypervisor.Read<byte>(0x28903C);
+                int opals = Hypervisor.Read<int>(0x2888B0);
+
+                levelvalue = await Levels.GetLevel(level);
+
+                if (level == 4 || level == 5 || level == 6 || level == 8 || level == 9 || level == 10 || level == 12 || level == 13 || level == 14)
                 {
-                    int health = Hypervisor.Read<byte>(0x2737CC);
-                    int level = Hypervisor.Read<byte>(0x28903C);
-                    int opals = Hypervisor.Read<int>(0x2888B0);
-
-                    levelvalue = await Levels.GetLevel(level);
-
-                    if (level == 4 || level == 5 || level == 6 || level == 8 || level == 9 || level == 10 || level == 12 || level == 13 || level == 14)
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders, "Level");
-                    }
-                    else
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders);
-                    }
-
-                    await Task.Delay(3000);
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders, "Level");
                 }
                 else
                 {
-                    discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
-                    break;
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "TY The Tasmanian Tiger", placeholders);
                 }
-            }
 
+                await Task.Delay(3000);
+            }
+            else
+            {
+                discord.Deinitialize();
+                updater.Dispose();
+                MainForm.gameUpdater.Start();
+            }
         }
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()

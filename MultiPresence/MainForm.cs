@@ -15,7 +15,6 @@ namespace MultiPresence
     public partial class MainForm : Form
     {
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
-        Blacklist? blacklist = null;
         public static bool status = false;
         public static bool isBlacklistLoaded = false;
         private string _lastDisabledGame = null;
@@ -202,17 +201,8 @@ namespace MultiPresence
             string json;
             Dictionary<string, GameConfig> gameConfigs;
 
-            if (File.Exists("Assets\\blacklist.json"))
-            {
-                json = File.ReadAllText("Assets\\blacklist.json");
-                blacklist = JsonConvert.DeserializeObject<Blacklist>(json);
-                isBlacklistLoaded = true;
-            }
             if (File.Exists("Assets\\steam_appid.txt"))
                 File.Delete("Assets\\steam_appid.txt");
-
-            if (isBlacklistLoaded && blacklist != null)
-                status = blacklist.GetValue(game);
 
             try
             {
@@ -324,6 +314,11 @@ namespace MultiPresence
                         DMC5.DoAction();
                         gameUpdater.Stop();
                         break;
+                    case "Digimon Story Time Stranger":
+                        Balloon(game);
+                        DSTS.DoAction();
+                        gameUpdater.Stop();
+                        break;
                     case "DmC Devil May Cry":
                         Balloon(game);
                         DMC.DoAction();
@@ -352,6 +347,11 @@ namespace MultiPresence
                     case "Final Fantasy XVI":
                         Balloon(game);
                         FFXVI.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Granblue Fantasy: Relink":
+                        Balloon(game);
+                        GBFR.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Gunfire Reborn":
@@ -532,6 +532,11 @@ namespace MultiPresence
                     case "Sonic Adventure DX":
                         Balloon(game);
                         SADX.DoAction();
+                        gameUpdater.Stop();
+                        break;
+                    case "Sonic Generations":
+                        Balloon(game);
+                        SXSG.DoAction();
                         gameUpdater.Stop();
                         break;
                     case "Stellar Blade":

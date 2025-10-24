@@ -33,15 +33,14 @@
             label1 = new Label();
             notify = new NotifyIcon(components);
             cms = new ContextMenuStrip(components);
+            lb_Version = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
             cb_DisableAutoUpdates = new ToolStripMenuItem();
             btn_Config = new ToolStripMenuItem();
-            btn_Blacklist = new ToolStripMenuItem();
             cb_LaunchWithWindows = new ToolStripMenuItem();
             cb_LaunchWithWindowsAdmin = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             btn_Exit = new ToolStripMenuItem();
-            lb_Version = new ToolStripMenuItem();
             cms.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,9 +62,16 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { lb_Version, cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, btn_Blacklist, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { lb_Version, cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(239, 208);
+            cms.Size = new Size(239, 186);
+            // 
+            // lb_Version
+            // 
+            lb_Version.ForeColor = SystemColors.AppWorkspace;
+            lb_Version.Name = "lb_Version";
+            lb_Version.Size = new Size(238, 22);
+            lb_Version.Text = "Version";
             // 
             // cb_DisableNotifications
             // 
@@ -89,13 +95,6 @@
             btn_Config.Size = new Size(238, 22);
             btn_Config.Text = "Open config folder";
             btn_Config.Click += btn_Config_Click;
-            // 
-            // btn_Blacklist
-            // 
-            btn_Blacklist.Name = "btn_Blacklist";
-            btn_Blacklist.Size = new Size(238, 22);
-            btn_Blacklist.Text = "Open blacklist";
-            btn_Blacklist.Click += btn_Blacklist_Click;
             // 
             // cb_LaunchWithWindows
             // 
@@ -125,13 +124,6 @@
             btn_Exit.Text = "Exit";
             btn_Exit.Click += btn_Exit_Click;
             // 
-            // lb_Version
-            // 
-            lb_Version.ForeColor = SystemColors.AppWorkspace;
-            lb_Version.Name = "lb_Version";
-            lb_Version.Size = new Size(238, 22);
-            lb_Version.Text = "Version";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,7 +149,6 @@
         private ToolStripMenuItem btn_Exit;
         private ToolStripMenuItem cb_DisableNotifications;
         private ToolStripMenuItem btn_Config;
-        private ToolStripMenuItem btn_Blacklist;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem cb_LaunchWithWindowsAdmin;
         private ToolStripMenuItem cb_LaunchWithWindows;

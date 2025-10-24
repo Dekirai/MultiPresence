@@ -3,6 +3,7 @@
 |--|--|--|
 |{nickname}|Shows your nickname|Everywhere|
 |{level}|Shows your current level|Everywhere|
+|{server}|Shows the name of the server you are in|Everywhere|
 |{room}|Shows the current room|Ingame, Waiting|
 |{map}|Shows the current map|Ingame, Waiting|
 |{players}|Shows the amount of players in room|Ingame, Waiting|

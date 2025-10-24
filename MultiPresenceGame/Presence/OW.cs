@@ -30,55 +30,51 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPC()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("Overwatch");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("Overwatch");
-                if (game.Length > 0)
+                string presence = GetSteamRichPresence();
+
+                try
                 {
-                    string presence = GetSteamRichPresence();
+                    string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                    int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
 
-                    try
+                    Party party = null;
+
+                    if (partysize > 1)
                     {
-                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
-                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
-
-                        Party party = null;
-
-                        if (partysize > 1)
+                        party = new Party
                         {
-                            party = new Party
-                            {
-                                ID = partyid,
-                                Size = partysize,
-                                Max = 6,
-                            };
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders, "Default", party);
-                        }
-                        else
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders);
-                        }
+                            ID = partyid,
+                            Size = partysize,
+                            Max = 6,
+                        };
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders, "Default", party);
                     }
-                    catch
+                    else
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders);
                     }
-
-                    await Task.Delay(3000);
                 }
-                else
+                catch
                 {
-                    SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
-                    SteamAPI.Shutdown();
-
-                    discord.Deinitialize();
-                    Environment.Exit(0);
-                    break;
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Overwatch", placeholders);
                 }
+
+                await Task.Delay(3000);
+            }
+            else
+            {
+                SteamFriends.ClearRichPresence();
+                File.WriteAllText("Assets/steam_appid.txt", "");
+                SteamAPI.Shutdown();
+
+                discord.Deinitialize();
+                Environment.Exit(0);
             }
         }
 

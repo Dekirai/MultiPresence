@@ -30,27 +30,23 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPCTTS()
         {
-            while (true)
+            Process[] game = Process.GetProcessesByName("HogwartsLegacy");
+            if (game.Length > 0)
             {
-                Process[] game = Process.GetProcessesByName("HogwartsLegacy");
-                if (game.Length > 0)
-                {
-                    string presence = GetSteamRichPresence();
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hogwarts Legacy", placeholders);
+                string presence = GetSteamRichPresence();
+                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hogwarts Legacy", placeholders);
 
-                    await Task.Delay(3000); // Wait before checking again
-                }
-                else
-                {
-                    SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
-                    SteamAPI.Shutdown();
+                await Task.Delay(3000); // Wait before checking again
+            }
+            else
+            {
+                SteamFriends.ClearRichPresence();
+                File.WriteAllText("Assets/steam_appid.txt", "");
+                SteamAPI.Shutdown();
 
-                    discord.Deinitialize();
-                    Environment.Exit(0);
-                    break;
-                }
+                discord.Deinitialize();
+                Environment.Exit(0);
             }
         }
 
