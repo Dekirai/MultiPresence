@@ -24,7 +24,7 @@ namespace MultiPresence
         private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "28.09.2025";
+        private static readonly string currentVersion = "24.10.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
