@@ -30,51 +30,55 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("Hello Kitty");
-            if (game.Length > 0)
+            while (true)
             {
-                string presence = GetSteamRichPresence();
-
-                try
+                Process[] game = Process.GetProcessesByName("Hello Kitty");
+                if (game.Length > 0)
                 {
-                    string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
-                    int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+                    string presence = GetSteamRichPresence();
 
-                    Party party = null;
-
-                    if (partysize > 1)
+                    try
                     {
-                        party = new Party
+                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+
+                        Party party = null;
+
+                        if (partysize > 1)
                         {
-                            ID = partyid,
-                            Size = partysize,
-                            Max = 2,
-                        };
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders, "Default", party);
+                            party = new Party
+                            {
+                                ID = partyid,
+                                Size = partysize,
+                                Max = 2,
+                            };
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders, "Default", party);
+                        }
+                        else
+                        {
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
+                        }
                     }
-                    else
+                    catch
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
                     }
+
+                    await Task.Delay(3000);
                 }
-                catch
+                else
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Hello Kitty", placeholders);
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamAPI.Shutdown();
+
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
                 }
-
-                await Task.Delay(3000);
-            }
-            else
-            {
-                SteamFriends.ClearRichPresence();
-                File.WriteAllText("Assets/steam_appid.txt", "");
-                SteamAPI.Shutdown();
-
-                discord.Deinitialize();
-                Environment.Exit(0);
             }
         }
 

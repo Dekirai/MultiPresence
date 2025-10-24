@@ -30,49 +30,53 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("Gunfire Reborn");
-            if (game.Length > 0)
+            while (true)
             {
-                string presence = GetSteamRichPresence();
-
-                try
+                Process[] game = Process.GetProcessesByName("Gunfire Reborn");
+                if (game.Length > 0)
                 {
-                    string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
-                    int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
-                    Party party = null;
-                    if (partysize > 1)
+                    string presence = GetSteamRichPresence();
+
+                    try
                     {
-                        party = new Party
+                        string partyid = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group");
+                        int partysize = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "steam_player_group_size"));
+                        Party party = null;
+                        if (partysize > 1)
                         {
-                            ID = partyid,
-                            Size = partysize,
-                            Max = 4,
-                        };
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Gunfire Reborn", placeholders, "Default", party);
+                            party = new Party
+                            {
+                                ID = partyid,
+                                Size = partysize,
+                                Max = 4,
+                            };
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Gunfire Reborn", placeholders, "Default", party);
+                        }
+                        else
+                        {
+                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Gunfire Reborn", placeholders);
+                        }
                     }
-                    else
+                    catch
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Gunfire Reborn", placeholders);
                     }
+
+                    await Task.Delay(3000);
                 }
-                catch
+                else
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Gunfire Reborn", placeholders);
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamAPI.Shutdown();
+
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
                 }
-
-                await Task.Delay(3000);
-            }
-            else
-            {
-                SteamFriends.ClearRichPresence();
-                File.WriteAllText("Assets/steam_appid.txt", "");
-                SteamAPI.Shutdown();
-
-                discord.Deinitialize();
-                Environment.Exit(0);
             }
         }
 

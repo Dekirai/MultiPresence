@@ -30,54 +30,58 @@ namespace MultiPresenceGame.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("cod");
-            if (game.Length > 0)
+            while (true)
             {
-                string presence = GetSteamRichPresence();
+                Process[] game = Process.GetProcessesByName("cod");
+                if (game.Length > 0)
+                {
+                    string presence = GetSteamRichPresence();
 
-                if (presence.Length >= 3)
-                {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders);
-                }
-                else
-                {
-                    try
+                    if (presence.Length >= 3)
                     {
-                        int mapkey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "mapname"));
-                        int modekey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "gamemode"));
-
-                        string mode = "";
-                        string map = "";
-
-                        if (modekey == 1371735337 || modekey == 1803630921 || modekey == 1751835769)
+                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders);
+                    }
+                    else
+                    {
+                        try
                         {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders, "Zombies");
+                            int mapkey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "mapname"));
+                            int modekey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "gamemode"));
+
+                            string mode = "";
+                            string map = "";
+
+                            if (modekey == 1371735337 || modekey == 1803630921 || modekey == 1751835769)
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders, "Zombies");
+                            }
+                            else
+                            {
+                                var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders);
+                            }
                         }
-                        else
+                        catch
                         {
                             var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders);
                         }
                     }
-                    catch
-                    {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Call of Duty", placeholders);
-                    }
+
+                    await Task.Delay(3000);
                 }
+                else
+                {
+                    SteamFriends.ClearRichPresence();
+                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamAPI.Shutdown();
 
-                await Task.Delay(3000);
-            }
-            else
-            {
-                SteamFriends.ClearRichPresence();
-                File.WriteAllText("Assets/steam_appid.txt", "");
-                SteamAPI.Shutdown();
-
-                discord.Deinitialize();
-                Environment.Exit(0);
+                    discord.Deinitialize();
+                    Environment.Exit(0);
+                    break;
+                }
             }
         }
 
