@@ -28,12 +28,16 @@ namespace MultiPresence.Presence
 
         private static async void Blabla()
         {
-            Process[] game = Process.GetProcessesByName("HogwartsLegacy");
-            if (game.Length > 0)
-                await Task.Delay(3000); // Wait before checking again
-            else
+            while (true)
             {
-                MainForm.gameUpdater.Start();
+                Process[] game = Process.GetProcessesByName("HogwartsLegacy");
+                if (game.Length > 0)
+                    await Task.Delay(3000); // Wait before checking again
+                else
+                {
+                    MainForm.gameUpdater.Start();
+                    break;
+                }
             }
         }
     }
