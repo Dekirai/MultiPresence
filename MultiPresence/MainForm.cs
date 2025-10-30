@@ -198,6 +198,7 @@ namespace MultiPresence
         private async void gameUpdater_Tick(object sender, EventArgs e)
         {
             string game = GameDetector.GetGame();
+            lb_ActiveGame.Text = "Active game: None";
             string json;
             Dictionary<string, GameConfig> gameConfigs;
 
@@ -623,6 +624,7 @@ namespace MultiPresence
 
         private void Balloon(string text)
         {
+            lb_ActiveGame.Text = $"Active game: {text}";
             if (cb_DisableNotifications.Checked)
                 return;
             notify.BalloonTipTitle = "System";

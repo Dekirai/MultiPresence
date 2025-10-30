@@ -80,7 +80,6 @@ namespace MultiPresenceGame.Presence
                     break;
                 }
             }
-
         }
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()

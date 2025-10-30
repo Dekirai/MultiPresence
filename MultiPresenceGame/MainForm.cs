@@ -11,27 +11,27 @@ namespace MultiPresenceGame
         {
             InitializeComponent();
 #if DEBUG
-            File.WriteAllText("steam_appid.txt", "1285190");
-            if (!SteamAPI.Init())
-            {
-                //Do nothing
-            }
-            int keyCount = SteamFriends.GetFriendRichPresenceKeyCount(SteamUser.GetSteamID());
+            //File.WriteAllText("steam_appid.txt", "1285190");
+            //if (!SteamAPI.Init())
+            //{
+            //    //Do nothing
+            //}
+            //int keyCount = SteamFriends.GetFriendRichPresenceKeyCount(SteamUser.GetSteamID());
 
-            if (keyCount == 0)
-            {
-                MessageBox.Show("No Rich Presence keys found.");
-            }
-            else
-            {
-                for (int i = 0; i < keyCount; i++)
-                {
-                    string key = SteamFriends.GetFriendRichPresenceKeyByIndex(SteamUser.GetSteamID(), i);
-                    string value = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), key);
+            //if (keyCount == 0)
+            //{
+            //    MessageBox.Show("No Rich Presence keys found.");
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < keyCount; i++)
+            //    {
+            //        string key = SteamFriends.GetFriendRichPresenceKeyByIndex(SteamUser.GetSteamID(), i);
+            //        string value = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), key);
 
-                    MessageBox.Show($"Key: {key}, Value: {value}");
-                }
-            }
+            //        MessageBox.Show($"Key: {key}, Value: {value}");
+            //    }
+            //}
             gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
             gameUpdater.Interval = 5000;
             gameUpdater.Enabled = true;
