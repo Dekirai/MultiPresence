@@ -1,9 +1,9 @@
 {
     "Games": {
-        "Mega Man Battle Network 6": {
+        "Mega Man Battle Network 4": {
             "Default": {
                 "Details": "HP: {hp}/{maxhp}",
-                "State": "{location}",
+                "State": "Playing {gamename}",
                 "LargeAsset": "{gameicon}",
                 "SmallAsset": "",
                 "LargeAssetText": "{gamename}",
@@ -14,8 +14,8 @@
                 "Button2URL": ""
             },
             "In_Battle": {
-                "Details": "HP: {hp_battle}/{maxhp_battle}",
-                "State": "{location} (In Battle)",
+                "Details": "HP: {hp}/{maxhp}",
+                "State": "In Battle",
                 "LargeAsset": "{gameicon}",
                 "SmallAsset": "",
                 "LargeAssetText": "{gamename}",

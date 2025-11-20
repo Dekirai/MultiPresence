@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Mega Man X7": {
+            "Default": {
+                "Details": "{character} - Lives: {lives}",
+                "State": "Location: {stage}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Mega Man X7",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

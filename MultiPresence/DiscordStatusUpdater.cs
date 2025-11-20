@@ -199,10 +199,60 @@ public class DiscordStatusUpdater : IDisposable
             { "Ingame", new GameDetails { Details = "Lives: {lives} ({difficulty})", State = "{stage}", LargeAsset = "{stage_icon_name}", LargeAssetText = "{stage}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Mega Man Battle Network", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} - Zenny: {zenny}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Mega Man Battle Network 2", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} - Zenny: {zenny}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Mega Man Battle Network 3", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} - Zenny: {zenny}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Mega Man Battle Network 4", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "Playing {gamename}", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "In Battle", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Mega Man Battle Network 5", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "{location}", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Mega Man Battle Network 6", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
-            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "logo", LargeAssetText = "Mega Man Battle Network 6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "HP: {hp}/{maxhp}", State = "{location}", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "In_Battle", new GameDetails { Details = "HP: {hp_battle}/{maxhp_battle}", State = "{location} (In Battle)", LargeAsset = "{gameicon}", LargeAssetText = "{gamename}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Mega Man X5", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{character} - Lives: {lives}", State = "Location: {stage}", LargeAsset = "logo", LargeAssetText = "Mega Man X5", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
+    { "Mega Man X6", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{character} - Lives: {lives}", State = "Location: {stage}", LargeAsset = "logo", LargeAssetText = "Mega Man X6", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
+    { "Mega Man X7", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{character} - Lives: {lives}", State = "Location: {stage}", LargeAsset = "logo", LargeAssetText = "Mega Man X7", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
+    { "Mega Man X8", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{character} - Metals: {metals}", State = "Location: {stage}", LargeAsset = "logo", LargeAssetText = "Mega Man X8", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
         }
     },
     { "Pangya Reborn", new Dictionary<string, GameDetails>
@@ -362,6 +412,11 @@ public class DiscordStatusUpdater : IDisposable
     { "Visions of Mana", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} | MP: {mp}/{mpmax}", LargeAsset = "logo", LargeAssetText = "Visions of Mana", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Ys I Chronicles", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "{exp}", State = "❤{hp}/{max_hp}⚔{str}🛡{def}🪙{gold}", LargeAsset = "logo", LargeAssetText = "Ys I Chronicles", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     }
 };

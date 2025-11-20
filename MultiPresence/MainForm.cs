@@ -15,16 +15,9 @@ namespace MultiPresence
     public partial class MainForm : Form
     {
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
-        public static bool status = false;
-        public static bool isBlacklistLoaded = false;
-        private string _lastDisabledGame = null;
-        private bool _disabledNotificationSent = false;
-
-        private static readonly string gameStatusUrl = "https://dekirai.crygod.de/multipresence/gamestatus.json";
-        private static Dictionary<string, bool> gameEnabled = new();
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "30.10.2025";
+        private static readonly string currentVersion = "20.11.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -186,411 +179,403 @@ namespace MultiPresence
             }
         }
 
-        public class GameConfig
-        {
-            [JsonProperty("enabled")]
-            public bool Enabled { get; set; }
-
-            [JsonProperty("description")]
-            public string Description { get; set; }
-        }
-
         private async void gameUpdater_Tick(object sender, EventArgs e)
         {
             string game = GameDetector.GetGame();
             lb_ActiveGame.Text = "Active game: None";
             string json;
-            Dictionary<string, GameConfig> gameConfigs;
 
             if (File.Exists("Assets\\steam_appid.txt"))
                 File.Delete("Assets\\steam_appid.txt");
 
-            try
+            PlaceholderHelper._startTimestamp = Timestamps.Now;
+            switch (game)
             {
-                using var client = new HttpClient();
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("CSharpApp");
-                var gamestatus = await client.GetStringAsync(gameStatusUrl);
-                gameConfigs = JsonConvert
-                    .DeserializeObject<Dictionary<string, GameConfig>>(gamestatus)
-                    ?? new Dictionary<string, GameConfig>();
-            }
-            catch
-            {
-                gameConfigs = new Dictionary<string, GameConfig>();
-            }
-
-            bool enabled = true;
-            if (gameConfigs.TryGetValue(game, out var cfg))
-                enabled = cfg.Enabled;
-
-            if (!enabled)
-            {
-                if (!_disabledNotificationSent || _lastDisabledGame != game)
-                {
-                    //BalloonDisabled(game);
-                    _disabledNotificationSent = true;
-                    _lastDisabledGame = game;
-                }
-                return;
-            }
-
-            _disabledNotificationSent = false;
-            _lastDisabledGame = null;
-
-            if (gameEnabled.TryGetValue(game, out bool isEnabled) && !isEnabled)
-                return;
-
-            if (!status)
-            {
-                PlaceholderHelper._startTimestamp = Timestamps.Now;
-                switch (game)
-                {
-                    case "Call of Duty®":
-                        Balloon(game);
-                        await COD.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "CODE VEIN":
-                        Balloon(game);
-                        CV.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Crash Bandicoot 4: It's About Time":
-                        Balloon(game);
-                        CB4.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Crash Bandicoot N. Sane Trilogy":
-                        Balloon(game);
-                        CBNT.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "CRISIS CORE –FINAL FANTASY VII– REUNION":
-                        Balloon(game);
-                        CCFFVII.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Dark Souls II":
-                        Balloon(game);
-                        DSII.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Dark Souls III":
-                        Balloon(game);
-                        DSIII.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Dark Souls: Remastered":
-                        Balloon(game);
-                        DSR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Death Stranding":
-                        Balloon(game);
-                        DSDC.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Devil May Cry":
-                        Balloon(game);
-                        DMC1.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Devil May Cry 2":
-                        Balloon(game);
-                        DMC2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Devil May Cry 3":
-                        Balloon(game);
-                        DMC3.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Devil May Cry 4":
-                        Balloon(game);
-                        DMC4.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Devil May Cry 5":
-                        Balloon(game);
-                        DMC5.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Digimon Story Time Stranger":
-                        Balloon(game);
-                        DSTS.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "DmC Devil May Cry":
-                        Balloon(game);
-                        DMC.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Elden Ring":
-                        Balloon(game);
-                        ER.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Final Fantasy VII Rebirth":
-                        Balloon(game);
-                        FFVIIRB.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Final Fantasy VII Remake":
-                        Balloon(game);
-                        FFVIIR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Final Fantasy XV":
-                        Balloon(game);
-                        FFXV.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Final Fantasy XVI":
-                        Balloon(game);
-                        FFXVI.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Granblue Fantasy: Relink":
-                        Balloon(game);
-                        GBFR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Gunfire Reborn":
-                        Balloon(game);
-                        await GFR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Hello Kitty Island Adventure":
-                        Balloon(game);
-                        await HK.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Hogwarts Legacy":
-                        Balloon(game);
-                        await HL.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts Birth by Sleep Final Mix":
-                        Balloon(game);
-                        KHBBS.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts Dream Drop Distance":
-                        Balloon(game);
-                        KHDDD.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts Final Mix":
-                        Balloon(game);
-                        KH1.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts II Final Mix":
-                        Balloon(game);
-                        KH2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts III":
-                        Balloon(game);
-                        KH3.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Kingdom Hearts Re:Chain of Memories":
-                        Balloon(game);
-                        KHCOM.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Labyrinthine":
-                        Balloon(game);
-                        LR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Lies of P":
-                        Balloon(game);
-                        LOP.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Mega Man 11":
-                        Balloon(game);
-                        MM11.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Mega Man Battle Network 6: Cybeast Falzar":
-                        Balloon(game);
-                        MMBN6F.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Mega Man Battle Network 6: Cybeast Gregar":
-                        Balloon(game);
-                        MMBN6G.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Marvel's Spider-Man 2":
-                        Balloon(game);
-                        MSM2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Marvel's Spider-Man Remastered":
-                        Balloon(game);
-                        MSMR.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Marvel's Spider-Man: Miles Morales":
-                        Balloon(game);
-                        MSMMMM.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Overwatch 2":
-                        Balloon(game);
-                        await OW.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Pangya Reborn":
-                        Balloon(game);
-                        PYRE.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Persona 4 Golden":
-                        Balloon(game);
-                        P4G.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Persona 5 Strikers":
-                        Balloon(game);
-                        P5S.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Persona 5 Royal":
-                        Balloon(game);
-                        P5R.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Persona 5: The Phantom X":
-                        Balloon(game);
-                        P5X.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Project Diva Mega Mix+":
-                        Balloon(game);
-                        PDMM.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil":
-                        Balloon(game);
-                        RE.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 2":
-                        Balloon(game);
-                        RE2R.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 4 (2005)":
-                        Balloon(game);
-                        RE4.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 4 Remake":
-                        Balloon(game);
-                        RE4R.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 5":
-                        Balloon(game);
-                        RE5.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 6":
-                        Balloon(game);
-                        RE6.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 7":
-                        Balloon(game);
-                        RE7.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil 8":
-                        Balloon(game);
-                        RE8.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Resident Evil Revelations 2":
-                        Balloon(game);
-                        REV2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Scott Pilgrim vs The World":
-                        Balloon(game);
-                        SPTG.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Sonic Adventure 2":
-                        Balloon(game);
-                        SA2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Sonic Adventure DX":
-                        Balloon(game);
-                        SADX.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Sonic Generations":
-                        Balloon(game);
-                        SXSG.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Stellar Blade":
-                        Balloon(game);
-                        SB.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Team Fortress 2":
-                        Balloon(game);
-                        await TF2.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Temtem: Swarm":
-                        Balloon(game);
-                        TTS.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    //case "The Binding of Isaac: Rebirth":
-                    //    Balloon(game);
-                    //    TBOI.DoAction();
-                    //    gameUpdater.Stop();
-                    //    break;
-                    case "The Witcher 3":
-                        Balloon(game);
-                        TWIII.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "TY the Tasmanian Tiger":
-                        Balloon(game);
-                        TY.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    //case "Vampire Survivors":
-                    //    Balloon(game);
-                    //    VS.DoAction();
-                    //    gameUpdater.Stop();
-                    //    break;
-                    case "Visions of Mana":
-                        Balloon(game);
-                        VOM.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Zelda: The Wind Waker HD":
-                        Balloon(game);
-                        WWHD.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                    case "Zelda: Twilight Princess HD":
-                        Balloon(game);
-                        TPHD.DoAction();
-                        gameUpdater.Stop();
-                        break;
-                }
+                case "Call of Duty®":
+                    Balloon(game);
+                    await COD.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "CODE VEIN":
+                    Balloon(game);
+                    CV.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Crash Bandicoot 4: It's About Time":
+                    Balloon(game);
+                    CB4.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Crash Bandicoot N. Sane Trilogy":
+                    Balloon(game);
+                    CBNT.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "CRISIS CORE –FINAL FANTASY VII– REUNION":
+                    Balloon(game);
+                    CCFFVII.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Dark Souls II":
+                    Balloon(game);
+                    DSII.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Dark Souls III":
+                    Balloon(game);
+                    DSIII.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Dark Souls: Remastered":
+                    Balloon(game);
+                    DSR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Death Stranding":
+                    Balloon(game);
+                    DSDC.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Devil May Cry":
+                    Balloon(game);
+                    DMC1.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Devil May Cry 2":
+                    Balloon(game);
+                    DMC2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Devil May Cry 3":
+                    Balloon(game);
+                    DMC3.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Devil May Cry 4":
+                    Balloon(game);
+                    DMC4.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Devil May Cry 5":
+                    Balloon(game);
+                    DMC5.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Digimon Story Time Stranger":
+                    Balloon(game);
+                    DSTS.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "DmC Devil May Cry":
+                    Balloon(game);
+                    DMC.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Elden Ring":
+                    Balloon(game);
+                    ER.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Final Fantasy VII Rebirth":
+                    Balloon(game);
+                    FFVIIRB.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Final Fantasy VII Remake":
+                    Balloon(game);
+                    FFVIIR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Final Fantasy XV":
+                    Balloon(game);
+                    FFXV.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Final Fantasy XVI":
+                    Balloon(game);
+                    FFXVI.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Granblue Fantasy: Relink":
+                    Balloon(game);
+                    GBFR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Gunfire Reborn":
+                    Balloon(game);
+                    await GFR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Hello Kitty Island Adventure":
+                    Balloon(game);
+                    await HK.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Hogwarts Legacy":
+                    Balloon(game);
+                    await HL.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts Birth by Sleep Final Mix":
+                    Balloon(game);
+                    KHBBS.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts Dream Drop Distance":
+                    Balloon(game);
+                    KHDDD.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts Final Mix":
+                    Balloon(game);
+                    KH1.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts II Final Mix":
+                    Balloon(game);
+                    KH2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts III":
+                    Balloon(game);
+                    KH3.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Kingdom Hearts Re:Chain of Memories":
+                    Balloon(game);
+                    KHCOM.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Labyrinthine":
+                    Balloon(game);
+                    await LR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Lies of P":
+                    Balloon(game);
+                    LOP.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man 11":
+                    Balloon(game);
+                    MM11.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man Battle Network":
+                    Balloon(game);
+                    MMBN1.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man Battle Network 2":
+                    Balloon(game);
+                    MMBN2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man Battle Network 3":
+                    Balloon(game);
+                    MMBN3.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man Battle Network 5":
+                    Balloon(game);
+                    MMBN5.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man Battle Network 6":
+                    Balloon(game);
+                    MMBN6.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man X5":
+                    Balloon(game);
+                    MMX5.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man X6":
+                    Balloon(game);
+                    MMX6.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man X7":
+                    Balloon(game);
+                    MMX7.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Mega Man X8":
+                    Balloon(game);
+                    MMX8.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Marvel's Spider-Man 2":
+                    Balloon(game);
+                    MSM2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Marvel's Spider-Man Remastered":
+                    Balloon(game);
+                    MSMR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Marvel's Spider-Man: Miles Morales":
+                    Balloon(game);
+                    MSMMMM.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Overwatch 2":
+                    Balloon(game);
+                    await OW.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Pangya Reborn":
+                    Balloon(game);
+                    PYRE.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Persona 4 Golden":
+                    Balloon(game);
+                    P4G.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Persona 5 Strikers":
+                    Balloon(game);
+                    P5S.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Persona 5 Royal":
+                    Balloon(game);
+                    P5R.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Persona 5: The Phantom X":
+                    Balloon(game);
+                    P5X.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Project Diva Mega Mix+":
+                    Balloon(game);
+                    PDMM.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil":
+                    Balloon(game);
+                    RE.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 2":
+                    Balloon(game);
+                    RE2R.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 4 (2005)":
+                    Balloon(game);
+                    RE4.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 4 Remake":
+                    Balloon(game);
+                    RE4R.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 5":
+                    Balloon(game);
+                    RE5.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 6":
+                    Balloon(game);
+                    RE6.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 7":
+                    Balloon(game);
+                    RE7.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil 8":
+                    Balloon(game);
+                    RE8.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Resident Evil Revelations 2":
+                    Balloon(game);
+                    REV2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Scott Pilgrim vs The World":
+                    Balloon(game);
+                    SPTG.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Sonic Adventure 2":
+                    Balloon(game);
+                    SA2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Sonic Adventure DX":
+                    Balloon(game);
+                    SADX.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Sonic Generations":
+                    Balloon(game);
+                    SXSG.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Stellar Blade":
+                    Balloon(game);
+                    SB.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Team Fortress 2":
+                    Balloon(game);
+                    await TF2.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Temtem: Swarm":
+                    Balloon(game);
+                    TTS.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                //case "The Binding of Isaac: Rebirth":
+                //    Balloon(game);
+                //    TBOI.DoAction();
+                //    gameUpdater.Stop();
+                //    break;
+                case "The Witcher 3":
+                    Balloon(game);
+                    TWIII.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "TY the Tasmanian Tiger":
+                    Balloon(game);
+                    TY.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                //case "Vampire Survivors":
+                //    Balloon(game);
+                //    VS.DoAction();
+                //    gameUpdater.Stop();
+                //    break;
+                case "Visions of Mana":
+                    Balloon(game);
+                    VOM.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Ys I Chronicles":
+                    Balloon(game);
+                    YSI.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Zelda: The Wind Waker HD":
+                    Balloon(game);
+                    WWHD.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Zelda: Twilight Princess HD":
+                    Balloon(game);
+                    TPHD.DoAction();
+                    gameUpdater.Stop();
+                    break;
             }
         }
 
@@ -636,14 +621,6 @@ namespace MultiPresence
         {
             notify.BalloonTipTitle = "MultiPresence - Update status";
             notify.BalloonTipText = text;
-            notify.ShowBalloonTip(3000);
-        }
-
-        private void BalloonDisabled(string game)
-        {
-            if (cb_DisableNotifications.Checked) return;
-            notify.BalloonTipTitle = "Game Disabled";
-            notify.BalloonTipText = $"{game} is currently disabled because it requires an update.";
             notify.ShowBalloonTip(3000);
         }
 

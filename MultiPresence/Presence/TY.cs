@@ -56,6 +56,8 @@ namespace MultiPresence.Presence
                 }
 
                 await Task.Delay(3000);
+                Thread thread = new Thread(RPC);
+                thread.Start();
             }
             else
             {
@@ -76,7 +78,7 @@ namespace MultiPresence.Presence
             return new Dictionary<string, object>
             {
                 { "health", health },
-                { "opalls", opals },
+                { "opals", opals },
                 { "level", levelvalue }
             };
         }

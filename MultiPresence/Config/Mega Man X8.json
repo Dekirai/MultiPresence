@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Mega Man X8": {
+            "Default": {
+                "Details": "{character} - Metals: {metals}",
+                "State": "Location: {stage}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Mega Man X8",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

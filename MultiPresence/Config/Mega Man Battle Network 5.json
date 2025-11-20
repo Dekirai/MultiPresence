@@ -1,6 +1,6 @@
 {
     "Games": {
-        "Mega Man Battle Network 6": {
+        "Mega Man Battle Network 5": {
             "Default": {
                 "Details": "HP: {hp}/{maxhp}",
                 "State": "{location}",

@@ -1,12 +1,12 @@
 {
     "Games": {
-        "Mega Man Battle Network 6": {
+        "Mega Man Battle Network": {
             "Default": {
-                "Details": "HP: {hp}/{maxhp}",
+                "Details": "HP: {hp}/{maxhp} - Zenny: {zenny}",
                 "State": "{location}",
-                "LargeAsset": "{gameicon}",
+                "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "{gamename}",
+                "LargeAssetText": "Mega Man Battle Network",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -16,9 +16,9 @@
             "In_Battle": {
                 "Details": "HP: {hp_battle}/{maxhp_battle}",
                 "State": "{location} (In Battle)",
-                "LargeAsset": "{gameicon}",
+                "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "{gamename}",
+                "LargeAssetText": "Mega Man Battle Network",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

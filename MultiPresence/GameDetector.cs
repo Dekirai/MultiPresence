@@ -76,7 +76,8 @@ namespace MultiPresence
             {"witcher3", "The Witcher 3"},
             {"TY", "TY the Tasmanian Tiger"},
             {"VampireSurvivors", "Vampire Survivors"},
-            {"VisionsofMana-Win64-Shipping", "Visions of Mana"}
+            {"VisionsofMana-Win64-Shipping", "Visions of Mana"},
+            {"ys1plus", "Ys I Chronicles"}
         };
 
         // Mapping Cemu Title IDs to game titles
@@ -117,11 +118,25 @@ namespace MultiPresence
                     return cemuTitle;
             }
 
+            if (processes.ContainsKey("MMBN_LC1"))
+            {
+                var mmbn = DetectMmbn1Game(processes["MMBN_LC1"]);
+                if (!string.IsNullOrEmpty(mmbn))
+                    return mmbn;
+            }
+
             if (processes.ContainsKey("MMBN_LC2"))
             {
                 var mmbn = DetectMmbnGame(processes["MMBN_LC2"]);
                 if (!string.IsNullOrEmpty(mmbn))
                     return mmbn;
+            }
+
+            if (processes.ContainsKey("RXC2"))
+            {
+                var mmx = DetectMmXGame(processes["RXC2"]);
+                if (!string.IsNullOrEmpty(mmx))
+                    return mmx;
             }
 
             // Elden Ring without EAC
@@ -152,6 +167,26 @@ namespace MultiPresence
             }
         }
 
+        private static string? DetectMmbn1Game(Process mmbn)
+        {
+            try
+            {
+                Hypervisor.AttachProcess(mmbn);
+                int code = Hypervisor.Read<byte>(0x987499C);
+                return code switch
+                {
+                    0 => "Mega Man Battle Network",
+                    1 => "Mega Man Battle Network 2",
+                    2 => "Mega Man Battle Network 3",
+                    _ => null
+                };
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private static string? DetectMmbnGame(Process mmbn)
         {
             try
@@ -160,8 +195,33 @@ namespace MultiPresence
                 int code = Hypervisor.Read<byte>(0xABEF0A0);
                 return code switch
                 {
-                    9 => "Mega Man Battle Network 6: Cybeast Gregar",
-                    10 => "Mega Man Battle Network 6: Cybeast Falzar",
+                    5 => "Mega Man Battle Network 4",
+                    6 => "Mega Man Battle Network 4",
+                    7 => "Mega Man Battle Network 5",
+                    8 => "Mega Man Battle Network 5",
+                    9 => "Mega Man Battle Network 6",
+                    10 => "Mega Man Battle Network 62",
+                    _ => null
+                };
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string? DetectMmXGame(Process mmx)
+        {
+            try
+            {
+                Hypervisor.AttachProcess(mmx);
+                int code = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x0338ED04, [0x90]), true);
+                return code switch
+                {
+                    0 => "Mega Man X5",
+                    1 => "Mega Man X6",
+                    2 => "Mega Man X7",
+                    3 => "Mega Man X8",
                     _ => null
                 };
             }

@@ -1,19 +1,19 @@
 ﻿using DiscordRPC;
-using MultiPresence.Models.MMBN6;
 using System.Diagnostics;
+using MultiPresence.Models.MMBN3;
 
 namespace MultiPresence.Presence
 {
-    public class MMBN6G
+    public class MMBN3
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1257021467699449866");
+            discord = new DiscordRpcClient("1434621170854006966");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 6.json");
+            updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 3.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -22,7 +22,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("MMBN_LC2")[0];
+                var _myProcess = Process.GetProcessesByName("MMBN_LC1")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -34,28 +34,28 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("MMBN_LC2");
+            Process[] game = Process.GetProcessesByName("MMBN_LC1");
             if (game.Length > 0)
             {
-                int _game = Hypervisor.Read<byte>(0xABEF0A0);
-                if (_game != 9)
+                int _game = Hypervisor.Read<byte>(0x987499C);
+                if (_game != 2)
                 {
                     discord.Deinitialize();
                     MainForm.gameUpdater.Start();
                 }
                 else
                 {
-                    int gamestate = Hypervisor.Read<byte>(0x80205940);
+                    int gamestate = Hypervisor.Read<byte>(0x802040E0, true);
 
                     if (gamestate == 12)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 6", placeholders, "In_Battle");
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 3", placeholders, "In_Battle");
                     }
                     else
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 6", placeholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 3", placeholders);
                     }
                     await Task.Delay(3000);
                     Thread thread = new Thread(RPC);
@@ -72,13 +72,13 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int area_get = Hypervisor.Read<byte>(0x80205944);
-            int room_get = Hypervisor.Read<byte>(0x80205945);
-            int hp = Hypervisor.Read<byte>(0x8020858C);
-            int maxhp = Hypervisor.Read<byte>(0x8020858E);
-            int hp_battle = Hypervisor.Read<byte>(0x8020A8F4);
-            int maxhp_battle = Hypervisor.Read<byte>(0x8020A8F6);
-            int gamestate = Hypervisor.Read<byte>(0x80205940);
+            int area_get = Hypervisor.Read<byte>(0x802040E4, true);
+            int room_get = Hypervisor.Read<byte>(0x802040E5, true);
+            int hp = Hypervisor.Read<sbyte>(0x80204100, true);
+            int maxhp = Hypervisor.Read<sbyte>(0x80204102, true);
+            int hp_battle = Hypervisor.Read<sbyte>(0x802084A4, true);
+            int maxhp_battle = Hypervisor.Read<sbyte>(0x802084A6, true);
+            int zenny = Hypervisor.Read<int>(0x80204154, true);
             var location = await Areas.GetArea(area_get);
 
             return new Dictionary<string, object>
@@ -87,6 +87,7 @@ namespace MultiPresence.Presence
                 { "hp_battle", hp_battle },
                 { "maxhp", maxhp },
                 { "maxhp_battle", maxhp_battle },
+                { "zenny", zenny },
                 { "location", location[room_get] }
             };
         }
