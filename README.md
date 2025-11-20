@@ -133,6 +133,7 @@ Customize your presence text:
 | The Witcher 3: Wild Hunt                    | [Steam](https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/)                                                      | Only base game tested                |
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |
 | Visions of Mana                             | [Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)                                                             |                                      |
+| Ys I Chronicles+                            | [Steam](https://store.steampowered.com/app/223810/Ys_I__II_Chronicles/)                                                          |                                      |
 | Zelda: The Wind Waker HD ¹                  | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind-Waker_HD)                                                       | Works on EUR and USA                 |
 | Zelda: Twilight Princess HD ¹               | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight-Princess_HD)                                                    | Works on EUR and USA                 |
 
