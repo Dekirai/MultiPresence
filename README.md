@@ -37,7 +37,6 @@
 2. If your game doesn’t show up, try **"Run as administrator"**.  
 3. Right-click the tray icon to open:  
    - **Config** (edit your placeholders)  
-   - **Blacklist** (exclude games)  
    - **Autostart** (launch on Windows startup)  
 
 ---
