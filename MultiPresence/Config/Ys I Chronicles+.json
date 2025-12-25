@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Ys I Chronicles+": {
+          "Default": {
+            "Details": "{exp}",
+            "State": "❤{hp}/{max_hp}⚔{str}🛡{def}🪙{gold}",
+            "LargeAsset": "logo",
+            "SmallAsset": "",
+            "LargeAssetText": "Ys I Chronicles+",
+            "SmallAssetText": "",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          }
+        }
+    }
+}

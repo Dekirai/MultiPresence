@@ -49,7 +49,6 @@ namespace MultiPresence
             {"game", "Multiple Games"},
             {"MilesMorales", "Marvel's Spider-Man: Miles Morales"},
             {"Spider-Man", "Marvel's Spider-Man Remastered"},
-            {"Spider-Man2", "Marvel's Spider-Man 2"},
             {"Overwatch", "Overwatch 2"},
             {"tf_win64", "Team Fortress 2"},
             {"ProjectG", "Pangya Reborn"},

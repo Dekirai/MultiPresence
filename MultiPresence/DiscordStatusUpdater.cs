@@ -183,11 +183,6 @@ public class DiscordStatusUpdater : IDisposable
             { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man Remastered", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
-    { "Marvel's Spider-Man 2", new Dictionary<string, GameDetails>
-        {
-            { "Default", new GameDetails { Details = "Level {level}", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man 2", SmallAsset = "{character_icon}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
-        }
-    },
     { "Marvel's Spider-Man: Miles Morales", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Health: {health} (Level {level})", State = "Swinging in {location}", LargeAsset = "logo", LargeAssetText = "Marvel's Spider-Man: Miles Morales", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
@@ -416,7 +411,7 @@ public class DiscordStatusUpdater : IDisposable
     },
     { "Ys I Chronicles", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "{exp}", State = "❤{hp}/{max_hp}⚔{str}🛡{def}🪙{gold}", LargeAsset = "logo", LargeAssetText = "Ys I Chronicles", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{exp}", State = "❤{hp}/{max_hp}⚔{str}🛡{def}🪙{gold}", LargeAsset = "logo", LargeAssetText = "Ys I Chronicles+", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     }
 };

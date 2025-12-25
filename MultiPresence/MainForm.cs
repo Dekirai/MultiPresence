@@ -17,7 +17,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "20.11.2025";
+        private static readonly string currentVersion = "25.12.2025";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -404,11 +404,6 @@ namespace MultiPresence
                 case "Mega Man X8":
                     Balloon(game);
                     MMX8.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Marvel's Spider-Man 2":
-                    Balloon(game);
-                    MSM2.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Marvel's Spider-Man Remastered":

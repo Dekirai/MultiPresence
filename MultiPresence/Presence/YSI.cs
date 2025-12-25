@@ -122,8 +122,7 @@ namespace MultiPresence.Presence
                 { "gold", gold },
                 { "str", str },
                 { "def", def },
-                { "exp", expDisplay },
-                { "level", level }
+                { "exp", expDisplay }
             };
         }
 

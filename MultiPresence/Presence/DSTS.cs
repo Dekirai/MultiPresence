@@ -36,7 +36,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("Digimon Story Time Stranger");
             if (game.Length > 0)
             {
-                string _nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x10]), 4, true);
+                string _nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x10]), 4, true);
 
                 try
                 {
@@ -89,12 +89,12 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            string _nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x10]), 16, true);
-            int _yen = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x58]), true);
-            int _agentlevel = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x64]), true);
-            int _locationget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x1F0]), true);
-            int _difficultyget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x80]), true);
-            int _bodytypeget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C32B40, [0x40, 0x1D0]), true);
+            string _nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x10]), 16, true);
+            int _yen = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x58]), true);
+            int _agentlevel = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x64]), true);
+            int _locationget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x1F0]), true);
+            int _difficultyget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x80]), true);
+            int _bodytypeget = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C3AB40, [0x40, 0x1D0]), true);
 
             string difficulty = _difficultyget switch
             {

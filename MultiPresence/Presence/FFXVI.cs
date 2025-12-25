@@ -9,7 +9,7 @@ namespace MultiPresence.Presence
         private static DiscordStatusUpdater? updater;
         public static async void DoAction()
         {
-            await Task.Delay(20000);
+            await Task.Delay(10000);
             GetPID();
             discord = new DiscordRpcClient("1285884197084336161");
             InitializeDiscord();
@@ -37,7 +37,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("ffxvi");
             if (game.Length > 0)
             {
-                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x1813CE8, [0x50]), true);
+                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
 
                 if (hp > 0)
                 {
@@ -73,10 +73,10 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x1813CE8, [0x50]), true);
-            int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x1813CE8, [0x40]), true);
-            int gil = Hypervisor.Read<int>(0x10A4072E6C);
-            int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x1813CE8, [0xCB50]), true);
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
+            int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x40]), true);
+            int gil = Hypervisor.Read<int>(0x25918072E6C, true);
+            int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x018165E8, [0xCB50]), true);
             string difficulty = "";
 
             if (difficulty_get == 0)
