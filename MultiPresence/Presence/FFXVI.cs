@@ -74,10 +74,12 @@ namespace MultiPresence.Presence
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
             int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
+            int limitbreak = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x58]), true);
             int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x40]), true);
-            int gil = Hypervisor.Read<int>(0x25918072E6C, true);
+            int gil = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01816668, [0x2C]), true);
             int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x018165E8, [0xCB50]), true);
             string difficulty = "";
+            string limitbreak_bars = "";
 
             if (difficulty_get == 0)
                 difficulty = "Easy";
@@ -88,12 +90,24 @@ namespace MultiPresence.Presence
             else if (difficulty_get == 3)
                 difficulty = "Ultimaniac";
 
+            if (limitbreak >= 0 && limitbreak <= 8399)
+                limitbreak_bars = "0";
+            else if (limitbreak >= 8400 && limitbreak <= 16799)
+                limitbreak_bars = "1";
+            else if (limitbreak >= 16800 && limitbreak <= 25199)
+                limitbreak_bars = "2";
+            else if (limitbreak >= 25200 && limitbreak <= 33599)
+                limitbreak_bars = "3";
+            else if (limitbreak == 33600)
+                limitbreak_bars = "4";
+
             return new Dictionary<string, object>
             {
                 { "level", level },
                 { "hp", hp },
                 { "gil", gil },
-                { "difficulty", difficulty }
+                { "difficulty", difficulty },
+                { "limitbreak", limitbreak_bars }
             };
         }
 

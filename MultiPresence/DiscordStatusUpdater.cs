@@ -8,6 +8,7 @@ public class DiscordStatusUpdater : IDisposable
     private readonly string _absoluteConfigPath;
     private JObject _config;
     private FileSystemWatcher _fileWatcher;
+    private bool _fileWatcherEnabled;
     private DateTime _lastReloadTime = DateTime.MinValue;
     private static readonly TimeSpan ReloadDebounce = TimeSpan.FromSeconds(1);
 
@@ -433,53 +434,77 @@ public class DiscordStatusUpdater : IDisposable
             throw new ArgumentException("Config path cannot be null or whitespace.");
         }
 
-        if (!File.Exists(_absoluteConfigPath))
+        var directory = Path.GetDirectoryName(_absoluteConfigPath);
+
+        if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
         {
-            _config = new JObject();
+            try
+            {
+                Directory.CreateDirectory(directory);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Warning: Could not create config directory '{directory}': {ex.Message}");
+            }
         }
 
-        var directory = Path.GetDirectoryName(_absoluteConfigPath);
-        if (string.IsNullOrEmpty(directory) || !Directory.Exists(directory))
-        {
-            throw new DirectoryNotFoundException($"Directory for config path not found: {directory}");
-        }
+        _config ??= new JObject();
     }
 
     private void LoadConfig()
     {
         try
         {
-            if (File.Exists(_absoluteConfigPath))
-            {
-                var configLoader = new ConfigLoader(_absoluteConfigPath);
-                _config = configLoader.GetConfig();
-            }
-            else
-            {
-                throw new FileNotFoundException($"Config file not found: {_absoluteConfigPath}");
-            }
+            var configLoader = new ConfigLoader(_absoluteConfigPath);
+            _config = configLoader.GetConfig() ?? new JObject();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error loading config: {ex.Message}");
+            _config ??= new JObject();
         }
     }
 
     private void InitializeFileWatcher()
     {
         var directory = Path.GetDirectoryName(_absoluteConfigPath);
-        if (string.IsNullOrEmpty(directory) || !Directory.Exists(directory))
+
+        if (string.IsNullOrEmpty(directory))
         {
-            throw new DirectoryNotFoundException($"Directory for config path not found: {directory}");
+            _fileWatcherEnabled = false;
+            return;
         }
 
-        _fileWatcher = new FileSystemWatcher(directory)
+        if (!Directory.Exists(directory))
         {
-            Filter = Path.GetFileName(_absoluteConfigPath),
-            NotifyFilter = NotifyFilters.LastWrite
-        };
-        _fileWatcher.Changed += OnConfigFileChanged;
-        _fileWatcher.EnableRaisingEvents = true;
+            try
+            {
+                Directory.CreateDirectory(directory);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Warning: Could not create config directory '{directory}': {ex.Message}");
+                _fileWatcherEnabled = false;
+                return;
+            }
+        }
+
+        try
+        {
+            _fileWatcher = new FileSystemWatcher(directory)
+            {
+                Filter = Path.GetFileName(_absoluteConfigPath),
+                NotifyFilter = NotifyFilters.LastWrite
+            };
+            _fileWatcher.Changed += OnConfigFileChanged;
+            _fileWatcher.EnableRaisingEvents = true;
+            _fileWatcherEnabled = true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Warning: Could not start config file watcher: {ex.Message}");
+            _fileWatcherEnabled = false;
+        }
     }
 
     private void OnConfigFileChanged(object sender, FileSystemEventArgs e)
