@@ -86,6 +86,7 @@ Customize your presence text:
 | Elden Ring                                  | [Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)                                                                  | Only with EAC disabled               |
 | Final Fantasy VII Rebirth                   | [Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)                                                   |                                      |
 | Final Fantasy VII Remake                    | [Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)                                         | Only base game tested                |
+| Final Fantasy X                             | [Steam](https://store.steampowered.com/app/359870/FINAL_FANTASY_XX2_HD_Remaster/)                                                | Enter a new room to make it work     |
 | Final Fantasy XV                            | [Steam](https://store.steampowered.com/app/637650/FINAL_FANTASY_XV_WINDOWS_EDITION/)                                             |                                      |
 | Final Fantasy XVI                           | [Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)                                                           | Only base game tested                |
 | Granblue Fantasy: Relink                    | [Steam](https://store.steampowered.com/app/881020/Granblue_Fantasy_Relink/)                                                      |                                      |

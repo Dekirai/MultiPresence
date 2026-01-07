@@ -31,6 +31,7 @@ namespace MultiPresence
             {"DivaMegaMix", "Project Diva Mega Mix+"},
             {"ff7remake_", "Final Fantasy VII Remake"},
             {"ff7rebirth_", "Final Fantasy VII Rebirth"},
+            {"ffx", "Final Fantasy X" },
             {"ffxv_s", "Final Fantasy XV"},
             {"ffxvi", "Final Fantasy XVI"},
             {"CodeVein-Win64-Shipping", "CODE VEIN"},

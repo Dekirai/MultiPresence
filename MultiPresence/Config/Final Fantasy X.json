@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Final Fantasy X": {
+            "Default": {
+                "Details": "S.Lv: {slv} - Gil: {gil}",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Final Fantasy X",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

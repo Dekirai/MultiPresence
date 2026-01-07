@@ -122,6 +122,11 @@ public class DiscordStatusUpdater : IDisposable
             { "Default", new GameDetails { Details = "HP: {hp}/{maxhp} | MP: {mp}/{maxmp}", State = "Lv. {level} - Chapter {chapter}", LargeAsset = "logo", LargeAssetText = "Final Fantasy VII Rebirth", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Final Fantasy X", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "S.Lv: {slv} - Gil: {gil}", State = "{location}", LargeAsset = "logo", LargeAssetText = "Final Fantasy X", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Final Fantasy XV", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "HP: {hp} (Lv. {level})", State = "{story}", LargeAsset = "logo", LargeAssetText = "Final Fantasy XV", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

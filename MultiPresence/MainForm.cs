@@ -17,7 +17,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "04.01.2026";
+        private static readonly string currentVersion = "07.01.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -284,6 +284,11 @@ namespace MultiPresence
                 case "Final Fantasy VII Remake":
                     Balloon(game);
                     FFVIIR.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Final Fantasy X":
+                    Balloon(game);
+                    FFX.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Final Fantasy XV":
