@@ -4,7 +4,7 @@
 |{money}|Displays your current money|Default, Battle|
 |{difficulty}|Displays your current difficulty|Default, Battle|
 |{level}|Displays your current level|Default, Battle|
-|{magatama}|Displays your current HP|Default, Battle|
+|{magatama}|Displays your current Magatama|Default, Battle|
 
 # Pre-made icons for Large-/Smallasset
 **Do not use them with {}**    
