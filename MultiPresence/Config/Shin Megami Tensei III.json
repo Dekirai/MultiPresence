@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Shin Megami Tensei III": {
+          "Default": {
+            "Details": "Lv. {level} ({difficulty})",
+            "State": "Money: {money}",
+            "LargeAsset": "logo",
+            "SmallAsset": "idle",
+            "LargeAssetText": "Shin Megami Tensei III",
+            "SmallAssetText": "Idle",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          },
+          "Battle": {
+            "Details": "Lv. {level} ({difficulty})",
+            "State": "Magatama: {magatama}",
+            "LargeAsset": "logo",
+            "SmallAsset": "battle",
+            "LargeAssetText": "Shin Megami Tensei III",
+            "SmallAssetText": "In Battle",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          }
+        }
+    }
+}

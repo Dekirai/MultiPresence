@@ -67,6 +67,8 @@ namespace MultiPresence
             {"re8", "Resident Evil 8" },
             {"rerev2", "Resident Evil Revelations 2"},
             {"scott", "Scott Pilgrim vs The World"},
+            {"smt3hd", "Shin Megami Tensei III" },
+            {"SMT5V-Win64-Shipping", "Shin Megami Tensei V" },
             {"sonic2app", "Sonic Adventure 2"},
             {"Sonic Adventure DX", "Sonic Adventure DX"},
             {"SONIC_GENERATIONS", "Sonic Generations" },

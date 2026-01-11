@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Shin Megami Tensei V": {
+          "Default": {
+            "Details": "Lv. {level} ({difficulty})",
+            "State": "Money: {money} - Glory: {glory}",
+            "LargeAsset": "logo",
+            "SmallAsset": "idle",
+            "LargeAssetText": "Shin Megami Tensei V",
+            "SmallAssetText": "Idle",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          },
+          "Battle": {
+            "Details": "Lv. {level} ({difficulty})",
+            "State": "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}",
+            "LargeAsset": "logo",
+            "SmallAsset": "battle",
+            "LargeAssetText": "Shin Megami Tensei V",
+            "SmallAssetText": "In Battle",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          }
+        }
+    }
+}

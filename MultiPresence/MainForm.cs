@@ -17,7 +17,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "07.01.2026";
+        private static readonly string currentVersion = "11.01.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -504,6 +504,16 @@ namespace MultiPresence
                 case "Scott Pilgrim vs The World":
                     Balloon(game);
                     SPTG.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Shin Megami Tensei III":
+                    Balloon(game);
+                    SMT3.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Shin Megami Tensei V":
+                    Balloon(game);
+                    SMT5.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Sonic Adventure 2":

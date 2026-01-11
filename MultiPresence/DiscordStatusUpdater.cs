@@ -364,6 +364,18 @@ public class DiscordStatusUpdater : IDisposable
             { "Default", new GameDetails { Details = "Lives: {lives} - Money: {money}", State = "Health: {health} - EXP: {totalexperience}", LargeAsset = "logo", LargeAssetText = "Scott Pilgrim vs The World", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Shin Megami Tensei III", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "Money: {money}", LargeAsset = "logo", LargeAssetText = "Shin Megami Tensei III", SmallAsset = "idle", SmallAssetText = "Idle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "Magatama: {magatama}", LargeAsset = "logo", LargeAssetText = "Shin Megami Tensei III", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Shin Megami Tensei V", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "Money: {money} - Glory: {glory}", LargeAsset = "logo", LargeAssetText = "Shin Megami Tensei V", SmallAsset = "idle", SmallAssetText = "Idle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level} ({difficulty})", State = "HP: {hp}/{hpmax} - MP: {mp}/{mpmax}", LargeAsset = "logo", LargeAssetText = "Shin Megami Tensei V", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Sonic Adventure DX", new Dictionary<string, GameDetails>
         {
             { "Adventure Field", new GameDetails { Details = "In Adventure Field", State = "{level}", LargeAsset = "{character_icon}", LargeAssetText = "Playing as {character}", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
