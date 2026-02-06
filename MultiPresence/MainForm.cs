@@ -17,7 +17,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "11.01.2026";
+        private static readonly string currentVersion = "06.02.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
