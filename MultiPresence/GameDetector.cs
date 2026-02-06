@@ -59,6 +59,7 @@ namespace MultiPresence
             {"P5X", "Persona 5: The Phantom X"},
             {"bhd", "Resident Evil"},
             {"re2", "Resident Evil 2"},
+            {"re3", "Resident Evil 3"},
             {"bio4", "Resident Evil 4 (2005)"},
             {"re4", "Resident Evil 4 Remake"},
             {"re5dx9", "Resident Evil 5"},

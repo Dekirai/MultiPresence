@@ -37,7 +37,7 @@ namespace MultiPresence.Presence
             Process[] game = Process.GetProcessesByName("re4");
             if (game.Length > 0)
             {
-                int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBE9038, [0x30]), true);
+                int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DA8D308, [0x30]), true);
                 if (chapter >= 21100 && chapter <= 35100)
                 {
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
@@ -73,11 +73,11 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int difficulty = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x0DBE9038, [0x28]), true);
-            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBF27E8, [0x78, 0x18, 0x30, 0x148, 0x14]), true);
-            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBF27E8, [0x78, 0x18, 0x30, 0x148, 0x10]), true);
+            int difficulty = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x0DA8D308, [0x28]), true);
+            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DA8D3C0, [0x78, 0x18, 0x30, 0x148, 0x14]), true);
+            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DA8D3C0, [0x78, 0x18, 0x30, 0x148, 0x10]), true);
             float healthpercentage = (int)Math.Floor(((float)health / maxhealth) * 100);
-            int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBE9038, [0x30]), true);
+            int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DA8D308, [0x30]), true);
             string difficultystring = await Difficulties.GetDifficulty(difficulty);
             string state = "";
             string healthstatus = "";
@@ -162,7 +162,7 @@ namespace MultiPresence.Presence
                 else if (character == 600)
                     charactername = "Wesker";
 
-                int score = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DBE8D90, [0x88, 0x120, 0x28, 0x20, 0x460, 0x78, 0x240]), true);
+                int score = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0DA8D688, [0x88, 0x120, 0x28, 0x20, 0x460, 0x78, 0x240]), true);
 
                 return new Dictionary<string, object>
                 {

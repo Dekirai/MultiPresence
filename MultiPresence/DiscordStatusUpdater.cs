@@ -308,6 +308,11 @@ public class DiscordStatusUpdater : IDisposable
             { "Default", new GameDetails { Details = "Weapon: {weapon} - Ammo: {ammo}", State = "Status: {healthstatus}", LargeAsset = "logo", LargeAssetText = "Resident Evil 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
         }
     },
+    { "Resident Evil 3", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Weapon: {weapon} - Ammo: {ammo}", State = "Status: {healthstatus}{healthstatusemoji}", LargeAsset = "logo", LargeAssetText = "Resident Evil 3", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
     { "Resident Evil 4 (2005)", new Dictionary<string, GameDetails>
         {
             { "Title_Screen", new GameDetails { Details = "At the Title Screen", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil 4", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

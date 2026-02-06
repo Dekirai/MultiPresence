@@ -1,0 +1,18 @@
+{
+  "Games": {
+    "Resident Evil 3": {
+      "Default": {
+        "Details": "Weapon: {weapon} - Ammo: {ammo}",
+        "State": "Status: {healthstatus}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Resident Evil 3",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    }
+  }
+}
