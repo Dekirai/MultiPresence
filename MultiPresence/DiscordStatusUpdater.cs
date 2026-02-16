@@ -298,6 +298,12 @@ public class DiscordStatusUpdater : IDisposable
             { "Ingame", new GameDetails { Details = "[{difficulty}] Score: {score} - Combo: {currentcombo}", State = "Song: {song}", LargeAsset = "logo", LargeAssetText = "Project Diva: Mega Mix+", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Rayman", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Playing Rayman", State = "", LargeAsset = "logo", LargeAssetText = "Rayman", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Ingame", new GameDetails { Details = "Level: {level} - Lives: {lives}", State = "Health: {health} - Tinks: {tinks}", LargeAsset = "logo", LargeAssetText = "Rayman", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Resident Evil", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{floor} - {room}", State = "Status: {healthstatus} - Weapon: {weapon}", LargeAsset = "logo", LargeAssetText = "Resident Evil", SmallAsset = "{character_icon}", SmallAssetText = "Playing as {character}", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },

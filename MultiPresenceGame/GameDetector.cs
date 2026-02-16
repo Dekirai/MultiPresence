@@ -14,7 +14,7 @@ namespace MultiPresenceGame
             { "Hello Kitty", "Hello Kitty Island Adventure" },
             { "HogwartsLegacy", "Hogwarts Legacy" },
             { "Labyrinthine", "Labyrinthine" },
-            { "Overwatch", "Overwatch 2" },
+            { "Overwatch", "Overwatch" },
             { "tf_win64", "Team Fortress 2" },
             { "TemtemSwarm", "Temtem: Swarm" }
         };

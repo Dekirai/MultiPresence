@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Rayman": {
+            "Default": {
+                "Details": "Playing Rayman",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Rayman",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+			"Ingame": {
+                "Details": "Level: {level} - Lives: {lives}",
+                "State": "Health: {health} - Tinks: {tinks}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Rayman",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

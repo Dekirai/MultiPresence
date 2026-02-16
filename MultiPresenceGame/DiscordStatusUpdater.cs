@@ -42,7 +42,7 @@ public class DiscordStatusUpdater
     },
     { "Overwatch", new Dictionary<string, GameDetails>
         {
-            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Overwatch 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+            { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Overwatch", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Team Fortress 2", new Dictionary<string, GameDetails>
