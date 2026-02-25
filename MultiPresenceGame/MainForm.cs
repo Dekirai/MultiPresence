@@ -71,7 +71,7 @@ namespace MultiPresenceGame
                     LR.DoAction();
                     gameUpdater.Stop();
                     break;
-                case "Overwatch 2":
+                case "Overwatch":
                     OW.DoAction();
                     gameUpdater.Stop();
                     break;
