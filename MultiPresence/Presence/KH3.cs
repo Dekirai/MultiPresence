@@ -115,11 +115,16 @@ namespace MultiPresence.Presence
             world = await Worlds.GetWorld(level_path.Split('/')[3]);
             difficulty = await Difficulties.GetDifficulty(difficulty_get);
 
+            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086D80A0, [0x10, 0x98, 0x30, 0x70, 0x188, 0x458, 0x5FC]), true);
+            int mp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x086D80A0, [0x10, 0x98, 0x30, 0x70, 0x188, 0x458, 0x604]), true);
+
             return new Dictionary<string, object>
             {
                 { "level", level },
                 { "gummilevel", gummilevel },
                 { "room", room },
+                { "hp", hp },
+                { "mp", mp },
                 { "world", world[0] },
                 { "world_icon_name", world[1] },
                 { "difficulty", difficulty }

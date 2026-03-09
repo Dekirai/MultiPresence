@@ -1,20 +1,18 @@
 ﻿using DiscordRPC;
-using Steamworks;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
-    public class SB
+    public class RE9
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
-        public static string[]? levelvalue = null;
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1384106213213737002");
+            discord = new DiscordRpcClient("1479128647133560892");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/Config/Stellar Blade.json");
+            updater = new DiscordStatusUpdater("Assets/config/Resident Evil 9.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -23,7 +21,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("SB-Win64-Shipping")[0];
+                var _myProcess = Process.GetProcessesByName("re9")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -35,18 +33,17 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
+            Process[] game = Process.GetProcessesByName("re9");
             if (game.Length > 0)
             {
-                ulong _base = Hypervisor.GetPointer64(0x07031570, [0xC8, 0x28, 0x0, 0x11C]);
-                float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
-
                 try
                 {
-                    if (_maxhealth > 0)
+                    int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E81ACC8, [0x40, 0x70, 0x10, 0x30]), true);
+
+                    if (maxhealth >= 1 && maxhealth <= 10000)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Stellar Blade", placeholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 9", placeholders);
                     }
                     else
                     {
@@ -57,7 +54,7 @@ namespace MultiPresence.Presence
                             Assets = new Assets()
                             {
                                 LargeImageKey = "logo",
-                                LargeImageText = "Stellar Blade"
+                                LargeImageText = "Resident Evil Requiem"
                             },
                             Timestamps = PlaceholderHelper._startTimestamp
                         });
@@ -72,7 +69,7 @@ namespace MultiPresence.Presence
                         Assets = new Assets()
                         {
                             LargeImageKey = "logo",
-                            LargeImageText = "Stellar Blade"
+                            LargeImageText = "Resident Evil Requiem"
                         },
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
@@ -92,21 +89,27 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            ulong _base = Hypervisor.GetPointer64(0x07031570, [0xC8, 0x28, 0x0, 0x11C]);
+            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E81ACC8, [0x40, 0x70, 0x10, 0x28]), true);
+            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E81ACC8, [0x40, 0x70, 0x10, 0x30]), true);
 
-            float _health = Hypervisor.Read<float>(_base, true);
-            float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
-            float _shield = Hypervisor.Read<float>(_base + 0x18, true);
-            float _maxshield = Hypervisor.Read<float>(_base + 0x1C, true);
-            float _level = Hypervisor.Read<float>(_base + 0x1A0, true);
+            string healthstatus = "";
+
+            double percentage = (double)health / maxhealth * 100;
+
+            if (percentage > 75)
+                healthstatus = "Fine";
+            else if (percentage > 50)
+                healthstatus = "Caution";
+            else if (percentage > 25)
+                healthstatus = "Caution";
+            else
+                healthstatus = "Danger";
 
             return new Dictionary<string, object>
             {
-                { "health", _health },
-                { "maxhealth", _maxhealth },
-                { "shield", _shield },
-                { "maxshield", _maxshield },
-                { "level", _level }
+                { "health", health },
+                { "maxhealth", maxhealth },
+                { "healthstatus", healthstatus },
             };
         }
 

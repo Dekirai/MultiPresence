@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Resident Evil 9": {
+          "Default": {
+            "Details": "Health: {healthstatus}",
+            "State": "",
+            "LargeAsset": "logo",
+            "SmallAsset": "",
+            "LargeAssetText": "Resident Evil Requiem",
+            "SmallAssetText": "",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          }
+        }
+    }
+}

@@ -67,6 +67,7 @@ namespace MultiPresence
             {"BH6", "Resident Evil 6"},
             {"re7", "Resident Evil 7"},
             {"re8", "Resident Evil 8" },
+            {"re9", "Resident Evil 9" },
             {"rerev2", "Resident Evil Revelations 2"},
             {"scott", "Scott Pilgrim vs The World"},
             {"smt3hd", "Shin Megami Tensei III" },

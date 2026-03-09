@@ -122,7 +122,6 @@
                 case "ew_01":
                 case "ew_02":
                 case "ew_03":
-                case "ew_04":
                 case "ew_21":
                 case "ew_22":
                 case "ew_23":
@@ -132,6 +131,9 @@
                 case "ew_27":
                 case "ew_28":
                     getroom = "The Final World";
+                    break;
+                case "ew_04":
+                    getroom = "Station of Awakening";
                     break;
                 case "ex_21":
                     getroom = "Battlegate 1 - Olympus";

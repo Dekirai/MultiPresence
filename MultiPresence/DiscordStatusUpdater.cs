@@ -364,6 +364,11 @@ public class DiscordStatusUpdater : IDisposable
             { "Mercenaries", new GameDetails { Details = "Mercenaries - {character}", State = "Health: {healthstatus} - Score: {score}", LargeAsset = "logo", LargeAssetText = "Resident Evil Village", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Resident Evil 9", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Health: {healthstatus}", State = "", LargeAsset = "logo", LargeAssetText = "Resident Evil Requiem", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+        }
+    },
     { "Resident Evil Revelations 2", new Dictionary<string, GameDetails>
         {
             { "Lobby", new GameDetails { Details = "Raid Mode: In Lobby", State = "{character} (Lv. {level})", LargeAsset = "logo", LargeAssetText = "Resident Evil Revelations 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
