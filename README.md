@@ -60,6 +60,12 @@ Customize your presence text:
 
 ---
 
+## Preview
+
+![image1](https://i.imgur.com/DjwHD70.png)![image2](https://i.imgur.com/wcqO9WE.png)![image3](https://i.imgur.com/lKCBPmu.png)![image4](https://i.imgur.com/sBCDT1D.png)
+
+---
+
 ## 🎮 Supported Games
 
 > **Note:** Supported platforms have been confirmed; games may work on other platforms.
