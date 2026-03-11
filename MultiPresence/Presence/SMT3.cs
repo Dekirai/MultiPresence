@@ -69,7 +69,7 @@ namespace MultiPresence.Presence
                             PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Shin Megami Tensei III", placeholders, "Battle");
                         }
                     }
- 
+
                 }
                 catch
                 {

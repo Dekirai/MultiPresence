@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using Steamworks;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence

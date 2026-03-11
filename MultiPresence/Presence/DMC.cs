@@ -50,7 +50,7 @@ namespace MultiPresence.Presence
                 {
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "DmC Devil May Cry", placeholders);
-                }              
+                }
                 else
                 {
                     discord.SetPresence(new RichPresence()

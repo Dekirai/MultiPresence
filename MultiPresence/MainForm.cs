@@ -3,7 +3,6 @@ using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 using MultiPresence.Presence;
 using MultiPresence.Properties;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Net;
@@ -17,7 +16,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "09.03.2026";
+        private static readonly string currentVersion = "11.03.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -183,12 +182,44 @@ namespace MultiPresence
         {
             string game = GameDetector.GetGame();
             lb_ActiveGame.Text = "Active game: None";
-            string json;
+            btn_Blacklist.Enabled = false;
+
+            string path = "Assets\\blacklist.txt";
+            var blacklist = File.Exists(path) ? File.ReadAllLines(path) : Array.Empty<string>();
+
+            btn_Blacklist.Text = blacklist.Contains(game)
+                ? "Whitelist current game"
+                : "Blacklist current game";
+
+            if (blacklist.Contains(game))
+            {
+                lb_ActiveGame.Text = $"Active game: {game}";
+                if (!lb_ActiveGame.Text.Contains("None"))
+                {
+                    btn_Blacklist.Checked = true;
+                    btn_Blacklist.Enabled = true;
+                }
+                else
+                    btn_Blacklist.Enabled = false;
+                return;
+            }
+            else
+            {
+                lb_ActiveGame.Text = $"Active game: {game}";
+                if (!lb_ActiveGame.Text.Contains("None"))
+                {
+                    btn_Blacklist.Checked = false;
+                    btn_Blacklist.Enabled = true;
+                }
+                else
+                    btn_Blacklist.Enabled = false;
+            }
 
             if (File.Exists("Assets\\steam_appid.txt"))
                 File.Delete("Assets\\steam_appid.txt");
 
             PlaceholderHelper._startTimestamp = Timestamps.Now;
+
             switch (game)
             {
                 case "Call of Duty®":
@@ -635,6 +666,7 @@ namespace MultiPresence
         private void Balloon(string text)
         {
             lb_ActiveGame.Text = $"Active game: {text}";
+            btn_Blacklist.Enabled = true;
             if (cb_DisableNotifications.Checked)
                 return;
             notify.BalloonTipTitle = "System";
@@ -821,6 +853,28 @@ namespace MultiPresence
         {
             Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
             Settings.Default.Save();
+        }
+
+        private void btn_Blacklist_CheckedChanged(object sender, EventArgs e)
+        {
+            string game = GameDetector.GetGame();
+            string path = "Assets\\blacklist.txt";
+
+            var lines = File.Exists(path) ? File.ReadAllLines(path).ToList() : new List<string>();
+
+            if (btn_Blacklist.Checked)
+            {
+                if (!lines.Contains(game))
+                    lines.Add(game);
+                btn_Blacklist.Text = "Whitelist current game";
+            }
+            else
+            {
+                lines.RemoveAll(x => x == game);
+                btn_Blacklist.Text = "Blacklist current game";
+            }
+
+            File.WriteAllLines(path, lines);
         }
     }
 }

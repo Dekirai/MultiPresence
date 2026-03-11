@@ -1,8 +1,6 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.WWHD;
 using System.Diagnostics;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace MultiPresence.Presence
 {

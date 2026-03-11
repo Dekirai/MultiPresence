@@ -1,6 +1,5 @@
 ﻿using DiscordRPC;
 using MultiPresence.Models.PDMM;
-using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence

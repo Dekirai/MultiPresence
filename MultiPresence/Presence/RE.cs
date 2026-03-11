@@ -117,7 +117,7 @@ namespace MultiPresence.Presence
             else
                 healthstatus = "Danger";
 
-        string[] stage = stagevalue[stage_get].Split(':');
+            string[] stage = stagevalue[stage_get].Split(':');
 
             if (character_get == 0)
             {

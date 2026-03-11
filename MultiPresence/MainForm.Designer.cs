@@ -35,6 +35,7 @@
             cms = new ContextMenuStrip(components);
             lb_Version = new ToolStripMenuItem();
             lb_ActiveGame = new ToolStripMenuItem();
+            btn_Blacklist = new ToolStripMenuItem();
             cb_DisableNotifications = new ToolStripMenuItem();
             cb_DisableAutoUpdates = new ToolStripMenuItem();
             btn_Config = new ToolStripMenuItem();
@@ -63,9 +64,9 @@
             // 
             // cms
             // 
-            cms.Items.AddRange(new ToolStripItem[] { lb_Version, lb_ActiveGame, cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
+            cms.Items.AddRange(new ToolStripItem[] { lb_Version, lb_ActiveGame, btn_Blacklist, cb_DisableNotifications, cb_DisableAutoUpdates, btn_Config, cb_LaunchWithWindows, cb_LaunchWithWindowsAdmin, toolStripSeparator1, btn_Exit });
             cms.Name = "cms";
-            cms.Size = new Size(239, 186);
+            cms.Size = new Size(239, 208);
             // 
             // lb_Version
             // 
@@ -80,6 +81,15 @@
             lb_ActiveGame.Name = "lb_ActiveGame";
             lb_ActiveGame.Size = new Size(238, 22);
             lb_ActiveGame.Text = "Active game: None";
+            // 
+            // btn_Blacklist
+            // 
+            btn_Blacklist.CheckOnClick = true;
+            btn_Blacklist.Enabled = false;
+            btn_Blacklist.Name = "btn_Blacklist";
+            btn_Blacklist.Size = new Size(238, 22);
+            btn_Blacklist.Text = "Blacklist current game";
+            btn_Blacklist.CheckedChanged += btn_Blacklist_CheckedChanged;
             // 
             // cb_DisableNotifications
             // 
@@ -163,5 +173,6 @@
         private ToolStripMenuItem cb_DisableAutoUpdates;
         private ToolStripMenuItem lb_Version;
         private ToolStripMenuItem lb_ActiveGame;
+        private ToolStripMenuItem btn_Blacklist;
     }
 }

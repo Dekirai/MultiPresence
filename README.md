@@ -1,4 +1,4 @@
-# MultiPresence 🎮
+# MultiPresence
 
 [![Discord](https://img.shields.io/discord/1343222000008560700?label=Join%20Discord&logo=discord&color=7289DA)](https://discord.gg/AC6rVgV2Jj) [![License](https://img.shields.io/github/license/Dekirai/MultiPresence)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dekirai/MultiPresence)](https://github.com/Dekirai/MultiPresence/releases)
 
@@ -6,7 +6,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - **Universal support** for games without native Rich Presence  
 - **Extensible** via memory readers and configs  
@@ -16,14 +16,14 @@
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 - **OS:** Windows 10/11 (64-bit)  
 - **Runtime:** [.NET 9 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)  
 
 ---
 
-## 🚀 Installation
+## Installation
 
 1. Download the latest release from [GitHub Releases](https://github.com/Dekirai/MultiPresence/releases).  
 2. Extract `MultiPresence.zip` to a folder of your choice.  
@@ -31,17 +31,18 @@
 
 ---
 
-## ▶️ Quick Start
+## ▶Quick Start
 
 1. Run **`MultiPresence.exe`**.  
 2. If your game doesn’t show up, try **"Run as administrator"**.  
 3. Right-click the tray icon to open:  
    - **Config** (edit your placeholders)  
    - **Autostart** (launch on Windows startup)  
+   - **Blacklist or whitelist** the current active game
 
 ---
 
-## 🛠 Configuration
+## Configuration
 
 ### Placeholders
 
@@ -52,7 +53,7 @@ Customize your presence text:
 4. See the [Placeholder Guide](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders) for full details.  
 
 <details>
-<summary>📹 Placeholder Demo (Outdated Version)</summary>
+<summary>Placeholder Demo (Outdated Version)</summary>
 
 [![Placeholder Demo](https://img.youtube.com/vi/x0avvmvQ5BQ/0.jpg)](https://www.youtube.com/watch?v=x0avvmvQ5BQ)
 
@@ -66,7 +67,17 @@ Customize your presence text:
 
 ---
 
-## 🎮 Supported Games
+## Blacklisting games
+
+1. Open the tray menu of MultiPresence by right-clicking the icon
+2. Run a game and click on "Blacklist current game"
+   - To actually make it work, you have to restart either the game or MultiPresence
+- Do the same steps to whitelist the current game
+- Whitelisting a game immediately runs the Rich Presence without restarting the game or MultiPresence
+
+---
+
+## Supported Games
 
 > **Note:** Supported platforms have been confirmed; games may work on other platforms.
 
@@ -172,6 +183,6 @@ If a game receives a patch, I'll do my best to update it as soon as possible.
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
