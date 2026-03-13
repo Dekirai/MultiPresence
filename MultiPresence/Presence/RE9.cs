@@ -89,8 +89,8 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E81ACC8, [0x40, 0x70, 0x10, 0x28]), true);
-            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E81ACC8, [0x40, 0x70, 0x10, 0x30]), true);
+            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E819CC8, [0x40, 0x70, 0x10, 0x28]), true);
+            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E819CC8, [0x40, 0x70, 0x10, 0x30]), true);
 
             string healthstatus = "";
 
