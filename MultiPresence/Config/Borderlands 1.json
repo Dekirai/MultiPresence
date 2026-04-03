@@ -1,0 +1,18 @@
+{
+  "Games": {
+    "Borderlands 1": {
+      "Default": {
+        "Details": "Lv. {level} - Money: {money}",
+        "State": "Health: {health}/{maxhealth}",
+        "LargeAsset": "logo",
+        "SmallAsset": "",
+        "LargeAssetText": "Borderlands GOTY Enhanced",
+        "SmallAssetText": "",
+        "Button1Text": "",
+        "Button1URL": "",
+        "Button2Text": "",
+        "Button2URL": ""
+      }
+    }
+  }
+}

@@ -3,16 +3,16 @@ using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
-    public class RE9
+    public class BL2
     {
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1479128647133560892");
+            discord = new DiscordRpcClient("1486344469862420611");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Resident Evil 9.json");
+            updater = new DiscordStatusUpdater("Assets/config/Borderlands 2.json");
             Thread thread = new Thread(RPC);
             thread.Start();
         }
@@ -21,7 +21,7 @@ namespace MultiPresence.Presence
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("re9")[0];
+                var _myProcess = Process.GetProcessesByName("Borderlands2")[0];
                 if (_myProcess.Id > 0)
                     Hypervisor.AttachProcess(_myProcess);
             }
@@ -33,17 +33,17 @@ namespace MultiPresence.Presence
 
         private static async void RPC()
         {
-            Process[] game = Process.GetProcessesByName("re9");
+            Process[] game = Process.GetProcessesByName("Borderlands2");
             if (game.Length > 0)
             {
+                int level = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x016ACA88, [0x24, 0x258]), true);
+
                 try
                 {
-                    int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E8E4408, [0x40, 0x70, 0x10, 0x30]), true);
-
-                    if (maxhealth >= 1 && maxhealth <= 10000)
+                    if (level >= 1 && level <= 80)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 9", placeholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Borderlands 2", placeholders);
                     }
                     else
                     {
@@ -54,7 +54,7 @@ namespace MultiPresence.Presence
                             Assets = new Assets()
                             {
                                 LargeImageKey = "logo",
-                                LargeImageText = "Resident Evil Requiem"
+                                LargeImageText = "Borderlands 2"
                             },
                             Timestamps = PlaceholderHelper._startTimestamp
                         });
@@ -69,7 +69,7 @@ namespace MultiPresence.Presence
                         Assets = new Assets()
                         {
                             LargeImageKey = "logo",
-                            LargeImageText = "Resident Evil Requiem"
+                            LargeImageText = "Borderlands 2"
                         },
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
@@ -89,27 +89,22 @@ namespace MultiPresence.Presence
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
-            int health = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E8E4408, [0x40, 0x70, 0x10, 0x28]), true);
-            int maxhealth = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0E8E4408, [0x40, 0x70, 0x10, 0x30]), true);
+            int money = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x016ACA88, [0x24, 0x2A0]), true);
+            int eridium = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x016ACA88, [0x24, 0x2B4]), true);
+            int level = Hypervisor.Read<int>(Hypervisor.GetPointer32(0x016ACA88, [0x24, 0x258]), true);
+            float hp = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x016AD42C, [0x0, 0x384, 0x6C]), true);
+            float maxhp = Hypervisor.Read<float>(Hypervisor.GetPointer32(0x016AD42C, [0x0, 0x384, 0x5C]), true);
 
-            string healthstatus = "";
-
-            double percentage = (double)health / maxhealth * 100;
-
-            if (percentage > 75)
-                healthstatus = "Fine";
-            else if (percentage > 50)
-                healthstatus = "Caution";
-            else if (percentage > 25)
-                healthstatus = "Caution";
-            else
-                healthstatus = "Danger";
+            int hp_rounded = (int)Math.Round(hp, 0, MidpointRounding.AwayFromZero);
+            int maxhp_rounded = (int)Math.Round(maxhp, 0, MidpointRounding.AwayFromZero);
 
             return new Dictionary<string, object>
             {
-                { "health", health },
-                { "maxhealth", maxhealth },
-                { "healthstatus", healthstatus },
+                { "money", money },
+                { "eridium", eridium },
+                { "level", level },
+                { "health", hp_rounded },
+                { "maxhealth", maxhp_rounded }
             };
         }
 

@@ -16,7 +16,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "13.03.2026";
+        private static readonly string currentVersion = "03.04.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -222,6 +222,16 @@ namespace MultiPresence
 
             switch (game)
             {
+                case "Borderlands 1":
+                    Balloon(game);
+                    BL1.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Borderlands 2":
+                    Balloon(game);
+                    BL2.DoAction();
+                    gameUpdater.Stop();
+                    break;
                 case "Call of Duty®":
                     Balloon(game);
                     await COD.DoAction();
@@ -475,6 +485,11 @@ namespace MultiPresence
                 case "Persona 5 Royal":
                     Balloon(game);
                     P5R.DoAction();
+                    gameUpdater.Stop();
+                    break;
+                case "Persona 5 Tactica":
+                    Balloon(game);
+                    P5T.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Persona 5: The Phantom X":

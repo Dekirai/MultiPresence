@@ -19,6 +19,16 @@ public class DiscordStatusUpdater : IDisposable
 
     private static readonly Dictionary<string, Dictionary<string, GameDetails>> DefaultGameDetails = new Dictionary<string, Dictionary<string, GameDetails>>
 {
+    { "Borderlands 1", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - Money: {money}", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Borderlands GOTY Enhanced", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Borderlands 2", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level} - Money: {money}", State = "Health: {health}/{maxhealth}", LargeAsset = "logo", LargeAssetText = "Borderlands 2", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "CODE VEIN", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "Lv. {level} - Haze: {haze}", State = "{hp}/{maxhp} HP - {stamina}/{maxstamina} Stamina", LargeAsset = "logo", LargeAssetText = "CODE VEIN", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
@@ -285,6 +295,12 @@ public class DiscordStatusUpdater : IDisposable
         {
             { "Default", new GameDetails { Details = "Lv. {level}", State = "Money: {money}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
             { "Battle", new GameDetails { Details = "In Battle", State = "Lv. {level} - HP: {hp} - SP: {sp}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
+    { "Persona 5 Tactica", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Lv. {level}", State = "Money: {money}", LargeAsset = "logo", LargeAssetText = "Persona 5 Tactica", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } },
+            { "Battle", new GameDetails { Details = "Lv. {level}", State = "Current turn: {currentturn}", LargeAsset = "logo", LargeAssetText = "Persona 5 Strikers", SmallAsset = "battle", SmallAssetText = "In Battle", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
     { "Persona 5: The Phantom X", new Dictionary<string, GameDetails>

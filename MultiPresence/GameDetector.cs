@@ -10,6 +10,8 @@ namespace MultiPresence
 
         private static readonly Dictionary<string, string> GameProcessMap = new(StringComparer.OrdinalIgnoreCase)
         {
+            {"BorderlandsGOTY", "Borderlands 1" },
+            {"Borderlands2", "Borderlands 2"},
             {"cod", "Call of Duty®"},
             {"CrashBandicoot4", "Crash Bandicoot 4: It's About Time"},
             {"CrashBandicootNSaneTrilogy", "Crash Bandicoot N. Sane Trilogy"},
@@ -53,6 +55,7 @@ namespace MultiPresence
             {"p4g", "Persona 4 Golden"},
             {"P5R", "Persona 5 Royal"},
             {"P5S", "Persona 5 Strikers"},
+            {"Persona 5 Tactica", "Persona 5 Tactica" },
             {"P5X", "Persona 5: The Phantom X"},
             {"rayman30th", "Rayman" },
             {"bhd", "Resident Evil"},

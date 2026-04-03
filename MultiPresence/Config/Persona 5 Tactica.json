@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Persona 5 Tactica": {
+          "Default": {
+            "Details": "Lv. {level}",
+            "State": "Money: {money}",
+            "LargeAsset": "logo",
+            "SmallAsset": "",
+            "LargeAssetText": "Persona 5 Tactica",
+            "SmallAssetText": "",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          },
+          "Battle": {
+            "Details": "Lv. {level}",
+            "State": "Current turn: {currentturn}",
+            "LargeAsset": "logo",
+            "SmallAsset": "battle",
+            "LargeAssetText": "Persona 5 Tactica",
+            "SmallAssetText": "In Battle",
+            "Button1Text": "",
+            "Button1URL": "",
+            "Button2Text": "",
+            "Button2URL": ""
+          }
+        }
+    }
+}
