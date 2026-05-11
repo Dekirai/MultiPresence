@@ -20,6 +20,11 @@ public class DiscordStatusUpdater
             { "Zombies", new GameDetails { Details = "Playing {mode}", State = "Surviving on {map}", LargeAsset = "logo", LargeAssetText = "Call of Duty", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
         }
     },
+    { "Diablo IV", new Dictionary<string, GameDetails>
+        {
+            { "Default", new GameDetails { Details = "Location: {steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Diablo IV", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }
+        }
+    },
     { "Gunfire Reborn", new Dictionary<string, GameDetails>
         {
             { "Default", new GameDetails { Details = "{steam_display}", State = "", LargeAsset = "logo", LargeAssetText = "Gunfire Reborn", SmallAsset = "", SmallAssetText = "", Button1Text = "", Button1URL = "", Button2Text = "", Button2URL = "" } }

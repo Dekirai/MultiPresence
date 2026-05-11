@@ -10,6 +10,7 @@ namespace MultiPresenceGame
         private static readonly Dictionary<string, string> GameMap = new(StringComparer.OrdinalIgnoreCase)
         {
             { "cod", "Call of Duty®" },
+            { "Diablo IV", "Diablo IV" },
             { "Gunfire Reborn", "Gunfire Reborn" },
             { "Hello Kitty", "Hello Kitty Island Adventure" },
             { "HogwartsLegacy", "Hogwarts Legacy" },

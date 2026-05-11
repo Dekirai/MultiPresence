@@ -16,7 +16,7 @@ namespace MultiPresence
         public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
 
         private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "03.04.2026";
+        private static readonly string currentVersion = "11.05.2026";
         private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
 
         public MainForm()
@@ -302,6 +302,11 @@ namespace MultiPresence
                     DMC5.DoAction();
                     gameUpdater.Stop();
                     break;
+                case "Diablo IV":
+                    Balloon(game);
+                    await D4.DoAction();
+                    gameUpdater.Stop();
+                    break;
                 case "Digimon Story Time Stranger":
                     Balloon(game);
                     DSTS.DoAction();
@@ -550,11 +555,6 @@ namespace MultiPresence
                 case "Resident Evil 8":
                     Balloon(game);
                     RE8.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 9":
-                    Balloon(game);
-                    RE9.DoAction();
                     gameUpdater.Stop();
                     break;
                 case "Resident Evil Revelations 2":
