@@ -1,4 +1,7 @@
 # MultiPresence
+> [!WARNING]  
+> MultiPresence is no longer under active development and updates are rare.
+> Don't expect frequent updates.
 
 [![Discord](https://img.shields.io/discord/1343222000008560700?label=Join%20Discord&logo=discord&color=7289DA)](https://discord.gg/AC6rVgV2Jj) [![License](https://img.shields.io/github/license/Dekirai/MultiPresence)](LICENSE) [![Release](https://img.shields.io/github/v/release/Dekirai/MultiPresence)](https://github.com/Dekirai/MultiPresence/releases)
 
