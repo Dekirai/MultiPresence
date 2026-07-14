@@ -3,11 +3,13 @@ namespace MultiPresence.Core;
 public sealed class ManagedThread
 {
     private readonly Action _action;
+    private readonly string _presenceType;
     private int _started;
 
     public ManagedThread(Action action)
     {
         _action = action ?? throw new ArgumentNullException(nameof(action));
+        _presenceType = action.Method.DeclaringType?.Name ?? action.Method.Name;
     }
 
     public void Start()
@@ -23,12 +25,12 @@ public sealed class ManagedThread
         var previousContext = SynchronizationContext.Current;
         try
         {
-            SynchronizationContext.SetSynchronizationContext(new LoggingSynchronizationContext());
+            SynchronizationContext.SetSynchronizationContext(new LoggingSynchronizationContext(_presenceType));
             _action();
         }
         catch (Exception ex)
         {
-            RateLimitedLogger.Error($"managed-thread:{_action.Method.DeclaringType?.FullName}.{_action.Method.Name}", ex);
+            PresenceFailureRegistry.Report(_presenceType, ex);
         }
         finally
         {
@@ -36,12 +38,13 @@ public sealed class ManagedThread
         }
     }
 
-    private sealed class LoggingSynchronizationContext : SynchronizationContext
+    private sealed class LoggingSynchronizationContext(string presenceType) : SynchronizationContext
     {
         public override void Post(SendOrPostCallback d, object? state)
         {
             _ = Task.Run(() =>
             {
+                var previousContext = Current;
                 try
                 {
                     SetSynchronizationContext(this);
@@ -49,7 +52,11 @@ public sealed class ManagedThread
                 }
                 catch (Exception ex)
                 {
-                    RateLimitedLogger.Error("legacy-async-void", ex);
+                    PresenceFailureRegistry.Report(presenceType, ex);
+                }
+                finally
+                {
+                    SetSynchronizationContext(previousContext);
                 }
             });
         }
