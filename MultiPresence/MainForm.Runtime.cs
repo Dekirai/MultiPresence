@@ -17,13 +17,18 @@ public partial class MainForm
         btn_Blacklist.Click += btn_BlacklistRefactored_Click;
 
         _presenceManager = new GamePresenceManager(
-            gameUpdater,
             _blacklistService,
             UpdateDetectedGame,
             game => RunOnUiThread(() => Balloon(game)));
 
-        FormClosed += (_, _) => _presenceManager?.Dispose();
+        FormClosed += MainForm_RuntimeClosed;
         _presenceManager.Start();
+    }
+
+    private async void MainForm_RuntimeClosed(object? sender, FormClosedEventArgs e)
+    {
+        if (_presenceManager is not null)
+            await _presenceManager.DisposeAsync();
     }
 
     private void UpdateDetectedGame(string game, bool blocked)
