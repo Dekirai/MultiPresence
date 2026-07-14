@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace MultiPresenceGame;
 
 public sealed class ManagedThread
