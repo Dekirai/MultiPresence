@@ -44,6 +44,7 @@ public sealed class GamePresenceManager : IAsyncDisposable
     private readonly CancellationTokenSource _cts = new();
     private Task? _loopTask;
     private string? _activeGame;
+    private string? _activePresenceType;
 
     public GamePresenceManager(BlacklistService blacklist, Action<string, bool> onGameChanged, Action<string> notify, TimeSpan? pollInterval = null)
     {
@@ -84,10 +85,13 @@ public sealed class GamePresenceManager : IAsyncDisposable
 
     private async Task DetectAndStartPresenceAsync(CancellationToken cancellationToken)
     {
+        if (_activePresenceType is not null && PresenceFailureRegistry.Consume(_activePresenceType))
+            ClearActivePresence();
+
         var game = GameDetector.GetGame();
         if (string.IsNullOrWhiteSpace(game))
         {
-            _activeGame = null;
+            ClearActivePresence();
             _onGameChanged(string.Empty, false);
             return;
         }
@@ -96,7 +100,7 @@ public sealed class GamePresenceManager : IAsyncDisposable
         _onGameChanged(game, blocked);
         if (blocked)
         {
-            _activeGame = null;
+            ClearActivePresence();
             return;
         }
 
@@ -107,6 +111,8 @@ public sealed class GamePresenceManager : IAsyncDisposable
             return;
 
         _activeGame = game;
+        _activePresenceType = typeName;
+        PresenceFailureRegistry.Clear(typeName);
         PlaceholderHelper._startTimestamp = DiscordRPC.Timestamps.Now;
 
         var steamAppId = Path.Combine("Assets", "steam_appid.txt");
@@ -120,7 +126,7 @@ public sealed class GamePresenceManager : IAsyncDisposable
         }
         catch
         {
-            _activeGame = null;
+            ClearActivePresence();
             throw;
         }
     }
@@ -134,6 +140,12 @@ public sealed class GamePresenceManager : IAsyncDisposable
         var result = method.Invoke(null, null);
         if (result is Task task)
             await task.ConfigureAwait(false);
+    }
+
+    private void ClearActivePresence()
+    {
+        _activeGame = null;
+        _activePresenceType = null;
     }
 
     public async ValueTask DisposeAsync()
