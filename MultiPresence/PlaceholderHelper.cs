@@ -1,4 +1,5 @@
-﻿using DiscordRPC;
+using DiscordRPC;
+using MultiPresence.Core;
 
 namespace MultiPresence
 {
@@ -13,32 +14,25 @@ namespace MultiPresence
 
         public static void UpdateDiscordStatus(DiscordRpcClient discord, DiscordStatusUpdater updater, string gameName, Dictionary<string, object> placeholders, string state = "Default")
         {
-            string button1text = updater.UpdateButton1Text(gameName, placeholders, state);
-            string button1url = updater.UpdateButton1URL(gameName, placeholders, state);
-            string button2text = updater.UpdateButton2Text(gameName, placeholders, state);
-            string button2url = updater.UpdateButton2URL(gameName, placeholders, state);
+            var resolved = PresenceTemplateResolver.Resolve(updater, gameName, placeholders, state);
+            var buttons = new List<DiscordRPC.Button>(2);
 
-            var buttons = new List<DiscordRPC.Button>();
+            if (!string.IsNullOrWhiteSpace(resolved.Button1Url))
+                buttons.Add(new DiscordRPC.Button { Label = resolved.Button1Text, Url = resolved.Button1Url });
 
-            if (!string.IsNullOrEmpty(button1url))
-            {
-                buttons.Add(new DiscordRPC.Button { Label = button1text, Url = button1url });
-            }
-            if (!string.IsNullOrEmpty(button2url))
-            {
-                buttons.Add(new DiscordRPC.Button { Label = button2text, Url = button2url });
-            }
+            if (!string.IsNullOrWhiteSpace(resolved.Button2Url))
+                buttons.Add(new DiscordRPC.Button { Label = resolved.Button2Text, Url = resolved.Button2Url });
 
-            discord.SetPresence(new RichPresence()
+            discord.SetPresence(new RichPresence
             {
-                Details = updater.UpdateDetails(gameName, placeholders, state),
-                State = updater.UpdateState(gameName, placeholders, state),
-                Assets = new Assets()
+                Details = resolved.Details,
+                State = resolved.State,
+                Assets = new Assets
                 {
-                    LargeImageKey = updater.UpdateLargeAsset(gameName, placeholders, state),
-                    LargeImageText = updater.UpdateLargeAssetText(gameName, placeholders, state),
-                    SmallImageKey = updater.UpdateSmallAsset(gameName, placeholders, state),
-                    SmallImageText = updater.UpdateSmallAssetText(gameName, placeholders, state)
+                    LargeImageKey = resolved.LargeAsset,
+                    LargeImageText = resolved.LargeAssetText,
+                    SmallImageKey = resolved.SmallAsset,
+                    SmallImageText = resolved.SmallAssetText
                 },
                 Timestamps = _startTimestamp,
                 Buttons = buttons.Count > 0 ? buttons.ToArray() : null
