@@ -5,12 +5,15 @@ namespace MultiPresence;
 public partial class MainForm
 {
     private readonly BlacklistService _blacklistService = new(Path.Combine("Assets", "blacklist.json"));
+    private readonly CancellationTokenSource _runtimeCancellation = new();
     private GamePresenceManager? _presenceManager;
 
-    public void EnableRefactoredRuntime()
+    public void EnableRefactoredRuntime(bool updatesDisabled)
     {
         gameUpdater.Stop();
         gameUpdater.Elapsed -= gameUpdater_Tick;
+
+        cb_DisableAutoUpdates.Checked = updatesDisabled;
 
         btn_Blacklist.CheckedChanged -= btn_Blacklist_CheckedChanged;
         btn_Blacklist.Click -= btn_Blacklist_Click;
@@ -23,12 +26,27 @@ public partial class MainForm
 
         FormClosed += MainForm_RuntimeClosed;
         _presenceManager.Start();
+
+        if (!updatesDisabled)
+            _ = CheckForVerifiedUpdateAsync(_runtimeCancellation.Token);
+    }
+
+    private async Task CheckForVerifiedUpdateAsync(CancellationToken cancellationToken)
+    {
+        var updateService = new UpdateService();
+        await updateService.CheckForUpdateAsync(
+            message => RunOnUiThread(() => BalloonUpdate(message)),
+            cancellationToken);
     }
 
     private async void MainForm_RuntimeClosed(object? sender, FormClosedEventArgs e)
     {
+        _runtimeCancellation.Cancel();
+
         if (_presenceManager is not null)
             await _presenceManager.DisposeAsync();
+
+        _runtimeCancellation.Dispose();
     }
 
     private void UpdateDetectedGame(string game, bool blocked)
