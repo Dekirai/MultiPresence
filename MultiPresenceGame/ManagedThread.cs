@@ -30,12 +30,18 @@ public sealed class ManagedThread
         }
         catch (Exception ex)
         {
-            Trace.WriteLine($"Managed presence task failed: {ex}");
+            ReportFailure(ex);
         }
         finally
         {
             SynchronizationContext.SetSynchronizationContext(previousContext);
         }
+    }
+
+    private static void ReportFailure(Exception exception)
+    {
+        Trace.WriteLine($"Companion presence task failed: {exception}");
+        MainForm.gameUpdater.Start();
     }
 
     private sealed class LoggingSynchronizationContext : SynchronizationContext
@@ -44,6 +50,7 @@ public sealed class ManagedThread
         {
             _ = Task.Run(() =>
             {
+                var previousContext = Current;
                 try
                 {
                     SetSynchronizationContext(this);
@@ -51,7 +58,11 @@ public sealed class ManagedThread
                 }
                 catch (Exception ex)
                 {
-                    Trace.WriteLine($"Legacy async presence callback failed: {ex}");
+                    ReportFailure(ex);
+                }
+                finally
+                {
+                    SetSynchronizationContext(previousContext);
                 }
             });
         }
