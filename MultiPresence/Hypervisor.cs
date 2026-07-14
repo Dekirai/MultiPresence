@@ -1,6 +1,7 @@
-﻿using System.Diagnostics;
+using MultiPresence.Core;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
-using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -8,537 +9,399 @@ namespace MultiPresence
 {
     public static class Hypervisor
     {
-        //Hypervisor was originally created by TopazTK
-        //It got modified by Dekirai to make it properly work with MultiPresence
-
-        //Things changed/added:
-        //- Read/Write to a module of a process, for example "GameAssembly.dll"
-        //- Read/Write Strings (Only Read has been tested)
-        //- Changed how "FindSignature" works, to find pattern across all memory regions of the process
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint flNewProtect, ref int lpflOldProtect);
+        private const uint MEM_COMMIT = 0x1000;
+        private const uint PAGE_NOACCESS = 0x01;
+        private const uint PAGE_READONLY = 0x02;
+        private const uint PAGE_READWRITE = 0x04;
+        private const uint PAGE_EXECUTE_READ = 0x20;
+        private const uint PAGE_EXECUTE_READWRITE = 0x40;
+        private const uint PAGE_GUARD = 0x100;
+        private const int SignatureChunkSize = 4 * 1024 * 1024;
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
+        private static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint flNewProtect, ref int lpflOldProtect);
 
-        [DllImport("kernel32.dll")]
-        static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
 
-        static IntPtr Handle;
-        public static Process? Process;
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern nuint VirtualQueryEx(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION lpBuffer, nuint dwLength);
+
+        private sealed record ProcessContext(
+            IntPtr Handle,
+            System.Diagnostics.Process Process,
+            ulong BaseAddress,
+            ulong MemoryOffset,
+            IReadOnlyDictionary<string, ulong> Modules);
+
+        private static ProcessContext? _context;
+
+        public static System.Diagnostics.Process? Process;
         public static ulong PureAddress;
         public static ulong MemoryOffset;
 
-        static byte[]? _patternBuffer = null;
-
-        static Dictionary<string, ulong> ModuleBaseAddresses = new Dictionary<string, ulong>();
-
-        /// <summary>
-        /// Initialize the Hypervisor on a process.
-        /// </summary>
-        /// <param name="Input">The input process.</param>
-        public static void AttachProcess(Process Input)
+        public static void AttachProcess(System.Diagnostics.Process input)
         {
-            Process = Input;
-            Handle = Input.Handle;
-            PureAddress = (ulong)Input.MainModule.BaseAddress;
-            MemoryOffset = PureAddress & 0x7FFF00000000;
+            ArgumentNullException.ThrowIfNull(input);
 
-            // Store the base address of all modules
-            foreach (ProcessModule module in Input.Modules)
-            {
-                ModuleBaseAddresses[module.ModuleName] = (ulong)module.BaseAddress;
-            }
+            var handle = input.Handle;
+            var mainModule = input.MainModule
+                ?? throw new InvalidOperationException($"Process '{input.ProcessName}' has no accessible main module.");
+            var baseAddress = (ulong)mainModule.BaseAddress.ToInt64();
+            var memoryOffset = baseAddress & 0x7FFF00000000;
+            var modules = new Dictionary<string, ulong>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (ProcessModule module in input.Modules)
+                modules[module.ModuleName] = (ulong)module.BaseAddress.ToInt64();
+
+            var context = new ProcessContext(handle, input, baseAddress, memoryOffset, modules);
+            Interlocked.Exchange(ref _context, context);
+
+            Process = input;
+            PureAddress = baseAddress;
+            MemoryOffset = memoryOffset;
         }
 
-        /// <summary>
-        /// Reads a value with the type of T from an address.
-        /// Unsafe, must be used with caution.
-        /// </summary>
-        /// <typeparam name="T">Type of the value to read.</typeparam>
-        /// <param name="Address">The address of the value to read.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        /// <returns>The value as it is read from memory.</returns>
         public static T Read<T>(ulong Address, bool Absolute = false, string? ModuleName = null) where T : struct
         {
-            var _address = (IntPtr)Address;
+            var context = GetContext();
+            return Read<T>(context, Address, Absolute, ModuleName);
+        }
 
-            if (!Absolute)
+        public static bool TryRead<T>(ulong Address, out T value, bool Absolute = false, string? ModuleName = null) where T : struct
+        {
+            try
             {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
-
-                _address = (IntPtr)(baseAddress + Address);
+                value = Read<T>(Address, Absolute, ModuleName);
+                return true;
             }
-
-            var _dynoMethod = new DynamicMethod("SizeOfType", typeof(int), []);
-            ILGenerator _ilGen = _dynoMethod.GetILGenerator();
-
-            _ilGen.Emit(OpCodes.Sizeof, typeof(T));
-            _ilGen.Emit(OpCodes.Ret);
-
-            var _outSize = (int)_dynoMethod.Invoke(null, null);
-
-            var _outArray = new byte[_outSize];
-            int _outRead = 0;
-
-            ReadProcessMemory(Handle, _address, _outArray, _outSize, ref _outRead);
-
-            var _outType = typeof(T);
-
-            if (_outType.IsEnum)
+            catch (Exception ex) when (ex is MemoryReadException or Win32Exception or InvalidOperationException or ArgumentException)
             {
-                var _gcHandle = GCHandle.Alloc(_outArray, GCHandleType.Pinned);
-                var _retData = (T)Marshal.PtrToStructure(_gcHandle.AddrOfPinnedObject(), Enum.GetUnderlyingType(_outType));
-
-                _gcHandle.Free();
-
-                return _retData;
-            }
-
-            else
-            {
-                var _gcHandle = GCHandle.Alloc(_outArray, GCHandleType.Pinned);
-                var _retData = (T)Marshal.PtrToStructure(_gcHandle.AddrOfPinnedObject(), typeof(T));
-
-                _gcHandle.Free();
-
-                return _retData;
+                RateLimitedLogger.Error($"memory-read:{typeof(T).FullName}:{Address:X}", ex);
+                value = default;
+                return false;
             }
         }
 
-        /// <summary>
-        /// Reads an array with the type of T[] from an address.
-        /// Unsafe, must be used with caution.
-        /// </summary>
-        /// <typeparam name="T">Type of the array to read.</typeparam>
-        /// <param name="Address">The address of the value to read.</param>
-        /// <param name="Size">The size of the array to read.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        /// <returns>The array as it is read from memory.</returns>
         public static T[] Read<T>(ulong Address, int Size, bool Absolute = false, string? ModuleName = null) where T : struct
         {
-            var _address = (IntPtr)Address;
+            ArgumentOutOfRangeException.ThrowIfNegative(Size);
+            if (Size == 0)
+                return [];
 
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
+            var context = GetContext();
+            var elementSize = Marshal.SizeOf<T>();
+            var byteLength = checked(elementSize * Size);
+            var buffer = ReadBytes(context, ResolveAddress(context, Address, Absolute, ModuleName), byteLength, requireExact: true);
+            var result = new T[Size];
 
-                _address = (IntPtr)(baseAddress + Address);
-            }
+            for (var i = 0; i < Size; i++)
+                result[i] = MemoryMarshal.Read<T>(buffer.AsSpan(i * elementSize, elementSize));
 
-            var _dynoMethod = new DynamicMethod("SizeOfType", typeof(int), Type.EmptyTypes);
-            ILGenerator _ilGen = _dynoMethod.GetILGenerator();
-
-            _ilGen.Emit(OpCodes.Sizeof, typeof(T));
-            _ilGen.Emit(OpCodes.Ret);
-
-            var _outSize = (int)_dynoMethod.Invoke(null, null);
-            var _outArray = new byte[Size * _outSize];
-            int _outRead = 0;
-
-            ReadProcessMemory(Handle, _address, _outArray, Size * _outSize, ref _outRead);
-
-            var _outType = typeof(T);
-
-            if (_outType.IsEnum)
-            {
-                var _enumType = Enum.GetUnderlyingType(_outType);
-                var _retArray = Array.CreateInstance(_enumType, Size);
-
-                for (int i = 0; i < Size; i++)
-                {
-                    var _pickArray = _outArray.Skip(i * _outSize).Take(_outSize).ToArray();
-
-                    var _gcHandle = GCHandle.Alloc(_pickArray, GCHandleType.Pinned);
-                    var _convData = (T)Marshal.PtrToStructure(_gcHandle.AddrOfPinnedObject(), _enumType);
-
-                    _retArray.SetValue(_convData, i);
-                    _gcHandle.Free();
-                }
-
-                var _convArray = new T[Size];
-                _retArray.CopyTo(_convArray, 0);
-
-                return _convArray;
-            }
-            else
-            {
-                var _retArray = new T[Size];
-
-                for (int i = 0; i < Size; i++)
-                {
-                    var _pickArray = _outArray.Skip(i * _outSize).Take(_outSize).ToArray();
-
-                    var _gcHandle = GCHandle.Alloc(_pickArray, GCHandleType.Pinned);
-                    var _convData = (T)Marshal.PtrToStructure(_gcHandle.AddrOfPinnedObject(), typeof(T));
-
-                    _retArray[i] = _convData;
-                    _gcHandle.Free();
-                }
-
-                return _retArray;
-            }
+            return result;
         }
 
-        /// <summary>
-        /// Writes a value with the type of T to an address.
-        /// Unsafe, must be used with caution.
-        /// </summary>
-        /// <typeparam name="T">Type of the value to write. Must have a size.</typeparam>
-        /// <param name="Address">The address which the value will be written to.</param>
-        /// <param name="Value">The value to write.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
         public static void Write<T>(ulong Address, T Value, bool Absolute = false, string? ModuleName = null) where T : struct
         {
-            var _address = (IntPtr)Address;
-
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
-
-                _address = (IntPtr)(baseAddress + Address);
-            }
-
-            var _dynoMethod = new DynamicMethod("SizeOfType", typeof(int), []);
-            ILGenerator _ilGen = _dynoMethod.GetILGenerator();
-
-            _ilGen.Emit(OpCodes.Sizeof, typeof(T));
-            _ilGen.Emit(OpCodes.Ret);
-
-            var _inSize = (int)_dynoMethod.Invoke(null, null);
-            int _inWrite = 0;
-
-            if (_inSize > 1)
-            {
-                var _inArray = (byte[])typeof(BitConverter).GetMethod("GetBytes", new[] { typeof(T) }).Invoke(null, new object[] { Value });
-                WriteProcessMemory(Handle, _address, _inArray, _inArray.Length, ref _inWrite);
-            }
-
-            else
-            {
-                var _inArray = new byte[] { (byte)Convert.ChangeType(Value, typeof(byte)) };
-                WriteProcessMemory(Handle, _address, _inArray, _inArray.Length, ref _inWrite);
-            }
+            var context = GetContext();
+            var buffer = new byte[Marshal.SizeOf<T>()];
+            MemoryMarshal.Write(buffer.AsSpan(), in Value);
+            WriteBytes(context, ResolveAddress(context, Address, Absolute, ModuleName), buffer);
         }
 
-        /// <summary>
-        /// Writes an array with the type of T to an address.
-        /// Unsafe, must be used with caution.
-        /// </summary>
-        /// <typeparam name="T">Type of the array to write. Must have a size.</typeparam>
-        /// <param name="Address">The address which the Array will be written to.</param>
-        /// <param name="Value">The array to write.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
         public static void Write<T>(ulong Address, T[] Value, bool Absolute = false, string? ModuleName = null) where T : struct
         {
-            var _address = (IntPtr)Address;
+            ArgumentNullException.ThrowIfNull(Value);
+            if (Value.Length == 0)
+                return;
 
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
+            var context = GetContext();
+            var elementSize = Marshal.SizeOf<T>();
+            var buffer = new byte[checked(elementSize * Value.Length)];
 
-                _address = (IntPtr)(baseAddress + Address);
-            }
+            for (var i = 0; i < Value.Length; i++)
+                MemoryMarshal.Write(buffer.AsSpan(i * elementSize, elementSize), in Value[i]);
 
-            var _dynoMethod = new DynamicMethod("SizeOfType", typeof(int), []);
-            ILGenerator _ilGen = _dynoMethod.GetILGenerator();
-
-            _ilGen.Emit(OpCodes.Sizeof, typeof(T));
-            _ilGen.Emit(OpCodes.Ret);
-
-            var _inSize = (int)_dynoMethod.Invoke(null, null);
-            int _inWrite = 0;
-
-            if (_inSize > 1)
-            {
-                for (int i = 0; i < Value.Length; i++)
-                {
-                    var _inArray = (byte[])typeof(BitConverter).GetMethod("GetBytes", [typeof(T)]).Invoke(null, [Value[i]]);
-                    WriteProcessMemory(Handle, _address + _inSize * i, _inArray, _inArray.Length, ref _inWrite);
-                }
-            }
-
-            else
-                WriteProcessMemory(Handle, _address, Value as byte[], Value.Length, ref _inWrite);
+            WriteBytes(context, ResolveAddress(context, Address, Absolute, ModuleName), buffer);
         }
 
-        /// <summary>
-        /// Reads a string from a memory address, with optional Unicode support.
-        /// </summary>
-        /// <param name="Address">The address of the string to read.</param>
-        /// <param name="length">The maximum length of the string to read.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        /// <param name="IsUnicode">If true, reads the string as Unicode (UTF-16). Default is false (UTF-8).</param>
-        /// <returns>The string read from memory.</returns>
         public static string ReadString(ulong Address, int length, bool Absolute = false, string? ModuleName = null, bool IsUnicode = false)
         {
-            var _address = (IntPtr)Address;
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(length);
 
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
-
-                _address = (IntPtr)(baseAddress + Address);
-            }
-
-            var buffer = new byte[length];
-            int bytesRead = 0;
-
-            ReadProcessMemory(Handle, _address, buffer, length, ref bytesRead);
-
-            if (bytesRead == 0)
+            var context = GetContext();
+            var address = ResolveAddress(context, Address, Absolute, ModuleName);
+            var buffer = ReadBytes(context, address, length, requireExact: false);
+            if (buffer.Length == 0)
                 return string.Empty;
 
             if (IsUnicode)
             {
-                for (int i = 0; i < bytesRead - 1; i += 2)
+                var usableLength = buffer.Length - buffer.Length % 2;
+                var terminator = usableLength;
+                for (var i = 0; i < usableLength - 1; i += 2)
                 {
                     if (buffer[i] == 0 && buffer[i + 1] == 0)
                     {
-                        bytesRead = i;
+                        terminator = i;
                         break;
                     }
                 }
 
-                return Encoding.Unicode.GetString(buffer, 0, bytesRead);
+                return Encoding.Unicode.GetString(buffer, 0, terminator);
             }
-            else
-            {
-                // Find the first single-byte null terminator
-                int terminatorIndex = Array.IndexOf(buffer, (byte)0);
-                if (terminatorIndex >= 0)
-                    bytesRead = terminatorIndex;
 
-                return Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            }
+            var terminatorIndex = Array.IndexOf(buffer, (byte)0);
+            var byteCount = terminatorIndex >= 0 ? terminatorIndex : buffer.Length;
+            return Encoding.UTF8.GetString(buffer, 0, byteCount);
         }
 
-        /// <summary>
-        /// Writes a string to a memory address, with optional Unicode support.
-        /// </summary>
-        /// <param name="Address">The address to write the string to.</param>
-        /// <param name="value">The string to write.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to write to. Defaults to main executable.</param>
-        /// <param name="IsUnicode">If true, writes the string as Unicode (UTF-16). Default is false (UTF-8).</param>
         public static void WriteString(ulong Address, string value, bool Absolute = false, string? ModuleName = null, bool IsUnicode = false)
         {
-            var _address = (IntPtr)Address;
+            ArgumentNullException.ThrowIfNull(value);
 
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
-
-                _address = (IntPtr)(baseAddress + Address);
-            }
-
-            byte[] buffer;
-
-            if (IsUnicode)
-            {
-                buffer = Encoding.Unicode.GetBytes(value + '\0');
-            }
-            else
-            {
-                buffer = Encoding.UTF8.GetBytes(value + '\0');
-            }
-
-            int bytesWritten = 0;
-            WriteProcessMemory(Handle, _address, buffer, buffer.Length, ref bytesWritten);
+            var context = GetContext();
+            var address = ResolveAddress(context, Address, Absolute, ModuleName);
+            var buffer = IsUnicode
+                ? Encoding.Unicode.GetBytes(value + '\0')
+                : Encoding.UTF8.GetBytes(value + '\0');
+            WriteBytes(context, address, buffer);
         }
 
-        /// <summary>
-        /// Reads a byte array from an address.
-        /// </summary>
-        /// <param name="Address">The address which the value will be read from.</param>
-        /// <param name="Length">The length of the array to read.</param>
-        /// <param name="Absolute">Whether the address is an absolute address or not. Defaults to false.</param>
-        /// <returns></returns>
         public static byte[] ReadArray(ulong Address, int Length, bool Absolute = false)
         {
-            IntPtr _address = (IntPtr)Address;
+            ArgumentOutOfRangeException.ThrowIfNegative(Length);
+            if (Length == 0)
+                return [];
 
-            if (Absolute)
-                _address = (IntPtr)(Address);
-
-            var _outArray = new byte[Length];
-            int _outRead = 0;
-
-            ReadProcessMemory(Handle, _address, _outArray, Length, ref _outRead);
-
-            return _outArray;
+            var context = GetContext();
+            return ReadBytes(context, ResolveAddress(context, Address, Absolute, null), Length, requireExact: true);
         }
 
-        /// <summary>
-        /// Writes a byte array to an address.
-        /// </summary>
-        /// <param name="Address">The address which the value will be written to.</param>
-        /// <param name="Value">The array to write.</param>
-        /// <param name="Absolute">Whether the address is an absolute address or not. Defaults to false.</param>
         public static void WriteArray(ulong Address, byte[] Value, bool Absolute = false)
         {
-            IntPtr _address = (IntPtr)Address;
+            ArgumentNullException.ThrowIfNull(Value);
+            if (Value.Length == 0)
+                return;
 
-            if (Absolute)
-                _address = (IntPtr)(Address);
-
-            int _inWrite = 0;
-
-            WriteProcessMemory(Handle, _address, Value, Value.Length, ref _inWrite);
+            var context = GetContext();
+            WriteBytes(context, ResolveAddress(context, Address, Absolute, null), Value);
         }
 
-        /// <summary>
-        /// Calculated a 64-bit pointer with the given offsets.
-        /// All offsets are added and the resulting address is read.
-        /// </summary>
-        /// <param name="Address">The starting point to the pointer.</param>
-        /// <param name="Offsets">All the offsets of the pointer, null by default.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        /// <returns>The final calculated pointer.</returns>
         public static ulong GetPointer64(ulong Address, uint[]? Offsets = null, bool Absolute = false, string? ModuleName = null)
         {
-            var _returnPoint = Read<ulong>(Address, Absolute, ModuleName);
+            var context = GetContext();
+            var returnPoint = Read<ulong>(context, Address, Absolute, ModuleName);
+            if (Offsets is null || Offsets.Length == 0)
+                return returnPoint;
 
-            if (Offsets == null)
-                return _returnPoint;
+            for (var i = 0; i < Offsets.Length - 1; i++)
+                returnPoint = Read<ulong>(context, returnPoint + Offsets[i], true, null);
 
-            for (int i = 0; i < Offsets.Length - 1; i++)
-            {
-                _returnPoint = Read<ulong>(_returnPoint + Offsets[i], true);
-            }
-
-            return _returnPoint + Offsets.Last();
+            return returnPoint + Offsets[^1];
         }
 
-        /// <summary>
-        /// Calculated a 32-bit pointer with the given offsets.
-        /// All offsets are added and the resulting address is read.
-        /// </summary>
-        /// <param name="Address">The starting point to the pointer.</param>
-        /// <param name="Offsets">All the offsets of the pointer, null by default.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        /// <returns>The final calculated pointer.</returns>
         public static uint GetPointer32(ulong Address, uint[]? Offsets = null, bool Absolute = false, string? ModuleName = null)
         {
-            var _returnPoint = Read<uint>(Address, Absolute, ModuleName);
+            var context = GetContext();
+            var returnPoint = Read<uint>(context, Address, Absolute, ModuleName);
+            if (Offsets is null || Offsets.Length == 0)
+                return returnPoint;
 
-            if (Offsets == null)
-                return _returnPoint;
+            for (var i = 0; i < Offsets.Length - 1; i++)
+                returnPoint = Read<uint>(context, returnPoint + Offsets[i], true, null);
 
-            for (int i = 0; i < Offsets.Length - 1; i++)
-            {
-                _returnPoint = Read<uint>(_returnPoint + Offsets[i], true);
-            }
-
-            return _returnPoint + Offsets.Last();
+            return returnPoint + Offsets[^1];
         }
 
         public static void RedirectInstruction(ulong Address, uint Destination, bool Absolute = false)
         {
-            var _instEnding = (uint)Address + 0x07;
-            var _instMath = Destination - _instEnding;
-            Write(Address + 0x03, BitConverter.GetBytes(_instMath), Absolute);
+            var instructionEnding = checked((uint)Address + 0x07);
+            var instructionOffset = Destination - instructionEnding;
+            Write(Address + 0x03, BitConverter.GetBytes(instructionOffset), Absolute);
         }
 
         public static void DeleteInstruction(ulong Address, int Length, bool Absolute = false)
         {
-            Write(Address, Enumerable.Repeat<byte>(0x90, Length).ToArray(), Absolute);
+            ArgumentOutOfRangeException.ThrowIfNegative(Length);
+            Write(Address, Enumerable.Repeat((byte)0x90, Length).ToArray(), Absolute);
         }
 
         public static IntPtr FindSignature(string Input)
         {
-            var _sigBytes = Input.Split(' ').Select(s => s == "??" ? -1 : int.Parse(s, NumberStyles.HexNumber)).ToArray();
+            ArgumentException.ThrowIfNullOrWhiteSpace(Input);
 
-            IntPtr currentAddress = IntPtr.Zero;
-            MEMORY_BASIC_INFORMATION mbi = new MEMORY_BASIC_INFORMATION();
-            const int ChunkSize = 0x2000000; // 20 MB
-            IntPtr firstResult = IntPtr.Zero;
+            var context = GetContext();
+            var pattern = Input
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(static value => value == "??" ? -1 : int.Parse(value, NumberStyles.HexNumber, CultureInfo.InvariantCulture))
+                .ToArray();
 
-            while (VirtualQueryEx(Handle, currentAddress, out mbi, (uint)Marshal.SizeOf(typeof(MEMORY_BASIC_INFORMATION))) != 0)
+            if (pattern.Length == 0)
+                throw new ArgumentException("Signature pattern cannot be empty.", nameof(Input));
+
+            var currentAddress = IntPtr.Zero;
+            var mbiSize = (nuint)Marshal.SizeOf<MEMORY_BASIC_INFORMATION>();
+
+            while (VirtualQueryEx(context.Handle, currentAddress, out var mbi, mbiSize) != 0)
             {
-                if (mbi.Protect == PAGE_READWRITE || mbi.Protect == PAGE_READONLY || mbi.Protect == PAGE_EXECUTE_READ || mbi.Protect == PAGE_EXECUTE_READWRITE)
+                if (mbi.State == MEM_COMMIT && IsReadable(mbi.Protect))
                 {
-                    ulong regionSize = (ulong)mbi.RegionSize;
-                    if (regionSize > int.MaxValue)
-                        regionSize = int.MaxValue;
+                    var result = ScanRegion(context, mbi.BaseAddress, mbi.RegionSize, pattern);
+                    if (result != IntPtr.Zero)
+                        return result;
+                }
 
-                    ulong totalBytesRead = 0;
-                    var regionBuffer = new byte[ChunkSize];
+                var current = currentAddress.ToInt64();
+                var next = checked(mbi.BaseAddress.ToInt64() + (long)mbi.RegionSize);
+                if (next <= current)
+                    break;
 
-                    while (totalBytesRead < regionSize)
+                currentAddress = new IntPtr(next);
+            }
+
+            throw new InvalidDataException("ERROR: Signature scan error -- No results found!");
+        }
+
+        public static void UnlockBlock(ulong Address, bool Absolute = false, string? ModuleName = null)
+        {
+            var context = GetContext();
+            var address = ResolveAddress(context, Address, Absolute, ModuleName);
+            var oldProtect = 0;
+            if (!VirtualProtectEx(context.Handle, address, 0x100000, PAGE_EXECUTE_READWRITE, ref oldProtect))
+                throw new Win32Exception(Marshal.GetLastWin32Error(), $"VirtualProtectEx failed at 0x{address.ToInt64():X}.");
+        }
+
+        private static T Read<T>(ProcessContext context, ulong address, bool absolute, string? moduleName) where T : struct
+        {
+            var size = Marshal.SizeOf<T>();
+            var buffer = ReadBytes(context, ResolveAddress(context, address, absolute, moduleName), size, requireExact: true);
+            return MemoryMarshal.Read<T>(buffer);
+        }
+
+        private static byte[] ReadBytes(ProcessContext context, IntPtr address, int length, bool requireExact)
+        {
+            var buffer = new byte[length];
+            var bytesRead = 0;
+            var success = ReadProcessMemory(context.Handle, address, buffer, length, ref bytesRead);
+
+            if (bytesRead <= 0 || (requireExact && (!success || bytesRead != length)))
+            {
+                throw new MemoryReadException(
+                    context.Process.ProcessName,
+                    address,
+                    length,
+                    bytesRead,
+                    Marshal.GetLastWin32Error());
+            }
+
+            if (bytesRead == buffer.Length)
+                return buffer;
+
+            return buffer.AsSpan(0, bytesRead).ToArray();
+        }
+
+        private static void WriteBytes(ProcessContext context, IntPtr address, byte[] buffer)
+        {
+            var bytesWritten = 0;
+            var success = WriteProcessMemory(context.Handle, address, buffer, buffer.Length, ref bytesWritten);
+            if (!success || bytesWritten != buffer.Length)
+            {
+                throw new Win32Exception(
+                    Marshal.GetLastWin32Error(),
+                    $"WriteProcessMemory failed for process '{context.Process.ProcessName}' at 0x{address.ToInt64():X}. Requested {buffer.Length} bytes, wrote {bytesWritten}.");
+            }
+        }
+
+        private static IntPtr ResolveAddress(ProcessContext context, ulong address, bool absolute, string? moduleName)
+        {
+            if (absolute)
+                return new IntPtr(unchecked((long)address));
+
+            var baseAddress = moduleName is not null && context.Modules.TryGetValue(moduleName, out var moduleBase)
+                ? moduleBase
+                : context.BaseAddress;
+            return new IntPtr(unchecked((long)(baseAddress + address)));
+        }
+
+        private static ProcessContext GetContext()
+            => Volatile.Read(ref _context)
+                ?? throw new InvalidOperationException("Hypervisor is not attached to a process.");
+
+        private static bool IsReadable(uint protection)
+        {
+            if ((protection & PAGE_GUARD) != 0 || (protection & PAGE_NOACCESS) != 0)
+                return false;
+
+            var baseProtection = protection & 0xFF;
+            return baseProtection is PAGE_READONLY or PAGE_READWRITE or PAGE_EXECUTE_READ or PAGE_EXECUTE_READWRITE;
+        }
+
+        private static IntPtr ScanRegion(ProcessContext context, IntPtr baseAddress, nuint regionSize, int[] pattern)
+        {
+            ulong offset = 0;
+            var totalSize = (ulong)regionSize;
+            var carry = Array.Empty<byte>();
+
+            while (offset < totalSize)
+            {
+                var requested = (int)Math.Min((ulong)SignatureChunkSize, totalSize - offset);
+                var chunk = new byte[requested];
+                var bytesRead = 0;
+                var address = new IntPtr(checked(baseAddress.ToInt64() + (long)offset));
+
+                if (!ReadProcessMemory(context.Handle, address, chunk, requested, ref bytesRead) || bytesRead <= 0)
+                {
+                    offset += (ulong)requested;
+                    carry = Array.Empty<byte>();
+                    continue;
+                }
+
+                var scanBuffer = new byte[carry.Length + bytesRead];
+                carry.CopyTo(scanBuffer, 0);
+                Buffer.BlockCopy(chunk, 0, scanBuffer, carry.Length, bytesRead);
+
+                var index = FindPattern(scanBuffer, pattern);
+                if (index >= 0)
+                {
+                    var resultOffset = checked((long)offset - carry.Length + index);
+                    return new IntPtr(checked(baseAddress.ToInt64() + resultOffset));
+                }
+
+                var carryLength = Math.Min(pattern.Length - 1, scanBuffer.Length);
+                carry = carryLength == 0 ? Array.Empty<byte>() : scanBuffer.AsSpan(scanBuffer.Length - carryLength, carryLength).ToArray();
+                offset += (ulong)requested;
+            }
+
+            return IntPtr.Zero;
+        }
+
+        private static int FindPattern(ReadOnlySpan<byte> buffer, int[] pattern)
+        {
+            if (pattern.Length > buffer.Length)
+                return -1;
+
+            for (var offset = 0; offset <= buffer.Length - pattern.Length; offset++)
+            {
+                var matched = true;
+                for (var index = 0; index < pattern.Length; index++)
+                {
+                    if (pattern[index] != -1 && pattern[index] != buffer[offset + index])
                     {
-                        ulong bytesToRead = Math.Min((ulong)ChunkSize, regionSize - totalBytesRead);
-                        int bytesRead = 0;
-
-                        if (ReadProcessMemory(Handle, IntPtr.Add(mbi.BaseAddress, (int)totalBytesRead), regionBuffer, (int)bytesToRead, ref bytesRead))
-                        {
-                            Parallel.For(0, bytesRead, (a, state) =>
-                            {
-                                if (a + _sigBytes.Length > bytesRead) return;
-
-                                bool matchFound = true;
-                                for (int b = 0; b < _sigBytes.Length; b++)
-                                {
-                                    if (_sigBytes[b] != -1 && _sigBytes[b] != regionBuffer[a + b])
-                                    {
-                                        matchFound = false;
-                                        break;
-                                    }
-                                }
-
-                                object lockObject = new object();
-
-                                if (matchFound)
-                                {
-                                    lock (lockObject)
-                                    {
-                                        if (firstResult == IntPtr.Zero)
-                                        {
-                                            firstResult = IntPtr.Add(mbi.BaseAddress, (int)(totalBytesRead + (ulong)a));
-                                            state.Stop();
-                                        }
-                                    }
-                                }
-                            });
-                        }
-
-                        totalBytesRead += bytesToRead;
-                        if (firstResult != IntPtr.Zero)
-                            break;
+                        matched = false;
+                        break;
                     }
                 }
 
-                currentAddress = new IntPtr((long)mbi.BaseAddress + (long)mbi.RegionSize);
-                if (firstResult != IntPtr.Zero)
-                    break;
+                if (matched)
+                    return offset;
             }
 
-            if (firstResult == IntPtr.Zero)
-                throw new InvalidDataException("ERROR: Signature scan error -- No results found!");
-
-            return firstResult;
+            return -1;
         }
-
 
         [StructLayout(LayoutKind.Sequential)]
         private struct MEMORY_BASIC_INFORMATION
@@ -546,41 +409,29 @@ namespace MultiPresence
             public IntPtr BaseAddress;
             public IntPtr AllocationBase;
             public uint AllocationProtect;
-            public IntPtr RegionSize;
+            public nuint RegionSize;
             public uint State;
             public uint Protect;
             public uint Type;
         }
+    }
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern int VirtualQueryEx(IntPtr hProcess, IntPtr lpAddress, out MEMORY_BASIC_INFORMATION lpBuffer, uint dwLength);
-
-        private const uint PAGE_READONLY = 0x02;
-        private const uint PAGE_READWRITE = 0x04;
-        private const uint PAGE_EXECUTE_READ = 0x20;
-        private const uint PAGE_EXECUTE_READWRITE = 0x40;
-
-        /// <summary>
-        /// Unlocks a particular block to be written.
-        /// </summary>
-        /// <param name="Address">The address of the subject block.</param>
-        /// <param name="Absolute">If the address is absolute, false by default.</param>
-        /// <param name="ModuleName">The name of the module to read from. Defaults to main executable.</param>
-        public static void UnlockBlock(ulong Address, bool Absolute = false, string? ModuleName = null)
+    public sealed class MemoryReadException : IOException
+    {
+        public MemoryReadException(string processName, IntPtr address, int requestedBytes, int actualBytes, int nativeError)
+            : base($"ReadProcessMemory failed for process '{processName}' at 0x{address.ToInt64():X}. Requested {requestedBytes} bytes, read {actualBytes}. Win32 error: {nativeError}.")
         {
-            var _address = (IntPtr)Address;
-
-            if (!Absolute)
-            {
-                ulong baseAddress = ModuleName != null && ModuleBaseAddresses.ContainsKey(ModuleName)
-                    ? ModuleBaseAddresses[ModuleName]
-                    : PureAddress;
-
-                _address = (IntPtr)(baseAddress + Address);
-            }
-
-            int _oldProtect = 0;
-            VirtualProtectEx(Handle, _address, 0x100000, 0x40, ref _oldProtect);
+            ProcessName = processName;
+            Address = address;
+            RequestedBytes = requestedBytes;
+            ActualBytes = actualBytes;
+            NativeError = nativeError;
         }
+
+        public string ProcessName { get; }
+        public IntPtr Address { get; }
+        public int RequestedBytes { get; }
+        public int ActualBytes { get; }
+        public int NativeError { get; }
     }
 }
