@@ -59,7 +59,7 @@ public sealed class StartupService
         using var taskService = new TaskService();
         if (!enabled)
         {
-            taskService.RootFolder.DeleteTask(AppName, exceptionOnNotExists: false);
+            taskService.RootFolder.DeleteTask(AppName, false);
             return;
         }
 
@@ -69,6 +69,6 @@ public sealed class StartupService
         task.Principal.RunLevel = TaskRunLevel.Highest;
         task.Triggers.Add(new LogonTrigger());
         task.Actions.Add(new ExecAction(_executablePath, null, Path.GetDirectoryName(_executablePath)));
-        taskService.RootFolder.RegisterTaskDefinition(AppName, task, TaskCreation.CreateOrUpdate, null, null, TaskLogonType.InteractiveToken);
+        taskService.RootFolder.RegisterTaskDefinition(AppName, task);
     }
 }
