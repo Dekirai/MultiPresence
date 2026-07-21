@@ -1,13 +1,15 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class YSI
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static string[]? levelvalue = null;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
+        public static string[] levelvalue = null;
 
         public static void DoAction()
         {
@@ -15,17 +17,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("1435551695315927111");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Ys I Chronicles.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(YSI), "ys1plus", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("ys1plus")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("ys1plus");
             }
             catch
             {
@@ -33,10 +32,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("ys1plus");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("ys1plus"))
             {
                 try
                 {
@@ -75,16 +73,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord?.Deinitialize();
                 updater?.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

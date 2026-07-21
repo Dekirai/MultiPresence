@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class MMX6
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1434202150510006314");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Mega Man X6.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(MMX6), "RXC2", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("RXC2")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("RXC2");
             }
             catch
             {
@@ -31,32 +30,28 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("RXC2");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("RXC2"))
             {
                 int _game = Hypervisor.Read<byte>(Hypervisor.GetPointer32(0x0338ED04, [0x90]), true);
                 if (_game != 1)
                 {
                     discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
+                    updater.Dispose();
+                    PresenceRuntime.RequestDetection();
                 }
                 else
                 {
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man X6", placeholders);
-
-                    await Task.Delay(3000);
-                    Thread thread = new Thread(RPC);
-                    thread.Start();
                 }
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

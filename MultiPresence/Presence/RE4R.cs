@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.RE4R;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class RE4R
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1343156987021754399");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Resident Evil 4 Remake.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(RE4R), "re4", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("re4")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("re4");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("re4");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("re4"))
             {
                 int chapter = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x0D67C908, [0x30]), true);
                 if (chapter >= 21100 && chapter <= 35100)
@@ -58,16 +56,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 4", placeholders, "Main Menu");
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

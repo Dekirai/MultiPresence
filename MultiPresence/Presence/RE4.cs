@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.RE4;
 using System.Diagnostics;
 
@@ -7,9 +9,9 @@ namespace MultiPresence.Presence
     public class RE4
     {
         public static ulong _main_address = 0;
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static async void DoAction()
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
+        public static async Task DoAction()
         {
             await Task.Delay(7500);
             GetPID();
@@ -17,17 +19,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("982193093388427314");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Resident Evil 4 (2005).json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(RE4), "bio4", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("bio4")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("bio4");
             }
             catch
             {
@@ -35,10 +34,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("bio4");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("bio4"))
             {
                 int stage = Hypervisor.Read<byte>(_main_address + 0x5B85, true);
                 int chapter = Hypervisor.Read<byte>(_main_address + 0x5B72, true);
@@ -75,16 +73,12 @@ namespace MultiPresence.Presence
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 4 (2005)", placeholders, "Main");
                     }
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

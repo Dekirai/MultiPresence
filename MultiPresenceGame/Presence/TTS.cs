@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresenceGame.Runtime;
+using DiscordRPC;
 using Steamworks;
 using System.Diagnostics;
 
@@ -6,34 +8,31 @@ namespace MultiPresenceGame.Presence
 {
     public class TTS
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
-            Process[] cod = Process.GetProcessesByName("TemtemSwarm");
-            if (cod.Length > 0)
+            if (SteamHostRuntime.IsProcessRunning("TemtemSwarm"))
             {
                 discord = new DiscordRpcClient("1307417236113195038");
                 InitializeDiscord();
-                File.WriteAllText("Assets/steam_appid.txt", "2510960");
+                SteamHostRuntime.WriteSteamAppId("2510960");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/Config/Temtem Swarm.json");
-                Thread thread = new Thread(RPCTTS);
-                thread.Start();
+                updater = new DiscordStatusUpdater("Config/Temtem Swarm.json");
+                SteamHostRuntime.Start(RPCTTS);
             }
         }
 
-        private static async void RPCTTS()
+        private static async Task RPCTTS()
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("TemtemSwarm");
-                if (game.Length > 0)
+                if (SteamHostRuntime.IsProcessRunning("TemtemSwarm"))
                 {
                     string presence = GetSteamRichPresence();
                     try
@@ -62,7 +61,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamHostRuntime.ClearSteamAppId();
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

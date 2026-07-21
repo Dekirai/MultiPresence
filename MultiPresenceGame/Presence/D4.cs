@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresenceGame.Runtime;
+using DiscordRPC;
 using Steamworks;
 using System.Diagnostics;
 
@@ -6,34 +8,31 @@ namespace MultiPresenceGame.Presence
 {
     public class D4
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
-            Process[] ow = Process.GetProcessesByName("Diablo IV");
-            if (ow.Length > 0)
+            if (SteamHostRuntime.IsProcessRunning("Diablo IV"))
             {
                 discord = new DiscordRpcClient("1502361064673906871");
                 InitializeDiscord();
-                File.WriteAllText("Assets/steam_appid.txt", "2344520");
+                SteamHostRuntime.WriteSteamAppId("2344520");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/Config/Diablo IV.json");
-                Thread thread = new Thread(RPC);
-                thread.Start();
+                updater = new DiscordStatusUpdater("Config/Diablo IV.json");
+                SteamHostRuntime.Start(RPC);
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("Diablo IV");
-                if (game.Length > 0)
+                if (SteamHostRuntime.IsProcessRunning("Diablo IV"))
                 {
                     string presence = GetSteamRichPresence();
 
@@ -72,7 +71,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamHostRuntime.ClearSteamAppId();
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

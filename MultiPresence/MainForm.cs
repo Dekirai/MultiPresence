@@ -1,895 +1,406 @@
 using DiscordRPC;
 using Microsoft.Win32;
-using Microsoft.Win32.TaskScheduler;
-using MultiPresence.Presence;
+using MultiPresence.Infrastructure;
 using MultiPresence.Properties;
+using MultiPresence.Runtime;
 using System.Diagnostics;
-using System.IO.Compression;
-using System.Net;
+using System.Globalization;
+using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text.Json;
-using System.Timers;
 
-namespace MultiPresence
+namespace MultiPresence;
+
+public partial class MainForm : Form
 {
-    public partial class MainForm : Form
+    private const string CurrentReleaseDate = "21.07.2026";
+    private static readonly HttpClient UpdateClient = CreateUpdateClient();
+    private readonly System.Windows.Forms.Timer _detectionTimer = new() { Interval = 3000 };
+    private readonly SemaphoreSlim _detectionGate = new(1, 1);
+    private readonly BlacklistStore _blacklist = new(Path.Combine("Assets", "blacklist.txt"));
+    private string? _activeGame;
+    private bool _updatingMenu;
+    private bool _exiting;
+
+    public MainForm()
     {
-        public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
+        InitializeComponent();
+        Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 
-        private static readonly string githubRepo = "Dekirai/MultiPresence";
-        private static readonly string currentVersion = "11.05.2026";
-        private static readonly string tempUpdaterPath = Path.Combine(Path.GetTempPath(), "Updater.exe");
+        cb_DisableNotifications.Checked = Settings.Default.Notifications;
+        cb_LaunchWithWindows.Checked = Settings.Default.startup;
+        cb_LaunchWithWindowsAdmin.Checked = Settings.Default.startupadmin;
+        cb_DisableAutoUpdates.Checked = Settings.Default.autoupdate;
+        lb_Version.Text = $"MultiPresence {GetDisplayVersion()}";
 
-        public MainForm()
+        _detectionTimer.Tick += DetectionTimerOnTick;
+        PresenceRuntime.DetectionRequested += PresenceRuntimeOnDetectionRequested;
+        _detectionTimer.Start();
+
+        if (!cb_DisableAutoUpdates.Checked)
         {
-            InitializeComponent();
+            _ = CheckForUpdatesAsync();
+        }
+    }
 
-            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+    protected override void OnShown(EventArgs e)
+    {
+        base.OnShown(e);
+        Hide();
+    }
 
-            cb_DisableNotifications.Checked = Settings.Default.Notifications;
-            cb_LaunchWithWindowsAdmin.Checked = Settings.Default.startupadmin;
-            cb_DisableAutoUpdates.Checked = Settings.Default.autoupdate;
+    protected override void OnFormClosed(FormClosedEventArgs e)
+    {
+        _detectionTimer.Stop();
+        _detectionTimer.Tick -= DetectionTimerOnTick;
+        PresenceRuntime.DetectionRequested -= PresenceRuntimeOnDetectionRequested;
+        PresenceRuntime.StopAll();
+        Hypervisor.DetachProcess();
+        notify.Visible = false;
+        base.OnFormClosed(e);
+    }
 
-            gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
-            gameUpdater.Interval = 5000;
-            gameUpdater.Enabled = true;
-            if (!cb_DisableAutoUpdates.Checked)
-                CheckForUpdate();
-            gameUpdater.Start();
-            lb_Version.Text = $"Version {currentVersion}";
+    private void DetectionTimerOnTick(object? sender, EventArgs e) => _ = DetectAndStartAsync();
+
+    private async Task DetectAndStartAsync()
+    {
+        if (!await _detectionGate.WaitAsync(0).ConfigureAwait(true))
+        {
+            return;
         }
 
-        public void CheckForUpdate()
+        _detectionTimer.Stop();
+        try
         {
-            try
+            var detected = GameDetector.Detect();
+            UpdateDetectedGame(detected?.GameName);
+            if (detected is null)
             {
-                using (WebClient client = new WebClient())
-                {
-                    client.Headers.Add("User-Agent", "CSharpApp");
-                    string apiUrl = $"https://api.github.com/repos/{githubRepo}/releases/latest";
-                    string jsonResponse = client.DownloadString(apiUrl);
-
-                    using (JsonDocument doc = JsonDocument.Parse(jsonResponse))
-                    {
-                        JsonElement root = doc.RootElement;
-                        string latestVersion = root.GetProperty("tag_name").GetString()?.Trim('v');
-                        string releaseUrl = root.GetProperty("html_url").GetString();
-
-                        if (IsNewerVersion(latestVersion, currentVersion))
-                        {
-                            DialogResult result = MessageBox.Show(
-                                $"A new version ({latestVersion}) is available. Do you want to update?",
-                                "MultiPresence - Update available",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.ServiceNotification
-                            );
-
-                            if (result == DialogResult.Yes)
-                            {
-                                string updateUrl = null;
-                                string updaterUrl = null;
-                                string actualZipName = null;
-
-                                JsonElement assets = root.GetProperty("assets");
-
-                                foreach (JsonElement asset in assets.EnumerateArray())
-                                {
-                                    string name = asset.GetProperty("name").GetString();
-
-                                    if (name.Equals("Updater.exe", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        updaterUrl = asset.GetProperty("browser_download_url").GetString();
-                                    }
-                                    else if (name.Equals("MultiPresence.zip", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        updateUrl = asset.GetProperty("browser_download_url").GetString();
-                                        actualZipName = name;
-                                    }
-                                }
-
-                                if (updaterUrl != null && updateUrl != null)
-                                {
-                                    string dynamicZipPath = Path.Combine(Path.GetTempPath(), actualZipName);
-
-                                    DownloadFile(updaterUrl, tempUpdaterPath);
-                                    DownloadFile(updateUrl, dynamicZipPath);
-
-                                    KillProcess("MultiPresenceGame");
-
-                                    DialogResult result2 = MessageBox.Show(
-                                        $"Do you want to view the changelogs?",
-                                        "MultiPresence - Update available",
-                                        MessageBoxButtons.YesNo,
-                                        MessageBoxIcon.Information,
-                                        MessageBoxDefaultButton.Button1,
-                                        MessageBoxOptions.ServiceNotification
-                                    );
-
-                                    if (result2 == DialogResult.Yes)
-                                    {
-                                        Process.Start(new ProcessStartInfo
-                                        {
-                                            FileName = releaseUrl,
-                                            UseShellExecute = true
-                                        });
-                                    }
-
-                                    Process.Start(tempUpdaterPath, $"\"{dynamicZipPath}\" \"{Application.ExecutablePath}\" \"{tempUpdaterPath}\"");
-                                    BalloonUpdate("Update downloaded, MultiPresence is now restarting and updating files!");
-                                    Environment.Exit(0);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Update or Updater file not found in the release assets.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                        }
-                    }
-                }
+                _detectionTimer.Start();
+                return;
             }
-            catch (Exception ex)
+
+            if (_blacklist.Contains(detected.GameName))
             {
-                BalloonUpdate("Failed to update MultiPresence!");
-                MessageBox.Show($"Error checking for updates: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _detectionTimer.Start();
+                return;
+            }
+
+            if (!GameIntegrationRegistry.TryGet(detected.GameName, out var startAsync) || startAsync is null)
+            {
+                AppLog.Warning($"No integration is registered for detected game '{detected.GameName}'.");
+                _detectionTimer.Start();
+                return;
+            }
+
+            DeleteStaleSteamAppId();
+            PlaceholderHelper._startTimestamp = Timestamps.Now;
+            ShowTrackingNotification(detected.GameName);
+            AppLog.Information("Starting game integration.", detected);
+            await startAsync().ConfigureAwait(true);
+
+            // Steam integrations complete only when the game exits. Memory integrations request
+            // detection through PresenceRuntime when their controlled polling loop finishes.
+            if (!PresenceRuntime.HasActiveLoops)
+            {
+                _detectionTimer.Start();
             }
         }
-
-
-        private static void DownloadFile(string url, string destination)
+        catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
         {
-            try
-            {
-                using (WebClient client = new WebClient())
-                {
-                    client.DownloadFile(url, destination);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error downloading {Path.GetFileName(destination)}: {ex.Message}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            AppLog.Error("Starting a game integration failed.", exception, new { Game = _activeGame });
+            ShowErrorNotification("The game integration failed. See the log for details.");
+            _detectionTimer.Start();
+        }
+        finally
+        {
+            _detectionGate.Release();
+        }
+    }
+
+    private void PresenceRuntimeOnDetectionRequested(object? sender, EventArgs e)
+    {
+        if (_exiting || IsDisposed || !IsHandleCreated)
+        {
+            return;
         }
 
-        private static bool IsNewerVersion(string latest, string current)
+        BeginInvoke(() =>
         {
-            try
+            if (!_exiting)
             {
-                DateTime latestDate = DateTime.ParseExact(latest, "dd.MM.yyyy", null);
-                DateTime currentDate = DateTime.ParseExact(current, "dd.MM.yyyy", null);
-                return latestDate > currentDate;
+                _detectionTimer.Start();
             }
-            catch
+        });
+    }
+
+    private void UpdateDetectedGame(string? gameName)
+    {
+        _activeGame = string.IsNullOrWhiteSpace(gameName) ? null : gameName;
+        _updatingMenu = true;
+        try
+        {
+            lb_ActiveGame.Text = _activeGame is null
+                ? "Active game: None"
+                : $"Active game: {_activeGame}";
+            btn_Blacklist.Enabled = _activeGame is not null;
+            btn_Blacklist.Checked = _activeGame is not null && _blacklist.Contains(_activeGame);
+            btn_Blacklist.Text = btn_Blacklist.Checked
+                ? "Whitelist current game"
+                : "Blacklist current game";
+        }
+        finally
+        {
+            _updatingMenu = false;
+        }
+    }
+
+    private void btn_Exit_Click(object? sender, EventArgs e)
+    {
+        _exiting = true;
+        SaveSettings();
+        Close();
+    }
+
+    private void btn_Config_Click(object? sender, EventArgs e)
+    {
+        try
+        {
+            var configDirectory = Path.Combine(AppContext.BaseDirectory, "Assets", "Config");
+            Directory.CreateDirectory(configDirectory);
+            Process.Start(new ProcessStartInfo
             {
-                return false;
-            }
+                FileName = configDirectory,
+                UseShellExecute = true
+            });
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException or InvalidOperationException)
+        {
+            AppLog.Warning("Could not open the configuration directory.", exception);
+            MessageBox.Show(
+                this,
+                exception.Message,
+                "MultiPresence",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+    }
+
+    private void btn_Blacklist_CheckedChanged(object? sender, EventArgs e)
+    {
+        if (_updatingMenu || _activeGame is null)
+        {
+            return;
         }
 
-        private static void KillProcess(string processName)
+        try
         {
-            foreach (var process in Process.GetProcessesByName(processName))
-            {
-                try
-                {
-                    process.Kill();
-                    process.WaitForExit();
-                }
-                catch { }
-            }
-        }
-
-        private async void gameUpdater_Tick(object sender, EventArgs e)
-        {
-            string game = GameDetector.GetGame();
-            lb_ActiveGame.Text = "Active game: None";
-            btn_Blacklist.Enabled = false;
-
-            string path = "Assets\\blacklist.txt";
-            var blacklist = File.Exists(path) ? File.ReadAllLines(path) : Array.Empty<string>();
-
-            btn_Blacklist.Text = blacklist.Contains(game)
+            _blacklist.SetBlocked(_activeGame, btn_Blacklist.Checked);
+            btn_Blacklist.Text = btn_Blacklist.Checked
                 ? "Whitelist current game"
                 : "Blacklist current game";
 
-            if (blacklist.Contains(game))
+            if (btn_Blacklist.Checked)
             {
-                lb_ActiveGame.Text = $"Active game: {game}";
-                if (!lb_ActiveGame.Text.Contains("None"))
-                {
-                    btn_Blacklist.Checked = true;
-                    btn_Blacklist.Enabled = true;
-                }
-                else
-                    btn_Blacklist.Enabled = false;
-                return;
+                PresenceRuntime.StopAll();
             }
             else
             {
-                lb_ActiveGame.Text = $"Active game: {game}";
-                if (!lb_ActiveGame.Text.Contains("None"))
-                {
-                    btn_Blacklist.Checked = false;
-                    btn_Blacklist.Enabled = true;
-                }
-                else
-                    btn_Blacklist.Enabled = false;
-            }
-
-            if (File.Exists("Assets\\steam_appid.txt"))
-                File.Delete("Assets\\steam_appid.txt");
-
-            PlaceholderHelper._startTimestamp = Timestamps.Now;
-
-            switch (game)
-            {
-                case "Borderlands 1":
-                    Balloon(game);
-                    BL1.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Borderlands 2":
-                    Balloon(game);
-                    BL2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Call of Duty®":
-                    Balloon(game);
-                    await COD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "CODE VEIN":
-                    Balloon(game);
-                    CV.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Crash Bandicoot 4: It's About Time":
-                    Balloon(game);
-                    CB4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Crash Bandicoot N. Sane Trilogy":
-                    Balloon(game);
-                    CBNT.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "CRISIS CORE –FINAL FANTASY VII– REUNION":
-                    Balloon(game);
-                    CCFFVII.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Dark Souls II":
-                    Balloon(game);
-                    DSII.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Dark Souls III":
-                    Balloon(game);
-                    DSIII.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Dark Souls: Remastered":
-                    Balloon(game);
-                    DSR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Death Stranding":
-                    Balloon(game);
-                    DSDC.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Devil May Cry":
-                    Balloon(game);
-                    DMC1.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Devil May Cry 2":
-                    Balloon(game);
-                    DMC2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Devil May Cry 3":
-                    Balloon(game);
-                    DMC3.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Devil May Cry 4":
-                    Balloon(game);
-                    DMC4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Devil May Cry 5":
-                    Balloon(game);
-                    DMC5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Diablo IV":
-                    Balloon(game);
-                    await D4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Digimon Story Time Stranger":
-                    Balloon(game);
-                    DSTS.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "DmC Devil May Cry":
-                    Balloon(game);
-                    DMC.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Elden Ring":
-                    Balloon(game);
-                    ER.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Final Fantasy VII Rebirth":
-                    Balloon(game);
-                    FFVIIRB.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Final Fantasy VII Remake":
-                    Balloon(game);
-                    FFVIIR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Final Fantasy X":
-                    Balloon(game);
-                    FFX.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Final Fantasy XV":
-                    Balloon(game);
-                    FFXV.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Final Fantasy XVI":
-                    Balloon(game);
-                    FFXVI.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Granblue Fantasy: Relink":
-                    Balloon(game);
-                    GBFR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Gunfire Reborn":
-                    Balloon(game);
-                    await GFR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Hello Kitty Island Adventure":
-                    Balloon(game);
-                    await HK.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Hogwarts Legacy":
-                    Balloon(game);
-                    await HL.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts Birth by Sleep Final Mix":
-                    Balloon(game);
-                    KHBBS.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts Dream Drop Distance":
-                    Balloon(game);
-                    KHDDD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts Final Mix":
-                    Balloon(game);
-                    KH1.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts II Final Mix":
-                    Balloon(game);
-                    KH2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts III":
-                    Balloon(game);
-                    KH3.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Kingdom Hearts Re:Chain of Memories":
-                    Balloon(game);
-                    KHCOM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Labyrinthine":
-                    Balloon(game);
-                    await LR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Lies of P":
-                    Balloon(game);
-                    LOP.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man 11":
-                    Balloon(game);
-                    MM11.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man Battle Network":
-                    Balloon(game);
-                    MMBN1.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man Battle Network 2":
-                    Balloon(game);
-                    MMBN2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man Battle Network 3":
-                    Balloon(game);
-                    MMBN3.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man Battle Network 5":
-                    Balloon(game);
-                    MMBN5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man Battle Network 6":
-                    Balloon(game);
-                    MMBN6.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man X5":
-                    Balloon(game);
-                    MMX5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man X6":
-                    Balloon(game);
-                    MMX6.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man X7":
-                    Balloon(game);
-                    MMX7.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Mega Man X8":
-                    Balloon(game);
-                    MMX8.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Marvel's Spider-Man Remastered":
-                    Balloon(game);
-                    MSMR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Marvel's Spider-Man: Miles Morales":
-                    Balloon(game);
-                    MSMMMM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Overwatch":
-                    Balloon(game);
-                    await OW.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Pangya Reborn":
-                    Balloon(game);
-                    PYRE.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Persona 4 Golden":
-                    Balloon(game);
-                    P4G.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Persona 5 Strikers":
-                    Balloon(game);
-                    P5S.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Persona 5 Royal":
-                    Balloon(game);
-                    P5R.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Persona 5 Tactica":
-                    Balloon(game);
-                    P5T.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Persona 5: The Phantom X":
-                    Balloon(game);
-                    P5X.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Project Diva Mega Mix+":
-                    Balloon(game);
-                    PDMM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Rayman":
-                    Balloon(game);
-                    RM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil":
-                    Balloon(game);
-                    RE.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 2":
-                    Balloon(game);
-                    RE2R.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 3":
-                    Balloon(game);
-                    RE3R.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 4 (2005)":
-                    Balloon(game);
-                    RE4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 4 Remake":
-                    Balloon(game);
-                    RE4R.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 5":
-                    Balloon(game);
-                    RE5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 6":
-                    Balloon(game);
-                    RE6.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 7":
-                    Balloon(game);
-                    RE7.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil 8":
-                    Balloon(game);
-                    RE8.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Resident Evil Revelations 2":
-                    Balloon(game);
-                    REV2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Scott Pilgrim vs The World":
-                    Balloon(game);
-                    SPTG.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Shin Megami Tensei III":
-                    Balloon(game);
-                    SMT3.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Shin Megami Tensei V":
-                    Balloon(game);
-                    SMT5.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Sonic Adventure 2":
-                    Balloon(game);
-                    SA2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Sonic Adventure DX":
-                    Balloon(game);
-                    SADX.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Sonic Generations":
-                    Balloon(game);
-                    SXSG.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Stellar Blade":
-                    Balloon(game);
-                    SB.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Team Fortress 2":
-                    Balloon(game);
-                    await TF2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Temtem: Swarm":
-                    Balloon(game);
-                    TTS.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                //case "The Binding of Isaac: Rebirth":
-                //    Balloon(game);
-                //    TBOI.DoAction();
-                //    gameUpdater.Stop();
-                //    break;
-                case "The Witcher 3":
-                    Balloon(game);
-                    TWIII.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "TY the Tasmanian Tiger":
-                    Balloon(game);
-                    TY.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                //case "Vampire Survivors":
-                //    Balloon(game);
-                //    VS.DoAction();
-                //    gameUpdater.Stop();
-                //    break;
-                case "Visions of Mana":
-                    Balloon(game);
-                    VOM.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Ys I Chronicles":
-                    Balloon(game);
-                    YSI.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Zelda: The Wind Waker HD":
-                    Balloon(game);
-                    WWHD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Zelda: Twilight Princess HD":
-                    Balloon(game);
-                    TPHD.DoAction();
-                    gameUpdater.Stop();
-                    break;
+                _detectionTimer.Start();
             }
         }
-
-        private void btn_Exit_Click(object sender, EventArgs e)
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
         {
-            try
-            {
-                var processes = Process.GetProcessesByName("MultiPresenceGame");
-                if (processes.Any())
-                {
-                    foreach (var process in processes)
-                    {
-                        process.Kill();
-                        process.WaitForExit();
-                    }
-                }
-
-                Settings.Default.Notifications = cb_DisableNotifications.Checked;
-                Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
-                Settings.Default.Save();
-                Application.Exit();
-            }
-            catch
-            {
-                Settings.Default.Notifications = cb_DisableNotifications.Checked;
-                Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
-                Settings.Default.Save();
-                Application.Exit();
-            }
+            AppLog.Warning("Could not update the game blacklist.", exception);
+            ShowErrorNotification("The blacklist could not be saved.");
         }
+    }
 
-        private void Balloon(string text)
-        {
-            lb_ActiveGame.Text = $"Active game: {text}";
-            btn_Blacklist.Enabled = true;
-            if (cb_DisableNotifications.Checked)
-                return;
-            notify.BalloonTipTitle = "System";
-            notify.BalloonTipText = $"Keeping track of {text}.";
-            notify.ShowBalloonTip(3000);
-        }
+    private void cb_DisableNotifications_CheckedChanged(object? sender, EventArgs e) => SaveSettings();
 
-        private void BalloonUpdate(string text)
-        {
-            notify.BalloonTipTitle = "MultiPresence - Update status";
-            notify.BalloonTipText = text;
-            notify.ShowBalloonTip(3000);
-        }
+    private void cb_DisableAutoUpdates_CheckedChanged(object? sender, EventArgs e) => SaveSettings();
 
-        private async void btn_Config_Click(object sender, EventArgs e)
-        {
-            string configFolderPath = Path.Combine(Environment.CurrentDirectory, "Assets/Config");
-
-            if (Directory.Exists(configFolderPath) &&
-                Directory.GetFiles(configFolderPath).Length > 0)
-            {
-                Process.Start(new ProcessStartInfo(configFolderPath) { UseShellExecute = true });
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("The config folder is empty, do you want to download the config files?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    Directory.CreateDirectory(configFolderPath);
-
-                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/Config.zip";
-                    using (HttpClient client = new HttpClient())
-                    {
-                        try
-                        {
-                            HttpResponseMessage response = await client.GetAsync(url);
-                            response.EnsureSuccessStatusCode();
-                            byte[] content = await response.Content.ReadAsByteArrayAsync();
-
-                            string zipFilePath = Path.Combine(configFolderPath, "Config.zip");
-                            File.WriteAllBytes(zipFilePath, content);
-
-                            ZipFile.ExtractToDirectory(zipFilePath, configFolderPath, overwriteFiles: true);
-
-                            File.Delete(zipFilePath);
-
-                            MessageBox.Show($"The config folder has been set up at {configFolderPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Process.Start(new ProcessStartInfo(configFolderPath) { UseShellExecute = true });
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-
-            }
-        }
-
-        private async void btn_Blacklist_Click(object sender, EventArgs e)
-        {
-            if (!File.Exists(Environment.CurrentDirectory + "\\Assets\\blacklist.json"))
-            {
-                DialogResult result = MessageBox.Show("The blacklist file does not exist, do you want me to create one?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    string url = "https://raw.githubusercontent.com/Dekirai/MultiPresence/main/MultiPresence/blacklist.json";
-                    using (HttpClient client = new HttpClient())
-                    {
-                        try
-                        {
-                            HttpResponseMessage response = await client.GetAsync(url);
-                            response.EnsureSuccessStatusCode();
-                            string content = await response.Content.ReadAsStringAsync();
-
-                            await File.WriteAllTextAsync(Environment.CurrentDirectory + "\\Assets\\blacklist.json", content);
-
-                            MessageBox.Show($"The file has been created and saved in {Environment.CurrentDirectory + "\\Assets\\blacklist.json"}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\Assets\\blacklist.json") { UseShellExecute = true });
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            else
-                Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\Assets\\blacklist.json") { UseShellExecute = true });
-        }
-
-        private void SetStartupAdmin(bool enable)
-        {
-            const string taskName = "MultiPresence";
-
-            using (TaskService ts = new TaskService())
-            {
-                if (enable)
-                {
-                    TaskDefinition td = ts.NewTask();
-                    td.RegistrationInfo.Description = "Starts the application with elevated privileges at startup";
-                    td.Principal.LogonType = TaskLogonType.InteractiveToken;
-                    td.Principal.RunLevel = TaskRunLevel.Highest;
-
-                    td.Triggers.Add(new LogonTrigger());
-
-                    string exePath = Application.ExecutablePath;
-                    td.Actions.Add(new ExecAction(exePath, null, null));
-
-                    ts.RootFolder.RegisterTaskDefinition(taskName, td);
-                }
-                else
-                {
-                    // Remove the task
-                    ts.RootFolder.DeleteTask(taskName, false);
-                }
-            }
-        }
-
-        private void SetStartup(bool enable)
-        {
-            const string appName = "MultiPresence";
-            string exePath = Application.ExecutablePath;
-
-            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
-
-            if (enable)
-            {
-                // Add the application to startup
-                registryKey.SetValue(appName, exePath);
-            }
-            else
-            {
-                // Remove the application from startup
-                registryKey.DeleteValue(appName, false);
-            }
-        }
-
-        private void cb_LaunchWithWindowsAdmin_Click(object sender, EventArgs e)
-        {
-            if (cb_LaunchWithWindowsAdmin.Checked)
-            {
-                cb_LaunchWithWindows.Checked = false;
-                SetStartupAdmin(true);
-                SetStartup(false);
-                Settings.Default.startup = false;
-                Settings.Default.startupadmin = true;
-                Settings.Default.Save();
-            }
-            else
-            {
-                SetStartupAdmin(false);
-                Settings.Default.startupadmin = false;
-                Settings.Default.Save();
-            }
-        }
-
-        private void cb_LaunchWithWindows_Click(object sender, EventArgs e)
+    private void cb_LaunchWithWindows_Click(object? sender, EventArgs e)
+    {
+        try
         {
             if (cb_LaunchWithWindows.Checked)
             {
                 cb_LaunchWithWindowsAdmin.Checked = false;
-                SetStartup(true);
-                SetStartupAdmin(false);
-                Settings.Default.startup = true;
-                Settings.Default.startupadmin = false;
-                Settings.Default.Save();
+                SetStartupTask(false);
             }
-            else
-            {
-                SetStartup(false);
-                Settings.Default.startup = false;
-                Settings.Default.Save();
-            }
-        }
 
-        private void cb_DisableNotifications_CheckedChanged(object sender, EventArgs e)
+            SetRegistryStartup(cb_LaunchWithWindows.Checked);
+            SaveSettings();
+        }
+        catch (Exception exception) when (exception is UnauthorizedAccessException or IOException)
         {
-            Settings.Default.Notifications = cb_DisableNotifications.Checked;
-            Settings.Default.Save();
+            cb_LaunchWithWindows.Checked = !cb_LaunchWithWindows.Checked;
+            AppLog.Warning("Could not update normal startup registration.", exception);
+            ShowErrorNotification("Windows startup could not be changed.");
         }
+    }
 
-        private void cb_DisableAutoUpdates_CheckedChanged(object sender, EventArgs e)
+    private void cb_LaunchWithWindowsAdmin_Click(object? sender, EventArgs e)
+    {
+        try
         {
-            Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
-            Settings.Default.Save();
-        }
-
-        private void btn_Blacklist_CheckedChanged(object sender, EventArgs e)
-        {
-            string game = GameDetector.GetGame();
-            string path = "Assets\\blacklist.txt";
-
-            var lines = File.Exists(path) ? File.ReadAllLines(path).ToList() : new List<string>();
-
-            if (btn_Blacklist.Checked)
+            if (cb_LaunchWithWindowsAdmin.Checked)
             {
-                if (!lines.Contains(game))
-                    lines.Add(game);
-                btn_Blacklist.Text = "Whitelist current game";
-            }
-            else
-            {
-                lines.RemoveAll(x => x == game);
-                btn_Blacklist.Text = "Blacklist current game";
+                cb_LaunchWithWindows.Checked = false;
+                SetRegistryStartup(false);
             }
 
-            File.WriteAllLines(path, lines);
+            SetStartupTask(cb_LaunchWithWindowsAdmin.Checked);
+            SaveSettings();
         }
+        catch (Exception exception) when (exception is UnauthorizedAccessException or IOException)
+        {
+            cb_LaunchWithWindowsAdmin.Checked = !cb_LaunchWithWindowsAdmin.Checked;
+            AppLog.Warning("Could not update elevated startup registration.", exception);
+            ShowErrorNotification("Administrator startup could not be changed.");
+        }
+    }
+
+    private void SetRegistryStartup(bool enabled)
+    {
+        using var key = Registry.CurrentUser.OpenSubKey(
+            @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run",
+            writable: true) ?? throw new IOException("The Windows startup registry key is unavailable.");
+
+        if (enabled)
+        {
+            key.SetValue("MultiPresence", $"\"{Application.ExecutablePath}\"");
+        }
+        else
+        {
+            key.DeleteValue("MultiPresence", throwOnMissingValue: false);
+        }
+    }
+
+    private static void SetStartupTask(bool enabled)
+    {
+        const string taskName = "MultiPresence";
+        using var taskService = new Microsoft.Win32.TaskScheduler.TaskService();
+        if (!enabled)
+        {
+            taskService.RootFolder.DeleteTask(taskName, exceptionOnNotExists: false);
+            return;
+        }
+
+        var definition = taskService.NewTask();
+        definition.RegistrationInfo.Description = "Starts MultiPresence after interactive logon.";
+        definition.Principal.LogonType = Microsoft.Win32.TaskScheduler.TaskLogonType.InteractiveToken;
+        definition.Principal.RunLevel = Microsoft.Win32.TaskScheduler.TaskRunLevel.Highest;
+        definition.Triggers.Add(new Microsoft.Win32.TaskScheduler.LogonTrigger());
+        definition.Actions.Add(new Microsoft.Win32.TaskScheduler.ExecAction(Application.ExecutablePath));
+        taskService.RootFolder.RegisterTaskDefinition(taskName, definition);
+    }
+
+    private async Task CheckForUpdatesAsync()
+    {
+        try
+        {
+            using var response = await UpdateClient.GetAsync(
+                "https://api.github.com/repos/Dekirai/MultiPresence/releases/latest").ConfigureAwait(true);
+            response.EnsureSuccessStatusCode();
+            await using var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(true);
+            using var document = await JsonDocument.ParseAsync(stream).ConfigureAwait(true);
+            var root = document.RootElement;
+            var tag = root.GetProperty("tag_name").GetString()?.TrimStart('v');
+            var url = root.GetProperty("html_url").GetString();
+
+            if (!TryParseReleaseDate(tag, out var latest) ||
+                !TryParseReleaseDate(CurrentReleaseDate, out var current) ||
+                latest <= current ||
+                !Uri.TryCreate(url, UriKind.Absolute, out var releaseUri))
+            {
+                return;
+            }
+
+            var result = MessageBox.Show(
+                this,
+                $"MultiPresence {tag} is available. Open the release page?",
+                "MultiPresence update",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                Process.Start(new ProcessStartInfo(releaseUri.AbsoluteUri) { UseShellExecute = true });
+            }
+        }
+        catch (Exception exception) when (
+            exception is HttpRequestException or TaskCanceledException or JsonException or InvalidOperationException)
+        {
+            AppLog.Warning("The update check failed.", exception);
+        }
+    }
+
+    private void SaveSettings()
+    {
+        Settings.Default.Notifications = cb_DisableNotifications.Checked;
+        Settings.Default.autoupdate = cb_DisableAutoUpdates.Checked;
+        Settings.Default.startup = cb_LaunchWithWindows.Checked;
+        Settings.Default.startupadmin = cb_LaunchWithWindowsAdmin.Checked;
+        Settings.Default.Save();
+    }
+
+    private void ShowTrackingNotification(string gameName)
+    {
+        UpdateDetectedGame(gameName);
+        if (cb_DisableNotifications.Checked)
+        {
+            return;
+        }
+
+        notify.BalloonTipTitle = "MultiPresence";
+        notify.BalloonTipText = $"Tracking {gameName}.";
+        notify.ShowBalloonTip(3000);
+    }
+
+    private void ShowErrorNotification(string message)
+    {
+        if (cb_DisableNotifications.Checked)
+        {
+            return;
+        }
+
+        notify.BalloonTipTitle = "MultiPresence";
+        notify.BalloonTipText = message;
+        notify.ShowBalloonTip(5000);
+    }
+
+    private static void DeleteStaleSteamAppId()
+    {
+        var path = Path.Combine(AppContext.BaseDirectory, "Assets", "steam_appid.txt");
+        try
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+        catch (IOException exception)
+        {
+            AppLog.Warning("Could not remove the previous Steam application ID.", exception);
+        }
+    }
+
+    private static string GetDisplayVersion() =>
+        Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? CurrentReleaseDate;
+
+    private static bool TryParseReleaseDate(string? value, out DateTime date) =>
+        DateTime.TryParseExact(
+            value,
+            "dd.MM.yyyy",
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None,
+            out date);
+
+    private static HttpClient CreateUpdateClient()
+    {
+        var client = new HttpClient { Timeout = TimeSpan.FromSeconds(10) };
+        client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("MultiPresence", "12.0"));
+        return client;
     }
 }

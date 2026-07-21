@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.KHCOM;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class KHCOM
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1342148362471866460");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts ReChain of Memories.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(KHCOM), "KINGDOM HEARTS Re_Chain of Memories", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS Re_Chain of Memories")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("KINGDOM HEARTS Re_Chain of Memories");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS Re_Chain of Memories");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("KINGDOM HEARTS Re_Chain of Memories"))
             {
                 int world_get = Hypervisor.Read<byte>(0x87B862);
                 int battleflag = Hypervisor.Read<byte>(0x87B858);
@@ -84,16 +82,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -112,7 +106,8 @@ namespace MultiPresence.Presence
             string character = character_get switch
             {
                 0 => "Sora",
-                1 => "Riku"
+                1 => "Riku",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>

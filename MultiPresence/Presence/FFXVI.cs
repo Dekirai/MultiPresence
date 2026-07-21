@@ -1,30 +1,29 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class FFXVI
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static async void DoAction()
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
+        public static async Task DoAction()
         {
             await Task.Delay(10000);
             GetPID();
             discord = new DiscordRpcClient("1285884197084336161");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Final Fantasy XVI.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(FFXVI), "ffxvi", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("ffxvi")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("ffxvi");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("ffxvi");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("ffxvi"))
             {
                 int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
 
@@ -58,16 +56,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

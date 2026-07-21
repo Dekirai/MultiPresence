@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresenceGame.Runtime;
+using DiscordRPC;
 using Steamworks;
 using System.Diagnostics;
 
@@ -6,34 +8,31 @@ namespace MultiPresenceGame.Presence
 {
     public class HL
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
-            Process[] cod = Process.GetProcessesByName("HogwartsLegacy");
-            if (cod.Length > 0)
+            if (SteamHostRuntime.IsProcessRunning("HogwartsLegacy"))
             {
                 discord = new DiscordRpcClient("1324797968682979481");
                 InitializeDiscord();
-                File.WriteAllText("Assets/steam_appid.txt", "990080");
+                SteamHostRuntime.WriteSteamAppId("990080");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/Config/Hogwarts Legacy.json");
-                Thread thread = new Thread(RPCTTS);
-                thread.Start();
+                updater = new DiscordStatusUpdater("Config/Hogwarts Legacy.json");
+                SteamHostRuntime.Start(RPCTTS);
             }
         }
 
-        private static async void RPCTTS()
+        private static async Task RPCTTS()
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("HogwartsLegacy");
-                if (game.Length > 0)
+                if (SteamHostRuntime.IsProcessRunning("HogwartsLegacy"))
                 {
                     string presence = GetSteamRichPresence();
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
@@ -44,7 +43,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamHostRuntime.ClearSteamAppId();
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

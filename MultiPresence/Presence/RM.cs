@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class RM
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1472904074314645658");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Rayman.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(RM), "rayman30th", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("rayman30th")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("rayman30th");
             }
             catch
             {
@@ -31,10 +30,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("rayman30th");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("rayman30th"))
             {
                 int islevel = Hypervisor.Read<byte>(0x80001CEE81, true);
 
@@ -48,16 +46,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Rayman", placeholders, "Ingame");
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -88,7 +82,8 @@ namespace MultiPresence.Presence
                 14 => "Crystal Palace",
                 15 => "Eat at Joe's",
                 16 => "Mr Skops' Stalactites",
-                17 => "Mr Dark's Dare"
+                17 => "Mr Dark's Dare",
+                _ => "Unknown"
             };
 
             string health = "";

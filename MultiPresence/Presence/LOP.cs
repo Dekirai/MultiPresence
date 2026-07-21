@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class LOP
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1344746533446483998");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Lies of P.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(LOP), "LOP-Win64-Shipping", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("LOP-Win64-Shipping")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("LOP-Win64-Shipping");
             }
             catch
             {
@@ -31,10 +30,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("LOP-Win64-Shipping");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("LOP-Win64-Shipping"))
             {
                 int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x06F367B8, [0x0, 0x20, 0x160, 0x40, 0xE0, 0x28, 0xD2C]), true);
 
@@ -74,16 +72,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class DSR
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1343654813866528900");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Dark Souls I.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(DSR), "DarkSoulsRemastered", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("DarkSoulsRemastered")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("DarkSoulsRemastered");
             }
             catch
             {
@@ -31,10 +30,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("DarkSoulsRemastered");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("DarkSoulsRemastered"))
             {
                 int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01C77E50, [0x68, 0x3EC]), true);
 
@@ -74,16 +72,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -113,7 +107,8 @@ namespace MultiPresence.Presence
                 6 => "Sorcerer",
                 7 => "Pyromancer",
                 8 => "Cleric",
-                9 => "Deprived"
+                9 => "Deprived",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>

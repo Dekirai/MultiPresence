@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.CCFFVII;
 using System.Diagnostics;
 
@@ -7,25 +9,22 @@ namespace MultiPresence.Presence
     public class CCFFVII
     {
 
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1271522314248523837");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/CRISIS CORE –FINAL FANTASY VII– REUNION.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(CCFFVII), "CCFF7R-Win64-Shipping", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("CCFF7R-Win64-Shipping")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("CCFF7R-Win64-Shipping");
             }
             catch
             {
@@ -33,10 +32,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("CCFF7R-Win64-Shipping");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("CCFF7R-Win64-Shipping"))
             {
                 int hp_mission = Hypervisor.Read<int>(0x718DC28);
 
@@ -50,16 +48,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "CRISIS CORE –FINAL FANTASY VII– REUNION", placeholders);
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

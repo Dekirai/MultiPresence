@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class P5T
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1482730815220617226");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Persona 5 Tactica.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(P5T), "Persona 5 Tactica", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("Persona 5 Tactica")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("Persona 5 Tactica");
             }
             catch
             {
@@ -31,10 +30,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("Persona 5 Tactica");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("Persona 5 Tactica"))
             {
                 int currentturn = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x0495C0F0, [0xB8, 0x28, 0xA38, 0x10, 0x20, 0x50], false, "GameAssembly.dll"), true);
 
@@ -48,16 +46,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Persona 5 Tactica", placeholders);
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

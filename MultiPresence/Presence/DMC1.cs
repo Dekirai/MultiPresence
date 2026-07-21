@@ -1,30 +1,29 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class DMC1
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static async void DoAction()
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
+        public static async Task DoAction()
         {
             await Task.Delay(5000);
             GetPID();
             discord = new DiscordRpcClient("1358367799285649418");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Devil May Cry 1.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(DMC1), "dmc1", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("dmc1")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("dmc1");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("dmc1");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("dmc1"))
             {
                 uint healthdata = Hypervisor.GetPointer32(0x5EAB88, [0x4571]);
                 int maxhealth = Hypervisor.Read<short>(healthdata + 0x427, true);
@@ -80,16 +78,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -107,7 +101,8 @@ namespace MultiPresence.Presence
             {
                 3 => "Normal",
                 5 => "Hard",
-                6 => "Dante Must Die"
+                6 => "Dante Must Die",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>

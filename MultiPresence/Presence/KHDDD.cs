@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.KHDDD;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class KHDDD
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("906904369151213629");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts Dream Drop Distance.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(KHDDD), "KINGDOM HEARTS Dream Drop Distance", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("KINGDOM HEARTS Dream Drop Distance");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS Dream Drop Distance");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("KINGDOM HEARTS Dream Drop Distance"))
             {
                 int world_get = Hypervisor.Read<byte>(0xA40764);
                 int room_get = Hypervisor.Read<byte>(0xA40765);
@@ -62,16 +60,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

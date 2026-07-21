@@ -1,19 +1,12 @@
-namespace MultiPresenceGame
+namespace MultiPresenceGame;
+
+internal static class Program
 {
-    internal static class Program
+    [STAThread]
+    private static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            MainForm frm = new MainForm();
-            frm.Visible = false;
-            Application.Run();
-        }
+        ApplicationConfiguration.Initialize();
+        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+        Application.Run(new MainForm());
     }
 }

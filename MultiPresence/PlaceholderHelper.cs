@@ -1,48 +1,106 @@
-﻿using DiscordRPC;
+using DiscordRPC;
+using MultiPresence.Infrastructure;
 
-namespace MultiPresence
+namespace MultiPresence;
+
+public static class PlaceholderHelper
 {
-    public static class PlaceholderHelper
-    {
-        public static Timestamps _startTimestamp = Timestamps.Now;
+    public static Timestamps _startTimestamp = Timestamps.Now;
 
-        public static async Task<Dictionary<string, object>> GetPlaceholders(Func<Task<Dictionary<string, object>>> generatePlaceholders)
+    public static async Task<Dictionary<string, object>> GetPlaceholders(
+        Func<Task<Dictionary<string, object>>> generatePlaceholders)
+    {
+        ArgumentNullException.ThrowIfNull(generatePlaceholders);
+        return await generatePlaceholders().ConfigureAwait(false);
+    }
+
+    public static void UpdateDiscordStatus(
+        DiscordRpcClient? discord,
+        DiscordStatusUpdater? updater,
+        string gameName,
+        Dictionary<string, object> placeholders,
+        string state = "Default")
+    {
+        if (discord is null || updater is null)
         {
-            return await generatePlaceholders();
+            AppLog.Warning($"Discord presence for '{gameName}' was skipped because it is not initialized.");
+            return;
         }
 
-        public static void UpdateDiscordStatus(DiscordRpcClient discord, DiscordStatusUpdater updater, string gameName, Dictionary<string, object> placeholders, string state = "Default")
+        try
         {
-            string button1text = updater.UpdateButton1Text(gameName, placeholders, state);
-            string button1url = updater.UpdateButton1URL(gameName, placeholders, state);
-            string button2text = updater.UpdateButton2Text(gameName, placeholders, state);
-            string button2url = updater.UpdateButton2URL(gameName, placeholders, state);
-
-            var buttons = new List<DiscordRPC.Button>();
-
-            if (!string.IsNullOrEmpty(button1url))
+            var buttons = CreateButtons(updater, gameName, placeholders, state);
+            discord.SetPresence(new RichPresence
             {
-                buttons.Add(new DiscordRPC.Button { Label = button1text, Url = button1url });
-            }
-            if (!string.IsNullOrEmpty(button2url))
-            {
-                buttons.Add(new DiscordRPC.Button { Label = button2text, Url = button2url });
-            }
-
-            discord.SetPresence(new RichPresence()
-            {
-                Details = updater.UpdateDetails(gameName, placeholders, state),
-                State = updater.UpdateState(gameName, placeholders, state),
-                Assets = new Assets()
+                Details = Limit(updater.UpdateDetails(gameName, placeholders, state), 128),
+                State = Limit(updater.UpdateState(gameName, placeholders, state), 128),
+                Assets = new Assets
                 {
-                    LargeImageKey = updater.UpdateLargeAsset(gameName, placeholders, state),
-                    LargeImageText = updater.UpdateLargeAssetText(gameName, placeholders, state),
-                    SmallImageKey = updater.UpdateSmallAsset(gameName, placeholders, state),
-                    SmallImageText = updater.UpdateSmallAssetText(gameName, placeholders, state)
+                    LargeImageKey = EmptyToNull(Limit(
+                        updater.UpdateLargeAsset(gameName, placeholders, state),
+                        256)),
+                    LargeImageText = EmptyToNull(Limit(
+                        updater.UpdateLargeAssetText(gameName, placeholders, state),
+                        128)),
+                    SmallImageKey = EmptyToNull(Limit(
+                        updater.UpdateSmallAsset(gameName, placeholders, state),
+                        256)),
+                    SmallImageText = EmptyToNull(Limit(
+                        updater.UpdateSmallAssetText(gameName, placeholders, state),
+                        128))
                 },
                 Timestamps = _startTimestamp,
-                Buttons = buttons.Count > 0 ? buttons.ToArray() : null
+                Buttons = buttons.Length == 0 ? null : buttons
             });
         }
+        catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
+        {
+            AppLog.Warning($"Could not publish Discord presence for '{gameName}'.", exception);
+        }
     }
+
+    private static DiscordRPC.Button[] CreateButtons(
+        DiscordStatusUpdater updater,
+        string gameName,
+        Dictionary<string, object> placeholders,
+        string state)
+    {
+        var candidates = new[]
+        {
+            (
+                updater.UpdateButton1Text(gameName, placeholders, state),
+                updater.UpdateButton1URL(gameName, placeholders, state)),
+            (
+                updater.UpdateButton2Text(gameName, placeholders, state),
+                updater.UpdateButton2URL(gameName, placeholders, state))
+        };
+
+        return candidates
+            .Where(candidate =>
+                !string.IsNullOrWhiteSpace(candidate.Item1) && IsValidWebUrl(candidate.Item2))
+            .Select(candidate => new DiscordRPC.Button
+            {
+                Label = Limit(candidate.Item1, 32),
+                Url = candidate.Item2
+            })
+            .ToArray();
+    }
+
+    private static bool IsValidWebUrl(string? value) =>
+        Uri.TryCreate(value, UriKind.Absolute, out var uri) &&
+        (uri.Scheme.Equals(Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase) ||
+         uri.Scheme.Equals(Uri.UriSchemeHttps, StringComparison.OrdinalIgnoreCase));
+
+    private static string Limit(string? value, int maximumLength)
+    {
+        if (string.IsNullOrEmpty(value) || value.Length <= maximumLength)
+        {
+            return value ?? string.Empty;
+        }
+
+        return string.Concat(value.AsSpan(0, maximumLength - 1), "…");
+    }
+
+    private static string? EmptyToNull(string value) =>
+        string.IsNullOrWhiteSpace(value) ? null : value;
 }

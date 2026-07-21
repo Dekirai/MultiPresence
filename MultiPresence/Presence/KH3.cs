@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.KH3;
 using MultiPresence.Models.KHIII;
 using System.Diagnostics;
@@ -8,14 +10,14 @@ namespace MultiPresence.Presence
     public class KH3
     {
         public static ulong _room_address = 0;
-        static private DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        static private DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static string difficulty = "";
-        public static string? room = null;
+        public static string room = null;
         public static int level = 0;
         public static int gummilevel = 0;
-        public static string[]? world = null;
-        public static async void DoAction()
+        public static string[] world = null;
+        public static async Task DoAction()
         {
             await Task.Delay(7500); // Wait 7.5 seconds to make sure that the AoB is actually findable
             GetPID();
@@ -23,17 +25,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("827190870724837406");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts III.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(KH3), "KINGDOM HEARTS III", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS III")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("KINGDOM HEARTS III");
             }
             catch
             {
@@ -41,10 +40,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS III");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("KINGDOM HEARTS III"))
             {
                 try
                 {
@@ -94,15 +92,12 @@ namespace MultiPresence.Presence
                     discord.UpdateDetails($"In Main Menu");
                     discord.UpdateState("");
                 }
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

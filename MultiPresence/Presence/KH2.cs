@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.KH2;
 using System.Diagnostics;
 
@@ -6,8 +8,8 @@ namespace MultiPresence.Presence
 {
     public class KH2
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
@@ -15,17 +17,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("826145131152408625");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Kingdom Hearts II.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(KH2), "KINGDOM HEARTS II FINAL MIX", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("KINGDOM HEARTS II FINAL MIX");
             }
             catch
             {
@@ -33,10 +32,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("KINGDOM HEARTS II FINAL MIX");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("KINGDOM HEARTS II FINAL MIX"))
             {
                 bool isEpicGames = false;
                 int battleflag = 0;
@@ -79,16 +77,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

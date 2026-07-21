@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.MMBN6;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class MMBN6
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1257021467699449866");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 6.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(MMBN6), "MMBN_LC2", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("MMBN_LC2")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("MMBN_LC2");
             }
             catch
             {
@@ -32,16 +31,16 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("MMBN_LC2");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("MMBN_LC2"))
             {
                 int _game = Hypervisor.Read<byte>(0xABEF0A0);
                 if (_game != 9 && _game != 10)
                 {
                     discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
+                    updater.Dispose();
+                    PresenceRuntime.RequestDetection();
                 }
                 else
                 {
@@ -57,16 +56,13 @@ namespace MultiPresence.Presence
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 6", placeholders);
                     }
-                    await Task.Delay(3000);
-                    Thread thread = new Thread(RPC);
-                    thread.Start();
                 }
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -93,6 +89,7 @@ namespace MultiPresence.Presence
             {
                 9 => "Mega Man Battle Network 6: Cybeast Gregar",
                 10 => "Mega Man Battle Network 6: Cybeast Falzar",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>

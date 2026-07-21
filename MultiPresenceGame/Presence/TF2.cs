@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresenceGame.Runtime;
+using DiscordRPC;
 using Steamworks;
 using System.Diagnostics;
 
@@ -6,34 +8,31 @@ namespace MultiPresenceGame.Presence
 {
     public class TF2
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
-            Process[] ow = Process.GetProcessesByName("tf_win64");
-            if (ow.Length > 0)
+            if (SteamHostRuntime.IsProcessRunning("tf_win64"))
             {
                 discord = new DiscordRpcClient("1401813854002085921");
                 InitializeDiscord();
-                File.WriteAllText("Assets/steam_appid.txt", "440");
+                SteamHostRuntime.WriteSteamAppId("440");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/Config/Team Fortress 2.json");
-                Thread thread = new Thread(RPC);
-                thread.Start();
+                updater = new DiscordStatusUpdater("Config/Team Fortress 2.json");
+                SteamHostRuntime.Start(RPC);
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("tf_win64");
-                if (game.Length > 0)
+                if (SteamHostRuntime.IsProcessRunning("tf_win64"))
                 {
                     string presence = GetSteamRichPresence();
 
@@ -88,7 +87,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamHostRuntime.ClearSteamAppId();
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();

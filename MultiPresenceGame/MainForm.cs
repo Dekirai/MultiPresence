@@ -1,93 +1,55 @@
 using MultiPresenceGame.Presence;
-using Steamworks;
-using System.Timers;
 
-namespace MultiPresenceGame
+namespace MultiPresenceGame;
+
+public partial class MainForm : Form
 {
-    public partial class MainForm : Form
+    private static readonly IReadOnlyDictionary<string, Action> Integrations =
+        new Dictionary<string, Action>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Call of DutyÂ®"] = COD.DoAction,
+            ["Diablo IV"] = D4.DoAction,
+            ["Gunfire Reborn"] = GFR.DoAction,
+            ["Hello Kitty Island Adventure"] = HK.DoAction,
+            ["Hogwarts Legacy"] = HL.DoAction,
+            ["Labyrinthine"] = LR.DoAction,
+            ["Overwatch"] = OW.DoAction,
+            ["Team Fortress 2"] = TF2.DoAction,
+            ["Temtem: Swarm"] = TTS.DoAction
+        };
+
+    private readonly System.Windows.Forms.Timer _detectionTimer = new() { Interval = 2000 };
+
+    public MainForm()
     {
-        public static System.Timers.Timer gameUpdater = new System.Timers.Timer(3000);
-        public MainForm()
+        InitializeComponent();
+        Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+        _detectionTimer.Tick += DetectionTimerOnTick;
+        _detectionTimer.Start();
+    }
+
+    protected override void OnShown(EventArgs e)
+    {
+        base.OnShown(e);
+        Hide();
+    }
+
+    protected override void OnFormClosed(FormClosedEventArgs e)
+    {
+        _detectionTimer.Stop();
+        _detectionTimer.Tick -= DetectionTimerOnTick;
+        base.OnFormClosed(e);
+    }
+
+    private void DetectionTimerOnTick(object? sender, EventArgs e)
+    {
+        var game = GameDetector.GetGame();
+        if (!Integrations.TryGetValue(game, out var start))
         {
-            InitializeComponent();
-#if DEBUG
-            File.WriteAllText("steam_appid.txt", "2344520");
-            if (!SteamAPI.Init())
-            {
-                //Do nothing
-            }
-            int keyCount = SteamFriends.GetFriendRichPresenceKeyCount(SteamUser.GetSteamID());
-
-            if (keyCount == 0)
-            {
-                MessageBox.Show("No Rich Presence keys found.");
-            }
-            else
-            {
-                for (int i = 0; i < keyCount; i++)
-                {
-                    string key = SteamFriends.GetFriendRichPresenceKeyByIndex(SteamUser.GetSteamID(), i);
-                    string value = SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), key);
-
-                    MessageBox.Show($"Key: {key}, Value: {value}");
-                }
-            }
-            gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
-            gameUpdater.Interval = 5000;
-            gameUpdater.Enabled = true;
-            gameUpdater.Start();
-#else
-            gameUpdater.Elapsed += new ElapsedEventHandler(gameUpdater_Tick);
-            gameUpdater.Interval = 5000;
-            gameUpdater.Enabled = true;
-            gameUpdater.Start();
-#endif
+            return;
         }
 
-        private void gameUpdater_Tick(object sender, EventArgs e)
-        {
-            string game = GameDetector.GetGame();
-            string json;
-
-            switch (game)
-            {
-                case "Call of Duty®":
-                    COD.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Diablo IV":
-                    D4.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Gunfire Reborn":
-                    GFR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Hello Kitty Island Adventure":
-                    HK.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Hogwarts Legacy":
-                    HL.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Labyrinthine":
-                    LR.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Overwatch":
-                    OW.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Team Fortress 2":
-                    TF2.DoAction();
-                    gameUpdater.Stop();
-                    break;
-                case "Temtem: Swarm":
-                    TTS.DoAction();
-                    gameUpdater.Stop();
-                    break;
-            }
-        }
+        _detectionTimer.Stop();
+        start();
     }
 }

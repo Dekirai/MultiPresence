@@ -1,55 +1,57 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
-namespace MultiPresenceGame
+namespace MultiPresenceGame;
+
+internal static class GameDetector
 {
-    public static class GameDetector
+    private static readonly IReadOnlyList<(string ProcessName, string GameName)> Games =
+    [
+        ("cod", "Call of Duty®"),
+        ("Diablo IV", "Diablo IV"),
+        ("Gunfire Reborn", "Gunfire Reborn"),
+        ("Hello Kitty", "Hello Kitty Island Adventure"),
+        ("HogwartsLegacy", "Hogwarts Legacy"),
+        ("Labyrinthine", "Labyrinthine"),
+        ("Overwatch", "Overwatch"),
+        ("tf_win64", "Team Fortress 2"),
+        ("TemtemSwarm", "Temtem: Swarm")
+    ];
+
+    public static string GetGame()
     {
-        // Mapping process names to game titles
-        // {"processname", "Game Title"}
-
-        private static readonly Dictionary<string, string> GameMap = new(StringComparer.OrdinalIgnoreCase)
+        Process[] processes = [];
+        try
         {
-            { "cod", "Call of Duty®" },
-            { "Diablo IV", "Diablo IV" },
-            { "Gunfire Reborn", "Gunfire Reborn" },
-            { "Hello Kitty", "Hello Kitty Island Adventure" },
-            { "HogwartsLegacy", "Hogwarts Legacy" },
-            { "Labyrinthine", "Labyrinthine" },
-            { "Overwatch", "Overwatch" },
-            { "tf_win64", "Team Fortress 2" },
-            { "TemtemSwarm", "Temtem: Swarm" }
-        };
-
-        public static string GetGame()
-        {
-            var processes = Process
-                            .GetProcesses()
-                            .DistinctBy(p => p.ProcessName, StringComparer.OrdinalIgnoreCase)
-                            .ToDictionary(
-                            p => p.ProcessName,
-                            StringComparer.OrdinalIgnoreCase
-            );
-
-            foreach (var kvp in GameMap)
+            processes = Process.GetProcesses();
+            var names = processes.Select(SafeName).ToHashSet(StringComparer.OrdinalIgnoreCase);
+            foreach (var (processName, gameName) in Games)
             {
-                if (processes.ContainsKey(kvp.Key))
+                if (names.Contains(processName))
                 {
-                    // Special-case 'game' for Mega Man 11, Persona 5 Strikers, etc.
-                    return kvp.Key == "game"
-                        ? DetectGameTitle(processes["game"]) ?? kvp.Value
-                        : kvp.Value;
+                    return gameName;
                 }
             }
 
             return string.Empty;
         }
-
-        private static string? DetectGameTitle(Process gameProcess)
+        finally
         {
-            var title = gameProcess.MainWindowTitle;
-            return title.Contains("MEGAMAN11") ? "Mega Man 11"
-                 : title.Contains("Persona 5 Strikers") ? "Persona 5 Strikers"
-                 : null;
+            foreach (var process in processes)
+            {
+                process.Dispose();
+            }
+        }
+    }
+
+    private static string SafeName(Process process)
+    {
+        try
+        {
+            return process.ProcessName;
+        }
+        catch
+        {
+            return string.Empty;
         }
     }
 }

@@ -1,30 +1,29 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class SB
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
-        public static string[]? levelvalue = null;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
+        public static string[] levelvalue = null;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1384106213213737002");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/Config/Stellar Blade.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(SB), "SB-Win64-Shipping", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("SB-Win64-Shipping")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("SB-Win64-Shipping");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("SB-Win64-Shipping");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("SB-Win64-Shipping"))
             {
                 ulong _base = Hypervisor.GetPointer64(0x07031570, [0xC8, 0x28, 0x0, 0x11C]);
                 float _maxhealth = Hypervisor.Read<float>(_base + 0x4, true);
@@ -76,16 +74,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

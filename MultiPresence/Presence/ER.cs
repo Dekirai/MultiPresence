@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class ER
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1344571255453515849");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Elden Ring.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(ER), "eldenring", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("eldenring")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("eldenring");
             }
             catch
             {
@@ -31,10 +30,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("eldenring");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("eldenring"))
             {
                 int maxhp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
 
@@ -74,16 +72,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -113,7 +107,8 @@ namespace MultiPresence.Presence
                 6 => "Confessor",
                 7 => "Samurai",
                 8 => "Prisoner",
-                9 => "Wretch"
+                9 => "Wretch",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>

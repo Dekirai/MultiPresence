@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.VS;
 using System.Diagnostics;
 
@@ -7,8 +9,8 @@ namespace MultiPresence.Presence
     public class VS
     {
         static string process = "VampireSurvivors";
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static string adventure = "";
 
         public static void DoAction()
@@ -17,17 +19,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("1283783524423438409");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Vampire Survivors.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(VS), "VampireSurvivors", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("VampireSurvivors")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("VampireSurvivors");
             }
             catch
             {
@@ -35,10 +34,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName(process);
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning(process))
             {
                 var characterid_base = Hypervisor.GetPointer64(0x01B450B8, [0x48, 0xA0, 0xC0, 0x0, 0x2C0, 0x50, 0x44], false, "UnityPlayer.dll");
                 var characterid_adventure_base = Hypervisor.GetPointer64(0x01B450B8, [0x48, 0xA0, 0xC0, 0x0, 0x2C0, 0x60, 0x44], false, "UnityPlayer.dll");
@@ -91,16 +89,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

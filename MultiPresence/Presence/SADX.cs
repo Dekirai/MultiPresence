@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.SADX;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class SADX
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1345421793787117653");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Sonic Adventure DX.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(SADX), "Sonic Adventure DX", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("Sonic Adventure DX")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("Sonic Adventure DX");
             }
             catch
             {
@@ -32,10 +31,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("Sonic Adventure DX");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("Sonic Adventure DX"))
             {
                 int stage = Hypervisor.Read<byte>(0x5739BF0);
                 int rings = Hypervisor.Read<int>(0x573EBB8);
@@ -67,16 +65,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Sonic Adventure DX", placeholders, "Level");
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -99,7 +93,8 @@ namespace MultiPresence.Presence
                 4 => "big",
                 5 => "102",
                 6 => "super",
-                7 => "metal"
+                7 => "metal",
+                _ => "Unknown"
             };
 
             if (stage == 26 || stage == 33 || stage == 34 || stage == 29 || stage == 32)

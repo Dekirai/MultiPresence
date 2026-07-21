@@ -1,29 +1,28 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using System.Diagnostics;
 
 namespace MultiPresence.Presence
 {
     public class P5R
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1404353962911469648");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Persona 5 Royal.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(P5R), "P5R", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("P5R")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("P5R");
             }
             catch
             {
@@ -31,14 +30,12 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("P5R");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("P5R"))
             {
                 try
                 {
-                    ulong _base = 0x28551FC;
                     int inbattle = Hypervisor.Read<byte>(0x286BFCB);
 
                     if (inbattle == 1)
@@ -66,17 +63,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -99,7 +91,8 @@ namespace MultiPresence.Presence
                 3 => "Afternoon",
                 4 => "After School",
                 5 => "Evening",
-                6 => "Night"
+                6 => "Night",
+                _ => "Unknown"
             };
 
             #region Currentday list
@@ -468,7 +461,8 @@ namespace MultiPresence.Presence
                 368 => "04/04 (Tue)",
                 369 => "04/05 (Wed)",
                 370 => "04/06 (Thu)",
-                371 => "04/07 (Fri)"
+                371 => "04/07 (Fri)",
+                _ => "Unknown"
             };
             #endregion
 

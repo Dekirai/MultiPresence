@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.PDMM;
 using System.Diagnostics;
 
@@ -6,8 +8,8 @@ namespace MultiPresence.Presence
 {
     public class PDMM
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
@@ -15,17 +17,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("1373346929479647252");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Project Diva Mega Mix+.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(PDMM), "DivaMegaMix", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("DivaMegaMix")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("DivaMegaMix");
             }
             catch
             {
@@ -33,10 +32,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("DivaMegaMix");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("DivaMegaMix"))
             {
                 int isIngame = Hypervisor.Read<byte>(0xDB9A84);
 
@@ -50,16 +48,12 @@ namespace MultiPresence.Presence
                     var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Project Diva Mega Mix+", placeholders);
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 
@@ -76,7 +70,8 @@ namespace MultiPresence.Presence
                 1 => "Normal",
                 2 => "Hard",
                 3 => "Extreme",
-                4 => "Extra Extreme"
+                4 => "Extra Extreme",
+                _ => "Unknown"
             };
 
             return new Dictionary<string, object>
@@ -106,7 +101,8 @@ namespace MultiPresence.Presence
                 0 => "Easy",
                 1 => "Normal",
                 2 => "Hard",
-                3 => "Extreme"
+                3 => "Extreme",
+                _ => "Unknown"
             };
 
             if (exextreme == 1)

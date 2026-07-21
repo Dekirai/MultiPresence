@@ -1,4 +1,5 @@
-﻿using DiscordRPC;
+#nullable disable
+using DiscordRPC;
 
 namespace MultiPresenceGame
 {

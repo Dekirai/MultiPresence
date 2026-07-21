@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.VOM;
 using System.Diagnostics;
 
@@ -6,8 +8,8 @@ namespace MultiPresence.Presence
 {
     public class VOM
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static string difficulty = "";
 
         public static void DoAction()
@@ -16,17 +18,14 @@ namespace MultiPresence.Presence
             discord = new DiscordRpcClient("1279828464613982333");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Visions of Mana.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(VOM), "VisionsofMana-Win64-Shipping", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("VisionsofMana-Win64-Shipping")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("VisionsofMana-Win64-Shipping");
             }
             catch
             {
@@ -34,10 +33,9 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("VisionsofMana-Win64-Shipping");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("VisionsofMana-Win64-Shipping"))
             {
                 float hp = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x48]), true);
                 float hpmax = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x067F3510, [0x30, 0x228, 0x338, 0x9A8, 0x140, 0x0, 0x68]), true);
@@ -84,16 +82,12 @@ namespace MultiPresence.Presence
                         Timestamps = PlaceholderHelper._startTimestamp
                     });
                 }
-
-                await Task.Delay(3000);
-                Thread thread = new Thread(RPC);
-                thread.Start();
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresence.Runtime;
+using DiscordRPC;
 using MultiPresence.Models.MMBN2;
 using System.Diagnostics;
 
@@ -6,25 +8,22 @@ namespace MultiPresence.Presence
 {
     public class MMBN2
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
         public static void DoAction()
         {
             GetPID();
             discord = new DiscordRpcClient("1434620841689092188");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 2.json");
-            Thread thread = new Thread(RPC);
-            thread.Start();
+            PresenceRuntime.Start(nameof(MMBN2), "MMBN_LC1", RPC);
         }
 
         private static void GetPID()
         {
             try
             {
-                var _myProcess = Process.GetProcessesByName("MMBN_LC1")[0];
-                if (_myProcess.Id > 0)
-                    Hypervisor.AttachProcess(_myProcess);
+                ProcessMonitor.TryAttach("MMBN_LC1");
             }
             catch
             {
@@ -32,16 +31,16 @@ namespace MultiPresence.Presence
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
-            Process[] game = Process.GetProcessesByName("MMBN_LC1");
-            if (game.Length > 0)
+            if (ProcessMonitor.IsRunning("MMBN_LC1"))
             {
                 int _game = Hypervisor.Read<byte>(0x987499C);
                 if (_game != 1)
                 {
                     discord.Deinitialize();
-                    MainForm.gameUpdater.Start();
+                    updater.Dispose();
+                    PresenceRuntime.RequestDetection();
                 }
                 else
                 {
@@ -57,16 +56,13 @@ namespace MultiPresence.Presence
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
                         PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Mega Man Battle Network 2", placeholders);
                     }
-                    await Task.Delay(3000);
-                    Thread thread = new Thread(RPC);
-                    thread.Start();
                 }
             }
             else
             {
                 discord.Deinitialize();
                 updater.Dispose();
-                MainForm.gameUpdater.Start();
+                PresenceRuntime.RequestDetection();
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using DiscordRPC;
+#nullable disable
+using MultiPresenceGame.Runtime;
+using DiscordRPC;
 using Steamworks;
 using System.Diagnostics;
 
@@ -6,34 +8,31 @@ namespace MultiPresenceGame.Presence
 {
     public class COD
     {
-        private static DiscordRpcClient? discord;
-        private static DiscordStatusUpdater? updater;
+        private static DiscordRpcClient discord;
+        private static DiscordStatusUpdater updater;
 
         public static void DoAction()
         {
-            Process[] cod = Process.GetProcessesByName("cod");
-            if (cod.Length > 0)
+            if (SteamHostRuntime.IsProcessRunning("cod"))
             {
                 discord = new DiscordRpcClient("1326219194316099696");
                 InitializeDiscord();
-                File.WriteAllText("Assets/steam_appid.txt", "1938090");
+                SteamHostRuntime.WriteSteamAppId("1938090");
                 // Initialize Steamworks
                 if (!SteamAPI.Init())
                 {
                     //Do nothing
                 }
-                updater = new DiscordStatusUpdater("Assets/Config/Call of Duty.json");
-                Thread thread = new Thread(RPC);
-                thread.Start();
+                updater = new DiscordStatusUpdater("Config/Call of Duty.json");
+                SteamHostRuntime.Start(RPC);
             }
         }
 
-        private static async void RPC()
+        private static async Task RPC()
         {
             while (true)
             {
-                Process[] game = Process.GetProcessesByName("cod");
-                if (game.Length > 0)
+                if (SteamHostRuntime.IsProcessRunning("cod"))
                 {
                     string presence = GetSteamRichPresence();
 
@@ -46,11 +45,7 @@ namespace MultiPresenceGame.Presence
                     {
                         try
                         {
-                            int mapkey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "mapname"));
                             int modekey = int.Parse(SteamFriends.GetFriendRichPresence(SteamUser.GetSteamID(), "gamemode"));
-
-                            string mode = "";
-                            string map = "";
 
                             if (modekey == 1371735337 || modekey == 1803630921 || modekey == 1751835769)
                             {
@@ -75,7 +70,7 @@ namespace MultiPresenceGame.Presence
                 else
                 {
                     SteamFriends.ClearRichPresence();
-                    File.WriteAllText("Assets/steam_appid.txt", "");
+                    SteamHostRuntime.ClearSteamAppId();
                     SteamAPI.Shutdown();
 
                     discord.Deinitialize();
