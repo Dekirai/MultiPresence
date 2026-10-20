@@ -1,7 +1,6 @@
 # MultiPresence
 > [!WARNING]  
-> MultiPresence is no longer under active development and updates are rare.  
-> Don't expect frequent updates.  
+> MultiPresence is currently being reworked extensively. Updates will be available again soon.  
 
 > **MultiPresence** enables Discord Rich Presence for games that don’t natively support it.
 
