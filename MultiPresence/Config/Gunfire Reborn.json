@@ -2,11 +2,11 @@
     "Games": {
         "Gunfire Reborn": {
             "Default": {
-                "Details": "{steam_display}",
-                "State": "",
+                "Details": "{character} | Level {level} | {difficulty}",
+                "State": "{stage} | Copper: {copper} | Soul Essence: {soulessence}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Gunfire Reborn",
+                "LargeAssetText": "HP: {hp}/{maxhp} | Shield: {shield}/{maxshield}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Kingdom Hearts 0.2 Birth by Sleep": {
+            "In_World": {
+                "Details": "Lv. {level} ({difficulty})",
+                "State": "{location}",
+                "LargeAsset": "{world_icon_name}",
+                "SmallAsset": "",
+                "LargeAssetText": "{world} | HP {hp}/{maxhp} | MP {mp}/{maxmp}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

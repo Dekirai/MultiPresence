@@ -1,0 +1,395 @@
+{
+  "source": "Installed KINGDOM HEARTS III Steam assets, selected highest-priority mounted PAK entries",
+  "parser": "CUE4Parse 1.2.2.202610 GAME_KingdomHearts3",
+  "primary_parser_source": "https://github.com/FabianFG/CUE4Parse",
+  "package_format_reference": "https://github.com/KH3-Modding-Org/OpenKH3Modding/blob/main/Tutorials/Custom%20Animation%20Swapping.md",
+  "asset_hashes": {
+    "System/DataTable/TresAreaNameTable.uasset": "9c021c02c65477b17531ddd811eb06dde9a2182147962460068aaab674f925b3",
+    "System/DataTable/TresAreaNameTable.uexp": "bd885a55ab1790d55d619c57a10a18ed8ff9ce39eb122a90ea8811b0b0c2e3ce",
+    "System/DataTable/TresMapNameTable.uasset": "c47fdf177d96c6aff503fb3e9ef44ad06de16196dc08afca93c8a233872fa0d4",
+    "System/DataTable/TresMapNameTable.uexp": "8bf688f3a1fc01b0580398c6d950d5a7d0b4be5b8d461e4d902d0ba7aadf7a7b",
+    "Localization/Game/de/kh3_map.locres": "12d99f656595facc13691143260fa541b02e13b81ba798ee7d3b918c0769fa3a",
+    "Localization/Game/en/kh3_map.locres": "a2c663655c65255b6ec5463a188f2c4ec2d231199793be7d7de50bcfab39b8e5",
+    "Localization/Game/en/kh3_menu.locres": "78edc71207ce56fd3a1caf01fb08b08a1fc110cc6ffa1af833ca27502eee0fcc"
+  },
+  "counts": {
+    "worlds": 21,
+    "maps": 32,
+    "areaRows": 98,
+    "namedAreas": 81
+  },
+  "join": "Area row exact AreaNameKey/SubAreaNameKey -> localization namespace.key; MapNameKey -> MapNameTable exact row -> localization.",
+  "unknown_policy": "Empty lookup; no inferred numeric world/room IDs. Area accepted only if canonical map matches actual raw map, or exact catalog area row starts with actual raw map plus _An_. In the latter case the catalog canonical map supplies its display label.",
+  "raw_map_aliases": {
+    "fz_05_An_01": "fz_01",
+    "dw_71_An_01": "dw_01",
+    "dw_21_An_01": "dw_01"
+  },
+  "current_example": {
+    "areaRow": "he_03_An_03",
+    "map": "he_03",
+    "English": "Thebes / Overlook",
+    "German": "Aussichtspunkt"
+  },
+  "missing": [],
+  "runtime": {
+    "steamAppId": 2552450,
+    "steamBuildId": 14790811,
+    "executableSha256": "f53c398936560d543f2aa8e6283733572fdf8ad7c14e03459c12e039cb1bd0bc",
+    "applicationId": "827190870724837406",
+    "access": "ReadProcessMemory only; no target writes, injected hooks or game calls.",
+    "patternCount": 17,
+    "patterns": {
+      "World": {
+        "name": "World",
+        "pattern": "80 7C 24 38 00 48 8B C8 48 8B 05 ?? ?? ?? ?? 48 0F 45 C1 48 83 C4 28 C3",
+        "rva": 72845044,
+        "operand": 11,
+        "length": 15,
+        "target": 165573496
+      },
+      "Names": {
+        "name": "Names",
+        "rva": 48088084,
+        "pattern": "48 8B 05 ?? ?? ?? ?? 48 85 C0 75 ?? B9 08 04 00 00 48 89 5C 24 20 E8 ?? ?? ?? ?? 48 89 44 24 30",
+        "hits": [
+          "0x2ddc414"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rip + 0x6e8e035]",
+          "test rax, rax",
+          "jne 0x142ddc47b",
+          "mov ecx, 0x408",
+          "mov qword ptr [rsp + 0x20], rbx",
+          "call 0x14151c990",
+          "mov qword ptr [rsp + 0x30], rax"
+        ],
+        "targetRva": "0x9c6a450",
+        "displacementOffset": 3,
+        "instructionLength": 7,
+        "length": 7,
+        "operand": 3,
+        "target": 164013136
+      },
+      "Difficulty": {
+        "name": "Difficulty",
+        "rva": 1007036,
+        "pattern": "48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 25 ?? ?? ?? ?? FC C7 05 ?? ?? ?? ?? FF FF FF FF 33 DB",
+        "hits": [
+          "0xf5dbc"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "lea rcx, [rip + 0x86f6ec9]",
+          "call 0x140e83cc0",
+          "lea rcx, [rip + 0x86f6f19]",
+          "call 0x1414d2600",
+          "and dword ptr [rip + 0x9046385], 0xfffffffc",
+          "mov dword ptr [rip + 0x904637f], 0xffffffff",
+          "xor ebx, ebx"
+        ],
+        "targetRva": "0x87ecc8c",
+        "displacementOffset": 3,
+        "instructionLength": 7,
+        "length": 7,
+        "operand": 3,
+        "target": 142527628
+      },
+      "CurrentAreaLayout": {
+        "name": "CurrentAreaLayout",
+        "pattern": "48 8D 81 70 08 00 00 C3",
+        "rva": 15369760,
+        "operand": 0,
+        "length": 0
+      },
+      "CurrentAreaWrite": {
+        "name": "CurrentAreaWrite",
+        "pattern": "49 8B CE E8 ?? ?? ?? ?? 48 8B 4D 48 48 89 08 49 8B CE E8 ?? ?? ?? ?? 44 89 68 08",
+        "rva": 18250626,
+        "operand": 0,
+        "length": 0
+      },
+      "UObjectNameLayout": {
+        "name": "UObjectNameLayout",
+        "pattern": "48 8B 42 20 48 89 44 24 40 48 8B D3 48 8D 4C 24 40 E8 ?? ?? ?? ?? 48 8B C3 48 83 C4 30 5B C3",
+        "rva": 68746860,
+        "operand": 0,
+        "length": 0
+      },
+      "NameEntryLayout": {
+        "name": "NameEntryLayout",
+        "rva": 48094512,
+        "pattern": "48 8D 71 10 33 C0 F6 01 01 48 89 02 48 89 42 08 74 ?? 48 85 F6 74 ?? 66 39 06 74 ??",
+        "hits": [
+          "0x2dddd30"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "lea rsi, [rcx + 0x10]",
+          "xor eax, eax",
+          "test byte ptr [rcx], 1",
+          "mov qword ptr [rdx], rax",
+          "mov qword ptr [rdx + 8], rax",
+          "je 0x142dddd95",
+          "test rsi, rsi",
+          "je 0x142dddd82",
+          "cmp word ptr [rsi], ax",
+          "je 0x142dddd82"
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "NameIndexLayout": {
+        "name": "NameIndexLayout",
+        "rva": 48066657,
+        "pattern": "8B 03 99 81 E2 FF 3F 00 00 03 C2 44 8B C0 25 FF 3F 00 00 2B C2 48 63 C8 41 C1 F8 0E 49 63 C0 49 8B 04 C1 48 8B 04 C8",
+        "hits": [
+          "0x2dd7061"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov eax, dword ptr [rbx]",
+          "cdq ",
+          "and edx, 0x3fff",
+          "add eax, edx",
+          "mov r8d, eax",
+          "and eax, 0x3fff",
+          "sub eax, edx",
+          "movsxd rcx, eax",
+          "sar r8d, 0xe",
+          "movsxd rax, r8d",
+          "mov rax, qword ptr [r9 + rax*8]",
+          "mov rax, qword ptr [rax + rcx*8]"
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "WorldPlayerLayout": {
+        "name": "WorldPlayerLayout",
+        "rva": 68247526,
+        "pattern": "48 8B 80 58 01 00 00 EB ?? 49 8B C0 48 85 C0 74 ?? 48 8B 48 50 48 63 40 58 48 8D 14 C1 48 3B CA 74 ?? 48 8B 01 48 85 C0 74 ?? 4C 8B 48 48",
+        "hits": [
+          "0x4115fe6"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rax + 0x158]",
+          "jmp 0x144115ff2",
+          "mov rax, r8",
+          "test rax, rax",
+          "je 0x144116022",
+          "mov rcx, qword ptr [rax + 0x50]",
+          "movsxd rax, dword ptr [rax + 0x58]",
+          "lea rdx, [rcx + rax*8]",
+          "cmp rcx, rdx",
+          "je 0x144116022",
+          "mov rax, qword ptr [rcx]",
+          "test rax, rax",
+          "je 0x144116019",
+          "mov r9, qword ptr [rax + 0x48]"
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "AcknowledgedPawnLayout": {
+        "name": "AcknowledgedPawnLayout",
+        "rva": 57678240,
+        "pattern": "48 8B 81 58 04 00 00 C3",
+        "hits": [
+          "0x37019a0"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rcx + 0x458]",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "ControllerPawnLayout": {
+        "name": "ControllerPawnLayout",
+        "rva": 16059456,
+        "pattern": "48 8B 81 E8 03 00 00 C3",
+        "hits": [
+          "0xf50c40"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rcx + 0x3e8]",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "HealthLayout": {
+        "name": "HealthLayout",
+        "rva": 5942704,
+        "pattern": "8B 81 FC 05 00 00 C3",
+        "hits": [
+          "0x5aadb0"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov eax, dword ptr [rcx + 0x5fc]",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "ManaLayout": {
+        "name": "ManaLayout",
+        "rva": 5943680,
+        "pattern": "8B 81 04 06 00 00 C3",
+        "hits": [
+          "0x5ab180"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov eax, dword ptr [rcx + 0x604]",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "LevelLayout": {
+        "name": "LevelLayout",
+        "rva": 5940256,
+        "pattern": "48 8B 81 D0 04 00 00 48 85 C0 74 ?? 8B 40 40 C3 C3",
+        "hits": [
+          "0x5aa420"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rcx + 0x4d0]",
+          "test rax, rax",
+          "je 0x1405aa430",
+          "mov eax, dword ptr [rax + 0x40]",
+          "ret ",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "ClassHierarchyLayout": {
+        "name": "ClassHierarchyLayout",
+        "rva": 15665828,
+        "pattern": "48 8B 42 18 48 3B C1 74 ?? 48 85 C0 74 ?? 48 3B C1 74 ?? 48 8B 40 48 48 85 C0 75 ?? 49 83 C0 08 EB ?? B0 01 C3 32 C0 C3",
+        "hits": [
+          "0xef0aa4"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rdx + 0x18]",
+          "cmp rax, rcx",
+          "je 0x140ef0ac6",
+          "test rax, rax",
+          "je 0x140ef0ac0",
+          "cmp rax, rcx",
+          "je 0x140ef0ac6",
+          "mov rax, qword ptr [rax + 0x48]",
+          "test rax, rax",
+          "jne 0x140ef0ab2",
+          "add r8, 8",
+          "jmp 0x140ef0a97",
+          "mov al, 1",
+          "ret ",
+          "xor al, al",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "PlayerHudLayout": {
+        "name": "PlayerHudLayout",
+        "rva": 71509296,
+        "pattern": "48 8B 81 70 04 00 00 C3",
+        "hits": [
+          "0x4432530"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov rax, qword ptr [rcx + 0x470]",
+          "ret "
+        ],
+        "length": 0,
+        "operand": 0
+      },
+      "GummiRankValueLayout": {
+        "name": "GummiRankValueLayout",
+        "rva": 23754690,
+        "pattern": "89 B3 70 01 00 00 89 BB 6C 01 00 00 44 8B C7 48 8D 15 ?? ?? ?? ?? 48 8D 4C 24 28 E8 ?? ?? ?? ?? 90 48 8D 54 24 28 48 8B 8B 40 01 00 00 E8 ?? ?? ?? ?? 90",
+        "hits": [
+          "0x16a77c2"
+        ],
+        "liveMatches": true,
+        "instructions": [
+          "mov dword ptr [rbx + 0x170], esi",
+          "mov dword ptr [rbx + 0x16c], edi",
+          "mov r8d, edi",
+          "lea rdx, [rip + 0x5454218]",
+          "lea rcx, [rsp + 0x28]",
+          "call 0x142cfa0d0",
+          "nop ",
+          "lea rdx, [rsp + 0x28]",
+          "mov rcx, qword ptr [rbx + 0x140]",
+          "call 0x1439093e0",
+          "nop "
+        ],
+        "length": 0,
+        "operand": 0
+      }
+    },
+    "location": "Current GWorld UObject FName+0x20 is the map; GWorld+0x158 GameInstance+0x870 FName is the current area. Installed table mapping enforces area/map association.",
+    "player": "Current world GameInstance+0x50 LocalPlayers TArray -> first local player+0x48 controller. Controller+0x458 AcknowledgedPawn must equal +0x3E8 Pawn for character stats.",
+    "stats": "Current pawn+0x5FC HP and +0x604 MP, int32. Level int32 at pawn+0x4D0 base parameters+0x40. These are current HP/MP, not maximum calculations.",
+    "gummi": "Controller+0x470 HUD -> +0x550 HUD UI -> +0x228 rank -> +0x16C int32 displayed Gummi level. Required inheritance: TresGumiShipHUD, TresUIP_HudGummiShip, TresUIP_HudGummiShipRank. Missing/initializing HUD returns Unknown.",
+    "coherence": "Rechecks world/name-pool roots, map and area FNames, game instance, local player, both pawn references, parameters, difficulty and Gummi HUD owners before publishing.",
+    "menu": "Live title world TresGameTitle clears the snapshot even though the prior area key remains in the game instance.",
+    "liveChecks": [
+      {
+        "location": "Thebes / Overlook",
+        "map": "he_03",
+        "area": "he_03_An_03",
+        "level": 9,
+        "hp": 65,
+        "mp": 50,
+        "difficulty": "Critical",
+        "userConfirmed": true
+      },
+      {
+        "location": "The Stairway to the Sky",
+        "world": "Scala ad Caelum",
+        "map": "bt_01",
+        "area": "bt_01_An_01",
+        "level": 40,
+        "hp": 255,
+        "mp": 145,
+        "difficulty": "Standard",
+        "userConfirmedLocation": true
+      },
+      {
+        "world": "TresGameTitle",
+        "csharpEmpty": true,
+        "cheatTableEmpty": true,
+        "retainedArea": "bt_01_An_01"
+      },
+      {
+        "location": "Starlight Way",
+        "map": "gm_01",
+        "gummiLevel": 36,
+        "userConfirmedLevel": true
+      }
+    ],
+    "syntheticTests": 84,
+    "build": "Release solution: zero warnings, zero errors; git diff --check passed.",
+    "cheatTableSha256": "181253c6a23d1cb5969b0cae04b6ac976fd2b42133ec3d1178862347884e8b71",
+    "limitations": [
+      "Installed map/area catalog is broader than the live-tested locations above.",
+      "Legacy Rooms/Worlds mappings remain fallback for maps absent from installed naming tables.",
+      "Current runtime layout is validated against the installed Steam build; a future update may require new signatures.",
+      "Cheat Table Lua tested with installed Cheat Engine Lua 5.3 and read-only memory/UI shims, not an interactive CE window.",
+      "Native evidence came from local PE/Capstone inspection, live reflection and memory reads. REA/IDA decompilation timed out; final REA session inspection confirmed the target closed."
+    ]
+  }
+}

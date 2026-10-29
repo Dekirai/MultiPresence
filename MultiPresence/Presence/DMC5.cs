@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class DMC5
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static async Task DoAction()
         {
             await Task.Delay(5000);
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("DMC5: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("DevilMayCry5"))
             {
                 float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x14]), true);
@@ -113,6 +117,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("DMC5: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

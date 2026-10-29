@@ -2,11 +2,11 @@
     "Games": {
         "Stellar Blade": {
             "Default": {
-                "Details": "HP: {health}/{maxhealth} - SH: {shield}/{maxshield}",
-                "State": "Level {level}",
+                "Details": "{character} | {location}",
+                "State": "HP: {health}/{maxhealth} | Shield: {shield}/{maxshield}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Stellar Blade",
+                "LargeAssetText": "Attack Power: {attackpower} | SP Level: {splevel}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

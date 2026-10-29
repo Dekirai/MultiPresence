@@ -1,0 +1,46 @@
+{
+  "source": "Installed Steam KH0.2 build 15194283; English kh02_map.locres joined to TresMapNameTable/TresAreaNameTable. Extracted static rows are identical to all live table rows.",
+  "executable_sha256": "a5945af5041047f54db67d7667390f4dc90eee59d1c06459434ddab57d0f339c",
+  "parser": "CUE4Parse 1.2.2.202610 GAME_KingdomHearts3; read-only source assets",
+  "asset_hashes": {
+    "System/DataTable/TresAreaNameTable.uasset": "032219a5cc11ecf67921581f097a698b8b1505f4ca7872c9fd57c2db9c67a492",
+    "System/DataTable/TresAreaNameTable.uexp": "b5de9b442a75c01c6795f4a04f914d341eaf3ce1d316a7117011f33c4f52ef85",
+    "System/DataTable/TresMapNameTable.uasset": "114c9f3e1ddc3034f7f09f85c6c824475a29382681a8e8508f35191949a04e4e",
+    "System/DataTable/TresMapNameTable.uexp": "0b3a36e2a3b30b20ac13749bde09578c5f227953e5be55f32c2937afb3cba323",
+    "Localization/Game/de/kh02_map.locres": "39e02e17880a64a15871fbe85f7f77ee471715b601b17702b6595112f7158b58",
+    "Localization/Game/en/kh02_map.locres": "2711082d97bba99ebbc22a95324243949d50868889a46ea1c11b8660c1c47fc2",
+    "Localization/Game/en/kh02_menu.locres": "12a2f9d20182c5c5d5f27a385eb32cd0312b4efc6d17b6e7ded8c08631309603"
+  },
+  "counts": {
+    "world_labels": 3,
+    "maps": 6,
+    "areas": 26,
+    "raw_map_aliases": 4
+  },
+  "raw_map_aliases": {
+    "dw_04": "dw_03",
+    "dw_05": "dw_03",
+    "dw_06": "dw_03",
+    "dw_07": "dw_03"
+  },
+  "join": "Exact nameKey and areaKey/subareaKey lookup into English namespace.key. World / map / subarea names are joined once, removing duplicates.",
+  "unknown_policy": "Unknown label returns empty; GetLocation retains raw current map ID. Unknown Discord world asset uses logo. The known dw asset is darkworld as specified by the user.",
+  "stale_area_policy": "Area accepted only when its exact catalog canonical map equals raw current World name, or its catalog key starts with raw current map + _An_. Alias normalization is only used for display lookup.",
+  "missing_localization_keys": [],
+  "difficulty": {
+    "field": "GameInstance.m_GlobalWork(+0x338).difficulty(+0x200)",
+    "values": {
+      "0": "Beginner",
+      "1": "Standard",
+      "2": "Proud",
+      "3": "Critical"
+    },
+    "proof": "Native switch at RVA 0x5539E6 selects GameStaticAsset coordinator class fields +0x148/+0x150/+0x158/+0x160; installed reflected field names encode this exact difficulty order."
+  },
+  "live_baseline": {
+    "raw_map": "dw_02",
+    "area": "dw_02_An_02",
+    "location": "Dark World / Castle Town",
+    "difficulty": "Standard"
+  }
+}

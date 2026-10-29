@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.PYRE;
@@ -10,8 +9,8 @@ namespace MultiPresence.Presence
     {
 
         static string process = "ProjectG";
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -35,6 +34,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("PYRE: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning(process))
             {
                 string nickname = Hypervisor.ReadString(Hypervisor.GetPointer32(0xA7D6A4, [0x5AC]), 16, true);
@@ -279,6 +283,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("PYRE: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

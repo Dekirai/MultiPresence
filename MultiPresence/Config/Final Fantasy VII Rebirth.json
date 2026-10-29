@@ -2,11 +2,11 @@
     "Games": {
         "Final Fantasy VII Rebirth": {
             "Default": {
-                "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-                "State": "Level {level} - Chapter {chapter}",
+                "Details": "{character} - Lv. {level} | Chapter {chapter}: {chaptername}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Final Fantasy VII Rebirth",
+                "LargeAssetText": "HP {hp}/{maxhp} | MP {mp}/{maxmp} | SP {sp}/{maxsp} | EXP {exp}/{maxexp}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

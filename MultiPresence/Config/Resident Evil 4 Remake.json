@@ -14,11 +14,11 @@
                 "Button2URL": ""
             },
             "Main Story": {
-                "Details": "{state} - {difficulty}",
-                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "Details": "{character} | {state} - Chapter {chapter}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "{objective} | {difficulty} | Health: {healthpercentage}%",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -26,11 +26,11 @@
                 "Button2URL": ""
             },
             "Separate Ways": {
-                "Details": "{state} - {difficulty}",
-                "State": "Health: {healthpercentage}% - Chapter {chapter}",
+                "Details": "{character} | {state} - Chapter {chapter}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "{objective} | {difficulty} | Health: {healthpercentage}%",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -38,8 +38,8 @@
                 "Button2URL": ""
             },
             "Mercenaries": {
-                "Details": "{state} - {map}",
-                "State": "{character} - Score: {score}",
+                "Details": "{character} | Mercenaries - {map}",
+                "State": "Score: {score} | Health: {healthpercentage}%",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
                 "LargeAssetText": "Resident Evil 4",

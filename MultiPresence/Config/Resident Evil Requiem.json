@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Resident Evil Requiem": {
+            "Default": {
+                "Details": "{character} - {difficulty}",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

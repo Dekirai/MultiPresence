@@ -1,493 +1,345 @@
-﻿namespace MultiPresence.Models.VS
+using System.Collections.Frozen;
+
+namespace MultiPresence.Models.VS
 {
     public class Characters
     {
-        public static async Task<string> GetCharacter(int character)
+        public static Task<string> GetCharacter(int character)
         {
-            string getcharacter;
-
-            switch (character)
-            {
-                case 1:
-                    getcharacter = "Antonio Belpaese";
-                    break;
-                case 2:
-                    getcharacter = "Imelda Belpaese";
-                    break;
-                case 3:
-                    getcharacter = "Pasqualina Belpaese";
-                    break;
-                case 4:
-                    getcharacter = "Gennaro Belpaese";
-                    break;
-                case 5:
-                    getcharacter = "Christine Davain";
-                    break;
-                case 6:
-                    getcharacter = "Arca Ladonna";
-                    break;
-                case 7:
-                    getcharacter = "Porta Ladonna";
-                    break;
-                case 8:
-                    getcharacter = "Exdash Exiviiq";
-                    break;
-                case 9:
-                    getcharacter = "Mortaccio";
-                    break;
-                case 10:
-                    getcharacter = "Yatta Cavallo";
-                    break;
-                case 11:
-                    getcharacter = "Poe Ratcho";
-                    break;
-                case 13:
-                    getcharacter = "Lama Ladonna";
-                    break;
-                case 14:
-                    getcharacter = "Dommario";
-                    break;
-                case 15:
-                    getcharacter = "Krochi Freetto";
-                    break;
-                case 16:
-                    getcharacter = "Suor Clerici";
-                    break;
-                case 18:
-                    getcharacter = "Poppea Pecorina";
-                    break;
-                case 19:
-                    getcharacter = "Pugnala Provola";
-                    break;
-                case 20:
-                    getcharacter = "Giovanna Grana";
-                    break;
-                case 21:
-                    getcharacter = "Concetta Cacioatta";
-                    break;
-                case 22:
-                    getcharacter = "Zi'Assunta Belpaese";
-                    break;
-                case 25:
-                    getcharacter = "Toastie";
-                    break;
-                case 26:
-                    getcharacter = "Minnah Mannarah";
-                    break;
-                case 28:
-                    getcharacter = "Bat Robbert";
-                    break;
-                case 29:
-                    getcharacter = "Leda";
-                    break;
-                case 30:
-                    getcharacter = "O'Sole Meeo";
-                    break;
-                case 39:
-                    getcharacter = "Divano Thelma";
-                    break;
-                case 40:
-                    getcharacter = "Bianca Ramba";
-                    break;
-                case 45:
-                    getcharacter = "Mask of the Red Death";
-                    break;
-                case 46:
-                    getcharacter = "MissingN";
-                    break;
-                case 47:
-                    getcharacter = "Iguana Gallo Valletto";
-                    break;
-                case 48:
-                    getcharacter = "Queen Sigma";
-                    break;
-                case 49:
-                    getcharacter = "Avatar Infernas";
-                    break;
-                case 52:
-                    getcharacter = "Peppino";
-                    break;
-                case 53:
-                    getcharacter = "Smith IV";
-                    break;
-                case 54:
-                    getcharacter = "Boon Marrabbio";
-                    break;
-                case 59:
-                    getcharacter = "Sir Ambrojoe";
-                    break;
-                case 60:
-                    getcharacter = "Gains Boros";
-                    break;
-                case 61:
-                    getcharacter = "Big Trouser";
-                    break;
-                case 62:
-                    getcharacter = "Cosmo Pavone";
-                    break;
-                case 63:
-                    getcharacter = "Gyorunton";
-                    break;
-                case 64:
-                    getcharacter = "Random";
-                    break;
-                case 65:
-                    getcharacter = "Scorej-Oni";
-                    break;
-                case 66:
-                    getcharacter = "Miang Moonspell";
-                    break;
-                case 67:
-                    getcharacter = "Menya Moonspell";
-                    break;
-                case 68:
-                    getcharacter = "Syuuto Moonspell";
-                    break;
-                case 69:
-                    getcharacter = "Babi-Onna";
-                    break;
-                case 70:
-                    getcharacter = "McCoy-Oni";
-                    break;
-                case 71:
-                    getcharacter = "Megalo Menya Moonspell";
-                    break;
-                case 72:
-                    getcharacter = "Megalo Syuuto Moonspell";
-                    break;
-                case 73:
-                    getcharacter = "Gav'Et-Oni";
-                    break;
-                case 75:
-                    getcharacter = "Eleanor Uziron";
-                    break;
-                case 76:
-                    getcharacter = "Luminaire Foscari";
-                    break;
-                case 77:
-                    getcharacter = "Genevieve Gruyére";
-                    break;
-                case 78:
-                    getcharacter = "Je-Ne-Viv";
-                    break;
-                case 79:
-                    getcharacter = "Maruto Cuts";
-                    break;
-                case 80:
-                    getcharacter = "Keitha Muort";
-                    break;
-                case 81:
-                    getcharacter = "Rottin'Ghoul";
-                    break;
-                case 84:
-                    getcharacter = "Sammy";
-                    break;
-                case 85:
-                    getcharacter = "She-Moon Eeta";
-                    break;
-                case 86:
-                    getcharacter = "Space Dude";
-                    break;
-                case 89:
-                    getcharacter = "Santa Ladonna";
-                    break;
-                case 93:
-                    getcharacter = "Gyoruntin";
-                    break;
-                case 100:
-                    getcharacter = "Bats Bats Bats";
-                    break;
-                case 101:
-                    getcharacter = "Rose De Infernas";
-                    break;
-                case 109:
-                    getcharacter = "Crewmate Dino";
-                    break;
-                case 110:
-                    getcharacter = "Impostor Rina";
-                    break;
-                case 111:
-                    getcharacter = "Ghost Lino";
-                    break;
-                case 112:
-                    getcharacter = "Guardian Pina";
-                    break;
-                case 113:
-                    getcharacter = "Engineer Gino";
-                    break;
-                case 114:
-                    getcharacter = "Scientist Mina";
-                    break;
-                case 115:
-                    getcharacter = "Shapeshifter Nino";
-                    break;
-                case 116:
-                    getcharacter = "Horse";
-                    break;
-                case 119:
-                    getcharacter = "Megalo Impostor Rina";
-                    break;
-                case 120:
-                    getcharacter = "Bill Rizer";
-                    break;
-                case 121:
-                    getcharacter = "Lance Bean";
-                    break;
-                case 122:
-                    getcharacter = "Brad Fang";
-                    break;
-                case 123:
-                    getcharacter = "Browny";
-                    break;
-                case 124:
-                    getcharacter = "Lucia Zero";
-                    break;
-                case 125:
-                    getcharacter = "Probotector";
-                    break;
-                case 126:
-                    getcharacter = "Sheena Etranzi";
-                    break;
-                case 127:
-                    getcharacter = "Stanley";
-                    break;
-                case 128:
-                    getcharacter = "Ariana";
-                    break;
-                case 129:
-                    getcharacter = "Colonel Bahamut";
-                    break;
-                case 130:
-                    getcharacter = "Simondo Belmont";
-                    break;
-                case 131:
-                    getcharacter = "Newt Plissken";
-                    break;
-                case 143:
-                    getcharacter = "Tsunanori Mido";
-                    break;
-                case 148:
-                    getcharacter = "Ameya Aisling";
-                    break;
-                case 149:
-                    getcharacter = "Bonnie Blair";
-                    break;
-                case 150:
-                    getcharacter = "Formina Franklyn";
-                    break;
-                case 151:
-                    getcharacter = "Diva No. 5 \"Retro Pod\"";
-                    break;
-                case 152:
-                    getcharacter = "Siugnas";
-                    break;
-                case 153:
-                    getcharacter = "Mr. S";
-                    break;
-                case 154:
-                    getcharacter = "Final Emperor";
-                    break;
-                case 155:
-                    getcharacter = "Macha Alter Ego";
-                    break;
-                case 156:
-                    getcharacter = "Dolores";
-                    break;
-                case 157:
-                    getcharacter = "Lita Caryx";
-                    break;
-                case 158:
-                    getcharacter = "Kugutsu : Musashi";
-                    break;
-                case 163:
-                    getcharacter = "Lolo, Hiss, Meow, and Purr";
-                    break;
-                case 164:
-                    getcharacter = "Malevolent Door Spirit";
-                    break;
-                case 165:
-                    getcharacter = "Imakoo";
-                    break;
-                case 166:
-                    getcharacter = "Kina";
-                    break;
-                case 202:
-                    getcharacter = "Alucard";
-                    break;
-                case 206:
-                    getcharacter = "Charlotte Aulin";
-                    break;
-                case 211:
-                    getcharacter = "Eric Lecarde";
-                    break;
-                case 213:
-                    getcharacter = "Grant Danasty";
-                    break;
-                case 214:
-                    getcharacter = "Hector";
-                    break;
-                case 217:
-                    getcharacter = "Jonathan Morris";
-                    break;
-                case 218:
-                    getcharacter = "John Morris";
-                    break;
-                case 219:
-                    getcharacter = "Julius Belmont";
-                    break;
-                case 221:
-                    getcharacter = "Juste Belmont";
-                    break;
-                case 222:
-                    getcharacter = "Leon Belmont";
-                    break;
-                case 224:
-                    getcharacter = "Maria Renard";
-                    break;
-                case 229:
-                    getcharacter = "Richter Belmont";
-                    break;
-                case 231:
-                    getcharacter = "Shanoa";
-                    break;
-                case 232:
-                    getcharacter = "Simon Belmont";
-                    break;
-                case 233:
-                    getcharacter = "Soma Cruz";
-                    break;
-                case 234:
-                    getcharacter = "Sonia Belmont";
-                    break;
-                case 238:
-                    getcharacter = "Sypha Belnades";
-                    break;
-                case 239:
-                    getcharacter = "Trevor Belmont";
-                    break;
-                case 240:
-                    getcharacter = "Yoko Belnades";
-                    break;
-                case 241:
-                    getcharacter = "Christopher Belmont";
-                    break;
-                case 242:
-                    getcharacter = "Sara Trantoul";
-                    break;
-                case 243:
-                    getcharacter = "Dario Bossi";
-                    break;
-                case 244:
-                    getcharacter = "Dmitrii Blinov";
-                    break;
-                case 245:
-                    getcharacter = "Celia Fortner";
-                    break;
-                case 246:
-                    getcharacter = "Rinaldo Gandolfi";
-                    break;
-                case 247:
-                    getcharacter = "Mina Hakuba";
-                    break;
-                case 248:
-                    getcharacter = "Quincy Morris";
-                    break;
-                case 249:
-                    getcharacter = "Maxim Kischine";
-                    break;
-                case 250:
-                    getcharacter = "Lisa Tepes";
-                    break;
-                case 251:
-                    getcharacter = "Vincent Dorin";
-                    break;
-                case 252:
-                    getcharacter = "Brauner";
-                    break;
-                case 253:
-                    getcharacter = "Barlowe";
-                    break;
-                case 254:
-                    getcharacter = "Wind";
-                    break;
-                case 256:
-                    getcharacter = "Master Librarian";
-                    break;
-                case 257:
-                    getcharacter = "Hammer";
-                    break;
-                case 258:
-                    getcharacter = "Graham Jones";
-                    break;
-                case 259:
-                    getcharacter = "Soleil Belmont";
-                    break;
-                case 260:
-                    getcharacter = "Joachim Armster";
-                    break;
-                case 261:
-                    getcharacter = "Cave Troll";
-                    break;
-                case 262:
-                    getcharacter = "Ferryman";
-                    break;
-                case 263:
-                    getcharacter = "Malphas";
-                    break;
-                case 264:
-                    getcharacter = "Walter Bernhard";
-                    break;
-                case 265:
-                    getcharacter = "Frozenshade";
-                    break;
-                case 266:
-                    getcharacter = "Count Olrox";
-                    break;
-                case 267:
-                    getcharacter = "Alamaric Sniper";
-                    break;
-                case 268:
-                    getcharacter = "Fleaman";
-                    break;
-                case 269:
-                    getcharacter = "Blackmore";
-                    break;
-                case 270:
-                    getcharacter = "Jonathan Morris";
-                    break;
-                case 271:
-                    getcharacter = "Charlotte Aulin";
-                    break;
-                case 272:
-                    getcharacter = "Stella Lecarde";
-                    break;
-                case 273:
-                    getcharacter = "Loretta Lecarde";
-                    break;
-                case 274:
-                    getcharacter = "Blue Crescent Moon Cornell";
-                    break;
-                case 275:
-                    getcharacter = "Megalo Elizabeth Bartley";
-                    break;
-                case 276:
-                    getcharacter = "Megalo Death";
-                    break;
-                case 277:
-                    getcharacter = "Keremet";
-                    break;
-                case 278:
-                    getcharacter = "Megalo Dracula";
-                    break;
-                case 279:
-                    getcharacter = "Megalo Olrox";
-                    break;
-
-                default:
-                    getcharacter = "Unknown";
-                    break;
-            }
-            return getcharacter;
+            return Task.FromResult(Names.GetValueOrDefault(character, $"Unknown character ({character})"));
         }
+
+        public static readonly FrozenDictionary<int, string> Names = new Dictionary<int, string>
+
+        {
+            [-1] = "Chaos",
+            [0] = "VOID (0)",
+            [1] = "Antonio Belpaese",
+            [2] = "Imelda Belpaese",
+            [3] = "Pasqualina Belpaese",
+            [4] = "Gennaro Belpaese",
+            [5] = "Christine Davain",
+            [6] = "Arca Ladonna",
+            [7] = "Porta Ladonna",
+            [8] = "Exdash Exiviiq",
+            [9] = "Mortaccio",
+            [10] = "Yatta Cavallo",
+            [11] = "Poe Ratcho",
+            [12] = "RED (12)",
+            [13] = "Lama Ladonna",
+            [14] = "Dommario",
+            [15] = "Krochi Freetto",
+            [16] = "Suor Clerici",
+            [17] = "LORDO (17)",
+            [18] = "Poppea Pecorina",
+            [19] = "Pugnala Provola",
+            [20] = "Giovanna Grana",
+            [21] = "Concetta Caciotta",
+            [22] = "Zi'Assunta Belpaese",
+            [23] = "DEATH (23)",
+            [24] = "DETH (24)",
+            [25] = "Toastie",
+            [26] = "Minnah Mannarah",
+            [27] = "CANTERVILLO (27)",
+            [28] = "Bat Robbert",
+            [29] = "Leda",
+            [30] = "O'Sole Meeo",
+            [31] = "LATODILATO (31)",
+            [32] = "LATODISOPRO (32)",
+            [33] = "Gazebo",
+            [34] = "SCEMINO (34)",
+            [35] = "DUPRE (35)",
+            [36] = "LATODISOTTO (36)",
+            [37] = "LATOEVEST (37)",
+            [38] = "MAREMMA (38)",
+            [39] = "Divano Thelma",
+            [40] = "Bianca Ramba",
+            [41] = "MARIANNA (41)",
+            [42] = "MARIASOFIA (42)",
+            [43] = "BESUGO (43)",
+            [44] = "ANDRIA (44)",
+            [45] = "Mask of the Red Death",
+            [46] = "MissingN▯",
+            [47] = "Iguana Gallo Valletto",
+            [48] = "Queen Sigma",
+            [49] = "Avatar Infernas",
+            [50] = "IOLO (50)",
+            [51] = "PEPPE (51)",
+            [52] = "Peppino",
+            [53] = "Smith IV",
+            [54] = "Boon Marrabbio",
+            [55] = "PIRIPIRI (55)",
+            [56] = "PINEYE (56)",
+            [57] = "PENTA (57)",
+            [58] = "ODDEEO (58)",
+            [59] = "Sir Ambrojoe",
+            [60] = "Gains Boros",
+            [61] = "Big Trouser",
+            [62] = "Cosmo Pavone",
+            [63] = "Gyorunton",
+            [64] = "Random",
+            [65] = "Scorej-Oni",
+            [66] = "Miang Moonspell",
+            [67] = "Menya Moonspell",
+            [68] = "Syuuto Moonspell",
+            [69] = "Babi-Onna",
+            [70] = "McCoy-Oni",
+            [71] = "Megalo Menya Moonspell",
+            [72] = "Megalo Syuuto Moonspell",
+            [73] = "Gav'Et-Oni",
+            [74] = "NARA (74)",
+            [75] = "Eleanor Uziron",
+            [76] = "Luminaire Foscari",
+            [77] = "Genevieve Gruyère",
+            [78] = "Je-Ne-Viv",
+            [79] = "Maruto Cuts",
+            [80] = "Keitha Muort",
+            [81] = "Rottin'Ghoul",
+            [82] = "GAEA (82)",
+            [83] = "MARUTO (83)",
+            [84] = "Sammy",
+            [85] = "She-Moon Eeta",
+            [86] = "Space Dude",
+            [87] = "Space Dette",
+            [88] = "SPACEALIEN (88)",
+            [89] = "Santa Ladonna",
+            [90] = "AMBERBORNE (90)",
+            [91] = "KITTYSAN (91)",
+            [92] = "KIKICHAN (92)",
+            [93] = "Gyoruntin",
+            [94] = "RYOMARE (94)",
+            [95] = "BELLA (95)",
+            [96] = "SKTOOA (96)",
+            [97] = "SKALAFACHA (97)",
+            [98] = "SKLEEMEJO (98)",
+            [99] = "SKDEPEEPPO (99)",
+            [100] = "Bats Bats Bats",
+            [101] = "Rose De Infernas",
+            [102] = "Torino",
+            [103] = "MAURIZIO (103)",
+            [104] = "Mortaccio Meeo",
+            [105] = "Yatta Mucca",
+            [106] = "Too'Ka Ramba",
+            [107] = "Emeen'Flex Ōmikami",
+            [108] = "Sir Joe Buchone",
+            [109] = "Crewmate Dino",
+            [110] = "Impostor Rina",
+            [111] = "Ghost Lino",
+            [112] = "Guardian Pina",
+            [113] = "Engineer Gino",
+            [114] = "Scientist Mina",
+            [115] = "Shapeshifter Nino",
+            [116] = "Horse",
+            [117] = "C1_PICKLE (117)",
+            [118] = "C1_RABBIT (118)",
+            [119] = "Megalo Impostor Rina",
+            [120] = "Bill Rizer",
+            [121] = "Lance Bean",
+            [122] = "Brad Fang",
+            [123] = "Browny",
+            [124] = "Lucia Zero",
+            [125] = "Probotector",
+            [126] = "Sheena Etranzi",
+            [127] = "Stanley",
+            [128] = "Ariana",
+            [129] = "Colonel Bahamut",
+            [130] = "Simondo Belmont",
+            [131] = "Newt Plissken",
+            [132] = "FB_DUMMY_01 (132)",
+            [133] = "FB_DUMMY_02 (133)",
+            [134] = "FB_DUMMY_03 (134)",
+            [135] = "FB_DUMMY_04 (135)",
+            [136] = "FB_DUMMY_05 (136)",
+            [137] = "FB_DUMMY_06 (137)",
+            [138] = "FB_DUMMY_07 (138)",
+            [139] = "FB_DUMMY_08 (139)",
+            [140] = "FB_DUMMY_09 (140)",
+            [141] = "FB_DUMMY_10 (141)",
+            [142] = "FB_DUMMY_11 (142)",
+            [143] = "Tsunanori Mido",
+            [144] = "Boh the Kugutsu",
+            [145] = "Komachi the Kugutsu",
+            [146] = "Musashi",
+            [147] = "Sukune the Kugutsu",
+            [148] = "Ameya Aisling",
+            [149] = "Bonnie Blair",
+            [150] = "Formina Franklyn",
+            [151] = "Diva No. 5",
+            [152] = "Siugnas",
+            [153] = "Mr. S",
+            [154] = "Final Emperor",
+            [155] = "Macha Alter Ego",
+            [156] = "Dolores",
+            [157] = "Lita Caryx",
+            [158] = "Kugutsu",
+            [159] = "Lolo, Hiss, Meow, and Purr",
+            [160] = "Bats Bats Bats",
+            [161] = "Absolutely Normal Rabbit",
+            [162] = "Absolutely Normal Duck",
+            [163] = "Lolo, Hiss, Meow, and Purr",
+            [164] = "Malevolent Door Spirit",
+            [165] = "Imakoo",
+            [166] = "Kina",
+            [167] = "Chula-Reh",
+            [168] = "Zi'Appunta Belpaese",
+            [169] = "Secretino Dagsson",
+            [170] = "Big Troubler",
+            [171] = "EX_GLAUCUS (171)",
+            [172] = "Mask of the Red Death",
+            [173] = "Mask of the Red Death",
+            [174] = "Mask of the Red Death",
+            [175] = "Mask of the Red Death",
+            [176] = "Mask of the Red Death",
+            [177] = "Mask of the Red Death",
+            [178] = "Para Kooleo",
+            [201] = "Albus",
+            [202] = "Alucard",
+            [203] = "Axe Armor",
+            [204] = "Carmilla",
+            [205] = "Carrie Fernandez",
+            [206] = "Charlotte Aulin",
+            [207] = "Cornell",
+            [208] = "Death",
+            [209] = "Vlad Tepes Dracula",
+            [210] = "Elizabeth Bartley",
+            [211] = "Eric Lecarde",
+            [212] = "Galamoth",
+            [213] = "Grant Danasty",
+            [214] = "Hector",
+            [215] = "Henry",
+            [216] = "Isaac",
+            [217] = "Jonathan Morris",
+            [218] = "John Morris",
+            [219] = "Julius Belmont",
+            [220] = "Julia Laforeze",
+            [221] = "Juste Belmont",
+            [222] = "Leon Belmont",
+            [223] = "Loretta Lecarde",
+            [224] = "Maria Renard",
+            [225] = "Young Maria Renard",
+            [226] = "Nathan Graves",
+            [227] = "Count Olrox",
+            [228] = "Reinhardt Schneider",
+            [229] = "Richter Belmont",
+            [230] = "Shaft",
+            [231] = "Shanoa",
+            [232] = "Simon Belmont",
+            [233] = "Soma Cruz",
+            [234] = "Sonia Belmont",
+            [235] = "Stella Lecarde",
+            [236] = "Saint Germain",
+            [237] = "Succubus",
+            [238] = "Sypha Belnades",
+            [239] = "Trevor Belmont",
+            [240] = "Yoko Belnades",
+            [241] = "Christopher Belmont",
+            [242] = "Sara Trantoul",
+            [243] = "Dario Bossi",
+            [244] = "Dmitrii Blinov",
+            [245] = "Celia Fortner",
+            [246] = "Rinaldo Gandolfi",
+            [247] = "Mina Hakuba",
+            [248] = "Quincy Morris",
+            [249] = "Maxim Kischine",
+            [250] = "Lisa Tepes",
+            [251] = "Vincent Dorin",
+            [252] = "Brauner",
+            [253] = "Barlowe",
+            [254] = "Wind",
+            [255] = "Astarte",
+            [256] = "Master Librarian",
+            [257] = "Hammer",
+            [258] = "Graham Jones",
+            [259] = "Soleil Belmont",
+            [260] = "Joachim Armster",
+            [261] = "Cave Troll",
+            [262] = "Ferryman",
+            [263] = "Malphas",
+            [264] = "Walter Bernhard",
+            [265] = "Frozenshade",
+            [266] = "Count Olrox",
+            [267] = "Alamaric Sniper",
+            [268] = "Fleaman",
+            [269] = "Blackmore",
+            [270] = "Jonathan & Charlotte",
+            [271] = "Charlotte & Jonathan",
+            [272] = "Stella & Loretta Lecarde",
+            [273] = "Loretta & Stella Lecarde",
+            [274] = "Blue Crescent Moon Cornell",
+            [275] = "Megalo Elizabeth Bartley",
+            [276] = "Megalo Death",
+            [277] = "Keremet",
+            [278] = "Megalo Dracula",
+            [279] = "Megalo Olrox",
+            [298] = "Familiar",
+            [299] = "Innocent Devil",
+            [300] = "Ukoback",
+            [301] = "Bitterfly",
+            [302] = "Imp",
+            [303] = "Alleged Ghost",
+            [304] = "Wood Rod",
+            [305] = "Faerie",
+            [306] = "Pumpkin",
+            [307] = "Sacred Cardinal",
+            [308] = "Sacred Dragon",
+            [309] = "Sacred Tiger",
+            [310] = "Sacred Turtle",
+            [311] = "Thrall",
+            [312] = "Spilldilly",
+            [313] = "Poboldo",
+            [314] = "Legionnaire",
+            [315] = "Kid Dracula",
+            [316] = "Desmond Belmont",
+            [318] = "Zoe Belmont",
+            [319] = "Dolores Belmont",
+            [320] = "Hugh Baldwin",
+            [321] = "Morris Baldwin",
+            [322] = "Annette",
+            [323] = "Tera",
+            [324] = "Aeon",
+            [325] = "Persephone",
+            [326] = "TP_GAIBON_AND_SLOGRA (326)",
+            [327] = "Slogra and Gaibon",
+            [328] = "Gaibon and Slogra",
+            [329] = "Slogra",
+            [330] = "Witch Actrise",
+            [331] = "Drolta Tzuentes",
+            [332] = "Jiangshi",
+            [333] = "Atlantis Shrine Wizard",
+            [334] = "Ruler Sword",
+            [335] = "Genya Arikado",
+            [336] = "Fishman",
+            [337] = "Fake Trio",
+            [338] = "Fake Trevor",
+            [339] = "Fake Sypha",
+            [340] = "Fake Grant",
+            [341] = "Zephyr",
+            [342] = "Stone Skull",
+            [400] = "Outer Saboteur",
+            [401] = "Jimbo",
+            [402] = "Canio",
+            [403] = "Chicot",
+            [404] = "Perkeo",
+            [1800] = "Malice Bloodmoon",
+            [1801] = "Calogero Bloodmoon",
+            [1802] = "Ashtart",
+            [1803] = "Congregation",
+            [1804] = "Baal'Thasar",
+            [1805] = "Sargon",
+            [1806] = "Gekkojin",
+            [1807] = "Megalo Miang Moonspell",
+            [1809] = "Megalo Sargon",
+            [1810] = "Baal'Thamut",
+            [1811] = "Spiritoso",
+            [1812] = "Nameless Fool",
+            [1813] = "In' Kujata",
+            [1814] = "Jaman Jato",
+            [1815] = "Spiritosa",
+            [1816] = "Nameless Saint",
+            [1817] = "Life Spirit",
+            [1818] = "Life Spirit",
+            [805306368] = "CUSTOM_RANGE_START (805306368)",
+            [1073741824] = "WORKSHOP_RANGE_START (1073741824)",
+        }.ToFrozenDictionary();
     }
 }

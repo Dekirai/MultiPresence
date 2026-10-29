@@ -1,7 +1,4 @@
 # MultiPresence
-> [!WARNING]  
-> MultiPresence is currently being reworked extensively. Updates will be available again soon.  
-
 > **MultiPresence** enables Discord Rich Presence for games that don’t natively support it.
 
 ---
@@ -47,10 +44,12 @@
 ### Placeholders
 
 Customize your presence text:  
-1. Download the latest [Config.zip](https://github.com/Dekirai/MultiPresence/raw/refs/heads/main/Config.zip)
-2. Paste the "Config" folder into the "Assets" folder
-3. Find the JSON of your game and open it with any Editor
+1. Run MultiPresence once to create missing configuration files in `Assets/Config`.
+2. Open **Config** from the tray menu and edit the JSON file for your game.
+3. Save the file; changes are loaded automatically. Existing files are preserved when starting, building, or updating MultiPresence.
 4. See the [Placeholder Guide](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders) for full details.  
+
+Default templates are included in the executable. Release archives do not contain user configuration files. [Config.zip](https://github.com/Dekirai/MultiPresence/raw/refs/heads/main/Config.zip) is available if you explicitly want to restore defaults; replacing files from it will discard your customizations.
 
 <details>
 <summary>Placeholder Demo (Outdated Version)</summary>
@@ -88,76 +87,77 @@ Customize your presence text:
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | Borderlands GOTY Enhanced                   | [Steam](https://store.steampowered.com/app/729040/Borderlands_Game_of_the_Year_Enhanced/)                                        |                                      |
 | Borderlands 2                               | [Steam](https://store.steampowered.com/app/49520/Borderlands_2/)                                                                 |                                      |
-| Call of Duty ²                              | [Steam](https://store.steampowered.com/app/1938090/Call_of_Duty/)                                                                |                                      |
 | Code Vein                                   | [Steam](https://store.steampowered.com/app/678960/CODE_VEIN/)                                                                    | Only base game tested                |
-| Crash Bandicoot 4: It's About Time          | [Steam](https://store.steampowered.com/app/1378990/Crash_Bandicoot_4_Its_About_Time/)                                            |                                      |
+| Crash Bandicoot 4: It's About Time ¹        | [Steam](https://store.steampowered.com/app/1378990/Crash_Bandicoot_4_Its_About_Time/)                                            |                                      |
 | Crash Bandicoot N. Sane Trilogy             | [Steam](https://store.steampowered.com/app/731490/Crash_Bandicoot_N_Sane_Trilogy/)                                               | Supports all games                   |
-| Crisis Core -Final Fantasy VII- Reunion     | [Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)                                       |                                      |
+| Crisis Core -Final Fantasy VII- Reunion ¹   | [Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)                                       |                                      |
+| Cryo ¹                                      | [Steam](https://store.steampowered.com/app/2564910/CRYO/)                                                                        |                                      |
 | Dark Souls Remastered                       | [Steam](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/)                                                        |                                      |
 | Dark Souls II SotFS                         | [Steam](https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/)                                       |                                      |
 | Dark Souls III                              | [Steam](https://store.steampowered.com/app/374320/DARK_SOULS_III/)                                                               |                                      |
-| Death Stranding Director's Cut              | [Steam](https://store.steampowered.com/app/1850570/DEATH_STRANDING_DIRECTORS_CUT/)                                               |                                      |
 | Devil May Cry HD Collection                 | [Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)                                                  | Supports all games                   |
 | Devil May Cry 4                             | [Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)                                              |                                      |
 | Devil May Cry 5                             | [Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)                                                              |                                      |
 | Diablo IV ²                                 | [Steam](https://store.steampowered.com/app/2344520/Diablo_IV/)                                                                   |                                      |
-| Digimon Story Time Stranger                 | [Steam](https://store.steampowered.com/app/1984270/Digimon_Story_Time_Stranger/)                                                 |                                      |
+| Disney Dreamlight Valley ¹                  | [Steam](https://store.steampowered.com/app/1401590/Disney_Dreamlight_Valley/)                                                    |                                      |
 | DmC Devil May Cry                           | [Steam](https://store.steampowered.com/app/220440/DmC_Devil_May_Cry/)                                                            | Only base game tested                |
 | Elden Ring                                  | [Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)                                                                  | Only with EAC disabled               |
-| Final Fantasy VII Rebirth                   | [Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)                                                   |                                      |
-| Final Fantasy VII Remake                    | [Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)                                         | Only base game tested                |
+| Final Fantasy VII Rebirth ¹                 | [Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)                                                   |                                      |
+| Final Fantasy VII Remake ¹                  | [Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)                                         |                                      |
 | Final Fantasy X                             | [Steam](https://store.steampowered.com/app/359870/FINAL_FANTASY_XX2_HD_Remaster/)                                                | Enter a new room to make it work     |
 | Final Fantasy XV                            | [Steam](https://store.steampowered.com/app/637650/FINAL_FANTASY_XV_WINDOWS_EDITION/)                                             |                                      |
-| Final Fantasy XVI                           | [Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)                                                           | Only base game tested                |
+| Final Fantasy XVI ¹                         | [Steam](https://store.steampowered.com/app/2515020/FINAL_FANTASY_XVI/)                                                           | Only base game tested                |
 | Granblue Fantasy: Relink                    | [Steam](https://store.steampowered.com/app/881020/Granblue_Fantasy_Relink/)                                                      |                                      |
-| Gunfire Reborn ²                            | [Steam](https://store.steampowered.com/app/1217060/Gunfire_Reborn/)                                                              |                                      |
+| Gunfire Reborn ¹                            | [Steam](https://store.steampowered.com/app/1217060/Gunfire_Reborn/)                                                              |                                      |
+| Hogwarts Legacy ¹                           | [Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)                                                              |                                      |
 | Hatsune Miku: Project DIVA Mega Mix+        | [Steam](https://store.steampowered.com/app/1761390/Hatsune_Miku_Project_DIVA-Mega-Mix/)                                          |                                      |
-| Hello Kitty Island Adventure ²              | [Steam](https://store.steampowered.com/app/2495100/Hello_Kitty_Island_Adventure/)                                                |                                      |
-| Hogwarts Legacy ²                           | [Steam](https://store.steampowered.com/app/990080/Hogwarts_Legacy/)                                                              |                                      |
 | Kingdom Hearts Birth by Sleep Final Mix     | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)                                                |                                      |
 | Kingdom Hearts Dream Drop Distance          | [Steam](https://store.steampowered.com/app/2552440/KINGDOM_HEARTS_HD_28_Final_Chapter_Prologue/)                                 |                                      |
 | Kingdom Hearts Re:Chain of Memories         | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)                                                |                                      |
-| Kingdom Hearts Final Mix                    | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/) & EGS                                          |                                      |
-| Kingdom Hearts II Final Mix                 | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/) & EGS                                          |                                      |
+| Kingdom Hearts Final Mix ¹                  | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)                                                |                                      |
+| Kingdom Hearts II Final Mix ¹               | [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)                                                |                                      |
+| Kingdom Hearts 0.2 Birth by Sleep ¹         | [Steam](https://store.steampowered.com/app/2552440/)                                                                             |                                      |
 | Kingdom Hearts III ¹                        | [Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)                                             |                                      |
-| Labyrinthine ²                              | [Steam](https://store.steampowered.com/app/1302240/Labyrinthine/)                                                                |                                      |
-| Lies of P                                   | [Steam](https://store.steampowered.com/app/1627720/Lies_of_P/)                                                                   |                                      |
+| Labyrinthine ¹                              | [Steam](https://store.steampowered.com/app/1302240/Labyrinthine/)                                                                |                                      |
+| Legacy of Kain Soul Reaver 1 ¹              | [Steam](https://store.steampowered.com/app/2521380/)                                                                             | Remastered Collection                |
+| Legacy of Kain Soul Reaver 2 ¹              | [Steam](https://store.steampowered.com/app/2521380/)                                                                             | Remastered Collection                |
 | Marvel's Spider-Man Remastered              | [Steam](https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/)                                                | Only base game tested                |
 | Marvel's Spider-Man: Miles Morales          | [Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)                                             |                                      |
 | Mega Man 11                                 | [Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)                                                                  |                                      |
 | Mega Man Battle Network Collection Vol. 1   | [Steam](https://store.steampowered.com/app/1798010/Mega_Man_Battle_Network_Legacy_Collection_Vol_1/)                             | Supports all games                   |
 | Mega Man Battle Network Collection Vol. 2   | [Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)                             | Supports all games                   |
 | Mega Man X Legacy Collection 2              | [Steam](https://store.steampowered.com/app/743900/Mega_Man_X_Legacy_Collection_2/)                                               | Supports all games, no "X Challenge" |
+| Minecraft Dungeons II ¹                     | [Steam](https://store.steampowered.com/app/1912410/)                                                                             |                                      |
 | Overwatch ²                                 | [Steam](https://store.steampowered.com/app/2357570/Overwatch/)                                                                   |                                      |
 | Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
 | Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
 | Persona 5 Strikers                          | [Steam](https://store.steampowered.com/app/1382330/Persona_5_Strikers/)                                                          |                                      |
 | Persona 5 Royal                             | [Steam](https://store.steampowered.com/app/1687950/Persona_5_Royal/)                                                             |                                      |
 | Persona 5 Tactica                           | [Steam](https://store.steampowered.com/app/2254740/Persona_5_Tactica/)                                                           |                                      |
-| Persona 5: The Phantom X                    | [Steam](https://store.steampowered.com/app/3061570/Persona5_The_Phantom_X/)                                                      | Only displays your UID               |
+| Phasmophobia ¹                              | [Steam](https://store.steampowered.com/app/739630/Phasmophobia/)                                                                 |                                      |
+| PokeOne ¹                                   |                                                                                                                                  |                                      |
 | Rayman: 30th Anniversary Edition            | [Steam](https://store.steampowered.com/app/4094670/Rayman_30th_Anniversary_Edition/)                                             | Only Playstation version             |
 | Resident Evil 1 Remake                      | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
-| Resident Evil 2 Remake                      | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
-| Resident Evil 3 Remake                      | [Steam](https://store.steampowered.com/app/952060/Resident_Evil_3/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil 2 Remake ¹                    | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil 3 Remake ¹                    | [Steam](https://store.steampowered.com/app/952060/Resident_Evil_3/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 4 ¹                           | [Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)                                                              |                                      |
-| Resident Evil 4 Remake                      | [Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)                                                             | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil 4 Remake ¹                    | [Steam](https://store.steampowered.com/app/2050650/Resident_Evil_4/)                                                             | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 5                             | [Steam](https://store.steampowered.com/app/21690/Resident_Evil_5/)                                                               |                                      |
 | Resident Evil 6                             | [Steam](https://store.steampowered.com/app/221040/Resident_Evil_6/)                                                              |                                      |
-| Resident Evil 7                             | [Steam](https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/)                                                    | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
-| Resident Evil 8                             | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |                                                     | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil 7 ¹                           | [Steam](https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/)                                                    | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil 8 ¹                           | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
+| Resident Evil Requiem ¹                     | [Steam](https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/)                                                       |                                      |
 | Resident Evil Revelations 2                 | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Raid Mode only                       |
 | Scott Pilgrim vs The World                  | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Shin Megami Tensei III Nocturne             | [Steam](https://store.steampowered.com/app/1413480/Shin_Megami_Tensei_III_Nocturne_HD_Remaster/)                                 |                                      |
 | Shin Megami Tensei V: Vengeance             | [Steam](https://store.steampowered.com/app/1875830/Shin_Megami_Tensei_V_Vengeance/)                                              |                                      |
 | Sonic Adventure DX                          | [Steam](https://store.steampowered.com/app/71250/Sonic_Adventure_DX/)                                                            | Probably won't work with mods        |
 | Sonic Adventure 2                           | [Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)                                                            |                                      |
-| Sonic x Shadow Generations                  | [Steam](https://store.steampowered.com/app/2513280/SONIC_X_SHADOW_GENERATIONS/)                                                  | Only Sonic Generations for now       |
-| Stellar Blade                               | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
-| Team Fortress 2 ²                           | [Steam](https://store.steampowered.com/app/440/Team_Fortress_2/)                                                                 |                                      |
+| Sonic x Shadow Generations ¹                | [Steam](https://store.steampowered.com/app/2513280/SONIC_X_SHADOW_GENERATIONS/)                                                  | Pattern search: Shadow Generations only |
+| Stellar Blade ¹                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
 | Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |
-| The Witcher 3: Wild Hunt                    | [Steam](https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/)                                                      | Only base game tested                |
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |
-| Visions of Mana                             | [Steam](https://store.steampowered.com/app/2490990/Visions_of_Mana/)                                                             |                                      |
+| Vampire Crawlers ¹                          | [Steam](https://store.steampowered.com/app/3265700/)                                                                             |                                      |
 | Ys I Chronicles+                            | [Steam](https://store.steampowered.com/app/223810/Ys_I__II_Chronicles/)                                                          |                                      |
 | Zelda: The Wind Waker HD ¹                  | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind-Waker_HD)                                                       | Works on EUR and USA                 |
 | Zelda: Twilight Princess HD ¹               | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight-Princess_HD)                                                    | Works on EUR and USA                 |
@@ -169,7 +169,7 @@ Customize your presence text:
 ## Information
 
 ¹: Requires pattern search.  
-²: Requires **MultiPresenceGame.exe** & **steam_api64.dll**.
+²: Uses built-in Steam support. Steam must be running and the supported Steam edition of the game is required. No separate helper executable is needed.
 
 > [!IMPORTANT]  
 > A pattern search can cause a short lag on your machine because the program is currently scanning a lot of memory to find the right address to work with.  

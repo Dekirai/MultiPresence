@@ -1,0 +1,719 @@
+{
+  "method": "Installed native PE and TDB70 disassembly (Capstone), read-only ReadProcessMemory, installed English assets. REA bound the correct binary; its IDA function analysis timed out and was not used as semantic evidence.",
+  "patterns": {
+    "PlayerConditionSlot": {
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 85 D2 75 ?? 45 33 C0 8D 57 38 48 8B CB E8 ?? ?? ?? ?? 48 8B D7 48 8B 43 50 48 39 78 18 75 ?? 48 85 D2 74 ?? 48 39 7A 10 74 ?? 32 C0 EB ?? 48 8B 52 50 EB ?? B0 01 0F B6 C0 85 C0 75 ?? 48 85 D2 75 ?? 45 33 C0 8D 50 38 48 8B CB E8 ?? ?? ?? ?? 33 C0 48 8B 5C 24 30 48 83 C4 20 5F C3 48 8B 8A C0 02 00 00",
+      "operand": 3,
+      "length": 7,
+      "target": 161898200,
+      "rva": 5983173,
+      "hits": [
+        5983173
+      ],
+      "liveHits": [
+        5983173
+      ],
+      "liveVerified": true
+    },
+    "ConditionHealthLayout": {
+      "pattern": "48 8B 8A C0 02 00 00 48 85 C9 74 ?? 48 39 79 10 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 75 ?? 48 85 C9 75 ?? 45 33 C0 8D 50 38 48 8B CB E8 ?? ?? ?? ?? 48 8B 4B 50 8B C7 48 39 79 18 0F 45 C7 48 8B 5C 24 30 48 83 C4 20 5F C3 8B 41 58 48 8B 4B 50 48 39 79 18",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 5983274,
+      "hits": [
+        5983274
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        5983274
+      ]
+    },
+    "HealthValueLayout": {
+      "pattern": "44 89 42 54 48 8B 41 50 48 83 78 18 00 75 ?? 45 3B C8 44 89 44 24 08 48 8D 44 24 18 44 89 4C 24 18 48 8D 4C 24 08 48 0F 4D C1 8B 00 89 42 58 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 5819824,
+      "hits": [
+        5819824
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        5819824
+      ]
+    },
+    "CharacterLayout": {
+      "pattern": "8B 5A 54 48 8B 15 ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B D0 48 8B CF 89 58 10 E8 ?? ?? ?? ?? 48 8B 4F 50 48 8B 5C 24 30 48 83 C1 18 48 8B 11 48 85 D2 74 ?? 48 85 D2 8B C6 0F 45 C6 48 39 31 0F 45 C6 48 8B 74 24 40 48 83 C4 20 5F C3 4C 8D 44 24 38 48 8B D0 48 8B CF E8 ?? ?? ?? ?? 48 8B 4F 50 48 83 C1 18 44 0F B6 C0 48 8B 11 48 85 D2 75 ?? 8B 44 24 38 45 85 C0 41 B9 FF FF FF FF 41 0F 44 C1 48 85 D2 0F 45 C6 48 3B D6 0F 45 C6 48 8B 74 24 40 48 83 C4 20 5F C3 48 8B 74 24 40 B8 D0 07 00 00 48 83 C4 20 5F C3 CC 4D 85 C0 75 ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 5941784,
+      "hits": [
+        5941784
+      ],
+      "liveHits": [
+        5941784
+      ],
+      "liveVerified": true
+    },
+    "ConditionInventoryLayout": {
+      "pattern": "48 8B 82 98 01 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 660432,
+      "hits": [
+        660432
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        660432
+      ]
+    },
+    "InventoryOwnerLayout": {
+      "pattern": "48 8B 82 88 00 00 00 C3 CC CC CC CC CC CC CC CC",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 341952,
+      "hits": [
+        341952
+      ],
+      "liveHits": [
+        341952
+      ],
+      "liveVerified": true
+    },
+    "DifficultyLayout": {
+      "pattern": "48 83 EC 28 48 8B 82 A0 01 00 00 48 85 C0 75 ?? 45 33 C0 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 83 C4 28 C3 8B 40 20 48 83 C4 28 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 7137792,
+      "hits": [
+        7137792
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        7137792
+      ]
+    },
+    "WeaponLayout": {
+      "pattern": "48 85 C0 74 ?? 48 8B 40 18 48 85 C0 74 ?? 48 8B 48 10 48 85 C9 74 ?? 8B 41 14 48 83 C4 20 5B C3 B8 FF FF FF FF 48 83 C4 20 5B C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 5817057,
+      "hits": [
+        5817057
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        5817057
+      ]
+    },
+    "LoadedAmmoLayout": {
+      "pattern": "48 8B 80 A0 00 00 00 48 85 C0 74 ?? 48 8B 48 18 48 85 C9 74 ?? 48 8B 41 10 48 85 C0 74 ?? 8B 40 20 48 8B 5C 24 30 48 83 C4 20 5F C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 23148827,
+      "hits": [
+        23148827
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        23148827
+      ]
+    },
+    "ReserveBulletLayout": {
+      "pattern": "48 8B 48 18 4C 89 74 24 58 48 85 C9 74 ?? 48 8B 41 10 48 85 C0 74 ?? 44 8B 40 1C EB ?? 44 8B C7 48 8B D6 48 8B CB E8 ?? ?? ?? ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12930067,
+      "hits": [
+        12930067
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        12930067
+      ]
+    },
+    "InventorySlotsLayout": {
+      "pattern": "49 8B 9E 98 00 00 00 48 85 DB 74 ?? 4C 8B 0D ?? ?? ?? ?? 4C 8B C7 48 8B 15 ?? ?? ?? ?? 48 8B CE C6 44 24 20 00 E8 ?? ?? ?? ?? 48 8B CE 48 85 DB 75 ?? 45 33 C0 8D 53 38 E8 ?? ?? ?? ?? 33 C0 EB ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12962549,
+      "hits": [
+        12962549
+      ],
+      "liveHits": [
+        12962549
+      ],
+      "liveVerified": true
+    },
+    "SlotListLayout": {
+      "pattern": "8B 4B 08 48 8B E8 85 C9 79 ?? 48 89 43 10 EB ?? 48 3B 6B 10 74 ?? 48 85 ED 74 ?? 48 8B CD E8 ?? ?? ?? ?? 48 8B 4B 10 48 8B C1 F0 48 0F B1 6B 10 74 ?? 0F 0D 4B 10 0F 1F 84 00 00 00 00 00 48 8B 4B 10 48 8B C1 F0 48 0F B1 6B 10 75 ?? 48 85 C9 74 ?? E8 ?? ?? ?? ?? 48 8B 6C 24 48 C7 43 18 00 00 00 00",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12962322,
+      "hits": [
+        12962322
+      ],
+      "liveHits": [
+        12962322
+      ],
+      "liveVerified": true
+    },
+    "AmmoItemMatchLayout": {
+      "pattern": "49 8B 40 18 48 85 C0 74 ?? 48 8B 48 10 48 85 C9 74 ?? 8B 41 10 EB ?? 33 C0 48 85 D2 75 ?? 41 3B 41 10 0F 94 C0 48 83 C4 28 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 5033066,
+      "hits": [
+        5033066
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        5033066
+      ]
+    },
+    "AmmoStackCountLayout": {
+      "pattern": "49 8B 40 18 48 85 C0 74 ?? 48 8B 48 10 48 85 C9 74 ?? 8B 41 20 EB ?? 33 C0 48 85 D2 75 ?? 41 03 C2 41 89 41 10 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 4976563,
+      "hits": [
+        4976563
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        4976563
+      ]
+    },
+    "SurplusCountLayout": {
+      "pattern": "49 8B 40 18 48 85 C0 74 ?? 48 8B 48 20 48 8B 05 ?? ?? ?? ?? 48 89 04 24 48 85 C9 74 ?? 8B 41 10 89 44 24 04 C6 04 24 01",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12991822,
+      "hits": [
+        12991822
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        12991822
+      ]
+    },
+    "SurplusMatchLayout": {
+      "pattern": "48 8B 48 18 48 85 C9 74 ?? 48 8B 41 10 48 85 C0 74 ?? 8B 78 1C 3B D7 75 ?? 8B 7D 10 48 8B D6 48 8B CB E8 ?? ?? ?? ?? 48 8B 4B 50 48 83 79 18 00 75 ?? 03 C7 89 45 10",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12930310,
+      "hits": [
+        12930310
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        12930310
+      ]
+    },
+    "ForceHealthStatusLayout": {
+      "pattern": "40 38 77 6E 74 ?? 85 D2 7E ?? B8 02 00 00 00 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 40 38 77 6D 74 ?? 85 D2 7E ?? B8 01 00 00 00 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 20074017,
+      "hits": [
+        20074017
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        20074017
+      ]
+    },
+    "DangerThresholdLayout": {
+      "pattern": "48 8B 86 E0 00 00 00 48 85 C0 75 ?? 45 33 C0 48 8B CB 41 8D 50 38 E8 ?? ?? ?? ?? 8B CF EB ?? 48 8B 48 20 48 85 C9 74 ?? 8B 49 18 EB ?? B9 68 01 00 00 48 8B 43 50 48 39 78 18 75 ?? 3B E9 7E ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 20042294,
+      "hits": [
+        20042294
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        20042294
+      ]
+    },
+    "CautionThresholdLayout": {
+      "pattern": "85 C9 74 ?? 48 8B 86 E0 00 00 00 48 85 C0 75 ?? 45 33 C0 48 8B CB 41 8D 50 38 E8 ?? ?? ?? ?? EB ?? 48 8B 40 20 48 85 C0 74 ?? 8B 78 14 EB ?? BF 84 03 00 00 48 8B 43 50 48 83 78 18 00 0F 85 ?? ?? ?? ?? 3B EF 0F 8F ?? ?? ?? ?? B8 01 00 00 00 E9 ?? ?? ?? ?? B8 02 00 00 00",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 20042398,
+      "hits": [
+        20042398
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        20042398
+      ]
+    },
+    "SlotInfiniteLayout": {
+      "pattern": "80 7A 24 00 0F 95 C0 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 1488192,
+      "hits": [
+        1488192
+      ],
+      "liveVerified": true,
+      "liveHits": [
+        1488192
+      ]
+    },
+    "ArrayLayout": {
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 8B D8 48 8B BA 28 83 01 00 48 85 C0 75 ?? 45 33 C0 8D 50 38 48 8B CE E8 ?? ?? ?? ?? 33 C0 48 8B 5C 24 40 48 8B 74 24 48 48 83 C4 30 5F C3 83 78 1C 00 77 ?? 45 33 C0 48 8B CE 41 8D 50 37 E8 ?? ?? ?? ?? 33 C0 48 8B 5C 24 40 48 8B 74 24 48 48 83 C4 30 5F C3 8B 40 08 85 C0 79 ?? 48 89 7B 20 EB ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 31688573,
+      "hits": [
+        31688573
+      ],
+      "liveHits": [
+        31688573
+      ],
+      "liveVerified": true
+    },
+    "ConfigPathLayout": {
+      "pattern": "48 85 C9 74 ?? 48 8B 41 10 48 85 C0 74 ?? 48 83 C0 08 EB ?? 48 8D 05 ?? ?? ?? ?? 83 78 1C 0C 72 ?? 4C 8B 00 EB ?? 4C 8B C0 8B 50 18 45 33 C9 48 8B CB E8 ?? ?? ?? ?? 33 FF",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 2534648,
+      "hits": [
+        2534648
+      ],
+      "liveHits": [
+        2534648
+      ],
+      "liveVerified": true
+    },
+    "FlowStateLayout": {
+      "name": "FlowStateLayout",
+      "pattern": "8B AD E0 00 00 00 48 8B DF BF 23 00 00 00 80 7C 24 40 00",
+      "rva": 31700858,
+      "operand": 0,
+      "length": 0
+    },
+    "StayRegionLayout": {
+      "name": "StayRegionLayout",
+      "pattern": "48 85 C9 0F 84 ?? ?? ?? ?? 8B 41 54 EB ?? 8B C7 89 05 ?? ?? ?? ??",
+      "rva": 36232314,
+      "operand": 0,
+      "length": 0
+    },
+    "StayRoomLayout": {
+      "name": "StayRoomLayout",
+      "pattern": "48 8B 8E D0 01 00 00 48 85 C9 74 ?? 48 39 79 10 74 ?? 32 C0 EB ?? 8B 49 58 EB ??",
+      "rva": 36232436,
+      "operand": 0,
+      "length": 0
+    },
+    "Purpose": {
+      "name": "Purpose",
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 8B CB 48 85 D2 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 8B 5C 24 40 48 83 C4 30 5F C3 E8 ?? ?? ?? ??",
+      "rva": 4709651,
+      "operand": 3,
+      "length": 7,
+      "target": 161963888
+    },
+    "PurposeListLayout": {
+      "name": "PurposeListLayout",
+      "pattern": "48 8B 47 50 48 8B 55 68 48 83 78 18 00 75 ?? 48 85 D2 75 ?? 45 33 C0 48 8B CF 41 8D 50 38 E8 ?? ?? ?? ??",
+      "rva": 36142326,
+      "operand": 0,
+      "length": 0
+    },
+    "PurposeTitleLayout": {
+      "name": "PurposeTitleLayout",
+      "pattern": "48 8B 55 68 45 33 C0 48 8B CF 44 39 40 1C 0F 8C ?? ?? ?? ?? 48 85 D2 0F 84 ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B 4F 50 48 83 79 18 00 0F 85 ?? ?? ?? ?? 48 85 C0 74 ?? 48 8B 70 10 48 85 F6 74 ?? 48 8B 55 68 45 33 C0 48 8B 76 38",
+      "rva": 36142585,
+      "operand": 0,
+      "length": 0
+    },
+    "PurposeDefaultGuidLayout": {
+      "name": "PurposeDefaultGuidLayout",
+      "pattern": "48 8B 40 10 48 85 C0 0F 84 ?? ?? ?? ?? 44 8B 40 10 44 0F B7 48 14 44 0F B7 50 16 48 8B 48 18",
+      "rva": 36142896,
+      "operand": 0,
+      "length": 0
+    },
+    "Flow": {
+      "name": "Flow",
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 8B CB 48 85 D2 0F 84 ?? ?? ?? ?? E8 ?? ?? ?? ?? 0F B6 C8 48 8B 43 50 4C 39 70 18 0F 85 ?? ?? ?? ?? 85 C9 0F 85 ?? ?? ?? ?? 48 8B 15 ?? ?? ?? ??",
+      "rva": 21141900,
+      "operand": 3,
+      "length": 7,
+      "target": 161945960
+    },
+    "StayAreaLayout": {
+      "name": "StayAreaLayout",
+      "pattern": "48 8B 96 D0 01 00 00 48 85 D2 74 ?? 48 39 7A 10 74 ?? 32 C0 EB ?? 8B 49 5C EB ??",
+      "rva": 36232527,
+      "operand": 0,
+      "length": 0
+    }
+  },
+  "stats": {
+    "identity": {
+      "pid": 31000,
+      "path": "E:\\SteamLibrary\\steamapps\\common\\RE3\\re3.exe",
+      "base": 140694908239872,
+      "size": 173109248,
+      "build": "24468913",
+      "sha256": "4ebc91718bdd5ef6ee93826708624943c5c69713a44d38ff81ed5a699f0ad893",
+      "access": "OpenProcess(0x410) / ReadProcessMemory only; no hooks/invocation/writes"
+    },
+    "patterns": "re3-stats-patterns.json; 22 signatures independently unique in all static and all live executable PE sections; calls and RIP relocations wildcarded",
+    "tdb": {
+      "version": 70,
+      "rva": "0x7987690",
+      "helper": "re3_tdb.py",
+      "initializers": "re3-enums.json; field initidx=(impl.word4>>18)|((impl.word8>>30)<<14), initoffset=initData[B8][initidx], literal=int32(bytepool[D8]+initoffset)"
+    },
+    "chains": {
+      "player": "owner=q(module+resolvedPlayerConditionSlot); condition=q(owner+0x50); condition+0x10 native!=0. Root currently RVA0x9A65ED8.",
+      "character": "int(condition+0x54) is SurvivorType enum43420: JILL=2,CARLOS=0, aliases are explicit TDB literals. Do not use separate PlayerType enum83100.",
+      "health": "hp=q(condition+0x2C0); hp+0x10 native!=0; current=int(hp+0x58),max=int(hp+0x54).",
+      "difficulty": "flow=q(flowSlot); header=q(flow+0x1A0); difficulty=int(header+0x20). Enum52953 Easy0 Normal1 Hard2 SuperHard3 Unlimited4.",
+      "inventory": "inventory=q(condition+0x198); q(inventory+0x88)==condition ownership backlink.",
+      "mainWeapon": "slot=q(inventory+0xA0); stock=q(slot+0x18); primitive=q(stock+0x10); weaponId=int(primitive+0x14),bulletId=int(primitive+0x1C),loaded=int(primitive+0x20). slot+0x24 is Infinity bool.",
+      "reserve": "If bulletId>0, list=q(inventory+0x98); array=q(list+0x10); listcount=int(list+0x18); arraylength=int(array+0x1C); entries=q(array+0x20+8*i). entry→stock+0x18→primitive+0x10. Sum Count int+0x20 where ItemId int+0x10 equals selected bulletId. Native includes all list slots, without CurrentSlotSize truncation.",
+      "surplus": "surplus=q(mainStock+0x20); if surplus.Count int+0x10>0 and surplus.ItemId int+0x14 equals selected bulletId add Count; this tracks unused rounds from loading changes.",
+      "healthStatus": "Dead for HP<=0, otherwise Danger if condition byte+0x6E, otherwise Caution if byte+0x6D. Otherwise thresholds: config=q(owner+0xE0); native=q(config+0x10); pathlength=int(native+0x20); if loaded resource/nonempty path, parameter=q(config+0x20), Caution=int(parameter+0x14),Danger=int(parameter+0x18); unavailable config defaultsCaution900/Danger360. Health<=Danger: Danger; else<=Caution: Caution; elseFine."
+    },
+    "nativeEvidence": {
+      "playerRoot": "PlayerManager.get_CurrentHP RVA0x5B4BA0; unique RIPinstruction0x5B4BC5 resolves0x9A65ED8 andowner+50; get_CurrentPlayerCondition0x5AB670 independently same root.",
+      "hp": "0x5B4C2A condition+2C0/alive+10/current+58. HitPointController initialization0x58CDB0 explicitly default+54/current+58; getters0x67A90/0x5C570.",
+      "character": "PlayerManager.get_CurrentPlayerType0x5AA980 boxes condition+54 SurvivorType then parses; SurvivorCondition.get_PlayerType0xD41D0 confirms+54.",
+      "difficulty": "MainFlowManager.get_CurrentDifficulty0x6CEA00 header+1A0/difficulty+20.",
+      "inventory": "SurvivorCondition.get_Inventory0xA13D0 andInventory.get_Condition0x537C0.",
+      "weapon": "Inventory.getWeaponType0x58C2C0 primitive+14. InventoryManager.getMainWeaponRemainingBullet0x16138D0 usesmain+A0,stock+18,primitive+10,Count+20.",
+      "reserve": "getMainWeaponReloadableBullet0x58CD30→Inventory.getReloadableBulletMainSlot0xC54B40. BulletId+1C. getSlots0xC59550→predicate0x4CCC40 compares ItemId+10. Sum callback0x4BEF90 adds Count+20. list genericFindAll0x1148D00 uses list+10/+18,array+1C,data+20. Inventory.getWeaponList0xC5C980 provides unique guarded list offsets.",
+      "surplus": "get_MainSlotSurplusBulletNumber0xC63D10 usesstock+20/count+10; get_MainSlotSurplusBulletID0xC63C70 uses+14. 0xC54D06 compares ID with mainbullet andsums.",
+      "infinity": "offline.inventory.Slot.get_Infinity0x16B540 returnsbool byte+24.",
+      "status": "SurvivorCondition.get_HitPointVital0x1324DA0 givesforceflags andcalls0x131D1A0. Status0Fine,1Caution,2Danger,4Dead accordingto exact branches. Dynamicthresholds at0x131D236 (Danger),0x131D29E(Caution). Hasparameter0x26ACD0 pathnonempty (System.String.IsNullOrEmpty0x2429260).",
+      "listFields": "TDB System.Collections.Generic.List<Slot>69109 fields mItems offset0(native+10), mSize offset8(native+18), DefaultCapacity static; no version field."
+    },
+    "live": {
+      "character": 2,
+      "health": 1200,
+      "maxHealth": 1200,
+      "weapon": 1,
+      "bullet": 31,
+      "loaded": 15,
+      "reserve": 2,
+      "infinity": false,
+      "slots": 20,
+      "arrayLength": 32,
+      "forceFlags": [
+        0,
+        0
+      ],
+      "pathLength": 77,
+      "cautionThreshold": 800,
+      "dangerThreshold": 360,
+      "slotRows": [
+        {
+          "index": 0,
+          "itemId": 0,
+          "weaponId": 1,
+          "bulletId": 31,
+          "count": 15
+        },
+        {
+          "index": 1,
+          "itemId": 0,
+          "weaponId": 47,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 2,
+          "itemId": 6,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 3,
+          "itemId": 31,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 2
+        },
+        {
+          "index": 4,
+          "itemId": 0,
+          "weaponId": 49,
+          "bulletId": 0,
+          "count": -1
+        },
+        {
+          "index": 5,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": -1
+        },
+        {
+          "index": 6,
+          "itemId": 22,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 7,
+          "itemId": 189,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 8,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 9,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 10,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 11,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 12,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 13,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 14,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 15,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 16,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 17,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 18,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        },
+        {
+          "index": 19,
+          "itemId": 0,
+          "weaponId": -1,
+          "bulletId": 0,
+          "count": 1
+        }
+      ]
+    },
+    "coherence": "Read/recheck rootowner,condition,nativeobjects including health and stay controllers,hp,inventory backlink,mainSlot/stock/primitive,weapon/bullet/loaded,flow/header,difficulty; listpointer,arraypointer,countandcapacity; sum secondscan. TDB List<Slot>type69109 has only mItems(+10),mSize(+18); +1C is alignment padding, NOT an authoritative modificationversion. The absence of a concurrent mutation is not guaranteed; differing snapshots are discarded.",
+    "limits": [
+      "Live verified Jill / Standard, G19 Handgun (15 loaded + 2 reserve), 1200/1200 HP, Downtown / Donut Shop and the current objective.",
+      "Live verified scene change 167 -> 152 within Downtown and Infinite Rocket Launcher: WeaponID49, BulletID0, Count=-1, Slot.Infinity=true. The presence displays infinity.",
+      "Carlos, other difficulties and other equipment are covered by extracted native enums/assets and synthetic checks, not every combination has been live tested.",
+      "The main inventory slot is the selected weapon and may remain selected while the physical model is holstered.",
+      "Non-counted equipment may use Count=-1. When no bullet type exists this becomes numeric loadedammo=0; the independent Infinity flag controls the displayed ammo text.",
+      "Health status follows the native HP vital thresholds and forced Caution/Danger flags; it does not infer a separate parasite/poison status.",
+      "No read-only process snapshot is atomic. The reader repeats pointer/value checks and discards inconsistent reads."
+    ]
+  },
+  "locationAndFlow": {
+    "build": {
+      "steam": 24468913,
+      "exeSha256": "4ebc91718bdd5ef6ee93826708624943c5c69713a44d38ff81ed5a699f0ad893",
+      "tdb": 70,
+      "tdbRva": "0x7987690"
+    },
+    "flow": {
+      "slotRva": "0x9A71968",
+      "stateOffset": "0xE0",
+      "state": 6,
+      "enum": {
+        "INVALID": 0,
+        "INITIALIZE": 1,
+        "WAKE_UP": 2,
+        "TITLE": 3,
+        "LOAD_GAME_DATA": 4,
+        "IN_GAME_INITIALIZE": 5,
+        "IN_GAME": 6,
+        "GAME_OVER": 7,
+        "GAME_OVER_TO_RESET_TO_WAKE_UP": 8,
+        "PAUSE": 9,
+        "STAFFROLL": 10,
+        "STAFFROLL_TO_RESET_TO_WAIT": 11,
+        "WAIT_STAFFROLL": 12,
+        "ENDING": 13,
+        "RESULT": 14,
+        "RESULT_EXTRA": 15,
+        "RESET_TO_WAKE_UP": 16,
+        "RESET_TO_TITLE": 17,
+        "RESET_TO_GAME": 18,
+        "RESET_TO_STAFFROLL": 19,
+        "RESET_TO_WAIT_STAFFROLL": 20,
+        "RESET_TO_RESULT": 21,
+        "RESET_TO_RESULT_EXTRA": 22,
+        "RESET_TO_EXTRAMENU": 23,
+        "RESET_TO_EXTRA_CONTINUE_4": 24,
+        "RESET_TO_EXTRA_CONTINUE_T": 25,
+        "RESET_TITLE_TO_WAKE_UP": 26,
+        "RESET_TO_ROGUE_BASE": 27,
+        "RESET_TO_ROGUE_IN_GAME": 28,
+        "ROGUE_BASEAREA": 29,
+        "ROGUE_RESULT": 30,
+        "FORCE_TITLE_VS": 31,
+        "DEVELOP_INITIALIZE": 32,
+        "DEVELOP_LOAD_WAIT": 33,
+        "DEVELOP_FORCE_RESET_INGAME": 34,
+        "DEVELOP_SCENARIO_JUMP": 35
+      },
+      "source": "offline.gamemastering.MainFlowManager.get_MainStateValue native 0x1E3B730",
+      "liveVtableMatches": true,
+      "inGameStates": [
+        6,
+        9
+      ],
+      "gameOver": 7
+    },
+    "location": {
+      "playerSlotRva": "0x9A65ED8",
+      "conditionOffset": "0x50",
+      "stayControllerOffset": "0x1D0",
+      "regionOffset": "0x54",
+      "roomOffset": "0x58",
+      "areaOffset": "0x5C",
+      "spaceOffset": "0x60",
+      "current": {
+        "region": 4,
+        "room": 167,
+        "area": 0,
+        "space": 167
+      },
+      "stayVtableMatches": true,
+      "source": "offline.StayAreaController get_StayLocationID/get_StaySceneMapID. EnemyManager.lateUpdate 0x228D9B0 reads CURRENT SurvivorCondition via slot+50 and copies active StayAreaController+54/+58 into LastPlayerStay globals. Presence should read active controller directly.",
+      "rechecks": [
+        "player root and condition unchanged",
+        "condition+1D0 same controller",
+        "region and room unchanged",
+        "flow pointer and state unchanged"
+      ],
+      "notUsed": [
+        "EnemyManager.LastPlayerStayLocationID global0x9A775C0",
+        "EnemyManager.LastPlayerStaySceneID global0x9A775C8",
+        "UI/save location"
+      ]
+    },
+    "objective": {
+      "slotRva": "0x9A75F70",
+      "currentListOffset": "0x68",
+      "listItemsOffset": "0x10",
+      "listCountOffset": "0x18",
+      "listVersionOffset": "0x1C",
+      "arrayCountOffset": "0x1C",
+      "arrayItemsOffset": "0x20",
+      "entryDataOffset": "0x10",
+      "entryStateOffset": "0x18",
+      "entryTitleIndexOffset": "0x1C",
+      "dataDefaultGuidOffset": "0x10",
+      "dataChangeTitleListOffset": "0x38",
+      "variantGuidOffset": "0x10",
+      "purposeStates": {
+        "INVALID": 0,
+        "WAIT": 1,
+        "DISP": 2,
+        "END": 3,
+        "ALREADY": 4,
+        "MAX": 5
+      },
+      "source": "offline.gamemastering.PurposeManager.getCurrentPurposeMessageId native0x2277CC0: selects first CurrentPurposes entry. TitleIndex<0 uses entry.Data+10 GUID; nonnegative uses entry.Data.ChangeTitleList[TitleIndex]+10 GUID. All active entries can be decoded by this same rule.",
+      "current": {
+        "count": 1,
+        "state": 2,
+        "titleIndex": -1,
+        "guid": "e6ce0ae0-c2ec-4393-bc18-7a3697c52c8a",
+        "english": "Reactivate power at the substation"
+      },
+      "vtableMatches": true,
+      "dynamicCounters": "Not analyzed; GUID selects official text only."
+    }
+  },
+  "finalValidation": {
+    "steamBuild": 24468913,
+    "signatureCount": 31,
+    "liveMainMenu": "C# IsInGame=false, all scalar IDs cleared, empty placeholders; CE summaries unavailable and selected symbols removed.",
+    "readerTests": 71,
+    "catalogChecks": 1982,
+    "cheatTable": "Actual CE Lua5.3 runtime with read-only live memory API shims; executable-section uniqueness, baseline, location/equipment change, infinity, menu gating, failure recovery and disable verified.",
+    "limitations": "No automated test injects changes into the game. Synthetic reader tests write only their own process; Lua shims override only local callback values. No actual Discord UI delivery assertion was performed."
+  }
+}

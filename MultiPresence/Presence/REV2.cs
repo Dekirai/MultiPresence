@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.REV2;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class REV2
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         static int mission = 0;
         public static void DoAction()
         {
@@ -34,6 +33,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("REV2: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("rerev2"))
             {
                 int stage_get = Hypervisor.Read<short>(0x115AACC);
@@ -102,6 +106,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("REV2: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

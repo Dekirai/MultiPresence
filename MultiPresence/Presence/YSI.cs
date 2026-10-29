@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,9 +6,9 @@ namespace MultiPresence.Presence
 {
     public class YSI
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static string[] levelvalue = null;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static string[]? levelvalue = null;
 
         public static void DoAction()
         {
@@ -34,6 +33,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("YSI: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("ys1plus"))
             {
                 try
@@ -122,6 +126,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("YSI: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
 

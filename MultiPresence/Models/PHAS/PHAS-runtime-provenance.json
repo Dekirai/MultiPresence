@@ -1,0 +1,535 @@
+{
+  "game": "Phasmophobia",
+  "application_id": "1562392149192871977",
+  "steam_app": "739630",
+  "steam_build": "25811160",
+  "module": "GameAssembly.dll",
+  "module_sha256": "e300eda993f2479922628f1b44f59e60c156c240f5a07c7289c4bd0fe4b790c8",
+  "metadata_sha256": "a1d282afc5a7dada6617f30f0b8a595a8bc5ce32f27cd81baf38903711c68253",
+  "metadata_version": 31,
+  "memory_access": "ReadProcessMemory only; no game writes, calls, hooks or injection.",
+  "discovery": "All 27 signatures have one match in executable PE sections of both the installed module and live process. RIP operands locate type slots. Native function patterns guard key layouts. Relative intra-module CALL operands disambiguate generated function clones; ASLR-safe but future builds may require new signatures.",
+  "patterns": {
+    "SeasonalEventType": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 8B 81 B8 00 00 00 48 83 38 00 0F 85 ?? ?? ?? ?? 48 89 5C 24 30 48 89 74 24 38 48 89 7C 24 20 E8 E4 48 00 FE",
+      "rva": 37373008,
+      "operand": 3,
+      "length": 7,
+      "target": 105245592,
+      "staticHits": [
+        37373008
+      ],
+      "liveHits": [
+        37373008
+      ]
+    },
+    "LevelStatsType": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 89 5C 24 30 48 89 7C 24 20 48 8B 81 B8 00 00 00 48 83 38 00 0F 85 ?? ?? ?? ?? E8 FD 96 09 FE",
+      "rva": 36763196,
+      "operand": 3,
+      "length": 7,
+      "target": 104936736,
+      "staticHits": [
+        36763196
+      ],
+      "liveHits": [
+        36763196
+      ]
+    },
+    "SeasonalEventAuthLayout": {
+      "pattern": "33 C9 E8 D7 BD F6 FF 48 85 C0 0F 84 ?? ?? ?? ?? 48 8B 88 D0 00 00 00 48 85 C9 0F 84 ?? ?? ?? ?? 33 D2 E8 B7 0E EC FF 84 C0 0F 84 ?? ?? ?? ??",
+      "rva": 37369906,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        37369906
+      ],
+      "liveHits": [
+        37369906
+      ]
+    },
+    "AuthStateLayout": {
+      "pattern": "83 79 28 02 0F 94 C0 C3",
+      "rva": 36062992,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        36062992
+      ],
+      "liveHits": [
+        36062992
+      ]
+    },
+    "SeasonalEventWriteLayout": {
+      "pattern": "E8 A5 B7 D3 01 F6 D8 1B DB 83 E3 05 89 5F 20",
+      "rva": 37370166,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        37370166
+      ],
+      "liveHits": [
+        37370166
+      ]
+    },
+    "MainManagerType": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 83 B8 E0 00 00 00 00 75 ?? 48 8B C8 E8 A7 F2 8A FF 48 8B 05 ?? ?? ?? ?? 48 8B 80 B8 00 00 00 48 8B D3 48 89 18 48 8B 0D ?? ?? ?? ?? 48 8B 89 B8 00 00 00 E8 D0 2E 8D FF",
+      "rva": 11358481,
+      "operand": 3,
+      "length": 7,
+      "target": 104969696,
+      "staticHits": [
+        11358481
+      ],
+      "liveHits": [
+        11358481
+      ]
+    },
+    "PhotonType": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 83 B8 E0 00 00 00 00 75 ?? 48 8B C8 E8 88 4F 02 FC 48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 0F B6 41 38 48 83 C4 28 C3",
+      "rva": 70644784,
+      "operand": 3,
+      "length": 7,
+      "target": 105091600,
+      "staticHits": [
+        70644784
+      ],
+      "liveHits": [
+        70644784
+      ]
+    },
+    "LevelValuesType": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 48 8B 19 48 8B 0D ?? ?? ?? ?? 83 B9 E0 00 00 00 00 75 ?? E8 78 C1 06 FE 45 33 C0 33 D2 48 8B CB",
+      "rva": 36799026,
+      "operand": 3,
+      "length": 7,
+      "target": 104936968,
+      "staticHits": [
+        36799026
+      ],
+      "liveHits": [
+        36799026
+      ]
+    },
+    "GameControllerType": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 90 B8 00 00 00 48 89 1A 48 8B D3 48 8B 0D ?? ?? ?? ?? 48 8B 89 B8 00 00 00 E8 48 71 10 FE",
+      "rva": 36310705,
+      "operand": 3,
+      "length": 7,
+      "target": 105331352,
+      "staticHits": [
+        36310705
+      ],
+      "liveHits": [
+        36310705
+      ]
+    },
+    "LevelControllerType": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B D6 48 89 5C 24 58 48 89 7C 24 68 48 8B 88 B8 00 00 00 48 89 31 48 8B 0D ?? ?? ?? ?? 48 8B 89 B8 00 00 00 E8 E2 A4 0C FE 48 8B 56 70 48 8D 4E 30 48 89 56 30 E8 D1 A4 0C FE",
+      "rva": 36559629,
+      "operand": 3,
+      "length": 7,
+      "target": 104936272,
+      "staticHits": [
+        36559629
+      ],
+      "liveHits": [
+        36559629
+      ]
+    },
+    "PhotonCurrentRoomLayout": {
+      "pattern": "48 8B 81 B8 00 00 00 80 78 38 00 75 ?? 83 B9 E0 00 00 00 00 75 ?? E8 59 5B 02 FC 48 8B 0D ?? ?? ?? ?? 48 8B 81 B8 00 00 00",
+      "rva": 70641756,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70641756
+      ],
+      "liveHits": [
+        70641756
+      ]
+    },
+    "PhotonOnlineRoomLayout": {
+      "pattern": "48 8B 81 B8 00 00 00 48 8B 40 08 48 85 C0 74 ?? 48 8B 80 08 01 00 00 48 83 C4 28 C3",
+      "rva": 70641832,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70641832
+      ],
+      "liveHits": [
+        70641832
+      ]
+    },
+    "PhotonOfflineRoomLayout": {
+      "pattern": "83 B9 E0 00 00 00 00 75 ?? E8 FE 5A 02 FC 48 8B 0D ?? ?? ?? ?? 48 8B 81 B8 00 00 00 48 8B 40 40 48 83 C4 28 C3",
+      "rva": 70641860,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70641860
+      ],
+      "liveHits": [
+        70641860
+      ]
+    },
+    "PhotonClientStateLayout": {
+      "pattern": "83 B9 E0 00 00 00 00 75 ?? E8 FE 50 02 FC 48 8B 0D ?? ?? ?? ?? 48 8B 81 B8 00 00 00 48 8B 48 08 48 85 C9 74 ?? 8B 81 90 00 00 00 48 83 C4 28 C3",
+      "rva": 70644420,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70644420
+      ],
+      "liveHits": [
+        70644420
+      ]
+    },
+    "PhotonInRoomLayout": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 83 B9 E0 00 00 00 00 75 ?? E8 8B 59 02 FC 33 C9 E8 D4 07 00 00 83 F8 09 0F 94 C0 48 83 C4 28 C3",
+      "rva": 70642224,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70642224
+      ],
+      "liveHits": [
+        70642224
+      ]
+    },
+    "PhotonLoadingLayout": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 C6 41 54 00 48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 C6 81 D1 00 00 00 01 48 8B 0D ?? ?? ?? ?? E8 42 7C 05 FC",
+      "rva": 70586603,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70586603
+      ],
+      "liveHits": [
+        70586603
+      ]
+    },
+    "RoomPlayerCountLayout": {
+      "pattern": "48 83 7B 70 00 74 ?? 48 8B 15 ?? ?? ?? ?? 48 8B 4B 70 48 83 C4 20 5B E9 ?? ?? ?? ??",
+      "rva": 70516005,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        70516005
+      ],
+      "liveHits": [
+        70516005
+      ]
+    },
+    "DictionaryCountLayout": {
+      "pattern": "8B 41 20 2B 41 28 C3",
+      "rva": 57081136,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        57081136
+      ],
+      "liveHits": [
+        57081136
+      ]
+    },
+    "CurrentDifficultyLayout": {
+      "pattern": "48 8B D9 33 C9 E8 70 05 A9 01 48 85 C0 74 ?? 48 8B 50 38 45 33 C0 48 8B CB 48 83 C4 20 5B E9 ?? ?? ?? ??",
+      "rva": 8949750,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        8949750
+      ],
+      "liveHits": [
+        8949750
+      ]
+    },
+    "MapLayout": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 8B 7B 48 83 B9 E0 00 00 00 00 75 ?? E8 FA 30 07 FE 45 33 C0 33 D2 48 8B CF E8 FD 75 EE 02 84 C0",
+      "rva": 36770493,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        36770493
+      ],
+      "liveHits": [
+        36770493
+      ]
+    },
+    "DifficultyCustomLayout": {
+      "pattern": "83 79 18 06 74 ?? 83 79 18 07 74 ?? 83 79 18 08 0F 94 C0 C3 B0 01 C3",
+      "rva": 33308176,
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "staticHits": [
+        33308176
+      ],
+      "liveHits": [
+        33308176
+      ]
+    },
+    "Network": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 48 8B 19 48 8B 0D ?? ?? ?? ?? 83 B9 E0 00 00 00 00 75 ?? E8 28 C8 03 FE 45 33 C0 33 D2 48 8B CB E8 2B 0D EB 02 84 C0 75 ?? 48 8B 05 ?? ?? ?? ?? 48 8B 80 B8 00 00 00 48 8B 00",
+      "operand": 3,
+      "length": 7,
+      "rva": 36993922,
+      "target": 105037840,
+      "staticHits": [
+        36993922
+      ],
+      "liveHits": [
+        36993922
+      ]
+    },
+    "NetworkPlayerLayout": {
+      "pattern": "40 53 48 83 EC 20 80 3D ?? ?? ?? ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 52 0F 06 FE C6 05 ?? ?? ?? ?? 01 48 8B 53 28 48 85 D2 75 ??",
+      "operand": 0,
+      "length": 0,
+      "rva": 36994064,
+      "target": 36994064,
+      "staticHits": [
+        36994064
+      ],
+      "liveHits": [
+        36994064
+      ]
+    },
+    "NetworkLocalPlayerLayout": {
+      "pattern": "40 53 48 83 EC 20 80 3D ?? ?? ?? ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 32 0E 06 FE C6 05 ?? ?? ?? ?? 01 48 8B 53 30 48 85 D2 75 ??",
+      "operand": 0,
+      "length": 0,
+      "rva": 36994352,
+      "target": 36994352,
+      "staticHits": [
+        36994352
+      ],
+      "liveHits": [
+        36994352
+      ]
+    },
+    "PlayerRoomWriteLayout": {
+      "pattern": "48 8D 4B 50 48 89 7B 50 48 8B D7 E8 57 D9 AF FF 33 D2 48 8B CF E8 6D 8F 00 00 45 33 C0 48 8B D0 48 8B CF E8 1F B8 94 04",
+      "operand": 0,
+      "length": 0,
+      "rva": 9086649,
+      "target": 9086649,
+      "staticHits": [
+        9086649
+      ],
+      "liveHits": [
+        9086649
+      ]
+    },
+    "CCTVController": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 48 8B 09 48 85 C9 74 ?? 0F B6 56 20 45 33 C0 E8 CD FD 05 01",
+      "operand": 3,
+      "length": 7,
+      "rva": 18789729,
+      "staticHits": [
+        18789729
+      ],
+      "liveHits": [
+        18789729
+      ],
+      "target": 105024312
+    },
+    "LocalTruckFlagLayout": {
+      "pattern": "88 91 A0 00 00 00 84 D2 75 07 33 D2 E9 3F 1D 00 00 33 D2 E9 E8 1B 00 00",
+      "operand": 0,
+      "length": 0,
+      "rva": 35959632,
+      "staticHits": [
+        35959632
+      ],
+      "liveHits": [
+        35959632
+      ],
+      "target": 35959632
+    }
+  },
+  "network_and_scene": {
+    "module": "GameAssembly.dll",
+    "steamBuild": 25811160,
+    "baselineFile": "work/phas-network-live.json",
+    "patternsFile": "work/phas-network-patterns.json",
+    "classLayout": {
+      "name": 16,
+      "staticFields": 184,
+      "nativeObject": 16,
+      "managedStringLength": 16,
+      "managedStringData": 20
+    },
+    "PhotonNetwork": {
+      "typeSlotRva": 105091600,
+      "offlineMode": 56,
+      "offlineRoom": 64,
+      "networkingClient": 8,
+      "loadingLevelAndPausedNetwork": 209
+    },
+    "LoadBalancingClient": {
+      "currentRoom": 264,
+      "state": 144,
+      "joinedState": 9
+    },
+    "Room": {
+      "isOffline": 104,
+      "playersDictionary": 112,
+      "maxPlayers": 32
+    },
+    "Dictionary": {
+      "count": 32,
+      "freeCount": 40,
+      "version": 44
+    },
+    "LevelValues": {
+      "typeSlotRva": 104936968,
+      "singleton": 0,
+      "difficulty": 56,
+      "backupDifficultyNotCurrent": 64,
+      "map": 72,
+      "seasonalEventAUnproven": 48,
+      "seasonalEventBUnproven": 52
+    },
+    "Difficulty": {
+      "id": 24,
+      "nameKey": 32,
+      "englishOverrideArray": 200
+    },
+    "Map": {
+      "levelType": 24,
+      "restricted": 32,
+      "name": 40,
+      "scene": 88,
+      "id": 104
+    },
+    "LevelController": {
+      "typeSlotRva": 104936272,
+      "singleton": 0,
+      "gameController": 136
+    },
+    "GameController": {
+      "typeSlotRva": 105331352,
+      "singleton": 0,
+      "levelController": 240
+    },
+    "coherence": [
+      "Capture Photon statics, offline byte, room, client, dictionary and dictionary count/freeCount. After reading all payload, require same statics/room/offline/client/players and count/freeCount/version. No room/player identities are read.",
+      "For offline require offlineMode==1 and room.isOffline==1. For online require offlineMode==0, client.state==9 and room.isOffline==0. Never infer singleplayer from player count.",
+      "Player count=count-freeCount must be 1..4. count/freeCount must be nonnegative with freeCount<=count and count bounded (e.g. 16). Read dictionary version+44 for consistency. maxPlayers byte must be 1..4.",
+      "Photon loading byte==1 => Loading. Room absent or client not joined => Menu or connecting; do not surface stale LevelValues.",
+      "Ingame requires valid live Unity objects LevelController and GameController and mutual links LC+88==GC, GC+F0==LC, plus parent-owned local-player room evidence. If absent with room active => Lobby (unless loading).",
+      "LevelValues is DontDestroyOnLoad and retains map/difficulty across menu transitions. Only publish contract map/room under active scene/player gate. Lobby selected map/difficulty are possible but require validated current lobby UI source; do not use stale values blindly.",
+      "Map/difficulty can be independently missing; fail closed and clear affected text. Current difficulty is +38; +40 contains stale custom backup.",
+      "Class names and strings must be bounded and exact expected class validated. For Room namespace Photon.Realtime; PhotonNetwork namespace Photon.Pun.",
+      "LevelValues +30/+34 event fields are not used by canonical Map name getter; use proven SeasonalEventController flow described in seasonalMapName or ordinary name as fallback."
+    ],
+    "MainManager": {
+      "typeSlotRva": 104969696,
+      "singleton": 0,
+      "nativeObject": 16,
+      "lobbyRule": "Require active Photon room and live MainManager; no live contract controllers. Invalid MainManager with room active is transitional, use Loading/Waiting."
+    },
+    "SeasonalEventController": {
+      "typeSlotRva": 105245592,
+      "singleton": 0,
+      "currentSeasonalEvent": 32,
+      "hasDisabledSeasonalEventMaps": 36,
+      "cacheNativeWriterRva": 37370178,
+      "getSeasonalEventRva": 37369776,
+      "isUnityObject": false
+    },
+    "LevelStats": {
+      "typeSlotRva": 104936736,
+      "singleton": 0,
+      "authStateObject": 208,
+      "authStateValueOffset": 40,
+      "authenticatedValue": 2,
+      "isUnityObject": false,
+      "restriction": "Read only the boolean/enum state; do not read other Authentication fields, identifiers or tokens."
+    },
+    "seasonalMapName": {
+      "nativeGetterRva": 15157600,
+      "nativeLoadingCallerRva": 11080232,
+      "nativeContractCallerRva": 19204393,
+      "rule": "Map native name getter calls GetSeasonalEvent, takes matching EventOverride name if nonempty, otherwise mapName+28. Runtime read counterpart: if auth state !=2 then event0; else use cached CurrentSeasonalEvent+20 bounded0..5. GetSeasonalEvent refreshes this cache when loading/UI resolves the map. Require same roots/cache/state at end of snapshot. Do not apply HasDisabledSeasonalEventMaps: native name getter does not consult this flag.",
+      "baseline": {
+        "authState": 2,
+        "cachedEvent": 2,
+        "disabledMapFlag": false,
+        "map": "Nell's Diner"
+      },
+      "limitation": "CurrentSeasonalEvent is the native cached result of RemoteConfig resolution, not a remote call. Live validation covers event2; event5 alternate names are supported by shipped map assets and native getter evidence, not live verified."
+    }
+  },
+  "local_player": {
+    "owner": "Network singleton +0x28 Player, +0x30 LocalPlayer; mutual Player+0x110 and LocalPlayer+0x20 links must match.",
+    "current_room": "Player+0x50 LevelRoom; room+0x70 is its English managed string.",
+    "scene_membership": "Room must equal LevelController+0x70 exterior room or appear in LevelController+0x50 room array.",
+    "truck": "CCTVController singleton+0xA0 stores local truck membership. CCTVTruckTrigger filters PhotonView.IsMine before calling EnteredTruck(bool), RVA0x224B350. Exterior/Outside strings alone do not imply Truck."
+  },
+  "lifecycle": "Roots cached per process ID/module base/module size. Missing or ambiguous patterns fail closed and retry after30seconds. Native Unity pointers reject destroyed instances. ReadFrame is captured twice and all identities, dictionary version and relevant payload must agree. Menu/loading/lobby contain no retained contract map, difficulty or room.",
+  "live_validation": [
+    {
+      "state": "Ingame",
+      "mode": "Singleplayer",
+      "players": 1,
+      "capacity": 1,
+      "map": "Nell's Diner",
+      "difficulty": "Nightmare",
+      "room": "Truck"
+    },
+    {
+      "state": "Ingame",
+      "mode": "Singleplayer",
+      "players": 1,
+      "map": "Nell's Diner",
+      "difficulty": "Nightmare",
+      "room": "Dining Area",
+      "note": "User moved and subsequently accepted room result by returning to lobby."
+    },
+    {
+      "state": "Lobby",
+      "mode": "Singleplayer",
+      "players": 1,
+      "capacity": 4,
+      "contract_fields": "empty"
+    },
+    {
+      "state": "Lobby",
+      "mode": "Multiplayer",
+      "players": 1,
+      "capacity": 4,
+      "session": "Multiplayer (1/4)",
+      "contract_fields": "empty",
+      "confirmation": "User confirmed private online lobby with maximum4, one participant."
+    }
+  ],
+  "validation": {
+    "solution_release_build": "Passed; zero warnings, zero errors.",
+    "synthetic_reader_checks": "51 passed, including count/freeCount, one-person online, scene transitions, local ownership, Truck/Exterior, stale events and malformed memory.",
+    "catalog_checks": "20 passed.",
+    "delivery": "Config.zip includes Config/Phasmophobia.json; all other entry payloads preserved. Build output includes Assets/Config/Phasmophobia.json."
+  },
+  "limitations": [
+    "Static catalog coverage does not claim live traversal of every map/room, restricted variant or seasonal event.",
+    "Only installed Steam build25811160 has been live tested. Unsupported future builds clear presence data rather than reusing stale offsets.",
+    "Event5 alternate map names are supported by installed asset/native getter evidence, not live verified.",
+    "Online lobby was live tested with one participant. Two-to-four-player counts and departures were validated with synthetic dictionary fixtures, not a live group.",
+    "Main-menu and loading state clearing passed synthetic tests; return-to-lobby clearing was verified live."
+  ]
+}

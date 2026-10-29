@@ -10,16 +10,15 @@ public static partial class GameDetector
     [
         ("BorderlandsGOTY", "Borderlands 1"),
         ("Borderlands2", "Borderlands 2"),
-        ("cod", "Call of Duty®"),
         ("CrashBandicoot4", "Crash Bandicoot 4: It's About Time"),
         ("CrashBandicootNSaneTrilogy", "Crash Bandicoot N. Sane Trilogy"),
-        ("Gunfire Reborn", "Gunfire Reborn"),
         ("CCFF7R-Win64-Shipping", "CRISIS CORE –FINAL FANTASY VII– REUNION"),
+        ("Cryo", "Cryo"),
         ("DarkSoulsRemastered", "Dark Souls: Remastered"),
         ("DarkSoulsII", "Dark Souls II"),
         ("DarkSoulsIII", "Dark Souls III"),
-        ("ds", "Death Stranding"),
         ("Diablo IV", "Diablo IV"),
+        ("ddv", "Disney Dreamlight Valley"),
         ("DMC-DevilMayCry", "DmC Devil May Cry"),
         ("dmc1", "Devil May Cry"),
         ("dmc2", "Devil May Cry 2"),
@@ -33,10 +32,10 @@ public static partial class GameDetector
         ("ffxv_s", "Final Fantasy XV"),
         ("ffxvi", "Final Fantasy XVI"),
         ("CodeVein-Win64-Shipping", "CODE VEIN"),
-        ("Digimon Story Time Stranger", "Digimon Story Time Stranger"),
         ("granblue_fantasy_relink", "Granblue Fantasy: Relink"),
-        ("Hello Kitty", "Hello Kitty Island Adventure"),
+        ("Gunfire Reborn", "Gunfire Reborn"),
         ("HogwartsLegacy", "Hogwarts Legacy"),
+        ("KINGDOM HEARTS 0.2 Birth by Sleep", "Kingdom Hearts 0.2 Birth by Sleep"),
         ("KINGDOM HEARTS FINAL MIX", "Kingdom Hearts Final Mix"),
         ("KINGDOM HEARTS II FINAL MIX", "Kingdom Hearts II Final Mix"),
         ("KINGDOM HEARTS III", "Kingdom Hearts III"),
@@ -44,17 +43,17 @@ public static partial class GameDetector
         ("KINGDOM HEARTS Dream Drop Distance", "Kingdom Hearts Dream Drop Distance"),
         ("KINGDOM HEARTS Re_Chain of Memories", "Kingdom Hearts Re:Chain of Memories"),
         ("Labyrinthine", "Labyrinthine"),
-        ("LOP-Win64-Shipping", "Lies of P"),
         ("MilesMorales", "Marvel's Spider-Man: Miles Morales"),
         ("Spider-Man", "Marvel's Spider-Man Remastered"),
+        ("Dungeons-Win64-Shipping", "Minecraft Dungeons II"),
         ("Overwatch", "Overwatch"),
-        ("tf_win64", "Team Fortress 2"),
         ("ProjectG", "Pangya Reborn"),
         ("p4g", "Persona 4 Golden"),
         ("P5R", "Persona 5 Royal"),
         ("P5S", "Persona 5 Strikers"),
         ("Persona 5 Tactica", "Persona 5 Tactica"),
-        ("P5X", "Persona 5: The Phantom X"),
+        ("Phasmophobia", "Phasmophobia"),
+        ("PokeOne", "PokeOne"),
         ("rayman30th", "Rayman"),
         ("bhd", "Resident Evil"),
         ("re2", "Resident Evil 2"),
@@ -65,6 +64,7 @@ public static partial class GameDetector
         ("BH6", "Resident Evil 6"),
         ("re7", "Resident Evil 7"),
         ("re8", "Resident Evil 8"),
+        ("re9", "Resident Evil Requiem"),
         ("rerev2", "Resident Evil Revelations 2"),
         ("scott", "Scott Pilgrim vs The World"),
         ("smt3hd", "Shin Megami Tensei III"),
@@ -75,10 +75,9 @@ public static partial class GameDetector
         ("SB-Win64-Shipping", "Stellar Blade"),
         ("TemtemSwarm", "Temtem: Swarm"),
         ("isaac-ng", "The Binding of Isaac: Rebirth"),
-        ("witcher3", "The Witcher 3"),
         ("TY", "TY the Tasmanian Tiger"),
+        ("Vampire Crawlers", "Vampire Crawlers"),
         ("VampireSurvivors", "Vampire Survivors"),
-        ("VisionsofMana-Win64-Shipping", "Visions of Mana"),
         ("ys1plus", "Ys I Chronicles")
     ];
 
@@ -117,6 +116,13 @@ public static partial class GameDetector
                 }
             }
 
+            if (!processes.ContainsKey("SONIC_GENERATIONS") &&
+                processes.TryGetValue("SONIC_X_SHADOW_GENERATIONS", out var shadow) &&
+                DetectShadowGame(shadow) is { } shadowGame)
+            {
+                return new DetectedGame(shadowGame, "SONIC_X_SHADOW_GENERATIONS", shadow.Id);
+            }
+
             if (processes.TryGetValue("game", out var genericGame))
             {
                 var title = DetectGenericGameTitle(genericGame);
@@ -124,6 +130,11 @@ public static partial class GameDetector
                 {
                     return new DetectedGame(title, "game", genericGame.Id);
                 }
+            }
+
+            if (processes.TryGetValue("SRX", out var soulReaver) && DetectSoulReaverGame(soulReaver) is { } soulReaverGame)
+            {
+                return new DetectedGame(soulReaverGame, "SRX", soulReaver.Id);
             }
 
             if (processes.TryGetValue("Cemu", out var cemu) && DetectCemuGame(cemu) is { } cemuGame)
@@ -168,6 +179,19 @@ public static partial class GameDetector
             }
         }
     }
+
+    private static string? DetectShadowGame(Process process) => WithMemory(process, () =>
+        Models.SXSG.MemoryReader.IsShadowGenerations() ? "Shadow Generations" : null);
+
+    private static string? DetectSoulReaverGame(Process process) => WithMemory(process, () =>
+    {
+        if (Models.SR1.MemoryReader.IsSoulReaver1())
+        {
+            return "Legacy of Kain Soul Reaver 1";
+        }
+
+        return Models.SR2.MemoryReader.IsSoulReaver2() ? "Legacy of Kain Soul Reaver 2" : null;
+    });
 
     private static string? DetectCemuGame(Process process) => WithMemory(process, () =>
     {
@@ -245,7 +269,7 @@ public static partial class GameDetector
     {
         try
         {
-            return process.ProcessName;
+            return process.HasExited ? string.Empty : process.ProcessName;
         }
         catch
         {

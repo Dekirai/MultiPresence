@@ -1,4 +1,5 @@
 using MultiPresence.Infrastructure;
+using MultiPresence.Steam;
 
 namespace MultiPresence;
 
@@ -7,8 +8,14 @@ internal static class Program
     private const string InstanceMutexName = @"Local\MultiPresence.5F864D79-3411-4DC7-84D5-4052C5436F23";
 
     [STAThread]
-    private static void Main()
+    private static void Main(string[] args)
     {
+        if (args.Length > 0 && args[0] == "--steam-host")
+        {
+            Environment.ExitCode = SteamHostRuntime.Run(args);
+            return;
+        }
+
         using var instanceMutex = new Mutex(initiallyOwned: true, InstanceMutexName, out var isFirstInstance);
         if (!isFirstInstance)
         {
@@ -36,6 +43,7 @@ internal static class Program
 
         try
         {
+            ConfigurationDefaults.CreateMissingFiles(AppContext.BaseDirectory);
             Application.Run(new MainForm());
         }
         catch (Exception exception)

@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.TPHD;
@@ -11,7 +10,7 @@ namespace MultiPresence.Presence
         static string location = "";
         static string area = "";
         public static ulong _main_address = 0;
-        private static DiscordRpcClient discord;
+        private static DiscordRpcClient? discord;
         public static async Task DoAction()
         {
             await Task.Delay(5500);
@@ -36,6 +35,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("TPHD: presence is not initialized.");
+            }
+
             string[] stage = Hypervisor.ReadString(_main_address + 0x0D, 32, true).Split(':');
             if (ProcessMonitor.IsRunning("Cemu"))
             {
@@ -98,6 +102,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("TPHD: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

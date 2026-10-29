@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class P5S
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -32,6 +31,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("P5S: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("game"))
             {
                 int inbattle = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x02498458, [0x960, 0x0, 0x0, 0x20, 0x3B8, 0x410, 0xBC]), true);
@@ -125,6 +129,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("P5S: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

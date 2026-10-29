@@ -1,0 +1,1165 @@
+{
+  "method": "Installed native PE/TDB69 disassembly with Capstone, read-only ReadProcessMemory and installed English assets. REA could not open a native session because cleanup of an earlier IDA worker remained incomplete; no IDA output is claimed as evidence.",
+  "steamBuild": 22373341,
+  "executableSha256": "B489826FD3E8AEEA0DD0B1C4ADCF35D5C98D1B599EED022623AA73241FE21E3B",
+  "patterns": {
+    "Scene": {
+      "name": "Scene",
+      "pattern": "48 8B 15 ?? ?? ?? ?? 4C 39 40 18 49 0F 45 D0 EB ?? 49 8B D0 48 8B 41 50 48 83 78 18 00 75 ?? 48 85 D2 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 83 C4 28 C3 48 8B 42 58 48 83 C4 28",
+      "rva": 6821220,
+      "operand": 3,
+      "length": 7,
+      "target": 206280000
+    },
+    "Map": {
+      "name": "Map",
+      "pattern": "48 0F 45 1D ?? ?? ?? ?? 66 89 6C 24 24 66 44 89 74 24 26 4C 89 7C 24 28 48 85 DB 74 ?? 4C 8D 44 24 20 48 8B D3 E8 ?? ?? ?? ?? EB ?? 48 39 1D ?? ?? ?? ?? 89 74 24 30 48 0F 45 1D ?? ?? ?? ??",
+      "rva": 4264644,
+      "operand": 4,
+      "length": 8,
+      "target": 206516184
+    },
+    "RoseMap": {
+      "name": "RoseMap",
+      "pattern": "48 8B 05 ?? ?? ?? ?? C3 CC CC CC CC CC CC CC CC 48 83 EC 38 8B 44 24 60",
+      "rva": 4006160,
+      "operand": 3,
+      "length": 7,
+      "target": 206362968
+    },
+    "RoseMode": {
+      "name": "RoseMode",
+      "pattern": "48 8B 05 ?? ?? ?? ?? C3 CC CC CC CC CC CC CC CC 48 83 EC 38 0F 10 02",
+      "rva": 6914016,
+      "operand": 3,
+      "length": 7,
+      "target": 206366776
+    },
+    "MercenariesMode": {
+      "name": "MercenariesMode",
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 83 78 18 00 74 ?? 45 32 C0 EB ?? 48 85 D2 74 ?? 48 83 7A 10 00 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 74 ?? 45 32 C0 EB ?? 48 85 D2 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 48 8B 15 ?? ?? ?? ?? 45 32 C0 EB ?? 80 7A 60 00",
+      "rva": 9390269,
+      "operand": 3,
+      "length": 7,
+      "target": 206212560
+    },
+    "SceneViewLayout": {
+      "name": "SceneViewLayout",
+      "pattern": "48 8B 42 58 C3 CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 08",
+      "rva": 511760,
+      "operand": 0,
+      "length": 0
+    },
+    "SceneChapterLayout": {
+      "name": "SceneChapterLayout",
+      "pattern": "48 8B 42 60 C3 CC CC CC CC CC CC CC CC CC CC CC",
+      "rva": 438960,
+      "operand": 0,
+      "length": 0
+    },
+    "SceneTransitionLayout": {
+      "name": "SceneTransitionLayout",
+      "pattern": "83 BA 88 00 00 00 00 0F 95 C0 C3 CC CC CC CC CC",
+      "rva": 11091616,
+      "operand": 0,
+      "length": 0
+    },
+    "MapRoomLayout": {
+      "name": "MapRoomLayout",
+      "pattern": "48 8B 82 D8 00 00 00 C3 CC CC CC CC CC CC CC CC",
+      "rva": 441328,
+      "operand": 0,
+      "length": 0
+    },
+    "RoseMapRoomLayout": {
+      "name": "RoseMapRoomLayout",
+      "pattern": "48 8B 82 F8 00 00 00 C3 CC CC CC CC CC CC CC CC",
+      "rva": 478880,
+      "operand": 0,
+      "length": 0
+    },
+    "MapReadyLayout": {
+      "name": "MapReadyLayout",
+      "pattern": "80 BA EC 00 00 00 00 0F 95 C0 C3 CC CC CC CC CC",
+      "rva": 1237168,
+      "operand": 0,
+      "length": 0
+    },
+    "RoseMapReadyLayout": {
+      "name": "RoseMapReadyLayout",
+      "pattern": "80 BA 0C 01 00 00 00 0F 95 C0 C3 CC CC CC CC CC",
+      "rva": 573792,
+      "operand": 0,
+      "length": 0
+    },
+    "RoomGuidLayout": {
+      "name": "RoomGuidLayout",
+      "pattern": "41 8B 40 48 41 0F B7 50 4C 45 0F B7 48 4E 4D 8B 40 50",
+      "rva": 651072,
+      "operand": 0,
+      "length": 0
+    },
+    "RoomMapIdLayout": {
+      "name": "RoomMapIdLayout",
+      "pattern": "8B 42 5C C3 CC CC CC CC CC CC CC CC CC CC CC CC",
+      "rva": 1580944,
+      "operand": 0,
+      "length": 0
+    },
+    "RoomNameHashLayout": {
+      "name": "RoomNameHashLayout",
+      "pattern": "8B 42 60 C3 CC CC CC CC CC CC CC CC CC CC CC CC",
+      "rva": 1429824,
+      "operand": 0,
+      "length": 0
+    },
+    "RoseModeLayout": {
+      "name": "RoseModeLayout",
+      "pattern": "80 7A 51 00 0F 95 C0 C3 CC CC CC CC CC CC CC CC",
+      "rva": 1563312,
+      "operand": 0,
+      "length": 0
+    },
+    "MercenariesFlagsLayout": {
+      "name": "MercenariesFlagsLayout",
+      "pattern": "80 7A 60 00 41 0F 95 C0 48 8B 43 50 48 83 78 18 00",
+      "rva": 9390347,
+      "operand": 0,
+      "length": 0
+    },
+    "MercenaryStageLayout": {
+      "name": "MercenaryStageLayout",
+      "pattern": "8B 42 64 C3 CC CC CC CC CC CC CC CC CC CC CC CC",
+      "rva": 520704,
+      "operand": 0,
+      "length": 0
+    },
+    "MercenariesFlagLayout": {
+      "name": "MercenariesFlagLayout",
+      "pattern": "80 7A 61 00 0F 95 C1 48 8B 43 50 48 83 78 18 00 75 ?? 84 C9 0F 95 C0",
+      "rva": 9390440,
+      "operand": 0,
+      "length": 0
+    },
+    "Difficulty": {
+      "name": "Difficulty",
+      "pattern": "48 8B 05 ?? ?? ?? ?? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B FA 45 33 C0 48 8B 15 ?? ?? ?? ?? 48 8B F1 E8 ?? ?? ?? ?? 48 8B D8 48 8B 46 50 48 83 78 18 00 75 ?? C7 43 10 00 00 00 00 48 8B 46 50 48 83 78 18 00 74 ?? 33 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 8B 43 08 85 C0 79 ?? 48 89 7B 20 48 8B C3 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 48 3B 7B 20 74 ?? 48 85 FF 74 ?? 48 8B CF E8 ?? ?? ?? ?? 48 8B 4B 20 48 8B C1 F0 48 0F B1 7B 20 74 ?? 0F 0D 4B 20 66 0F 1F 44 00 00 48 8B 4B 20 48 8B C1 F0 48 0F B1 7B 20 75 ?? 48 85 C9 74 ?? E8 ?? ?? ?? ?? 48 8B 74 24 38 48 8B C3 48 8B 5C 24 30 48 83 C4 20 5F C3 CC CC CC CC 44 85 82 30 01 00 00",
+      "rva": 9728528,
+      "operand": 3,
+      "length": 7,
+      "target": 206519656
+    },
+    "RoseDifficulty": {
+      "name": "RoseDifficulty",
+      "pattern": "48 8B 05 ?? ?? ?? ?? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 ?? ?? ?? ?? 45 33 C0 48 8B 15 ?? ?? ?? ?? 48 8B F1 48 8B 58 60 E8 ?? ?? ?? ?? 4C 8B C3 48 8B D0 48 8B CE 48 8B F8 E8 ?? ?? ?? ?? 48 8B 4E 50 33 C0 48 8B 5C 24 30 48 8B 74 24 38 48 39 41 18 48 0F 45 F8 48 8B C7 48 83 C4 20 5F C3 CC CC 8B 12",
+      "rva": 2617616,
+      "operand": 3,
+      "length": 7,
+      "target": 206416896
+    },
+    "DifficultyValueLayout": {
+      "name": "DifficultyValueLayout",
+      "pattern": "48 8B 42 78 48 85 C0 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 83 C4 28 C3 48 8B 40 28 48 85 C0 74 ?? 8B 40 10",
+      "rva": 60031594,
+      "operand": 0,
+      "length": 0
+    },
+    "RoseDifficultyValueLayout": {
+      "name": "RoseDifficultyValueLayout",
+      "pattern": "48 8B 42 68 48 85 C0 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 83 C4 28 C3 48 8B 40 28 48 85 C0 74 ?? 8B 40 10",
+      "rva": 45869418,
+      "operand": 0,
+      "length": 0
+    },
+    "MercenaryScore": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 ?? 48 83 79 10 00 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 75 ?? 48 85 C9 75 ?? 45 33 C0 8D 50 38 48 8B CF E8 ?? ?? ?? ?? EB ?? 48 8B 41 60 48 85 C0 74 ?? 48 8B 58 10 48 8B 47 50 48 83 78 18 00 75 ?? 48 85 DB 75 ??",
+      "rva": 18189057,
+      "operand": 3,
+      "length": 7,
+      "target": 206212640
+    },
+    "ScoreLayout": {
+      "pattern": "4C 8B 42 60 4D 85 C0 74 ?? 48 8B 41 50 48 83 78 18 00 75 ?? 41 8B 40 18 C3 33 C0 C3",
+      "rva": 10239344,
+      "operand": 0,
+      "length": 0
+    },
+    "AreaScoreLayout": {
+      "pattern": "4C 8B 42 60 4D 85 C0 74 ?? 48 8B 41 50 48 83 78 18 00 75 ?? 41 8B 40 1C C3 33 C0 C3",
+      "rva": 10244688,
+      "operand": 0,
+      "length": 0
+    },
+    "MoneyLayout": {
+      "pattern": "48 8B 46 50 48 8B 58 18 48 85 DB 74 ?? 48 89 78 18 8B 6C 24 40 EB ?? 8B 6D 48 48 8B DF BF 24 00 00 00",
+      "rva": 16210512,
+      "operand": 0,
+      "length": 0
+    },
+    "Player": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 ?? 48 83 79 10 00 75 ?? B0 01 0F B6 C0 85 C0 0F 84 ?? ?? ?? ??",
+      "operand": 3,
+      "length": 7,
+      "target": 206251008,
+      "matchRva": 20463386
+    },
+    "ConfigureType": {
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 8B 08 E8 ?? ?? ?? ?? 84 C0 75 ?? 48 8B DD 48 8B 46 50 48 39 68 18 0F 85 ?? ?? ?? ?? 48 85 DB",
+      "operand": 3,
+      "length": 7,
+      "target": 205302920,
+      "matchRva": 32626641
+    },
+    "GunType": {
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 8B 08 E8 ?? ?? ?? ?? 84 C0 75 ?? 33 DB 48 8B C3 48 8B 5C 24 30 48 83 C4 20 5F C3 48 8B 5C 24 30 33 C0 48 83 C4 20 5F C3 CC CC CC CC CC CC CC CC CC CC 48 83 3D ?? ?? ?? ?? 00",
+      "operand": 3,
+      "length": 7,
+      "target": 205320512,
+      "matchRva": 1498758
+    },
+    "ComponentListLayout": {
+      "pattern": "48 8B 59 18 48 8B FA 48 85 DB 74 ?? 48 8B 03 48 8B CB FF 50 18 48 3B C7 74 ?? 48 8B D7 48 8B C8 E8 ?? ?? ?? ?? 84 C0 75 ?? 33 C0 EB ?? B8 01 00 00 00 84 C0 75 ?? 48 8B 5B 18 48 85 DB 75 ?? 33 C0",
+      "operand": 0,
+      "length": 0,
+      "target": 68665210,
+      "matchRva": 68665210
+    },
+    "TypeParentLayout": {
+      "pattern": "48 8B 41 38 48 85 C0 74 ?? 0F 1F 44 00 00 48 3B C2 74 ?? 48 8B 40 38 48 85 C0 75 ??",
+      "operand": 0,
+      "length": 0,
+      "target": 14180210,
+      "matchRva": 14180210
+    },
+    "ConfigureReferenceLayout": {
+      "pattern": "48 8B 42 78 C3 CC",
+      "operand": 0,
+      "length": 0,
+      "target": 763472,
+      "matchRva": 763472
+    },
+    "ReferenceStatusLayout": {
+      "pattern": "48 8B 9F 90 00 00 00 48 85 DB 74 ?? 48 8B 03 48 8B 15 ?? ?? ?? ??",
+      "operand": 0,
+      "length": 0,
+      "target": 20626551,
+      "matchRva": 20626551
+    },
+    "StatusReferenceLayout": {
+      "pattern": "48 8B F2 48 8B F9 48 8B 92 C8 00 00 00 48 85 D2 75 ?? 33 DB 8B C3 EB ?? 48 8B 02 48 8B 48 E8 48 8B 41 28 48 8B CF FF D0 48 8B 4F 50 33 DB 48 39 59 18 48 0F 45 C3 48 8B 4F 50 48 8B 51 18 48 85 D2 75 ?? 48 85 C0 74 ?? 4C 8B 86 C8 00 00 00 4D 85 C0 74 ?? 49 8B 00 49 8B D0 48 8B 48 E8 48 8B 41 28 48 8B CF FF D0 48 8B 4F 50 48 8B 51 18 48 85 D2 48 0F 45 C3 48 8B D8 48 85 D2 75 ?? 48 85 DB 75 ?? 45 33 C0 8D 53 38 48 8B CF E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 48 8B 03 48 8B D3 48 8B 48 E0 48 8B 01",
+      "operand": 0,
+      "length": 0,
+      "target": 11625791,
+      "matchRva": 11625791
+    },
+    "ReferenceDamageLayout": {
+      "pattern": "48 8B 42 68 C3 CC CC CC CC CC CC CC CC CC CC CC 48 83 C2 10",
+      "operand": 0,
+      "length": 0,
+      "target": 453200,
+      "matchRva": 453200
+    },
+    "DamageHealthLayout": {
+      "pattern": "48 8B 43 48 48 85 C0 74 ?? F3 0F 10 40 10 EB ?? 0F 57 C0",
+      "operand": 0,
+      "length": 0,
+      "target": 16303189,
+      "matchRva": 16303189
+    },
+    "HealthMaxGetter": {
+      "pattern": "F3 0F 10 42 10 C3 CC CC CC CC CC CC CC CC CC CC 48 8B 82 F0 00 00 00",
+      "operand": 0,
+      "length": 0,
+      "target": 466416,
+      "matchRva": 466416
+    },
+    "HealthCurrentGetter": {
+      "pattern": "F3 0F 10 42 14 C3 CC",
+      "operand": 0,
+      "length": 0,
+      "target": 478864,
+      "matchRva": 478864
+    },
+    "ReferenceResponserLayout": {
+      "pattern": "48 8B 9A 60 01 00 00 48 83 78 18 00 74 ?? 33 C0 48 83 C4 20",
+      "operand": 0,
+      "length": 0,
+      "target": 771786,
+      "matchRva": 771786
+    },
+    "DyingGetter": {
+      "pattern": "80 BA 04 01 00 00 00 0F 95 C0 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 1268736,
+      "matchRva": 1268736
+    },
+    "CautionGetter": {
+      "pattern": "80 BA EC 00 00 00 00 0F 95 C0 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 1237168,
+      "matchRva": 1237168
+    },
+    "ReferenceEquipLayout": {
+      "pattern": "48 8B 42 18 48 85 C0 74 ?? 48 8B 80 A8 00 00 00 EB ?? 48 8B C7 48 85 C9 75 ?? 48 85 C0 74 ?? 48 8B 52 18 48 85 D2 74 ?? 48 8B 92 A8 00 00 00 EB ?? 48 8B D7 48 8B CB 48 85 D2 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0",
+      "operand": 0,
+      "length": 0,
+      "target": 7940044,
+      "matchRva": 7940044
+    },
+    "DualWieldGetter": {
+      "pattern": "80 BA 9E 00 00 00 00 0F 95 C0 C3 CC CC CC CC CC 48 89 5C 24 08",
+      "operand": 0,
+      "length": 0,
+      "target": 3034304,
+      "matchRva": 3034304
+    },
+    "LeftHandGetter": {
+      "pattern": "80 BA 9F 00 00 00 00 0F 95 C0 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 11408992,
+      "matchRva": 11408992
+    },
+    "EquipSelectionLayout": {
+      "pattern": "85 C9 74 ?? 48 8B 43 30 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 48 8B 43 28 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3",
+      "operand": 0,
+      "length": 0,
+      "target": 27873579,
+      "matchRva": 27873579
+    },
+    "GunWorkLayout": {
+      "pattern": "48 8B 47 58 48 85 C0 75 ?? 8D 51 38 45 33 C0 48 8B CB E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 83 C4 20 5F C3 83 78 58 00 48 8B 5C 24 30 0F 9E C0 48 83 C4 20 5F C3",
+      "operand": 0,
+      "length": 0,
+      "target": 6713047,
+      "matchRva": 6713047
+    },
+    "ItemIdGetter": {
+      "pattern": "8B 42 3C C3 CC CC CC",
+      "operand": 0,
+      "length": 0,
+      "target": 1612256,
+      "matchRva": 1612256
+    },
+    "GunBulletIndexLayout": {
+      "pattern": "44 8B 87 84 01 00 00 48 8B D7 48 8B CB E8 ?? ?? ?? ?? 8B F0",
+      "operand": 0,
+      "length": 0,
+      "target": 31967228,
+      "matchRva": 31967228
+    },
+    "BulletListLayout": {
+      "pattern": "48 8B 42 30 48 85 C0 74 ?? 48 83 78 28 00 74 ?? 48 8B 48 28 48 85 C9 75 ?? 45 33 C0 48 8B CB 41 8D 50 38 E8 ?? ?? ?? ?? 33 C0 48 83 C4 20 5B C3 48 8B 49 30 48 85 C9 74 ?? 83 79 18 00 7E ?? 48 8B 40 28 48 85 C0 74 ?? 48 8B 40 30 48 85 C0 74 ?? 44 3B 40 18 7D ?? 48 8B 48 10",
+      "operand": 0,
+      "length": 0,
+      "target": 31966948,
+      "matchRva": 31966948
+    },
+    "BulletEntryLayout": {
+      "pattern": "44 3B 40 18 7D ?? 48 8B 48 10 48 85 C9 75 ?? 8D 51 38 45 33 C0 48 8B CB E8 ?? ?? ?? ?? EB ?? 44 3B 41 1C 72 ?? 45 33 C0 48 8B CB 41 8D 50 37 E8 ?? ?? ?? ?? EB ?? 49 63 C0 48 8B 4C C1 20 EB ?? 48 8B 15 ?? ?? ?? ??",
+      "operand": 0,
+      "length": 0,
+      "target": 31967029,
+      "matchRva": 31967029
+    },
+    "BulletIdLayout": {
+      "pattern": "48 85 C9 0F 84 ?? ?? ?? ?? 8B 41 10 48 83 C4 20 5B C3 48 89 5C 24 18",
+      "operand": 0,
+      "length": 0,
+      "target": 31967150,
+      "matchRva": 31967150
+    },
+    "InventoryListLayout": {
+      "pattern": "48 89 5C 24 18 55 56 41 56 48 83 EC 50 48 8B 41 50 33 F6 41 0F B6 E9 45 8B F0 48 8B D9 48 39 70 18 74 ?? 33 C0 48 8B 9C 24 80 00 00 00 48 83 C4 50 41 5E 5E 5D C3 4C 8B 42 18 48 89 7C 24 70 40 38 B4 24 90 00 00 00 74 ?? 4C 8B 42 20 8B FE 4D 85 C0 75 ?? BA 38 00 00 00 E8 ?? ?? ?? ??",
+      "operand": 0,
+      "length": 0,
+      "target": 16228368,
+      "matchRva": 16228368
+    },
+    "ReserveRulesLayout": {
+      "pattern": "48 8B 40 58 48 85 C0 74 ?? 40 38 70 39 75 ?? 40 84 ED 75 ?? 48 85 C0 74 ?? 40 38 70 64 75 ?? 48 85 C0 74 ?? 44 39 70 3C 75 ?? 48 85 C0 74 ?? 03 78 4C",
+      "operand": 0,
+      "length": 0,
+      "target": 16228590,
+      "matchRva": 16228590
+    },
+    "ObjectNameLayout": {
+      "pattern": "48 8B 42 50 C3 CC CC CC",
+      "operand": 0,
+      "length": 0,
+      "target": 606000,
+      "matchRva": 606000
+    },
+    "PawnNameLayout": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B D9 48 8B 52 30 4C 8B 80 D0 00 00 00 E8 ?? ?? ?? ??",
+      "operand": 0,
+      "length": 0,
+      "target": 1154758,
+      "matchRva": 1154758
+    },
+    "Inventory": {
+      "pattern": "4C 8B 15 ?? ?? ?? ?? 4D 85 C9 74 ?? 48 8B 41 50 4D 8B C2 48 39 50 18 4C 0F 45 C2 EB ?? 4C 8B C2 48 8B 41 50 48 83 78 18 00 75 ?? 4D 85 C0 74 ?? 49 83 78 10 00 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 75 ?? 4D 85 C9 49 0F 45 D2 48 85 D2 75 ?? 45 33 C0 8D 50 38 E8 ?? ?? ?? ?? 33 C0",
+      "operand": 3,
+      "length": 7,
+      "target": 206262968,
+      "matchRva": 6910637
+    },
+    "InventoryActiveLayout": {
+      "pattern": "48 8B 42 60 48 83 C4 28 C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 57 48 83 EC 30 48 8B FA",
+      "operand": 0,
+      "length": 0,
+      "target": 6910735,
+      "matchRva": 6910735
+    },
+    "ItemSpecIdGetter": {
+      "pattern": "8B 42 10 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 83 EC 28",
+      "operand": 0,
+      "length": 0,
+      "target": 440992,
+      "matchRva": 440992
+    },
+    "CPShop": {
+      "name": "CPShop",
+      "pattern": "48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 48 8B 7C 24 30 32 C0 48 8B 5C 24 38 48 83 C4 20 5E C3 44 8B 05 ?? ?? ?? ??",
+      "rva": 20678719,
+      "operand": 4,
+      "length": 8,
+      "target": 206384080
+    },
+    "CPShopReady": {
+      "name": "CPShopReady",
+      "pattern": "48 39 3D ?? ?? ?? ?? 48 8B CB 48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 48 8B 7C 24 30 32 C0 48 8B 5C 24 38 48 83 C4 20 5E C3 44 8B 05 ?? ?? ?? ??",
+      "rva": 20678709,
+      "operand": 3,
+      "length": 7,
+      "target": 206273048
+    },
+    "Entitlement": {
+      "name": "Entitlement",
+      "pattern": "48 8B 15 ?? ?? ?? ?? 48 85 D2 74 ?? 44 8B 40 0C 48 8B CB E8 ?? ?? ?? ?? 0F B6 C8 48 8B 43 50 48 39 68 18",
+      "rva": 42178192,
+      "operand": 3,
+      "length": 7,
+      "target": 206507800
+    },
+    "EntitlementReady": {
+      "name": "EntitlementReady",
+      "pattern": "48 39 2D ?? ?? ?? ?? 74 ?? 48 8B 15 ?? ?? ?? ?? 48 85 D2 74 ?? 44 8B 40 0C 48 8B CB E8 ?? ?? ?? ??",
+      "rva": 42178183,
+      "operand": 3,
+      "length": 7,
+      "target": 206273088
+    },
+    "InfiniteSuppress": {
+      "name": "InfiniteSuppress",
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 ?? 48 83 79 10 00 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 74 ?? 32 C9 EB ?? 48 85 C9 75 ?? 8D 51 38 45 33 C0 48 8B CB E8 ?? ?? ?? ?? 32 C9 EB ?? 80 79 61 00 0F 95 C1 48 8B 43 50 48 83 78 18 00 74 ?? 32 C0 48 8B 5C 24 38",
+      "rva": 20678543,
+      "operand": 3,
+      "length": 7,
+      "target": 206212560
+    },
+    "InfiniteOptions": {
+      "name": "InfiniteOptions",
+      "pattern": "48 0F 45 05 ?? ?? ?? ?? 48 85 C0 74 ?? 48 8B 50 58 48 85 D2 75 ?? 45 33 C0 8D 57 38 E8 ?? ?? ?? ?? 8B CF",
+      "rva": 20678656,
+      "operand": 4,
+      "length": 8,
+      "target": 206403840
+    },
+    "InfiniteOptionsReady": {
+      "name": "InfiniteOptionsReady",
+      "pattern": "48 39 05 ?? ?? ?? ?? 48 0F 45 05 ?? ?? ?? ?? 48 85 C0 74 ?? 48 8B 50 58 48 85 D2 75 ?? 45 33 C0 8D 57 38 E8 ?? ?? ?? ?? 8B CF",
+      "rva": 20678649,
+      "operand": 3,
+      "length": 7,
+      "target": 206273304
+    },
+    "InfiniteOptionKey": {
+      "name": "InfiniteOptionKey",
+      "pattern": "44 8B 05 ?? ?? ?? ?? 45 33 C9 48 8B 52 18 E8 ?? ?? ?? ?? 48 8B 4B 50 48 39 79 18 75 ?? 48 85 C0 74 ?? 8B 48 18 EB ?? 44 8B 46 3C",
+      "rva": 20678762,
+      "operand": 3,
+      "length": 7,
+      "target": 206318820
+    },
+    "InfiniteEnabledValue": {
+      "name": "InfiniteEnabledValue",
+      "pattern": "3B 0D ?? ?? ?? ?? 75 ?? 48 39 3D ?? ?? ?? ?? 48 8B CB 48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0",
+      "rva": 20678701,
+      "operand": 2,
+      "length": 6,
+      "target": 206319136
+    },
+    "InfiniteItemMatch": {
+      "name": "InfiniteItemMatch",
+      "pattern": "48 8B 41 50 48 83 78 18 00 75 ?? 8B 42 10 41 39 80 A8 00 00 00 75 ?? B0 01 48 83 C4 28 C3 41 39 80 AC 00 00 00",
+      "rva": 10364858,
+      "operand": 0,
+      "length": 0
+    },
+    "InfinitePurchased": {
+      "name": "InfinitePurchased",
+      "pattern": "4D 85 F6 0F 84 ?? ?? ?? ?? 40 38 68 14 0F 84 ?? ?? ?? ?? 40 38 68 15 0F 85 ?? ?? ?? ?? 4C 8B 40 18",
+      "rva": 42178030,
+      "operand": 0,
+      "length": 0
+    },
+    "EntitlementLookup": {
+      "name": "EntitlementLookup",
+      "pattern": "48 8B 4E 18 48 85 C9 75 ?? 8D 51 38 45 33 C0 48 8B CF E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 3B 41 1C 72 ?? 45 33 C0 48 8B CF 41 8D 50 37 E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 48 8B 74 24 38 48 98",
+      "rva": 49458222,
+      "operand": 0,
+      "length": 0
+    },
+    "PlayerObjects": {
+      "pattern": "4C 8B 0D ?? ?? ?? ?? 48 8B F9 4D 85 C0 74 ?? 48 8B 41 50 49 8B C9 48 39 58 18 48 0F 45 CB EB ??",
+      "operand": 3,
+      "length": 7,
+      "target": 206275384,
+      "rva": 20463315
+    },
+    "PlayerObjectsReady": {
+      "pattern": "4C 8B 05 ?? ?? ?? ?? 33 DB 4C 8B 0D ?? ?? ?? ?? 48 8B F9 4D 85 C0 74 ?? 48 8B 41 50 49 8B C9 48 39 58 18",
+      "operand": 3,
+      "length": 7,
+      "target": 206273296,
+      "rva": 20463306
+    },
+    "PlayerObjectsDictionaryLayout": {
+      "pattern": "48 8B 57 60 45 33 C9 45 8B C7 48 8B CD E8 ?? ?? ?? ?? 48 8B F8 48 8B 45 50 48 8B 70 18 48 85 F6 74 ?? 48 89 58 18 48 8B 7C 24 60 EB ?? 48 85 FF",
+      "operand": 0,
+      "length": 0,
+      "target": 27968452,
+      "rva": 27968452
+    },
+    "PlayerObjectEntriesLayout": {
+      "pattern": "48 8B 56 18 48 85 D2 0F 84 ?? ?? ?? ?? 3B 5A 1C 73 ?? 48 63 C3 48 8D 0C 40 8B 42 08 48 8D 2C CD 00 00 00 00 48 8D 4A 20 48 03 CD 85 C0 78 ?? 49 0B CC 49 23 CD 44 39 31 75 ?? 48 8B 46 18 48 8B 56 30 48 85 C0 0F 84 ?? ?? ?? ?? 3B 58 1C 0F 83 ?? ?? ?? ?? 48 8D 48 20 8B 40 08 48 03 CD 85 C0 78 ?? 49 0B CC 49 23 CD 44 8B 41 08",
+      "operand": 0,
+      "length": 0,
+      "target": 15069456,
+      "rva": 15069456
+    },
+    "PlayerHash0": {
+      "pattern": "41 B8 23 65 F8 70 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20463469,
+      "rva": 20463469
+    },
+    "PlayerHash1": {
+      "pattern": "41 B8 10 EF 0A 46 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20463611,
+      "rva": 20463611
+    },
+    "PlayerHash2": {
+      "pattern": "41 B8 52 05 B3 F1 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20463753,
+      "rva": 20463753
+    },
+    "PlayerHash3": {
+      "pattern": "41 B8 AF C0 E4 98 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20463895,
+      "rva": 20463895
+    },
+    "PlayerHash4": {
+      "pattern": "41 B8 5E 2E 02 C7 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20464037,
+      "rva": 20464037
+    },
+    "PlayerHash5": {
+      "pattern": "41 B8 76 9F FB C4 E8 ?? ?? ?? ?? 48 8B D0 48 8B 47 50 48 8B 48 18 48 85 C9",
+      "operand": 0,
+      "length": 0,
+      "target": 20464201,
+      "rva": 20464201
+    }
+  },
+  "playerAndEquipment": {
+    "game": "Resident Evil Village",
+    "pid": 25624,
+    "path": "E:\\SteamLibrary\\steamapps\\common\\Resident Evil Village BIOHAZARD VILLAGE\\re8.exe",
+    "runtimeBase": "0x7ff7e94a0000",
+    "tdb": {
+      "version": 69,
+      "headerRva": "0x8EE7480",
+      "types": 114234
+    },
+    "access": "OpenProcess(PROCESS_QUERY_INFORMATION|PROCESS_VM_READ), ReadProcessMemory only; no writes, hooks, injection or calls",
+    "patternValidation": "re8-stats-patterns-validation.json",
+    "patterns": 54,
+    "routes": {
+      "player": {
+        "slotRva": "0xC4B2400",
+        "native": [
+          "PlayerUtility.get_playerObjectDef AA5DA0",
+          "PlayerUtility.findPlayerDefinition1383EC0"
+        ],
+        "definitionGameObject": 16,
+        "gameObjectFirstComponent": 24,
+        "componentNext": 24,
+        "componentOwner": 16,
+        "configureTypeSlotRva": "0xC3CAC88",
+        "typeDefinition": "q(q(component))",
+        "typeInfoOffset": 64,
+        "nativeTypeParent": 56,
+        "configureReference": 120,
+        "referenceStatus": 144,
+        "statusOwner": 16,
+        "statusReference": 200,
+        "boundedFind": 512,
+        "boundedInheritance": 32,
+        "nativeProof": [
+          "getComponent417BF70",
+          "getCharacterConfigure13860C0",
+          "getPlayerStatus13ABB60"
+        ],
+        "fallback": {
+          "reason": "The live Heisenberg Mercenaries scene has a null PlayerUtility cache while its player is registered in GameObjectManager. Native findPlayerDefinition already implements this fallback.",
+          "managerSlotRva": "0xC4B8338",
+          "readySlotRva": "0xC4B7B10",
+          "managerDictByName": 96,
+          "dictionaryEntries": 24,
+          "dictionaryCount": 32,
+          "entryStride": 24,
+          "entryHash": 0,
+          "entryKey": 8,
+          "entryValue": 16,
+          "activeEntry": "signed hashCode>=0",
+          "priorities": [
+            "70F86523",
+            "460AEF10",
+            "F1B30552",
+            "98E4C0AF",
+            "C7022E5E",
+            "C4FB9F76"
+          ],
+          "listBehavior": "Only first list element per key, as native code; missing/dead definition then next key. No process writes or cache mutation.",
+          "bounds": {
+            "entries": 32768,
+            "listCapacity": 1024
+          },
+          "nativeMethods": [
+            "findPlayerDefinition1383EC0",
+            "GameObjectManager.find1AAC370",
+            "Dictionary.TryGetValueED05E0->findE5F010"
+          ],
+          "validation": "re8_flow_fallback_patternvalidation.txt"
+        }
+      },
+      "pawn": {
+        "definitionObjectName": 80,
+        "objectNameString": 48,
+        "stringLength": 16,
+        "stringData": 20,
+        "proof": [
+          "ObjectDefinition.get_objectName93F30",
+          "ObjectName.get_name119EC0"
+        ]
+      },
+      "health": {
+        "referenceDamage": 104,
+        "damageHealthInfo": 72,
+        "maxHealthFloat": 16,
+        "currentHealthFloat": 20,
+        "native": [
+          "get_healthRateF8C320",
+          "get_maxHealth71DF0",
+          "get_health74E90"
+        ]
+      },
+      "healthStatus": {
+        "referenceResponser": 352,
+        "owner": 16,
+        "interfaceTable": "q(q(responser)-0x20)",
+        "dyingGetterSlot": 0,
+        "cautionGetterSlot": 8,
+        "dyingByte": 260,
+        "cautionByte": 236,
+        "dyingGetterRva": "0x135C00",
+        "cautionGetterRva": "0x12E0B0",
+        "semantics": "HP<=0 Dead; otherwise native Dying=>Danger then Caution flag then Fine; unsupported implementation Unknown",
+        "nativeStatusDelegates": [
+          "B16530",
+          "B175A0"
+        ]
+      },
+      "equipment": {
+        "referenceEquip": 168,
+        "equipOwner": 16,
+        "statusDualWield": 158,
+        "statusUseLeftHand": 159,
+        "rightWeapon": 40,
+        "leftWeapon": 48,
+        "choice": "both status flags true => left, otherwise right",
+        "selectionNative": "1A950A0",
+        "weaponOwner": 112,
+        "weaponSpec": 48,
+        "weaponWork": 88,
+        "specItemId": 16,
+        "workItemId": 60,
+        "gunTypeSlotRva": "0xC3CF140",
+        "workLoaded": 88,
+        "gunSelectedBullet": 388,
+        "weaponSpecBulletSpecs": 40,
+        "bulletSpecsList": 48,
+        "listArray": 16,
+        "listCount": 24,
+        "arrayCapacity": 28,
+        "arrayData": 32,
+        "bulletEntryItemId": 16,
+        "nativeMagazineProof": "WeaponGunCore.get_isMagazineEmpty666EB0 reads work+58; PlayerGun.get_loadNum is NOT selected here (reads work.stackSize)",
+        "nativeBulletProof": "WeaponGunCore.getBulletItemIDImple1E7C6D0/getBulletNum1E7C7C0"
+      },
+      "inventory": {
+        "slotRva": "0xC4B52B8",
+        "managerActive": 96,
+        "inventoryMoney": 72,
+        "inventoryItemsList": 24,
+        "itemWork": 88,
+        "workReserveOnRemove": 57,
+        "workHidden": 100,
+        "workItemId": 60,
+        "workStackSize": 76,
+        "reservePredicate": "sum stack only matching currentbulletID and byte+39==0 and byte+64==0",
+        "nativeProof": "Inventory.getTotalStackSizeF7A010, WeaponGunCore.get_Inventory6972A0",
+        "listVersion": "none; List<T>65908 onlymItems/mSize; +1Cpadding, not read"
+      },
+      "infiniteAmmo": {
+        "algorithm": "ItemWork.isBulletNumInfinity13B8770 -> native option/suppression/purchasedunlock/entitlement predicates",
+        "proofFile": "re8-reference/infinite-ammo-evidence.json",
+        "helper": "re8_infinite.cs",
+        "nullable": "uninitialized optional manager -> Unknown; no fake false",
+        "limitation": "Temporary grapple-counter native overrides and other scripted no-consumption states are separate from the item-unlock property. The implemented flag represents the native permanent/unlock infinite-ammunition option for the selected item, not every temporary action exemption.",
+        "displaySemantics": "This property represents infinite RESERVE/bullet stack. Preserve raw magazine count. WeaponGunCore.isLoadNumInfinity1E8DBA0 has a separate native predicate and must not be inferred from shop unlocks.",
+        "nativeGunUse": "WeaponGunCore.isBulletStackNumInfinity1E8D4C0 delegates to ItemWork.isBulletNumInfinity13B8770"
+      }
+    },
+    "baseline": {
+      "pawn": "pl1000",
+      "character": "Ethan",
+      "hp": 895.0,
+      "maxHp": 1000.0,
+      "dying": false,
+      "caution": false,
+      "healthStatus": "Fine",
+      "weaponId": 97158149,
+      "weapon": "LEMI",
+      "loaded": 9,
+      "bulletId": 1179972000,
+      "reserve": 999,
+      "infiniteItemOption": false,
+      "reason": "native option value A47551E7 differs enabled E96C6C39; entitled LEMI purchase alone is insufficient"
+    },
+    "coherence": "Root reads complete immutable PlayerState twice; owned pointers are validated; type/list loops bounded; current weapon ID must agree between work and spec; inventory arrays/counts checked before/after; all counts bounded and reserve sum checked; unknown health implementation neutral.",
+    "mercenariesBaseline": {
+      "character": "Karl Heisenberg",
+      "pawnId": "pl4000",
+      "cachedDefinition": 0,
+      "fallbackDefinition": "0x23F94EAC690",
+      "gameObject": "0x23F996FBEF0",
+      "reference": "0x23F96126AD0",
+      "hp": 2600,
+      "maxHp": 3000,
+      "healthStatus": "Fine",
+      "dualWield": false,
+      "usingLeftHand": false,
+      "selectedWeaponId": 118356972,
+      "selectedWeapon": "Hammer",
+      "otherLeftWeaponId": 4086444265,
+      "statusGetters": "same native methods as Ethan"
+    }
+  },
+  "sceneLocationDifficulty": {
+    "build": {
+      "pid": 25624,
+      "path": "E:\\SteamLibrary\\steamapps\\common\\Resident Evil Village BIOHAZARD VILLAGE\\re8.exe",
+      "base": 140702747590656,
+      "size": 219217920
+    },
+    "tdb": {
+      "version": 69,
+      "headerRva": "0x8ee7480",
+      "typeCount": 114234,
+      "stringPoolHeaderOffset": "0xC8"
+    },
+    "scene": {
+      "slotRva": "0xC4B9540",
+      "nativeInstanceGetter": "0xA61170",
+      "currentView": {
+        "pointerOffset": "0x58",
+        "value": "Chapter"
+      },
+      "currentChapter": {
+        "pointerOffset": "0x60",
+        "value": "Chapter2_2"
+      },
+      "transition": {
+        "offset": "0x88",
+        "nativeGetter": "0xA93EA0",
+        "runningWhen": "nonzero",
+        "liveValue": 0
+      },
+      "nativeObjectOffset": "0x10",
+      "excludedLoadingField": "+0xB8 IsLoadData is true during stable gameplay; never use it as a loading gate",
+      "stringLayout": {
+        "length": "0x10 int32",
+        "utf16": "0x14"
+      }
+    },
+    "map": {
+      "slotRva": "0xC4F2FD8",
+      "instanceGetter": "0x2C31F0",
+      "ready": "byte+0xEC",
+      "roomPointer": "q+0xD8",
+      "currentAreaNameHash": "uint+0xD0",
+      "liveAreaNameHash": 0,
+      "nativeUpdate": "app.MapManager.doUpdate method100877 RVA0x392A520; uses PlayerUtility.getPlayer and gathers room, sets currentRoomUnit via call0x392B16E->set_currentRoomUnit0x6D9E0; independent of opened map UI"
+    },
+    "roseMap": {
+      "slotRva": "0xC4CD958",
+      "instanceGetter": "0x3D2110",
+      "ready": "byte+0x10C",
+      "roomPointer": "q+0xF8",
+      "nativeUpdate": "app.Ch10MapManager.doUpdate method382546 RVA0x261E210; native mode checkisChaper10Booted"
+    },
+    "room": {
+      "guid": "bytes+0x48",
+      "mapId": "uint+0x5C",
+      "nameHash": "uint+0x60",
+      "guidGetter": "0x9EF40",
+      "mapIdGetter": "0x181F90",
+      "nameHashGetter": "0x15D140",
+      "liveGuid": "55fb38bb-0b7b-4f5b-a683-1d2b8c04a379",
+      "liveMapId": 1366904657,
+      "liveNameHash": 1543060343,
+      "resolved": "Castle Dimitrescu / Merchant's Room",
+      "note": "Room is System.Object-derived managed data, not native Component. MapID is shared across rooms; use GUID or mode-specific NameHash."
+    },
+    "roseMode": {
+      "slotRva": "0xC4CE838",
+      "type": "app.Ch10StaticParameterHolder",
+      "instanceGetter": "0x697FE0",
+      "active": "NativeObject && byte+0x51 !=0",
+      "nativeUtility": "0x8F4210"
+    },
+    "mercenaryMode": {
+      "slotRva": "0xC4A8DD0",
+      "type": "app.MercenariesGameFlowManager",
+      "active": "NativeObject && (byte+0x60 !=0 || byte+0x61 !=0)",
+      "nativeUtility": "0x8F48B0",
+      "stageHash": "uint+0x64",
+      "stageHashGetter": "0x7F200",
+      "gameFlowDiagnostic": "int+0x78; enum not yet decoded"
+    },
+    "gate": "Native SceneTransitionManager, loop==0, exact gameplay CurrentView key, live current player. Rose/Merc contexts additionally require native corresponding mode flag. MapReady only gates location availability, not entire gameplay. MainMenu/credits/unknown contexts produce empty gameplay snapshot.",
+    "coherence": [
+      "scene singleton pointer/native alive",
+      "loop number",
+      "view/chapter string pointer and string contents",
+      "Rose/Merc manager pointer/native alive/flags/stageHash",
+      "selected MapManager pointer/native alive/ready",
+      "currentRoomUnit pointer and GUID/MapID/NameHash",
+      "current player pointer/native alive"
+    ],
+    "coverage": "Main Story, room/weapon change, main menu and Heisenberg Mercenaries live verified. Shadows of Rose is covered by native/asset evidence and synthetic fixtures only.",
+    "difficulty": {
+      "mainSlot": "0xC4F3D68",
+      "mainChain": [
+        "q(manager+0x78)",
+        "q(save+0x28)",
+        "uint(value+0x10)"
+      ],
+      "roseSlot": "0xC4DAC00",
+      "roseChain": [
+        "q(manager+0x68)",
+        "q(save+0x28)",
+        "uint(value+0x10)"
+      ],
+      "nativeProof": "GameRecordManager.getDifficulty(false)0x3940230 called by RankManager.RankPointClampForDifficulty0x12A1940; Rose equivalent0x2BBE930 called by Ch10RankManager0x178F7A0. Both r8=0; ignores temporary difficultyForVolatile.",
+      "liveHash": "0x7428442C",
+      "name": "Standard",
+      "coherence": [
+        "selected singleton/native alive",
+        "save pointer",
+        "value pointer",
+        "hash"
+      ],
+      "mercenaries": "No campaign difficulty is exposed in Mercenaries; its campaign save record may be stale."
+    }
+  },
+  "nativeSceneKeys": {
+    "BootFlowKey": "AppBoot",
+    "MainMenuKey": "MainMenu",
+    "CreditsKey": "Credits",
+    "ModelViewerKey": "ModelViewer",
+    "ArtWorkKey": "ArtWork",
+    "MovieViewerKey": "MovieViewer",
+    "MercenariesPlusKey": "MercenariesPlus",
+    "BakersReportKey": "BakersReport",
+    "TransitionWaitSceneKey": "TransitionWaitScene",
+    "ExportRoomKey": "ExportRoom",
+    "BlankKey": "Blank",
+    "DefaultMainGameKey": "Chapter",
+    "TPSModeMainGameKey": "DLCRoot_GE/DLC05/DLC05_0/ChapterTPSRoot/ChapterTPS",
+    "MercenariesPlusGEKey": "DLCRoot_GE/DLC05/DLC05_1/MercenariesPlusGE",
+    "Chapter10BootKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10Boot",
+    "Chapter10MainMenuKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10MainMenu",
+    "Chapter10BootGameIntentKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10BootGameIntent",
+    "MainRno_WaitDailogDecide": 50,
+    "MainRno_WaitSaveLoadFlow": 70,
+    "DefaultPValueSPD": 1008981770,
+    "NextStep_cnt": 1075838976,
+    "Chapter10ChapterKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10Chapter",
+    "Chapter10EndKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10End",
+    "Chapter10CreditsKey": "DLCRoot_GE/DLC05/DLC05_2/Chapter10Credits"
+  },
+  "infiniteAmmunition": {
+    "CPShopSlot": 206384080,
+    "EntitlementSlot": 206507800,
+    "optionGate": {
+      "suppressSlot": 206212560,
+      "suppressByte": 97,
+      "optionsSlot": 206403840,
+      "container": 88,
+      "dictionary": 24,
+      "entryStride": 24,
+      "entryKey": 8,
+      "entryValue": 16,
+      "valueHash": 24,
+      "optionKeyStatic": 206318820,
+      "enabledValueStatic": 206319136,
+      "optionKey": 3488549570,
+      "enabledValue": 3916196921,
+      "baselineValue": 2759152103,
+      "baselineInfinite": false
+    },
+    "CPShop": {
+      "groups": 88,
+      "groupEntries": 32,
+      "entryMatchItemOffsets": [
+        168,
+        172
+      ],
+      "entryUnlockId": 16,
+      "purchaseContainer": 96,
+      "purchaseList": 32,
+      "purchaseMatchId": 16,
+      "ownedByte": 20,
+      "directOwnedByte": 21,
+      "entitlementIdList": 24
+    },
+    "entitlements": {
+      "dictionary": 104,
+      "entries": 24,
+      "count": 32,
+      "entryStride": 16,
+      "activeHashCode": 0,
+      "id": 8,
+      "value": 12
+    },
+    "predicate": "Find first CPShop group entry matching itemId at +A8/+AC. Its unlockId +10 locates purchased entry. Return false when missing or ownedByte14 is false; true when ownedByte14 && directOwnedByte15. Otherwise true only if ANY uint ID from entitlementIdList is present/true in native entitlement dictionary. ItemWork isBulletNumInfinity also requires category+61 not set and native inventory option gate, owned separately by stats agent.",
+    "baseline": {
+      "itemId": 97158149,
+      "unlockId": 969126015,
+      "ownedByte": 1,
+      "directOwnedByte": 0,
+      "entitlementId": 3240132016,
+      "entitlementValue": true
+    },
+    "nativeFunctions": {
+      "itemPredicate": 10364832,
+      "purchasePredicate": 1027776,
+      "isInfiniteBulletItem": 42176560,
+      "hasItem": 42177776,
+      "entitlementHas": 58091472,
+      "boolDictionaryGet": 28018752,
+      "dictionaryTryGetValue": 49458144
+    },
+    "patterns": {
+      "CPShop": {
+        "name": "CPShop",
+        "pattern": "48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 48 8B 7C 24 30 32 C0 48 8B 5C 24 38 48 83 C4 20 5E C3 44 8B 05 ?? ?? ?? ??",
+        "rva": 20678719,
+        "operand": 4,
+        "length": 8,
+        "target": 206384080
+      },
+      "CPShopReady": {
+        "name": "CPShopReady",
+        "pattern": "48 39 3D ?? ?? ?? ?? 48 8B CB 48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0 41 8D 50 38 E8 ?? ?? ?? ?? 48 8B 7C 24 30 32 C0 48 8B 5C 24 38 48 83 C4 20 5E C3 44 8B 05 ?? ?? ?? ??",
+        "rva": 20678709,
+        "operand": 3,
+        "length": 7,
+        "target": 206273048
+      },
+      "Entitlement": {
+        "name": "Entitlement",
+        "pattern": "48 8B 15 ?? ?? ?? ?? 48 85 D2 74 ?? 44 8B 40 0C 48 8B CB E8 ?? ?? ?? ?? 0F B6 C8 48 8B 43 50 48 39 68 18",
+        "rva": 42178192,
+        "operand": 3,
+        "length": 7,
+        "target": 206507800
+      },
+      "EntitlementReady": {
+        "name": "EntitlementReady",
+        "pattern": "48 39 2D ?? ?? ?? ?? 74 ?? 48 8B 15 ?? ?? ?? ?? 48 85 D2 74 ?? 44 8B 40 0C 48 8B CB E8 ?? ?? ?? ??",
+        "rva": 42178183,
+        "operand": 3,
+        "length": 7,
+        "target": 206273088
+      },
+      "InfiniteSuppress": {
+        "name": "InfiniteSuppress",
+        "pattern": "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 ?? 48 83 79 10 00 74 ?? 32 C0 EB ?? B0 01 0F B6 C0 85 C0 74 ?? 32 C9 EB ?? 48 85 C9 75 ?? 8D 51 38 45 33 C0 48 8B CB E8 ?? ?? ?? ?? 32 C9 EB ?? 80 79 61 00 0F 95 C1 48 8B 43 50 48 83 78 18 00 74 ?? 32 C0 48 8B 5C 24 38",
+        "rva": 20678543,
+        "operand": 3,
+        "length": 7,
+        "target": 206212560
+      },
+      "InfiniteOptions": {
+        "name": "InfiniteOptions",
+        "pattern": "48 0F 45 05 ?? ?? ?? ?? 48 85 C0 74 ?? 48 8B 50 58 48 85 D2 75 ?? 45 33 C0 8D 57 38 E8 ?? ?? ?? ?? 8B CF",
+        "rva": 20678656,
+        "operand": 4,
+        "length": 8,
+        "target": 206403840
+      },
+      "InfiniteOptionsReady": {
+        "name": "InfiniteOptionsReady",
+        "pattern": "48 39 05 ?? ?? ?? ?? 48 0F 45 05 ?? ?? ?? ?? 48 85 C0 74 ?? 48 8B 50 58 48 85 D2 75 ?? 45 33 C0 8D 57 38 E8 ?? ?? ?? ?? 8B CF",
+        "rva": 20678649,
+        "operand": 3,
+        "length": 7,
+        "target": 206273304
+      },
+      "InfiniteOptionKey": {
+        "name": "InfiniteOptionKey",
+        "pattern": "44 8B 05 ?? ?? ?? ?? 45 33 C9 48 8B 52 18 E8 ?? ?? ?? ?? 48 8B 4B 50 48 39 79 18 75 ?? 48 85 C0 74 ?? 8B 48 18 EB ?? 44 8B 46 3C",
+        "rva": 20678762,
+        "operand": 3,
+        "length": 7,
+        "target": 206318820
+      },
+      "InfiniteEnabledValue": {
+        "name": "InfiniteEnabledValue",
+        "pattern": "3B 0D ?? ?? ?? ?? 75 ?? 48 39 3D ?? ?? ?? ?? 48 8B CB 48 0F 45 3D ?? ?? ?? ?? 48 85 FF 75 ?? 45 33 C0",
+        "rva": 20678701,
+        "operand": 2,
+        "length": 6,
+        "target": 206319136
+      },
+      "InfiniteItemMatch": {
+        "name": "InfiniteItemMatch",
+        "pattern": "48 8B 41 50 48 83 78 18 00 75 ?? 8B 42 10 41 39 80 A8 00 00 00 75 ?? B0 01 48 83 C4 28 C3 41 39 80 AC 00 00 00",
+        "rva": 10364858,
+        "operand": 0,
+        "length": 0
+      },
+      "InfinitePurchased": {
+        "name": "InfinitePurchased",
+        "pattern": "4D 85 F6 0F 84 ?? ?? ?? ?? 40 38 68 14 0F 84 ?? ?? ?? ?? 40 38 68 15 0F 85 ?? ?? ?? ?? 4C 8B 40 18",
+        "rva": 42178030,
+        "operand": 0,
+        "length": 0
+      },
+      "EntitlementLookup": {
+        "name": "EntitlementLookup",
+        "pattern": "48 8B 4E 18 48 85 C9 75 ?? 8D 51 38 45 33 C0 48 8B CF E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 3B 41 1C 72 ?? 45 33 C0 48 8B CF 41 8D 50 37 E8 ?? ?? ?? ?? 32 C0 48 8B 5C 24 30 48 8B 74 24 38 48 83 C4 20 5F C3 48 8B 74 24 38 48 98",
+        "rva": 49458222,
+        "operand": 0,
+        "length": 0
+      }
+    }
+  },
+  "score": {
+    "utilityCacheSlotRva": "0xC4A8E20",
+    "nativeGetter": "0xAD4EC0",
+    "containerOffset": "0x60",
+    "totalOffset": "0x18",
+    "areaOffset": "0x1C",
+    "totalGetter": "0x9C3D70",
+    "areaGetter": "0x9C5250",
+    "gate": "Only read in a validated Mercenaries context; require a live ScoreManager."
+  },
+  "validation": {
+    "signatureCount": 81,
+    "live": [
+      "Main Story: Ethan Winters, Standard, Castle Dimitrescu / Merchant's Room, LEMI with 9 loaded and 999 reserve; HP 895/1000, Fine, Lei 68530.",
+      "Room and weapon change: Castle Dimitrescu / Main Hall, M1897 with 2 loaded and 5 reserve; C# snapshot and CE Lua reader matched.",
+      "Main menu: C# returned IsInGame=false and an empty placeholder dictionary; CE Lua cleared all gameplay rows and selected-object symbols. This live check preceded the Mercenaries-only missing-cache correction; final synthetic and Lua override checks also covered the unchanged menu gate.",
+      "Mercenaries: Karl Heisenberg (pl4000), The Mad Village / Garden, Heisenberg's Hammer, 1800 total and area score, HP 2600/3000, Fine, Lei 43000. Campaign difficulty is deliberately empty in this mode."
+    ],
+    "readerSyntheticChecks": 117,
+    "catalogChecks": 2683,
+    "cheatTable": "Actual Cheat Engine Lua 5.3 DLL with read-only live memory callbacks; all 81 signatures unique across the complete executable sections; live player fallback, scene gating, recovery, disable and failed discovery cleanup passed. The exact ammunition display statement was checked for numeric magazine and Unicode infinity on reserve. Local callback overrides never write game memory.",
+    "releaseBuild": {
+      "success": true,
+      "warnings": 0,
+      "errors": 0
+    },
+    "limits": [
+      "Shadows of Rose routes, mode-specific catalogs and synthetic fixtures are included, but this mode was not live-tested in this session.",
+      "Other characters and equipment are supported through native type inheritance and extracted labels; not every combination was live-tested.",
+      "No actual Discord UI delivery assertion was performed."
+    ],
+    "tableSha256": "3ddc808ada85471e4c39807afc0063545224e3d661327fc418944b526edaea9f"
+  },
+  "limits": [
+    "Live evidence covers only the states explicitly listed in validation. Installed native getters, assets and synthetic tests do not substitute for every live character, mode and weapon combination.",
+    "No read-only process snapshot is atomic. Repeated pointer and value checks discard inconsistent observations but cannot guarantee the absence of every concurrent mutation.",
+    "The infinite-ammunition flag represents the native item unlock and option predicate, not temporary scripted no-consumption exemptions.",
+    "Unknown room labels remain empty or use a proven region/stage. No saved-game location or previously cached room is substituted.",
+    "Unsupported health-status implementations return Unknown. No arbitrary percentage thresholds are substituted.",
+    "Signatures are checked for uniqueness in executable sections; missing or ambiguous signatures fail closed. This is not a guarantee of compatibility with future builds."
+  ],
+  "liveMercenariesContext": {
+    "Scene": {
+      "pointer": "0x23f9b8389a0",
+      "native": "0x23f9b8d1900",
+      "view": "DLCRoot_GE/DLC05/DLC05_1/MercenariesPlusGE",
+      "chapter": "",
+      "loop": 0
+    },
+    "RoseMode": {
+      "pointer": "0x0",
+      "native": ""
+    },
+    "MercMode": {
+      "pointer": "0x23f99ceb970",
+      "native": "0x23f99ceb800",
+      "flags": "0101",
+      "stage": 2603586502,
+      "gameFlow": 4
+    },
+    "Map": {
+      "pointer": "0x23f9b84bff0",
+      "native": "0x23f9b8d1900",
+      "ready": "01",
+      "room": "0x2402f17f330",
+      "guid": "eef6dc89-2798-4e27-a629-64dd8dfed078",
+      "map": 3506038854,
+      "roomHash": 1012726565
+    },
+    "RoseMap": {
+      "pointer": "0x0",
+      "native": ""
+    },
+    "Score": {
+      "pointer": "0x23f99ceba70",
+      "native": "0x23f99ceb800",
+      "container": "0x23f99718c40",
+      "total": 1800,
+      "area": 1800
+    }
+  }
+}

@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.RE6;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class RE6
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("RE6: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("BH6"))
             {
                 int state_get = Hypervisor.Read<short>(Hypervisor.GetPointer32(0x1466884, [0xA4228]), true);
@@ -87,6 +91,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("RE6: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

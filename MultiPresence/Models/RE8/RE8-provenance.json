@@ -1,0 +1,98 @@
+{
+  "source": "Installed Resident Evil Village Steam build 22373341 patched PAK resources; English game labels belong to CAPCOM.",
+  "parser": "IntelOrca.Biohazard.REE 1.6.0; embedded RE8 filename list and RSZ schema",
+  "parserSource": "https://github.com/IntelOrca/reeutils",
+  "mapping": [
+    "MapManagerData Units[].RoomUnits and World.RoomUnits NameHash -> RoomNameGUID -> English message. MapID is shared by many rooms and is not a unique room ID.",
+    "Main Story and Shadows of Rose retain separate room dictionaries; reused room hashes may have different labels.",
+    "Mode keys come from installed Native SceneManager constants exported in work/re8-scene-constants.json; labels do not imply a live game. Reader must additionally gate native transition/boot state. Main Story is the application mode label; The Mercenaries and Shadows of Rose match installed English UI labels.",
+    "Region and room split only at the explicit English label separator \" - \"; display separator is \" / \". Regional MapID fallback is emitted only if every named member agrees.",
+    "AreaNameData maps AreaNameID.Hash -> MessageGUID independently; never conflate AreaNameID with RoomUnit.NameHash.",
+    "ItemSpecificationData SpecUnits ItemID -> Basic.NameMessageID -> English message. Different mode item IDs retain independent entries; WeaponTypeHash is a category.",
+    "REF tags resolve against exact installed message keys; presentation tags and repeated whitespace are normalized; rejected/dummy/missing labels omitted. Unknown runtime IDs remain unresolved."
+  ],
+  "assets": {
+    "natives_stm_gameflow_mercenaries_system_userdata_item_mercenariesplayerweaponspecificationdata.user.2": "3fbbb136507e52de60de978d748d624e02eeb25fa3a1cdf124e86ff2268c3306",
+    "natives_stm_gameflow_mercenaries_system_userdata_mercenariesstagenamedefinition.user.2": "10e76ff12106515d01e44729f658d0ac9997f6aec8b3ef670530dd2b624374af",
+    "natives_stm_message_dlc_dlc_1.msg.33685777": "56cc15cc6ba9b9a3de4b46625b1882fcbf72c8fee3144a24a4e106f5376555c7",
+    "natives_stm_message_dlc_dlc_2.msg.33685777": "9bde3b6a64a6044a2f362a5e1312ab49788d15b39ebb994e68e7202b2c15cb8e",
+    "natives_stm_message_dlc_dlc_3.msg.33685777": "820b2e27eaa7e14e75cf11da32a69d37d3c8ae37fb33663ad7cc2d77b11cbafd",
+    "natives_stm_message_dlc_dlc_4.msg.33685777": "0ed0f529a1513909818b6991b56f24ec54d0f6894a0f0fe8d281b4718f1201a8",
+    "natives_stm_message_dlc_dlc_6.msg.33685777": "14760144b524ae40d103347cc67e683414d6cbcba7e082d9a9303520b0bb79cd",
+    "natives_stm_message_gui_ge_root.msg.33685777": "76d66ffb03904c41addfd1f13af27894693a5431a8fcfd8d8f837bf117a18a20",
+    "natives_stm_message_gui_ui_bonus.msg.33685777": "122eecdd42daefcdbffdeb7e176be1458adae3881450ceebb0badd305d0968ce",
+    "natives_stm_message_gui_ui_common.msg.33685777": "472582fa78978ec46e771965f8313d91d7c5999deddd5b50ff0662c7eb0a434a",
+    "natives_stm_message_gui_ui_hud.msg.33685777": "acc6d5ca3b29fb186f31c8f43aeb9cde63ac88110aed0005b8770e317cffbeb5",
+    "natives_stm_message_gui_ui_item.msg.33685777": "a96bf4b448c85481784c14d0d639a78bc4ddb03841c60c03a4acb256f192cba1",
+    "natives_stm_message_gui_ui_map.msg.33685777": "6895372011e2df03f66cdd82faf4a699e5f7f98418af34f046c4203202017907",
+    "natives_stm_message_gui_ui_menu.msg.33685777": "9aa787866fcf02d9d7042c6cc8a1ba1823b61bc4388332f53ef077b0f776cdc7",
+    "natives_stm_message_gui_ui_mercenariesplus.msg.33685777": "7416391a20f8fb687b375df7c72693012457b09d7f8ff45ce56522887056f1f0",
+    "natives_stm_message_gui_ui_merceplus_root.msg.33685777": "c4d1cf8fecb5b0b9bed3cee0da8de655ac1e4850874faaaaa263668335a8d557",
+    "natives_stm_message_gui_ui_objective.msg.33685777": "40e753be580b58a966f7fe64e345d2c764fabf6e8f54a73b59d013c575ba7a0b",
+    "natives_stm_message_gui_ui_rosemode.msg.33685777": "5192cb68f90445b8e73ffcb83e8dd3970aa0cb77f97e95d13e7671e4a321d708",
+    "natives_stm_message_gui_ui_saveload.msg.33685777": "fbbdc9165b3f84718d80c0cb431902e85c24550aa613095dfd37ce1c039c7fdb",
+    "natives_stm_message_gui_ui_tps.msg.33685777": "6d791e0260c9916802fe0f97e6ad4701dcdf075368383ddfc406009b8df179eb",
+    "natives_stm_singletonuserdatas_areanamedata.user.2": "08bed45ee639df17327f67fb014cd2ab39a48f5159c6ebbd9542844d501e198d",
+    "natives_stm_singletonuserdatas_itemspecificationdata.user.2": "1cafc391a7eddaba92b7bca92120acc00ef3ee3a1a63ad59ba27cbdd685bd7bd",
+    "natives_stm_singletonuserdatas_mapmanagerdata.user.2": "98cc5ed181cd1e68f20db8ac615a061e375ff03791b49618bdf13dca98e84c91",
+    "natives_stm_singletonuserdatas_playerweaponspecificationdata.user.2": "d646e1e7f530e9f5ba8dbbbbc65a7291b452b67216adf9ff53a50438901b857e",
+    "natives_stm_singletonuserdatas_savedetaildata.user.2": "f1d407120ef357681e2da838f58b0b686017c35978875e981c5e6240d8809ec5",
+    "natives_stm__ge_gameflow_mercenaries_system_userdata_mercenariesgestagenamedefinition.user.2": "d69d239bb9ab7651f3206b5b5b2a6126a1d82cbba34bdf3a97df72f5f0fea064",
+    "natives_stm__ge_gameflow_mercenaries_system_userdata_mercenariesge_customizeitemspecification.user.2": "d0349a9466710099883c3ab1e9d8b8847043b11fd7951caf8ea4d25115fc9ff1",
+    "natives_stm__ge_gameflow_mercenaries_system_userdata_mercenariesge_itemspectification.user.2": "3a18554639f706dc3e34d7ee450c0854f4e2460418d3e8144b27165ffb43d33c",
+    "natives_stm__ge_gameflow_mercenaries_system_userdata_mercenariesguidata.user.2": "03c275040ed36c6a0a6123e7db4d9a4fff728c38d85827d0f90bb31ff0f9fce9",
+    "natives_stm__ge_gameflow_userdata_ch10replaceworldmapdata.user.2": "dacecf40b64c89ab19e1b6137d6ddc9680f41614182786d45d1b21f6c4f5d865",
+    "natives_stm__ge_singletonuserdata_areanamedata_ch10.user.2": "8a3b57fee0800881cd38fbaf694fe2d4cad82790ed357781706877a8b587868f",
+    "natives_stm__ge_singletonuserdata_itemspecificationdataplayerweapon_ch10.user.2": "34810deee97ec106a3592a94bfe3ae4fb3879e8f934d502dc38e60afe09ad8e7",
+    "natives_stm__ge_singletonuserdata_itemspecificationdata_ch10.user.2": "76e302a35049bed9faf49c7b6261ba79c82d0da26ffa434acf58fd8aa9c0e4f4",
+    "natives_stm__ge_singletonuserdata_mapmanagerdata_ch10.user.2": "224ffdd4dee92f6e6988e7ec0c4cfb2ca582f53f8fcc044fc71bbed077bda644",
+    "natives_stm__ge_singletonuserdata_savedetaildata_ch10.user.2": "6b073c1619b8be6b6e30842366fca113a2cd1d2a7168642135a4b6ef2617f56e"
+  },
+  "enumEvidence": {
+    "characters": {
+      "observed": "pl1000 read from PlayerUtility ObjectDefinition.ObjectName while the user confirmed Ethan.",
+      "otherAliases": "Existing MultiPresence RE8 pawn mappings retained, corroborated by installed pl3000 Rose / pl4000 / pl6000 specialized classes and MercenariesCharacterSettings named pl1000/pl2000/pl4000/pl6000 methods. These alternate aliases have not been live-tested this session.",
+      "englishNames": "MercenariesGUIData.CharacterFullName references installed Merce_CharacterSelect_00_E, _01_C, _02_H, _03_D labels. Rosemary Winters comes from GE_Rec_Rose_AllRecords_Name. The GUI array order alone is not exposed as a runtime character enum.",
+      "unknown": "Unrecognized pawn names, including pl9000, return empty and do not become Ethan or gameplay."
+    },
+    "difficulty": {
+      "type": "app.GUIDifficultyType",
+      "typeIndex": 85859,
+      "cctorRva": 19778848,
+      "stringsOwnerSlotRva": 206568840,
+      "values": [
+        {
+          "index": 0,
+          "hash": 2081395632,
+          "internalName": "Easy",
+          "stringOffset": 61728
+        },
+        {
+          "index": 1,
+          "hash": 1948795948,
+          "internalName": "Normal",
+          "stringOffset": 6224
+        },
+        {
+          "index": 2,
+          "hash": 4054003385,
+          "internalName": "Hard",
+          "stringOffset": 61736
+        },
+        {
+          "index": 3,
+          "hash": 3214231311,
+          "internalName": "VeryHard",
+          "stringOffset": 61744
+        }
+      ],
+      "evidence": "Native cctor maps hash->internal string, and constructs Value objects with index+0x10/hash+0x14. TDB initializer decoding from RE3 is incompatible and was discarded."
+    }
+  },
+  "counts": {
+    "mainRooms": 269,
+    "roseRooms": 23,
+    "items": 354,
+    "messages": 525
+  }
+}

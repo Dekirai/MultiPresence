@@ -1,0 +1,31 @@
+Stellar Blade location data
+==========================
+
+The short world identifiers and English region names in Locations.cs were
+obtained from the user's installed Stellar Blade game data. Game content and
+localized text remain the property of SHIFT UP and their respective owners.
+This file does not place the game's data or localization under an open-source
+license.
+
+WorldTable binds the UWorld asset path to the game's world alias.
+WorldTransitionTable and BossChallengeTable provide explicit localization keys.
+For remaining worlds, ZoneEnvSpawnTable -> ZoneTable and ZoneCampTable provide
+an explicit region relationship. English strings are from the shipped
+SB/Content/Localization/Game/en/Game.archive.
+SB-provenance.json records the joins, example rows, resource hashes, and tools.
+These mappings describe regions, not nearest camps or exact room boundaries.
+Unknown maps retain their internal names rather than receiving a guessed label.
+
+Extraction tooling (not included in the application)
+---------------------------------------------------
+CUE4Parse, FabianFG and contributors:
+https://github.com/FabianFG/CUE4Parse
+NuGet package 1.2.2.202610, Apache License 2.0.
+
+Stellar Blade Modding Team's mapping file:
+https://github.com/Stellar-Blade-Modding-Team/Stellar-Blade-Modding-Guide
+Commit 63076869f3a9ef21ef42a1e945dd8ad458917a2e
+4.26.2-0+++UE4+Release-4.26-SB-v1.4.1.usmap
+Used only to decode the local assets; the mapping file is not redistributed.
+
+No source code from those tools is copied into Locations.cs.

@@ -1,0 +1,127 @@
+{
+  "speciesSource": {
+    "file": "PokeOne_Data/resources.assets",
+    "textAsset": "pokemon",
+    "pathID": 69,
+    "textSha256": "7a3fb870e319776935d4643776de9f7b3d57a25c05527153a395129dc8c78c6c",
+    "rows": 913,
+    "baseEntries": 809,
+    "speciesIds": "1..807",
+    "additionalNames": {
+      "0": "MissingNo.",
+      "9999": "Egg"
+    },
+    "formNames": 104
+  },
+  "metadataCrossCheck": {
+    "source": "PokeOne_Data/il2cpp_data/Metadata/global-metadata.dat",
+    "enum": "PSXAPI.Response.Payload.PokemonID",
+    "ids": "1..802; bundled pokemon TextAsset additionally includes803..807"
+  },
+  "forms": {
+    "mapped": 102,
+    "mappingSource": "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/pokemon.csv",
+    "mapping": "Local BattleID compared to normalized PokéAPI identifier, with Alolan/Alola spelling equivalent, and matching species_id required",
+    "fallbacks": [
+      {
+        "ID": 412,
+        "Form": "Sandy",
+        "BattleID": "burmysandy"
+      },
+      {
+        "ID": 412,
+        "Form": "Trash",
+        "BattleID": "burmytrash"
+      }
+    ],
+    "unknownForm": "Use base-species artwork; never construct unverified form IDs"
+  },
+  "remoteImages": {
+    "urlTemplate": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{shiny/}{id}.png",
+    "repository": "https://github.com/PokeAPI/sprites",
+    "treeCommit": "97a7832d307311c0e1c6ea9035308bf80cc94f81",
+    "validation": "All807 base species and102 mapped forms have nonempty normal and shiny PNG entries in GitHub tree. No image bodies downloaded.",
+    "unsupportedIds": "Empty URL for MissingNo., Egg, and unknown IDs; presence can fall back to logo",
+    "sampleHttpChecks": [
+      {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+        "status": 200,
+        "contentType": "image/png",
+        "contentLength": "179754",
+        "method": "HEAD",
+        "bodyDownloaded": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/8.png",
+        "status": 200,
+        "contentType": "image/png",
+        "contentLength": "181303",
+        "method": "HEAD",
+        "bodyDownloaded": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png",
+        "status": 200,
+        "contentType": "image/png",
+        "contentLength": "170074",
+        "method": "HEAD",
+        "bodyDownloaded": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/10034.png",
+        "status": 200,
+        "contentType": "image/png",
+        "contentLength": "143050",
+        "method": "HEAD",
+        "bodyDownloaded": false
+      },
+      {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/807.png",
+        "status": 200,
+        "contentType": "image/png",
+        "contentLength": "103838",
+        "method": "HEAD",
+        "bodyDownloaded": false
+      }
+    ]
+  },
+  "discord": {
+    "documentation": "https://discord.com/developers/docs/social-sdk/classdiscordpp_1_1ActivityAssets.html",
+    "guide": "https://docs.discord.com/developers/discord-social-sdk/development-guides/setting-rich-presence",
+    "claim": "LargeImage and SmallImage accept external image URLs; maximum300characters"
+  },
+  "license": {
+    "url": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+    "repositoryLicense": "CC0 1.0 Universal",
+    "imageCopyright": "The Pokémon Company; repository license does not transfer third-party image ownership",
+    "shinyCredit": "Repository README credits DevMike123, JoseBaGra, and Pokétwo for custom shiny official-artwork sprites"
+  },
+  "regionImages": {
+    "status": "No reliable attributable direct region image URLs established; empty URL uses presence logo fallback",
+    "limitation": "Authoritative map artwork pages were found at Bulbagarden Archives, but anonymous image HEAD requests returned403, so these URLs were not enabled."
+  },
+  "status": {
+    "enum": "PSXAPI.Response.Payload.PokemonCondition",
+    "normal": "Healthy",
+    "unknown": "Unknown",
+    "battleCodes": [
+      "fnt",
+      "brn",
+      "frz",
+      "par",
+      "psn",
+      "tox",
+      "slp"
+    ]
+  },
+  "battleType": {
+    "source": "BattlePacket fields IsPVP and isWild",
+    "precedence": "PvP, then Wild, then Trainer"
+  },
+  "verificationDate": "2026-10-22",
+  "validation": {
+    "success": true,
+    "checks": 8529,
+    "failures": []
+  }
+}

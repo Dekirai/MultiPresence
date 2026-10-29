@@ -2,11 +2,11 @@
     "Games": {
         "Hogwarts Legacy": {
             "Default": {
-                "Details": "{steam_display}",
-                "State": "",
+                "Details": "{character} | Level {level} | {difficulty}",
+                "State": "{location} | {quest}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Hogwarts Legacy",
+                "LargeAssetText": "{mods}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

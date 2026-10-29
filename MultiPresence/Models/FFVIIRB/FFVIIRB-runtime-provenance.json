@@ -1,0 +1,569 @@
+{
+  "target": {
+    "executable": "ff7rebirth_.exe",
+    "sha256": "752807180c4ed919667ff0ec163046410187e873888dd75248e78aaa72e363dc",
+    "steamAppId": 2909400,
+    "steamBuildId": 23447986,
+    "verifiedDate": "2026-10-20"
+  },
+  "access": "ReadProcessMemory only. No game-memory writes, hooks, injected code or remote function calls.",
+  "patterns": [
+    {
+      "name": "namesAddress",
+      "pattern": "48 8D 05 ?? ?? ?? ?? EB ?? 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? C6 05 ?? ?? ?? ?? 01 8B 80 40 09 01 00",
+      "rva": 20431379,
+      "operand": 3,
+      "length": 7,
+      "target": 151862272,
+      "address": false
+    },
+    {
+      "name": "modeSlot",
+      "pattern": "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? 48 8B 9B 88 02 00 00 48 85 DB 74 ??",
+      "rva": 9113951,
+      "operand": 3,
+      "length": 7,
+      "target": 150153888,
+      "address": false
+    },
+    {
+      "name": "NameEntryLayout",
+      "pattern": "44 8B C1 0F B7 C1 41 C1 E8 10 44 89 44 24 30 89 44 24 34 48 8B 4C 24 30 4E 8B 5C C2 10 48 C1 E9 20 C1 E1 02 4C 03 D9 66 41 39 5B 04 0F 85 ?? ?? ?? ?? 45 0F B7 43 04 49 8D 4B 06 49 8B C1 49 C1 E8 06",
+      "rva": 11872096,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "gameDataSlot",
+      "pattern": "48 8B 0D ?? ?? ?? ?? 33 C0 48 85 C9 74 ?? 48 8B 81 90 04 00 00 C3 CC CC",
+      "rva": 9625324,
+      "operand": 3,
+      "length": 7,
+      "target": 152929664,
+      "address": false
+    },
+    {
+      "name": "saveData",
+      "pattern": "4C 8D 15 ?? ?? ?? ?? 4C 0F 45 D7 4D 85 D2 74 ?? 45 8A 92 99 3D 00 00 EB ?? 41 B2 04 E8 ?? ?? ?? ?? 84 C0 74 ??",
+      "rva": 9610246,
+      "operand": 3,
+      "length": 7,
+      "target": 117393040,
+      "address": false
+    },
+    {
+      "name": "groupOverrideFlagIndex",
+      "pattern": "8B 15 ?? ?? ?? ?? 8B CA C1 E9 05 8B C2 F7 D8 45 1B C0 44 23 C1 41 81 F8 00 02 00 00 73 ?? 43 8B 8C 81 AC 48 04 00 83 E2 1F 0F A3 D1 0F 92 C0",
+      "rva": 9617334,
+      "operand": 2,
+      "length": 6,
+      "target": 115200472,
+      "address": false
+    },
+    {
+      "name": "actorState",
+      "pattern": "48 8B 89 38 06 00 00 48 85 C9 74 ?? 48 8B 01 FF 50 40 48 85 C0 74 ?? 48 8B 08 48 8B 51 68 48 8D 0D ?? ?? ?? ?? 48 3B D1 75 ?? 8A 80 E8 03 00 00",
+      "rva": 10168469,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "componentState",
+      "pattern": "48 8B 91 A8 01 00 00 48 8B C2 48 F7 D8 48 1B C0 48 23 C2 C3",
+      "rva": 10168736,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": true
+    },
+    {
+      "name": "characterIdGetter",
+      "pattern": "0F B6 81 E8 03 00 00 C3",
+      "rva": 9625360,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": true
+    },
+    {
+      "name": "recordIndex",
+      "pattern": "80 FA 0F 73 ?? 41 80 F8 04 73 ?? 41 0F B6 C0 0F B6 D2 48 8D 14 90 48 69 C2 E8 22 00 00 48 05 88 00 00 00 48 03 C1 C3",
+      "rva": 8391036,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordSelection",
+      "pattern": "8A DA 4C 8B D9 80 FA 0F 72 ?? 33 C0 EB ?? 33 FF 48 39 79 58 75 ?? 41 B2 04 EB ?? 48 39 3D ?? ?? ?? ?? 74 ?? 83 3D ?? ?? ?? ?? 0E 4C 8D 15 ?? ?? ?? ?? 4C 0F 45 D7 4D 85 D2 74 ?? 45 8A 92 99 3D 00 00 EB ?? 41 B2 04 E8 ?? ?? ?? ?? 84 C0 74 ?? 41 80 FA 01 41 0F B6 C2 0F 44 C7 44 8A D0 45 8A C2 8A D3 49 8B CB",
+      "rva": 9610203,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordLevel",
+      "pattern": "48 85 C0 74 ?? 48 8B C8 E8 ?? ?? ?? ?? 48 85 C0 74 ?? 0F B6 80 83 00 00 00 48 83 C4 28 C3",
+      "rva": 22236796,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordExperience",
+      "pattern": "48 85 C0 74 ?? 8B 80 88 00 00 00 48 83 C4 28 C3 EB ?? B8 38 00 00 00",
+      "rva": 19365754,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordHP",
+      "pattern": "48 85 C0 74 ?? 44 8B 98 A8 03 00 00 48 8B 5C 24 30 41 8B C3 48 83 C4 20 5F C3 CC CC 48 89 5C 24 08",
+      "rva": 12737216,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordMP",
+      "pattern": "48 85 C0 74 ?? 8B 80 AC 03 00 00 48 83 C4 28 C3 EB ?? 48 89 5C 24 08",
+      "rva": 16630662,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordBaseMaxHP",
+      "pattern": "48 85 C0 74 ?? 44 8B 98 94 00 00 00 48 8B 5C 24 30 41 8B C3 48 8B 74 24 38 48 83 C4 20 5F C3 CC",
+      "rva": 12756116,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordBaseMaxMP",
+      "pattern": "48 85 C0 74 ?? 8B 80 98 00 00 00 48 83 C4 28 C3 EB ?? B8 38 00 00 00",
+      "rva": 16630846,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordWeaponLevel",
+      "pattern": "48 85 C0 0F 84 ?? ?? ?? ?? 8B 80 9C 20 00 00 89 44 24 20 8B 54 24 34 44 8B C0 48 8B CB",
+      "rva": 19334374,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "recordWeaponPoints",
+      "pattern": "8B 88 A4 20 00 00 48 8D 56 10 03 88 A0 20 00 00 45 33 C0 89 4F 0C 48 8D 4D B0",
+      "rva": 16450345,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "maxEffectsPointer",
+      "pattern": "48 8B 8B F8 02 00 00 B2 4E 8B F8 E8 ?? ?? ?? ?? 48 85 C0 0F 85 ?? ?? ?? ?? 48 8B 5C 24 60 8B C7",
+      "rva": 16630713,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "maxEffectListLayout",
+      "pattern": "48 8B 59 38 40 8A FA 48 85 DB 75 ?? 33 C0 48 8B 5C 24 30 48 83 C4 20 5F C3 48 8B 0B 48 85 C9 74 ?? 48 8B 01 FF 50 08 40 3A C7 74 ?? 48 8B 5B 10 EB ?? 48 8B 03",
+      "rva": 8425947,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "maxEffectDataLayout",
+      "pattern": "48 8B 41 18 33 D2 48 89 44 24 28 48 8B 41 20 48 89 44 24 30 8A 41 28 48 8D 4C 24 20 88 44 24 38 48 8D 05 ?? ?? ?? ??",
+      "rva": 39452414,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "maxEffectFactorLayout",
+      "pattern": "48 8B 49 08 83 79 18 00 7F ?? C5 F8 57 C0 C3 48 83 C1 10 48 8B 01 A8 01 74 ?? 48 D1 F8 48 03 C1 C5 FA 10 00 C3",
+      "rva": 12119928,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "maxMultiplierTypeGetters",
+      "pattern": "B0 4D C3 CC CC CC CC CC CC CC CC CC CC CC CC CC B0 4E C3",
+      "rva": 26689344,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": true
+    },
+    {
+      "name": "maxRoundBias",
+      "pattern": "8A 41 28 48 8D 4C 24 20 88 44 24 38 48 8D 05 ?? ?? ?? ?? C5 C8 57 F6 48 89 44 24 20 C4 E1 CA 2A F7 E8 ?? ?? ?? ?? C5 CA 58 CE C4 E2 79 A9 0D ?? ?? ?? ?? BF 01 00 00 00 C5 FA 2D C1 D1 F8 3B C7 0F 43 F8",
+      "rva": 39452434,
+      "operand": 47,
+      "length": 51,
+      "target": 99653648,
+      "address": false
+    },
+    {
+      "name": "locationSlot",
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 80 C8 00 00 00 48 85 C0 74 ?? 48 8B 40 08",
+      "rva": 64127735,
+      "operand": 3,
+      "length": 7,
+      "target": 152929472,
+      "address": false
+    },
+    {
+      "name": "chapterSlot",
+      "pattern": "48 8B 0D ?? ?? ?? ?? 48 8B 89 60 02 00 00 E8 ?? ?? ?? ?? 84 C0 0F 84 ?? ?? ?? ?? E9 ?? ?? ?? ?? 0B C2",
+      "rva": 16431887,
+      "operand": 3,
+      "length": 7,
+      "target": 150152632,
+      "address": false
+    },
+    {
+      "name": "locationAssetMap",
+      "pattern": "4C 8B 05 ?? ?? ?? ?? 83 F8 FF 74 ?? 48 63 C8 4C 8D 0C 49 4B 39 14 C8 74 ?? 43 8B 44 C8 10 EB ?? 8B C7 8B CF 89 45 50 89 4D 54 EB ??",
+      "rva": 9663824,
+      "operand": 3,
+      "length": 7,
+      "target": 115355088,
+      "address": false
+    },
+    {
+      "name": "mapAssetRegistry",
+      "pattern": "4C 8B 05 ?? ?? ?? ?? 48 0F 45 D0 49 2B CD 49 23 CC 8B 04 8A 83 F8 FF 0F 84 ?? ?? ?? ?? 48 63 C8 48 8D 14 49 48 C1 E2 05 46 38 24 02 74 ?? 42 8B 44 02 58 EB ?? 48 63 C8 4C 8D 14 49 49 C1 E2 05 4D 03 D0 41 8B 42 10 41 3B 42 3C 74 ?? 4D 8B 4A 48 44 8B C3 41 C1 E8 10 48 8B C3 48 C1 E8 20 0F B7 D3 42 8D 0C C2 C1 E1 10 03 CA C1 EA 04 03 C8 49 63 42 50 03 D1 49 2B C5 41 03 D0 48 63 CA 48 23 C8 49 8D 42 40 4D 85 C9 4C 0F 44 C8 41 8B 04 89 83 F8 FF 74 ?? 48 63 C8 48 8D 14 49 49 8B 4A 08 48 39 1C D1 0F 84 ?? ?? ?? ?? 8B 44 D1 10 EB ??",
+      "rva": 9664840,
+      "operand": 3,
+      "length": 7,
+      "target": 151108320,
+      "address": false
+    },
+    {
+      "name": "naviMapCategorySlot",
+      "pattern": "48 8B 40 08 48 89 45 50 8B 4D 54 8B 45 50 3B 05 ?? ?? ?? ?? 74 ?? 48 8B 55 50 45 33 C0 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B D8 48 85 C0 74 ?? E8 ?? ?? ?? ?? 48 8B 53 10 4C 8D 40 30 49 63 40 08",
+      "rva": 9663884,
+      "operand": 32,
+      "length": 36,
+      "target": 152601472,
+      "address": false
+    },
+    {
+      "name": "naviAssetMapLayout",
+      "pattern": "4D 8B 12 41 8B 82 B8 00 00 00 41 3B 82 E4 00 00 00 74 ?? 4D 8B 8A F0 00 00 00 44 8B C7 0F B7 C7 8B D0 41 C1 E8 10 C1 EA 04 03 D0 42 8D 0C C0 48 8B C7 48 C1 E8 20 C1 E1 10 03 D1 03 C2 41 03 C0 48 63 C8 49 63 82 F8 00 00 00 49 2B C5 48 23 C8 49 8D 82 E8 00 00 00 4D 85 C9 4C 0F 44 C8 41 8B 04 89 83 F8 FF 74 ?? 48 63 C8 48 8D 14 49 49 8B 8A B0 00 00 00 48 39 3C D1 0F 84 ?? ?? ?? ?? 8B 44 D1 10 EB ??",
+      "rva": 9665044,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    },
+    {
+      "name": "sceneManagerSlot",
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8D 54 24 70 C4 C1 7A 10 8D B8 00 00 00 C5 FA 5C A0 34 03 00 00 C4 C1 7A 10 85 B0 00 00 00 C5 FA 5C 90 30 03 00 00 C5 F2 5C 98 38 03 00 00",
+      "rva": 21762199,
+      "operand": 3,
+      "length": 7,
+      "target": 152929464,
+      "address": false
+    },
+    {
+      "name": "ComponentLocationLayout",
+      "pattern": "40 55 48 8B EC B8 30 00 00 00 E8 ?? ?? ?? ?? 48 2B E0 33 C0 48 39 42 20 0F 95 C0 48 01 42 20 48 8B 81 38 01 00 00 48 85 C0 74 ?? C5 F8 10 88 D0 01 00 00 C5 FA 11 4D DC C4 E3 79 17 4D E0 01 48 8B 45 DC C4 E3 79 17 4D E4 02 C5 FA 10 45 E4",
+      "rva": 25359432,
+      "operand": 0,
+      "length": 0,
+      "target": null,
+      "address": false
+    }
+  ],
+  "validation": {
+    "patterns": "33 unique matches in executable sections, with live bytes checked; RIP displacements wildcarded.",
+    "csharpSyntheticChecks": 84,
+    "csharpGeometryChecks": 33,
+    "build": "Release succeeds without warnings or errors",
+    "cheatEngine": "Original CE Lua5.3 runtime with read-only live-memory shims; state/registry/geometry and maximum modifiers mirrored."
+  },
+  "routes": {
+    "character": "AOB GameMode -> reflected GameState, UWorld, GameInstance.LocalPlayers, PlayerController.Pawn. AcknowledgedPawn must agree. Pawn+638 -> component+1A8 -> stats+3E8 player ID. Native virtual accessor addresses are validated.",
+    "chapter": "AOB chapter owner -> +260 manager, current FName+0C; pending flag+8 must be zero and requested FName+2C must agree.",
+    "stats": "Native active save group and override flag select table+88+(playerID*4+group)*22E8. HP/MP, maxima, EXP and SP are selected for the controlled pawn.",
+    "maxima": "Native first matching HP/MP status-effect modifier, bounded linked-list traversal, signed relative data pointers and float32 FMA/ties-to-even rounding.",
+    "names": "FName pool blocks at+10; index high16 selects block; low16*4 selects entry; header+4 has length>>6 and wide bit; text+6.",
+    "location": "AOB current location manager -> +C8 record -> FName+8. Native resident navigation registry maps this current location to its EndNaviMapSettings asset, independent of UI map selection.",
+    "preciseArea": "Reflected NaviMapVolumeInfo and nested geometry layouts; player RootComponent world translation + scene world offset; valid Z bounds and exact projected XY triangle containment in first authored LOD. Only one unique (layer,OpenGroup) is accepted. VisitGroup IDs are not used as names.",
+    "lifecycle": "Native GameState6/7/8/10 are gameplay states; title/boot/load states and missing ownership clear gameplay output. Snapshot ownership, chapter and location are re-read for coherence."
+  },
+  "liveChecks": [
+    {
+      "state": "User baseline, matched by C# and CE Lua",
+      "character": "Cloud",
+      "characterId": 0,
+      "level": 26,
+      "hp": [
+        2334,
+        2334
+      ],
+      "mp": [
+        28,
+        45
+      ],
+      "sp": [
+        60,
+        70
+      ],
+      "exp": [
+        2252,
+        4084
+      ],
+      "totalExp": 28568,
+      "weaponLevel": 3,
+      "chapter": "Chapter 7: Those Left Behind",
+      "chapterId": "Chapt_0007_090",
+      "location": "Corel Region / Mt. Corel / Fifth Trail",
+      "locationId": "2240-CORLF",
+      "layer": 2,
+      "openGroup": 22
+    },
+    {
+      "state": "User changed to Grasslands; both readers refreshed from the new save",
+      "character": "Cloud",
+      "level": 16,
+      "hp": [
+        655,
+        1082
+      ],
+      "mp": [
+        11,
+        32
+      ],
+      "sp": [
+        10,
+        25
+      ],
+      "exp": [
+        126,
+        694
+      ],
+      "totalExp": 7491,
+      "chapter": "Chapter 2: A New Journey Begins",
+      "location": "Grasslands",
+      "locationId": "1200-GRASA",
+      "layer": 0,
+      "openGroup": 1
+    },
+    {
+      "state": "User confirmed main menu",
+      "csharp": "IsInGame=false; generated placeholder dictionary contains only state=Main Menu",
+      "cheatTable": "All gameplay summaries and selected symbols cleared"
+    }
+  ],
+  "geometryBaseline": {
+    "localPosition": [
+      92947.7890625,
+      -99006.65625,
+      20281.080078125
+    ],
+    "worldOffset": [
+      -630000,
+      480000,
+      0
+    ],
+    "boundsCandidates": [
+      58,
+      59
+    ],
+    "triangleMatch": 58,
+    "openGroup": 22,
+    "note": "Volume59 bounds also contain the point but its triangles do not; a bounding-box-only implementation would be incorrect."
+  },
+  "limitations": [
+    "Optional detailed area is omitted when its asset is unavailable, no polygon contains the position, overlapping polygon groups disagree, or there is no installed English label. Current region/map remain available.",
+    "Unknown character/progression IDs do not invent names or thresholds.",
+    "Observed gameplay used Cloud in two saves. Other supported character IDs and changing controlled pawns were verified against native metadata and synthetic memory, not by a user-played live run.",
+    "Future executable/layout changes may require new patterns; missing or ambiguous patterns fail closed."
+  ],
+  "nativeStatEvidence": {
+    "process": {
+      "pid": 43112,
+      "base": 140696094965760,
+      "size": 161320960,
+      "path": "E:\\SteamLibrary\\steamapps\\common\\FINAL FANTASY VII REBIRTH\\End\\Binaries\\Win64\\ff7rebirth_.exe"
+    },
+    "readOnly": true,
+    "native": {
+      "recordGetter": "92A3C8",
+      "groupOverrideGetter": "92BF94",
+      "recordIndex": "80097C",
+      "actorPlayerTypeGetter": "9B2888",
+      "componentStateGetter": "9B29A0",
+      "playerTypeGetter": "92DF10",
+      "hpGetter": "C25A50",
+      "baseMaxHpGetter": "C2A41C",
+      "maxHpGetter": "C2A374 (this=stats+10)",
+      "mpGetter": "FDC374",
+      "baseMaxMpGetter": "FDC42C",
+      "maxMpGetter": "FDC398 (this=stats)",
+      "levelGetter": "1534E68",
+      "totalExperienceGetter": "1277F68",
+      "experienceThresholdGetter": "12766BC",
+      "weaponPointsDisplayGetter": "FB0228",
+      "weaponLevelDisplayGetter": "12704EF"
+    },
+    "live": {
+      "pawn": "0x7fefa67f6c00",
+      "component": "0x7fed069e5100",
+      "stats": "0x7fee467ad010",
+      "characterId": 0,
+      "gameData": "0x7feea63c5c00",
+      "table": "0x2ddbf650000",
+      "rawGroup": 0,
+      "overrideBitIndex": 1010,
+      "override": 0,
+      "selectedGroup": 0,
+      "record": "0x2ddbf650088",
+      "fields": {
+        "level": 26,
+        "totalExperience": 28568,
+        "baseMaxHp": 2334,
+        "baseMaxMp": 45,
+        "hp": 2334,
+        "mp": 28,
+        "weaponLevel": 3,
+        "baseWeaponPoints": 60,
+        "bonusWeaponPoints": 0
+      },
+      "statusEffectListOwner": "0x7feb46f816d0",
+      "statusEffectHead": "0x0"
+    },
+    "characterIds": {
+      "0": "Cloud01",
+      "1": "Barret01",
+      "2": "Tifa01",
+      "3": "Aerith01",
+      "4": "RedXIII01",
+      "5": "Yuffie01",
+      "6": "CaitSith01",
+      "7": "Zack01",
+      "8": "Sephiroth01",
+      "9": "None",
+      "10": "None",
+      "11": "None",
+      "12": "None",
+      "13": "None",
+      "14": "None"
+    },
+    "maxima": {
+      "collection": "q(stats+2F8)",
+      "head": "q(collection+38)",
+      "next": "q(node+10)",
+      "effect": "q(node)",
+      "typeGetter": "q(q(effect)+8)",
+      "hpGetterRva": "1973F40",
+      "mpGetterRva": "1973F50",
+      "data": "q(effect+18)",
+      "count": "int(data+18)",
+      "values": "q(data+10); if odd: address(data+10)+(signed(value)>>1)",
+      "factor": "float(values), or0 ifcount<=0",
+      "rounding": "max(1,int(roundToEven(FMA(2.0f*base,factor,0.5f)))>>1)",
+      "nativeRoundingBiasRva": "5F09810",
+      "default": "base maximum if no matching effect; MP0 retained"
+    },
+    "baselineXp": {
+      "levelBase": 26316,
+      "nextLevelBase": 30400,
+      "inLevelExperience": 2252,
+      "requiredExperience": 4084
+    },
+    "baselineWp": {
+      "sum": 60,
+      "threshold": 70,
+      "table": "WeaponUpgradeTreeLevel.Cloud02 Percent70"
+    }
+  },
+  "nativeRegistryEvidence": {
+    "readOnly": true,
+    "nativeGetNaviMapSettingsRva": "9374A4",
+    "nativeGenericAssetGetRva": "9377A4",
+    "locationToAssetMapRva": "6E02DD0",
+    "registryRva": "901BAE0",
+    "categoryFNameRva": "9188380",
+    "mapHeader": {
+      "data": 0,
+      "slots": 8,
+      "capacity": 12,
+      "freeCount": 52,
+      "inlineHash": 56,
+      "hashPointer": 64,
+      "bucketCount": 72
+    },
+    "fnameEntry": {
+      "stride": 24,
+      "key": 0,
+      "value": 8,
+      "next": 16
+    },
+    "kindEntry": {
+      "stride": 96,
+      "keyByte": 0,
+      "inlineMap": 8,
+      "next": 88
+    },
+    "hash": "uint(((lo16+hi16*8)<<16)+lo16+(lo16>>4)+hi16+instanceNumber)",
+    "path": "locationMap[packedLocation].value => assetName; registry[byte0].inlineMap[categoryName].value => node; node+B0[assetName].value => UObject; verify UObject name and EndNaviMapSettings type",
+    "live": {
+      "location": "2240-CORLF",
+      "locationFName": "11398E",
+      "assetName": "NaviMapSetting_2240-CORLF",
+      "assetFName": "56A9E1",
+      "category": "/Game/Level/Game/Resident/Resident_NaviMapAsset",
+      "categoryFName": "647344",
+      "residentEntry": "7FECA626D2F0",
+      "categoryEntry": "7FF048FF98F0",
+      "categoryNode": "7FF6653403D8",
+      "asset": "2DD866821B0",
+      "counts": [
+        43,
+        3,
+        408,
+        42
+      ]
+    },
+    "validation": "4 unique executable signatures and runtime mask matches; bounded hash traversal and complete captured-byte coherence checks; no dependence on map UI selection"
+  },
+  "cheatTable": {
+    "file": "Final-Fantasy-VII-Rebirth-AOB.CT",
+    "sha256": "3b13f58be4eb7e986e1bd4d0177de05d3b755ab13301ad600af492cbc52bca15",
+    "originalPreserved": true,
+    "originalSha256": "45f3045178a249f48c901da57b8830f7480218b4e87923614e1ff1821349068b"
+  }
+}

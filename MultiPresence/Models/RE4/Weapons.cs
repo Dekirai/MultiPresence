@@ -17,6 +17,12 @@
                 case 3:
                     weapon = "Matilda";
                     break;
+                case 8:
+                    weapon = "Egg";
+                    break;
+                case 9:
+                    weapon = "Brown Egg";
+                    break;
                 case 10:
                     weapon = "Golden Egg";
                     break;
@@ -25,6 +31,9 @@
                     break;
                 case 16:
                     weapon = "Bowgun";
+                    break;
+                case 23:
+                    weapon = "Rocket Launcher (Special)";
                     break;
                 case 33:
                 case 34:
@@ -61,9 +70,11 @@
                     break;
                 case 46:
                 case 107:
+                case 153:
                     weapon = "Rifle";
                     break;
                 case 47:
+                case 81:
                 case 108:
                     weapon = "Rifle (semi-auto)";
                     break;
@@ -72,12 +83,14 @@
                     weapon = "TMP";
                     break;
                 case 52:
+                case 83:
                     weapon = "Chicago Typewriter";
                     break;
                 case 53:
                     weapon = "Rocket Launcher";
                     break;
                 case 54:
+                case 171:
                 case 259:
                 case 261:
                     weapon = "Mine Thrower";
@@ -85,6 +98,12 @@
                 case 55:
                 case 260:
                     weapon = "Handcannon";
+                    break;
+                case 56:
+                    weapon = "Combat Knife";
+                    break;
+                case 62:
+                    weapon = "Custom TMP";
                     break;
                 case 65:
                     weapon = "P.R.L. 412";
@@ -129,6 +148,12 @@
                 case 3:
                     weapon = "Matilda";
                     break;
+                case 8:
+                    weapon = "Ei";
+                    break;
+                case 9:
+                    weapon = "Braunes Ei";
+                    break;
                 case 10:
                     weapon = "Goldenes Ei";
                     break;
@@ -137,6 +162,9 @@
                     break;
                 case 16:
                     weapon = "Armbrust";
+                    break;
+                case 23:
+                    weapon = "Raketenwerfer (Spezial)";
                     break;
                 case 33:
                 case 34:
@@ -173,9 +201,11 @@
                     break;
                 case 46:
                 case 107:
+                case 153:
                     weapon = "Sturmgewehr";
                     break;
                 case 47:
+                case 81:
                 case 108:
                     weapon = "Sturmgewehr (Halbauto.)";
                     break;
@@ -184,12 +214,14 @@
                     weapon = "TMP";
                     break;
                 case 52:
+                case 83:
                     weapon = "Chicago Typewriter";
                     break;
                 case 53:
                     weapon = "Raketenwerfer";
                     break;
                 case 54:
+                case 171:
                 case 259:
                 case 261:
                     weapon = "Minenwerfer";
@@ -197,6 +229,12 @@
                 case 55:
                 case 260:
                     weapon = "Handkanone";
+                    break;
+                case 56:
+                    weapon = "Messer";
+                    break;
+                case 62:
+                    weapon = "Spezial-TMP";
                     break;
                 case 65:
                     weapon = "P.R.L. 412";

@@ -2,11 +2,23 @@
     "Games": {
         "Crash Bandicoot 4: It's About Time": {
             "Default": {
-                "Details": "Wumpas: {wumpasmodern} - Deaths: {deaths}",
-                "State": "Crates: {currentcrates}/{maxcrates}",
+                "Details": "{character} | {mode}",
+                "State": "{level} | Crates: {currentcrates}/{maxcrates} | Deaths: {deaths}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Crash Bandicoot 4: It's About Time",
+                "LargeAssetText": "{world} | Wumpas: {wumpas}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Retro": {
+                "Details": "{character} | {mode}",
+                "State": "{level} | Crates: {currentcrates}/{maxcrates} | Deaths: {deaths} | Lives: {lives}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{world} | Wumpas: {wumpas}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

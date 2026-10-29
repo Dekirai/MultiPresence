@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class FFX
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static async Task DoAction()
         {
             await Task.Delay(10000);
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("FFX: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("FFX"))
             {
                 string location_get = Hypervisor.ReadString(Hypervisor.GetPointer32(0x008E81E4, [0xD0]), 255, true);
@@ -87,6 +91,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("FFX: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

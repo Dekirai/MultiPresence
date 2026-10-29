@@ -1,112 +1,164 @@
-#nullable disable
-using MultiPresence.Runtime;
 using DiscordRPC;
-using System.Diagnostics;
+using MultiPresence.Infrastructure;
+using MultiPresence.Models.FFXVI;
+using MultiPresence.Runtime;
 
 namespace MultiPresence.Presence
 {
     public class FFXVI
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static async Task DoAction()
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        private static DateTime nextWarning;
+
+        public static Task DoAction()
         {
-            await Task.Delay(10000);
+            MemoryReader.Reset();
+            nextWarning = DateTime.MinValue;
             GetPID();
             discord = new DiscordRpcClient("1285884197084336161");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Final Fantasy XVI.json");
+            updater = new DiscordStatusUpdater("Assets/Config/Final Fantasy XVI.json");
             PresenceRuntime.Start(nameof(FFXVI), "ffxvi", RPC);
+            return Task.CompletedTask;
         }
 
         private static void GetPID()
         {
-            try
-            {
-                ProcessMonitor.TryAttach("ffxvi");
-            }
-            catch
-            {
-                //nothing?
-            }
+            ProcessMonitor.TryAttach("ffxvi");
         }
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("FFXVI: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("ffxvi"))
             {
-                int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
-
-                if (hp > 0)
+                try
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
+                    if (!Hypervisor.IsAttached && !ProcessMonitor.TryAttach("ffxvi"))
+                    {
+                        discord.ClearPresence();
+                        return;
+                    }
+
+                    var snapshot = ReadSnapshot();
+                    if (snapshot.State != "Ingame")
+                    {
+                        ShowStatus(snapshot.State == "Loading" ? "Loading" : "In Main Menu");
+                        return;
+                    }
+
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(() => GeneratePlaceholders(snapshot));
                     PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Final Fantasy XVI", placeholders);
                 }
-                else
+                catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
                 {
-                    discord.SetPresence(new RichPresence()
+                    if (DateTime.UtcNow >= nextWarning)
                     {
-                        Details = "In Main Menu",
-                        State = "",
-                        Assets = new Assets()
-                        {
-                            LargeImageKey = "logo",
-                            LargeImageText = "Final Fantasy XVI"
-                        },
-                        Timestamps = PlaceholderHelper._startTimestamp
-                    });
+                        AppLog.Warning("Final Fantasy XVI memory is not ready.", exception);
+                        nextWarning = DateTime.UtcNow.AddSeconds(30);
+                    }
+
+                    discord.ClearPresence();
                 }
             }
             else
             {
+                MemoryReader.Reset();
+                discord.ClearPresence();
                 discord.Deinitialize();
                 updater.Dispose();
                 PresenceRuntime.RequestDetection();
             }
         }
 
-        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        private static GameSnapshot ReadSnapshot()
         {
-            int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x50]), true);
-            int limitbreak = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x58]), true);
-            int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x018165E8, [0x40]), true);
-            int gil = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x01816668, [0x2C]), true);
-            int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x018165E8, [0xCB50]), true);
-            string difficulty = "";
-            string limitbreak_bars = "";
+            return MemoryReader.ReadSnapshot();
+        }
 
-            if (difficulty_get == 0)
-                difficulty = "Easy";
-            else if (difficulty_get == 1)
-                difficulty = "Normal";
-            else if (difficulty_get == 2)
-                difficulty = "Final Fantasy";
-            else if (difficulty_get == 3)
-                difficulty = "Ultimaniac";
-
-            if (limitbreak >= 0 && limitbreak <= 8399)
-                limitbreak_bars = "0";
-            else if (limitbreak >= 8400 && limitbreak <= 16799)
-                limitbreak_bars = "1";
-            else if (limitbreak >= 16800 && limitbreak <= 25199)
-                limitbreak_bars = "2";
-            else if (limitbreak >= 25200 && limitbreak <= 33599)
-                limitbreak_bars = "3";
-            else if (limitbreak == 33600)
-                limitbreak_bars = "4";
-
-            return new Dictionary<string, object>
+        private static Task<Dictionary<string, object>> GeneratePlaceholders(GameSnapshot snapshot)
+        {
+            var placeholders = new Dictionary<string, object>
             {
-                { "level", level },
-                { "hp", hp },
-                { "gil", gil },
-                { "difficulty", difficulty },
-                { "limitbreak", limitbreak_bars }
+                { "state", snapshot.State == "Ingame" ? "In Game" : snapshot.State == "Loading" ? "Loading" : "Main Menu" },
+                { "character", "" },
+                { "level", "" },
+                { "hp", "" },
+                { "maxhp", "" },
+                { "gil", "" },
+                { "abilitypoints", "" },
+                { "difficulty", "" },
+                { "limitbreak", "" },
+                { "maxlimitbreak", "" },
+                { "limitbreakraw", "" },
+                { "location", "" },
+                { "region", "" },
+                { "area", "" },
+                { "mapid", "" },
+                { "quest", "" },
+                { "questid", "" },
+                { "objective", "" },
+                { "objectiveid", "" }
             };
+
+            if (snapshot.State != "Ingame")
+            {
+                return Task.FromResult(placeholders);
+            }
+
+            placeholders["character"] = snapshot.Character;
+            placeholders["level"] = snapshot.Level;
+            placeholders["hp"] = snapshot.Hp;
+            placeholders["maxhp"] = snapshot.MaxHp;
+            placeholders["gil"] = snapshot.Gil;
+            placeholders["abilitypoints"] = snapshot.AbilityPoints;
+            placeholders["difficulty"] = snapshot.Difficulty;
+            placeholders["limitbreak"] = snapshot.LimitBreakBars;
+            placeholders["maxlimitbreak"] = snapshot.MaxLimitBreakBars;
+            placeholders["limitbreakraw"] = snapshot.LimitBreak;
+            placeholders["location"] = snapshot.Location;
+            placeholders["region"] = snapshot.Region;
+            placeholders["area"] = snapshot.Area;
+            placeholders["mapid"] = snapshot.MapId;
+            placeholders["quest"] = snapshot.Quest;
+            placeholders["questid"] = snapshot.QuestId;
+            placeholders["objective"] = snapshot.QuestObjective;
+            placeholders["objectiveid"] = snapshot.QuestObjectiveId;
+            return Task.FromResult(placeholders);
+        }
+
+        private static void ShowStatus(string text)
+        {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("FFXVI: presence is not initialized.");
+            }
+
+            discord.SetPresence(new RichPresence()
+            {
+                Details = text,
+                State = "",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = "Final Fantasy XVI"
+                },
+                Timestamps = PlaceholderHelper._startTimestamp
+            });
         }
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("FFXVI: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

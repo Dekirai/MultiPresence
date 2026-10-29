@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.WWHD;
@@ -10,7 +9,7 @@ namespace MultiPresence.Presence
     {
         public static ulong _main_address = 0;
         public static ulong _spoof_address = 0;
-        private static DiscordRpcClient discord;
+        private static DiscordRpcClient? discord;
         public static async Task DoAction()
         {
             await Task.Delay(7000);
@@ -36,6 +35,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("WWHD: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("Cemu"))
             {
                 string stage = Hypervisor.ReadString(_spoof_address + 0xA4, 32, true);
@@ -67,6 +71,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("WWHD: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

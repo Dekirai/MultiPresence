@@ -1,0 +1,454 @@
+{
+  "game": "Kingdom Hearts 0.2 Birth by Sleep",
+  "application_id": "1562380887138631770",
+  "steam_app": "2552440",
+  "steam_build": "15194283",
+  "executable_sha256": "a5945af5041047f54db67d7667390f4dc90eee59d1c06459434ddab57d0f339c",
+  "memory_access": "ReadProcessMemory only; no game writes, native calls, hooks or injection.",
+  "discovery": "All 18 signatures are unique in every executable PE section of both the file image and live process. RIP-relative references resolve global slots; function AOBs validate player virtual getters and structural offsets.",
+  "patterns": {
+    "World": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 0F 45 C1",
+      "operand": 3,
+      "length": 7,
+      "target": 75558312,
+      "rva": 36038156,
+      "staticHits": [
+        36038156
+      ],
+      "liveHits": [
+        36038156
+      ]
+    },
+    "Names": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 85 C0 75 ?? B9 08 04 00 00",
+      "operand": 3,
+      "length": 7,
+      "target": 74010688,
+      "rva": 12068068,
+      "staticHits": [
+        12068068
+      ],
+      "liveHits": [
+        12068068
+      ]
+    },
+    "NameEntryLayout": {
+      "pattern": "F6 01 01 48 8D 71 10 48 8B FA 74 ?? 48 C7 C3 FF FF FF FF 48 FF C3 66 83 3C 5E 00 75 ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12036658,
+      "staticHits": [
+        12036658
+      ],
+      "liveHits": [
+        12036658
+      ]
+    },
+    "NameIndexLayout": {
+      "pattern": "8B 03 99 81 E2 FF 3F 00 00 03 C2 44 8B C0 25 FF 3F 00 00 2B C2 48 63 C8 41 C1 F8 0E 49 63 C0 49 8B 04 C1 48 8B 04 C8",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 12047041,
+      "staticHits": [
+        12047041
+      ],
+      "liveHits": [
+        12047041
+      ]
+    },
+    "WorldInstanceLayout": {
+      "pattern": "48 8B 81 58 01 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 54603300,
+      "staticHits": [
+        54603300
+      ],
+      "liveHits": [
+        54603300
+      ]
+    },
+    "LocalPlayersLayout": {
+      "pattern": "48 8B 48 50 48 63 40 58 48 8D 14 C1 48 3B CA 74 ?? 0F 1F 80 00 00 00 00 48 8B 01 48 39 78 48 74 ??",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 27732552,
+      "staticHits": [
+        27732552
+      ],
+      "liveHits": [
+        27732552
+      ]
+    },
+    "AcknowledgedPawnLayout": {
+      "pattern": "48 8B 81 58 04 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 21355328,
+      "staticHits": [
+        21355328
+      ],
+      "liveHits": [
+        21355328
+      ]
+    },
+    "ControllerPawnLayout": {
+      "pattern": "48 8B 81 E8 03 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 4610352,
+      "staticHits": [
+        4610352
+      ],
+      "liveHits": [
+        4610352
+      ]
+    },
+    "HealthGetter": {
+      "pattern": "8B 81 DC 05 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 3264752,
+      "staticHits": [
+        3264752
+      ],
+      "liveHits": [
+        3264752
+      ]
+    },
+    "MagicGetter": {
+      "pattern": "8B 81 E4 05 00 00 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 3265568,
+      "staticHits": [
+        3265568
+      ],
+      "liveHits": [
+        3265568
+      ]
+    },
+    "LevelGetter": {
+      "pattern": "48 8B 81 C8 04 00 00 48 85 C0 74 ?? 8B 40 40 C3 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 3261728,
+      "staticHits": [
+        3261728
+      ],
+      "liveHits": [
+        3261728
+      ]
+    },
+    "MaxHealthGetter": {
+      "pattern": "48 8B 81 C8 04 00 00 48 85 C0 74 ?? 8B 40 50 C3 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 3265648,
+      "staticHits": [
+        3265648
+      ],
+      "liveHits": [
+        3265648
+      ]
+    },
+    "MaxMagicGetter": {
+      "pattern": "48 8B 81 C8 04 00 00 48 85 C0 74 ?? 8B 40 54 C3 C3",
+      "operand": 0,
+      "length": 0,
+      "target": 0,
+      "rva": 3265680,
+      "staticHits": [
+        3265680
+      ],
+      "liveHits": [
+        3265680
+      ]
+    },
+    "CurrentAreaLayout": {
+      "pattern": "48 8D 81 38 03 00 00 C3 CC CC CC CC CC CC CC CC",
+      "rva": 4505040,
+      "operand": 0,
+      "length": 0
+    },
+    "CurrentAreaWriteLayout": {
+      "pattern": "E8 ?? ?? ?? ?? 49 8B 8D 30 04 00 00 48 89 08 48 8B CD E8 ?? ?? ?? ?? 8B 4C 24 70 89 48 08",
+      "rva": 6238021,
+      "operand": 0,
+      "length": 0
+    },
+    "DifficultyLayout": {
+      "pattern": "8B 81 38 05 00 00 48 8B FA 89 02 48 8B E9 E8 ?? ?? ?? ?? F3 0F 11 47 04",
+      "rva": 4503986,
+      "operand": 0,
+      "length": 0
+    },
+    "DifficultySelectionLayout": {
+      "pattern": "E8 ?? ?? ?? ?? 48 8B 9F 90 04 00 00 8B 88 00 02 00 00 85 C9 0F 84 ?? ?? ?? ??",
+      "rva": 5585382,
+      "operand": 0,
+      "length": 0
+    },
+    "LevelTransitionLayout": {
+      "pattern": "40 53 48 83 EC 40 80 B9 B2 02 00 00 00 48 8B D9 74 ?? B0 01 48 83 C4 40",
+      "rva": 4519168,
+      "operand": 0,
+      "length": 0
+    }
+  },
+  "flow": {
+    "world": "0x1b63416f340",
+    "gameInstance": "0x1b592e58010",
+    "map": "dw_02",
+    "area": "dw_02_An_02",
+    "difficulty": 1,
+    "transition": 0,
+    "route": {
+      "WorldSlot": "0x480EDA8",
+      "GameInstanceOffset": "0x158",
+      "areaFName": "0x338",
+      "difficultyInt": "0x538",
+      "levelTransitionByte": "0x2B2"
+    },
+    "nativeProof": {
+      "globalWorkGetter": "RVA0x44BDD0 returns GI+338; reflection m_GlobalWork offset338,size3D28; backup offset4060 must not be used",
+      "areaWrite": "RVA0x5F2C90 ATresAreaNameVolume routine loads GI AreaDataTable+7DF8 and validates row from Volume+430; at5F2F45 calls44BDD0 then at5F2F51 stores active rowFName fromVolume+430 into current GlobalWork+0; +8 holds derived area number",
+      "difficulty": "RVA0x5539E6 calls44BDD0; next instructions readGlobalWork+200 then switch0/1/2/3 chooses GameStaticAsset+148/+150/+158/+160. Live reflection exact fields m_AICoordinatorClass_Beginner/Standard/Proud/Critical; directGI+538 native read44B9B2.",
+      "transition": "RVA0x44F500 returns true immediately when byteGI+2B2!=0; native travel sets+2B2=1 at452926 and clears at4527ED. Reflected bool m_LevelTransition offset2B2 byteMask1/fieldMaskFF.",
+      "title": "Literal RebellisGameTitle native transition function44DC00 constructs world FName and calls458F40. Gate this world explicitly plus require playable map and owned live pawn."
+    },
+    "difficultyNames": {
+      "0": "Beginner",
+      "1": "Standard",
+      "2": "Proud",
+      "3": "Critical"
+    },
+    "coherence": [
+      "World pointer and WorldName FName",
+      "World.GameInstance pointer",
+      "GI LevelTransition byte",
+      "GI currentArea FName",
+      "GI difficulty int",
+      "current player owned by controller"
+    ],
+    "locationPolicy": "Use currentArea only when AreaRow.MapNameKey equals current UWorld map; stale/unknown area falls back to known current map. Title/transition/departed pawn clears snapshot.",
+    "coverage": "Live Castle Town baseline dw_02 / dw_02_An_02 / Standard1 confirmed; transition native layout proved but user transition test pending."
+  },
+  "player": {
+    "process": {
+      "size": 83226624,
+      "base": 140697441730560,
+      "path": "E:\\SteamLibrary\\steamapps\\common\\KINGDOM HEARTS HD 2.8 Final Chapter Prologue\\KINGDOM HEARTS 0.2 Birth by Sleep\\Binaries\\Win64\\KINGDOM HEARTS 0.2 Birth by Sleep.exe",
+      "pid": 54996
+    },
+    "sha256": "a5945af5041047f54db67d7667390f4dc90eee59d1c06459434ddab57d0f339c",
+    "access": "OpenProcess(0x410) and ReadProcessMemory only; no calls into game, hooks, writes or injection",
+    "roots": {
+      "GWorld": "0x480EDA8",
+      "GNames": "0x4695040"
+    },
+    "nativeSource": {
+      "GWorld": {
+        "method": "UEngine::GetWorldFromContextObject",
+        "rva": "0x225E5B0",
+        "fallbackInstruction": "0x225E60C",
+        "evidence": "caller 0x43DFB7 references shipped TresDelay/GetWorldFromContextObject diagnostic"
+      },
+      "GNames": {
+        "rva": "0xB824E0",
+        "firstLoad": "0xB824E4",
+        "allocationSize": "0x408",
+        "indexDecomposition": "0xB7D2C1",
+        "entryText": "0xB7AA32"
+      }
+    },
+    "nameLayout": {
+      "count": "0x400",
+      "chunks": "0x404",
+      "chunkCapacity": 16384,
+      "entryText": "0x10",
+      "wideFlag": "uint(entry)&1"
+    },
+    "objectLayout": {
+      "class": "0x18",
+      "name": "0x20",
+      "outer": "0x28"
+    },
+    "route": [
+      {
+        "from": "World",
+        "offset": "0x158",
+        "field": "OwningGameInstance"
+      },
+      {
+        "from": "GameInstance",
+        "offset": "0x50",
+        "field": "LocalPlayers TArray"
+      },
+      {
+        "from": "LocalPlayer",
+        "offset": "0x48",
+        "field": "PlayerController"
+      },
+      {
+        "from": "Controller",
+        "offset": "0x3E8",
+        "field": "Pawn"
+      },
+      {
+        "from": "PlayerController",
+        "offset": "0x458",
+        "field": "AcknowledgedPawn (must match Pawn)"
+      },
+      {
+        "from": "Pawn",
+        "offset": "0x4C8",
+        "field": "m_pBaseParam"
+      }
+    ],
+    "stats": {
+      "Hp": {
+        "path": "Pawn+0x5DC",
+        "vtableSlot": "0x1430",
+        "nativeGetter": "0x31d0f0",
+        "reflectedFunctionWrapper": "0x778b50",
+        "liveDispatchMatches": true,
+        "type": "int32"
+      },
+      "Mp": {
+        "path": "Pawn+0x5E4",
+        "vtableSlot": "0x1448",
+        "nativeGetter": "0x31d420",
+        "reflectedFunctionWrapper": "0x778cc0",
+        "liveDispatchMatches": true,
+        "type": "int32"
+      },
+      "Level": {
+        "path": "Param+0x40",
+        "vtableSlot": "0x1480",
+        "nativeGetter": "0x31c520",
+        "reflectedFunctionWrapper": "0x778800",
+        "liveDispatchMatches": true,
+        "type": "int32"
+      },
+      "MaxHp": {
+        "path": "Param+0x50",
+        "vtableSlot": "0x1488",
+        "nativeGetter": "0x31d470",
+        "reflectedFunctionWrapper": "0x778da0",
+        "liveDispatchMatches": true,
+        "type": "int32"
+      },
+      "MaxMp": {
+        "path": "Param+0x54",
+        "vtableSlot": "0x1490",
+        "nativeGetter": "0x31d490",
+        "reflectedFunctionWrapper": "0x778e10",
+        "liveDispatchMatches": true,
+        "type": "int32"
+      }
+    },
+    "live": {
+      "world": "0x1b63416f340",
+      "map": "dw_02",
+      "instance": "0x1b592e58010",
+      "localPlayer": "0x1b5c4958080",
+      "controller": "0x1b674015a40",
+      "pawn": "0x1b64d6f20e0",
+      "pawnName": "p_ex002_Pawn_C",
+      "pawnClass": "p_ex002_Pawn_C",
+      "parameter": "0x1b6743bd600",
+      "parameterClass": "TresChrBaseParam",
+      "level": 51,
+      "hp": 100,
+      "maxHp": 100,
+      "mp": 60,
+      "maxMp": 60,
+      "localPlayerCount": 1,
+      "localPlayerCapacity": 4,
+      "acknowledgedPawnMatches": true
+    },
+    "guards": {
+      "patternFile": "kh02-stats-patterns.json",
+      "patterns": 13,
+      "entireExecutableStaticAndLiveUnique": true,
+      "sections": [
+        {
+          "name": ".text",
+          "rva": "0x1000",
+          "size": 56195135
+        },
+        {
+          "name": ".bind",
+          "rva": "0x4f2c000",
+          "size": 206104
+        }
+      ],
+      "coherence": "Capture owner pointers/count/capacity/vtable; recheck before returning, compare a second immutable PlayerState in final snapshot; root must recheck current GWorld and GNames slots"
+    },
+    "limitations": [
+      "No XP/munny interpretation guessed; optional fields excluded.",
+      "Native Pawn MaxHitPoint/MaxMagicPoint editor fields +5D8/+5E0 are zero in this build and are NOT current maximums. Native max getters read live TresChrBaseParam+50/+54 instead.",
+      "GUObjectArray is not needed for the authoritative active World/LocalPlayer route."
+    ]
+  },
+  "lifecycle": "Roots bound to process ID, module base and module size. Missing/ambiguous signatures fail closed and retry after 30 seconds. Transition worlds and missing/unacknowledged players clear data. Current scene/area/difficulty and player ownership/statistics are read twice before publication.",
+  "verified_baseline": {
+    "location": "Dark World / Castle Town",
+    "map": "dw_02",
+    "area": "dw_02_An_02",
+    "character": "Aqua",
+    "level": 51,
+    "difficulty": "Standard",
+    "hp": 100,
+    "maxhp": 100,
+    "mp": 60,
+    "maxmp": 60,
+    "world_asset": "darkworld"
+  },
+  "validation_scope": "English names and all table rows extracted from the installed build. Live transitions and title-state results are recorded separately after user confirmation; unvisited scenes are not claimed as live-tested.",
+  "live_validation": {
+    "baseline": "User-confirmed Castle Town, Standard, Level 51, HP 100/100, MP 60/60. C# and Lua agree.",
+    "after_restart_and_scene_load": {
+      "location": "Dark World / Main Road",
+      "map": "dw_01",
+      "area": "dw_01_An_01",
+      "difficulty": "Proud",
+      "level": 50,
+      "hp": 66,
+      "maxhp": 66,
+      "mp": 0,
+      "maxmp": 40,
+      "result": "Both C# and Lua agree; user confirmed all values. No Castle Town values retained."
+    },
+    "cinematic": "During the user-confirmed loading/cinematic state, World=dw and SpectatorPawn had no player parameters. The C# snapshot and gameplay placeholders were empty.",
+    "main_menu": "Not yet live-confirmed; synthetic title/loading clearing passed."
+  },
+  "validation": {
+    "release_build": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "player_and_flow_checks": 56,
+    "scanner_checks": 23,
+    "catalog_checks": 171,
+    "lua_live_and_failure_checks": 54,
+    "lua_main_menu": "pending live confirmation",
+    "scope": "Single installed Steam build. Discord payload construction validated; no claim of visual Discord-client inspection. Unvisited areas are covered by installed localization/table correspondence, not live traversal."
+  },
+  "cheat_table": {
+    "filename": "KINGDOM-HEARTS-0.2-AOB.CT",
+    "sha256": "578e5b8d60c294dc33f81819848aec49aace91d6011181102db00be118c5cee7"
+  }
+}

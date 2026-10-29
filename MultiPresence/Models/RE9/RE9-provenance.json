@@ -1,0 +1,4939 @@
+{
+  "game": "Resident Evil Requiem",
+  "steamAppId": 3764200,
+  "steamBuildId": 23634047,
+  "executableSha256": "9742B40B5A177CEE95015714488FE7BDDDBE5348892033B4C807D823A20EE168",
+  "source": "Installed official English localization; selected short identification labels only.",
+  "extractor": {
+    "library": "IntelOrca.Biohazard.REE",
+    "version": "1.6.0",
+    "source": "https://github.com/biorand/reeutils",
+    "method": "RePakCollection.GetEntryData + MsgFile",
+    "filenameInventory": "https://github.com/Ekey/REE.PAK.Tool/blob/main/Projects/RE9_STM_Release.list"
+  },
+  "copyright": "Game text belongs to CAPCOM. No external implementation code is included in GameText.cs.",
+  "limitations": [
+    "Localization key suffixes are not presumed numeric runtime enum values.",
+    "Objective {0}/{1} placeholders require runtime progress values.",
+    "Item ID mapping is keyed by the installed Item_Name_ localization suffix; unknown IDs are returned unchanged.",
+    "The legacy save-header PlaceID catalog is retained for reference only. Runtime location uses the active map; some sections have no unambiguous named room."
+  ],
+  "difficultyIds": {
+    "ID0010": "Casual",
+    "ID0020": "Standard (Modern)",
+    "ID0030": "Standard (Classic)",
+    "ID0040": "Insanity"
+  },
+  "difficultyEvidence": "Installed native GuiTitleDefinition.createDifficultyInfoList and GuiSaveLoadModel.makeDifficultyMessage associate GameDifficultyID objects with gui_menu localization GUIDs. Baseline ID0010 matched user-reported Leicht.",
+  "skippedEmptyOrPlaceholderKeys": [
+    "Item_Name_it10_00_007",
+    "Item_Name_it10_03_002",
+    "Item_Name_it10_10_003",
+    "Item_Name_it10_10_004",
+    "Item_Name_it10_10_005",
+    "Item_Name_it10_10_006",
+    "Item_Name_it10_10_007",
+    "Item_Name_it10_10_008",
+    "Item_Name_it10_10_009",
+    "Item_Name_it10_10_010",
+    "Item_Name_it10_10_011",
+    "Item_Name_it40_30_000",
+    "Item_Name_it40_10_000",
+    "Item_Name_it70_04_000",
+    "Item_Name_it99_02_003",
+    "Item_Name_it99_02_005",
+    "CharaName_prev",
+    "CharaName_next",
+    "CharaName_ch0900",
+    "CharaName_ex0001"
+  ],
+  "assets": [
+    {
+      "asset": "natives/stm/message/gui/gui_map.msg.23",
+      "sha256": "d82c09d683acb4027f15ce3b7a541b8638593fbbe4dfb68d0ceeed265c8088fd",
+      "labels": [
+        {
+          "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+          "key": "Map_Room_Common_000",
+          "english": "Elevator"
+        },
+        {
+          "guid": "bb95e738-b52c-4a29-9de8-323a5c8c6a17",
+          "key": "Map_Room_Common_001",
+          "english": "Restroom"
+        },
+        {
+          "guid": "00250f79-389a-43cb-91fa-149e11da1f91",
+          "key": "Map_Room_Common_002",
+          "english": "Elevator"
+        },
+        {
+          "guid": "d001a45f-1117-4068-8c66-3d15f650f96a",
+          "key": "Map_Area_000",
+          "english": "Main Street"
+        },
+        {
+          "guid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+          "key": "Map_Area_010",
+          "english": "The Wrenwood Hotel"
+        },
+        {
+          "guid": "bdad8345-2b6e-4624-89d7-64fbaf8b49ca",
+          "key": "Map_Room_010_001_000",
+          "english": "Kitchen"
+        },
+        {
+          "guid": "4208f2ae-1c4c-4cc2-9f56-562ab9e89e98",
+          "key": "Map_Room_010_001_001",
+          "english": "Restroom"
+        },
+        {
+          "guid": "67146be6-2900-47a2-9c63-aa7b6c6860ad",
+          "key": "Map_Room_010_001_002",
+          "english": "Lobby"
+        },
+        {
+          "guid": "58dd8f14-f000-4061-830b-aa598625b711",
+          "key": "Map_Room_010_001_003",
+          "english": "Office"
+        },
+        {
+          "guid": "c60ca41f-259e-4102-a3a7-b23020a11d41",
+          "key": "Map_Room_010_001_004",
+          "english": "Lounge & Bar"
+        },
+        {
+          "guid": "32df1042-6c88-4d86-9670-565c3c61e24a",
+          "key": "Map_Room_010_001_005",
+          "english": "Employee Entrance"
+        },
+        {
+          "guid": "f0ac2bfb-4a3c-4787-ae4a-57f574169414",
+          "key": "Map_Room_010_002_000",
+          "english": "Rec Room"
+        },
+        {
+          "guid": "20f8a340-f051-406a-8b1a-22e17f6c5059",
+          "key": "Map_Room_010_002_001",
+          "english": "Room 204"
+        },
+        {
+          "guid": "16e63b79-17d1-4aa1-bce2-b7b437e9702d",
+          "key": "Map_Area_030",
+          "english": "Care Center"
+        },
+        {
+          "guid": "ee808f37-dc1d-4988-8344-390d09d49097",
+          "key": "Map_Room_030_001_000",
+          "english": "Central Hall"
+        },
+        {
+          "guid": "6bbc592a-c60e-403a-9382-5cfd4218ff01",
+          "key": "Map_Room_030_001_001",
+          "english": "Guard Office"
+        },
+        {
+          "guid": "0fe09956-9ea7-472a-a430-d9152d86eab5",
+          "key": "Map_Room_030_001_002",
+          "english": "East Wing Lobby"
+        },
+        {
+          "guid": "8fed65d8-6220-4ef7-92b6-f2ef5e9c827f",
+          "key": "Map_Room_030_001_003",
+          "english": "Medication Room"
+        },
+        {
+          "guid": "b989f115-c13c-470c-8924-b0c8fac43bed",
+          "key": "Map_Room_030_001_004",
+          "english": "Blood Lab"
+        },
+        {
+          "guid": "254fcfa6-30e1-496a-95c8-47a02889f596",
+          "key": "Map_Room_030_001_005",
+          "english": "Waiting Room"
+        },
+        {
+          "guid": "395acf7b-7310-490a-8a2a-b8b3a4865383",
+          "key": "Map_Room_030_001_006",
+          "english": "Isolation Ward"
+        },
+        {
+          "guid": "59f9f9d1-bbe4-4599-9e22-dd35285becc6",
+          "key": "Map_Room_030_001_007",
+          "english": "Parlor"
+        },
+        {
+          "guid": "898ddeed-c38e-4bff-a9d6-4d3e7ddd72b1",
+          "key": "Map_Room_030_001_008",
+          "english": "Kitchen"
+        },
+        {
+          "guid": "bd16ad48-8c47-44fe-8d8d-40a9b65f1947",
+          "key": "Map_Room_030_001_010",
+          "english": "Dining Room"
+        },
+        {
+          "guid": "6081ab8b-de90-45d9-a629-43266c64daf7",
+          "key": "Map_Room_030_001_011",
+          "english": "Cold Storage"
+        },
+        {
+          "guid": "f8ab6a70-d4ea-490f-86bc-e2605842c44f",
+          "key": "Map_Room_030_001_012",
+          "english": "Restroom"
+        },
+        {
+          "guid": "1914e2d4-5a63-4e4c-be38-649c5465bdf0",
+          "key": "Map_Room_030_001_013",
+          "english": "Garage"
+        },
+        {
+          "guid": "fc3ab130-add7-43c3-92f0-ef2bb4456dd8",
+          "key": "Map_Room_030_001_014",
+          "english": "Custodian's Office"
+        },
+        {
+          "guid": "06da4b2b-6061-47e0-a0ba-daa6552be289",
+          "key": "Map_Room_030_001_015",
+          "english": "Pantry"
+        },
+        {
+          "guid": "ca093795-a478-4049-a203-981bf2a16751",
+          "key": "Map_Room_030_001_017",
+          "english": "Treatment Room"
+        },
+        {
+          "guid": "95a97ada-680e-43c1-b994-8925b53481f5",
+          "key": "Map_Room_030_001_018",
+          "english": "Examination Room"
+        },
+        {
+          "guid": "41415928-7af9-4f7c-93c9-e036c76051d5",
+          "key": "Map_Room_030_001_019",
+          "english": "Closet"
+        },
+        {
+          "guid": "49c4408b-adab-41c3-8f2c-7d4471ae7077",
+          "key": "Map_Room_030_001_021",
+          "english": "Rehabilitation Ward"
+        },
+        {
+          "guid": "bf7cbc3f-d965-47e4-be17-c4c51017a764",
+          "key": "Map_Room_030_001_024",
+          "english": "Filing Room"
+        },
+        {
+          "guid": "20352ec5-34aa-4893-9153-224dfe9100b6",
+          "key": "Map_Room_030_001_025",
+          "english": "Security Manager's Office"
+        },
+        {
+          "guid": "a5fc55fe-e38c-4861-a217-935a242ed209",
+          "key": "Map_Room_030_001_029",
+          "english": "Courtyard"
+        },
+        {
+          "guid": "5e24afb4-9ac2-4347-863f-7b07b8454098",
+          "key": "Map_Room_030_001_030",
+          "english": "Consultation Office"
+        },
+        {
+          "guid": "583c9889-af89-49c0-a774-482175b4f4f8",
+          "key": "Map_Room_030_001_031",
+          "english": "Equipment Room"
+        },
+        {
+          "guid": "91adadd5-f371-4ebc-a283-ab3eeb4c47cb",
+          "key": "Map_Room_030_002_000",
+          "english": "Room 203"
+        },
+        {
+          "guid": "31416c23-98f6-4d80-8af0-60d5e847b53d",
+          "key": "Map_Room_030_002_001",
+          "english": "Lead Researcher's Office"
+        },
+        {
+          "guid": "2380dc14-e259-42a1-90ba-378a1a804c53",
+          "key": "Map_Room_030_002_002",
+          "english": "Conference Room"
+        },
+        {
+          "guid": "86a15417-74d0-4077-a8a8-4afc5eb73930",
+          "key": "Map_Room_030_002_006",
+          "english": "Central Hall"
+        },
+        {
+          "guid": "b87a67c7-52d4-4734-8666-9b51e793c5c5",
+          "key": "Map_Room_030_002_007",
+          "english": "Chairman's Office"
+        },
+        {
+          "guid": "fa60f4a0-c543-4190-b917-52014e7e1621",
+          "key": "Map_Room_030_002_009",
+          "english": "Records Room"
+        },
+        {
+          "guid": "2d58dc67-6d32-4b3e-897d-76c03fc4d058",
+          "key": "Map_Room_030_002_010",
+          "english": "Gallery"
+        },
+        {
+          "guid": "1199e80b-0aec-4685-a4a7-30d19d463e05",
+          "key": "Map_Room_030_002_011",
+          "english": "Bar & Lounge"
+        },
+        {
+          "guid": "716cd2c1-0756-4a3d-a1b0-75f63c5bd380",
+          "key": "Map_Room_030_002_013",
+          "english": "Room 202"
+        },
+        {
+          "guid": "d1f2dda9-c6c8-4f31-83e9-f8a7b5b4edd3",
+          "key": "Map_Room_030_002_014",
+          "english": "Room 201"
+        },
+        {
+          "guid": "78000015-06e9-4415-a916-d74130d9b7a9",
+          "key": "Map_Room_030_002_016",
+          "english": "Nurses' Station"
+        },
+        {
+          "guid": "547e7c83-5d39-40e8-ad3b-ffa01adfb6f7",
+          "key": "Map_Room_030_002_017",
+          "english": "Office"
+        },
+        {
+          "guid": "876a274c-a5fa-454b-93a8-ba9dcb68e48b",
+          "key": "Map_Room_030_002_018",
+          "english": "Kitchenette"
+        },
+        {
+          "guid": "6086b0cf-ddeb-44c2-822e-4dee8c5c1111",
+          "key": "Map_Room_030_002_019",
+          "english": "Salon"
+        },
+        {
+          "guid": "203540fa-0e9a-4b4a-aef3-7f61e5b62f9f",
+          "key": "Map_Room_030_003_000",
+          "english": "Attic Storage"
+        },
+        {
+          "guid": "42d91155-a156-4819-9bb2-dbdf80865f42",
+          "key": "Map_Room_030_003_001",
+          "english": "Attic"
+        },
+        {
+          "guid": "c5cf7cb1-8327-4dde-b488-779cf290ccb8",
+          "key": "Map_Room_030_003_002",
+          "english": "Medical Supply Room"
+        },
+        {
+          "guid": "b870e257-54cc-4498-859f-c587068428d4",
+          "key": "Map_Room_030_003_003",
+          "english": "Lounge"
+        },
+        {
+          "guid": "6ec6c766-1724-46c9-a67d-69f9758342ad",
+          "key": "Map_Room_030_003_004",
+          "english": "Director's Office"
+        },
+        {
+          "guid": "205a3ce2-107d-4d7f-b41c-9bede0c6f357",
+          "key": "Map_Room_030_003_005",
+          "english": "Meeting Room"
+        },
+        {
+          "guid": "bb948b5f-f659-465b-acf7-a3ac597f4d07",
+          "key": "Map_Room_030_101_000",
+          "english": "Inspection"
+        },
+        {
+          "guid": "cc2c7a2d-8ca9-4e01-abaf-0d746e15df6c",
+          "key": "Map_Room_030_101_001",
+          "english": "Holding Cells"
+        },
+        {
+          "guid": "bdbd6ce0-3c12-444d-8830-2e47ac63115a",
+          "key": "Map_Room_030_101_002",
+          "english": "Security Room"
+        },
+        {
+          "guid": "6139f5d0-012e-4019-97b7-1bc75a22475a",
+          "key": "Map_Room_030_101_003",
+          "english": "Collection Pool"
+        },
+        {
+          "guid": "dfe1d54e-d3f3-42d8-8698-b4b4ff1824cf",
+          "key": "Map_Room_030_101_004",
+          "english": "Processing"
+        },
+        {
+          "guid": "648411d4-9bfb-455f-ba5f-d0aeb4d0dd51",
+          "key": "Map_Room_030_101_005",
+          "english": "Workshop"
+        },
+        {
+          "guid": "df971913-2aee-4c73-b661-09a7a3398ffa",
+          "key": "Map_Room_030_101_006",
+          "english": "Boiler Room"
+        },
+        {
+          "guid": "05fbb049-afa2-45c7-8da3-4fcd4a7f5db5",
+          "key": "Map_Room_030_101_007",
+          "english": "Bunkroom"
+        },
+        {
+          "guid": "59c6f9af-f08c-476d-b125-26487e726b14",
+          "key": "Map_Room_030_101_008",
+          "english": "Furnace"
+        },
+        {
+          "guid": "a1015667-eb48-4f58-bd3e-eb4bdc7c66b5",
+          "key": "Map_Area_440",
+          "english": "Orphanage"
+        },
+        {
+          "guid": "f3b20971-3361-4acb-8435-aaa76a1e1de6",
+          "key": "Map_Room_440_001_000",
+          "english": "Director's Room"
+        },
+        {
+          "guid": "6957116f-bde4-4a7b-9d9d-1749d8118cd0",
+          "key": "Map_Room_440_001_001",
+          "english": "Main Hall"
+        },
+        {
+          "guid": "2b696996-cbc5-41fa-bf84-4f3f51b3eab3",
+          "key": "Map_Room_440_002_000",
+          "english": "Bedroom"
+        },
+        {
+          "guid": "5125b298-2e28-4bef-8595-90a64e29c16e",
+          "key": "Map_Room_440_002_002",
+          "english": "Nursery"
+        },
+        {
+          "guid": "1e0b885d-da69-4310-83ba-bb0145088d36",
+          "key": "Map_Room_440_102_000",
+          "english": "Underground Chapel"
+        },
+        {
+          "guid": "0c2f8d13-e3c4-44c6-b93d-fdab1983af62",
+          "key": "Map_Room_440_102_001",
+          "english": "Crypt"
+        },
+        {
+          "guid": "1e747aee-95c4-4ac9-9886-16725112eb19",
+          "key": "Map_Room_440_101_000",
+          "english": "Storage Closet"
+        },
+        {
+          "guid": "960f2910-71c7-48c7-b61b-a90876f0c5e1",
+          "key": "Map_Room_440_101_001",
+          "english": "Research Lab"
+        },
+        {
+          "guid": "0001bc66-b3e7-4669-ab01-366e78247c58",
+          "key": "Map_Room_440_101_002",
+          "english": "Neonatal Observation Lab"
+        },
+        {
+          "guid": "10f4954e-1161-4f9c-a2d6-a1ac0f4642ea",
+          "key": "Map_Room_440_101_003",
+          "english": "Meeting Room"
+        },
+        {
+          "guid": "c0e3b0fb-926e-4f12-88d9-d8123f87b356",
+          "key": "Map_Area_031",
+          "english": "Care Center Courtyard"
+        },
+        {
+          "guid": "caf86f99-fd94-4e56-8ae9-39ad0d3e5ab4",
+          "key": "Map_Room_031_001_000",
+          "english": "Courtyard"
+        },
+        {
+          "guid": "d74b39cd-d267-45f6-9609-42b3bcc7e1ef",
+          "key": "Map_Room_031_001_001",
+          "english": "Helipad"
+        },
+        {
+          "guid": "d496463c-716d-46ef-907b-5561c0c895d4",
+          "key": "Map_Room_031_001_003",
+          "english": "VIP Suite"
+        },
+        {
+          "guid": "35853d84-6f51-4f4d-a6dc-a44c55ccf162",
+          "key": "Map_Room_031_001_004",
+          "english": "Emergency Exit"
+        },
+        {
+          "guid": "d9354f81-0190-451a-aba3-b9c1443d4d83",
+          "key": "Map_Room_031_001_005",
+          "english": "Cemetery"
+        },
+        {
+          "guid": "2c62fa36-3b5a-4780-b7ba-8e71e0445113",
+          "key": "Map_Room_031_001_006",
+          "english": "Chapel"
+        },
+        {
+          "guid": "1300d33c-8ccb-41c6-a329-ed80e6cbab60",
+          "key": "Map_Room_031_002_000",
+          "english": "Roof"
+        },
+        {
+          "guid": "3257d0a2-9d22-44d4-aff7-bc9fce063afa",
+          "key": "Map_Area_050",
+          "english": "Research Facility"
+        },
+        {
+          "guid": "67333895-396e-4b01-858f-7fa72aaf2444",
+          "key": "Map_Room_050_102_000",
+          "english": "Elevator"
+        },
+        {
+          "guid": "2418ba4f-fec9-4be5-accf-a37f27036306",
+          "key": "Map_Room_050_102_001",
+          "english": "Reception"
+        },
+        {
+          "guid": "e68aed4a-8ab2-4235-a33f-252a368859ea",
+          "key": "Map_Room_050_102_002",
+          "english": "Collection & Testing"
+        },
+        {
+          "guid": "2bb3f550-8b09-4dde-bc41-90840cc9f63d",
+          "key": "Map_Room_050_102_003",
+          "english": "Development"
+        },
+        {
+          "guid": "ab700e38-e4de-472c-8fa3-9fc33107103b",
+          "key": "Map_Room_050_102_004",
+          "english": "Private Lab"
+        },
+        {
+          "guid": "04c09bd8-eb8c-44c2-a1a2-0e4866638263",
+          "key": "Map_Room_050_102_005",
+          "english": "Control Room"
+        },
+        {
+          "guid": "2fdaf89c-0037-456a-91af-e864b4d33753",
+          "key": "Map_Room_050_102_006",
+          "english": "Emergency Evacuation Route"
+        },
+        {
+          "guid": "258f79b2-84db-4e16-a21b-ccfd5c3a5c82",
+          "key": "Map_Room_050_101_000",
+          "english": "Electrical Room"
+        },
+        {
+          "guid": "908486c5-133f-46b2-91c3-93c94e171c2f",
+          "key": "Map_Area_060",
+          "english": "Water Treatment Plant"
+        },
+        {
+          "guid": "28d968ab-f591-4719-acfb-b21dc1c6ad1c",
+          "key": "Map_Room_060_001_000",
+          "english": "Storage Bay"
+        },
+        {
+          "guid": "e353de5e-0a6e-454b-9580-ca74cc229ad9",
+          "key": "Map_Room_060_101_000",
+          "english": "Filing Room"
+        },
+        {
+          "guid": "7e2a27c0-3ff6-4db1-bb1e-ffb2efbccbb0",
+          "key": "Map_Room_060_101_001",
+          "english": "Storage Area"
+        },
+        {
+          "guid": "d8ed9d1e-57f9-4ee7-8f41-5e4d4ed7a255",
+          "key": "Map_Room_060_101_002",
+          "english": "Control Room"
+        },
+        {
+          "guid": "1da202f0-1bcc-427a-ae61-ab9a432c23fe",
+          "key": "Map_Room_060_101_003",
+          "english": "Chemical Treatment"
+        },
+        {
+          "guid": "9cbeb775-76ff-4dd6-96d3-875f64a580b2",
+          "key": "Map_Room_060_101_004",
+          "english": "Sedimentation"
+        },
+        {
+          "guid": "8ce92ed8-7f4f-41f3-a2de-f714fb556247",
+          "key": "Map_Area_070_00",
+          "english": "East Raccoon City"
+        },
+        {
+          "guid": "b0e3a5a8-1c8c-405f-b45f-0973fad3863c",
+          "key": "Map_Area_070_01",
+          "english": "Raccoon City Center"
+        },
+        {
+          "guid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+          "key": "Map_Area_070_02",
+          "english": "R.P.D."
+        },
+        {
+          "guid": "ab9c49cb-c999-45d8-88f7-33f18d3e8906",
+          "key": "Map_Room_070_101_000",
+          "english": "Ridgewood Station"
+        },
+        {
+          "guid": "a7bcbcb6-6708-4cdb-8c34-8db9598a7220",
+          "key": "Map_Room_070_101_001",
+          "english": "Grimstone Building Basement"
+        },
+        {
+          "guid": "a85a213e-6719-4428-8005-adadef79fd3f",
+          "key": "Map_Room_070_101_002",
+          "english": "Underground Parking Garage"
+        },
+        {
+          "guid": "292d87da-600b-4769-97bb-c9f3c69e7393",
+          "key": "Map_Room_070_101_003",
+          "english": "Sewage Facility"
+        },
+        {
+          "guid": "ff1e5fe9-8747-4bda-8851-3d3e00656a80",
+          "key": "Map_Room_070_101_004",
+          "english": "Apartment Electrical Room"
+        },
+        {
+          "guid": "ce7148fa-b258-424e-a455-99f7e2b57d45",
+          "key": "Map_Room_070_101_005",
+          "english": "Sewage Electrical Room"
+        },
+        {
+          "guid": "cc42c67a-c3d6-4ebf-a8f2-1b6b15a70134",
+          "key": "Map_Room_070_100_000",
+          "english": "The Applegate Hotel"
+        },
+        {
+          "guid": "15e5fa88-368c-4765-9fbe-5c0593c30139",
+          "key": "Map_Room_070_100_001",
+          "english": "Café Oasis"
+        },
+        {
+          "guid": "64cfbc56-380a-448a-a952-23d12efbb565",
+          "key": "Map_Room_070_100_002",
+          "english": "NF Building"
+        },
+        {
+          "guid": "e4c32cfe-d5d4-42c9-8131-1088829520c8",
+          "key": "Map_Room_070_100_003",
+          "english": "Gas Station"
+        },
+        {
+          "guid": "27cb9cf7-9009-43a0-bc05-c13dc2485478",
+          "key": "Map_Room_070_100_004",
+          "english": "Grimstone Building Rooftop"
+        },
+        {
+          "guid": "49ddfb1a-01cd-4669-a1f9-897a90ac05b5",
+          "key": "Map_Room_070_100_005",
+          "english": "Willis Tower"
+        },
+        {
+          "guid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+          "key": "Map_Room_070_100_006",
+          "english": "Logistics Warehouse"
+        },
+        {
+          "guid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+          "key": "Map_Room_070_100_007",
+          "english": "Cedarbrook Apartments"
+        },
+        {
+          "guid": "40d4a5ea-337e-4b03-b7fa-b394f9039f5f",
+          "key": "Map_Room_070_100_008",
+          "english": "Central Camp"
+        },
+        {
+          "guid": "4f2f2cf2-9d05-489d-9564-4813ba0e0da6",
+          "key": "Map_Room_070_100_009",
+          "english": "Zipline"
+        },
+        {
+          "guid": "39f80b7e-a7a4-4f61-8510-b6be655b48fd",
+          "key": "Map_Room_070_100_010",
+          "english": "East Point"
+        },
+        {
+          "guid": "b50ad258-a2cd-4f73-a519-4b415bdf9dd2",
+          "key": "Map_Room_070_100_011",
+          "english": "Mid Point"
+        },
+        {
+          "guid": "b2a33087-100e-40fc-819e-5d1999c23d34",
+          "key": "Map_Room_070_100_012",
+          "english": "West Point"
+        },
+        {
+          "guid": "d4b6df15-dddb-43ac-a909-cbb57e47484e",
+          "key": "Map_Room_070_100_013",
+          "english": "Logistics Warehouse 1F"
+        },
+        {
+          "guid": "0e31b6aa-62b8-4d0e-a8c0-11ca055cef88",
+          "key": "Map_Room_070_100_014",
+          "english": "Logistics Warehouse 2F"
+        },
+        {
+          "guid": "87f89d1f-0325-4d05-869f-7e24f968c1be",
+          "key": "Map_Room_070_100_015",
+          "english": "Logistics Warehouse Roof"
+        },
+        {
+          "guid": "fe5262ac-c45a-422f-96fa-56ba8fef90e4",
+          "key": "Map_Room_070_100_016",
+          "english": "Cedarbrook Apartments 1F"
+        },
+        {
+          "guid": "cc16dbc5-0306-4932-87e7-31e92841ed61",
+          "key": "Map_Room_070_100_017",
+          "english": "Cedarbrook Apartments Roof"
+        },
+        {
+          "guid": "8d9a69f6-9258-48f2-bfe2-b2b9ddcc6bcc",
+          "key": "Map_Room_400_001_000",
+          "english": "Main Hall"
+        },
+        {
+          "guid": "db0e86a0-bec9-496b-a6bf-7604939fa7a2",
+          "key": "Map_Room_400_001_001",
+          "english": "Entrance"
+        },
+        {
+          "guid": "d3074b3c-d8d5-44c1-b5a4-cc5fca9b4222",
+          "key": "Map_Room_400_001_002",
+          "english": "West Office"
+        },
+        {
+          "guid": "a9e34947-80ca-4534-a9cb-bebc49f1e872",
+          "key": "Map_Room_400_001_003",
+          "english": "Operations Room"
+        },
+        {
+          "guid": "99970d7d-75ef-42a8-a508-bf044f205e1b",
+          "key": "Map_Room_400_001_004",
+          "english": "Reception"
+        },
+        {
+          "guid": "7a6e610c-7e05-4cf3-9683-6d0f8ed29767",
+          "key": "Map_Room_400_001_005",
+          "english": "East Office"
+        },
+        {
+          "guid": "251565fc-5759-4f01-ad1c-010cecabc226",
+          "key": "Map_Room_400_001_006",
+          "english": "Press Room"
+        },
+        {
+          "guid": "bd199d2b-b5cf-4290-a2ef-685e3cf16b57",
+          "key": "Map_Room_400_002_000",
+          "english": "Library"
+        },
+        {
+          "guid": "f482be92-0bc2-448f-97dd-31d3df31f8e2",
+          "key": "Map_Room_400_002_001",
+          "english": "Lounge"
+        },
+        {
+          "guid": "f490df74-79a3-46f1-b5f7-2dcf7cb57218",
+          "key": "Map_Room_400_002_002",
+          "english": "S.T.A.R.S. Office"
+        },
+        {
+          "guid": "5153ea77-6529-4e53-9105-3bc235d843ff",
+          "key": "Map_Room_400_002_003",
+          "english": "Waiting Room"
+        },
+        {
+          "guid": "5d255e6a-3046-4794-8cfe-df1e732cd6a6",
+          "key": "Map_Room_400_002_004",
+          "english": "Private Collection Room"
+        },
+        {
+          "guid": "2846a0ca-ff60-4de3-ab16-6c4f0f0ea116",
+          "key": "Map_Room_400_002_005",
+          "english": "Chief's Office"
+        },
+        {
+          "guid": "b517e026-7935-43ab-a497-3f29735f89e0",
+          "key": "Map_Room_400_003_000",
+          "english": "Library"
+        },
+        {
+          "guid": "c84f3e26-7c9d-4b7c-aac1-9da4bdec7dff",
+          "key": "Map_Room_400_101_000",
+          "english": "Parking Garage"
+        },
+        {
+          "guid": "96a06db4-0d74-4f32-ae3e-6e0b03ccf16e",
+          "key": "Map_Room_080_001_000",
+          "english": "Gun Shop Kendo"
+        },
+        {
+          "guid": "8fe4ebc1-577c-456f-923e-d77ad4b04c76",
+          "key": "Map_Room_080_001_001",
+          "english": "Basketball Court"
+        },
+        {
+          "guid": "3140930b-69f7-4e6c-9a33-2557a5f9e67d",
+          "key": "Map_Room_080_101",
+          "english": "Blackthorn Station"
+        },
+        {
+          "guid": "66535e08-49c3-4b76-9b6e-6cb6ad8f1903",
+          "key": "Map_Room_080_102",
+          "english": "Blackthorn Station Platform"
+        },
+        {
+          "guid": "dce19ce3-d8e0-424c-b79a-1377eac78885",
+          "key": "Map_Room_080_103",
+          "english": "Service Entrance"
+        },
+        {
+          "guid": "dd410545-bd4f-49de-9b13-6a7095b71378",
+          "key": "Map_Room_080_104",
+          "english": "Tunnel"
+        },
+        {
+          "guid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+          "key": "Map_Area_090",
+          "english": "ARK"
+        },
+        {
+          "guid": "e7a00afe-a9a8-4bdd-b36a-90e223938ab1",
+          "key": "Map_Room_090_001_000",
+          "english": "Loading Dock"
+        },
+        {
+          "guid": "7ffc6fd8-bb54-4736-adf5-2606cc74d22f",
+          "key": "Map_Room_090_001_003",
+          "english": "Staff Room"
+        },
+        {
+          "guid": "41fc7975-4dbe-4032-bd99-2bc4e092560d",
+          "key": "Map_Room_090_001_004",
+          "english": "Server Room"
+        },
+        {
+          "guid": "6c7e829e-abbf-4cd7-9a20-cb83238edbbe",
+          "key": "Map_Room_090_001_007",
+          "english": "Guest Lounge"
+        },
+        {
+          "guid": "2f2bbdbf-f97e-4dd3-94fa-8e6a63a54ffc",
+          "key": "Map_Room_090_001_008",
+          "english": "Entrance"
+        },
+        {
+          "guid": "64695f09-4f9d-4ba9-a21b-12734d13623e",
+          "key": "Map_Room_090_001_009",
+          "english": "Stockroom"
+        },
+        {
+          "guid": "3fd6d296-c1d5-4744-acb8-1a48e70bd2b1",
+          "key": "Map_Room_090_001_011",
+          "english": "Central Refining System: PANDORA"
+        },
+        {
+          "guid": "de6bf25f-8607-4e33-ad81-d6f03ccc5b63",
+          "key": "Map_Room_090_001_012",
+          "english": "PANDORA"
+        },
+        {
+          "guid": "0d09768b-2fea-44ad-8d5b-b83ba2a05e79",
+          "key": "Map_Room_090_101_000",
+          "english": "Central Portal"
+        },
+        {
+          "guid": "0bd35316-a937-4b5e-8923-b98ab409607c",
+          "key": "Map_Room_090_101_001",
+          "english": "Service Corridor"
+        },
+        {
+          "guid": "a4af2645-2a2b-499b-8ef2-87f8f6330a19",
+          "key": "Map_Room_090_102_000",
+          "english": "Anteroom"
+        },
+        {
+          "guid": "10616813-c166-43a7-87e6-0834745e62ef",
+          "key": "Map_Room_090_102_001",
+          "english": "Bioweapon Repository 05"
+        },
+        {
+          "guid": "921e3407-e363-4844-92f9-5abef86a5fcf",
+          "key": "Map_Room_090_102_002",
+          "english": "Operations Room"
+        },
+        {
+          "guid": "522944d6-3135-43c7-9163-4e8acdd4fceb",
+          "key": "Map_Room_090_102_003",
+          "english": "Study"
+        },
+        {
+          "guid": "df313985-6b9f-44e1-86d7-2aa901eea5f2",
+          "key": "Map_Room_090_102_004",
+          "english": "Archives"
+        },
+        {
+          "guid": "8beadcec-13fd-43a9-aa90-7aa6ecbd0d7e",
+          "key": "Map_Room_090_102_005",
+          "english": "Lobby"
+        },
+        {
+          "guid": "67c67770-aef1-4727-b388-0b6734db8a80",
+          "key": "Map_Room_090_102_006",
+          "english": "Monitor Control Room"
+        },
+        {
+          "guid": "77d0cc1b-080f-4adf-99d3-04315e16262a",
+          "key": "Map_Room_090_103_007",
+          "english": "Entrance"
+        },
+        {
+          "guid": "33d32e90-19fc-4549-b63a-ff38de54f69c",
+          "key": "Map_Room_090_102_007",
+          "english": "Cleanroom"
+        },
+        {
+          "guid": "a6b71e55-9838-44e1-b20a-e9b25e0d6b35",
+          "key": "Map_Room_090_102_008",
+          "english": "Chemical Storage"
+        },
+        {
+          "guid": "083c6447-1d34-4389-8329-9ca85d39edbd",
+          "key": "Map_Room_090_102_009",
+          "english": "Sterilization Chamber"
+        },
+        {
+          "guid": "a25ddb09-bd25-413c-b61b-596b793d7bda",
+          "key": "Map_Room_090_102_010",
+          "english": "Bioweapon Repository 02"
+        },
+        {
+          "guid": "0477c835-546d-47a3-8b24-e36213292cf5",
+          "key": "Map_Room_090_102_011",
+          "english": "Lab Entrance"
+        },
+        {
+          "guid": "04dc1ff6-266e-48d2-90a2-d5d9fd5c95b4",
+          "key": "Map_Room_090_104_001",
+          "english": "B4 Staff Room"
+        },
+        {
+          "guid": "aee3591b-9324-4e58-ac2d-271ef8341f36",
+          "key": "Map_Room_090_104_002",
+          "english": "Bioweapon Repository 11"
+        },
+        {
+          "guid": "a06c9aad-e47e-43df-8ddc-7fb28dd4fe37",
+          "key": "Map_Room_090_104_003",
+          "english": "Systems Management"
+        },
+        {
+          "guid": "9f3bde45-8ba5-4787-9eec-b669c9432613",
+          "key": "Map_Room_090_104_004",
+          "english": "Dump Control Room"
+        },
+        {
+          "guid": "8f0ce6cb-d963-4e6e-a64c-53723116c670",
+          "key": "Map_Room_090_104_005",
+          "english": "Back Room"
+        },
+        {
+          "guid": "14d81d07-da93-4e9f-b8b1-2c78fc1a1d18",
+          "key": "Map_Room_090_104_006",
+          "english": "Dump"
+        },
+        {
+          "guid": "d08f4165-db9f-4f67-973f-626e66062124",
+          "key": "Map_Room_090_105_000",
+          "english": "Bioweapon Repository 12"
+        },
+        {
+          "guid": "864cb829-3279-4ef6-8e35-618848e8eeba",
+          "key": "Map_Room_090_105_001",
+          "english": "Generator Room"
+        },
+        {
+          "guid": "97cf80a2-8f97-4710-a1f1-c09b126907be",
+          "key": "Map_Room_090_106_000",
+          "english": "Central Refining System: PANDORA Bottom Floor"
+        },
+        {
+          "guid": "0f12ae76-c381-456d-a570-861b00565bd8",
+          "key": "Map_World_001",
+          "english": "Elbridge"
+        },
+        {
+          "guid": "6b521a66-2bab-4bf0-bbe2-5ba7245c51de",
+          "key": "Map_World_002",
+          "english": "Rhodes Hill"
+        },
+        {
+          "guid": "a7f204e0-dab2-403d-bc4d-870bf78459e9",
+          "key": "Map_World_003",
+          "english": "Wrenwood"
+        },
+        {
+          "guid": "2504bf12-c024-4d42-b0bb-1b59d030c04b",
+          "key": "Map_World_004",
+          "english": "East Raccoon City"
+        },
+        {
+          "guid": "dc1612e3-f9d3-4a55-9f8e-e474c53f7385",
+          "key": "Map_World_005",
+          "english": "Raccoon City Center"
+        },
+        {
+          "guid": "c1ac69fa-29bb-4522-a841-4b903dd22278",
+          "key": "Map_World_006",
+          "english": "Crater Center"
+        },
+        {
+          "guid": "ee4ac2cf-a590-4e28-aef2-0c500fd528bc",
+          "key": "End_Contents_LMD_Area_000",
+          "english": "Main Street"
+        },
+        {
+          "guid": "e717b103-4f7e-420d-9f77-3cf865a72d76",
+          "key": "End_Contents_LMD_Area_001",
+          "english": "Care Center: Rehabilitation Ward"
+        },
+        {
+          "guid": "a4eb79e4-5d75-451b-a58d-e6a36205d51a",
+          "key": "End_Contents_LMD_Area_002",
+          "english": "Care Center"
+        },
+        {
+          "guid": "e6d4a900-9e23-4ad1-a53b-4b6faff538f6",
+          "key": "End_Contents_LMD_Area_003",
+          "english": "East Raccoon City: Central Camp"
+        },
+        {
+          "guid": "22869918-f4e7-41c5-8059-37cc28b3aea2",
+          "key": "End_Contents_LMD_Area_004",
+          "english": "East Raccoon City: Streets"
+        },
+        {
+          "guid": "64f8b2e5-d974-4276-a2bc-66b6567b03a4",
+          "key": "End_Contents_LMD_Area_005",
+          "english": "Blister Borne"
+        },
+        {
+          "guid": "36038ab0-104d-49ef-bce0-3e33c1ef9bff",
+          "key": "End_Contents_LMD_Area_006",
+          "english": "Super Tyrant"
+        },
+        {
+          "guid": "2eb35876-27dc-4b85-b8c6-67cf1861494f",
+          "key": "End_Contents_LMD_Area_007",
+          "english": "The Commander"
+        },
+        {
+          "guid": "b5d1312e-64e4-45af-80b2-2eda8b8ba165",
+          "key": "End_Contents_LMD_Area_008",
+          "english": "Victor"
+        },
+        {
+          "guid": "d2ca766f-5eee-4e66-a865-b104f297f146",
+          "key": "End_Contents_LMD_Area_Lv_000",
+          "english": "Lv. 1"
+        },
+        {
+          "guid": "08cb675f-a599-492c-b940-c5ed214db84c",
+          "key": "End_Contents_LMD_Area_Lv_001",
+          "english": "Lv. 2"
+        },
+        {
+          "guid": "cb63133f-4abf-4550-b332-ed37cb561126",
+          "key": "End_Contents_LMD_Area_Lv_002",
+          "english": "Lv. 5"
+        },
+        {
+          "guid": "2008aa3b-4902-4108-962f-4be3aa6d8e38",
+          "key": "End_Contents_LMD_Area_Lv_003",
+          "english": "Lv. 9"
+        },
+        {
+          "guid": "8070f4e4-3083-420c-86f0-d668d4f72016",
+          "key": "End_Contents_LMD_Area_Lv_004",
+          "english": "Lv. 9"
+        },
+        {
+          "guid": "29ee00f4-620a-47bf-8064-0b1f782cad99",
+          "key": "End_Contents_LMD_Area_Lv_005",
+          "english": "Lv. 10"
+        },
+        {
+          "guid": "c1c6eea3-bd63-4836-a213-c7c394cb5603",
+          "key": "End_Contents_LMD_Area_Lv_006",
+          "english": "Lv. 12"
+        },
+        {
+          "guid": "ae2891bc-485d-420b-bb67-8461c023094b",
+          "key": "End_Contents_LMD_Area_Lv_007",
+          "english": "Lv. 11"
+        },
+        {
+          "guid": "c4678ca9-f6f8-43da-97db-1ed73c43c537",
+          "key": "End_Contents_LMD_Area_Lv_008",
+          "english": "Lv. 20"
+        },
+        {
+          "guid": "8e742124-24b4-4dc8-a180-5f8663875f20",
+          "key": "End_Contents_LMD_Area_000_1",
+          "english": "Main Street"
+        },
+        {
+          "guid": "495198e7-f86d-4e80-9d61-c50e4ec4f025",
+          "key": "End_Contents_LMD_Area_001_1",
+          "english": "Care Center: Rehabilitation Ward"
+        },
+        {
+          "guid": "08f09738-22dd-456f-a12a-1e663b3881c9",
+          "key": "End_Contents_LMD_Area_002_1",
+          "english": "Care Center"
+        },
+        {
+          "guid": "8b4a77bc-a6fa-4b1e-97e3-9f2c1f5b1269",
+          "key": "End_Contents_LMD_Area_003_1",
+          "english": "East Raccoon City: Central Camp"
+        },
+        {
+          "guid": "7b59ce7b-9d6d-42cf-9cf4-20b9773d9c70",
+          "key": "End_Contents_LMD_Area_004_1",
+          "english": "East Raccoon City: Streets"
+        },
+        {
+          "guid": "17f1040d-cd7f-49e1-a00a-357278385959",
+          "key": "End_Contents_LMD_Area_005_1",
+          "english": "Blister Borne"
+        },
+        {
+          "guid": "35875546-5f23-4c2b-af07-d7d93e5bdbc1",
+          "key": "End_Contents_LMD_Area_006_1",
+          "english": "Super Tyrant"
+        },
+        {
+          "guid": "aed5ec45-0dd7-4dd0-a8f4-85a83a758ddd",
+          "key": "End_Contents_LMD_Area_007_1",
+          "english": "The Commander"
+        },
+        {
+          "guid": "af2aaf74-9db1-487d-828c-21db63843107",
+          "key": "End_Contents_LMD_Area_008_1",
+          "english": "Victor"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/message/gamesystem/item.msg.23",
+      "sha256": "52a7212ea1f49eb82c865af72484f4f5401aabc4e7228210de67fe313c3f80f4",
+      "labels": [
+        {
+          "guid": "5c93a3de-2ef8-4942-ae8d-5cb6195743aa",
+          "key": "Item_Name_it00_00_000",
+          "english": "Green Herb"
+        },
+        {
+          "guid": "04c63d01-8850-45d1-9189-2b5f84a67214",
+          "key": "Item_Name_it00_00_100",
+          "english": "Mixed Herb (G+G)"
+        },
+        {
+          "guid": "7b592361-6b33-4ec9-941d-d8d262504fff",
+          "key": "Item_Name_it00_00_200",
+          "english": "Mixed Herb (G+G+G)"
+        },
+        {
+          "guid": "cb124d87-cc1a-4bb2-b289-814fb488dade",
+          "key": "Item_Name_it00_01_000",
+          "english": "Med Injector"
+        },
+        {
+          "guid": "96a2dabc-3052-4107-916e-53a0a7f07587",
+          "key": "Item_Name_it10_00_000",
+          "english": "Matilda IMP"
+        },
+        {
+          "guid": "d1d663a1-4c7e-4478-82fc-09dd491484ba",
+          "key": "Item_Name_it10_00_001",
+          "english": "S&S M232"
+        },
+        {
+          "guid": "ae301629-caec-4606-b9f9-58b2ef780087",
+          "key": "Item_Name_it10_00_002",
+          "english": "Silencer 9"
+        },
+        {
+          "guid": "a28df966-e431-4c01-bf9f-bb787f9eca1c",
+          "key": "Item_Name_it10_00_003",
+          "english": "B934"
+        },
+        {
+          "guid": "a112a149-0dda-4844-b5eb-28e15b2094bd",
+          "key": "Item_Name_it10_00_004",
+          "english": "Redemption"
+        },
+        {
+          "guid": "65e8b496-12f7-44fa-9641-0e2291a166a1",
+          "key": "Item_Name_it10_00_005",
+          "english": "Ghost Grudge"
+        },
+        {
+          "guid": "a88ffb2e-3e69-46a4-a370-42ad96bed3d1",
+          "key": "Item_Name_it10_00_006",
+          "english": "Alligator Snapper"
+        },
+        {
+          "guid": "eec92b7f-3be5-4617-b509-b471af18a829",
+          "key": "Item_Name_it10_01_000",
+          "english": "MSBG 500"
+        },
+        {
+          "guid": "7627e2e3-8f24-4b5e-8d0b-617809bd8fc3",
+          "key": "Item_Name_it10_01_002",
+          "english": "W870 Police"
+        },
+        {
+          "guid": "dc3b41c0-c960-4088-9a8d-f39d49efcc91",
+          "key": "Item_Name_it10_01_003",
+          "english": "990-TAC"
+        },
+        {
+          "guid": "953a7494-7d03-41f2-b744-4544f6713ed5",
+          "key": "Item_Name_it10_02_000",
+          "english": "Requiem"
+        },
+        {
+          "guid": "e9e6c140-526d-4123-9cab-8d7a50efe5cf",
+          "key": "Item_Name_it10_03_000",
+          "english": "Gal"
+        },
+        {
+          "guid": "7f53f2e8-f0a4-4108-831c-6ccb675e1289",
+          "key": "Item_Name_it10_03_001",
+          "english": "Stiri REVO3 A1"
+        },
+        {
+          "guid": "6696d1b4-33dc-469a-af46-1ac0877cc793",
+          "key": "Item_Name_it10_03_003",
+          "english": "Freya's Needle"
+        },
+        {
+          "guid": "28f56444-ee16-4624-a608-a89f0f2c7bc2",
+          "key": "Item_Name_it10_04_000",
+          "english": "RPG-7"
+        },
+        {
+          "guid": "79353a01-4581-4b0a-a763-a2529bf81147",
+          "key": "Item_Name_it10_05_000",
+          "english": "Classic 70"
+        },
+        {
+          "guid": "579e49bd-8e0c-4c3a-890a-0a945d7dfda6",
+          "key": "Item_Name_it10_05_001",
+          "english": "Marksman 1A"
+        },
+        {
+          "guid": "9be6e9bd-ff53-4cfb-bce0-9efed794f956",
+          "key": "Item_Name_it10_05_002",
+          "english": "Clatter Carbine"
+        },
+        {
+          "guid": "61fe9204-472c-4983-9314-fc99168a7062",
+          "key": "Item_Name_it10_10_000",
+          "english": "Chainsaw"
+        },
+        {
+          "guid": "27f18d87-83bb-4e37-9c9c-bde62c78a445",
+          "key": "Item_Name_it10_10_001",
+          "english": "Fire Poker"
+        },
+        {
+          "guid": "7c1161c6-c1fc-46ff-9ba3-5fa9496e448a",
+          "key": "Item_Name_it10_10_002",
+          "english": "Disposal Tank"
+        },
+        {
+          "guid": "370f68ec-80fd-4ef9-b320-da399c199c17",
+          "key": "Item_Name_it10_20_001",
+          "english": "Hatchet"
+        },
+        {
+          "guid": "37a76999-ca37-4113-970f-479e90f67c5e",
+          "key": "Item_Name_it10_20_003",
+          "english": "Makeshift Knife"
+        },
+        {
+          "guid": "792c1f12-aef4-492e-b3e8-d71943e0035c",
+          "key": "Item_Name_it10_20_005",
+          "english": "Hunting Knife"
+        },
+        {
+          "guid": "4b0f59f1-2927-4046-bfb7-788a54de588e",
+          "key": "Item_Name_it10_20_006",
+          "english": "Mortal Edge"
+        },
+        {
+          "guid": "5e827f6d-8c2d-4eff-b2f8-3f7b6da12639",
+          "key": "Item_Name_it10_20_007",
+          "english": "R.I.P. Knife"
+        },
+        {
+          "guid": "3dce4bca-32fa-4306-8eea-dbf43a6dcf66",
+          "key": "Item_Name_it10_20_008",
+          "english": "Kotetsu"
+        },
+        {
+          "guid": "9b42136c-65d2-4553-a77f-ffcdc1013e31",
+          "key": "Item_Name_it10_20_009",
+          "english": "Hellblaze"
+        },
+        {
+          "guid": "5baaa1dd-12a9-4f4b-bde9-a0ce76e6a1d8",
+          "key": "Item_Name_it10_30_000",
+          "english": "Body Armor Lv.I"
+        },
+        {
+          "guid": "38fc8b68-c74f-4e15-a586-d9cae3e67f81",
+          "key": "Item_Name_it10_30_001",
+          "english": "Body Armor Lv.II"
+        },
+        {
+          "guid": "1d16258b-24d6-4df1-ab90-94a6edda0758",
+          "key": "Item_Name_it10_30_002",
+          "english": "Body Armor Lv.III"
+        },
+        {
+          "guid": "a2e742f0-7ae6-4da6-9cd5-179c766d3f60",
+          "key": "Item_Name_it11_00_000",
+          "english": "Matilda IMP"
+        },
+        {
+          "guid": "8d5ca2c8-dc57-4139-9102-e0d96331699e",
+          "key": "Item_Name_it11_00_002",
+          "english": "Silencer 9"
+        },
+        {
+          "guid": "c24f000c-e25b-4ce9-87e5-792927f4832d",
+          "key": "Item_Name_it11_00_006",
+          "english": "Alligator Snapper"
+        },
+        {
+          "guid": "f7e9fa2c-153f-4f57-ad68-b629ce1c93b0",
+          "key": "Item_Name_it11_01_000",
+          "english": "MSBG 500"
+        },
+        {
+          "guid": "a6e80e46-d397-4d3f-8162-5a39843a0060",
+          "key": "Item_Name_it11_01_002",
+          "english": "W870 Police"
+        },
+        {
+          "guid": "37fd412a-57ec-4aaa-9d31-7812329f773e",
+          "key": "Item_Name_it11_01_003",
+          "english": "990-TAC"
+        },
+        {
+          "guid": "22a0bb54-66d5-4c35-9cbd-9eb25cc09019",
+          "key": "Item_Name_it11_02_000",
+          "english": "Requiem"
+        },
+        {
+          "guid": "e76d4af4-f80c-4870-9410-a42780e546fb",
+          "key": "Item_Name_it11_03_000",
+          "english": "Gal"
+        },
+        {
+          "guid": "81587307-7926-4277-9dfd-7da72bc9e41d",
+          "key": "Item_Name_it11_03_001",
+          "english": "Stiri REVO3 A1"
+        },
+        {
+          "guid": "7e4b8bee-c3b7-4c98-84da-95b4548e8c07",
+          "key": "Item_Name_it11_05_000",
+          "english": "Classic 70"
+        },
+        {
+          "guid": "2b3ffba3-beb2-456d-8abe-91e57f913d6a",
+          "key": "Item_Name_it11_05_001",
+          "english": "Marksman 1A"
+        },
+        {
+          "guid": "e799acd9-c61b-415b-ac83-2fc27df103b9",
+          "key": "Item_Name_it11_20_001",
+          "english": "Hatchet"
+        },
+        {
+          "guid": "219dadd8-417f-4de2-8539-a627505afc64",
+          "key": "Item_Name_it12_00_000",
+          "english": "Matilda IMP"
+        },
+        {
+          "guid": "14c7406d-8bc6-4f27-ac94-b4d73afb4ab7",
+          "key": "Item_Name_it12_00_002",
+          "english": "Silencer 9"
+        },
+        {
+          "guid": "a47261db-935e-493e-9877-d90d68fe0f34",
+          "key": "Item_Name_it12_00_006",
+          "english": "Alligator Snapper"
+        },
+        {
+          "guid": "a74b8229-6a0e-4ca8-907d-f08c45daad71",
+          "key": "Item_Name_it12_01_000",
+          "english": "MSBG 500"
+        },
+        {
+          "guid": "686ff971-9855-4291-bd38-b277ddfd5815",
+          "key": "Item_Name_it12_01_002",
+          "english": "W870 Police"
+        },
+        {
+          "guid": "bc510a07-7aab-42b7-a782-a1bed3baf84c",
+          "key": "Item_Name_it12_01_003",
+          "english": "990-TAC"
+        },
+        {
+          "guid": "f2a6008a-4f86-4ca2-974f-3e239f1ef6f1",
+          "key": "Item_Name_it12_02_000",
+          "english": "Requiem"
+        },
+        {
+          "guid": "9af5596b-6658-4267-acbc-57ebe863ac13",
+          "key": "Item_Name_it12_03_000",
+          "english": "Gal"
+        },
+        {
+          "guid": "7506b947-ce01-4c6d-8e82-d781507f7401",
+          "key": "Item_Name_it12_03_001",
+          "english": "Stiri REVO3 A1"
+        },
+        {
+          "guid": "9e6c0ff9-94bd-4960-98f9-46c29568997e",
+          "key": "Item_Name_it12_05_000",
+          "english": "Classic 70"
+        },
+        {
+          "guid": "f9d44310-e6bc-4036-9e38-0328aad60a01",
+          "key": "Item_Name_it12_05_001",
+          "english": "Marksman 1A"
+        },
+        {
+          "guid": "840d13bc-c185-482d-b876-a59a26cd0ac2",
+          "key": "Item_Name_it12_20_001",
+          "english": "Hatchet"
+        },
+        {
+          "guid": "a10e72d6-5760-4089-a5a6-15a0d6762fa7",
+          "key": "Item_Name_it13_00_000",
+          "english": "Matilda IMP"
+        },
+        {
+          "guid": "b630d662-c63f-44ec-a0c0-49e3c298ec09",
+          "key": "Item_Name_it13_00_002",
+          "english": "Silencer 9"
+        },
+        {
+          "guid": "3f0a0544-6ca9-4bba-854c-c428b09385b9",
+          "key": "Item_Name_it13_00_006",
+          "english": "Alligator Snapper"
+        },
+        {
+          "guid": "33380a3f-9876-4da2-ad9b-c054c275d621",
+          "key": "Item_Name_it13_01_000",
+          "english": "MSBG 500"
+        },
+        {
+          "guid": "9df1837a-c901-44ba-b904-8c625f08217f",
+          "key": "Item_Name_it13_01_002",
+          "english": "W870 Police"
+        },
+        {
+          "guid": "d730f703-481e-41e8-8a20-157717c1e63b",
+          "key": "Item_Name_it13_01_003",
+          "english": "990-TAC"
+        },
+        {
+          "guid": "3ab08267-fd38-4ccc-88c2-2cc03ae7811b",
+          "key": "Item_Name_it13_02_000",
+          "english": "Requiem"
+        },
+        {
+          "guid": "3e0d87ad-1101-4610-82ba-18d5ab91e373",
+          "key": "Item_Name_it13_03_000",
+          "english": "Gal"
+        },
+        {
+          "guid": "c18b237a-fc38-4bd0-9e2c-89f876482c1f",
+          "key": "Item_Name_it13_03_001",
+          "english": "Stiri REVO3 A1"
+        },
+        {
+          "guid": "58db734a-a9f8-47d5-afa7-6f92f059458b",
+          "key": "Item_Name_it13_05_000",
+          "english": "Classic 70"
+        },
+        {
+          "guid": "5e47a57f-8df5-4b45-8143-94273a2400b7",
+          "key": "Item_Name_it13_05_001",
+          "english": "Marksman 1A"
+        },
+        {
+          "guid": "26575439-3d2a-44ad-9f36-71bde812b09e",
+          "key": "Item_Name_it13_20_001",
+          "english": "Hatchet"
+        },
+        {
+          "guid": "f2d6027a-eeab-4008-9fc0-66740177e8ae",
+          "key": "Item_Name_it20_00_000",
+          "english": "Hand Grenade"
+        },
+        {
+          "guid": "47dff015-3bdc-4ce4-8906-fd1f2b40621c",
+          "key": "Item_Name_it20_00_002",
+          "english": "Molotov Cocktail"
+        },
+        {
+          "guid": "d1c24173-4951-4d57-a084-7905d727c576",
+          "key": "Item_Name_it20_00_003",
+          "english": "Empty Bottle"
+        },
+        {
+          "guid": "69386ab1-aa46-4b00-b8ad-3712f537f7ce",
+          "key": "Item_Name_it20_00_004",
+          "english": "Stacked Hand Grenade"
+        },
+        {
+          "guid": "ee6b5d33-0669-4d5f-b5d6-fb87139a7aaf",
+          "key": "Item_Name_it20_00_005",
+          "english": "Bottle of Acid"
+        },
+        {
+          "guid": "1c507f10-2d98-408f-9984-d94a34bd553f",
+          "key": "Item_Name_it30_00_100",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "f742ffa1-43d1-4523-8e74-509cafbff52e",
+          "key": "Item_Name_it30_00_100_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "4f206c7b-1592-4ee9-b5e8-917357f22bf5",
+          "key": "Item_Name_it30_00_100_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "fab38b37-a208-4daa-87cc-1c92f606ee55",
+          "key": "Item_Name_it30_00_101",
+          "english": "Silver Tube Extension"
+        },
+        {
+          "guid": "596ed8bc-5ddc-4ffd-a79d-a3de532d6a31",
+          "key": "Item_Name_it30_00_101_01",
+          "english": "Silver Tube Extension +"
+        },
+        {
+          "guid": "1de6cc1d-ef96-451d-8c6d-8bf95c634d98",
+          "key": "Item_Name_it30_00_101_02",
+          "english": "Silver Tube Extension ★"
+        },
+        {
+          "guid": "8ab7b489-237d-4c43-a898-753270725d5d",
+          "key": "Item_Name_it30_00_102",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "8a9af5dc-9530-456e-b86d-f37474af7b63",
+          "key": "Item_Name_it30_00_102_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "b6e69ae8-0d53-43ad-9ff6-547895469930",
+          "key": "Item_Name_it30_00_102_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "44955090-85fc-41b4-97aa-02a360767bc3",
+          "key": "Item_Name_it30_00_103",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "7b7e1955-5b77-4ca5-9538-093287cb0a2b",
+          "key": "Item_Name_it30_00_103_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "e28c0a93-d128-4960-bc3f-0d8523c6a1f8",
+          "key": "Item_Name_it30_00_103_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "1b1fe542-def0-45f5-a343-d97fd556ce0b",
+          "key": "Item_Name_it30_00_104",
+          "english": "Carbon Tube Extension"
+        },
+        {
+          "guid": "1eaae4ca-4a0c-4715-8e9e-089b3e25788f",
+          "key": "Item_Name_it30_00_104_01",
+          "english": "Carbon Tube Extension +"
+        },
+        {
+          "guid": "85854a65-574c-41f1-b728-4a6eb5f2ba7a",
+          "key": "Item_Name_it30_00_104_02",
+          "english": "Carbon Tube Extension ★"
+        },
+        {
+          "guid": "ebc74bb9-8950-4ecb-bb13-edfffab1a719",
+          "key": "Item_Name_it30_00_105",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "d83e1234-1983-4105-b84c-5255332800eb",
+          "key": "Item_Name_it30_00_105_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "bae5dd55-28c7-4575-9f80-51f6d43559df",
+          "key": "Item_Name_it30_00_105_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "19b9e174-7bd0-4ed4-addf-6411c69249d9",
+          "key": "Item_Name_it30_00_106",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "37c88a7a-9ebc-4da9-9b08-2481b8c78b51",
+          "key": "Item_Name_it30_00_106_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "cfb6214d-f755-4955-8c91-e7dabc1bb7b2",
+          "key": "Item_Name_it30_00_106_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "54815ff0-e654-4f37-829e-eb8b7ea7ff42",
+          "key": "Item_Name_it30_00_107",
+          "english": "Titanium Magazine Catch"
+        },
+        {
+          "guid": "f8853ed2-5910-4e37-acf4-031557850b87",
+          "key": "Item_Name_it30_00_107_01",
+          "english": "Titanium Magazine Catch +"
+        },
+        {
+          "guid": "d34f68a9-4bab-4c8d-808c-213944ba55f4",
+          "key": "Item_Name_it30_00_107_02",
+          "english": "Titanium Magazine Catch ★"
+        },
+        {
+          "guid": "40dcf255-6f91-4674-b6b0-8e0a27c1d0eb",
+          "key": "Item_Name_it30_00_108",
+          "english": "High-Capacity Mag."
+        },
+        {
+          "guid": "bf0ace66-84a8-471d-8c92-040e500ae2d5",
+          "key": "Item_Name_it30_00_108_01",
+          "english": "High-Capacity Mag. +"
+        },
+        {
+          "guid": "374bd322-7107-446f-8451-7f7c853d5981",
+          "key": "Item_Name_it30_00_108_02",
+          "english": "High-Capacity Mag. ★"
+        },
+        {
+          "guid": "57616dc3-fcf7-4864-9b27-fe0be058c91e",
+          "key": "Item_Name_it30_00_109",
+          "english": "Slick Magazine Catch"
+        },
+        {
+          "guid": "8f6745d8-51a8-437a-907f-06f4ff867791",
+          "key": "Item_Name_it30_00_109_01",
+          "english": "Slick Magazine Catch +"
+        },
+        {
+          "guid": "a6810af2-fb24-4911-bba0-6aad095f224d",
+          "key": "Item_Name_it30_00_109_02",
+          "english": "Slick Magazine Catch ★"
+        },
+        {
+          "guid": "311b28e5-a229-4c8b-8938-acb64b0644ce",
+          "key": "Item_Name_it30_00_200",
+          "english": "Burst Stock"
+        },
+        {
+          "guid": "e4c720b1-85b1-486b-8e67-55a725139cd1",
+          "key": "Item_Name_it30_00_200_01",
+          "english": "Burst Stock +"
+        },
+        {
+          "guid": "0ceeb38f-ff94-4ea9-9ff2-fd42724d9303",
+          "key": "Item_Name_it30_00_200_02",
+          "english": "Burst Stock ★"
+        },
+        {
+          "guid": "58f8071e-8c43-4f5b-8198-d53bb8de9bd7",
+          "key": "Item_Name_it30_00_201",
+          "english": "Chrome Stock"
+        },
+        {
+          "guid": "a3031d92-fee9-4ba8-bea6-3c5498870977",
+          "key": "Item_Name_it30_00_201_01",
+          "english": "Chrome Stock +"
+        },
+        {
+          "guid": "dbc49398-f5bd-4bb6-9c24-065df5ea1419",
+          "key": "Item_Name_it30_00_201_02",
+          "english": "Chrome Stock ★"
+        },
+        {
+          "guid": "3066e369-3285-45c9-b998-be718ca1d5ce",
+          "key": "Item_Name_it30_00_202",
+          "english": "Premier Stock"
+        },
+        {
+          "guid": "af5c7430-62fe-43bb-a459-7d52b2a73812",
+          "key": "Item_Name_it30_00_202_01",
+          "english": "Premier Stock +"
+        },
+        {
+          "guid": "9ebc83a2-94c2-4d5f-b591-310a3b04fa0b",
+          "key": "Item_Name_it30_00_202_02",
+          "english": "Premier Stock ★"
+        },
+        {
+          "guid": "d519275e-76a8-4187-bd25-6df37847ffc3",
+          "key": "Item_Name_it30_00_203",
+          "english": "Folding Stock"
+        },
+        {
+          "guid": "6994ffa7-41c3-4397-8f2b-a59aba7a25c2",
+          "key": "Item_Name_it30_00_203_01",
+          "english": "Folding Stock +"
+        },
+        {
+          "guid": "6d4235c4-c589-4ca3-a1ec-c1f93dfcf8fb",
+          "key": "Item_Name_it30_00_203_02",
+          "english": "Folding Stock ★"
+        },
+        {
+          "guid": "9def9e61-e108-450b-a44e-63900f91a0aa",
+          "key": "Item_Name_it30_00_204",
+          "english": "Stock"
+        },
+        {
+          "guid": "5fb10150-0bc9-4310-b4b3-f909ad624d2e",
+          "key": "Item_Name_it30_00_204_01",
+          "english": "Stock +"
+        },
+        {
+          "guid": "813cfe03-4623-466c-b4b4-d80a07ce9627",
+          "key": "Item_Name_it30_00_204_02",
+          "english": "Stock ★"
+        },
+        {
+          "guid": "14346a0d-a8f5-45fd-93f6-32cbae84ed17",
+          "key": "Item_Name_it30_00_205",
+          "english": "Weighted Grip"
+        },
+        {
+          "guid": "c6d7bef6-3a3c-4cee-87d7-c46ba7159553",
+          "key": "Item_Name_it30_00_205_01",
+          "english": "Weighted Grip +"
+        },
+        {
+          "guid": "500f8618-83f4-4c00-b2f2-b0429516fa45",
+          "key": "Item_Name_it30_00_205_02",
+          "english": "Weighted Grip ★"
+        },
+        {
+          "guid": "31719bf5-a305-4369-b578-09a4cf3bdf2f",
+          "key": "Item_Name_it30_00_300",
+          "english": "Hair Trigger"
+        },
+        {
+          "guid": "d43c7c92-80ad-4abf-aa58-8dba0828e39f",
+          "key": "Item_Name_it30_00_300_01",
+          "english": "Hair Trigger +"
+        },
+        {
+          "guid": "316dd222-c54d-4cbb-86d5-a7a417915615",
+          "key": "Item_Name_it30_00_300_02",
+          "english": "Hair Trigger ★"
+        },
+        {
+          "guid": "0b0978c6-b57f-4c82-a554-e096548fa4f4",
+          "key": "Item_Name_it30_00_301",
+          "english": "Aluminum Trigger"
+        },
+        {
+          "guid": "b90dd5f0-fbcb-4adb-986e-82438dc49fbf",
+          "key": "Item_Name_it30_00_301_01",
+          "english": "Aluminum Trigger +"
+        },
+        {
+          "guid": "e996f63e-a8ed-4a05-908e-96a312945d97",
+          "key": "Item_Name_it30_00_301_02",
+          "english": "Aluminum Trigger ★"
+        },
+        {
+          "guid": "b4af6b36-1a05-4be5-8fc7-1638af6c3175",
+          "key": "Item_Name_it30_00_302",
+          "english": "Duralumin Bolt"
+        },
+        {
+          "guid": "051b5f7b-84dc-4cbf-9ff6-5acd9d21bb15",
+          "key": "Item_Name_it30_00_302_01",
+          "english": "Duralumin Bolt +"
+        },
+        {
+          "guid": "6f6e42da-22e6-4121-86c5-d0c13cfd80b6",
+          "key": "Item_Name_it30_00_302_02",
+          "english": "Duralumin Bolt ★"
+        },
+        {
+          "guid": "88109371-69e1-455c-919d-cda5e0a8e8a3",
+          "key": "Item_Name_it30_00_303",
+          "english": "Duralumin Action Bar"
+        },
+        {
+          "guid": "1d2e39ec-79a3-4859-9a5f-01894838ee15",
+          "key": "Item_Name_it30_00_303_01",
+          "english": "Duralumin Action Bar +"
+        },
+        {
+          "guid": "af820c49-e319-4840-b006-c3494e109a28",
+          "key": "Item_Name_it30_00_303_02",
+          "english": "Duralumin Action Bar ★"
+        },
+        {
+          "guid": "ca41112a-1533-4483-bef2-22ead7e210c8",
+          "key": "Item_Name_it30_00_304",
+          "english": "Duckbill Choke"
+        },
+        {
+          "guid": "d8e5dbf0-5bbe-4776-8719-1b96ac6d142d",
+          "key": "Item_Name_it30_00_304_01",
+          "english": "Duckbill Choke +"
+        },
+        {
+          "guid": "0e62f095-6fef-4e32-8f24-a57b05283e25",
+          "key": "Item_Name_it30_00_304_02",
+          "english": "Duckbill Choke ★"
+        },
+        {
+          "guid": "a59b980f-30e4-4b29-a3f5-126b9ee74ef3",
+          "key": "Item_Name_it30_00_305",
+          "english": "Reinforced Bolt"
+        },
+        {
+          "guid": "03994d03-02c0-4798-be30-b622da914d23",
+          "key": "Item_Name_it30_00_305_01",
+          "english": "Reinforced Bolt +"
+        },
+        {
+          "guid": "43759bd6-5429-499e-9ab0-ef3899a61638",
+          "key": "Item_Name_it30_00_305_02",
+          "english": "Reinforced Bolt ★"
+        },
+        {
+          "guid": "7f4519f1-2ea7-4300-a4a4-d16562a1603d",
+          "key": "Item_Name_it30_00_306",
+          "english": "Titanium Bolt"
+        },
+        {
+          "guid": "0a28d124-9bde-4c47-8856-f19a7a7f4c2a",
+          "key": "Item_Name_it30_00_306_01",
+          "english": "Titanium Bolt +"
+        },
+        {
+          "guid": "34fb73a2-0399-4a60-8758-aaefeb6a8317",
+          "key": "Item_Name_it30_00_306_02",
+          "english": "Titanium Bolt ★"
+        },
+        {
+          "guid": "a47e9bdd-13a8-4c40-b581-4f887756cafe",
+          "key": "Item_Name_it30_00_307",
+          "english": "Barrel Jacket"
+        },
+        {
+          "guid": "75a1e325-b1c8-48e8-9365-a9201a50bab2",
+          "key": "Item_Name_it30_00_307_01",
+          "english": "Barrel Jacket +"
+        },
+        {
+          "guid": "e0f4b865-7ab1-4f7c-a515-a22ec3dedaf1",
+          "key": "Item_Name_it30_00_307_02",
+          "english": "Barrel Jacket ★"
+        },
+        {
+          "guid": "0917cbc7-38b3-45cb-bdcf-088c2ba93661",
+          "key": "Item_Name_it30_00_308",
+          "english": "Fortified Blade"
+        },
+        {
+          "guid": "53541d1a-dbaf-478b-9f8b-fb2d6e782e81",
+          "key": "Item_Name_it30_00_308_01",
+          "english": "Fortified Blade +"
+        },
+        {
+          "guid": "58d5d7e7-ccf0-4c9b-8089-25280dc4da05",
+          "key": "Item_Name_it30_00_308_02",
+          "english": "Fortified Blade ★"
+        },
+        {
+          "guid": "f5384a3e-7762-4c29-92b6-7e7260df0ee7",
+          "key": "Item_Name_it30_00_309",
+          "english": "Improved Grip"
+        },
+        {
+          "guid": "301066f2-671d-4515-b4be-61c7d94f087f",
+          "key": "Item_Name_it30_00_309_01",
+          "english": "Improved Grip +"
+        },
+        {
+          "guid": "2b01937b-fc1a-476a-bcb8-34424f54cd24",
+          "key": "Item_Name_it30_00_309_02",
+          "english": "Improved Grip ★"
+        },
+        {
+          "guid": "83742f8d-ac71-4b5b-833e-9e9ed68b4556",
+          "key": "Item_Name_it30_00_310",
+          "english": "Balanced Spring"
+        },
+        {
+          "guid": "82da31f0-acda-45f7-9d4a-819f27f2a640",
+          "key": "Item_Name_it30_00_310_01",
+          "english": "Balanced Spring +"
+        },
+        {
+          "guid": "0e3926fd-b289-4dec-a283-602eccc98eee",
+          "key": "Item_Name_it30_00_310_02",
+          "english": "Balanced Spring ★"
+        },
+        {
+          "guid": "f8632e1f-d67a-456d-af97-54c8da014cd5",
+          "key": "Item_Name_it30_00_311",
+          "english": "Enhanced Leaf Spring"
+        },
+        {
+          "guid": "80c612ef-cc2c-48f1-bbb9-e65428cccaca",
+          "key": "Item_Name_it30_00_311_01",
+          "english": "Enhanced Leaf Spring +"
+        },
+        {
+          "guid": "48a5e974-4731-4616-b240-c1bb9b2ec39f",
+          "key": "Item_Name_it30_00_311_02",
+          "english": "Enhanced Leaf Spring ★"
+        },
+        {
+          "guid": "9e6e52a2-d7c4-4cca-ae8f-1cf8e2d6fdeb",
+          "key": "Item_Name_it30_00_400",
+          "english": "Standard Scope"
+        },
+        {
+          "guid": "2715aa27-250e-4ad2-8986-bb10825e4f05",
+          "key": "Item_Name_it30_00_400_01",
+          "english": "Standard Scope +"
+        },
+        {
+          "guid": "105414e7-16ce-41fe-a2a3-5c54fb2a8517",
+          "key": "Item_Name_it30_00_400_02",
+          "english": "Standard Scope ★"
+        },
+        {
+          "guid": "f990644b-3ed6-4318-98cb-fbfc0d8503e7",
+          "key": "Item_Name_it30_00_401",
+          "english": "Silver Finish Scope"
+        },
+        {
+          "guid": "eb36f6de-5095-4e57-b87f-2c2f573c8af9",
+          "key": "Item_Name_it30_00_401_01",
+          "english": "Silver Finish Scope +"
+        },
+        {
+          "guid": "7607bb64-2a4c-46cf-887e-459067ce3267",
+          "key": "Item_Name_it30_00_401_02",
+          "english": "Silver Finish Scope ★"
+        },
+        {
+          "guid": "a5391a3e-777c-45a3-9dec-95e7b9012565",
+          "key": "Item_Name_it30_00_402",
+          "english": "Dot Sight"
+        },
+        {
+          "guid": "7e6fd2db-dd98-40c9-b109-70743525f9a4",
+          "key": "Item_Name_it30_00_402_01",
+          "english": "Dot Sight +"
+        },
+        {
+          "guid": "5503003d-348b-4e92-a944-f807a94e4bd7",
+          "key": "Item_Name_it30_00_402_02",
+          "english": "Dot Sight ★"
+        },
+        {
+          "guid": "5af1356d-bf41-451d-90be-b8b39e0ff836",
+          "key": "Item_Name_it30_00_403",
+          "english": "Dot Sight"
+        },
+        {
+          "guid": "6982b7a3-24e7-42fc-ac33-1357692a07ea",
+          "key": "Item_Name_it30_00_403_01",
+          "english": "Dot Sight +"
+        },
+        {
+          "guid": "28fa6e3c-684f-43c0-b44e-898dbc154cd4",
+          "key": "Item_Name_it30_00_403_02",
+          "english": "Dot Sight ★"
+        },
+        {
+          "guid": "34148526-dfe8-418b-a3f3-af00ba5fcbdf",
+          "key": "Item_Name_it30_00_404",
+          "english": "Dot Sight"
+        },
+        {
+          "guid": "80e00c12-c02a-465a-9923-773a745f26fc",
+          "key": "Item_Name_it30_00_404_01",
+          "english": "Dot Sight +"
+        },
+        {
+          "guid": "79f1de59-7254-458d-af61-7d39c456e407",
+          "key": "Item_Name_it30_00_404_02",
+          "english": "Dot Sight ★"
+        },
+        {
+          "guid": "ecc7f10c-6a8f-4030-96a4-b9f9e9ee1ffa",
+          "key": "Item_Name_it30_00_405",
+          "english": "Semi-auto Scope"
+        },
+        {
+          "guid": "442d6506-8ff5-41d8-9230-d2282878de83",
+          "key": "Item_Name_it30_00_405_01",
+          "english": "Semi-auto Scope +"
+        },
+        {
+          "guid": "718be766-ef05-4ada-8077-50b22710ddb9",
+          "key": "Item_Name_it30_00_405_02",
+          "english": "Semi-auto Scope ★"
+        },
+        {
+          "guid": "05476e9e-7872-462e-ab01-40d30a684530",
+          "key": "Item_Name_it30_00_406",
+          "english": "Dot Sight"
+        },
+        {
+          "guid": "3436d408-7e76-4b75-bfdb-cd9df67ca767",
+          "key": "Item_Name_it30_00_406_01",
+          "english": "Dot Sight +"
+        },
+        {
+          "guid": "263fa9b1-ceae-4e5c-a2fa-a81b536d3498",
+          "key": "Item_Name_it30_00_406_02",
+          "english": "Dot Sight ★"
+        },
+        {
+          "guid": "7b97def6-90f9-4f39-af3e-5ee87cfd27fb",
+          "key": "Item_Name_it30_00_407",
+          "english": "Dot Sight"
+        },
+        {
+          "guid": "fcb472a3-30bf-4b37-8ba6-34fe75c90653",
+          "key": "Item_Name_it30_00_407_01",
+          "english": "Dot Sight +"
+        },
+        {
+          "guid": "9984f4e6-741d-4db2-8925-9ac3570340a1",
+          "key": "Item_Name_it30_00_407_02",
+          "english": "Dot Sight ★"
+        },
+        {
+          "guid": "974f26e2-6df0-46b7-a7c2-92d46259f708",
+          "key": "Item_Name_it30_00_500",
+          "english": "Long Compensator"
+        },
+        {
+          "guid": "f7560f0a-df7a-4670-927b-5b35769d7acb",
+          "key": "Item_Name_it30_00_500_01",
+          "english": "Long Compensator +"
+        },
+        {
+          "guid": "52413aa7-3740-4ed6-bdfd-6aa1475a3133",
+          "key": "Item_Name_it30_00_500_02",
+          "english": "Long Compensator ★"
+        },
+        {
+          "guid": "efaad2e2-4c83-4e6a-ac7a-7699a92c55fa",
+          "key": "Item_Name_it30_00_501",
+          "english": "Chrome Barrel"
+        },
+        {
+          "guid": "eef24df7-d2ca-4230-b177-b2c354c0b10c",
+          "key": "Item_Name_it30_00_501_01",
+          "english": "Chrome Barrel +"
+        },
+        {
+          "guid": "a439030d-4a52-4b5e-8945-c773fdc74f48",
+          "key": "Item_Name_it30_00_501_02",
+          "english": "Chrome Barrel ★"
+        },
+        {
+          "guid": "166ce683-1f91-438a-981e-4aa8b814ec3f",
+          "key": "Item_Name_it30_00_502",
+          "english": "PVD Barrel"
+        },
+        {
+          "guid": "e83b4824-ec09-4a5e-98a0-08c1559e3eb9",
+          "key": "Item_Name_it30_00_502_01",
+          "english": "PVD Barrel +"
+        },
+        {
+          "guid": "4b8e067e-2dac-4607-a21d-af501ff5b46a",
+          "key": "Item_Name_it30_00_502_02",
+          "english": "PVD Barrel ★"
+        },
+        {
+          "guid": "a5092ccc-5846-442e-98c9-fb9ec55cc12c",
+          "key": "Item_Name_it30_00_503",
+          "english": "Long Flash Guard"
+        },
+        {
+          "guid": "fbab7efb-3946-4bce-9fe5-c29c3a5ac1db",
+          "key": "Item_Name_it30_00_503_01",
+          "english": "Long Flash Guard +"
+        },
+        {
+          "guid": "954da1a8-eb40-43c2-aa54-f2059235f796",
+          "key": "Item_Name_it30_00_503_02",
+          "english": "Long Flash Guard ★"
+        },
+        {
+          "guid": "67a6e4c0-e374-45d9-b5a3-8e4407e2bb13",
+          "key": "Item_Name_it30_00_504",
+          "english": "Add-on Suppressor"
+        },
+        {
+          "guid": "4c7a1e40-9b85-4aa7-aec0-67b4f153a68c",
+          "key": "Item_Name_it30_00_504_01",
+          "english": "Add-on Suppressor +"
+        },
+        {
+          "guid": "0883950a-03d4-4e5d-99a3-1e752a181b03",
+          "key": "Item_Name_it30_00_504_02",
+          "english": "Add-on Suppressor ★"
+        },
+        {
+          "guid": "9d0fb9d1-52c2-4a75-98c7-1ec2e772cf9c",
+          "key": "Item_Name_it30_00_505",
+          "english": "Ceramic Coated Barrel"
+        },
+        {
+          "guid": "a1809203-449b-4d98-b8b1-edccff760c72",
+          "key": "Item_Name_it30_00_505_01",
+          "english": "Ceramic Coated Barrel +"
+        },
+        {
+          "guid": "3333ef87-2846-478d-9e12-aba8506ae334",
+          "key": "Item_Name_it30_00_505_02",
+          "english": "Ceramic Coated Barrel ★"
+        },
+        {
+          "guid": "b9899146-3e48-4c53-bd1d-81855847366e",
+          "key": "Item_Name_it30_00_506",
+          "english": "Ported Barrel"
+        },
+        {
+          "guid": "f0b41fbf-1e10-4f5e-bd81-2ca06de2a19d",
+          "key": "Item_Name_it30_00_506_01",
+          "english": "Ported Barrel +"
+        },
+        {
+          "guid": "b1b6c5ed-d6f7-4ae2-ba1b-96d6df3c40e2",
+          "key": "Item_Name_it30_00_506_02",
+          "english": "Ported Barrel ★"
+        },
+        {
+          "guid": "d4a4bd31-b84c-44b7-9049-861f8a851bdc",
+          "key": "Item_Name_it30_00_507",
+          "english": "Compensator"
+        },
+        {
+          "guid": "cef4f9fb-c139-463f-a7d9-a748fbfeaf68",
+          "key": "Item_Name_it30_00_507_01",
+          "english": "Compensator +"
+        },
+        {
+          "guid": "69974fc8-01e0-4571-96dc-4795823c6915",
+          "key": "Item_Name_it30_00_507_02",
+          "english": "Compensator ★"
+        },
+        {
+          "guid": "44d8de01-323b-429c-98aa-68212d6181b7",
+          "key": "Item_Name_it30_00_701",
+          "english": "Trusted Companion Charm"
+        },
+        {
+          "guid": "c4ea1c17-95cc-4e2f-8d59-78be88379add",
+          "key": "Item_Name_it30_00_702",
+          "english": "Connoisseur Charm"
+        },
+        {
+          "guid": "e185e050-e658-451b-9cb9-9e04c38872a1",
+          "key": "Item_Name_it30_00_703",
+          "english": "Cute Bear Charm"
+        },
+        {
+          "guid": "7fcef962-dda3-4713-bf77-431aeb6eb64a",
+          "key": "Item_Name_it30_00_704",
+          "english": "BSAA Emblem Charm"
+        },
+        {
+          "guid": "0baeba74-7955-4df7-bdab-f2a14d961522",
+          "key": "Item_Name_it30_00_705",
+          "english": "S.T.A.R.S. Emblem Charm"
+        },
+        {
+          "guid": "44c8293a-707a-4d8b-a0db-d69cec2f2a9a",
+          "key": "Item_Name_it30_00_706",
+          "english": "Power Shades Charm"
+        },
+        {
+          "guid": "616c900a-6927-427e-90da-743a22c77168",
+          "key": "Item_Name_it40_00_000",
+          "english": "Handgun Ammo"
+        },
+        {
+          "guid": "3d5f7b0c-6012-4b19-aa92-0c9fe7885f2a",
+          "key": "Item_Name_it40_01_000",
+          "english": "Shotgun Shells"
+        },
+        {
+          "guid": "9a1a0130-ed7f-4f2a-b84b-a6d49c62b16e",
+          "key": "Item_Name_it40_02_000",
+          "english": "12.7x55mm Ammo"
+        },
+        {
+          "guid": "832f1473-5e00-470a-874e-fabde4a2d3f5",
+          "key": "Item_Name_it40_03_000",
+          "english": "Machine Gun Ammo"
+        },
+        {
+          "guid": "eb4d38b0-c0fc-4283-ad38-32da1826326f",
+          "key": "Item_Name_it40_05_000",
+          "english": "Rifle Ammo"
+        },
+        {
+          "guid": "646c7761-6e8d-4380-b13f-cae7542c4958",
+          "key": "Item_Name_it40_20_001",
+          "english": "Melee Weapon Durability"
+        },
+        {
+          "guid": "f6b1f5ca-a7a1-432e-a0ef-42d8e1908bc7",
+          "key": "Item_Name_it50_00_001",
+          "english": "Gunpowder (Small)"
+        },
+        {
+          "guid": "867209d9-2c48-4a03-a705-75b5ff94ec07",
+          "key": "Item_Name_it50_00_002",
+          "english": "Scrap"
+        },
+        {
+          "guid": "12b0627c-fb07-4e57-8880-94a33b2406f6",
+          "key": "Item_Name_it50_00_006",
+          "english": "Rare Metal"
+        },
+        {
+          "guid": "72a9de0a-f006-418f-804e-d07548f00e8d",
+          "key": "Item_Name_it50_00_012",
+          "english": "Ink Ribbon Tin"
+        },
+        {
+          "guid": "fb8f2e41-42e9-4611-8b70-89cf701463a7",
+          "key": "Item_Name_it50_00_014",
+          "english": "Gunpowder (Large)"
+        },
+        {
+          "guid": "7dd47115-7d11-4b10-b312-96293d2aacfc",
+          "key": "Item_Name_it50_00_017",
+          "english": "Empty Ink Ribbon"
+        },
+        {
+          "guid": "83ee8f75-a644-40d8-9230-0f58a3bb306b",
+          "key": "Item_Name_it50_00_018",
+          "english": "Empty Injector"
+        },
+        {
+          "guid": "00259c39-d293-416f-a0de-be3806b15cdf",
+          "key": "Item_Name_it60_00_002",
+          "english": "Bolt Cutters"
+        },
+        {
+          "guid": "8c908ba9-b431-4041-841c-47183a801125",
+          "key": "Item_Name_it60_00_004",
+          "english": "Pencil"
+        },
+        {
+          "guid": "ea8a574e-2423-4dbd-b916-4d0049963e7f",
+          "key": "Item_Name_it60_00_013",
+          "english": "Cherub Key"
+        },
+        {
+          "guid": "09f5ee27-443b-4e54-80d3-8afa74613ab3",
+          "key": "Item_Name_it60_00_038",
+          "english": "Joint Plug"
+        },
+        {
+          "guid": "b9c73635-0d22-49ab-b7d4-71d47a79d8d4",
+          "key": "Item_Name_it60_00_039",
+          "english": "Screwdriver"
+        },
+        {
+          "guid": "ac8e5362-f756-4e97-9ab6-2029f6a9708c",
+          "key": "Item_Name_it60_00_040",
+          "english": "Fuse"
+        },
+        {
+          "guid": "fd100f18-8baf-42af-9a89-9a7c792b3f49",
+          "key": "Item_Name_it60_00_041",
+          "english": "Square Socket Wrench"
+        },
+        {
+          "guid": "2ddbc204-9dda-4c72-9b91-81ffb8aa54bc",
+          "key": "Item_Name_it60_00_042",
+          "english": "Forklift Key"
+        },
+        {
+          "guid": "f6a930df-7e0b-4fc5-b119-868758b0041e",
+          "key": "Item_Name_it60_00_045",
+          "english": "West Wing Keycard"
+        },
+        {
+          "guid": "07194ea7-608e-49fc-acd5-ee2c0360dda7",
+          "key": "Item_Name_it60_00_046",
+          "english": "East Wing Keycard"
+        },
+        {
+          "guid": "5d2acc76-2dd7-4814-bbc5-f5ca8ea813ac",
+          "key": "Item_Name_it60_00_047",
+          "english": "Red Jewel"
+        },
+        {
+          "guid": "66c641a0-4308-4a3a-8c38-c7a3a1de1b1e",
+          "key": "Item_Name_it60_00_048",
+          "english": "Sun Quartz"
+        },
+        {
+          "guid": "bacf4fb9-06bf-474e-bb4e-029d9b480e92",
+          "key": "Item_Name_it60_00_049",
+          "english": "Moon Quartz"
+        },
+        {
+          "guid": "05174c35-766c-42e4-99d3-81d26938ff33",
+          "key": "Item_Name_it60_00_050",
+          "english": "Star Quartz"
+        },
+        {
+          "guid": "df824185-4f64-455f-815c-fa9868a1533d",
+          "key": "Item_Name_it60_00_051",
+          "english": "Artificial Heart"
+        },
+        {
+          "guid": "3624b845-477c-41fe-b928-dbe526c6f671",
+          "key": "Item_Name_it60_00_053",
+          "english": "Artificial Lungs"
+        },
+        {
+          "guid": "fd43db9e-f1a0-492c-95af-4c42ccb0f685",
+          "key": "Item_Name_it60_00_055",
+          "english": "ID Wristband (Level 1)"
+        },
+        {
+          "guid": "c7fdc690-e066-44c3-9313-cf55e59b4047",
+          "key": "Item_Name_it60_00_063",
+          "english": "Corrosive"
+        },
+        {
+          "guid": "dadf0671-8ff9-4175-8eb0-6c488dd14fcd",
+          "key": "Item_Name_it60_00_064",
+          "english": "Blood Specimen (Denatured)"
+        },
+        {
+          "guid": "6f5f318f-024d-4526-9c85-a51ff2b849a3",
+          "key": "Item_Name_it60_00_065",
+          "english": "Blood Specimen (Converged)"
+        },
+        {
+          "guid": "7b1ad6d9-740d-4c31-ac33-1f7f8afc2aea",
+          "key": "Item_Name_it60_00_067",
+          "english": "Blood Specimen (Reversible)"
+        },
+        {
+          "guid": "0f1820ce-52b4-4b88-aa41-29c159417296",
+          "key": "Item_Name_it60_00_068",
+          "english": "ID Wristband (Level 2)"
+        },
+        {
+          "guid": "96b3057e-2596-4292-be21-1912b9dcb656",
+          "key": "Item_Name_it60_00_069",
+          "english": "Pantry Key"
+        },
+        {
+          "guid": "d7ed2103-e56a-409f-bba9-0090fdb37e5e",
+          "key": "Item_Name_it60_00_073",
+          "english": "Organ Transport Box"
+        },
+        {
+          "guid": "612feea2-56a3-497b-8f9f-74e4485e18ce",
+          "key": "Item_Name_it60_00_074",
+          "english": "Wrench"
+        },
+        {
+          "guid": "354d796e-9373-43f4-9e1b-6336f4ee184f",
+          "key": "Item_Name_it60_00_075",
+          "english": "ID Wristband (Level 3)"
+        },
+        {
+          "guid": "a36222ec-84d1-4352-b025-892c80d2edaf",
+          "key": "Item_Name_it60_00_076",
+          "english": "Wire Cutters"
+        },
+        {
+          "guid": "959155c4-58fa-4f75-8a27-def5e3c165e0",
+          "key": "Item_Name_it60_00_077",
+          "english": "Unicorn Trinket Box"
+        },
+        {
+          "guid": "f7a4c59a-d4e1-46d1-b77c-c69f8cb2f3f8",
+          "key": "Item_Name_it60_00_080",
+          "english": "Emergency Exit Key"
+        },
+        {
+          "guid": "ed5e567f-218d-44fe-9aa7-1ee3c973a79d",
+          "key": "Item_Name_it60_00_081",
+          "english": "Helicopter Key"
+        },
+        {
+          "guid": "fa286704-2473-4e89-9e81-dd8becd09ce2",
+          "key": "Item_Name_it60_00_082",
+          "english": "Investigation Report"
+        },
+        {
+          "guid": "45a376f7-203c-43e0-a29c-5700cde17bdf",
+          "key": "Item_Name_it60_00_083",
+          "english": "Photo of Grace"
+        },
+        {
+          "guid": "8b862a26-a6b7-4546-aafe-810b80630d75",
+          "key": "Item_Name_it60_00_084",
+          "english": "Severed Hand"
+        },
+        {
+          "guid": "780ba73f-a351-48d4-8a6b-7cb5d39c0f51",
+          "key": "Item_Name_it60_00_085",
+          "english": "Hourglass"
+        },
+        {
+          "guid": "d34d6e6c-800f-4d7b-ab48-87cb75acb090",
+          "key": "Item_Name_it60_00_086",
+          "english": "Double Helix Model"
+        },
+        {
+          "guid": "648b0eb0-123c-443d-98b6-5db37fa7e56f",
+          "key": "Item_Name_it60_00_087",
+          "english": "Hatch Key"
+        },
+        {
+          "guid": "da633797-1365-44e5-8788-e224ed6a6b45",
+          "key": "Item_Name_it60_00_088",
+          "english": "Fire Poker"
+        },
+        {
+          "guid": "2c906929-074a-46f1-8e5b-cff001d7eab4",
+          "key": "Item_Name_it60_00_089",
+          "english": "Old Key"
+        },
+        {
+          "guid": "696aa8ad-4364-4020-a28e-71978b103e8c",
+          "key": "Item_Name_it60_00_090",
+          "english": "Mechanic Jack"
+        },
+        {
+          "guid": "b9db06f6-6571-4af9-85ab-15a24dd00ba3",
+          "key": "Item_Name_it60_00_091",
+          "english": "BSAA Container Key"
+        },
+        {
+          "guid": "fb3c5167-5180-430a-8c23-809b73c24a68",
+          "key": "Item_Name_it60_00_092",
+          "english": "Battery"
+        },
+        {
+          "guid": "08be9ee3-76e7-49f9-9b4e-5e84fda83ee3",
+          "key": "Item_Name_it60_00_093",
+          "english": "Gas Can"
+        },
+        {
+          "guid": "72cbb56f-4036-4e2b-a05d-3dfdfb4a5e64",
+          "key": "Item_Name_it60_00_094",
+          "english": "Cedarbrook Apartments Key"
+        },
+        {
+          "guid": "d201934b-6bd6-4b2c-a0df-fc90a9842746",
+          "key": "Item_Name_it60_00_095",
+          "english": "Gas Can with Fuel"
+        },
+        {
+          "guid": "03e61bbf-bb5b-4ad8-bb3f-37e9451b00f4",
+          "key": "Item_Name_it60_00_096",
+          "english": "Signal Receiver"
+        },
+        {
+          "guid": "6f30984c-b7d1-44d1-96de-d3515e024a6d",
+          "key": "Item_Name_it60_00_097",
+          "english": "Distributor"
+        },
+        {
+          "guid": "22cab699-d224-43d3-b477-b7b817828799",
+          "key": "Item_Name_it60_00_098",
+          "english": "Relay"
+        },
+        {
+          "guid": "9962550a-e2b7-4ea2-a4eb-00646b89870e",
+          "key": "Item_Name_it60_00_103",
+          "english": "Rusty Crank"
+        },
+        {
+          "guid": "bd39d68c-66bd-46c2-86ef-be2a5cf0db5a",
+          "key": "Item_Name_it60_00_104",
+          "english": "Valve Handwheel"
+        },
+        {
+          "guid": "6c12c155-aa33-49d0-9b67-320870ee5f4d",
+          "key": "Item_Name_it60_00_105",
+          "english": "Animus Orb"
+        },
+        {
+          "guid": "337ec447-0f95-41ea-ba7a-6763f8e32ebb",
+          "key": "Item_Name_it60_00_107",
+          "english": "Noblesse Orb"
+        },
+        {
+          "guid": "e74bd394-c514-468f-a951-bea2a477fdc8",
+          "key": "Item_Name_it60_00_108",
+          "english": "Broken Signal Receiver"
+        },
+        {
+          "guid": "f22729c0-3c8a-4de1-a3e8-bed49a52527f",
+          "key": "Item_Name_it60_00_109",
+          "english": "Repair Kit"
+        },
+        {
+          "guid": "da2d7d43-f5f5-4835-b933-062e8baab3bc",
+          "key": "Item_Name_it60_00_110",
+          "english": "Locker Key"
+        },
+        {
+          "guid": "93daa6a3-5455-4fc0-967f-9363517c2fcb",
+          "key": "Item_Name_it60_00_111",
+          "english": "Crank Lever"
+        },
+        {
+          "guid": "7587916b-fe6b-4305-96bb-2cded5c44318",
+          "key": "Item_Name_it60_00_112",
+          "english": "Magnetic Key"
+        },
+        {
+          "guid": "78dbab70-e2a0-43f3-a964-fa2148491fd0",
+          "key": "Item_Name_it60_00_113",
+          "english": "Override Key (Dump Control Room)"
+        },
+        {
+          "guid": "9dc8765b-09ab-4f06-a0a1-fbbb07f2f136",
+          "key": "Item_Name_it60_00_114",
+          "english": "Override Key (Bioweapon Repository 11)"
+        },
+        {
+          "guid": "99a9ed60-9f69-449f-8d81-3ee9eeb2bcb4",
+          "key": "Item_Name_it60_00_115",
+          "english": "Distributor & Broken Signal Receiver"
+        },
+        {
+          "guid": "ecbb85da-4063-4952-a712-9d88e9b12649",
+          "key": "Item_Name_it60_00_116",
+          "english": "Damaged Detonator"
+        },
+        {
+          "guid": "0a7ed80b-bac1-401e-a4a3-8d47a03d5732",
+          "key": "Item_Name_it60_00_117",
+          "english": "Distributor & Signal Receiver"
+        },
+        {
+          "guid": "8b29e2d4-900a-456b-a79c-1fef9e6db5ea",
+          "key": "Item_Name_it60_00_118",
+          "english": "Distributor & Relay"
+        },
+        {
+          "guid": "c15ecfce-b898-4567-b623-3d9adbf43fef",
+          "key": "Item_Name_it60_00_119",
+          "english": "Detonator"
+        },
+        {
+          "guid": "c4f0acc4-c49a-4396-8437-0181c4ff54e6",
+          "key": "Item_Name_it60_00_120",
+          "english": "Blood Specimen (Polymerized)"
+        },
+        {
+          "guid": "ac58d9f4-1ef5-41c8-ad05-72f0e95020d1",
+          "key": "Item_Name_it60_00_121",
+          "english": "Marie's Doll"
+        },
+        {
+          "guid": "4a1905af-bfca-456b-8cf7-4ad7b7195d21",
+          "key": "Item_Name_it60_00_122",
+          "english": "Leatherbound Notebook"
+        },
+        {
+          "guid": "c048c35e-1ab8-4e35-becf-b33b1fe4181e",
+          "key": "Item_Name_it70_01_000",
+          "english": "Infected Blood"
+        },
+        {
+          "guid": "c16fe33a-f619-437b-97d2-d90b58d94807",
+          "key": "Item_Name_it70_03_000",
+          "english": "Body Armor Repair"
+        },
+        {
+          "guid": "7871cfd7-b6c1-4572-9a13-d2a3850af16f",
+          "key": "Item_Name_it70_05_000",
+          "english": "Hatchet Repair"
+        },
+        {
+          "guid": "27fa2d5a-0301-45c0-a33c-b39e474ce2b5",
+          "key": "Item_Name_it99_00_001",
+          "english": "West Wing Map (Admin Offices)"
+        },
+        {
+          "guid": "bbf5c399-376f-48f0-9bc9-13d4aeb76314",
+          "key": "Item_Name_it99_00_002",
+          "english": "East Wing Map (Hospital Wards)"
+        },
+        {
+          "guid": "85275116-b4a8-4bd7-a7ba-7e9f3e44a2bf",
+          "key": "Item_Name_it99_00_004",
+          "english": "The Wrenwood Hotel Floor Plan"
+        },
+        {
+          "guid": "24406b08-8659-4721-b063-22ab4d0216f9",
+          "key": "Item_Name_it99_00_006",
+          "english": "Care Center Basement Floor Plan"
+        },
+        {
+          "guid": "b7588bab-7ae4-412f-9a45-8855c0072bea",
+          "key": "Item_Name_it99_00_007",
+          "english": "Raccoon Roundup Map (Wrenwood)"
+        },
+        {
+          "guid": "949f0c83-d447-4970-aa1f-52794d666708",
+          "key": "Item_Name_it99_00_008",
+          "english": "Raccoon Roundup Map (Rhodes Hill)"
+        },
+        {
+          "guid": "9955c598-7d66-440e-8790-e8c1a5311302",
+          "key": "Item_Name_it99_00_009",
+          "english": "Raccoon Roundup Map (Raccoon City)"
+        },
+        {
+          "guid": "3c1488f0-5052-45d5-80bb-004b9a889641",
+          "key": "Item_Name_it99_00_010",
+          "english": "Raccoon Roundup Map (ARK)"
+        },
+        {
+          "guid": "9961e64b-8f7e-4f42-9324-62cad7965ec4",
+          "key": "Item_Name_it99_01_000",
+          "english": "Hip Pouch"
+        },
+        {
+          "guid": "ad4490b1-b635-4271-8869-53800692791c",
+          "key": "Item_Name_it99_01_001",
+          "english": "Case Upgrade (8x13)"
+        },
+        {
+          "guid": "82879368-4068-42c0-8c5c-d6deed0d8d6f",
+          "key": "Item_Name_it99_02_002",
+          "english": "Steroids"
+        },
+        {
+          "guid": "5dd0da36-527c-44c1-ab28-b7a8d7c9c497",
+          "key": "Item_Name_it99_02_004",
+          "english": "Stabilizer"
+        },
+        {
+          "guid": "38cf9a2a-99aa-4b17-9903-6d6a22e893b7",
+          "key": "Item_Name_it99_05_000",
+          "english": "Lighter"
+        },
+        {
+          "guid": "fe871147-468c-4506-8cd4-35f310ee0edd",
+          "key": "Item_Name_it99_05_001",
+          "english": "Flashlight"
+        },
+        {
+          "guid": "d79a9e59-a75f-4060-bd86-5f7e7dbdda89",
+          "key": "Item_Name_it99_05_002",
+          "english": "Slot Expansion"
+        },
+        {
+          "guid": "53bdcf48-8765-4dd2-ae6e-0326744f9960",
+          "key": "Item_Name_it99_06_000",
+          "english": "Blood Collector"
+        },
+        {
+          "guid": "d9d02026-91c0-4143-9cb6-a94861cba0d3",
+          "key": "Item_Name_it99_06_001",
+          "english": "Blood Collector: Cloud 9"
+        },
+        {
+          "guid": "aa069c6b-74dc-4941-80ef-232f16d3de85",
+          "key": "Item_Name_it99_06_003",
+          "english": "Blood Collector"
+        },
+        {
+          "guid": "8de2f711-bc3b-40b4-96bb-d8705140c660",
+          "key": "Item_Name_it99_06_004",
+          "english": "Transfusion Bag"
+        },
+        {
+          "guid": "3c9a4ce1-60f8-49b2-bcd8-1043daa00260",
+          "key": "Item_Name_it99_06_010",
+          "english": "Blood Collector"
+        },
+        {
+          "guid": "6225b898-54d9-4a82-9da5-74829540b8d5",
+          "key": "Item_Name_it99_07_001",
+          "english": "Stakeout Takeout Charm"
+        },
+        {
+          "guid": "82ea93a8-b12c-40d7-ad38-861c87fd1619",
+          "key": "Item_Name_it99_07_002",
+          "english": "Rugged Rookie Charm"
+        },
+        {
+          "guid": "eba7c766-4f6b-4e2d-9c49-488488f2967f",
+          "key": "Item_Name_it99_07_003",
+          "english": "Eye Spy Charm"
+        },
+        {
+          "guid": "96917095-b9fb-4a54-adad-dc9bc3b7797e",
+          "key": "Item_Name_it99_50_001",
+          "english": "Hemolytic Injector"
+        },
+        {
+          "guid": "1146bc38-6c49-4dec-b965-1af746209a88",
+          "key": "Item_Name_it99_50_003",
+          "english": "Ink Ribbon"
+        },
+        {
+          "guid": "9da93606-767e-4c01-82bd-f176edd4a9d8",
+          "key": "Item_Name_it99_50_005",
+          "english": "Antique Coin"
+        },
+        {
+          "guid": "77087292-5972-4a7b-8822-7e986a509dcc",
+          "key": "Item_Name_it99_50_006",
+          "english": "Lockpick"
+        },
+        {
+          "guid": "9493c2da-bac8-4424-9791-c24835a46c99",
+          "key": "Item_Name_it99_50_007",
+          "english": "Tactical Tracker"
+        },
+        {
+          "guid": "857e7c45-947b-412d-bcad-1f360ab330a7",
+          "key": "Item_Name_it99_50_008",
+          "english": "Tracking Module (Common)"
+        },
+        {
+          "guid": "8d776b5d-b7a9-4acf-9a84-ac6b9c035675",
+          "key": "Item_Name_it99_50_008_01",
+          "english": "Tracking Module (Rare)"
+        },
+        {
+          "guid": "20b02a83-ad04-49d1-bbba-051d50617f51",
+          "key": "Item_Name_it99_50_008_02",
+          "english": "Tracking Module (Legendary)"
+        },
+        {
+          "guid": "6de1084e-9037-4974-bf46-6a85a96ba650",
+          "key": "Item_Name_it99_50_009",
+          "english": "Tactical Tracker (Modded)"
+        },
+        {
+          "guid": "c28ab059-3fdf-4721-a898-2e01910431e9",
+          "key": "Item_Name_it99_50_010",
+          "english": "Infinite Ribbon"
+        },
+        {
+          "guid": "c24d998c-27fc-4018-af74-acab081d7148",
+          "key": "Item_Name_it99_50_011",
+          "english": "Override Manual"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/message/gamesystem/objective.msg.23",
+      "sha256": "06c81d132722478daed6806094eff0fd09433d69064f3add41d6c788cbcfdc47",
+      "labels": [
+        {
+          "guid": "4c83e79e-c2aa-4a26-9de1-938ca0d9d2cb",
+          "key": "Ob_010_010",
+          "english": "Head to the Wrenwood Hotel"
+        },
+        {
+          "guid": "b104954c-d75d-469e-b158-977f87221ee0",
+          "key": "Ob_010_015",
+          "english": "Investigate the crime scene"
+        },
+        {
+          "guid": "d35f65cf-14ba-4390-9693-58b4b0ff796e",
+          "key": "Ob_010_020",
+          "english": "Head to room 204"
+        },
+        {
+          "guid": "186bb857-a1b4-48a0-b292-4f91a5208892",
+          "key": "Ob_010_030",
+          "english": "Escape from the hotel"
+        },
+        {
+          "guid": "c78b18c2-7268-4f05-ab0a-d8008204dc73",
+          "key": "Ob_010_040",
+          "english": "Find what Alyssa hid"
+        },
+        {
+          "guid": "6f64c8a2-4366-4188-a649-2da4c5077e61",
+          "key": "Ob_010_050",
+          "english": "Escape from the police officer"
+        },
+        {
+          "guid": "42ba62e4-66e4-4063-8786-de33dd4b5679",
+          "key": "Ob_110_010",
+          "english": "Go after Victor"
+        },
+        {
+          "guid": "604413a6-4b53-42ca-b0d9-af477c550e4f",
+          "key": "Ob_301_010",
+          "english": "Escape"
+        },
+        {
+          "guid": "cf51b78c-edd4-4a29-a650-a517c4af644f",
+          "key": "Ob_301_010_005",
+          "english": "Get the fuse"
+        },
+        {
+          "guid": "eea73597-9211-43fe-bc76-dd95bb27ca90",
+          "key": "Ob_310_020",
+          "english": "Investigate the care center"
+        },
+        {
+          "guid": "de9af83b-604d-4c41-8818-0729e718b62c",
+          "key": "Ob_310_020_010",
+          "english": "Eliminate the infected"
+        },
+        {
+          "guid": "cd683bef-7832-421c-b06a-3f43287ac33f",
+          "key": "Ob_310_020_020",
+          "english": "Get out of the room"
+        },
+        {
+          "guid": "f5ae98e5-2fc1-45eb-9753-a84561ba3d69",
+          "key": "Ob_302_020",
+          "english": "Escape the care center"
+        },
+        {
+          "guid": "81710f09-ff6f-4a0f-b797-98df9ae72efe",
+          "key": "Ob_302_020_015",
+          "english": "Unlock the door in the central hall"
+        },
+        {
+          "guid": "13e034ce-523f-4471-a517-791e5ad4999c",
+          "key": "Ob_302_020_015_010",
+          "english": "Find and place the quartz ({0}/{1})"
+        },
+        {
+          "guid": "dd8d5c3b-6114-44be-afae-1749bd7fb8b0",
+          "key": "Ob_302_020_015_030",
+          "english": "Destroy the padlock"
+        },
+        {
+          "guid": "bb5fd5af-278d-4216-89e3-6d7cdbebd93b",
+          "key": "Ob_302_020_015_040",
+          "english": "Take the child to the puzzle box"
+        },
+        {
+          "guid": "419c0fe3-5dc9-4272-8cea-5b8c0fae0175",
+          "key": "Ob_302_020_020",
+          "english": "Analyze the blood specimen"
+        },
+        {
+          "guid": "3f581471-fae1-40c0-a0b0-0f5f2b7004ba",
+          "key": "Ob_302_080",
+          "english": "Get Emily back"
+        },
+        {
+          "guid": "1a7a8526-843c-41e3-b6f4-85f1dd97b236",
+          "key": "Ob_320_010",
+          "english": "Find Victor's office"
+        },
+        {
+          "guid": "fc63245a-685c-41b2-aead-12a8520afea5",
+          "key": "Ob_320_020",
+          "english": "Search Victor's office"
+        },
+        {
+          "guid": "ae276351-5f22-4cf9-8468-482a9a4a5af6",
+          "key": "Ob_303_010",
+          "english": "Rescue Emily"
+        },
+        {
+          "guid": "9b365db6-5196-478a-b3eb-c32b2a0d9ba1",
+          "key": "Ob_303_010_010",
+          "english": "Unlock the cells"
+        },
+        {
+          "guid": "fa0c0078-f629-4af9-a189-31067d9f596f",
+          "key": "Ob_303_010_010_010",
+          "english": "Find the joint plugs ({0}/{1})"
+        },
+        {
+          "guid": "726277d1-1616-4308-98f4-1532f16cdf94",
+          "key": "Ob_303_040",
+          "english": "Escape via the elevator"
+        },
+        {
+          "guid": "9cd7f029-1c2a-4937-9586-90009468b9a4",
+          "key": "Ob_324_020",
+          "english": "Escape via the courtyard"
+        },
+        {
+          "guid": "689df0e1-84bd-455d-b437-e920f4cd8c5b",
+          "key": "Ob_324_030",
+          "english": "Find the helicopter key"
+        },
+        {
+          "guid": "19b90e11-a510-4697-ac7a-9f3b7d689b4c",
+          "key": "Ob_304_010",
+          "english": "Return to the helicopter"
+        },
+        {
+          "guid": "a7496609-be1b-4b6a-8f83-f026e6926246",
+          "key": "Ob_304_020",
+          "english": "Escape the research facility"
+        },
+        {
+          "guid": "66cd7c37-f484-437c-b19c-c1486d525291",
+          "key": "Ob_340_010",
+          "english": "Rescue Grace"
+        },
+        {
+          "guid": "2adfd76e-2e09-4f29-a609-8e5f57898771",
+          "key": "Ob_340_020",
+          "english": "Help Grace"
+        },
+        {
+          "guid": "9ac7843f-5715-4358-80e3-66bd1c610031",
+          "key": "Ob_340_030",
+          "english": "Head to the chapel"
+        },
+        {
+          "guid": "f503ac69-485c-46bd-9bb4-708a796d9392",
+          "key": "Ob_340_040",
+          "english": "Fight off the infected"
+        },
+        {
+          "guid": "b56bbbbb-628b-488e-8409-b1f60612229e",
+          "key": "Ob_305_010",
+          "english": "Get to the surface"
+        },
+        {
+          "guid": "07f3f9dc-ba22-42fa-b95d-07853fafa8d4",
+          "key": "Ob_305_020",
+          "english": "Open the hatch on the Girl"
+        },
+        {
+          "guid": "154de277-b56c-4a3d-9008-03212a13b548",
+          "key": "Ob_305_020_040",
+          "english": "Restart the power distribution units ({0}/{1})"
+        },
+        {
+          "guid": "527be38f-ec04-4a30-a42e-fd3ebc9fb842",
+          "key": "Ob_305_020_050",
+          "english": "Open the roof hatch"
+        },
+        {
+          "guid": "cd4a47b3-34ee-438e-a54b-c05debc2ec56",
+          "key": "Ob_305_050",
+          "english": "Return to Emily"
+        },
+        {
+          "guid": "d1dfbc9f-9fa5-4904-a69d-a6cdfac21d35",
+          "key": "Ob_306_010",
+          "english": "A Harsh Reality"
+        },
+        {
+          "guid": "8adde470-6788-4e64-a379-247e83eb5f50",
+          "key": "Ob_410_010",
+          "english": "Head to Raccoon City Center"
+        },
+        {
+          "guid": "bc03b9d6-2cd6-439c-971c-c9ab51850391",
+          "key": "Ob_410_010_020",
+          "english": "Find a way out"
+        },
+        {
+          "guid": "b4c08b26-c66b-4c49-97a4-c87dc98d5eba",
+          "key": "Ob_410_010_030",
+          "english": "Defeat the giant spider"
+        },
+        {
+          "guid": "ef21c740-6c20-4a11-8914-e28066129aa2",
+          "key": "Ob_410_010_040",
+          "english": "Examine the gate"
+        },
+        {
+          "guid": "ce302807-c8b4-4507-9d06-1cefd56d7c53",
+          "key": "Ob_410_010_050",
+          "english": "Search the camp ({0}/{1})"
+        },
+        {
+          "guid": "eb37be03-9ad8-429a-b374-91a08125babc",
+          "key": "Ob_410_010_060",
+          "english": "Collect the detonator parts ({0}/{1})"
+        },
+        {
+          "guid": "d1750efa-bb03-49c3-9cc0-57bdd30e4c4c",
+          "key": "Ob_410_010_060_010",
+          "english": "Get some fuel"
+        },
+        {
+          "guid": "29a76d28-5cc6-4a90-b523-4fb8b8288252",
+          "key": "Ob_410_010_060_020",
+          "english": "Get the batteries ({0}/{1})"
+        },
+        {
+          "guid": "2f35d48f-8bf9-4f82-b648-ac3766f85222",
+          "key": "Ob_410_010_060_040",
+          "english": "Eliminate the infected"
+        },
+        {
+          "guid": "771b47b8-8fd2-4d92-a5e1-6b76b150c32c",
+          "key": "Ob_410_010_060_030",
+          "english": "Search for a repair kit"
+        },
+        {
+          "guid": "c7588dfc-bea0-47d9-9cb4-26cda52adac6",
+          "key": "Ob_410_010_070",
+          "english": "Destroy the gate"
+        },
+        {
+          "guid": "ffb3e393-f605-45f0-926c-2092d5e43ed6",
+          "key": "Ob_440_010",
+          "english": "Search for Grace"
+        },
+        {
+          "guid": "6a9a8cc1-10af-478e-9aea-46975717afc1",
+          "key": "Ob_440_010_010",
+          "english": "Head to the east office"
+        },
+        {
+          "guid": "a42cea94-1190-4f98-9493-3b452f7899c4",
+          "key": "Ob_440_030",
+          "english": "Head after Grace"
+        },
+        {
+          "guid": "b822dbd7-8d10-4864-a69a-dbc002519613",
+          "key": "Ob_440_030_010",
+          "english": "Escape R.P.D."
+        },
+        {
+          "guid": "8d867325-8680-4d9f-abaf-26d62fe2ec11",
+          "key": "Ob_440_030_020",
+          "english": "Head to the orphanage"
+        },
+        {
+          "guid": "03f55d10-bb2b-44ce-bb88-28ac4abc095b",
+          "key": "Ob_445_010",
+          "english": "Look around the orphanage"
+        },
+        {
+          "guid": "e2f2e1ba-8ba2-4076-8bfe-ae4eba02c00c",
+          "key": "Ob_445_020",
+          "english": "Hide from the children"
+        },
+        {
+          "guid": "454ec134-2611-43e0-9804-2c4ac07ab4c4",
+          "key": "Ob_440_030_050",
+          "english": "Defeat the giant plant"
+        },
+        {
+          "guid": "99c5c677-33f5-4357-a3aa-d9757598adff",
+          "key": "Ob_440_030_060",
+          "english": "Eliminate the elite guards"
+        },
+        {
+          "guid": "06cea4f1-c633-431c-9928-123d7d86f444",
+          "key": "Ob_440_030_070",
+          "english": "Eliminate the commander"
+        },
+        {
+          "guid": "2c4728fa-7489-4a13-8ccc-c6c821a924a5",
+          "key": "Ob_502_010",
+          "english": "Destroy Elpis"
+        },
+        {
+          "guid": "0c26ba10-fdfa-4808-a38f-e079dfd3a20d",
+          "key": "Ob_502_010_010",
+          "english": "Find a way out of the dump"
+        },
+        {
+          "guid": "61a1398f-1a98-4bcd-ac51-602ce7711f33",
+          "key": "Ob_502_010_015",
+          "english": "Help Leon escape"
+        },
+        {
+          "guid": "18d966b4-7959-4c8e-a183-f15bfdd3f4f7",
+          "key": "Ob_502_010_015_010",
+          "english": "Search for the override key"
+        },
+        {
+          "guid": "140aba7b-d87f-4945-9f5c-586ebf49a226",
+          "key": "Ob_502_010_020",
+          "english": "Head to the central refining system"
+        },
+        {
+          "guid": "083a0c2f-7f14-41dd-91ec-2510dd341288",
+          "key": "Ob_502_010_020_010",
+          "english": "Find a way to open the door"
+        },
+        {
+          "guid": "483abb4b-10ec-4806-be5b-6c0f3543fe1e",
+          "key": "Ob_502_010_020_020",
+          "english": "Open the door to the central refining system"
+        },
+        {
+          "guid": "ac368867-8e79-4f01-94eb-926821caea36",
+          "key": "Ob_502_010_040",
+          "english": "Go to Leon"
+        },
+        {
+          "guid": "4fbd52ca-0467-40e0-9b0a-8c5b74f5cf97",
+          "key": "Ob_503_010",
+          "english": "Defeat Victor"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/message/gamesystem/charaname.msg.23",
+      "sha256": "c522ae39b2947791d47aa5e1ee396688ffc3f46bcb769f3faeb9031d12265c40",
+      "labels": [
+        {
+          "guid": "8dc3df9a-a8b1-42b5-933a-417414ce878e",
+          "key": "CharaName_ch0100",
+          "english": "Leon"
+        },
+        {
+          "guid": "25319cfb-f36c-48ce-b7ef-9d1ca215d353",
+          "key": "CharaName_ch0200",
+          "english": "Grace"
+        },
+        {
+          "guid": "881730dd-fb35-4701-8a85-7231aec3b71f",
+          "key": "CharaName_ch0300",
+          "english": "Chloe"
+        },
+        {
+          "guid": "26d2db08-7418-4066-8098-7b646c532b91",
+          "key": "CharaName_ch0600",
+          "english": "Sherry"
+        },
+        {
+          "guid": "95b368fe-f97f-462c-9ca3-a3add3518a21",
+          "key": "CharaName_ch1200",
+          "english": "The Girl"
+        },
+        {
+          "guid": "404b766c-de79-4287-9627-8e4c7b98ca71",
+          "key": "CharaName_ch1300",
+          "english": "Emily"
+        },
+        {
+          "guid": "a96b3983-6050-4565-aca6-4804f791ddcc",
+          "key": "CharaName_ch1500",
+          "english": "Nathan"
+        },
+        {
+          "guid": "d1e9e1ec-dd84-4476-b94b-3eeebec48f9b",
+          "key": "CharaName_ch1510",
+          "english": "Harry"
+        },
+        {
+          "guid": "69075014-a639-4a3e-8622-da8f4a73d28f",
+          "key": "CharaName_ch1800",
+          "english": "Alyssa"
+        },
+        {
+          "guid": "ab0adac7-b629-43ed-8697-c7b10607c380",
+          "key": "CharaName_ch4010",
+          "english": "Hooded Man"
+        },
+        {
+          "guid": "b7ec5976-8193-41c7-8190-b200d83f6a9b",
+          "key": "CharaName_ch4030",
+          "english": "Cole"
+        },
+        {
+          "guid": "af138a2c-306f-4cf4-a61d-04eb784a1945",
+          "key": "CharaName_ch4055",
+          "english": "Doctor"
+        },
+        {
+          "guid": "9d66633b-fce6-492c-9e40-ba6e8408980c",
+          "key": "CharaName_ch4155",
+          "english": "Nurse"
+        },
+        {
+          "guid": "e598dc53-6c21-49ad-8e23-63bb9490a8d7",
+          "key": "CharaName_ch4210",
+          "english": "Hotel Manager"
+        },
+        {
+          "guid": "053d309b-bbc0-44f2-8445-1eaa7b762b89",
+          "key": "CharaName_ch5100",
+          "english": "Victor"
+        },
+        {
+          "guid": "d840b0ce-812b-4517-ad18-474da7853c82",
+          "key": "CharaName_ch5400",
+          "english": "Spencer"
+        },
+        {
+          "guid": "82229e0d-574a-4f44-aebc-6783a46b1ab1",
+          "key": "CharaName_ch6800",
+          "english": "Harry"
+        },
+        {
+          "guid": "1c48b816-deb5-4aab-a6a3-9ea399b84f81",
+          "key": "CharaName_ch8000",
+          "english": "Zeno"
+        },
+        {
+          "guid": "1e8c3b6d-4c00-441c-ad2a-7afeffe1398f",
+          "key": "CharaName_ch9906",
+          "english": "Radio"
+        },
+        {
+          "guid": "f0c873d1-a6bf-47a2-959f-9f4e1e4671ee",
+          "key": "CharaName_ch9910",
+          "english": "Announcement"
+        },
+        {
+          "guid": "3a2be1ea-7065-4a44-8702-962cc135ac24",
+          "key": "CharaName_ch9911",
+          "english": "Announcement"
+        },
+        {
+          "guid": "402b514f-08d8-4a4b-ac87-c9781987a15d",
+          "key": "CharaName_ch9912",
+          "english": "Announcement"
+        },
+        {
+          "guid": "797cb7bb-f92f-47f9-8f29-51289cf32481",
+          "key": "CharaName_ch9913",
+          "english": "Researcher C"
+        },
+        {
+          "guid": "bb9bf5f1-c9f2-4d25-bda0-5c1a3136ea74",
+          "key": "CharaName_ch9914",
+          "english": "Announcement"
+        },
+        {
+          "guid": "67730a32-6d03-4c56-832c-fc4a6c145843",
+          "key": "CharaName_ch9915",
+          "english": "BSAA Radio"
+        },
+        {
+          "guid": "8f5eb14f-a069-4ae9-83f0-0798a66d9edd",
+          "key": "CharaName_ch9916",
+          "english": "Announcement"
+        },
+        {
+          "guid": "56735eeb-cf73-495a-accf-40e891b18083",
+          "key": "CharaName_ch9917",
+          "english": "Researcher A"
+        },
+        {
+          "guid": "487786fe-804d-4cc2-8f5c-ba73799151b4",
+          "key": "CharaName_ch9918",
+          "english": "Researcher B"
+        },
+        {
+          "guid": "a675690b-67ee-4529-bcf5-92735789610d",
+          "key": "CharaName_ch9919",
+          "english": "Researcher C"
+        },
+        {
+          "guid": "2894b744-ee7c-47af-9a02-d6fbc0953d88",
+          "key": "CharaName_ch9920",
+          "english": "Researcher A"
+        },
+        {
+          "guid": "29c0259c-fda5-4537-8366-2c3add7ae133",
+          "key": "CharaName_ch9921",
+          "english": "Researcher B"
+        },
+        {
+          "guid": "868613ac-2405-4b21-942c-563591ddb698",
+          "key": "CharaName_ch9922",
+          "english": "Operator"
+        },
+        {
+          "guid": "eff16ed7-0e74-4252-87f5-c7e4db073d22",
+          "key": "CharaName_ch9923",
+          "english": "Reporter"
+        },
+        {
+          "guid": "c61f500d-6100-40f8-b5ff-bd8176a777ee",
+          "key": "CharaName_ch9924",
+          "english": "Newscaster A"
+        },
+        {
+          "guid": "f8a854cd-3832-4c96-9df8-23ec9da038f4",
+          "key": "CharaName_ch9925",
+          "english": "Newscaster B"
+        },
+        {
+          "guid": "f26d7d6b-a94a-4061-a62c-353615f02273",
+          "key": "CharaName_ch9927",
+          "english": "BSAA Radio"
+        },
+        {
+          "guid": "2ce00c42-93a9-48ec-92aa-9ef31857c962",
+          "key": "CharaName_ch9928",
+          "english": "Unknown Soldier"
+        },
+        {
+          "guid": "8caacd89-cb7e-4d9f-acf3-03e250b58984",
+          "key": "CharaName_ch9929",
+          "english": "Kendo"
+        },
+        {
+          "guid": "a7605d8d-3ca2-400b-aada-a615e31475f0",
+          "key": "CharaName_ch9930",
+          "english": "Woman"
+        },
+        {
+          "guid": "09c3a6cd-fc8b-478c-a991-64fd52570ad8",
+          "key": "CharaName_ch9931",
+          "english": "Man"
+        },
+        {
+          "guid": "931181d1-2ec7-4448-8415-b01ea98c52ea",
+          "key": "CharaName_ch9933",
+          "english": "Umber Eyes"
+        },
+        {
+          "guid": "5d923af0-5d29-4684-ba23-22c9e78ef001",
+          "key": "CharaName_ch9934",
+          "english": "Squad Leader"
+        },
+        {
+          "guid": "64ade1c6-4b55-4456-be49-bfa552f45f7b",
+          "key": "CharaName_ch9935",
+          "english": "Commando A"
+        },
+        {
+          "guid": "3c47337c-afe5-4c06-9392-c39a427e117e",
+          "key": "CharaName_ch9936",
+          "english": "Commando B"
+        },
+        {
+          "guid": "e21248c2-3048-4c1f-8635-79616dcd1c9d",
+          "key": "CharaName_ch9937",
+          "english": "Commando C"
+        },
+        {
+          "guid": "fa7c2f0c-4967-45e8-9475-717ee7e0c4fc",
+          "key": "CharaName_ch9940",
+          "english": "FBI Agent"
+        },
+        {
+          "guid": "c626a42b-6ba3-49a5-a60c-1157bf095749",
+          "key": "CharaName_ch9944",
+          "english": "Marvin"
+        },
+        {
+          "guid": "319ffc0e-087e-446e-84d0-a96703f26bd6",
+          "key": "CharaName_ex0000",
+          "english": "Investigator"
+        },
+        {
+          "guid": "d890797e-7793-42c3-9a32-42f300aacd34",
+          "key": "CharaName_ex0002",
+          "english": "Victor (Mutated)"
+        },
+        {
+          "guid": "585778ec-ba09-447b-9179-53f26b3c6e1d",
+          "key": "CharaName_ex0003",
+          "english": "Mission Coordinator"
+        },
+        {
+          "guid": "897acd96-4fe5-4599-abb1-6311640b6f68",
+          "key": "CharaName_ex0004",
+          "english": "Girl"
+        },
+        {
+          "guid": "7b3e17c1-7d67-472e-88b2-8d09919515e7",
+          "key": "CharaName_ex0005",
+          "english": "Unknown Man"
+        },
+        {
+          "guid": "2b1639db-378c-4b94-b967-959b5e5c4dc8",
+          "key": "CharaName_ex0006",
+          "english": "Old Man"
+        },
+        {
+          "guid": "a23e48e6-c6d1-4157-adc1-d0ed32233d8f",
+          "key": "CharaName_ex0007",
+          "english": "Woman"
+        },
+        {
+          "guid": "460e16e1-9393-467f-810a-cb1b488fb9de",
+          "key": "CharaName_ex0009",
+          "english": "Man"
+        },
+        {
+          "guid": "0a943116-4cf6-4823-81f8-7c9196033132",
+          "key": "CharaName_ex0010",
+          "english": "Injured Doctor"
+        },
+        {
+          "guid": "dc5b1ce3-74fe-4937-815d-5927b8312a4a",
+          "key": "CharaName_ex0011",
+          "english": "Pilot"
+        },
+        {
+          "guid": "864ec569-8d09-42b9-9a3f-59216ef399e4",
+          "key": "CharaName_ex0012",
+          "english": "Woman"
+        },
+        {
+          "guid": "39c0082f-1df4-4415-b4ab-c12391e37e71",
+          "key": "CharaName_ex0013",
+          "english": "Man"
+        },
+        {
+          "guid": "28a6cff5-9bf2-4fff-9158-8d102ddfcc94",
+          "key": "CharaName_ex0014",
+          "english": "Alyssa"
+        },
+        {
+          "guid": "c26e92f2-ffba-47dc-b7a6-24acaa36db9b",
+          "key": "CharaName_ex0015",
+          "english": "Leon"
+        },
+        {
+          "guid": "45e59361-3d89-4511-8470-9f2e84cc09d6",
+          "key": "CharaName_ex0016",
+          "english": "Spencer"
+        },
+        {
+          "guid": "cf2d9663-6703-4ca6-988c-ece8af89ec03",
+          "key": "CharaName_ch4000",
+          "english": "Zombie"
+        },
+        {
+          "guid": "24a2a05e-b16a-44bf-9ea2-5571c70a9991",
+          "key": "CharaName_ch4100",
+          "english": "Zombie"
+        },
+        {
+          "guid": "aa2a2d6f-3414-48fc-b07c-e0fc43ee4546",
+          "key": "CharaName_ch4300",
+          "english": "Chef"
+        },
+        {
+          "guid": "42b4b56b-65a4-46aa-a2a7-b70291a86409",
+          "key": "CharaName_ch4400",
+          "english": "Chunk"
+        },
+        {
+          "guid": "1c03041e-377e-4714-a4c4-d2eea875279f",
+          "key": "CharaName_ex1000",
+          "english": "Zombie"
+        },
+        {
+          "guid": "67173911-d4e4-4c76-8cea-aaa80d748235",
+          "key": "CharaName_ex1001",
+          "english": "Zombie Cleaner"
+        },
+        {
+          "guid": "4449ef28-1002-4b16-8e5c-5a5ea998c109",
+          "key": "CharaName_ex1002",
+          "english": "Noisy Zombie"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/message/gui/gui_menu.msg.23",
+      "sha256": "d6209371184eeb2e32fba73e0be73370b66687ef2727a4015d03bde60d3fc8ea",
+      "labels": [
+        {
+          "guid": "b81b237e-a03e-48a5-8daa-a97eba082b6f",
+          "key": "Menu_Difficulty_Type0",
+          "english": "Casual"
+        },
+        {
+          "guid": "c903d464-a0ae-464e-bf88-e5192ecd1151",
+          "key": "Menu_Difficulty_Type1",
+          "english": "Standard (Modern)"
+        },
+        {
+          "guid": "e0506a91-b727-43a6-a1ce-6b445e2f07d5",
+          "key": "Menu_Difficulty_Type2",
+          "english": "Standard (Classic)"
+        },
+        {
+          "guid": "743382cd-f536-4f24-b445-024bcf343d9c",
+          "key": "Menu_Difficulty_Type3",
+          "english": "Insanity"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/message/gui/gui_savearea.msg.23",
+      "sha256": "e3647c52640725ee64e655c9f9d2d0e24b27c41f68eaf7899b1832c71c2ba9dc",
+      "labels": [
+        {
+          "guid": "4a2727aa-d18f-498b-ab53-2edff13b3fa5",
+          "key": "SaveArea_01_00",
+          "english": "Wrenwood"
+        },
+        {
+          "guid": "67037c4c-58c2-4067-9f93-63f15ea5d693",
+          "key": "SaveArea_01_01",
+          "english": "The Wrenwood Hotel"
+        },
+        {
+          "guid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+          "key": "SaveArea_03_01",
+          "english": "Chronic Care Center"
+        },
+        {
+          "guid": "bab3eda6-c956-434a-bd70-69a69d34dc96",
+          "key": "SaveArea_03_02",
+          "english": "Research Facility"
+        },
+        {
+          "guid": "3c238cb3-392b-4ada-8824-1ec2ab264510",
+          "key": "SaveArea_03_03",
+          "english": "Water Treatment"
+        },
+        {
+          "guid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+          "key": "SaveArea_04_00",
+          "english": "Raccoon City"
+        },
+        {
+          "guid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+          "key": "SaveArea_04_01",
+          "english": "Orphanage"
+        },
+        {
+          "guid": "918f2730-c4e2-4601-b15f-4fc7002b29e8",
+          "key": "SaveArea_04_02",
+          "english": "R.P.D."
+        },
+        {
+          "guid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+          "key": "SaveArea_05_00",
+          "english": "ARK"
+        },
+        {
+          "guid": "c199c5dd-5a60-473d-8ea0-d4fd296ed4e1",
+          "key": "Map_Save_000_001_100",
+          "english": "Main Street"
+        },
+        {
+          "guid": "39251dd7-9ecf-4e30-9136-f35ed0f0caaf",
+          "key": "Map_Save_010_001_005",
+          "english": "Employee Entrance"
+        },
+        {
+          "guid": "51b904be-090d-4e3f-83a3-500ebd8cb3ea",
+          "key": "Map_Save_010_002_001",
+          "english": "Room 204"
+        },
+        {
+          "guid": "76459711-f0b0-4156-bfc6-eb827938fa49",
+          "key": "Map_Save_010_001_002",
+          "english": "Lobby"
+        },
+        {
+          "guid": "f54e7af6-2771-4a3e-9652-00bb074df198",
+          "key": "Map_Save_010_001_004",
+          "english": "Lounge & Bar"
+        },
+        {
+          "guid": "6c596b85-73e5-4a68-a149-721aee8bd9d5",
+          "key": "Map_Save_030_002_000",
+          "english": "Room 203"
+        },
+        {
+          "guid": "1ae02b94-ffaf-47b3-b3d2-6b036158a100",
+          "key": "Map_Save_030_002_014",
+          "english": "Room 201"
+        },
+        {
+          "guid": "676dff39-24c4-46b3-95bb-d5c796385bdb",
+          "key": "Map_Save_030_001_000",
+          "english": "Central Hall"
+        },
+        {
+          "guid": "b717205d-3fcb-437e-8a02-01a2c09a4b92",
+          "key": "Map_Save_030_001_021",
+          "english": "Rehabilitation Ward"
+        },
+        {
+          "guid": "142cb645-4794-4a46-b09f-77634d01a375",
+          "key": "Map_Save_030_002_006",
+          "english": "Central Hall"
+        },
+        {
+          "guid": "07fdfd1b-904c-4f3f-b55e-0ecd267752c7",
+          "key": "Map_Save_030_001_001",
+          "english": "Guard Office"
+        },
+        {
+          "guid": "b0cee967-1d11-4902-80ee-19905e6dbc9a",
+          "key": "Map_Save_030_001_014",
+          "english": "Custodian's Office"
+        },
+        {
+          "guid": "d0b8a596-f1cf-48d5-a855-3177c254e4fb",
+          "key": "Map_Save_030_003_100",
+          "english": "Medical Supply Room"
+        },
+        {
+          "guid": "7d1e9ffd-31f9-4741-ac50-b81cc1a838cd",
+          "key": "Map_Save_030_003_001",
+          "english": "Attic"
+        },
+        {
+          "guid": "b5b35a36-fb06-4d6a-8812-8453c60a4a85",
+          "key": "Map_Save_030_003_003",
+          "english": "Lounge"
+        },
+        {
+          "guid": "e442b853-7488-44d3-9aff-f0a8c8eda2e0",
+          "key": "Map_Save_030_101_004",
+          "english": "Processing"
+        },
+        {
+          "guid": "a32a713e-860f-4b11-a9f0-37df87755895",
+          "key": "Map_Save_030_002_007",
+          "english": "Chairman's Office"
+        },
+        {
+          "guid": "92d3e011-3f90-470e-b9ba-0d5730164515",
+          "key": "Map_Save_030_001_004",
+          "english": "Blood Lab"
+        },
+        {
+          "guid": "ebaa4bc7-cc4c-4346-b1d7-8567b24a9e14",
+          "key": "Map_Save_030_002_017",
+          "english": "Office"
+        },
+        {
+          "guid": "2dbc6229-e265-4dbd-9bb8-99ced51065e8",
+          "key": "Map_Save_030_002_001",
+          "english": "Lead Researcher's Office"
+        },
+        {
+          "guid": "9d624f1c-39a9-48c1-8ed3-2a513880d78a",
+          "key": "Map_Save_030_001_013",
+          "english": "Garage"
+        },
+        {
+          "guid": "5b26136f-eec6-46c1-9bc1-cc4e22a93cd9",
+          "key": "Map_Save_030_001_025",
+          "english": "Security Manager's Office"
+        },
+        {
+          "guid": "ce9800bc-d7fc-4897-a5ef-07e3f713e9c8",
+          "key": "Map_Save_030_001_003",
+          "english": "Medication Room"
+        },
+        {
+          "guid": "de81903c-1775-4fbe-82e7-9905c07b474d",
+          "key": "Map_Save_030_002_018",
+          "english": "Kitchenette"
+        },
+        {
+          "guid": "6ae7b03c-c1ba-4b95-bf7e-6e2fe69646aa",
+          "key": "Map_Save_030_001_015",
+          "english": "Pantry"
+        },
+        {
+          "guid": "8303740a-319b-4d71-9b55-11ea11e78ae4",
+          "key": "Map_Save_030_101_001",
+          "english": "Holding Cells"
+        },
+        {
+          "guid": "575952d4-4b56-4332-9ff7-2caed3addc89",
+          "key": "Map_Save_030_101_000",
+          "english": "Inspection"
+        },
+        {
+          "guid": "58ea6b08-40b0-4572-8b06-ddde0f4ba563",
+          "key": "Map_Save_030_101_003",
+          "english": "Collection Pool"
+        },
+        {
+          "guid": "54f3cf23-d0b6-42ef-b517-4214c0a063b2",
+          "key": "Map_Save_030_001_029",
+          "english": "Courtyard"
+        },
+        {
+          "guid": "f4956a77-bfec-4adf-8100-4ca24f0a68e4",
+          "key": "Map_Save_030_101_100",
+          "english": "Underground"
+        },
+        {
+          "guid": "f109770f-c981-422c-9b67-70c9c2dd6b78",
+          "key": "Map_Save_030_101_002",
+          "english": "Security Room"
+        },
+        {
+          "guid": "e343b045-8bfe-4a6f-830d-311d18391943",
+          "key": "Map_Save_030_001_100",
+          "english": "Elevator Hallway"
+        },
+        {
+          "guid": "50c36c50-9c73-4688-b39a-9d5d5cfcb6ca",
+          "key": "Map_Save_030_003_004",
+          "english": "Director's Office"
+        },
+        {
+          "guid": "1d04b569-ef21-415e-afce-2796a98356e9",
+          "key": "Map_Save_031_001_006",
+          "english": "Chapel"
+        },
+        {
+          "guid": "0b99f209-c067-46e5-9b01-e5b84fb7a90a",
+          "key": "Map_Save_031_002_000",
+          "english": "Roof"
+        },
+        {
+          "guid": "0848f2f7-4dc0-4c3c-93d6-2799bb08e0e5",
+          "key": "Map_Save_031_001_000",
+          "english": "Courtyard"
+        },
+        {
+          "guid": "72e2a021-2879-464d-9240-7482b32a004d",
+          "key": "Map_Save_031_001_001",
+          "english": "Helipad"
+        },
+        {
+          "guid": "9e4d745e-333f-4cb7-b6a1-f51cc74fe17a",
+          "key": "Map_Save_031_001_004",
+          "english": "Emergency Exit"
+        },
+        {
+          "guid": "0f380d09-ccc6-4b91-b18e-814ce84f784b",
+          "key": "Map_Save_050_102_001",
+          "english": "Reception"
+        },
+        {
+          "guid": "5e1b0481-7ef5-4867-95ef-47aff10caee8",
+          "key": "Map_Save_050_102_000",
+          "english": "Elevator"
+        },
+        {
+          "guid": "6d2fe238-3978-4e81-969e-39e90cee5e1a",
+          "key": "Map_Save_050_102_005",
+          "english": "Control Room"
+        },
+        {
+          "guid": "f7bad38a-f43e-4fe9-b692-237ed6de08d5",
+          "key": "Map_Save_050_102_006",
+          "english": "Emergency Route"
+        },
+        {
+          "guid": "2f304953-982e-4d2f-ba5d-50c11e75371b",
+          "key": "Map_Save_060_001_000",
+          "english": "Storage Bay"
+        },
+        {
+          "guid": "7315956a-d33b-46bc-ba12-760df9574b70",
+          "key": "Map_Save_060_101_100",
+          "english": "Plant Entrance"
+        },
+        {
+          "guid": "9ac07f6f-8c0d-45f3-9c85-7af7d195a598",
+          "key": "Map_Save_060_101_101",
+          "english": "Roof Hatch Controls"
+        },
+        {
+          "guid": "0d0bcb2d-7178-43d1-98a3-d297243fdc98",
+          "key": "Map_Save_060_101_102",
+          "english": "B1"
+        },
+        {
+          "guid": "ce7a2b29-abf8-4e19-88ea-3e8680468718",
+          "key": "Map_Save_070_100_002",
+          "english": "NF Building"
+        },
+        {
+          "guid": "94c2f679-7304-44aa-8835-79a3a97fa06d",
+          "key": "Map_Save_070_101_000",
+          "english": "Ridgewood Station"
+        },
+        {
+          "guid": "3860420e-7746-4173-84cf-0300c265b710",
+          "key": "Map_Save_070_100_008",
+          "english": "Central Camp"
+        },
+        {
+          "guid": "172d480c-b91a-40ae-9638-50d5d94121ce",
+          "key": "Map_Save_070_100_006",
+          "english": "Logistics Warehouse"
+        },
+        {
+          "guid": "34c0090d-1e91-4571-9667-fd6630e6bad7",
+          "key": "Map_Save_070_100_014",
+          "english": "Logistics Warehouse 2F"
+        },
+        {
+          "guid": "e02f5902-708c-4ac0-8327-e91520c01056",
+          "key": "Map_Save_070_101_002",
+          "english": "Underground Parking Garage"
+        },
+        {
+          "guid": "f507bb61-3e05-4d0d-b478-3efde3efddf9",
+          "key": "Map_Save_070_100_003",
+          "english": "Gas Station"
+        },
+        {
+          "guid": "c1c47f70-8d32-45ba-b1de-d275430cb358",
+          "key": "Map_Save_070_100_007",
+          "english": "Cedarbrook Apartments"
+        },
+        {
+          "guid": "5f1328bf-09b2-4131-9e47-9d5ca8835c8f",
+          "key": "Map_Save_070_100_017",
+          "english": "Cedarbrook Apartments Roof"
+        },
+        {
+          "guid": "3b1518e7-4ee5-4b05-9899-98e480c23a6c",
+          "key": "Map_Save_070_100_005",
+          "english": "Willis Tower"
+        },
+        {
+          "guid": "cff58c59-250c-4cb2-a411-a1dc4e18ef33",
+          "key": "Map_Save_070_100_012",
+          "english": "West Point"
+        },
+        {
+          "guid": "7b297b3a-eb88-49b5-9187-eee2caf152be",
+          "key": "Map_Save_070_100_004",
+          "english": "Grimstone Building Rooftop"
+        },
+        {
+          "guid": "d4aa9c04-b5ad-43b1-aaef-0d9b46acb25d",
+          "key": "Map_Save_070_101_003",
+          "english": "Sewage Facility"
+        },
+        {
+          "guid": "e5ec7b75-1b07-4fa8-bc7d-72bab408c435",
+          "key": "Map_Save_070_101_001",
+          "english": "Grimstone Building Basement"
+        },
+        {
+          "guid": "d1929f6e-d75c-4557-b5fe-402e9d92ea0c",
+          "key": "Map_Save_080_001_000",
+          "english": "Gun Shop Kendo"
+        },
+        {
+          "guid": "f045070c-ae15-4c2f-9df8-c1be9f8097b8",
+          "key": "Map_Save_070_001_100",
+          "english": "Main Street"
+        },
+        {
+          "guid": "940a4fa7-8c08-4510-ba39-f36b5c45eb80",
+          "key": "Map_Save_070_001_101",
+          "english": "Subway Station"
+        },
+        {
+          "guid": "738bf87a-78c7-49a7-8ebc-d667ed2ac956",
+          "key": "Map_Save_070_001_105",
+          "english": "Highway"
+        },
+        {
+          "guid": "f8c227c0-a2c6-4e01-8659-0c2efce721f9",
+          "key": "Map_Save_070_001_104",
+          "english": "Raccoon City Center"
+        },
+        {
+          "guid": "255b96cc-b0ca-4c2d-a86b-5eccdee63e4c",
+          "key": "Map_Save_070_001_106",
+          "english": "East Raccoon City"
+        },
+        {
+          "guid": "14180720-620f-41ea-aba9-b53b29dac701",
+          "key": "Map_Save_400_001_000",
+          "english": "Main Hall"
+        },
+        {
+          "guid": "b451fa9c-154c-46ed-8441-25ebe9cdc62b",
+          "key": "Map_Save_400_100",
+          "english": "East Wing"
+        },
+        {
+          "guid": "877efc60-8946-4e91-9592-14ec3c850dce",
+          "key": "Map_Save_080_001_102",
+          "english": "Side Street"
+        },
+        {
+          "guid": "c20766b3-9773-4d80-9fe3-1b1fc1ef7995",
+          "key": "Map_Save_440_002_000",
+          "english": "Bedroom"
+        },
+        {
+          "guid": "ad11c228-d3e2-4409-9818-178c4e0a96f0",
+          "key": "Map_Save_440_001_001",
+          "english": "Main Hall"
+        },
+        {
+          "guid": "34dce802-2ccd-4b01-94bf-b8079a468454",
+          "key": "Map_Save_440_001_000",
+          "english": "Director's Room"
+        },
+        {
+          "guid": "82bfae10-708b-4820-befb-9c08bad21d03",
+          "key": "Map_Save_440_102_000",
+          "english": "Underground Chapel"
+        },
+        {
+          "guid": "40266fde-aeba-45e9-a0fa-dd7ae6723073",
+          "key": "Map_Save_440_101_001",
+          "english": "Research Lab"
+        },
+        {
+          "guid": "903dd4a4-fc37-4969-9c66-3a32d2ec2d2b",
+          "key": "Map_Save_080_101",
+          "english": "Blackthorn Station"
+        },
+        {
+          "guid": "439ad5e7-d4d8-495c-87f4-9f3c4bd2cb20",
+          "key": "Map_Save_080_102",
+          "english": "Blackthorn Station Platform"
+        },
+        {
+          "guid": "240c7995-4104-4f40-bd7d-b92e14ad7bfc",
+          "key": "Map_Save_080_103",
+          "english": "Service Entrance"
+        },
+        {
+          "guid": "aa531b45-4dd8-4340-a789-592c6b5e2687",
+          "key": "Map_Save_080_102_100",
+          "english": "Tunnel"
+        },
+        {
+          "guid": "b856a6ad-e3c9-420a-8e93-2881e4b92bfa",
+          "key": "Map_Save_080_104",
+          "english": "Tunnel"
+        },
+        {
+          "guid": "e45f7b30-28bb-4c66-bdda-7599c8a98a6b",
+          "key": "Map_Save_090_001_000",
+          "english": "Loading Dock"
+        },
+        {
+          "guid": "40df6123-d6a9-4e8c-b8f5-9aa53eaee8b8",
+          "key": "Map_Save_090_001_003",
+          "english": "Staff Room"
+        },
+        {
+          "guid": "4b763c17-63c0-4c2d-89c9-3c641119252d",
+          "key": "Map_Save_090_001_004",
+          "english": "Server Room"
+        },
+        {
+          "guid": "ad82914f-d035-4a2c-ab39-daf2f71b3db1",
+          "key": "Map_Save_090_101_001",
+          "english": "Service Corridor"
+        },
+        {
+          "guid": "55baaa6d-13d8-45a4-890b-f633f6c1ae61",
+          "key": "Map_Save_090_001_008",
+          "english": "Entrance"
+        },
+        {
+          "guid": "303f8113-4eb3-47fe-b0d3-33e88b57ffaf",
+          "key": "Map_Save_090_102_004",
+          "english": "Archives"
+        },
+        {
+          "guid": "434496cb-9cea-4bf3-b56f-2ef2574ba291",
+          "key": "Map_Save_090_102_005",
+          "english": "Lobby"
+        },
+        {
+          "guid": "54503f84-8722-45c7-b964-1ff4c2108626",
+          "key": "Map_Save_090_104_002",
+          "english": "Bioweapon Repository 11"
+        },
+        {
+          "guid": "27ddc207-aaa1-44f6-9a69-07bf5765dafe",
+          "key": "Map_Save_090_104_006",
+          "english": "Dump"
+        },
+        {
+          "guid": "c1bc0cf9-0499-44af-8a27-102a65844eef",
+          "key": "Map_Save_090_102_011",
+          "english": "Lab Entrance"
+        },
+        {
+          "guid": "ca260ffe-b99f-49fd-8ff7-3f3e42f4782d",
+          "key": "Map_Save_090_102_002",
+          "english": "Operations Room"
+        },
+        {
+          "guid": "a2ca767d-8759-4d43-801e-f2cbc9c9498b",
+          "key": "Map_Save_090_105_000",
+          "english": "Bioweapon Repository 12"
+        },
+        {
+          "guid": "dd5d8545-bee4-4e88-a3a6-a8cce1b95f22",
+          "key": "Map_Save_090_104_003",
+          "english": "Systems Management"
+        },
+        {
+          "guid": "15e38d36-a5c7-4e9d-90b3-8fdb956c0773",
+          "key": "Map_Save_090_104_001",
+          "english": "B4 Staff Room"
+        },
+        {
+          "guid": "31549a82-2a0c-4f41-a318-24a031818080",
+          "key": "Map_Save_090_101_000",
+          "english": "Central Portal"
+        },
+        {
+          "guid": "2d446658-6b53-44b0-85d0-504763542fec",
+          "key": "Map_Save_090_106_000",
+          "english": "Central Refining System: PANDORA Bottom Floor"
+        },
+        {
+          "guid": "1cc11305-0b6d-4cc5-94ba-7a6ee62cc2b3",
+          "key": "Map_Save_090_104_004",
+          "english": "Dump Control Room"
+        },
+        {
+          "guid": "42f34c8f-7c46-40fe-afa5-adf7921ed4c7",
+          "key": "Map_Save_090_001_101",
+          "english": "Gene Vault"
+        },
+        {
+          "guid": "12548bb4-5400-4699-929f-f3569ee98a50",
+          "key": "Map_Save_090_001_103",
+          "english": "Central Portal"
+        },
+        {
+          "guid": "7a5b9040-a72b-4a7a-bd00-de4ac5faf0f8",
+          "key": "Map_Save_090_001_104",
+          "english": "Central Refining: Lowest Level"
+        }
+      ]
+    }
+  ],
+  "guidLabelCount": 796,
+  "itemIdLabelCount": 330,
+  "placeCatalog": {
+    "asset": "natives/stm/gui/userdata/guisavedataplaceuserdata.user.3",
+    "sha256": "de8b99a11dba50724a1899fcfcb44fe0d29b7b67b9f7e4bef252172d383e4929",
+    "layoutEvidence": "GuiSaveDataPlaceInfo TDB type24879: string PlaceId, nonserialized ThumbnailIdCache, GUID AreaMessageId, GUID DetailMessageId. Each 64-byte serialized record: UTF16 string length11 at+0, 11 codeunits at+4, aligned areaGUID+0x20, detailGUID+0x30. All nonempty GUIDs matched extracted installed gui_savearea labels; Guid.Empty denotes no detail.",
+    "entries": [
+      {
+        "id": "Place_0000",
+        "assetOffset": 912,
+        "areaGuid": "4a2727aa-d18f-498b-ab53-2edff13b3fa5",
+        "roomGuid": "c199c5dd-5a60-473d-8ea0-d4fd296ed4e1",
+        "area": "Wrenwood",
+        "room": "Main Street"
+      },
+      {
+        "id": "Place_0100",
+        "assetOffset": 976,
+        "areaGuid": "67037c4c-58c2-4067-9f93-63f15ea5d693",
+        "roomGuid": "39251dd7-9ecf-4e30-9136-f35ed0f0caaf",
+        "area": "The Wrenwood Hotel",
+        "room": "Employee Entrance"
+      },
+      {
+        "id": "Place_0101",
+        "assetOffset": 1040,
+        "areaGuid": "67037c4c-58c2-4067-9f93-63f15ea5d693",
+        "roomGuid": "76459711-f0b0-4156-bfc6-eb827938fa49",
+        "area": "The Wrenwood Hotel",
+        "room": "Lobby"
+      },
+      {
+        "id": "Place_0102",
+        "assetOffset": 1104,
+        "areaGuid": "67037c4c-58c2-4067-9f93-63f15ea5d693",
+        "roomGuid": "51b904be-090d-4e3f-83a3-500ebd8cb3ea",
+        "area": "The Wrenwood Hotel",
+        "room": "Room 204"
+      },
+      {
+        "id": "Place_0200",
+        "assetOffset": 1168,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "6c596b85-73e5-4a68-a149-721aee8bd9d5",
+        "area": "Chronic Care Center",
+        "room": "Room 203"
+      },
+      {
+        "id": "Place_0201",
+        "assetOffset": 1232,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "1ae02b94-ffaf-47b3-b3d2-6b036158a100",
+        "area": "Chronic Care Center",
+        "room": "Room 201"
+      },
+      {
+        "id": "Place_0202",
+        "assetOffset": 1296,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "e343b045-8bfe-4a6f-830d-311d18391943",
+        "area": "Chronic Care Center",
+        "room": "Elevator Hallway"
+      },
+      {
+        "id": "Place_0203",
+        "assetOffset": 1360,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "b717205d-3fcb-437e-8a02-01a2c09a4b92",
+        "area": "Chronic Care Center",
+        "room": "Rehabilitation Ward"
+      },
+      {
+        "id": "Place_0204",
+        "assetOffset": 1424,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "142cb645-4794-4a46-b09f-77634d01a375",
+        "area": "Chronic Care Center",
+        "room": "Central Hall"
+      },
+      {
+        "id": "Place_0205",
+        "assetOffset": 1488,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "07fdfd1b-904c-4f3f-b55e-0ecd267752c7",
+        "area": "Chronic Care Center",
+        "room": "Guard Office"
+      },
+      {
+        "id": "Place_0206",
+        "assetOffset": 1552,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "b0cee967-1d11-4902-80ee-19905e6dbc9a",
+        "area": "Chronic Care Center",
+        "room": "Custodian's Office"
+      },
+      {
+        "id": "Place_0207",
+        "assetOffset": 1616,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "d0b8a596-f1cf-48d5-a855-3177c254e4fb",
+        "area": "Chronic Care Center",
+        "room": "Medical Supply Room"
+      },
+      {
+        "id": "Place_0208",
+        "assetOffset": 1680,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "7d1e9ffd-31f9-4741-ac50-b81cc1a838cd",
+        "area": "Chronic Care Center",
+        "room": "Attic"
+      },
+      {
+        "id": "Place_0209",
+        "assetOffset": 1744,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "00000000-0000-0000-0000-000000000000",
+        "area": "Chronic Care Center",
+        "room": ""
+      },
+      {
+        "id": "Place_0210",
+        "assetOffset": 1808,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "b5b35a36-fb06-4d6a-8812-8453c60a4a85",
+        "area": "Chronic Care Center",
+        "room": "Lounge"
+      },
+      {
+        "id": "Place_0211",
+        "assetOffset": 1872,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "f4956a77-bfec-4adf-8100-4ca24f0a68e4",
+        "area": "Chronic Care Center",
+        "room": "Underground"
+      },
+      {
+        "id": "Place_0212",
+        "assetOffset": 1936,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "f109770f-c981-422c-9b67-70c9c2dd6b78",
+        "area": "Chronic Care Center",
+        "room": "Security Room"
+      },
+      {
+        "id": "Place_0213",
+        "assetOffset": 2000,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "50c36c50-9c73-4688-b39a-9d5d5cfcb6ca",
+        "area": "Chronic Care Center",
+        "room": "Director's Office"
+      },
+      {
+        "id": "Place_0214",
+        "assetOffset": 2064,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "0b99f209-c067-46e5-9b01-e5b84fb7a90a",
+        "area": "Chronic Care Center",
+        "room": "Roof"
+      },
+      {
+        "id": "Place_0215",
+        "assetOffset": 2128,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "1d04b569-ef21-415e-afce-2796a98356e9",
+        "area": "Chronic Care Center",
+        "room": "Chapel"
+      },
+      {
+        "id": "Place_0300",
+        "assetOffset": 2192,
+        "areaGuid": "bab3eda6-c956-434a-bd70-69a69d34dc96",
+        "roomGuid": "5e1b0481-7ef5-4867-95ef-47aff10caee8",
+        "area": "Research Facility",
+        "room": "Elevator"
+      },
+      {
+        "id": "Place_0301",
+        "assetOffset": 2256,
+        "areaGuid": "bab3eda6-c956-434a-bd70-69a69d34dc96",
+        "roomGuid": "0f380d09-ccc6-4b91-b18e-814ce84f784b",
+        "area": "Research Facility",
+        "room": "Reception"
+      },
+      {
+        "id": "Place_0400",
+        "assetOffset": 2320,
+        "areaGuid": "3c238cb3-392b-4ada-8824-1ec2ab264510",
+        "roomGuid": "7315956a-d33b-46bc-ba12-760df9574b70",
+        "area": "Water Treatment",
+        "room": "Plant Entrance"
+      },
+      {
+        "id": "Place_0401",
+        "assetOffset": 2384,
+        "areaGuid": "3c238cb3-392b-4ada-8824-1ec2ab264510",
+        "roomGuid": "2f304953-982e-4d2f-ba5d-50c11e75371b",
+        "area": "Water Treatment",
+        "room": "Storage Bay"
+      },
+      {
+        "id": "Place_0500",
+        "assetOffset": 2448,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "f045070c-ae15-4c2f-9df8-c1be9f8097b8",
+        "area": "Raccoon City",
+        "room": "Main Street"
+      },
+      {
+        "id": "Place_0501",
+        "assetOffset": 2512,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "940a4fa7-8c08-4510-ba39-f36b5c45eb80",
+        "area": "Raccoon City",
+        "room": "Subway Station"
+      },
+      {
+        "id": "Place_0502",
+        "assetOffset": 2576,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "3860420e-7746-4173-84cf-0300c265b710",
+        "area": "Raccoon City",
+        "room": "Central Camp"
+      },
+      {
+        "id": "Place_0503",
+        "assetOffset": 2640,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "cff58c59-250c-4cb2-a411-a1dc4e18ef33",
+        "area": "Raccoon City",
+        "room": "West Point"
+      },
+      {
+        "id": "Place_0504",
+        "assetOffset": 2704,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "738bf87a-78c7-49a7-8ebc-d667ed2ac956",
+        "area": "Raccoon City",
+        "room": "Highway"
+      },
+      {
+        "id": "Place_0505",
+        "assetOffset": 2768,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "f8c227c0-a2c6-4e01-8659-0c2efce721f9",
+        "area": "Raccoon City",
+        "room": "Raccoon City Center"
+      },
+      {
+        "id": "Place_0506",
+        "assetOffset": 2832,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "00000000-0000-0000-0000-000000000000",
+        "area": "Raccoon City",
+        "room": ""
+      },
+      {
+        "id": "Place_0600",
+        "assetOffset": 2896,
+        "areaGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "roomGuid": "c20766b3-9773-4d80-9fe3-1b1fc1ef7995",
+        "area": "Orphanage",
+        "room": "Bedroom"
+      },
+      {
+        "id": "Place_0700",
+        "assetOffset": 2960,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "e45f7b30-28bb-4c66-bdda-7599c8a98a6b",
+        "area": "ARK",
+        "room": "Loading Dock"
+      },
+      {
+        "id": "Place_0701",
+        "assetOffset": 3024,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "27ddc207-aaa1-44f6-9a69-07bf5765dafe",
+        "area": "ARK",
+        "room": "Dump"
+      },
+      {
+        "id": "Place_0702",
+        "assetOffset": 3088,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "42f34c8f-7c46-40fe-afa5-adf7921ed4c7",
+        "area": "ARK",
+        "room": "Gene Vault"
+      },
+      {
+        "id": "Place_0216",
+        "assetOffset": 3152,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "e442b853-7488-44d3-9aff-f0a8c8eda2e0",
+        "area": "Chronic Care Center",
+        "room": "Processing"
+      },
+      {
+        "id": "Place_0507",
+        "assetOffset": 3216,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "00000000-0000-0000-0000-000000000000",
+        "area": "Raccoon City",
+        "room": ""
+      },
+      {
+        "id": "Place_0508",
+        "assetOffset": 3280,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "ce7a2b29-abf8-4e19-88ea-3e8680468718",
+        "area": "Raccoon City",
+        "room": "NF Building"
+      },
+      {
+        "id": "Place_0509",
+        "assetOffset": 3344,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "877efc60-8946-4e91-9592-14ec3c850dce",
+        "area": "Raccoon City",
+        "room": "Side Street"
+      },
+      {
+        "id": "Place_0601",
+        "assetOffset": 3408,
+        "areaGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "roomGuid": "34dce802-2ccd-4b01-94bf-b8079a468454",
+        "area": "Orphanage",
+        "room": "Director's Room"
+      },
+      {
+        "id": "Place_0602",
+        "assetOffset": 3472,
+        "areaGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "roomGuid": "82bfae10-708b-4820-befb-9c08bad21d03",
+        "area": "Orphanage",
+        "room": "Underground Chapel"
+      },
+      {
+        "id": "Place_0510",
+        "assetOffset": 3536,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "903dd4a4-fc37-4969-9c66-3a32d2ec2d2b",
+        "area": "Raccoon City",
+        "room": "Blackthorn Station"
+      },
+      {
+        "id": "Place_0511",
+        "assetOffset": 3600,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "439ad5e7-d4d8-495c-87f4-9f3c4bd2cb20",
+        "area": "Raccoon City",
+        "room": "Blackthorn Station Platform"
+      },
+      {
+        "id": "Place_0512",
+        "assetOffset": 3664,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "b856a6ad-e3c9-420a-8e93-2881e4b92bfa",
+        "area": "Raccoon City",
+        "room": "Tunnel"
+      },
+      {
+        "id": "Place_0513",
+        "assetOffset": 3728,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "240c7995-4104-4f40-bd7d-b92e14ad7bfc",
+        "area": "Raccoon City",
+        "room": "Service Entrance"
+      },
+      {
+        "id": "Place_0703",
+        "assetOffset": 3792,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "40df6123-d6a9-4e8c-b8f5-9aa53eaee8b8",
+        "area": "ARK",
+        "room": "Staff Room"
+      },
+      {
+        "id": "Place_0704",
+        "assetOffset": 3856,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "4b763c17-63c0-4c2d-89c9-3c641119252d",
+        "area": "ARK",
+        "room": "Server Room"
+      },
+      {
+        "id": "Place_0705",
+        "assetOffset": 3920,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "ad82914f-d035-4a2c-ab39-daf2f71b3db1",
+        "area": "ARK",
+        "room": "Service Corridor"
+      },
+      {
+        "id": "Place_0706",
+        "assetOffset": 3984,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "55baaa6d-13d8-45a4-890b-f633f6c1ae61",
+        "area": "ARK",
+        "room": "Entrance"
+      },
+      {
+        "id": "Place_0707",
+        "assetOffset": 4048,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "a2ca767d-8759-4d43-801e-f2cbc9c9498b",
+        "area": "ARK",
+        "room": "Bioweapon Repository 12"
+      },
+      {
+        "id": "Place_0708",
+        "assetOffset": 4112,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "dd5d8545-bee4-4e88-a3a6-a8cce1b95f22",
+        "area": "ARK",
+        "room": "Systems Management"
+      },
+      {
+        "id": "Place_0709",
+        "assetOffset": 4176,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "15e38d36-a5c7-4e9d-90b3-8fdb956c0773",
+        "area": "ARK",
+        "room": "B4 Staff Room"
+      },
+      {
+        "id": "Place_0710",
+        "assetOffset": 4240,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "00000000-0000-0000-0000-000000000000",
+        "area": "ARK",
+        "room": ""
+      },
+      {
+        "id": "Place_0711",
+        "assetOffset": 4304,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "00000000-0000-0000-0000-000000000000",
+        "area": "ARK",
+        "room": ""
+      },
+      {
+        "id": "Place_0712",
+        "assetOffset": 4368,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "31549a82-2a0c-4f41-a318-24a031818080",
+        "area": "ARK",
+        "room": "Central Portal"
+      },
+      {
+        "id": "Place_0800",
+        "assetOffset": 4432,
+        "areaGuid": "918f2730-c4e2-4601-b15f-4fc7002b29e8",
+        "roomGuid": "14180720-620f-41ea-aba9-b53b29dac701",
+        "area": "R.P.D.",
+        "room": "Main Hall"
+      },
+      {
+        "id": "Place_0103",
+        "assetOffset": 4496,
+        "areaGuid": "67037c4c-58c2-4067-9f93-63f15ea5d693",
+        "roomGuid": "f54e7af6-2771-4a3e-9652-00bb074df198",
+        "area": "The Wrenwood Hotel",
+        "room": "Lounge & Bar"
+      },
+      {
+        "id": "Place_0217",
+        "assetOffset": 4560,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "676dff39-24c4-46b3-95bb-d5c796385bdb",
+        "area": "Chronic Care Center",
+        "room": "Central Hall"
+      },
+      {
+        "id": "Place_0218",
+        "assetOffset": 4624,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "a32a713e-860f-4b11-a9f0-37df87755895",
+        "area": "Chronic Care Center",
+        "room": "Chairman's Office"
+      },
+      {
+        "id": "Place_0219",
+        "assetOffset": 4688,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "92d3e011-3f90-470e-b9ba-0d5730164515",
+        "area": "Chronic Care Center",
+        "room": "Blood Lab"
+      },
+      {
+        "id": "Place_0220",
+        "assetOffset": 4752,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "ebaa4bc7-cc4c-4346-b1d7-8567b24a9e14",
+        "area": "Chronic Care Center",
+        "room": "Office"
+      },
+      {
+        "id": "Place_0221",
+        "assetOffset": 4816,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "2dbc6229-e265-4dbd-9bb8-99ced51065e8",
+        "area": "Chronic Care Center",
+        "room": "Lead Researcher's Office"
+      },
+      {
+        "id": "Place_0222",
+        "assetOffset": 4880,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "9d624f1c-39a9-48c1-8ed3-2a513880d78a",
+        "area": "Chronic Care Center",
+        "room": "Garage"
+      },
+      {
+        "id": "Place_0223",
+        "assetOffset": 4944,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "5b26136f-eec6-46c1-9bc1-cc4e22a93cd9",
+        "area": "Chronic Care Center",
+        "room": "Security Manager's Office"
+      },
+      {
+        "id": "Place_0224",
+        "assetOffset": 5008,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "ce9800bc-d7fc-4897-a5ef-07e3f713e9c8",
+        "area": "Chronic Care Center",
+        "room": "Medication Room"
+      },
+      {
+        "id": "Place_0225",
+        "assetOffset": 5072,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "de81903c-1775-4fbe-82e7-9905c07b474d",
+        "area": "Chronic Care Center",
+        "room": "Kitchenette"
+      },
+      {
+        "id": "Place_0226",
+        "assetOffset": 5136,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "6ae7b03c-c1ba-4b95-bf7e-6e2fe69646aa",
+        "area": "Chronic Care Center",
+        "room": "Pantry"
+      },
+      {
+        "id": "Place_0227",
+        "assetOffset": 5200,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "8303740a-319b-4d71-9b55-11ea11e78ae4",
+        "area": "Chronic Care Center",
+        "room": "Holding Cells"
+      },
+      {
+        "id": "Place_0228",
+        "assetOffset": 5264,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "575952d4-4b56-4332-9ff7-2caed3addc89",
+        "area": "Chronic Care Center",
+        "room": "Inspection"
+      },
+      {
+        "id": "Place_0229",
+        "assetOffset": 5328,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "58ea6b08-40b0-4572-8b06-ddde0f4ba563",
+        "area": "Chronic Care Center",
+        "room": "Collection Pool"
+      },
+      {
+        "id": "Place_0230",
+        "assetOffset": 5392,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "54f3cf23-d0b6-42ef-b517-4214c0a063b2",
+        "area": "Chronic Care Center",
+        "room": "Courtyard"
+      },
+      {
+        "id": "Place_0231",
+        "assetOffset": 5456,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "72e2a021-2879-464d-9240-7482b32a004d",
+        "area": "Chronic Care Center",
+        "room": "Helipad"
+      },
+      {
+        "id": "Place_0232",
+        "assetOffset": 5520,
+        "areaGuid": "8ddf1739-ebac-4a59-bf58-8d964cb89574",
+        "roomGuid": "9e4d745e-333f-4cb7-b6a1-f51cc74fe17a",
+        "area": "Chronic Care Center",
+        "room": "Emergency Exit"
+      },
+      {
+        "id": "Place_0302",
+        "assetOffset": 5584,
+        "areaGuid": "bab3eda6-c956-434a-bd70-69a69d34dc96",
+        "roomGuid": "6d2fe238-3978-4e81-969e-39e90cee5e1a",
+        "area": "Research Facility",
+        "room": "Control Room"
+      },
+      {
+        "id": "Place_0303",
+        "assetOffset": 5648,
+        "areaGuid": "bab3eda6-c956-434a-bd70-69a69d34dc96",
+        "roomGuid": "f7bad38a-f43e-4fe9-b692-237ed6de08d5",
+        "area": "Research Facility",
+        "room": "Emergency Route"
+      },
+      {
+        "id": "Place_0402",
+        "assetOffset": 5712,
+        "areaGuid": "3c238cb3-392b-4ada-8824-1ec2ab264510",
+        "roomGuid": "9ac07f6f-8c0d-45f3-9c85-7af7d195a598",
+        "area": "Water Treatment",
+        "room": "Roof Hatch Controls"
+      },
+      {
+        "id": "Place_0403",
+        "assetOffset": 5776,
+        "areaGuid": "3c238cb3-392b-4ada-8824-1ec2ab264510",
+        "roomGuid": "0d0bcb2d-7178-43d1-98a3-d297243fdc98",
+        "area": "Water Treatment",
+        "room": "B1"
+      },
+      {
+        "id": "Place_0514",
+        "assetOffset": 5840,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "94c2f679-7304-44aa-8835-79a3a97fa06d",
+        "area": "Raccoon City",
+        "room": "Ridgewood Station"
+      },
+      {
+        "id": "Place_0515",
+        "assetOffset": 5904,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "172d480c-b91a-40ae-9638-50d5d94121ce",
+        "area": "Raccoon City",
+        "room": "Logistics Warehouse"
+      },
+      {
+        "id": "Place_0516",
+        "assetOffset": 5968,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "e02f5902-708c-4ac0-8327-e91520c01056",
+        "area": "Raccoon City",
+        "room": "Underground Parking Garage"
+      },
+      {
+        "id": "Place_0517",
+        "assetOffset": 6032,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "d4aa9c04-b5ad-43b1-aaef-0d9b46acb25d",
+        "area": "Raccoon City",
+        "room": "Sewage Facility"
+      },
+      {
+        "id": "Place_0518",
+        "assetOffset": 6096,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "f507bb61-3e05-4d0d-b478-3efde3efddf9",
+        "area": "Raccoon City",
+        "room": "Gas Station"
+      },
+      {
+        "id": "Place_0519",
+        "assetOffset": 6160,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "c1c47f70-8d32-45ba-b1de-d275430cb358",
+        "area": "Raccoon City",
+        "room": "Cedarbrook Apartments"
+      },
+      {
+        "id": "Place_0520",
+        "assetOffset": 6224,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "5f1328bf-09b2-4131-9e47-9d5ca8835c8f",
+        "area": "Raccoon City",
+        "room": "Cedarbrook Apartments Roof"
+      },
+      {
+        "id": "Place_0521",
+        "assetOffset": 6288,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "3b1518e7-4ee5-4b05-9899-98e480c23a6c",
+        "area": "Raccoon City",
+        "room": "Willis Tower"
+      },
+      {
+        "id": "Place_0522",
+        "assetOffset": 6352,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "7b297b3a-eb88-49b5-9187-eee2caf152be",
+        "area": "Raccoon City",
+        "room": "Grimstone Building Rooftop"
+      },
+      {
+        "id": "Place_0523",
+        "assetOffset": 6416,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "e5ec7b75-1b07-4fa8-bc7d-72bab408c435",
+        "area": "Raccoon City",
+        "room": "Grimstone Building Basement"
+      },
+      {
+        "id": "Place_0524",
+        "assetOffset": 6480,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "d1929f6e-d75c-4557-b5fe-402e9d92ea0c",
+        "area": "Raccoon City",
+        "room": "Gun Shop Kendo"
+      },
+      {
+        "id": "Place_0525",
+        "assetOffset": 6544,
+        "areaGuid": "b1969fe4-0430-40cf-835d-b789c29f8d35",
+        "roomGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "area": "Raccoon City",
+        "room": "Orphanage"
+      },
+      {
+        "id": "Place_0603",
+        "assetOffset": 6608,
+        "areaGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "roomGuid": "ad11c228-d3e2-4409-9818-178c4e0a96f0",
+        "area": "Orphanage",
+        "room": "Main Hall"
+      },
+      {
+        "id": "Place_0604",
+        "assetOffset": 6672,
+        "areaGuid": "96406bf0-bfa5-4404-bcf8-05b15e19d3c3",
+        "roomGuid": "40266fde-aeba-45e9-a0fa-dd7ae6723073",
+        "area": "Orphanage",
+        "room": "Research Lab"
+      },
+      {
+        "id": "Place_0713",
+        "assetOffset": 6736,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "c1bc0cf9-0499-44af-8a27-102a65844eef",
+        "area": "ARK",
+        "room": "Lab Entrance"
+      },
+      {
+        "id": "Place_0714",
+        "assetOffset": 6800,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "ca260ffe-b99f-49fd-8ff7-3f3e42f4782d",
+        "area": "ARK",
+        "room": "Operations Room"
+      },
+      {
+        "id": "Place_0715",
+        "assetOffset": 6864,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "7a5b9040-a72b-4a7a-bd00-de4ac5faf0f8",
+        "area": "ARK",
+        "room": "Central Refining: Lowest Level"
+      },
+      {
+        "id": "Place_0801",
+        "assetOffset": 6928,
+        "areaGuid": "918f2730-c4e2-4601-b15f-4fc7002b29e8",
+        "roomGuid": "b451fa9c-154c-46ed-8441-25ebe9cdc62b",
+        "area": "R.P.D.",
+        "room": "East Wing"
+      },
+      {
+        "id": "Place_0716",
+        "assetOffset": 6992,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "1cc11305-0b6d-4cc5-94ba-7a6ee62cc2b3",
+        "area": "ARK",
+        "room": "Dump Control Room"
+      },
+      {
+        "id": "Place_0717",
+        "assetOffset": 7056,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "434496cb-9cea-4bf3-b56f-2ef2574ba291",
+        "area": "ARK",
+        "room": "Lobby"
+      },
+      {
+        "id": "Place_0718",
+        "assetOffset": 7120,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "54503f84-8722-45c7-b964-1ff4c2108626",
+        "area": "ARK",
+        "room": "Bioweapon Repository 11"
+      },
+      {
+        "id": "Place_0719",
+        "assetOffset": 7184,
+        "areaGuid": "feddd7b9-add3-4df4-bcdd-072f61bc8dec",
+        "roomGuid": "303f8113-4eb3-47fe-b0d3-33e88b57ffaf",
+        "area": "ARK",
+        "room": "Archives"
+      }
+    ]
+  },
+  "readerEvidence": {
+    "process": "re9.exe",
+    "approach": "ReadProcessMemory only; unique executable AOBs, native getter disassembly, RE Engine TDB83 metadata and installed English assets.",
+    "applicationId": "1479128647133560892",
+    "patternCount": 15,
+    "gameplayGuard": "MainGameFlowManager.CurrentController, live native component and phase None (8). Cleared snapshots in title and transitions.",
+    "nativeLayouts": {
+      "dictionary": "entries+0x18, version+0x38, count+0x3C; entry stride0x18, next+0x04, key+0x08, value+0x10. Free entries have next<-1.",
+      "array": "length+0x1C; elements+0x20",
+      "health": "CharacterManager+0xB0 current player; player+0x70 hitpoint context; context+0x10 controller; setup byte+0x34; health int+0x28, max int+0x30.",
+      "weapon": "Current player+0xF8 Common -> +0x10 owner -> +0x310 current weapon; exact PlayerEquipment metadata guard; +0x160 PanelState.",
+      "ammo": "Native countLoadingStock uses minimum across loading slots. Reserve matches loaded ammunition ID across current weapon inventory loose-stock dictionaries+0x48/+0x50/+0x58, excluding loaded stocks and storage.",
+      "money": "Current character catalog selects inventory user through native table. Normal Hand inventory credits+0x90 are independent of the equipped weapon; emitted only for Leon.",
+      "location": "GuiManager singleton -> +0x48 current floor; +0x178 GuiMapBridge -> +0xA0 current section. IDs join installed map GUI labels. Recheck all pointers and controller+0x80 current scene before publishing. SaveSlotHeaderOperatorApp.PlaceID is deliberately unused: it retained Place_0504 after loading Grace in the hotel.",
+      "objective": "Current objective list, latest ID with native last-entry fallback, runtime GUID/count and catalog maximum."
+    },
+    "liveChecks": [
+      {
+        "character": "Leon",
+        "health": 1200,
+        "maxHealth": 1200,
+        "difficulty": "Casual",
+        "location": "Raccoon City / Central Camp",
+        "credits": 64240,
+        "weapon": "Alligator Snapper",
+        "ammo": 9,
+        "reserveAmmo": 42,
+        "objective": "Search the camp (1/2)"
+      },
+      {
+        "weapon": "Marksman 1A",
+        "ammo": 10,
+        "reserveAmmo": 10,
+        "userConfirmedAmmo": true
+      },
+      {
+        "state": "Main menu",
+        "csharpClearedGameplayData": true,
+        "cheatTableClearedGameplayData": true,
+        "scope": "Initial implementation; unchanged gameplay guards also covered by current regressions."
+      },
+      {
+        "character": "Grace",
+        "location": "The Wrenwood Hotel / Lounge & Bar",
+        "mapSection": "M010_001_030",
+        "mapFloor": "M010_001",
+        "scene": "Chap1_01",
+        "staleSavePlaceId": "Place_0504",
+        "creditsHidden": true,
+        "userConfirmedRoom": true
+      },
+      {
+        "character": "Grace",
+        "location": "The Wrenwood Hotel / Kitchen",
+        "mapSection": "M010_001_020",
+        "mapFloor": "M010_001",
+        "scene": "Chap1_01",
+        "userConfirmedRoom": true
+      }
+    ],
+    "syntheticChecksPassed": 90,
+    "mapCatalog": "RE9-map-provenance.json: 172 unambiguous named sections across 46 named floors; unknown sections show the current region, unknown floors show Unknown location.",
+    "coverageLimits": [
+      "Live tested Leon with two equipped guns, then Grace after loading another save in the same process, and Grace moving from Lounge & Bar to Kitchen.",
+      "Unarmed/dead states, temporal inventories, malformed layouts and missing/mismatched map data were tested with memory fixtures in the test process.",
+      "Unsupported polymorphic ammunition stock getters/converters fail closed instead of displaying guessed values.",
+      "Map labels can differ from save/load labels. The complete map catalog has not been traversed live. Conflicting or missing room-label mappings are omitted, with fallback only to the current map region.",
+      "Cheat Table Lua was tested with the installed Cheat Engine Lua5.3 runtime and read-only memory/UI shims, not a graphical CE UI session."
+    ]
+  }
+}

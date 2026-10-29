@@ -2,11 +2,47 @@
     "Games": {
         "Labyrinthine": {
             "Default": {
-                "Details": "{steam_display}",
+                "Details": "In Main Menu",
                 "State": "",
-                "LargeAsset": "{map_icon}",
+                "LargeAsset": "logo",
                 "SmallAsset": "",
                 "LargeAssetText": "Labyrinthine",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "Level {level}{players}",
+                "State": "In Lobby",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{session}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Story": {
+                "Details": "Story | Chapter {chapter} | Level {level}{players}",
+                "State": "{objective}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{session}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "CaseFile": {
+                "Details": "Case File | {difficulty} | Level {level}{players}",
+                "State": "{objective}",
+                "LargeAsset": "{caseasset}",
+                "SmallAsset": "",
+                "LargeAssetText": "{case} | {casetype} | {mapsize}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

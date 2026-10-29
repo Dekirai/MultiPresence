@@ -1,0 +1,370 @@
+{
+  "game": "Stellar Blade",
+  "verifiedModuleVersion": "1.4.1a",
+  "source": "User-installed game assets; no inferred nearest-area labels",
+  "worldCount": 13,
+  "entries": [
+    {
+      "mapName": "AbyssLab_P",
+      "worldAlias": "AbyssLab",
+      "worldId": 22,
+      "worldPath": "/Game/Art/BG/WorldMap/Dungeon_P/AbyssLab_P.AbyssLab_P",
+      "english": "Abyss Levoire",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLB_to_AYL",
+          "localizationKey": "UI_RegionAlias_AbyssLaboa",
+          "english": "Abyss Levoire"
+        }
+      ]
+    },
+    {
+      "mapName": "AltesLab_P",
+      "worldAlias": "AltesLab",
+      "worldId": 19,
+      "worldPath": "/Game/Art/BG/WorldMap/Dungeon_P/AltesLab_P.AltesLab_P",
+      "english": "Altess Levoire",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLA_to_ATL",
+          "localizationKey": "UI_RegionAlias_AltesLaboa",
+          "english": "Altess Levoire"
+        }
+      ]
+    },
+    {
+      "mapName": "G03",
+      "worldAlias": "Beach",
+      "worldId": 17,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/G03.G03",
+      "english": "Star Descent",
+      "evidence": [
+        {
+          "table": "ZoneEnvSpawnTable / ZoneTable / ZoneCampTable",
+          "row": "SD_10_EnvS_067",
+          "zone": "Zone_SD_10",
+          "camp": "SD10_Camp_03_SV",
+          "localizationKey": "UI_RegionAlias_G03",
+          "english": "Star Descent"
+        },
+        {
+          "table": "ZoneEnvSpawnTable / ZoneTable / ZoneCampTable",
+          "row": "SD_10_EnvS_066",
+          "zone": "Zone_SD_10",
+          "camp": "SD10_Camp_02_SV",
+          "localizationKey": "UI_RegionAlias_G03",
+          "english": "Star Descent"
+        },
+        {
+          "table": "ZoneEnvSpawnTable / ZoneTable / ZoneCampTable",
+          "row": "SD_10_EnvS_065",
+          "zone": "Zone_SD_10",
+          "camp": "SD10_Camp_04_SV",
+          "localizationKey": "UI_RegionAlias_G03",
+          "english": "Star Descent"
+        }
+      ]
+    },
+    {
+      "mapName": "F01",
+      "worldAlias": "DEDA",
+      "worldId": 21,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/F01.F01",
+      "english": "Eidos 9",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_DED_to_DEDA",
+          "localizationKey": "UI_RegionAlias_Eidos9",
+          "english": "Eidos 9"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_DEDA_Boss_DoubleBoss",
+          "zone": "Zone_DEDA_Boss_DoubleBoss",
+          "localizationKey": "UI_RegionAlias_Eidos9",
+          "english": "Eidos 9"
+        }
+      ]
+    },
+    {
+      "mapName": "F02",
+      "worldAlias": "DrownedEidosDistrict",
+      "worldId": 11,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/F02.F02",
+      "english": "Eidos 7",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_SD_to_DED",
+          "localizationKey": "UI_RegionAlias_F02",
+          "english": "Eidos 7"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_DED_Boss_Opener",
+          "zone": "Zone_DED_Boss_Opener",
+          "localizationKey": "UI_RegionAlias_F02",
+          "english": "Eidos 7"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_DED_Boss_GrubShooter",
+          "zone": "Zone_DED_Boss_GrubShooter",
+          "localizationKey": "UI_RegionAlias_F02",
+          "english": "Eidos 7"
+        }
+      ]
+    },
+    {
+      "mapName": "Matrix_XI",
+      "worldAlias": "MatrixEleven",
+      "worldId": 12,
+      "worldPath": "/Game/Art/BG/WorldMap/Dungeon_P/Matrix_XI.Matrix_XI",
+      "english": "Matrix 11",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLB_to_ME",
+          "localizationKey": "UI_RegionAlias_Matrix11",
+          "english": "Matrix 11"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_ME_Boss_Sawshark",
+          "zone": "Zone_ME_Boss_Sawshark",
+          "localizationKey": "UI_RegionAlias_Matrix11",
+          "english": "Matrix 11"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_ME_Boss_SkullJuggernaut",
+          "zone": "Zone_ME_Boss_SkullJuggernaut",
+          "localizationKey": "UI_RegionAlias_Matrix11",
+          "english": "Matrix 11"
+        }
+      ]
+    },
+    {
+      "mapName": "Matrix_XI_Demo_P",
+      "worldAlias": "MatrixEleven_Demo",
+      "worldId": 27,
+      "worldPath": "/Game/Art/BG/Demo/Matrix_XI_Demo_P.Matrix_XI_Demo_P",
+      "english": "Matrix 11",
+      "evidence": [
+        {
+          "table": "ZoneEnvSpawnTable / ZoneTable / ZoneCampTable",
+          "row": "MEDemo_01_EnvS_003",
+          "zone": "Zone_MEDemo_01",
+          "camp": "MEDemo_Camp_01",
+          "localizationKey": "UI_RegionAlias_Matrix11",
+          "english": "Matrix 11"
+        }
+      ]
+    },
+    {
+      "mapName": "NK_P",
+      "worldAlias": "NKBoss",
+      "worldId": 31,
+      "worldPath": "/Game/DLC_2/Art/BG/WorldMap_NK/NK_P.NK_P",
+      "english": "Moonlit Valley",
+      "evidence": [
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_Nikke_Boss_Scarlet",
+          "zone": "Zone_NK_Boss_Scarlet",
+          "localizationKey": "UI_RegionAlias_ScarletBossChallenge",
+          "english": "Moonlit Valley"
+        }
+      ]
+    },
+    {
+      "mapName": "C05",
+      "worldAlias": "Nest",
+      "worldId": 18,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/C05.C05",
+      "english": "Nest",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLA_to_Nest",
+          "localizationKey": "UI_RegionAlias_C05",
+          "english": "Nest"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_Nest_Boss_ExoSuit",
+          "zone": "Zone_Nest_Boss_ExoSuit",
+          "localizationKey": "UI_RegionAlias_C05",
+          "english": "Nest"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_Nest_Boss_Elder",
+          "zone": "Zone_Nest_Boss_Elder",
+          "localizationKey": "UI_RegionAlias_C05",
+          "english": "Nest"
+        }
+      ]
+    },
+    {
+      "mapName": "B07",
+      "worldAlias": "SpaceElevator",
+      "worldId": 13,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/B07.B07",
+      "english": "Spire 4",
+      "evidence": [
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_SE_Boss_WeaponMaster",
+          "zone": "Zone_SE_Boss_WeaponMaster",
+          "localizationKey": "UI_RegionAlias_B07",
+          "english": "Spire 4"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_SE_Boss_Marionette",
+          "zone": "Zone_SE_Boss_Marionette",
+          "localizationKey": "UI_RegionAlias_B07",
+          "english": "Spire 4"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_SE_Boss_Crawler",
+          "zone": "Zone_SE_Boss_Crawler",
+          "localizationKey": "UI_RegionAlias_B07",
+          "english": "Spire 4"
+        }
+      ]
+    },
+    {
+      "mapName": "E03_WasteLand_P",
+      "worldAlias": "WasteLandA",
+      "worldId": 14,
+      "worldPath": "/Game/Art/BG/WorldMap/E03_WasteLand_P/E03_WasteLand_P.E03_WasteLand_P",
+      "english": "Wasteland",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_Nest_to_WLA",
+          "localizationKey": "UI_RegionAlias_E03",
+          "english": "Wasteland"
+        },
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_Xion_to_WLA",
+          "localizationKey": "UI_RegionAlias_E03",
+          "english": "Wasteland"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_WLA_Boss_HedgeBoarBrute",
+          "zone": "Zone_WLA_Boss_HedgeBoarBrute",
+          "localizationKey": "UI_RegionAlias_E03",
+          "english": "Wasteland"
+        }
+      ]
+    },
+    {
+      "mapName": "E05_GreatDesert_P",
+      "worldAlias": "WasteLandB",
+      "worldId": 15,
+      "worldPath": "/Game/Art/BG/WorldMap/E05_GreatDesert_P/E05_GreatDesert_P.E05_GreatDesert_P",
+      "english": "Great Desert",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_Xion_to_WLB",
+          "localizationKey": "UI_RegionAlias_E05",
+          "english": "Great Desert"
+        },
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_ME_to_WLB",
+          "localizationKey": "UI_RegionAlias_E05",
+          "english": "Great Desert"
+        },
+        {
+          "table": "BossChallengeTable / ZoneTable",
+          "row": "BC_WLB_Boss_SawsharkWasteland",
+          "zone": "Zone_WLB_Boss_SawsharkWasteland",
+          "localizationKey": "UI_RegionAlias_E05",
+          "english": "Great Desert"
+        }
+      ]
+    },
+    {
+      "mapName": "E04",
+      "worldAlias": "Xion",
+      "worldId": 16,
+      "worldPath": "/Game/Art/BG/WorldMap/Level_P/E04.E04",
+      "english": "Xion",
+      "evidence": [
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLA_to_Xion",
+          "localizationKey": "UI_RegionAlias_E04",
+          "english": "Xion"
+        },
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_WLB_to_Xion",
+          "localizationKey": "UI_RegionAlias_E04",
+          "english": "Xion"
+        },
+        {
+          "table": "WorldTransitionTable",
+          "row": "WT_E_XionLow_to_XionUp",
+          "localizationKey": "UI_RegionAlias_E04",
+          "english": "Xion"
+        }
+      ]
+    }
+  ],
+  "menu": {
+    "worldAlias": "LobbyWorld",
+    "ID": 1,
+    "UMapPath": "/Game/Lobby/Lobby.Lobby",
+    "FileSuffix": "None"
+  },
+  "resources": [
+    {
+      "extractedFile": "WorldTable.json",
+      "sha256": "6601301eb32c9889c64b23835fd502eac2778d5afe0c4dc3e543504e4c504737"
+    },
+    {
+      "extractedFile": "WorldTransitionTable.json",
+      "sha256": "51df1c3e36a984e99f883d98e822ba85bd0c877efee547de73694442543ba024"
+    },
+    {
+      "extractedFile": "ZoneTable.json",
+      "sha256": "6e08f166a06b69cf5304d2ecba0117e38033ee1b2560d2a6947a65dbc02a75bf"
+    },
+    {
+      "extractedFile": "ZoneEnvSpawnTable.json",
+      "sha256": "51bbe96370733674a7ec9c83f98d81b8d59345d74df1b1f650d10d22bbf8d030"
+    },
+    {
+      "extractedFile": "ZoneCampTable.json",
+      "sha256": "83f5f42daa9c3e8d20e8422897420e945212120fc508a5da225bb32a6895bee2"
+    },
+    {
+      "extractedFile": "BossChallengeTable.json",
+      "sha256": "994f53f622974fa2559c7760ddac43f84322f5b761a5bfd267c55697c575bf64"
+    },
+    {
+      "extractedFile": "raw/SB/Content/Localization/Game/en/Game.archive",
+      "sha256": "eb2b73fe51e1069a00efb319f92e4a1f065677b6177bc665a32b994433477098"
+    }
+  ],
+  "tooling": {
+    "parser": "https://github.com/FabianFG/CUE4Parse",
+    "packageVersion": "1.2.2.202610",
+    "parserLicense": "Apache-2.0",
+    "usmap": "https://github.com/Stellar-Blade-Modding-Team/Stellar-Blade-Modding-Guide",
+    "usmapCommit": "63076869f3a9ef21ef42a1e945dd8ad458917a2e",
+    "usmapFile": "4.26.2-0+++UE4+Release-4.26-SB-v1.4.1.usmap"
+  }
+}

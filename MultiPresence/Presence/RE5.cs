@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.RE5;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class RE5
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("RE5: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("re5dx9"))
             {
                 try
@@ -114,6 +118,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("RE5: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

@@ -2,11 +2,23 @@
     "Games": {
         "Final Fantasy VII Remake": {
             "Default": {
-                "Details": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
-                "State": "Level {level} - Chapter {chapter}",
+                "Details": "{character} - Lv. {level} | Chapter {chapter}: {chaptername}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Final Fantasy VII Remake",
+                "LargeAssetText": "HP {hp}/{maxhp} | MP {mp}/{maxmp} | SP {sp}/{maxsp} | EXP {exp}/{maxexp}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "INTERmission": {
+                "Details": "{character} - Lv. {level} | INTERmission - Chapter {chapter}: {chaptername}",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "HP {hp}/{maxhp} | MP {mp}/{maxmp} | SP {sp}/{maxsp} | EXP {exp}/{maxexp}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

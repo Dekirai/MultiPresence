@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Legacy of Kain Soul Reaver 1": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Legacy of Kain Soul Reaver 1",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{location}",
+                "State": "{realm} | Health {healthpercentage}%",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

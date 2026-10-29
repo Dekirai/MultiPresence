@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Phasmophobia": {
+            "Ingame": {
+                "Details": "{session} | {difficulty}",
+                "State": "{map} / {room}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{map}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "{session}",
+                "State": "In Lobby",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Phasmophobia",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

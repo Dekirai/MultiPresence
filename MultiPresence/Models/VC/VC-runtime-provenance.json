@@ -1,0 +1,222 @@
+{
+  "game": "Vampire Crawlers",
+  "application_id": "1562723812523647096",
+  "steam_app": "3265700",
+  "verified_date": "2026-10-22",
+  "steam_build": "25304267",
+  "metadata_version": 31,
+  "files": [
+    {
+      "path": "E:\\SteamLibrary\\steamapps\\common\\Vampire Crawlers\\GameAssembly.dll",
+      "size": 88280576,
+      "sha256": "0bee2d8f39c9e0d6d424879c5eaa7fb60e7fb5b2c2554bcbf1ff1c6908242be7"
+    },
+    {
+      "path": "E:\\SteamLibrary\\steamapps\\common\\Vampire Crawlers\\Vampire Crawlers_Data\\il2cpp_data\\Metadata\\global-metadata.dat",
+      "size": 18868884,
+      "sha256": "319fb5addf0c9828919922d1b5949bb9248bf1e5d77b255feba0b22c7a4cf07c"
+    }
+  ],
+  "patterns": {
+    "GameSingleton": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 83 B9 E4 00 00 00 00 75 ?? E8 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? 48 89 74 24 30 48 89 7C 24 38 E8 ?? ?? ?? ?? 48 85 C0 0F 84 ?? ?? ?? ?? 48 8B 50 70",
+      "operand": 3,
+      "length": 7,
+      "rva": 40237861,
+      "target": 80605408,
+      "staticHits": [
+        40237861
+      ],
+      "liveHits": [
+        40237861
+      ],
+      "relative_calls_fixed": false,
+      "containing_method_candidate": "EnderBossSequence$$Awake",
+      "method_rva": 40237664,
+      "live_resolved_target_matches": true,
+      "limitation": "RIP references and relative branches/calls are wildcarded. Unique on the verified build; future code/layout changes are not guaranteed compatible."
+    },
+    "StateSingleton": {
+      "pattern": "48 8B 0D ?? ?? ?? ?? 83 B9 E4 00 00 00 00 75 ?? E8 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 85 C0 74 ?? 8B 53 18 45 33 C9 45 33 C0 48 8B C8 48 8B 5C 24 30 48 83 C4 20 5F E9 ?? ?? ?? ??",
+      "operand": 3,
+      "length": 7,
+      "rva": 40380125,
+      "target": 80606080,
+      "staticHits": [
+        40380125
+      ],
+      "liveHits": [
+        40380125
+      ],
+      "relative_calls_fixed": false,
+      "containing_method_candidate": "Nosebleed.SaveLoadSystem.Pancake.ProfileSaveLoadManager$$OnProfileLoaded",
+      "method_rva": 40379936,
+      "live_resolved_target_matches": true,
+      "limitation": "RIP references and relative branches/calls are wildcarded. Unique on the verified build; future code/layout changes are not guaranteed compatible."
+    },
+    "GlobalsMethod": {
+      "pattern": "48 8B 05 ?? ?? ?? ?? 48 8B 40 20 F6 80 35 01 00 00 01 75 ?? 48 8B C8 E8 ?? ?? ?? ?? 48 8B 80 C0 00 00 00 48 8B 40 10 F6 80 35 01 00 00 01 75 ?? 48 8B C8 E8 ?? ?? ?? ?? 48 8B 80 B8 00 00 00 48 8B 00 48 85 C0 74 ?? 48 8B 40 20 48 83 C4 28 C3",
+      "operand": 3,
+      "length": 7,
+      "rva": 43624704,
+      "target": 80227960,
+      "staticHits": [
+        43624704
+      ],
+      "liveHits": [
+        43624704
+      ],
+      "relative_calls_fixed": false,
+      "containing_method_candidate": "Nosebleed.Pancake.GameConfig.Accessors.Globals$$get_PlayerRunSettings",
+      "method_rva": 43624672,
+      "live_resolved_target_matches": true,
+      "limitation": "RIP references and relative branches/calls are wildcarded. Unique on the verified build; future code/layout changes are not guaranteed compatible."
+    },
+    "SimpleStatCurrent": {
+      "pattern": "48 8B 43 10 48 85 C0 74 ?? F3 0F 10 40 18 48 83 C4 20 5B C3",
+      "operand": 0,
+      "length": 0,
+      "rva": 41181989,
+      "target": 0,
+      "staticHits": [
+        41181989
+      ],
+      "liveHits": [
+        41181989
+      ],
+      "relative_calls_fixed": false,
+      "containing_method_candidate": "Nosebleed.Pancake.GameLogic.SimpleStat$$get_Value",
+      "method_rva": 41181952,
+      "limitation": "RIP references and relative branches/calls are wildcarded. Unique on the verified build; future code/layout changes are not guaranteed compatible."
+    },
+    "PlayerCoins": {
+      "pattern": "40 53 48 83 EC 20 80 3D ?? ?? ?? ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 22 53 BB FD C6 05 ?? ?? ?? ?? 01 48 8B 83 80 00 00 00 48 85 C0 74 ?? 8B 40 18 48 83 C4 20 5B C3",
+      "operand": 0,
+      "length": 0,
+      "rva": 43354416,
+      "target": 0,
+      "staticHits": [
+        43354416
+      ],
+      "liveHits": [
+        43354416
+      ],
+      "relative_calls_fixed": true,
+      "containing_method_candidate": "Nosebleed.Pancake.Models.PlayerModel$$get_CurrentCoinCount",
+      "method_rva": 43354416,
+      "limitation": "Relative CALL displacement retained to disambiguate generated getter clones. ASLR-safe but build-sensitive; future builds must rescan and may need new patterns."
+    },
+    "CardPileCount": {
+      "pattern": "40 53 48 83 EC 20 80 3D ?? ?? ?? ?? 00 48 8B D9 75 ?? 48 8D 0D ?? ?? ?? ?? E8 A2 9A BF FD C6 05 ?? ?? ?? ?? 01 48 8B 43 38 48 85 C0 74 ?? 8B 40 18 48 83 C4 20 5B C3",
+      "operand": 0,
+      "length": 0,
+      "rva": 43073968,
+      "target": 0,
+      "staticHits": [
+        43073968
+      ],
+      "liveHits": [
+        43073968
+      ],
+      "relative_calls_fixed": true,
+      "containing_method_candidate": "Nosebleed.Pancake.Models.CardPileModel$$get_Count",
+      "method_rva": 43073968,
+      "limitation": "Relative CALL displacement retained to disambiguate generated getter clones. ASLR-safe but build-sensitive; future builds must rescan and may need new patterns."
+    },
+    "MainCharacter": {
+      "pattern": "48 8B 43 78 48 85 C0 74 ?? 83 78 18 00 7E ?? 4C 8B 05 ?? ?? ?? ?? 33 D2 48 8B C8 48 83 C4 20 5B E9 ?? ?? ?? ?? 33 C0 48 83 C4 20 5B C3",
+      "operand": 0,
+      "length": 0,
+      "rva": 43804401,
+      "target": 0,
+      "staticHits": [
+        43804401
+      ],
+      "liveHits": [
+        43804401
+      ],
+      "relative_calls_fixed": false,
+      "containing_method_candidate": "Nosebleed.Pancake.RuntimeData.PlayerRunSettings$$get_MainFcc",
+      "method_rva": 43804352,
+      "limitation": "RIP references and relative branches/calls are wildcarded. Unique on the verified build; future code/layout changes are not guaranteed compatible."
+    }
+  },
+  "access": "ReadProcessMemory through existing Hypervisor; no game writes, injection, hooks or game calls.",
+  "discovery": "Installed IL2CPP version 31 metadata plus native getter disassembly, checked against the running game. Three RIP-based roots and four layout guards; all seven patterns have exactly one executable-section match in both disk and live images.",
+  "singleton_layouts": {
+    "game_and_state": "Global-namespace SingletonMonoBehaviour<T>: class + 0xB8 -> statics; instance at +0x8, lock at +0x0.",
+    "globals": "Nosebleed.Core.Singletons.SingletonMonoBehaviour<Globals>: method slot -> MethodInfo +0x20 class -> +0xC0 generic context -> +0x10 class -> +0xB8 static fields -> +0 instance. Globals has PlayerRunSettings+0x20 and DungeonVariableAsset+0x38."
+  },
+  "fields": {
+    "GameStateManager": "CurrentState+0x30, IsTransitioning+0x34; 1 main menu, 2 village/CharacterSelect, 3 game, 4 tutorial.",
+    "GameModel": "Player+0x58, Dungeon+0x60, kills IntAsset+0x48, runEnded+0xA0, GameStateMachine+0x80.",
+    "PlayerModel": "coins IntAsset+0x80, stats+0x138, XP IntVariable+0x178, next XP+0x180, level+0x188, combo+0x190, turn+0x198, totalXP Int32+0x170.",
+    "PlayerStats": "Health SimpleStat+0x18, Armor+0x20, Mana+0x60, startingMana IntAsset+0x10.",
+    "SimpleStat": "current FloatAsset+0x10, maximum FloatVariable+0x20. Asset numeric value+0x18; managed variable numeric value+0x10.",
+    "hand": "Player+0xB0 -> HandPileModel+0x28 -> CardPileModel+0x38 -> List<CardModel>. CardModel config+0x38 -> AssetId+0x58.",
+    "other_piles": "Draw wrapper+0xA8 then CardPile+0x68; Discard wrapper+0xC0 then CardPile+0x80. Both use CardPileModel list+0x38 and player owner+0x40.",
+    "characters": "PlayerRunSettings+0x78 -> List<FccConfig>; index 0 explicitly marked main FCC by game metadata. Config AssetId+0x58.",
+    "floor": "DungeonModel completedFloors+0xB0 modulo DungeonConfig.GenerationConfig+0x80 / Floors list+0x58, then +1 for display."
+  },
+  "live_checks": [
+    {
+      "state": "Player Turn",
+      "map": "Mad Forest / Furious Forest",
+      "main_character": "Mortaccio",
+      "party": [
+        "Mortaccio",
+        "Pugnala Provola",
+        "Dommario"
+      ],
+      "level": 3,
+      "coins": 155,
+      "kills": 5,
+      "hp": 83,
+      "maxhp": 83,
+      "armor": 3,
+      "mana": 4,
+      "hand": [
+        "Bone",
+        "Bone",
+        "Whip",
+        "Mortaccio",
+        "Bone",
+        "Pugnala"
+      ],
+      "draw_count": 5,
+      "discard_count": 0,
+      "floor": 1
+    },
+    {
+      "change": "Two character cards played",
+      "mana": 2,
+      "hand": [
+        "Bone",
+        "Bone",
+        "Whip",
+        "Bone"
+      ],
+      "hand_count": 4,
+      "party_unchanged": true,
+      "user_confirmed": true
+    },
+    {
+      "state": "Village",
+      "game_state_enum": 2,
+      "run_placeholders": "All empty; previous map, party, stats and cards removed."
+    }
+  ],
+  "consistency": "Snapshot records all read ranges and validates them again before returning, including roots, Unity wrappers, class names, scalar values, list storage/count/version and card ownership. No previous snapshot cache. Pattern cache is bound to process ID, module base and size; missing/ambiguous signatures are rejected.",
+  "tests": {
+    "catalog": 20,
+    "placeholder_regressions": 36,
+    "live_harness": "Invokes the production VC.ReadSnapshot and VC.GeneratePlaceholders without initializing Discord. Actual Discord client display was not validated."
+  },
+  "limitations": [
+    "Verified on the installed Steam build; future builds may need pattern or layout updates.",
+    "Only the listed party/dungeon and card change were live-tested; all named assets are not a claim of complete gameplay test coverage.",
+    "PlayerCoins and CardPileCount contain fixed relative CALL operands to distinguish generated clones; they remain ASLR-safe but build-dependent.",
+    "Floor semantics follow the native getter; a floor transition was not live-tested.",
+    "No meaningful maximum mana cap is exposed; startingMana is a separate value."
+  ]
+}

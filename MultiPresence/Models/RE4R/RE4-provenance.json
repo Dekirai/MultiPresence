@@ -1,0 +1,3300 @@
+{
+  "build": 22377325,
+  "source": "Installed game resources",
+  "copyright": "CAPCOM; short game labels, not covered by the parser's license",
+  "parser": {
+    "name": "IntelOrca.Biohazard.REE",
+    "version": "1.3.2",
+    "source": "https://github.com/biorand/reeutils",
+    "note": "Parser used only as extraction tool; no parser code copied into GameText.cs"
+  },
+  "counts": {
+    "ch-purpose": 61,
+    "ch-mapname": 72,
+    "ch-map": 139,
+    "ao-purpose": 38,
+    "ao-mapname": 17,
+    "ao-map": 75,
+    "mc-purpose": 0
+  },
+  "entries": {
+    "7f1a3da5-31fb-49ec-8d2a-7d6b312e6fb4": {
+      "name": "CH_Mes_Main_Sys_Purpose_Update",
+      "english": "New Objective",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0229abf1-f277-4b6b-916c-d7f44ef32af3": {
+      "name": "CH_Mes_Main_Sys_Purpose_1101",
+      "english": "See what's taking so long",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "709de59f-39ed-4ebb-857c-a7a1fd182a64": {
+      "name": "CH_Mes_Main_Sys_Purpose_1102",
+      "english": "Escape from the hunter's lodge",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "1648a14d-2f78-48b9-a5de-b12aa8bd5b98": {
+      "name": "CH_Mes_Main_Sys_Purpose_1103",
+      "english": "Head for the lake",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "284bd033-5acd-478b-91bc-366e11b4ccde": {
+      "name": "CH_Mes_Main_Sys_Purpose_1104",
+      "english": "Fight them off",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "2eccd3c0-beaa-45f6-b607-399f743bbc49": {
+      "name": "CH_Mes_Main_Sys_Purpose_1105",
+      "english": "Head for the lake",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "cdc02c89-6731-4d40-b809-45a19468e716": {
+      "name": "CH_Mes_Main_Sys_Purpose_1202",
+      "english": "Head for the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "e32d7a18-1d18-4ff4-93ec-16c7c5a968f9": {
+      "name": "CH_Mes_Main_Sys_Purpose_1301",
+      "english": "Head for the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "af2438ee-59a9-4376-ae7b-d152f039a00a": {
+      "name": "CH_Mes_Main_Sys_Purpose_1302",
+      "english": "Cross the lake",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "94814eea-6cd9-4ec9-99ee-e7a102563872": {
+      "name": "CH_Mes_Main_Sys_Purpose_1303",
+      "english": "Defeat the lake monster",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "14dabba7-7095-421a-b818-0ed847fe3d6b": {
+      "name": "CH_Mes_Main_Sys_Purpose_2101",
+      "english": "Find the key to the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "19c4943e-d049-43b2-95ab-f316ac598785": {
+      "name": "CH_Mes_Main_Sys_Purpose_2102",
+      "english": "Investigate the two locations",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "57c76953-b236-42b4-b5f0-b5c9aafd2112": {
+      "name": "CH_Mes_Main_Sys_Purpose_2103",
+      "english": "Get the key to the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "23eabe1a-c60e-4b27-88ee-48651684763e": {
+      "name": "CH_Mes_Main_Sys_Purpose_2104",
+      "english": "Head for the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "aae08e56-6a19-4ecb-a5aa-45dfce3b093a": {
+      "name": "CH_Mes_Main_Sys_Purpose_2105",
+      "english": "Defeat the giant",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "95df3cb2-d4e7-4174-85f5-d5e5fb00c8af": {
+      "name": "CH_Mes_Main_Sys_Purpose_2106",
+      "english": "Head for the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "76d806b6-6386-440d-9294-cdb6b10b2c72": {
+      "name": "CH_Mes_Main_Sys_Purpose_2107",
+      "english": "Look for Ashley in the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "09a25085-b1e0-4027-a0e6-e09c89b6d492": {
+      "name": "CH_Mes_Main_Sys_Purpose_2201",
+      "english": "Escape from the church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d9fc9aa4-b4e5-4467-a1a3-a3e6964e2bbb": {
+      "name": "CH_Mes_Main_Sys_Purpose_2202",
+      "english": "Head for the extraction point",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a123074f-8583-4bf2-bc0c-979cc2e38a66": {
+      "name": "CH_Mes_Main_Sys_Purpose_2203",
+      "english": "Stand your ground",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "e2f83f04-6b65-4830-af28-09317fdb0c58": {
+      "name": "CH_Mes_Main_Sys_Purpose_2301",
+      "english": "Escape from the village",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "5dae43b0-58fb-48d6-b19d-8565c4d9b17d": {
+      "name": "CH_Mes_Main_Sys_Purpose_2302",
+      "english": "Flee from the villagers",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "5c9f55f0-0829-4040-8210-c5f1b86e7ee4": {
+      "name": "CH_Mes_Main_Sys_Purpose_2303",
+      "english": "Defeat Méndez",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "ecad1cb9-6383-45e9-813d-76b2d52eea85": {
+      "name": "CH_Mes_Main_Sys_Purpose_2304",
+      "english": "Escape from the slaughterhouse",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "110b7e31-730b-40a8-98f9-4c6fe1fdff7d": {
+      "name": "CH_Mes_Main_Sys_Purpose_2305",
+      "english": "Escape from the village",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d5057270-bb6f-46f1-9e0a-8fd498bac26e": {
+      "name": "CH_Mes_Main_Sys_Purpose_3102",
+      "english": "Head for the courtyard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "263baec7-bdd2-4e14-81a5-92027ce10b34": {
+      "name": "CH_Mes_Main_Sys_Purpose_3103",
+      "english": "Look for another way around",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "f589b939-1a57-4ad6-9ccc-e55e74fba7bf": {
+      "name": "CH_Mes_Main_Sys_Purpose_3104",
+      "english": "Head for the courtyard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0e7a3da5-ddc6-4943-8ced-19565d8c7faa": {
+      "name": "CH_Mes_Main_Sys_Purpose_3201",
+      "english": "Find Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d61f935b-c584-4177-90fb-bf1c10047177": {
+      "name": "CH_Mes_Main_Sys_Purpose_3301",
+      "english": "Head for the ballroom",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "8348af99-d30f-44a9-9123-7a7507f41af3": {
+      "name": "CH_Mes_Main_Sys_Purpose_3302",
+      "english": "Rescue Leon",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "70f39759-d1c2-48ac-80cb-d64d563dd19c": {
+      "name": "CH_Mes_Main_Sys_Purpose_4101",
+      "english": "Head for the throne room",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "c942a27c-c9f1-4a44-b61e-9ab10ebf192d": {
+      "name": "CH_Mes_Main_Sys_Purpose_4102",
+      "english": "Make your way to the surface",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0107ce53-75a1-4ae7-9b23-ac8b0e783065": {
+      "name": "CH_Mes_Main_Sys_Purpose_4201",
+      "english": "Make your way to the surface",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "afaacd61-6c34-439b-9f3a-83c33903bb89": {
+      "name": "CH_Mes_Main_Sys_Purpose_4202",
+      "english": "Defeat the two giants",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "c9be5bb0-293c-4d52-9ad4-8af4913caf37": {
+      "name": "CH_Mes_Main_Sys_Purpose_4203",
+      "english": "Make your way to the surface",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "6eeee628-dd8e-4166-8509-d4b1d12f7f32": {
+      "name": "CH_Mes_Main_Sys_Purpose_4204",
+      "english": "Fight Krauser",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "98043742-4bba-4ebf-8200-69dd9ea0e911": {
+      "name": "CH_Mes_Main_Sys_Purpose_4301",
+      "english": "Make your way to the surface",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "393f5083-fe86-49e9-9a63-f3a5fce97dd7": {
+      "name": "CH_Mes_Main_Sys_Purpose_4302",
+      "english": "Head for the clock tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9eac23f0-0002-466e-a6d3-a25741494000": {
+      "name": "CH_Mes_Main_Sys_Purpose_4303",
+      "english": "Get to top of the clock tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "fff40255-bb7f-48ae-b905-c2426863750e": {
+      "name": "CH_Mes_Main_Sys_Purpose_4304",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a007b8ec-7db8-473c-957e-39d2b239f853": {
+      "name": "CH_Mes_Main_Sys_Purpose_4305",
+      "english": "Defeat Ramón",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9e32defb-51cb-4c6e-9026-bb4d3636bee8": {
+      "name": "CH_Mes_Main_Sys_Purpose_4306",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "15f25299-bfb5-4b25-a675-afabb0fb8d35": {
+      "name": "CH_Mes_Main_Sys_Purpose_5101",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "44d79b9e-8718-4a90-ba3f-2adab6e7e00a": {
+      "name": "CH_Mes_Main_Sys_Purpose_5102",
+      "english": "Rescue Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "77d133e2-4a5a-45c2-8d4f-2345e49aff2c": {
+      "name": "CH_Mes_Main_Sys_Purpose_5103",
+      "english": "Get the Level 3 Keycard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "cb3d3cde-dd72-43e7-a472-a7cb11483b28": {
+      "name": "CH_Mes_Main_Sys_Purpose_5104",
+      "english": "Rescue Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "023b12df-d1ba-4070-85ae-d451f8bc328d": {
+      "name": "CH_Mes_Main_Sys_Purpose_5201",
+      "english": "Make your way to the summit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "085459d4-508e-4308-bb49-cc4d046bd3d7": {
+      "name": "CH_Mes_Main_Sys_Purpose_5202",
+      "english": "Protect Ashley until the wall is destroyed",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "4c9bd0ae-f15b-43bb-b862-f9a56a66445d": {
+      "name": "CH_Mes_Main_Sys_Purpose_5203",
+      "english": "Make your way to the summit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "10df15ca-81ea-4fac-88cb-052e9dda8890": {
+      "name": "CH_Mes_Main_Sys_Purpose_5204",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "c0a233de-b367-4fe9-bc9f-b2a6860fdaa9": {
+      "name": "CH_Mes_Main_Sys_Purpose_5205",
+      "english": "Defeat Krauser",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "b824ceb2-ca27-48de-87ed-fa22cbb05672": {
+      "name": "CH_Mes_Main_Sys_Purpose_5206",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "cfb79675-efaa-4853-8a84-16f33c6b2e2a": {
+      "name": "CH_Mes_Main_Sys_Purpose_5301",
+      "english": "Make your way to the summit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d29fdbb6-85b7-4525-a3e0-c2307cf3a9b2": {
+      "name": "CH_Mes_Main_Sys_Purpose_5302",
+      "english": "Destroy the anti-aircraft gun",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9755d782-4dae-461e-8807-b8c425434966": {
+      "name": "CH_Mes_Main_Sys_Purpose_5303",
+      "english": "Make your way to the summit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "fc080378-a19f-49b8-af2c-235dce195418": {
+      "name": "CH_Mes_Main_Sys_Purpose_5304",
+      "english": "Go after Ashley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9908719e-4083-4975-a520-0ccb3eec8fe8": {
+      "name": "CH_Mes_Main_Sys_Purpose_5305",
+      "english": "Head for Luis's Laboratory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0de341cf-02d9-4a16-b448-e0b294efd09a": {
+      "name": "CH_Mes_Main_Sys_Purpose_5401",
+      "english": "Escape from the island",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "8ee59de7-5220-4a70-b7c9-aa0670847419": {
+      "name": "CH_Mes_Main_Sys_Purpose_5402",
+      "english": "Defeat Saddler",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "6fe9756c-7901-459d-8f9e-da7089536ecb": {
+      "name": "CH_Mes_Main_Sys_Purpose_5403",
+      "english": "Escape from the island",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "2d828842-2314-4152-a5f5-b4d98f7dbef4": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_001",
+      "english": "Hunter's Lodge",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "3f599d8c-369a-4654-9faa-b61358935734": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_002",
+      "english": "Village Square",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "9275491f-e636-474a-948c-273ffe139c85": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_003",
+      "english": "Town Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "b9c837aa-5830-4b61-bf32-ee167682710e": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_004",
+      "english": "Abandoned Factory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "ae642fec-0e9b-460d-9d60-52107cf193a9": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_005",
+      "english": "Valley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "1bf30221-cb18-4be7-8c60-e2b033f1fc62": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_006",
+      "english": "Village Chief's Manor",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "421888a5-651c-45e3-90ff-8de0b8b28564": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_007",
+      "english": "Farm",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f8f6b8dc-b520-4ea1-8465-457e0f97e0c5": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_008",
+      "english": "Villa",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "17887fed-7e90-4edd-bb64-a3151eab11cc": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_009",
+      "english": "Checkpoint",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "60c15875-43ef-403a-8913-373c7b39e9a9": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_010",
+      "english": "Church",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "6858c0bb-e8df-420f-a92c-bc9e73eacba4": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_011",
+      "english": "Fish Farm",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "22c8e964-73de-4ff7-9906-c92d884f709f": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_012",
+      "english": "Quarry",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "d8314fc2-fcfe-4068-b2d2-9d27cafe0222": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_013",
+      "english": "Slaughterhouse",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "791d19da-7bc6-4b25-8462-62e799d65e69": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_014",
+      "english": "Forest Altar",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "dab2dd40-3b45-4a81-b6d8-377b62dbee66": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_015",
+      "english": "Lake",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "bf446493-80e6-42ce-9db7-453dce92b836": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_016",
+      "english": "Lakeside Settlement",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "5609aa40-73bb-43d3-8899-9e0348453948": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_017",
+      "english": "Small Cave Shrine",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f9c4b7b9-ec73-45ab-89eb-df36906e34d4": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_018",
+      "english": "Boat House",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "831ddab6-ff0d-4960-805d-ff557e6ca8fa": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_019",
+      "english": "Mural Cave",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "3d63f62b-e68f-437a-b6ac-5be88e90381d": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref40_020",
+      "english": "Large Cave Shrine",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "8ff5eab0-8bbc-4189-957e-d28475dc2580": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_001",
+      "english": "Chapel",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "77e3ed60-f7e8-4c58-ade2-6a688730b35a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_002",
+      "english": "Castle Gate",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "39d9d2bc-08b2-45cb-a7af-fb4b8ddda285": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_003",
+      "english": "Audience Chamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "01a08f85-c36e-4276-8508-3ea3ffd436f4": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_004",
+      "english": "Dungeons",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "2b60c425-951f-4534-b0ac-c300bbd0992c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_005",
+      "english": "Treasury",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "6ccd2322-f41b-4339-9207-870c52386c5a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_006",
+      "english": "Water Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "c576ed9e-e5e7-4ddd-ac36-ca38dcc02a40": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_007",
+      "english": "Wine Cellar",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "98b9b69f-ccf9-4849-8c20-f7026a229b8c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_008",
+      "english": "Bindery",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "72886140-7090-413a-a418-9e55b65f6490": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_009",
+      "english": "Castle Battlements",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "d0ce3701-2b3f-4963-86ee-66cf54966db7": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_010",
+      "english": "Courtyard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "9a862042-080f-4b82-bcf2-d12b8a6e9f9c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_011",
+      "english": "Gallery",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "ccf94fa4-f44a-4e50-81d9-90ff58400527": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_012",
+      "english": "Mausoleum",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "3dfe3247-ee6f-4ad7-95e5-5c26a6cc6eda": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_013",
+      "english": "Library",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "db623f87-eb8b-4b92-a596-51a5ce159871": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_014",
+      "english": "Grand Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "4fd149b8-a0fb-4a5b-85c3-59bcf2760dd9": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_015",
+      "english": "Armory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "66c44f3a-aeef-45e3-b29e-3f95c54e871c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_016",
+      "english": "Dining Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "1159ed72-621d-4f12-b971-eefaaa5f60c6": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_017",
+      "english": "Ballroom",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "c7946542-27b6-448c-8e96-28523ae4de77": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_018",
+      "english": "Ancient Chantry",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "7286eb4b-a079-4bf9-95cf-0473da70ce3e": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_019",
+      "english": "Antechamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "db92e30a-1557-41a9-bb56-c50c7a86f72b": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_020",
+      "english": "Throne Room",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "71ba9905-c528-4417-a4fa-acbd97db610a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_021",
+      "english": "Dock",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "be1af815-c301-4639-873d-c91829fce19a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_022",
+      "english": "Stopover",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "d7fd2fb0-4b85-498e-90a8-4f388cf36c9c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_023",
+      "english": "Mines",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "a1d7157e-c395-46aa-bcd7-41dd8ddd2f48": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_024",
+      "english": "Underground Laboratory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "9ea2bd1e-c8a8-4141-8c46-0eb65aeaca3e": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_025",
+      "english": "Blast Furnace",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "82a1e1bd-6bdf-4ac5-9b9b-001c7f808081": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_026",
+      "english": "Hive",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "c9b3876c-22c9-4d22-bc38-74b1ce49b086": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_027",
+      "english": "Depths",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "7b84fffc-4a17-4282-9e98-69178335f21b": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref50_028",
+      "english": "Clock Tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "faf4be46-df2b-41c4-b656-f46ac43efe8a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_001",
+      "english": "Wharf",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "ed5077e1-8b3d-4b29-a8bd-1874f21cd6f3": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_003",
+      "english": "Utilities",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "bf67f830-9f3e-498f-8a71-818e6686d61f": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_004",
+      "english": "Freezer",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "e4559029-2658-43a7-808c-2edf97e55604": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_005",
+      "english": "Dissection",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "e399fc47-52ca-42e8-8ed5-0518d6d3c2ac": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_006",
+      "english": "Surveillance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "e0778f0d-1854-47e6-9c38-633ce2bb8ee4": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_007",
+      "english": "Holding Cell",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f99314b8-7d5d-4bee-ab21-2362126f86fb": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_008",
+      "english": "Incubation Lab",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "a78a7260-3e15-4032-b577-3e5590bf7107": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_009",
+      "english": "Systems",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "3935c3ae-0a96-48ef-b3a6-588bc1acde65": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_010",
+      "english": "Facility 1 Storage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "c518845d-cc10-440f-b19b-65d73e449641": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_011",
+      "english": "Facility 2",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "c5c12f41-bb20-4df4-8a55-1952ebcb29e1": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_012",
+      "english": "Cargo Depot",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "4093338d-b23b-44bb-8a0b-612e621c9519": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_013",
+      "english": "Waste Disposal",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "8051af19-42dd-400e-abd8-bf987c626e4b": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_014",
+      "english": "Amber Storeroom",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "4c09d52e-7b43-4467-af0c-74906e330aed": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_015",
+      "english": "Campsite",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "5ef7f77d-7715-4a73-99e0-1dd43117aede": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_016",
+      "english": "Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "b554e3c0-01c3-40e7-acc7-a46af2b2925a": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_017",
+      "english": "Stronghold",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "e26e665f-2e46-4dd9-ab3f-506cbc8f0daa": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_018",
+      "english": "Bulwark Gate",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "fc97db00-080d-47f3-864f-44bc87a205ac": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_019",
+      "english": "Specimen Storage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f16b3fa3-c60f-4dbc-bb34-ab4d24541f68": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_020",
+      "english": "Sanctuary Approach",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "43630c30-17c8-4cb0-86b1-4276967e6dba": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_021",
+      "english": "Sanctuary",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "8bb9485a-a05f-4a52-b364-4cfcb260a1e2": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_022",
+      "english": "Luis's Laboratory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "138b14a8-c744-4166-896c-49605162209c": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_023",
+      "english": "Loading Docks",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "eb644740-213d-433f-8f0b-c4f8b45824b5": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_024",
+      "english": "Underground Passage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f8b09e1b-142a-4621-a716-6f72d2a6d742": {
+      "name": "CH_Mes_Main_Sys_MapName_Pref60_025",
+      "english": "Cliffside Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "9d2908c4-4418-4166-85ca-c47d558e4f2a": {
+      "name": "CH_Mes_Main_Sys_Map_Pref_Pref40",
+      "english": "Village",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9f913a20-65fc-4b82-83b3-fa6ec239a2b6": {
+      "name": "CH_Mes_Main_Sys_Map_Pref_Pref50",
+      "english": "Castle",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6579641e-7dfe-4aac-b300-6d275c042d4a": {
+      "name": "CH_Mes_Main_Sys_Map_Pref_Pref60",
+      "english": "Island",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e07e0556-5764-4198-972c-e8a06c49ed91": {
+      "name": "CH_Mes_Main_Sys_Map_Type001",
+      "english": "Town Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "56e643d3-5090-473c-880d-7c3f5a13fd9c": {
+      "name": "CH_Mes_Main_Sys_Map_Type002",
+      "english": "Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e10149e6-98e5-4b12-a70b-d5d72c4f5fd7": {
+      "name": "CH_Mes_Main_Sys_Map_Type004",
+      "english": "Village Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d9cfce10-0cb3-42d2-b67c-b8d1424576e6": {
+      "name": "CH_Mes_Main_Sys_Map_Type011",
+      "english": "Farm",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "aa38393d-6d6c-4539-9064-58b28b70eb72": {
+      "name": "CH_Mes_Main_Sys_Map_Type012",
+      "english": "Abandoned Factory Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "fb23da52-1a5b-461b-afab-a5f88915b602": {
+      "name": "CH_Mes_Main_Sys_Map_Type013",
+      "english": "Village Chief's Manor",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ba8e8bf0-7844-4397-b90b-8f5c5737d9b4": {
+      "name": "CH_Mes_Main_Sys_Map_Type014",
+      "english": "Church Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "032d21ee-db48-4270-b2be-08ba6ccab0ed": {
+      "name": "CH_Mes_Main_Sys_Map_Type017",
+      "english": "Merchant Hideout",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b5520759-0f92-4f95-86a0-f2099865a107": {
+      "name": "CH_Mes_Main_Sys_Map_Type018",
+      "english": "Gorge",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8f7a8882-990a-4b42-a051-089f840e44a5": {
+      "name": "CH_Mes_Main_Sys_Map_Type021",
+      "english": "Slaughterhouse Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e5c22761-143b-471f-b3d2-d99dd6c89cef": {
+      "name": "CH_Mes_Main_Sys_Map_Type022",
+      "english": "Castle Entrance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "08f3571f-9a7f-4149-b6d1-b084e1c8e314": {
+      "name": "CH_Mes_Main_Sys_Map_Type023",
+      "english": "Audience Chamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2687a0d7-84c2-4daa-8d68-bb9072ad6ce6": {
+      "name": "CH_Mes_Main_Sys_Map_Type024",
+      "english": "Water Hall Entryway",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2ef4037d-fd99-4aee-bbb9-9b8281c9aa14": {
+      "name": "CH_Mes_Main_Sys_Map_Type025",
+      "english": "Courtyard Exterior",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "491659c4-393a-4e79-a6fb-ee5258094e9e": {
+      "name": "CH_Mes_Main_Sys_Map_Type026",
+      "english": "Castle Battlements Entrance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "dc7f2dbc-33e6-469a-8532-06b7804788b3": {
+      "name": "CH_Mes_Main_Sys_Map_Type027",
+      "english": "Courtyard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "70159800-be9c-4cb9-b4d2-fee79aee004f": {
+      "name": "CH_Mes_Main_Sys_Map_Type028",
+      "english": "Grand Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f7fb53a4-03d9-4d61-8633-b88aca39aeaa": {
+      "name": "CH_Mes_Main_Sys_Map_Type029",
+      "english": "Library",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "fc728d3b-8783-47fe-999d-c376e28befe3": {
+      "name": "CH_Mes_Main_Sys_Map_Type030",
+      "english": "Antechamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "45f7ea68-09fd-45b3-bb9f-ade67a04a07c": {
+      "name": "CH_Mes_Main_Sys_Map_Type031",
+      "english": "Waterway",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "004bbaa6-0bea-4a87-8d86-d39f5678fd1e": {
+      "name": "CH_Mes_Main_Sys_Map_Type032",
+      "english": "Underground Tunnel",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c80e28f6-9bb0-419a-8559-1352af549cec": {
+      "name": "CH_Mes_Main_Sys_Map_Type033",
+      "english": "Underground Tunnel",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "34c93585-85a1-46b3-9ead-cc13288244b2": {
+      "name": "CH_Mes_Main_Sys_Map_Type034",
+      "english": "Stopover",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0772ac9a-1f73-433e-b2b8-3a6264cf25e9": {
+      "name": "CH_Mes_Main_Sys_Map_Type035",
+      "english": "Hive",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "04037589-11bd-4e91-9449-218d1e0a9d6d": {
+      "name": "CH_Mes_Main_Sys_Map_Type036",
+      "english": "Gondola (Ballroom)",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f78fcd51-003c-40d4-9d03-0a7607b1ea65": {
+      "name": "CH_Mes_Main_Sys_Map_Type037",
+      "english": "Central Clock Tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "39333386-3cb9-4ab7-8905-b0e559b7bab0": {
+      "name": "CH_Mes_Main_Sys_Map_Type038",
+      "english": "Upper Clock Tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "095e5e00-9713-4fe7-93de-e57f5b39e6e3": {
+      "name": "CH_Mes_Main_Sys_Map_Type039",
+      "english": "Dock",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a5c94082-c5ca-43aa-ad91-d385ae5bd69d": {
+      "name": "CH_Mes_Main_Sys_Map_Type040",
+      "english": "Underground Passage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8cda1a53-6171-4e09-ba15-b888049983c7": {
+      "name": "CH_Mes_Main_Sys_Map_Type041",
+      "english": "Eroded Cave",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "5bad92ea-8c35-4620-a75f-1b7ff1b06c34": {
+      "name": "CH_Mes_Main_Sys_Map_Type042",
+      "english": "Surveillance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "cc382756-7c75-49ac-9948-2aa67a7b94c3": {
+      "name": "CH_Mes_Main_Sys_Map_Type043",
+      "english": "Utilities",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "976e1ad1-1c77-4149-a78f-4d651f9edae8": {
+      "name": "CH_Mes_Main_Sys_Map_Type045",
+      "english": "Facility 1 Exit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f7b29ade-083d-4df0-8f4b-53ee5950e96c": {
+      "name": "CH_Mes_Main_Sys_Map_Type046",
+      "english": "Facility 2",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a15ce3fe-5e9d-4046-85e8-d1102f934538": {
+      "name": "CH_Mes_Main_Sys_Map_Type047",
+      "english": "Campsite",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "bee870b5-5897-41df-803d-4f4f493e7d35": {
+      "name": "CH_Mes_Main_Sys_Map_Type048",
+      "english": "Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "538ca7b3-24cf-4849-8c2b-07393c320d17": {
+      "name": "CH_Mes_Main_Sys_Map_Type049",
+      "english": "Cliff Behind the Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "97454603-85f9-4efa-8d2f-9366f8df657c": {
+      "name": "CH_Mes_Main_Sys_Map_Type050",
+      "english": "Bulwark Gate",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c55c679f-4a99-4f32-b5a9-e34a0078b9bf": {
+      "name": "CH_Mes_Main_Sys_Map_Type052",
+      "english": "Specimen Storage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "fbe1f361-54cf-4048-bd45-6f21892ebeb6": {
+      "name": "CH_Mes_Main_Sys_Map_Type053",
+      "english": "Sanctuary",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "80e91294-6a9b-47f9-b622-fa44b5115230": {
+      "name": "CH_Mes_Main_Sys_Map_Type054",
+      "english": "Facility 2",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4430f5d8-1210-4baa-af89-09e00669941d": {
+      "name": "CH_Mes_Main_Sys_Map_Auto004",
+      "english": "Hunter's Lodge",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a1ec4025-797f-4d65-8e3c-a7c77c08dffa": {
+      "name": "CH_Mes_Main_Sys_Map_Auto006",
+      "english": "Village Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a6f6a0a1-85c2-412b-8255-66e157fa1dc9": {
+      "name": "CH_Mes_Main_Sys_Map_Auto007",
+      "english": "Village Square",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "88933979-9dfe-4331-851d-64449fedfe8f": {
+      "name": "CH_Mes_Main_Sys_Map_Auto009",
+      "english": "Farm",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "14caad31-e768-4987-a88c-734cad309d20": {
+      "name": "CH_Mes_Main_Sys_Map_Auto011",
+      "english": "Lake Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "20a96759-0caa-4d8d-8db5-c6d393651aac": {
+      "name": "CH_Mes_Main_Sys_Map_Auto012",
+      "english": "Lakeside Settlement",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a955acbc-7cb0-4109-afb0-6be54ae22b8e": {
+      "name": "CH_Mes_Main_Sys_Map_Auto014",
+      "english": "Abandoned Factory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c701c2ce-0b25-4750-893a-26306d6792b2": {
+      "name": "CH_Mes_Main_Sys_Map_Auto015",
+      "english": "Abandoned Factory Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "04d2b8dd-cb0c-49ad-8e44-7579a111b9f1": {
+      "name": "CH_Mes_Main_Sys_Map_Auto016",
+      "english": "Valley",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0dbf9a9e-7615-46af-8f9b-b5972266dbab": {
+      "name": "CH_Mes_Main_Sys_Map_Auto020",
+      "english": "Village Chief's Manor",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e6ec2ce4-14c9-4732-b4fc-d7201eac6421": {
+      "name": "CH_Mes_Main_Sys_Map_Auto022",
+      "english": "Cemetery",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "21e0acaa-a88c-446b-8aa0-6a7ff4884c0f": {
+      "name": "CH_Mes_Main_Sys_Map_Auto023",
+      "english": "Church Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "22ebc16c-0642-47af-9e59-0edfacfe36e4": {
+      "name": "CH_Mes_Main_Sys_Map_Auto024",
+      "english": "Quarry",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0b8d8609-92a5-40b2-924d-1bf4d8d4d489": {
+      "name": "CH_Mes_Main_Sys_Map_Auto025",
+      "english": "Fish Farm",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "1eff0dde-eceb-43db-b807-b11965ef7a12": {
+      "name": "CH_Mes_Main_Sys_Map_Auto027",
+      "english": "Lake Jetty",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b4dcdb36-d164-418a-aa9c-cfeae1e02739": {
+      "name": "CH_Mes_Main_Sys_Map_Auto028",
+      "english": "Behind the Boat House",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "5a44f214-9b49-4910-a996-0d5268e9ae36": {
+      "name": "CH_Mes_Main_Sys_Map_Auto029",
+      "english": "Mural Cave",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "1bc90d45-41e5-407f-bab7-e3b501440459": {
+      "name": "CH_Mes_Main_Sys_Map_Auto030",
+      "english": "Lake",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f4f1c4c4-ceac-43f3-a066-be26cadee3d2": {
+      "name": "CH_Mes_Main_Sys_Map_Auto032",
+      "english": "Lake Jetty",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "edc725c9-c07a-418e-8395-e3ff61a7a632": {
+      "name": "CH_Mes_Main_Sys_Map_Auto033",
+      "english": "Lakeside Settlement",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "df66f8dc-af55-44c1-8da9-4ef614733d3e": {
+      "name": "CH_Mes_Main_Sys_Map_Auto034",
+      "english": "Small Cave Shrine",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "fe5562c7-731d-4d23-84ba-a2a5614779ed": {
+      "name": "CH_Mes_Main_Sys_Map_Auto035",
+      "english": "Large Cave Shrine",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "635c8821-72b3-42e0-806f-6b5c82b5f537": {
+      "name": "CH_Mes_Main_Sys_Map_Auto042",
+      "english": "Town Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b46aa27b-c1e8-4e1d-b9d3-086c81a57c8e": {
+      "name": "CH_Mes_Main_Sys_Map_Auto045",
+      "english": "Villa Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "82a96e75-2082-40db-8cb0-0c10c5703d13": {
+      "name": "CH_Mes_Main_Sys_Map_Auto046",
+      "english": "Castle Entrance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "488a2e47-267f-4ac9-b853-8a9c3cd3ba1b": {
+      "name": "CH_Mes_Main_Sys_Map_Auto047",
+      "english": "Castle Gate",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "372085cc-c1f6-4a2c-b8e1-56f69d37fdd4": {
+      "name": "CH_Mes_Main_Sys_Map_Auto050",
+      "english": "Audience Chamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "08c1a104-acd8-4ebc-a7ed-b5b118a80e38": {
+      "name": "CH_Mes_Main_Sys_Map_Auto051",
+      "english": "Dungeons",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4b8621be-1d72-4c02-bbd5-bd0392b4c305": {
+      "name": "CH_Mes_Main_Sys_Map_Auto052",
+      "english": "Treasury",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ab9985c3-f611-4c00-a243-ba4c201345d6": {
+      "name": "CH_Mes_Main_Sys_Map_Auto053",
+      "english": "Audience Chamber",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "dd28468a-3fc6-45d4-83ae-19446fb43a04": {
+      "name": "CH_Mes_Main_Sys_Map_Auto054",
+      "english": "Water Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a0e88b24-6e62-44af-9664-e96ec1985853": {
+      "name": "CH_Mes_Main_Sys_Map_Auto056",
+      "english": "Courtyard Exterior",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "89e6dbdb-933e-4e04-a806-e710801c0a75": {
+      "name": "CH_Mes_Main_Sys_Map_Auto058",
+      "english": "Wine Cellar",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "136a9e18-56ee-4335-9f53-9e5cfc6489ef": {
+      "name": "CH_Mes_Main_Sys_Map_Auto059",
+      "english": "Bindery",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "7af75026-7453-4bd2-ad11-7f1366ea2a2e": {
+      "name": "CH_Mes_Main_Sys_Map_Auto061",
+      "english": "Castle Battlements",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "7d9f2b59-efce-4191-b21a-d674695f36b2": {
+      "name": "CH_Mes_Main_Sys_Map_Auto065",
+      "english": "Courtyard",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b5baa8f6-b0d7-4ca1-a733-75697432d38b": {
+      "name": "CH_Mes_Main_Sys_Map_Auto068",
+      "english": "Grand Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "82e5cec1-8555-4c4b-9639-51ec95ecede7": {
+      "name": "CH_Mes_Main_Sys_Map_Auto069",
+      "english": "Armory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b27d4482-9331-46b0-8992-705bb7bb11c9": {
+      "name": "CH_Mes_Main_Sys_Map_Auto070",
+      "english": "Gallery",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "276f4941-1f63-474a-85ed-c14c000fa279": {
+      "name": "CH_Mes_Main_Sys_Map_Auto073",
+      "english": "Library",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6e4ad9f7-fec4-488f-af67-5e8312f1972e": {
+      "name": "CH_Mes_Main_Sys_Map_Auto079",
+      "english": "Mausoleum",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "850bf58b-d2bb-4d21-8bcc-ddfd254026bf": {
+      "name": "CH_Mes_Main_Sys_Map_Auto084",
+      "english": "Ballroom Entryway",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "48833b77-c3d7-4bd9-b90b-13e4bf7217e7": {
+      "name": "CH_Mes_Main_Sys_Map_Auto086",
+      "english": "Fountain Steps",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "77b797d2-3b4f-4f47-9edd-a94a95017a49": {
+      "name": "CH_Mes_Main_Sys_Map_Auto088",
+      "english": "Depths",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b9984868-62c3-4385-b131-27cdc582bbad": {
+      "name": "CH_Mes_Main_Sys_Map_Auto089",
+      "english": "Waterway",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "833c0372-cd4e-408b-b4bb-b73c244333a6": {
+      "name": "CH_Mes_Main_Sys_Map_Auto090",
+      "english": "Underground Laboratory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "902c4bd8-83d6-4556-b23b-59a7fa3056b9": {
+      "name": "CH_Mes_Main_Sys_Map_Auto091",
+      "english": "Lower Clock Tower",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4a8e9fa6-4e35-4203-8a93-644e594f80a5": {
+      "name": "CH_Mes_Main_Sys_Map_Auto094",
+      "english": "Upper Clock Tower Exterior",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "132a9f47-fd12-486c-b317-7b5bbc0b19a1": {
+      "name": "CH_Mes_Main_Sys_Map_Auto096",
+      "english": "Dock",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "43f0081c-d033-470f-9398-ef4799377c62": {
+      "name": "CH_Mes_Main_Sys_Map_Auto097",
+      "english": "Luis's Laboratory",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "295c3f81-42a9-4d42-9181-9e266985159a": {
+      "name": "CH_Mes_Main_Sys_Map_Auto098",
+      "english": "Loading Docks",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "76fdb238-a717-474d-b683-7d2555edd946": {
+      "name": "CH_Mes_Main_Sys_Map_Auto099",
+      "english": "Villa Rear Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d0c92113-1355-41be-8463-e7978fc018c7": {
+      "name": "CH_Mes_Main_Sys_Map_Auto100",
+      "english": "Gorge",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "15b332a8-b91b-4493-980d-23c231814118": {
+      "name": "CH_Mes_Main_Sys_Map_Auto101",
+      "english": "Checkpoint Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "84d4c60f-7e5c-4265-a1aa-02255170806b": {
+      "name": "CH_Mes_Main_Sys_Map_Auto102",
+      "english": "Checkpoint",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a7e32ca2-27df-469a-a79e-a2525ca09274": {
+      "name": "CH_Mes_Main_Sys_Map_Auto106",
+      "english": "Village Outskirts Path",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "3c4dbf15-788c-49fb-9550-81aaa3d2f104": {
+      "name": "CH_Mes_Main_Sys_Map_Auto107",
+      "english": "Slaughterhouse Grounds",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "938544cd-da3d-4114-9091-4f040aa636ce": {
+      "name": "CH_Mes_Main_Sys_Map_Auto108",
+      "english": "Slaughterhouse",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "23fcdd2e-660b-43c8-b25b-ab94d16ae9a3": {
+      "name": "CH_Mes_Main_Sys_Map_Auto110",
+      "english": "Underground Tunnel",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9b215e6a-15a3-4e8d-b96f-1d3dd729ab04": {
+      "name": "CH_Mes_Main_Sys_Map_Auto111",
+      "english": "Mines",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "718472a5-9770-4474-83bc-e0ed00c7b02c": {
+      "name": "CH_Mes_Main_Sys_Map_Auto115",
+      "english": "Stopover",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "36f6599e-c9eb-45d1-b77b-0c87b26a4233": {
+      "name": "CH_Mes_Main_Sys_Map_Auto120",
+      "english": "Hive",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "5dd4b1c4-7c1c-45b7-8e4e-d84c3c5395a6": {
+      "name": "CH_Mes_Main_Sys_Map_Auto122",
+      "english": "Underground Passage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "58a3678d-c6be-4ddc-9420-b9fe81e096aa": {
+      "name": "CH_Mes_Main_Sys_Map_Auto124",
+      "english": "Eroded Cave",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "3d23474b-0308-436c-99d5-cc8ad85cc562": {
+      "name": "CH_Mes_Main_Sys_Map_Auto126",
+      "english": "Wharf",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b8bc7d7a-9e3e-41d7-baf3-ba43305742ea": {
+      "name": "CH_Mes_Main_Sys_Map_Auto127",
+      "english": "Facility 1 Rear Entrance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c7229034-9e99-4dff-b737-5cbe2442844d": {
+      "name": "CH_Mes_Main_Sys_Map_Auto128",
+      "english": "Surveillance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "7add2393-8af9-43cd-ad8d-c047fb7539f1": {
+      "name": "CH_Mes_Main_Sys_Map_Auto129",
+      "english": "Facility 1 Storage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a786e4ec-fc6b-46d6-ab7d-9e83be36c655": {
+      "name": "CH_Mes_Main_Sys_Map_Auto130",
+      "english": "Utilities",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e5cb3515-c4dd-4adc-adc9-a60e9976502c": {
+      "name": "CH_Mes_Main_Sys_Map_Auto131",
+      "english": "Dissection",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6916a2ab-eda4-495e-8619-9714c7f18836": {
+      "name": "CH_Mes_Main_Sys_Map_Auto132",
+      "english": "Freezer",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "69791729-74f7-4dc6-aa11-798ec0ba18a2": {
+      "name": "CH_Mes_Main_Sys_Map_Auto133",
+      "english": "Systems",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "40544d53-92e3-41c6-bebd-86170e51c3c7": {
+      "name": "CH_Mes_Main_Sys_Map_Auto134",
+      "english": "Incubation Lab",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c443c020-4ac2-4cfe-ad53-a82593342d21": {
+      "name": "CH_Mes_Main_Sys_Map_Auto135",
+      "english": "Waste Disposal",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "480da09c-98a1-4453-8ab3-dd7ee95dff9c": {
+      "name": "CH_Mes_Main_Sys_Map_Auto136",
+      "english": "Amber Storeroom",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c379ac91-30e9-400a-9058-f3dde3c37b31": {
+      "name": "CH_Mes_Main_Sys_Map_Auto137",
+      "english": "Facility 1 Exit",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "98834f8d-f61e-4464-a9bc-1c0fc876beb0": {
+      "name": "CH_Mes_Main_Sys_Map_Auto138",
+      "english": "Facility 2",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a77f966b-41d3-4907-8e74-893aa0bce143": {
+      "name": "CH_Mes_Main_Sys_Map_Auto142",
+      "english": "Campsite",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d110c8a3-0e86-4767-8ceb-c67515fbe885": {
+      "name": "CH_Mes_Main_Sys_Map_Auto143",
+      "english": "Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e21a8c50-5fbc-4b83-a816-ce8929aab2fa": {
+      "name": "CH_Mes_Main_Sys_Map_Auto150",
+      "english": "Stronghold",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "88c96532-2fe6-402d-9306-bff1db61522b": {
+      "name": "CH_Mes_Main_Sys_Map_Auto153",
+      "english": "Bulwark Gate",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b587bd20-c459-4160-bac6-65647df337bd": {
+      "name": "CH_Mes_Main_Sys_Map_Auto154",
+      "english": "Cliffside Ruins",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2300b01f-8ffc-4667-a38a-b8b98d663c0c": {
+      "name": "CH_Mes_Main_Sys_Map_Auto155",
+      "english": "Specimen Storage",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "194db5ae-612c-4a2c-b5e1-6ee8f7019066": {
+      "name": "CH_Mes_Main_Sys_Map_Auto157",
+      "english": "Sanctuary",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "58ca4939-ed46-47b0-b543-0a273414ba1d": {
+      "name": "CH_Mes_Main_Sys_Map_Auto158",
+      "english": "Loading Docks",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "32979a68-831b-4c21-b6fb-ffe25b6a52c9": {
+      "name": "CH_Mes_Main_Sys_Map_Auto163",
+      "english": "Dining Hall",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f26191d8-0d48-48a4-8948-b4642882d5a1": {
+      "name": "CH_Mes_Main_Sys_Map_Auto166",
+      "english": "Boat House",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0a38b027-8287-4f1c-a74b-35ed328d06a9": {
+      "name": "CH_Mes_Main_Sys_Map_Auto167",
+      "english": "Cliffside Dock",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "5aa70406-3e34-4f5b-bb67-edc30c7158fe": {
+      "name": "CH_Mes_Main_Sys_Map_Auto169",
+      "english": "Underground Railcar (Audience Chamber)",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8194f25d-b4d2-40b3-bad5-3e3ab09e665b": {
+      "name": "CH_Mes_Main_Sys_Map_Auto170",
+      "english": "Underground Railcar (Grand Hall)",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a8950213-1b1a-47bf-bfc3-67f4918b0c87": {
+      "name": "CH_Mes_Main_Sys_Map_Auto173",
+      "english": "Gondola (Ballroom)",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "92607a40-f5e3-4eb4-8a94-45db23cc4238": {
+      "name": "CH_Mes_Main_Sys_Map_Auto175",
+      "english": "Gondola (Clock Tower)",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d9acf2d6-7791-4004-b9aa-9451e588770a": {
+      "name": "CH_Mes_Main_Sys_Map_Auto176",
+      "english": "Freezer Entrance",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "24765789-cf1d-4260-ac06-720f79ed6c2f": {
+      "name": "CH_Mes_Main_Sys_Map_Auto178",
+      "english": "Ballroom",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9736ef9d-b0f4-41a8-9e9d-41a5062b2910": {
+      "name": "CH_Mes_Main_Sys_Map_Auto184",
+      "english": "Ancient Chantry",
+      "source": "natives/stm/_chainsaw/message/mes_main_sys/ch_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a969c020-b683-4434-8ff0-87c8494ca044": {
+      "name": "AO_Mes_Main_Sys_Purpose_0101",
+      "english": "Escape from the dungeons",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "facae8d8-9665-4c63-91c5-1fca6f2a6f67": {
+      "name": "AO_Mes_Main_Sys_Purpose_0102",
+      "english": "Fight the Black Robe",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d753e7f5-ae9c-4715-a2c0-49fbf3753e3d": {
+      "name": "AO_Mes_Main_Sys_Purpose_0103",
+      "english": "Head for the exit",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "cd3e11cf-061f-495a-8ffe-b14fcc6a11c9": {
+      "name": "AO_Mes_Main_Sys_Purpose_0104",
+      "english": "Escape from the castle",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "edb1e711-722c-4e3f-a959-d8f32cd7c914": {
+      "name": "AO_Mes_Main_Sys_Purpose_1101",
+      "english": "Head for the church",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "393bc90d-d2b3-49d4-8800-ff2901945a4f": {
+      "name": "AO_Mes_Main_Sys_Purpose_1102",
+      "english": "Head for the village chief's manor",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "2a5a1a1e-84e2-4caa-9fee-8efa05bf1052": {
+      "name": "AO_Mes_Main_Sys_Purpose_1103",
+      "english": "Fight the Black Robe",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "c5d4c3c8-89ce-4efc-b0d4-7c74a48aa7e3": {
+      "name": "AO_Mes_Main_Sys_Purpose_1104",
+      "english": "Head for the village chief's manor",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d07d3461-6e98-401e-982e-bd98d08a7b96": {
+      "name": "AO_Mes_Main_Sys_Purpose_2102",
+      "english": "Find a clue on Luis's whereabouts",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "8c0f981b-19da-4c6d-a433-7beea1666207": {
+      "name": "AO_Mes_Main_Sys_Purpose_2103",
+      "english": "Head for the abandoned factory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "2ca3695e-fb3f-4e89-8323-8bc58643f927": {
+      "name": "AO_Mes_Main_Sys_Purpose_2104",
+      "english": "Search for Luis",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "491bdfde-e85b-471d-aaf4-97a16273d7ad": {
+      "name": "AO_Mes_Main_Sys_Purpose_2105",
+      "english": "Leave the abandoned factory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9dd55dc3-4a39-46ac-975d-923c1c0cd210": {
+      "name": "AO_Mes_Main_Sys_Purpose_2106",
+      "english": "Flee from the villagers",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "058935a4-1efc-4a6c-8496-5a285145d211": {
+      "name": "AO_Mes_Main_Sys_Purpose_2107",
+      "english": "Enter the abandoned factory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a9ad66a3-c864-42b2-8917-57a043f981c5": {
+      "name": "AO_Mes_Main_Sys_Purpose_2201",
+      "english": "Head for the villa",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "d14cb708-8836-4b87-b970-ab908d366a87": {
+      "name": "AO_Mes_Main_Sys_Purpose_2202",
+      "english": "Defeat the giant",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "63ce9478-2039-4ed1-bfea-8fd449f8dec4": {
+      "name": "AO_Mes_Main_Sys_Purpose_3101",
+      "english": "Obtain the suppressant",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "b1cedb12-778a-4c92-8e4c-9aff4d8f2c29": {
+      "name": "AO_Mes_Main_Sys_Purpose_3102",
+      "english": "Go after Luis",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a120ec1a-c904-4c62-bb14-a1d57fb1fcb1": {
+      "name": "AO_Mes_Main_Sys_Purpose_3103",
+      "english": "Go back upstairs",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "87e1fec9-f56c-4512-b3c3-337849e8898d": {
+      "name": "AO_Mes_Main_Sys_Purpose_3104",
+      "english": "Search for the three ingredients",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "dc9f4bf4-8662-4b51-a825-24c9698ab74f": {
+      "name": "AO_Mes_Main_Sys_Purpose_3105",
+      "english": "Get the stone from the red-robed zealot",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "1a8d3728-da40-467d-9004-c1590676a032": {
+      "name": "AO_Mes_Main_Sys_Purpose_3106",
+      "english": "Search for the three ingredients",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "7712fdb5-3a07-49e1-ac19-1ed6ea62ce82": {
+      "name": "AO_Mes_Main_Sys_Purpose_3201",
+      "english": "Go after Luis",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "b1bae387-75e6-4d48-9f0d-5ba44c074993": {
+      "name": "AO_Mes_Main_Sys_Purpose_3202",
+      "english": "Go through the waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0a9e068d-697d-4d4a-9149-e48edd59e959": {
+      "name": "AO_Mes_Main_Sys_Purpose_3203",
+      "english": "Defeat the Black Robe",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "3d6a0089-3f5b-429a-a08b-c91f5fa0c324": {
+      "name": "AO_Mes_Main_Sys_Purpose_3204",
+      "english": "Defeat Pesanta",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "9fc45d18-e99b-4dfc-a8be-4e5e99b18fad": {
+      "name": "AO_Mes_Main_Sys_Purpose_3205",
+      "english": "Search for Luis",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "8bb04a30-d1ef-4495-a07f-97c40264c004": {
+      "name": "AO_Mes_Main_Sys_Purpose_3206",
+      "english": "Go after Krauser",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "648976b6-9dcf-4fe9-83e3-47830b378439": {
+      "name": "AO_Mes_Main_Sys_Purpose_3207",
+      "english": "Go after Krauser",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "b7942495-aed3-4539-948e-de3841dd67db": {
+      "name": "AO_Mes_Main_Sys_Purpose_4101",
+      "english": "Head for the comms facility",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a21fa476-515a-40ad-a7c7-df939fb3bbbe": {
+      "name": "AO_Mes_Main_Sys_Purpose_4102",
+      "english": "Find a way out of Facility 1",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "f69506fd-5a55-4156-8d30-2f9faca1fff1": {
+      "name": "AO_Mes_Main_Sys_Purpose_4103",
+      "english": "Head for the comms facility",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a622a736-4b8b-43e8-8ee8-ccbbfdb4bdcb": {
+      "name": "AO_Mes_Main_Sys_Purpose_4104",
+      "english": "Connect the device",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "a5e6c656-5391-435a-8a6b-405239ab0ddf": {
+      "name": "AO_Mes_Main_Sys_Purpose_4105",
+      "english": "Leave the facility",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "ae220de0-c680-40fd-8c3e-30db6259df0a": {
+      "name": "AO_Mes_Main_Sys_Purpose_5101",
+      "english": "Take the Amber back from Saddler",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "3c4794e1-7c49-4510-a234-8a0cfc070a5a": {
+      "name": "AO_Mes_Main_Sys_Purpose_5102",
+      "english": "Defeat Saddler",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "36b49652-8639-4b86-b4c9-98c3fe7147b9": {
+      "name": "AO_Mes_Main_Sys_Purpose_5103",
+      "english": "Obtain a powerful weapon",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "3617962a-e54c-4a60-895f-9a6da1663178": {
+      "name": "AO_Mes_Main_Sys_Purpose_5104",
+      "english": "Give the rocket launcher to Leon",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_purpose.msg.22",
+      "category": "purpose"
+    },
+    "0ccfd95b-1af6-4715-9668-3577c9957dc4": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref40_001",
+      "english": "Cliff",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "ea56cb3f-f336-4712-91b8-c652dbda1abc": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_001",
+      "english": "Fortified Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "36c02cab-ba43-46b9-a741-940dda45a1d7": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_003",
+      "english": "Hall of Tribulation",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "f828796c-0797-4d04-b525-b223fee3b859": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_004",
+      "english": "Treasure Room",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "94920b8f-6bf5-48bf-a6f8-33f2d946b01d": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_005",
+      "english": "Collection Room",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "5d2a606f-c4fd-470b-88ff-eac7c00c3892": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_006",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "98125082-bcee-4226-a32a-b1a22c556eaa": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_007",
+      "english": "Cavern",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "5febada6-9709-41c2-9b00-50041f3ce72b": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref50_008",
+      "english": "Path of Penitence",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "33012ef3-6fd1-4b98-8840-3e916d12fc3b": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_001",
+      "english": "Facility 1 Loft",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "109c727b-fc07-495b-a71c-fb1ce5d31509": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_003",
+      "english": "Freight Lift",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "deade4f9-d2a7-4948-a22b-5a7b69ac75c5": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_004",
+      "english": "Laboratory Storage",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "af7ba6e4-5605-4754-be97-e5fd49407611": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_005",
+      "english": "The Amber Laboratory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "1906ce43-e8b4-43ab-8327-f397ee1c42a3": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_006",
+      "english": "Monitoring Room",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "7ca753f0-fc11-4662-bbc1-bf7658ded890": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_007",
+      "english": "Behavioral Testing",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "d32eaa51-c0a2-4af9-b75a-b9337320b051": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_008",
+      "english": "Comms Control Room",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "2c482e0d-0ba0-4c5f-97d2-9c74704d868f": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_009",
+      "english": "Guard Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "131c0968-dc94-458e-a964-81f9f40bf2b8": {
+      "name": "AO_Mes_Main_Sys_MapName_Pref60_010",
+      "english": "Defensive Line",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_mapname.msg.22",
+      "category": "mapname"
+    },
+    "edb5bad7-4bcf-4f1f-81a8-a13bbc668627": {
+      "name": "AO_Mes_Main_Sys_Map_Pref_Pref40",
+      "english": "Village",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "94f54f8a-6d02-4509-9b30-84aaf5be566a": {
+      "name": "AO_Mes_Main_Sys_Map_Pref_Pref50",
+      "english": "Castle",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "977731cc-35aa-40e9-a614-4634e8fefe71": {
+      "name": "AO_Mes_Main_Sys_Map_Pref_Pref60",
+      "english": "Island",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c2782893-793b-4cba-a7be-71b6157cde85": {
+      "name": "AO_Mes_Main_Sys_Map_Type50_501",
+      "english": "Dungeons",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0bbd1cf1-cc18-4905-8246-4ef57e95485e": {
+      "name": "AO_Mes_Main_Sys_Map_Type40_213",
+      "english": "Town Hall",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8551c17e-0b3f-4005-88c7-da9681303c6c": {
+      "name": "AO_Mes_Main_Sys_Map_Type40_200",
+      "english": "Village Square",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ef73605e-f7d9-4686-917f-0598eb47b51a": {
+      "name": "AO_Mes_Main_Sys_Map_Type43_310",
+      "english": "Farm",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2c602da4-ca0d-4377-9528-9cc9fd975633": {
+      "name": "AO_Mes_Main_Sys_Map_Type43_850",
+      "english": "Cliff",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6a15383e-4069-4dd0-9bdf-e5281ec2f8dd": {
+      "name": "AO_Mes_Main_Sys_Map_Type44_200",
+      "english": "Abandoned Factory Grounds",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c5311bc9-c6bb-4e4a-b2f7-d5c410dc49d1": {
+      "name": "AO_Mes_Main_Sys_Map_Type51_300",
+      "english": "Courtyard Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "50c1228e-232b-4c9a-b706-f091fb802302": {
+      "name": "AO_Mes_Main_Sys_Map_Type51_504",
+      "english": "Castle Battlements Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9cee1a88-e959-46f7-9206-d7d96889c840": {
+      "name": "AO_Mes_Main_Sys_Map_Type51_854",
+      "english": "Treasure Room Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2936ad62-673b-41f9-a96a-471fde5dd664": {
+      "name": "AO_Mes_Main_Sys_Map_Type55_851",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ec1d35eb-d386-4026-a6aa-4a5f0c964449": {
+      "name": "AO_Mes_Main_Sys_Map_Type55_852",
+      "english": "Above Blast Furnace",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a51a40ed-d616-465f-ae33-b6f32939e16b": {
+      "name": "AO_Mes_Main_Sys_Map_Type56_104",
+      "english": "Path of Penitence",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "aeb4fc1b-d397-461b-bbfb-0508a592ab34": {
+      "name": "AO_Mes_Main_Sys_Map_Type56_300",
+      "english": "Dock",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2653fd7c-0292-4017-a2e4-681cf18aa817": {
+      "name": "AO_Mes_Main_Sys_Map_Type62_201",
+      "english": "Cargo Depot Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "98ab0c1f-4dd6-4c7b-96de-8746b46a9217": {
+      "name": "AO_Mes_Main_Sys_Map_Type61_852",
+      "english": "Facility 1 Loft",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4943effe-fb11-4c20-895d-f9a40476cd13": {
+      "name": "AO_Mes_Main_Sys_Map_Type60_860",
+      "english": "Defensive Line",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "775ba6b2-685a-4897-a26c-bb9504e9cacc": {
+      "name": "AO_Mes_Main_Sys_Map_Type60_870",
+      "english": "Laboratory Storage",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e99292c6-5550-4b10-8459-337e6fa5e7cb": {
+      "name": "AO_Mes_Main_Sys_Map_Type59_200",
+      "english": "Underground Passage",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "74c78e76-6622-4d50-8d72-defe4566097e": {
+      "name": "AO_Mes_Main_Sys_Map_Type68_205",
+      "english": "Sanctuary",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e0a27a04-7e43-481e-b3ba-564386bc7957": {
+      "name": "AO_Mes_Main_Sys_Map_Type69_900",
+      "english": "Loading Docks",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "2fd0258d-566a-4388-b853-b75e03a0c626": {
+      "name": "AO_Mes_Main_Sys_Map_Auto01_01",
+      "english": "Dungeons",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b1e2596a-445f-4cb6-89b1-d9eda2141d77": {
+      "name": "AO_Mes_Main_Sys_Map_Auto01_03",
+      "english": "Castle Gate",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "666fc11a-67e1-4182-9605-44f103ee984d": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_01",
+      "english": "Gorge",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6aef8639-8b83-42aa-b55c-ba29b3871e9c": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_02",
+      "english": "Villa Rear Path",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "37ba51b3-7b74-4e9b-bfea-876d67bcb7a7": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_03",
+      "english": "Cliff",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d6b85545-6ae4-4906-9b6a-e350ea51c926": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_04",
+      "english": "Cemetery",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e0d1f9d7-1642-4273-b526-f325c1906420": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_05",
+      "english": "Town Hall",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0e367a5b-66c3-4425-8838-6866b0153566": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_06",
+      "english": "Village Square",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a1e62137-a4da-4757-8c22-bc1312f8753b": {
+      "name": "AO_Mes_Main_Sys_Map_Auto11_07",
+      "english": "Church Grounds",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a312f4e9-c45a-4aa3-823e-d49eec22db12": {
+      "name": "AO_Mes_Main_Sys_Map_Auto21_02",
+      "english": "Village Chief's Manor",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "0768b7ab-b63f-4ec1-b622-2e941d1a3cab": {
+      "name": "AO_Mes_Main_Sys_Map_Auto21_03",
+      "english": "Abandoned Factory Grounds",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b2d07cfd-2081-42bc-b8a9-1cb757a31e5b": {
+      "name": "AO_Mes_Main_Sys_Map_Auto21_04",
+      "english": "Abandoned Factory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "90067093-70b2-451c-be47-32626458dab1": {
+      "name": "AO_Mes_Main_Sys_Map_Auto22_01",
+      "english": "Village Chief's Manor Grounds",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "42be13c3-a79b-4930-abfd-006e543ca5e7": {
+      "name": "AO_Mes_Main_Sys_Map_Auto22_02",
+      "english": "Farm",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "25b612d3-1a57-4ee6-a8a6-22af7266e7dd": {
+      "name": "AO_Mes_Main_Sys_Map_Auto22_03",
+      "english": "Village Square",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ae5d36e6-a21c-40ad-943e-a08bd56fcd41": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_01",
+      "english": "Fortified Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ed817642-3b21-459a-8fe1-dfa5fb51001a": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_02",
+      "english": "Fortified Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "c8fd948f-c04e-4e47-aa50-a98b7c93ad90": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_03",
+      "english": "Fortified Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a45d2d84-dd89-48df-af53-7ea9b62d57cc": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_04",
+      "english": "Bindery Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "64b03767-657a-47e3-a4ef-cc26c67da0b0": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_05",
+      "english": "Treasure Room Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "028ab103-154b-4ea2-a8e5-652fca753d5d": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_06",
+      "english": "Treasure Room Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9d46b2ad-e920-465a-98df-3127f79bb016": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_065",
+      "english": "Treasure Room",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b4078573-07b9-48a8-baa1-03b0f322f8b5": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_07",
+      "english": "Courtyard Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "199ce21c-2713-4d04-adf9-63ec43d7b070": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_08",
+      "english": "Courtyard",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "89858caf-bc08-43c4-9795-9d6e22f9d10d": {
+      "name": "AO_Mes_Main_Sys_Map_Auto31_09",
+      "english": "Castle Battlements",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "f0bb1d7f-77ef-4c22-bc02-384212366894": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_01",
+      "english": "Castle Battlements",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "863c5513-239c-45ce-bc4d-2779e4e664d1": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_02",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "729ce0df-423a-4765-b25a-e264cdfd3abc": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_025",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d9f732c5-b9ff-4eeb-8839-a1035d9b40b9": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_03",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "72d25c58-409e-464c-a4af-cbb3928a83c7": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_035",
+      "english": "Gregorio's Waterway",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9cd982b0-c14f-4dd9-8d6e-64a46929a019": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_04",
+      "english": "Above Blast Furnace",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8f32e353-1c4a-4e56-ae16-0e9a39e21bf4": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_05",
+      "english": "Cavern",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "5ac5d6ca-2139-4e1c-b6b6-5dcf080fc727": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_06",
+      "english": "Clock Tower Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "63957a69-d7a1-4519-b72b-86cc043ae374": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_07",
+      "english": "Path of Penitence",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4b54c456-7a4b-4244-bd0a-bff37190c247": {
+      "name": "AO_Mes_Main_Sys_Map_Auto32_08",
+      "english": "Dock",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "941d3c7d-014c-44f0-84f6-f8095c6dad01": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_01",
+      "english": "Campsite",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "01de3322-3cf5-4ae4-b815-92bf963b13b2": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_02",
+      "english": "Cargo Depot Exterior",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "e8079f35-a7c6-49f6-b7c4-3edf3f0ec727": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_04",
+      "english": "Freezer",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "1bd81c32-fbe8-46e1-9194-744bf19e0030": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_06",
+      "english": "Freight Lift",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "9bc1d1fd-da87-4376-b185-0bbe17743443": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_07",
+      "english": "Defensive Line",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "4496500d-9352-4d63-bba4-797851cdbcdf": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_08",
+      "english": "The Amber Laboratory",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "8ac92cf5-6fbf-4231-a02e-e7eb4b9b1b1c": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_09",
+      "english": "Comms Control Room Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "3bd71803-a263-4790-b56c-b91dc6f553a8": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_10",
+      "english": "Monitoring Room Entrance",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "28389626-8ef7-4888-87d1-8c7f4d54ec65": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_11",
+      "english": "Defensive Line",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "ab2e9e65-02ff-4c25-bdd9-14785e8f2978": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_12",
+      "english": "Defensive Line",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "59e3a88f-277d-47e0-a482-357364420ea1": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_13",
+      "english": "Facility 1 Loft",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b84e0c08-0d15-4235-9652-d51c4211cb47": {
+      "name": "AO_Mes_Main_Sys_Map_Auto41_14",
+      "english": "Behavioral Testing",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "432f5b27-8e5a-4d71-a0a8-0de811b362c8": {
+      "name": "AO_Mes_Main_Sys_Map_Auto51_01",
+      "english": "Underground Passage",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "6c60cefc-7b4e-4529-89f2-40194c83bbb2": {
+      "name": "AO_Mes_Main_Sys_Map_Auto51_02",
+      "english": "Loading Docks",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "b2d4f980-f611-478f-b2b7-2ac1b49872bb": {
+      "name": "AO_Mes_Main_Sys_Map_Auto51_04",
+      "english": "Loading Docks",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "d47f8a4c-d5fe-4a27-898a-b6505a4dcf52": {
+      "name": "AO_Mes_Main_Sys_Map_Auto51_05",
+      "english": "Guard Tower",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    },
+    "a10b01ca-a186-431e-8a76-82a77dbbd062": {
+      "name": "AO_Mes_Main_Sys_Map_Auto51_06",
+      "english": "Sanctuary",
+      "source": "natives/stm/_anotherorder/message/mes_main_sys/ao_mes_main_sys_map.msg.22",
+      "category": "map"
+    }
+  },
+  "stageMappings": {
+    "source": "https://github.com/LiterallyMetaphorical/RE4R-AP-Wizard",
+    "commit": "6d87937d923e8e2928a682f876f75f8c074e1bdf",
+    "file": "assets/Lua/data/ArchipelagoRE4R/map_labels.json",
+    "limitations": "Stage labels describe areas; no nearest-point inference. sectionIsCurrent defaults false to prevent stale section labels.",
+    "count": 186,
+    "entries": {
+      "43311": {
+        "name": "Villa",
+        "source": "Curated stage mapping"
+      },
+      "43400": {
+        "name": "Lakeside Settlement",
+        "source": "Curated stage mapping"
+      },
+      "43410": {
+        "name": "Lakeside Settlement Cabin",
+        "source": "Curated stage mapping"
+      },
+      "44101": {
+        "name": "Village Chief's Manor",
+        "source": "Curated stage mapping"
+      },
+      "44201": {
+        "name": "Manor Approach",
+        "source": "Curated stage mapping"
+      },
+      "44300": {
+        "name": "Valley",
+        "source": "Curated stage mapping"
+      },
+      "45100": {
+        "name": "Church Grounds",
+        "source": "Curated stage mapping"
+      },
+      "45200": {
+        "name": "Church Grounds",
+        "source": "Curated stage mapping"
+      },
+      "45300": {
+        "name": "Lakeside Shrine",
+        "source": "Curated stage mapping"
+      },
+      "45400": {
+        "name": "Fish Farm",
+        "source": "Curated stage mapping"
+      },
+      "45500": {
+        "name": "Dock",
+        "source": "Curated stage mapping"
+      },
+      "45510": {
+        "name": "Fish Farm",
+        "source": "Curated stage mapping"
+      },
+      "46100": {
+        "name": "Lake",
+        "source": "Curated stage mapping"
+      },
+      "46200": {
+        "name": "Large Cave Shrine",
+        "source": "Curated stage mapping"
+      },
+      "46210": {
+        "name": "Merchant Hideout",
+        "source": "Curated stage mapping"
+      },
+      "46900": {
+        "name": "Lake",
+        "source": "Curated stage mapping"
+      },
+      "47100": {
+        "name": "Checkpoint Alley",
+        "source": "Curated stage mapping"
+      },
+      "47101": {
+        "name": "Checkpoint Alley",
+        "source": "Curated stage mapping"
+      },
+      "47102": {
+        "name": "Checkpoint",
+        "source": "Curated stage mapping"
+      },
+      "47200": {
+        "name": "Checkpoint",
+        "source": "Curated stage mapping"
+      },
+      "47201": {
+        "name": "Checkpoint Cabin",
+        "source": "Curated stage mapping"
+      },
+      "50200": {
+        "name": "Castle Entrance",
+        "source": "Curated stage mapping"
+      },
+      "50505": {
+        "name": "Treasury",
+        "source": "Curated stage mapping"
+      },
+      "51100": {
+        "name": "Wine Cellar Exterior",
+        "source": "Curated stage mapping"
+      },
+      "51101": {
+        "name": "Wine Cellar Exterior",
+        "source": "Curated stage mapping"
+      },
+      "51400": {
+        "name": "Wine Cellar",
+        "source": "Curated stage mapping"
+      },
+      "51612": {
+        "name": "Castle Battlements",
+        "source": "Curated stage mapping"
+      },
+      "52203": {
+        "name": "Armory",
+        "source": "Curated stage mapping"
+      },
+      "53101": {
+        "name": "Library",
+        "source": "Curated stage mapping"
+      },
+      "53201": {
+        "name": "Library",
+        "source": "Curated stage mapping"
+      },
+      "53300": {
+        "name": "Library",
+        "source": "Curated stage mapping"
+      },
+      "54100": {
+        "name": "Library",
+        "source": "Curated stage mapping"
+      },
+      "54101": {
+        "name": "Ballroom Entrance",
+        "source": "Curated stage mapping"
+      },
+      "54102": {
+        "name": "Ballroom Entrance",
+        "source": "Curated stage mapping"
+      },
+      "54200": {
+        "name": "Ballroom",
+        "source": "Curated stage mapping"
+      },
+      "54301": {
+        "name": "Throne Room",
+        "source": "Curated stage mapping"
+      },
+      "54401": {
+        "name": "Depths Tunnels",
+        "source": "Curated stage mapping"
+      },
+      "54402": {
+        "name": "Depths Tunnels",
+        "source": "Curated stage mapping"
+      },
+      "54403": {
+        "name": "Underground Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "54404": {
+        "name": "Underground Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "54405": {
+        "name": "Underground Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "54406": {
+        "name": "Underground Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "54407": {
+        "name": "Underground Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "55100": {
+        "name": "Mines",
+        "source": "Curated stage mapping"
+      },
+      "55201": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55202": {
+        "name": "Stopover",
+        "source": "Curated stage mapping"
+      },
+      "55300": {
+        "name": "Hive",
+        "source": "Curated stage mapping"
+      },
+      "55301": {
+        "name": "Hive",
+        "source": "Curated stage mapping"
+      },
+      "55302": {
+        "name": "Krauser",
+        "source": "Curated stage mapping"
+      },
+      "55400": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55401": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55402": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55403": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55404": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55405": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55406": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55407": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55408": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55409": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55410": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55411": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55412": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55413": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55414": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55415": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55416": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55417": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55418": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55419": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55420": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55421": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55422": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55423": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55424": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55425": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55426": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55427": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55428": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55429": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55430": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55431": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55432": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55433": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55434": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "55435": {
+        "name": "Underground Tunnel",
+        "source": "Curated stage mapping"
+      },
+      "56100": {
+        "name": "Gondola (Ballroom)",
+        "source": "Curated stage mapping"
+      },
+      "56101": {
+        "name": "Clock Tower",
+        "source": "Curated stage mapping"
+      },
+      "56103": {
+        "name": "Upper Clock Tower",
+        "source": "Curated stage mapping"
+      },
+      "56104": {
+        "name": "Upper Clock Tower",
+        "source": "Curated stage mapping"
+      },
+      "56200": {
+        "name": "Ancient Chantry",
+        "source": "Curated stage mapping"
+      },
+      "59200": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59201": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59202": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59203": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59204": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59205": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59206": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59207": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59208": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59209": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59210": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59211": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59212": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59213": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59214": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59215": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59216": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59217": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59218": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59219": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59220": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59221": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "59222": {
+        "name": "Underground Passage",
+        "source": "Curated stage mapping"
+      },
+      "60200": {
+        "name": "Surveillance",
+        "source": "Curated stage mapping"
+      },
+      "60201": {
+        "name": "Surveillance",
+        "source": "Curated stage mapping"
+      },
+      "61100": {
+        "name": "Surveillance",
+        "source": "Curated stage mapping"
+      },
+      "61104": {
+        "name": "Facility 1 Storage",
+        "source": "Curated stage mapping"
+      },
+      "61105": {
+        "name": "Holding Cell",
+        "source": "Curated stage mapping"
+      },
+      "61106": {
+        "name": "Facility 1 Exit",
+        "source": "Curated stage mapping"
+      },
+      "61107": {
+        "name": "Facility 1 Exit",
+        "source": "Curated stage mapping"
+      },
+      "61200": {
+        "name": "Incubation Lab",
+        "source": "Curated stage mapping"
+      },
+      "61203": {
+        "name": "Incubation Lab",
+        "source": "Curated stage mapping"
+      },
+      "61204": {
+        "name": "Systems",
+        "source": "Curated stage mapping"
+      },
+      "61500": {
+        "name": "Utilities",
+        "source": "Curated stage mapping"
+      },
+      "62100": {
+        "name": "Lower Cargo Depot",
+        "source": "Curated stage mapping"
+      },
+      "62200": {
+        "name": "Upper Cargo Depot",
+        "source": "Curated stage mapping"
+      },
+      "63100": {
+        "name": "Facility 2",
+        "source": "Curated stage mapping"
+      },
+      "64100": {
+        "name": "Amber Storeroom",
+        "source": "Curated stage mapping"
+      },
+      "64101": {
+        "name": "Amber Storeroom",
+        "source": "Curated stage mapping"
+      },
+      "64102": {
+        "name": "Campsite",
+        "source": "Curated stage mapping"
+      },
+      "64104": {
+        "name": "Campsite",
+        "source": "Curated stage mapping"
+      },
+      "65100": {
+        "name": "Ruins",
+        "source": "Curated stage mapping"
+      },
+      "66100": {
+        "name": "Stronghold",
+        "source": "Curated stage mapping"
+      },
+      "66101": {
+        "name": "Stronghold",
+        "source": "Curated stage mapping"
+      },
+      "66102": {
+        "name": "Stronghold",
+        "source": "Curated stage mapping"
+      },
+      "66103": {
+        "name": "Bulwark Gate",
+        "source": "Curated stage mapping"
+      },
+      "66105": {
+        "name": "Cliffside Ruins",
+        "source": "Curated stage mapping"
+      },
+      "67101": {
+        "name": "Specimen Storage",
+        "source": "Curated stage mapping"
+      },
+      "67104": {
+        "name": "Sanctuary Approach",
+        "source": "Curated stage mapping"
+      },
+      "67400": {
+        "name": "Sanctuary Approach",
+        "source": "Curated stage mapping"
+      },
+      "67501": {
+        "name": "Sanctuary Approach",
+        "source": "Curated stage mapping"
+      },
+      "68100": {
+        "name": "Sanctuary",
+        "source": "Curated stage mapping"
+      },
+      "68103": {
+        "name": "Luis's Laboratory",
+        "source": "Curated stage mapping"
+      },
+      "40200": {
+        "name": "Village Square",
+        "source": "Pause-map label in stage"
+      },
+      "40201": {
+        "name": "Farm",
+        "source": "Pause-map label in stage"
+      },
+      "40212": {
+        "name": "Town Hall",
+        "source": "Pause-map label in stage"
+      },
+      "40510": {
+        "name": "Hunter's Lodge",
+        "source": "Pause-map label in stage"
+      },
+      "43303": {
+        "name": "Lakeside Settlement",
+        "source": "Pause-map label in stage"
+      },
+      "43500": {
+        "name": "Forest Altar",
+        "source": "Pause-map label in stage"
+      },
+      "44110": {
+        "name": "Village Chief's Manor",
+        "source": "Pause-map label in stage"
+      },
+      "44210": {
+        "name": "Abandoned Factory",
+        "source": "Pause-map label in stage"
+      },
+      "44400": {
+        "name": "Valley",
+        "source": "Pause-map label in stage"
+      },
+      "45301": {
+        "name": "Quarry",
+        "source": "Pause-map label in stage"
+      },
+      "46110": {
+        "name": "Small Cave Shrine",
+        "source": "Pause-map label in stage"
+      },
+      "47410": {
+        "name": "Slaughterhouse",
+        "source": "Pause-map label in stage"
+      },
+      "50201": {
+        "name": "Chapel",
+        "source": "Pause-map label in stage"
+      },
+      "50300": {
+        "name": "Castle Gate",
+        "source": "Pause-map label in stage"
+      },
+      "50401": {
+        "name": "Audience Chamber",
+        "source": "Pause-map label in stage"
+      },
+      "50501": {
+        "name": "Dungeons",
+        "source": "Pause-map label in stage"
+      },
+      "50504": {
+        "name": "Treasury",
+        "source": "Pause-map label in stage"
+      },
+      "50601": {
+        "name": "Water Hall",
+        "source": "Pause-map label in stage"
+      },
+      "51200": {
+        "name": "Courtyard",
+        "source": "Pause-map label in stage"
+      },
+      "51404": {
+        "name": "Wine Cellar",
+        "source": "Pause-map label in stage"
+      },
+      "51502": {
+        "name": "Bindery",
+        "source": "Pause-map label in stage"
+      },
+      "51600": {
+        "name": "Castle Battlements",
+        "source": "Pause-map label in stage"
+      },
+      "52101": {
+        "name": "Grand Hall",
+        "source": "Pause-map label in stage"
+      },
+      "52202": {
+        "name": "Armory",
+        "source": "Pause-map label in stage"
+      },
+      "52303": {
+        "name": "Gallery",
+        "source": "Pause-map label in stage"
+      },
+      "52401": {
+        "name": "Dining Hall",
+        "source": "Pause-map label in stage"
+      },
+      "53200": {
+        "name": "Library",
+        "source": "Pause-map label in stage"
+      },
+      "53302": {
+        "name": "Mausoleum",
+        "source": "Pause-map label in stage"
+      },
+      "54300": {
+        "name": "Antechamber",
+        "source": "Pause-map label in stage"
+      },
+      "54400": {
+        "name": "Depths",
+        "source": "Pause-map label in stage"
+      },
+      "55103": {
+        "name": "Mines",
+        "source": "Pause-map label in stage"
+      },
+      "55200": {
+        "name": "Blast Furnace",
+        "source": "Pause-map label in stage"
+      },
+      "56102": {
+        "name": "Clock Tower",
+        "source": "Pause-map label in stage"
+      },
+      "56302": {
+        "name": "Dock",
+        "source": "Pause-map label in stage"
+      },
+      "59101": {
+        "name": "Underground Passage",
+        "source": "Pause-map label in stage"
+      },
+      "60100": {
+        "name": "Wharf",
+        "source": "Pause-map label in stage"
+      },
+      "61300": {
+        "name": "Systems",
+        "source": "Pause-map label in stage"
+      },
+      "61504": {
+        "name": "Utilities",
+        "source": "Pause-map label in stage"
+      },
+      "63108": {
+        "name": "Waste Disposal",
+        "source": "Pause-map label in stage"
+      },
+      "66104": {
+        "name": "Cliffside Ruins",
+        "source": "Pause-map label in stage"
+      },
+      "67100": {
+        "name": "Specimen Storage",
+        "source": "Pause-map label in stage"
+      },
+      "68105": {
+        "name": "Luis's Laboratory",
+        "source": "Pause-map label in stage"
+      },
+      "68203": {
+        "name": "Loading Docks",
+        "source": "Pause-map label in stage"
+      }
+    },
+    "stageScenes": {
+      "40200": 10000,
+      "40201": 10000,
+      "40210": 10000,
+      "40212": 10000,
+      "40502": 10000,
+      "40510": 10000,
+      "43301": 10000,
+      "43303": 10000,
+      "43310": 10000,
+      "43311": 10000,
+      "43400": 10000,
+      "43410": 10000,
+      "43500": 10000,
+      "44110": 10000,
+      "44210": 10000,
+      "44400": 10000,
+      "44410": 10000,
+      "45200": 10000,
+      "45210": 10000,
+      "45300": 10000,
+      "45301": 10000,
+      "45400": 10000,
+      "45401": 10000,
+      "45500": 10000,
+      "46100": 10000,
+      "46110": 10000,
+      "46111": 10000,
+      "46210": 10000,
+      "46900": 10000,
+      "47200": 10000,
+      "47210": 10000,
+      "47301": 10000,
+      "47410": 10000,
+      "50201": 20000,
+      "50202": 20000,
+      "50300": 20000,
+      "50401": 20000,
+      "50501": 20000,
+      "50504": 20000,
+      "50600": 20000,
+      "50601": 20000,
+      "51101": 20000,
+      "51200": 20000,
+      "51404": 20000,
+      "51502": 20000,
+      "51600": 20000,
+      "51610": 20000,
+      "51611": 20000,
+      "51612": 20000,
+      "52101": 20000,
+      "52202": 20000,
+      "52300": 20000,
+      "52303": 20000,
+      "52401": 20000,
+      "53101": 20000,
+      "53200": 20000,
+      "53201": 20000,
+      "53302": 20000,
+      "54102": 20000,
+      "54200": 20000,
+      "54300": 20000,
+      "54301": 20000,
+      "54400": 20000,
+      "54405": 20000,
+      "55100": 20000,
+      "55103": 20000,
+      "55200": 20000,
+      "55202": 20000,
+      "55300": 20000,
+      "56101": 20000,
+      "56102": 20000,
+      "56103": 20000,
+      "56200": 20000,
+      "56302": 20000,
+      "59101": 30000,
+      "60100": 30000,
+      "60104": 30000,
+      "60200": 30000,
+      "61100": 30000,
+      "61101": 30000,
+      "61104": 30000,
+      "61106": 30000,
+      "61204": 30000,
+      "61300": 30000,
+      "61301": 30000,
+      "61504": 30000,
+      "61505": 30000,
+      "62000": 30000,
+      "62100": 30000,
+      "63100": 30000,
+      "63102": 30000,
+      "63108": 30000,
+      "64101": 30000,
+      "64102": 30000,
+      "65100": 30000,
+      "65200": 30000,
+      "66101": 30000,
+      "66102": 30000,
+      "66103": 30000,
+      "66104": 30000,
+      "66105": 30000,
+      "66200": 30000,
+      "67100": 30000,
+      "67104": 30000,
+      "67200": 30000,
+      "67400": 30000,
+      "68100": 30000,
+      "68103": 30000,
+      "68105": 30000,
+      "68203": 30000,
+      "68300": 30000
+    }
+  }
+}

@@ -1,38 +1,62 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
-using System.Diagnostics;
+using MultiPresence.Infrastructure;
+using MultiPresence.Models.SXSG;
 
 namespace MultiPresence.Presence
 {
     public class SXSG
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private const string SonicProcessName = "SONIC_GENERATIONS";
+        private const string ShadowProcessName = "SONIC_X_SHADOW_GENERATIONS";
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        private static bool shadow;
+        private static DateTime nextWarning;
+
         public static void DoAction()
         {
+            StartPresence(false);
+        }
+
+        public static void DoShadowAction()
+        {
+            StartPresence(true);
+        }
+
+        private static void StartPresence(bool isShadow)
+        {
+            shadow = isShadow;
+            MemoryReader.Reset();
+            nextWarning = DateTime.MinValue;
             GetPID();
-            discord = new DiscordRpcClient("1430902391665987605");
+            discord = new DiscordRpcClient(shadow ? "1564332536660889841" : "1430902391665987605");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Sonic Generations.json");
-            PresenceRuntime.Start(nameof(SXSG), "SONIC_GENERATIONS", RPC);
+            updater = new DiscordStatusUpdater(shadow
+                ? "Assets/Config/Shadow Generations.json"
+                : "Assets/Config/Sonic Generations.json");
+            PresenceRuntime.Start(nameof(SXSG), shadow ? ShadowProcessName : SonicProcessName, RPC);
         }
 
         private static void GetPID()
         {
-            try
-            {
-                ProcessMonitor.TryAttach("SONIC_GENERATIONS");
-            }
-            catch
-            {
-                //nothing?
-            }
+            ProcessMonitor.TryAttach(shadow ? ShadowProcessName : SonicProcessName);
         }
 
         private static async Task RPC()
         {
-            if (ProcessMonitor.IsRunning("SONIC_GENERATIONS"))
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("SXSG: presence is not initialized.");
+            }
+
+            if (shadow)
+            {
+                await ShadowRPC();
+                return;
+            }
+
+            if (ProcessMonitor.IsRunning(SonicProcessName))
             {
                 float _time = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x01F52428, [0x10, 0x258]), true);
 
@@ -79,10 +103,125 @@ namespace MultiPresence.Presence
             }
             else
             {
-                discord.Deinitialize();
-                updater.Dispose();
-                PresenceRuntime.RequestDetection();
+                StopPresence();
             }
+        }
+
+        private static async Task ShadowRPC()
+        {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("SXSG: presence is not initialized.");
+            }
+
+            if (!ProcessMonitor.IsRunning(ShadowProcessName) || ProcessMonitor.IsRunning(SonicProcessName))
+            {
+                StopPresence();
+                return;
+            }
+
+            try
+            {
+                if (!Hypervisor.IsAttached && !ProcessMonitor.TryAttach(ShadowProcessName))
+                {
+                    discord.ClearPresence();
+                    return;
+                }
+
+                var snapshot = MemoryReader.ReadSnapshot();
+                if (snapshot.State == "OtherGame")
+                {
+                    StopPresence();
+                    return;
+                }
+
+                if (snapshot.State == "Loading")
+                {
+                    ShowShadowStatus("Loading");
+                    return;
+                }
+
+                var placeholders = await PlaceholderHelper.GetPlaceholders(() => GenerateShadowPlaceholders(snapshot));
+                string state = snapshot.State == "Ingame" && snapshot.Mode == "White Space" ? "WhiteSpace" : snapshot.State;
+                PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Shadow Generations", placeholders, state);
+            }
+            catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
+            {
+                if (DateTime.UtcNow >= nextWarning)
+                {
+                    AppLog.Warning("Shadow Generations memory is not ready.", exception);
+                    nextWarning = DateTime.UtcNow.AddSeconds(30);
+                }
+
+                discord.ClearPresence();
+            }
+        }
+
+        private static Task<Dictionary<string, object>> GenerateShadowPlaceholders(GameSnapshot snapshot)
+        {
+            var placeholders = new Dictionary<string, object>
+            {
+                { "character", "" },
+                { "stage", "" },
+                { "stageid", "" },
+                { "mode", "" },
+                { "rings", "" },
+                { "time", "" }
+            };
+
+            if (snapshot.State != "Ingame")
+            {
+                return Task.FromResult(placeholders);
+            }
+
+            int time = (int)Math.Round(snapshot.Time * 100, MidpointRounding.AwayFromZero);
+            string formatted = string.Format("{0:D2}:{1:D2}.{2:D2}",
+                time / 6000,
+                time / 100 % 60,
+                time % 100);
+
+            placeholders["character"] = snapshot.Character;
+            placeholders["stage"] = snapshot.Stage;
+            placeholders["stageid"] = snapshot.StageId;
+            placeholders["mode"] = snapshot.Mode;
+            placeholders["rings"] = snapshot.Rings;
+            placeholders["time"] = formatted;
+
+            return Task.FromResult(placeholders);
+        }
+
+        private static void ShowShadowStatus(string text)
+        {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("SXSG: presence is not initialized.");
+            }
+
+            discord.SetPresence(new RichPresence()
+            {
+                Details = text,
+                State = "",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = "Shadow Generations"
+                },
+                Timestamps = PlaceholderHelper._startTimestamp
+            });
+        }
+
+        private static void StopPresence()
+        {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("SXSG: presence is not initialized.");
+            }
+
+            MemoryReader.Reset();
+            discord.ClearPresence();
+            discord.Deinitialize();
+            updater.Dispose();
+            PresenceRuntime.RequestDetection();
         }
 
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
@@ -149,6 +288,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("SXSG: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

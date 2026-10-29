@@ -1,0 +1,27 @@
+<Project>
+  <Target Name="PreserveUserConfigurationBuildRecords"
+          BeforeTargets="_CleanGetCurrentAndPriorFileWrites;CoreClean"
+          Condition="Exists('$(IntermediateOutputPath)$(CleanFile)')">
+    <ReadLinesFromFile File="$(IntermediateOutputPath)$(CleanFile)">
+      <Output TaskParameter="Lines" ItemName="_ConfigurationPriorBuildFiles" />
+    </ReadLinesFromFile>
+    <ItemGroup>
+      <_ConfigurationProtectedBuildFiles Include="@(_ConfigurationPriorBuildFiles)"
+          Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('%(_ConfigurationPriorBuildFiles.Identity)', '(?i)(^|[\\/])Assets[\\/]Config[\\/]'))" />
+      <_ConfigurationPriorBuildFiles Remove="@(_ConfigurationProtectedBuildFiles)" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(IntermediateOutputPath)$(CleanFile)"
+                      Lines="@(_ConfigurationPriorBuildFiles)"
+                      Overwrite="true"
+                      WriteOnlyWhenDifferent="true"
+                      Condition="'@(_ConfigurationProtectedBuildFiles)' != ''" />
+  </Target>
+
+  <Target Name="PreserveUserConfigurationPublishRecords"
+          AfterTargets="_GetCurrentAndPriorPublishFileWrites">
+    <ItemGroup>
+      <_PriorPublishFileWrites Remove="@(_PriorPublishFileWrites)"
+          Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('%(_PriorPublishFileWrites.Identity)', '(?i)(^|[\\/])Assets[\\/]Config[\\/]'))" />
+    </ItemGroup>
+  </Target>
+</Project>

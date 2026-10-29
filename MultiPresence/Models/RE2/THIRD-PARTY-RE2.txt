@@ -1,0 +1,57 @@
+Resident Evil 2 Remake metadata attribution
+
+Room labels adapted from Squirrelies/RE2RRandomizer:
+https://github.com/Squirrelies/RE2RRandomizer/blob/8d4f57f3165f0c55ce9986b63455f4dbc91aafea/src/Database/Database.cpp
+
+MIT License
+
+Copyright (c) 2024 Travis J. Gutjahr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Numeric enums cross-checked against SpeedrunTooling/SRTPluginProviderRE2:
+https://github.com/SpeedrunTooling/SRTPluginProviderRE2/blob/e2a24e221e7a9afa1d2802035803c853671ec5b5/SRTPluginProviderRE2/Structs/GameStructs/PlayerManager.cs
+
+Scenario values independently confirmed by FuzzyGamesOn/RE2R_AP_Client:
+https://github.com/FuzzyGamesOn/RE2R_AP_Client/blob/84b21926d27a4c1ee85f2624b8513de92efb93b2/reframework/autorun/randomizer/Scene.lua
+
+Coverage: 140 named map IDs. Remaining map IDs use an explicit English unknown-room fallback. Region labels normalize internal location enum keys. Internal/DLC regions should not be read as precise game room names.
+
+MIT License
+
+Copyright (c) 2020 Travis J. Gutjahr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

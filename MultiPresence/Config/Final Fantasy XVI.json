@@ -2,11 +2,11 @@
     "Games": {
         "Final Fantasy XVI": {
             "Default": {
-                "Details": "Lv. {level} ({difficulty})",
-                "State": "Health: {hp} - Gil: {gil}",
+                "Details": "{character} - Lv. {level} ({difficulty})",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Final Fantasy XVI",
+                "LargeAssetText": "{quest} | HP {hp}/{maxhp} | Gil {gil} | AP {abilitypoints} | LB {limitbreak}/{maxlimitbreak}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

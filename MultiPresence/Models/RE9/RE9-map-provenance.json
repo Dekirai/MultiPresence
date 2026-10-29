@@ -1,0 +1,3940 @@
+{
+  "gameBuild": 23634047,
+  "method": "Installed GuiMapUserData provides valid floor/section IDs and area-name GUID. Installed .gui.900043 override paths name/rXXX_YY identify room MessageId GUIDs for floor_sectionXXX. Join only when the exact section exists in that floor's catalog and its GUID has an installed English localization. Conflicting room labels are omitted.",
+  "formatReference": "https://github.com/alphazolam/RE-Engine-010-Templates/blob/main/RE_Engine_GUI.bt",
+  "formatNote": "The public template guided the structural inspection. RE9 version900043 uses direct 56-byte element records, 96-byte child records, and 48-byte path/property overrides, verified against installed offsets. No external source code is included in the model.",
+  "assets": [
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m000.user.3",
+      "sha256": "23cf3f66c67eb53fe89ff09a467e280b4bea9fbbcee8d84aa173957b9144b12d"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m010.user.3",
+      "sha256": "6be3512b012b54fe278a70488119171c63c4a1f1698f7a8dd5fbe444a94ab0bd"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m020.user.3",
+      "sha256": "61e9888f9cd057d77f5e889341f317283a9ecafbcfca42390be7f501093777b2"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m030.user.3",
+      "sha256": "d35ff821b1ffc349bc218a8bcb4de25c077b8f8334fb42b9ee2b3dae6d8339a3"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m031.user.3",
+      "sha256": "947331984c2ed67d762902837006e883fde3abed5f16b2dc558b66f299449888"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m040.user.3",
+      "sha256": "c1bfacc81cb4fc2ac8833058c8dc2364c0e7e55cb8710a93f0312b7dded1a62b"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m050.user.3",
+      "sha256": "db63006835f32903abf94c29e5f2c6b8d2e5bda229f9116eac46a4c4adc07b7b"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m060.user.3",
+      "sha256": "c59e37e7c56f0d853014fbe114cc164d556b1a825fb27d14157da95cd684ba86"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m070.user.3",
+      "sha256": "e932dc52ea8892e675459215f04835ed124f58bb606de4ff73e6064cd489e4cd"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m080.user.3",
+      "sha256": "f928022a6f99f8222a1708337322b55e1bcd53e85effca83858e612fb4715381"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m090.user.3",
+      "sha256": "d7956cef4f55cd0dce239fed9613561cf4be226ca2e7a5e3d9630155c8c1e9f0"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m210.user.3",
+      "sha256": "980ad930dbb62e5a88ea951290791f086916073e03ab87eb9874af3071fcdc20"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m220.user.3",
+      "sha256": "6fb3f8e85442b71b4b825bd1d012ca0aad4c0d2bca12e3a68e6324b11bb62e17"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m400.user.3",
+      "sha256": "34bace91c6de1ab2995f50a94e1f6436901b1513f90294ce675b3b2167747232"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m410.user.3",
+      "sha256": "7bd1e7d3caaaae974948a8e59cd82423398665691183b54a37ab8b6d7e1c2ead"
+    },
+    {
+      "asset": "natives/stm/gameassets/gui/userdata/map/guimaparea_m440.user.3",
+      "sha256": "1e25154f78a0798b29ea37662c1a20d33a3911c8f7dd58edabf72155eee0fd1c"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m000_001.gui.900043",
+      "sha256": "5f8e373c3702a478ba7fc9a54dae30b24dae583c01596b2f901270732f124b8d"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m010_001.gui.900043",
+      "sha256": "8ebb5bf23bb22e9e27307334b6cf648914982e973ef40dafcc9d515717c25110"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m010_002.gui.900043",
+      "sha256": "d955ad4e0d664cdaf41ad81d21b633120a543d46ee3f40767279a75cfa6e3c94"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m010_003.gui.900043",
+      "sha256": "20bf2a6cb13f7eb6c5fa74f7a3921f425ddceba1a615dfd40879740dd783b47d"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m010_101.gui.900043",
+      "sha256": "771b57bc4f9c073e56eecdd5da5eb28db76a227b24332ce938bd7be15b3b1645"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m010_102.gui.900043",
+      "sha256": "211e980a5e6f7c750154d3e76e1ad102eb56933dc8a0a2ad6663d30a125788a9"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m020_001.gui.900043",
+      "sha256": "bd34ac56b04706543a01746dc6e2a2006681ce346559fa2790a0ae0ddf819c7f"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m020_002.gui.900043",
+      "sha256": "1b5d57fa220105c3ab7bce00fc31db923ca35c6045f997b37e47d481799b4395"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m020_101.gui.900043",
+      "sha256": "18fa714640d99d88c6e8142e8f48905a4c28a90689ade462e3d5102cf8ceff1b"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m020_102.gui.900043",
+      "sha256": "bf9cfb7bebcaf51eb83b02ba8e48197e29212f11fde71801d67e4776feb44817"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m030_001.gui.900043",
+      "sha256": "58d56047ca3c53bdc52a35fcad367738f3dd1cc8c8a9958a9eb5ed0fce6a3dfb"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m030_002.gui.900043",
+      "sha256": "db6c7984827481fec447520f66439cf700b3422b457b9b62c9212e7ea0ffe688"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m030_003.gui.900043",
+      "sha256": "a004b5fea4d08bac5a669d3f7b249b6e2b8fda05e8ac7e2842764b8e6a0e313b"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m030_102.gui.900043",
+      "sha256": "dfdf50e00ecfca2393e2736a06b27403c58be0a467d2e41466213824a2e99808"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m031_001.gui.900043",
+      "sha256": "98079e7018466761ee9bc601f28eb4a59df2f00e150f7970caa778e9f12703da"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m031_002.gui.900043",
+      "sha256": "55ae75dad5e57c12bf2090339390355769204123bf6d0fc619b0da63b8a34363"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m040_101.gui.900043",
+      "sha256": "a8fe8bdcbc19064aab6009f58a4a456e3a406551fdecd5a6b314975bd77576b1"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m040_102.gui.900043",
+      "sha256": "33062fab690dc8cf58a7406d8aab899d5e757a5c4e0f9fe37a845907cf299441"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m040_103.gui.900043",
+      "sha256": "9543f0a5f8be70439d36882d1c659c3777e33e256c89a3439a72f1f45ee9f24f"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m050_101.gui.900043",
+      "sha256": "d6ec69bb0e88d3662c7576ffb4c8ac6f4af1eaac75e10918506a6157f03263e7"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m050_102.gui.900043",
+      "sha256": "f6525981b6ce0acb1974a92de70936eaae6f4ef68015811b8462834cb9966f7b"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m060_001.gui.900043",
+      "sha256": "e16174e744b0c29c7a43354d99fc15f03784f46a62e57ae1aa157dd1900a355b"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m060_101.gui.900043",
+      "sha256": "21e15b07b28f0656a6162a76c88e5534f58db5c79a0b77f74e69d684f2a47790"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m070_001.gui.900043",
+      "sha256": "ad8132dde76fe68fc0ef431304eac5fdce3c4dc772956facac70a86db98ff154"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m070_101.gui.900043",
+      "sha256": "44ab1bae928d168f53d837b1670665e6c1f797cbf7c0df386e725fe0634778bc"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m080_001.gui.900043",
+      "sha256": "9b226f5a9e262b43419b6fdbf1f4b5d35522a13ec8b10716046ff2daa8a8b47a"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m080_101.gui.900043",
+      "sha256": "358112cc38096199bb56c21f331c84df14514ca3b0c0e63a884f8984117ce56c"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m080_102.gui.900043",
+      "sha256": "3c910c7e298a594de9c8b1d5078c7eec70dad375e19711fdb310a8338d753d31"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m080_103.gui.900043",
+      "sha256": "3a1acd0268df624cf1eb7a947bc7415536694414171041f37e8d6e781d94f19e"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_001.gui.900043",
+      "sha256": "db03d8dc5daa4d03ca8d6a816b34dcbf80b4648b4c83b9846b553b9e33853324"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_101.gui.900043",
+      "sha256": "cb2d2f96d8e6d61cbb9b1eb356a7ed67b426a79fad9e797c8d502ce3a4d34f21"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_102.gui.900043",
+      "sha256": "c24475acba9fa50b075574420fcd46f6a0580307f6f1dfc9e233f284191cc6f8"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_103.gui.900043",
+      "sha256": "a2de6dac42b42fc8cccdbbb0a9876aaeea7262f0f281f38729399f1a6e06f3c5"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_104.gui.900043",
+      "sha256": "4bcc29ae385f320cd573bd1839c9ada66b04ffb7d368766980e85868816a1fe4"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m090_105.gui.900043",
+      "sha256": "32c6e3a46de8f667227518b7f730eec345344e3ac3b6e02c9b411990cb9f28a5"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m100_001.gui.900043",
+      "sha256": "19c6f28c3e30f15ea09d2fff3289ab95ea3af69a200b5e03aa4727d87e7b05b0"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m210_001.gui.900043",
+      "sha256": "57aa217cb600663b04c86749539497f7436b39eb82518a2a9c82051ddb63a4eb"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m210_002.gui.900043",
+      "sha256": "7636f87790f2a6f21385638aca75830ac36d30c078c08af57a2941de6e98a861"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m210_003.gui.900043",
+      "sha256": "95f0c903e35f63880e4ea7e0f533f478859e7a70858a34138c161468994780a5"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m210_004.gui.900043",
+      "sha256": "8980e939b43a4aa5153d0304c653432a167496bbf2b20a5173374949aa4cc770"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m210_005.gui.900043",
+      "sha256": "165b412309f51a2d88295b808c630a7043911e16296bd2bb53e9ea2bfae30299"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m220_001.gui.900043",
+      "sha256": "aaaf017f8f649bd3f75ec6a7c7dae20ab3788e96e451715eb3052a219c0eab90"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m220_002.gui.900043",
+      "sha256": "3e931f6396dc28d775291747d1d086dd95dc1f20a31507b89a37a4ed007a11cb"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m220_003.gui.900043",
+      "sha256": "675535c38ac9de002386f7dd4a6f39b9f4440d1b38898bc37ca5c2ab030488d6"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m220_004.gui.900043",
+      "sha256": "21389e582f9d2b659db926dde42e64806796010af4757cb4a33484796e3e660e"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m220_005.gui.900043",
+      "sha256": "e4a24ed54cac61edce09429d87cc336ccfc382d756fe265811c188e56adef56b"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m400_001.gui.900043",
+      "sha256": "7e46eaa5ad2f33e14fecd411987969274bb0ba7b62480b4e946b4c6e2204be26"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m400_002.gui.900043",
+      "sha256": "1343f0ce4c3945c5183e5e44d7bac3077ae37901dc958a393864410c2f747769"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m400_003.gui.900043",
+      "sha256": "47c2ae6f7b0f7c637e5b98298b7db8ccab41d5a2b4b31506e9e36f45bc9b7265"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m400_101.gui.900043",
+      "sha256": "0d6199c0cace7f9043f9a775a46f041062061c1ba189a51373ebf62ca7e193ce"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m410_101.gui.900043",
+      "sha256": "8eab88cc769f2aa82e1158fa344749a9504d86b5ece6bc70897457a7a8f41baf"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m440_001.gui.900043",
+      "sha256": "450a1898ce7f3e1c1646f13749f384911aa2156e622d6fe9007c2a18579852c3"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m440_002.gui.900043",
+      "sha256": "925640ce9b7b2046d6e30cd7d83e482d24dbd62f6a6e4c923911bc4e39a56cf7"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m440_101.gui.900043",
+      "sha256": "c5c14d5c5054e292a63f7c941851a11f208615d472b856c63d4fa652b4e496ea"
+    },
+    {
+      "asset": "natives/stm/gui/ui2500/gui/ui2500_m440_102.gui.900043",
+      "sha256": "4ae428df8740f91b956dba6e71d45d823d318b2d0d6b8bf0341fb476a3c9e2a0"
+    }
+  ],
+  "floors": {
+    "M000_001": {
+      "area": "Main Street",
+      "areaGuid": "d001a45f-1117-4068-8c66-3d15f650f96a",
+      "asset": "guimaparea_m000.user.3"
+    },
+    "M010_102": {
+      "area": "The Wrenwood Hotel",
+      "areaGuid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+      "asset": "guimaparea_m010.user.3"
+    },
+    "M010_101": {
+      "area": "The Wrenwood Hotel",
+      "areaGuid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+      "asset": "guimaparea_m010.user.3"
+    },
+    "M010_001": {
+      "area": "The Wrenwood Hotel",
+      "areaGuid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+      "asset": "guimaparea_m010.user.3"
+    },
+    "M010_002": {
+      "area": "The Wrenwood Hotel",
+      "areaGuid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+      "asset": "guimaparea_m010.user.3"
+    },
+    "M010_003": {
+      "area": "The Wrenwood Hotel",
+      "areaGuid": "d9b39004-2a00-4f7c-91f6-6080c89213af",
+      "asset": "guimaparea_m010.user.3"
+    },
+    "M020_102": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m020.user.3"
+    },
+    "M020_101": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m020.user.3"
+    },
+    "M020_001": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m020.user.3"
+    },
+    "M020_002": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m020.user.3"
+    },
+    "M030_102": {
+      "area": "Care Center",
+      "areaGuid": "16e63b79-17d1-4aa1-bce2-b7b437e9702d",
+      "asset": "guimaparea_m030.user.3"
+    },
+    "M030_001": {
+      "area": "Care Center",
+      "areaGuid": "16e63b79-17d1-4aa1-bce2-b7b437e9702d",
+      "asset": "guimaparea_m030.user.3"
+    },
+    "M030_002": {
+      "area": "Care Center",
+      "areaGuid": "16e63b79-17d1-4aa1-bce2-b7b437e9702d",
+      "asset": "guimaparea_m030.user.3"
+    },
+    "M030_003": {
+      "area": "Care Center",
+      "areaGuid": "16e63b79-17d1-4aa1-bce2-b7b437e9702d",
+      "asset": "guimaparea_m030.user.3"
+    },
+    "M031_001": {
+      "area": "Care Center Courtyard",
+      "areaGuid": "c0e3b0fb-926e-4f12-88d9-d8123f87b356",
+      "asset": "guimaparea_m031.user.3"
+    },
+    "M031_002": {
+      "area": "Care Center Courtyard",
+      "areaGuid": "c0e3b0fb-926e-4f12-88d9-d8123f87b356",
+      "asset": "guimaparea_m031.user.3"
+    },
+    "M040_103": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m040.user.3"
+    },
+    "M040_102": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m040.user.3"
+    },
+    "M040_101": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m040.user.3"
+    },
+    "M050_102": {
+      "area": "Research Facility",
+      "areaGuid": "3257d0a2-9d22-44d4-aff7-bc9fce063afa",
+      "asset": "guimaparea_m050.user.3"
+    },
+    "M050_101": {
+      "area": "Research Facility",
+      "areaGuid": "3257d0a2-9d22-44d4-aff7-bc9fce063afa",
+      "asset": "guimaparea_m050.user.3"
+    },
+    "M060_101": {
+      "area": "Water Treatment Plant",
+      "areaGuid": "908486c5-133f-46b2-91c3-93c94e171c2f",
+      "asset": "guimaparea_m060.user.3"
+    },
+    "M060_001": {
+      "area": "Water Treatment Plant",
+      "areaGuid": "908486c5-133f-46b2-91c3-93c94e171c2f",
+      "asset": "guimaparea_m060.user.3"
+    },
+    "M070_101": {
+      "area": "East Raccoon City",
+      "areaGuid": "8ce92ed8-7f4f-41f3-a2de-f714fb556247",
+      "asset": "guimaparea_m070.user.3"
+    },
+    "M070_001": {
+      "area": "East Raccoon City",
+      "areaGuid": "8ce92ed8-7f4f-41f3-a2de-f714fb556247",
+      "asset": "guimaparea_m070.user.3"
+    },
+    "M080_103": {
+      "area": "Raccoon City Center",
+      "areaGuid": "b0e3a5a8-1c8c-405f-b45f-0973fad3863c",
+      "asset": "guimaparea_m080.user.3"
+    },
+    "M080_102": {
+      "area": "Raccoon City Center",
+      "areaGuid": "b0e3a5a8-1c8c-405f-b45f-0973fad3863c",
+      "asset": "guimaparea_m080.user.3"
+    },
+    "M080_101": {
+      "area": "Raccoon City Center",
+      "areaGuid": "b0e3a5a8-1c8c-405f-b45f-0973fad3863c",
+      "asset": "guimaparea_m080.user.3"
+    },
+    "M080_001": {
+      "area": "Raccoon City Center",
+      "areaGuid": "b0e3a5a8-1c8c-405f-b45f-0973fad3863c",
+      "asset": "guimaparea_m080.user.3"
+    },
+    "M090_105": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M090_104": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M090_103": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M090_102": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M090_101": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M090_001": {
+      "area": "ARK",
+      "areaGuid": "e7d9ad59-666d-42f4-923b-1d64a16d0a58",
+      "asset": "guimaparea_m090.user.3"
+    },
+    "M210_001": {
+      "area": "Logistics Warehouse",
+      "areaGuid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "asset": "guimaparea_m210.user.3"
+    },
+    "M210_002": {
+      "area": "Logistics Warehouse",
+      "areaGuid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "asset": "guimaparea_m210.user.3"
+    },
+    "M210_003": {
+      "area": "Logistics Warehouse",
+      "areaGuid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "asset": "guimaparea_m210.user.3"
+    },
+    "M210_004": {
+      "area": "Logistics Warehouse",
+      "areaGuid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "asset": "guimaparea_m210.user.3"
+    },
+    "M210_005": {
+      "area": "Logistics Warehouse",
+      "areaGuid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "asset": "guimaparea_m210.user.3"
+    },
+    "M220_001": {
+      "area": "Cedarbrook Apartments",
+      "areaGuid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "asset": "guimaparea_m220.user.3"
+    },
+    "M220_002": {
+      "area": "Cedarbrook Apartments",
+      "areaGuid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "asset": "guimaparea_m220.user.3"
+    },
+    "M220_003": {
+      "area": "Cedarbrook Apartments",
+      "areaGuid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "asset": "guimaparea_m220.user.3"
+    },
+    "M220_004": {
+      "area": "Cedarbrook Apartments",
+      "areaGuid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "asset": "guimaparea_m220.user.3"
+    },
+    "M220_005": {
+      "area": "Cedarbrook Apartments",
+      "areaGuid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "asset": "guimaparea_m220.user.3"
+    },
+    "M400_101": {
+      "area": "R.P.D.",
+      "areaGuid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+      "asset": "guimaparea_m400.user.3"
+    },
+    "M400_001": {
+      "area": "R.P.D.",
+      "areaGuid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+      "asset": "guimaparea_m400.user.3"
+    },
+    "M400_002": {
+      "area": "R.P.D.",
+      "areaGuid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+      "asset": "guimaparea_m400.user.3"
+    },
+    "M400_003": {
+      "area": "R.P.D.",
+      "areaGuid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+      "asset": "guimaparea_m400.user.3"
+    },
+    "M410_101": {
+      "area": "",
+      "areaGuid": "00000000-0000-0000-0000-000000000000",
+      "asset": "guimaparea_m410.user.3"
+    },
+    "M440_102": {
+      "area": "Orphanage",
+      "areaGuid": "a1015667-eb48-4f58-bd3e-eb4bdc7c66b5",
+      "asset": "guimaparea_m440.user.3"
+    },
+    "M440_101": {
+      "area": "Orphanage",
+      "areaGuid": "a1015667-eb48-4f58-bd3e-eb4bdc7c66b5",
+      "asset": "guimaparea_m440.user.3"
+    },
+    "M440_001": {
+      "area": "Orphanage",
+      "areaGuid": "a1015667-eb48-4f58-bd3e-eb4bdc7c66b5",
+      "asset": "guimaparea_m440.user.3"
+    },
+    "M440_002": {
+      "area": "Orphanage",
+      "areaGuid": "a1015667-eb48-4f58-bd3e-eb4bdc7c66b5",
+      "asset": "guimaparea_m440.user.3"
+    }
+  },
+  "roomLabels": [
+    {
+      "section": "M010_001_010",
+      "floor": "M010_001",
+      "room": "Employee Entrance",
+      "guid": "32df1042-6c88-4d86-9670-565c3c61e24a",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38728,
+      "guidOffset": 43039
+    },
+    {
+      "section": "M010_001_020",
+      "floor": "M010_001",
+      "room": "Kitchen",
+      "guid": "bdad8345-2b6e-4624-89d7-64fbaf8b49ca",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38776,
+      "guidOffset": 43055
+    },
+    {
+      "section": "M010_001_030",
+      "floor": "M010_001",
+      "room": "Lounge & Bar",
+      "guid": "c60ca41f-259e-4102-a3a7-b23020a11d41",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38824,
+      "guidOffset": 43071
+    },
+    {
+      "section": "M010_001_040",
+      "floor": "M010_001",
+      "room": "Restroom",
+      "guid": "4208f2ae-1c4c-4cc2-9f56-562ab9e89e98",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38872,
+      "guidOffset": 43087
+    },
+    {
+      "section": "M010_001_060",
+      "floor": "M010_001",
+      "room": "Lobby",
+      "guid": "67146be6-2900-47a2-9c63-aa7b6c6860ad",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38920,
+      "guidOffset": 43103
+    },
+    {
+      "section": "M010_001_070",
+      "floor": "M010_001",
+      "room": "Office",
+      "guid": "58dd8f14-f000-4061-830b-aa598625b711",
+      "guiAsset": "ui2500_m010_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38968,
+      "guidOffset": 43119
+    },
+    {
+      "section": "M010_002_010",
+      "floor": "M010_002",
+      "room": "Rec Room",
+      "guid": "f0ac2bfb-4a3c-4787-ae4a-57f574169414",
+      "guiAsset": "ui2500_m010_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 30320,
+      "guidOffset": 35460
+    },
+    {
+      "section": "M010_002_030",
+      "floor": "M010_002",
+      "room": "Room 204",
+      "guid": "20f8a340-f051-406a-8b1a-22e17f6c5059",
+      "guiAsset": "ui2500_m010_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 32000,
+      "guidOffset": 35476
+    },
+    {
+      "section": "M030_001_410",
+      "floor": "M030_001",
+      "room": "Central Hall",
+      "guid": "ee808f37-dc1d-4988-8344-390d09d49097",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r410_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 87920,
+      "guidOffset": 122432
+    },
+    {
+      "section": "M030_001_020",
+      "floor": "M030_001",
+      "room": "Guard Office",
+      "guid": "6bbc592a-c60e-403a-9382-5cfd4218ff01",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 87968,
+      "guidOffset": 122448
+    },
+    {
+      "section": "M030_001_050",
+      "floor": "M030_001",
+      "room": "Treatment Room",
+      "guid": "ca093795-a478-4049-a203-981bf2a16751",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88016,
+      "guidOffset": 122464
+    },
+    {
+      "section": "M030_001_040",
+      "floor": "M030_001",
+      "room": "Examination Room",
+      "guid": "95a97ada-680e-43c1-b994-8925b53481f5",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88064,
+      "guidOffset": 122480
+    },
+    {
+      "section": "M030_001_090",
+      "floor": "M030_001",
+      "room": "Waiting Room",
+      "guid": "254fcfa6-30e1-496a-95c8-47a02889f596",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88112,
+      "guidOffset": 122496
+    },
+    {
+      "section": "M030_001_070",
+      "floor": "M030_001",
+      "room": "Blood Lab",
+      "guid": "b989f115-c13c-470c-8924-b0c8fac43bed",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88160,
+      "guidOffset": 122512
+    },
+    {
+      "section": "M030_001_100",
+      "floor": "M030_001",
+      "room": "Closet",
+      "guid": "41415928-7af9-4f7c-93c9-e036c76051d5",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88208,
+      "guidOffset": 122528
+    },
+    {
+      "section": "M030_001_200",
+      "floor": "M030_001",
+      "room": "Parlor",
+      "guid": "59f9f9d1-bbe4-4599-9e22-dd35285becc6",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r200_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88256,
+      "guidOffset": 122544
+    },
+    {
+      "section": "M030_001_210",
+      "floor": "M030_001",
+      "room": "Kitchen",
+      "guid": "898ddeed-c38e-4bff-a9d6-4d3e7ddd72b1",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r210_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88304,
+      "guidOffset": 122560
+    },
+    {
+      "section": "M030_001_240",
+      "floor": "M030_001",
+      "room": "Dining Room",
+      "guid": "bd16ad48-8c47-44fe-8d8d-40a9b65f1947",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r240_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88352,
+      "guidOffset": 122576
+    },
+    {
+      "section": "M030_001_270",
+      "floor": "M030_001",
+      "room": "Cold Storage",
+      "guid": "6081ab8b-de90-45d9-a629-43266c64daf7",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r270_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88400,
+      "guidOffset": 122592
+    },
+    {
+      "section": "M030_001_280",
+      "floor": "M030_001",
+      "room": "Restroom",
+      "guid": "f8ab6a70-d4ea-490f-86bc-e2605842c44f",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r280_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88448,
+      "guidOffset": 122608
+    },
+    {
+      "section": "M030_001_310",
+      "floor": "M030_001",
+      "room": "Garage",
+      "guid": "1914e2d4-5a63-4e4c-be38-649c5465bdf0",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r310_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88496,
+      "guidOffset": 122624
+    },
+    {
+      "section": "M030_001_300",
+      "floor": "M030_001",
+      "room": "Custodian's Office",
+      "guid": "fc3ab130-add7-43c3-92f0-ef2bb4456dd8",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r300_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88544,
+      "guidOffset": 122640
+    },
+    {
+      "section": "M030_001_220",
+      "floor": "M030_001",
+      "room": "Pantry",
+      "guid": "06da4b2b-6061-47e0-a0ba-daa6552be289",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r220_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88592,
+      "guidOffset": 122656
+    },
+    {
+      "section": "M030_001_370",
+      "floor": "M030_001",
+      "room": "Filing Room",
+      "guid": "bf7cbc3f-d965-47e4-be17-c4c51017a764",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r370_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88736,
+      "guidOffset": 122672
+    },
+    {
+      "section": "M030_001_170",
+      "floor": "M030_001",
+      "room": "Security Manager's Office",
+      "guid": "20352ec5-34aa-4893-9153-224dfe9100b6",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r170_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88880,
+      "guidOffset": 122688
+    },
+    {
+      "section": "M030_001_330",
+      "floor": "M030_001",
+      "room": "Rehabilitation Ward",
+      "guid": "49c4408b-adab-41c3-8f2c-7d4471ae7077",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r330_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 89024,
+      "guidOffset": 122704
+    },
+    {
+      "section": "M030_001_320",
+      "floor": "M030_001",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r320_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 89168,
+      "guidOffset": 122720
+    },
+    {
+      "section": "M030_001_390",
+      "floor": "M030_001",
+      "room": "Medication Room",
+      "guid": "8fed65d8-6220-4ef7-92b6-f2ef5e9c827f",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r390_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 104480,
+      "guidOffset": 122736
+    },
+    {
+      "section": "M030_001_110",
+      "floor": "M030_001",
+      "room": "Isolation Ward",
+      "guid": "395acf7b-7310-490a-8a2a-b8b3a4865383",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r110_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 118400,
+      "guidOffset": 122752
+    },
+    {
+      "section": "M030_001_400",
+      "floor": "M030_001",
+      "room": "Courtyard",
+      "guid": "a5fc55fe-e38c-4861-a217-935a242ed209",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r400_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 118592,
+      "guidOffset": 122768
+    },
+    {
+      "section": "M030_001_030",
+      "floor": "M030_001",
+      "room": "East Wing Lobby",
+      "guid": "0fe09956-9ea7-472a-a430-d9152d86eab5",
+      "guiAsset": "ui2500_m030_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 118688,
+      "guidOffset": 122784
+    },
+    {
+      "section": "M030_002_110",
+      "floor": "M030_002",
+      "room": "Central Hall",
+      "guid": "86a15417-74d0-4077-a8a8-4afc5eb73930",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r110_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 69880,
+      "guidOffset": 93901
+    },
+    {
+      "section": "M030_002_140",
+      "floor": "M030_002",
+      "room": "Records Room",
+      "guid": "fa60f4a0-c543-4190-b917-52014e7e1621",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r140_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 69928,
+      "guidOffset": 93917
+    },
+    {
+      "section": "M030_002_160",
+      "floor": "M030_002",
+      "room": "Gallery",
+      "guid": "2d58dc67-6d32-4b3e-897d-76c03fc4d058",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r160_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 69976,
+      "guidOffset": 93933
+    },
+    {
+      "section": "M030_002_150",
+      "floor": "M030_002",
+      "room": "Bar & Lounge",
+      "guid": "1199e80b-0aec-4685-a4a7-30d19d463e05",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r150_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 70024,
+      "guidOffset": 93949
+    },
+    {
+      "section": "M030_002_100",
+      "floor": "M030_002",
+      "room": "Room 201",
+      "guid": "d1f2dda9-c6c8-4f31-83e9-f8a7b5b4edd3",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 73528,
+      "guidOffset": 93965
+    },
+    {
+      "section": "M030_002_310",
+      "floor": "M030_002",
+      "room": "Room 202",
+      "guid": "716cd2c1-0756-4a3d-a1b0-75f63c5bd380",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r310_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 73672,
+      "guidOffset": 93981
+    },
+    {
+      "section": "M030_002_060",
+      "floor": "M030_002",
+      "room": "Nurses' Station",
+      "guid": "78000015-06e9-4415-a916-d74130d9b7a9",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 73816,
+      "guidOffset": 93997
+    },
+    {
+      "section": "M030_002_010",
+      "floor": "M030_002",
+      "room": "Room 203",
+      "guid": "91adadd5-f371-4ebc-a283-ab3eeb4c47cb",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 73960,
+      "guidOffset": 94013
+    },
+    {
+      "section": "M030_002_220",
+      "floor": "M030_002",
+      "room": "Lead Researcher's Office",
+      "guid": "31416c23-98f6-4d80-8af0-60d5e847b53d",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r220_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 74200,
+      "guidOffset": 94029
+    },
+    {
+      "section": "M030_002_200",
+      "floor": "M030_002",
+      "room": "Conference Room",
+      "guid": "2380dc14-e259-42a1-90ba-378a1a804c53",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r200_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 74344,
+      "guidOffset": 94045
+    },
+    {
+      "section": "M030_002_180",
+      "floor": "M030_002",
+      "room": "Office",
+      "guid": "547e7c83-5d39-40e8-ad3b-ffa01adfb6f7",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r180_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 87976,
+      "guidOffset": 94061
+    },
+    {
+      "section": "M030_002_290",
+      "floor": "M030_002",
+      "room": "Kitchenette",
+      "guid": "876a274c-a5fa-454b-93a8-ba9dcb68e48b",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r290_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 88024,
+      "guidOffset": 94077
+    },
+    {
+      "section": "M030_002_130",
+      "floor": "M030_002",
+      "room": "Chairman's Office",
+      "guid": "b87a67c7-52d4-4734-8666-9b51e793c5c5",
+      "guiAsset": "ui2500_m030_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r130_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 90424,
+      "guidOffset": 94093
+    },
+    {
+      "section": "M030_003_020",
+      "floor": "M030_003",
+      "room": "Medical Supply Room",
+      "guid": "c5cf7cb1-8327-4dde-b488-779cf290ccb8",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37448,
+      "guidOffset": 47203
+    },
+    {
+      "section": "M030_003_040",
+      "floor": "M030_003",
+      "room": "Attic",
+      "guid": "42d91155-a156-4819-9bb2-dbdf80865f42",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37496,
+      "guidOffset": 47219
+    },
+    {
+      "section": "M030_003_050",
+      "floor": "M030_003",
+      "room": "Attic Storage",
+      "guid": "203540fa-0e9a-4b4a-aef3-7f61e5b62f9f",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37544,
+      "guidOffset": 47235
+    },
+    {
+      "section": "M030_003_060",
+      "floor": "M030_003",
+      "room": "Lounge",
+      "guid": "b870e257-54cc-4498-859f-c587068428d4",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37592,
+      "guidOffset": 47251
+    },
+    {
+      "section": "M030_003_070",
+      "floor": "M030_003",
+      "room": "Meeting Room",
+      "guid": "205a3ce2-107d-4d7f-b41c-9bede0c6f357",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37640,
+      "guidOffset": 47267
+    },
+    {
+      "section": "M030_003_080",
+      "floor": "M030_003",
+      "room": "Director's Office",
+      "guid": "6ec6c766-1724-46c9-a67d-69f9758342ad",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 41576,
+      "guidOffset": 47283
+    },
+    {
+      "section": "M030_003_090",
+      "floor": "M030_003",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m030_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 44840,
+      "guidOffset": 47299
+    },
+    {
+      "section": "M030_102_020",
+      "floor": "M030_102",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 56976,
+      "guidOffset": 65082
+    },
+    {
+      "section": "M030_102_050",
+      "floor": "M030_102",
+      "room": "Security Room",
+      "guid": "bdbd6ce0-3c12-444d-8830-2e47ac63115a",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57024,
+      "guidOffset": 65098
+    },
+    {
+      "section": "M030_102_080",
+      "floor": "M030_102",
+      "room": "Holding Cells",
+      "guid": "cc2c7a2d-8ca9-4e01-abaf-0d746e15df6c",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57072,
+      "guidOffset": 65114
+    },
+    {
+      "section": "M030_102_090",
+      "floor": "M030_102",
+      "room": "Workshop",
+      "guid": "648411d4-9bfb-455f-ba5f-d0aeb4d0dd51",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57120,
+      "guidOffset": 65130
+    },
+    {
+      "section": "M030_102_140",
+      "floor": "M030_102",
+      "room": "Bunkroom",
+      "guid": "05fbb049-afa2-45c7-8da3-4fcd4a7f5db5",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r140_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57168,
+      "guidOffset": 65146
+    },
+    {
+      "section": "M030_102_150",
+      "floor": "M030_102",
+      "room": "Boiler Room",
+      "guid": "df971913-2aee-4c73-b661-09a7a3398ffa",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r150_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57312,
+      "guidOffset": 65162
+    },
+    {
+      "section": "M030_102_190",
+      "floor": "M030_102",
+      "room": "Processing",
+      "guid": "dfe1d54e-d3f3-42d8-8698-b4b4ff1824cf",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r190_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57456,
+      "guidOffset": 65178
+    },
+    {
+      "section": "M030_102_210",
+      "floor": "M030_102",
+      "room": "Inspection",
+      "guid": "bb948b5f-f659-465b-acf7-a3ac597f4d07",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r210_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57600,
+      "guidOffset": 65194
+    },
+    {
+      "section": "M030_102_060",
+      "floor": "M030_102",
+      "room": "Furnace",
+      "guid": "59c6f9af-f08c-476d-b125-26487e726b14",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57744,
+      "guidOffset": 65210
+    },
+    {
+      "section": "M030_102_070",
+      "floor": "M030_102",
+      "room": "Collection Pool",
+      "guid": "6139f5d0-012e-4019-97b7-1bc75a22475a",
+      "guiAsset": "ui2500_m030_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4d0eb99d7be4e28e"
+      ],
+      "attributeOffset": 62496,
+      "guidOffset": 65226
+    },
+    {
+      "section": "M031_001_010",
+      "floor": "M031_001",
+      "room": "Courtyard",
+      "guid": "caf86f99-fd94-4e56-8ae9-39ad0d3e5ab4",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 51624,
+      "guidOffset": 55193
+    },
+    {
+      "section": "M031_001_020",
+      "floor": "M031_001",
+      "room": "Helipad",
+      "guid": "d74b39cd-d267-45f6-9609-42b3bcc7e1ef",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 51720,
+      "guidOffset": 55209
+    },
+    {
+      "section": "M031_001_050",
+      "floor": "M031_001",
+      "room": "VIP Suite",
+      "guid": "d496463c-716d-46ef-907b-5561c0c895d4",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 51816,
+      "guidOffset": 55225
+    },
+    {
+      "section": "M031_001_060",
+      "floor": "M031_001",
+      "room": "Emergency Exit",
+      "guid": "35853d84-6f51-4f4d-a6dc-a44c55ccf162",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 51912,
+      "guidOffset": 55241
+    },
+    {
+      "section": "M031_001_080",
+      "floor": "M031_001",
+      "room": "Cemetery",
+      "guid": "d9354f81-0190-451a-aba3-b9c1443d4d83",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52008,
+      "guidOffset": 55257
+    },
+    {
+      "section": "M031_001_090",
+      "floor": "M031_001",
+      "room": "Chapel",
+      "guid": "2c62fa36-3b5a-4780-b7ba-8e71e0445113",
+      "guiAsset": "ui2500_m031_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52104,
+      "guidOffset": 55273
+    },
+    {
+      "section": "M031_002_020",
+      "floor": "M031_002",
+      "room": "Roof",
+      "guid": "1300d33c-8ccb-41c6-a329-ed80e6cbab60",
+      "guiAsset": "ui2500_m031_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67888,
+      "guidOffset": 72737
+    },
+    {
+      "section": "M050_101_030",
+      "floor": "M050_101",
+      "room": "Electrical Room",
+      "guid": "258f79b2-84db-4e16-a21b-ccfd5c3a5c82",
+      "guiAsset": "ui2500_m050_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 39792,
+      "guidOffset": 43413
+    },
+    {
+      "section": "M050_102_010",
+      "floor": "M050_102",
+      "room": "Elevator",
+      "guid": "67333895-396e-4b01-858f-7fa72aaf2444",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64040,
+      "guidOffset": 68995
+    },
+    {
+      "section": "M050_102_030",
+      "floor": "M050_102",
+      "room": "Reception",
+      "guid": "2418ba4f-fec9-4be5-accf-a37f27036306",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64136,
+      "guidOffset": 69011
+    },
+    {
+      "section": "M050_102_040",
+      "floor": "M050_102",
+      "room": "Collection & Testing",
+      "guid": "e68aed4a-8ab2-4235-a33f-252a368859ea",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64232,
+      "guidOffset": 69027
+    },
+    {
+      "section": "M050_102_060",
+      "floor": "M050_102",
+      "room": "Development",
+      "guid": "2bb3f550-8b09-4dde-bc41-90840cc9f63d",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64328,
+      "guidOffset": 69043
+    },
+    {
+      "section": "M050_102_070",
+      "floor": "M050_102",
+      "room": "Private Lab",
+      "guid": "ab700e38-e4de-472c-8fa3-9fc33107103b",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64424,
+      "guidOffset": 69059
+    },
+    {
+      "section": "M050_102_080",
+      "floor": "M050_102",
+      "room": "Control Room",
+      "guid": "04c09bd8-eb8c-44c2-a1a2-0e4866638263",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64520,
+      "guidOffset": 69075
+    },
+    {
+      "section": "M050_102_090",
+      "floor": "M050_102",
+      "room": "Emergency Evacuation Route",
+      "guid": "2fdaf89c-0037-456a-91af-e864b4d33753",
+      "guiAsset": "ui2500_m050_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 64616,
+      "guidOffset": 69091
+    },
+    {
+      "section": "M060_001_020",
+      "floor": "M060_001",
+      "room": "Storage Bay",
+      "guid": "28d968ab-f591-4719-acfb-b21dc1c6ad1c",
+      "guiAsset": "ui2500_m060_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 24520,
+      "guidOffset": 27293
+    },
+    {
+      "section": "M060_001_030",
+      "floor": "M060_001",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m060_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 25000,
+      "guidOffset": 27309
+    },
+    {
+      "section": "M060_101_060",
+      "floor": "M060_101",
+      "room": "Control Room",
+      "guid": "d8ed9d1e-57f9-4ee7-8f41-5e4d4ed7a255",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37608,
+      "guidOffset": 40733
+    },
+    {
+      "section": "M060_101_070",
+      "floor": "M060_101",
+      "room": "Filing Room",
+      "guid": "e353de5e-0a6e-454b-9580-ca74cc229ad9",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37656,
+      "guidOffset": 40749
+    },
+    {
+      "section": "M060_101_080",
+      "floor": "M060_101",
+      "room": "Storage Area",
+      "guid": "7e2a27c0-3ff6-4db1-bb1e-ffb2efbccbb0",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37704,
+      "guidOffset": 40765
+    },
+    {
+      "section": "M060_101_090",
+      "floor": "M060_101",
+      "room": "Chemical Treatment",
+      "guid": "1da202f0-1bcc-427a-ae61-ab9a432c23fe",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37752,
+      "guidOffset": 40781
+    },
+    {
+      "section": "M060_101_100",
+      "floor": "M060_101",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37800,
+      "guidOffset": 40797
+    },
+    {
+      "section": "M060_101_050",
+      "floor": "M060_101",
+      "room": "Sedimentation",
+      "guid": "9cbeb775-76ff-4dd6-96d3-875f64a580b2",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37848,
+      "guidOffset": 40813
+    },
+    {
+      "section": "M060_101_080",
+      "floor": "M060_101",
+      "room": "Storage Area",
+      "guid": "7e2a27c0-3ff6-4db1-bb1e-ffb2efbccbb0",
+      "guiAsset": "ui2500_m060_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38760,
+      "guidOffset": 40765
+    },
+    {
+      "section": "M070_001_060",
+      "floor": "M070_001",
+      "room": "Central Camp",
+      "guid": "40d4a5ea-337e-4b03-b7fa-b394f9039f5f",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 227912,
+      "guidOffset": 234503
+    },
+    {
+      "section": "M070_001_080",
+      "floor": "M070_001",
+      "room": "Cedarbrook Apartments",
+      "guid": "b5c0d73e-f134-41c4-843e-ffc0dd7f21b3",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 227960,
+      "guidOffset": 234519
+    },
+    {
+      "section": "M070_001_070",
+      "floor": "M070_001",
+      "room": "Logistics Warehouse",
+      "guid": "b458f2aa-d761-40f5-b2f3-0858e7b6d15b",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4d0eb99d7be4e28e"
+      ],
+      "attributeOffset": 228152,
+      "guidOffset": 234535
+    },
+    {
+      "section": "M070_001_100",
+      "floor": "M070_001",
+      "room": "Gas Station",
+      "guid": "e4c32cfe-d5d4-42c9-8131-1088829520c8",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228248,
+      "guidOffset": 234551
+    },
+    {
+      "section": "M070_001_130",
+      "floor": "M070_001",
+      "room": "Willis Tower",
+      "guid": "49ddfb1a-01cd-4669-a1f9-897a90ac05b5",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r130_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228296,
+      "guidOffset": 234567
+    },
+    {
+      "section": "M070_001_140",
+      "floor": "M070_001",
+      "room": "Grimstone Building Rooftop",
+      "guid": "27cb9cf7-9009-43a0-bc05-c13dc2485478",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r140_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228344,
+      "guidOffset": 234583
+    },
+    {
+      "section": "M070_001_030",
+      "floor": "M070_001",
+      "room": "The Applegate Hotel",
+      "guid": "cc42c67a-c3d6-4ebf-a8f2-1b6b15a70134",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228392,
+      "guidOffset": 234599
+    },
+    {
+      "section": "M070_001_020",
+      "floor": "M070_001",
+      "room": "Café Oasis",
+      "guid": "15e5fa88-368c-4765-9fbe-5c0593c30139",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228440,
+      "guidOffset": 234615
+    },
+    {
+      "section": "M070_001_050",
+      "floor": "M070_001",
+      "room": "NF Building",
+      "guid": "64cfbc56-380a-448a-a952-23d12efbb565",
+      "guiAsset": "ui2500_m070_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 228488,
+      "guidOffset": 234631
+    },
+    {
+      "section": "M070_101_010",
+      "floor": "M070_101",
+      "room": "Ridgewood Station",
+      "guid": "ab9c49cb-c999-45d8-88f7-33f18d3e8906",
+      "guiAsset": "ui2500_m070_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 140760,
+      "guidOffset": 145757
+    },
+    {
+      "section": "M070_101_020",
+      "floor": "M070_101",
+      "room": "Underground Parking Garage",
+      "guid": "a85a213e-6719-4428-8005-adadef79fd3f",
+      "guiAsset": "ui2500_m070_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 140808,
+      "guidOffset": 145773
+    },
+    {
+      "section": "M070_101_030",
+      "floor": "M070_101",
+      "room": "Sewage Facility",
+      "guid": "292d87da-600b-4769-97bb-c9f3c69e7393",
+      "guiAsset": "ui2500_m070_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 140856,
+      "guidOffset": 145789
+    },
+    {
+      "section": "M070_101_070",
+      "floor": "M070_101",
+      "room": "Grimstone Building Basement",
+      "guid": "a7bcbcb6-6708-4cdb-8c34-8db9598a7220",
+      "guiAsset": "ui2500_m070_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 140904,
+      "guidOffset": 145805
+    },
+    {
+      "section": "M080_001_020",
+      "floor": "M080_001",
+      "room": "R.P.D.",
+      "guid": "07e2f2a6-46e4-4564-ae50-8e1979ea272a",
+      "guiAsset": "ui2500_m080_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 89936,
+      "guidOffset": 94270
+    },
+    {
+      "section": "M080_001_040",
+      "floor": "M080_001",
+      "room": "Gun Shop Kendo",
+      "guid": "96a06db4-0d74-4f32-ae3e-6e0b03ccf16e",
+      "guiAsset": "ui2500_m080_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 89984,
+      "guidOffset": 94286
+    },
+    {
+      "section": "M080_001_050",
+      "floor": "M080_001",
+      "room": "Basketball Court",
+      "guid": "8fe4ebc1-577c-456f-923e-d77ad4b04c76",
+      "guiAsset": "ui2500_m080_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 90032,
+      "guidOffset": 94302
+    },
+    {
+      "section": "M080_101_030",
+      "floor": "M080_101",
+      "room": "Blackthorn Station",
+      "guid": "3140930b-69f7-4e6c-9a33-2557a5f9e67d",
+      "guiAsset": "ui2500_m080_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 69928,
+      "guidOffset": 73715
+    },
+    {
+      "section": "M080_102_010",
+      "floor": "M080_102",
+      "room": "Blackthorn Station Platform",
+      "guid": "66535e08-49c3-4b76-9b6e-6cb6ad8f1903",
+      "guiAsset": "ui2500_m080_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 50024,
+      "guidOffset": 53555
+    },
+    {
+      "section": "M080_103_030",
+      "floor": "M080_103",
+      "room": "Service Entrance",
+      "guid": "dce19ce3-d8e0-424c-b79a-1377eac78885",
+      "guiAsset": "ui2500_m080_103.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 65896,
+      "guidOffset": 69707
+    },
+    {
+      "section": "M090_001_010",
+      "floor": "M090_001",
+      "room": "Loading Dock",
+      "guid": "e7a00afe-a9a8-4bdd-b36a-90e223938ab1",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 42128,
+      "guidOffset": 48962
+    },
+    {
+      "section": "M090_001_040",
+      "floor": "M090_001",
+      "room": "Staff Room",
+      "guid": "7ffc6fd8-bb54-4736-adf5-2606cc74d22f",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 42176,
+      "guidOffset": 48978
+    },
+    {
+      "section": "M090_001_070",
+      "floor": "M090_001",
+      "room": "Guest Lounge",
+      "guid": "6c7e829e-abbf-4cd7-9a20-cb83238edbbe",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 43520,
+      "guidOffset": 48994
+    },
+    {
+      "section": "M090_001_090",
+      "floor": "M090_001",
+      "room": "Central Refining System: PANDORA",
+      "guid": "3fd6d296-c1d5-4744-acb8-1a48e70bd2b1",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46448,
+      "guidOffset": 49010
+    },
+    {
+      "section": "M090_001_100",
+      "floor": "M090_001",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46496,
+      "guidOffset": 49026
+    },
+    {
+      "section": "M090_001_110",
+      "floor": "M090_001",
+      "room": "Central Portal",
+      "guid": "0d09768b-2fea-44ad-8d5b-b83ba2a05e79",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r110_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46544,
+      "guidOffset": 49042
+    },
+    {
+      "section": "M090_001_120",
+      "floor": "M090_001",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r120_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46592,
+      "guidOffset": 49026
+    },
+    {
+      "section": "M090_101_020",
+      "floor": "M090_101",
+      "room": "Server Room",
+      "guid": "41fc7975-4dbe-4032-bd99-2bc4e092560d",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38944,
+      "guidOffset": 42610
+    },
+    {
+      "section": "M090_101_040",
+      "floor": "M090_101",
+      "room": "Stockroom",
+      "guid": "64695f09-4f9d-4ba9-a21b-12734d13623e",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38992,
+      "guidOffset": 42626
+    },
+    {
+      "section": "M090_101_060",
+      "floor": "M090_101",
+      "room": "Entrance",
+      "guid": "2f2bbdbf-f97e-4dd3-94fa-8e6a63a54ffc",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 39040,
+      "guidOffset": 42642
+    },
+    {
+      "section": "M090_101_090",
+      "floor": "M090_101",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 39664,
+      "guidOffset": 42658
+    },
+    {
+      "section": "M090_101_100",
+      "floor": "M090_101",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 39712,
+      "guidOffset": 42658
+    },
+    {
+      "section": "M090_101_010",
+      "floor": "M090_101",
+      "room": "Service Corridor",
+      "guid": "0bd35316-a937-4b5e-8923-b98ab409607c",
+      "guiAsset": "ui2500_m090_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 40336,
+      "guidOffset": 42674
+    },
+    {
+      "section": "M090_102_040",
+      "floor": "M090_102",
+      "room": "Sterilization Chamber",
+      "guid": "083c6447-1d34-4389-8329-9ca85d39edbd",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 49224,
+      "guidOffset": 60650
+    },
+    {
+      "section": "M090_102_050",
+      "floor": "M090_102",
+      "room": "Bioweapon Repository 02",
+      "guid": "a25ddb09-bd25-413c-b61b-596b793d7bda",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 49320,
+      "guidOffset": 60666
+    },
+    {
+      "section": "M090_102_060",
+      "floor": "M090_102",
+      "room": "Chemical Storage",
+      "guid": "a6b71e55-9838-44e1-b20a-e9b25e0d6b35",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 49416,
+      "guidOffset": 60682
+    },
+    {
+      "section": "M090_102_070",
+      "floor": "M090_102",
+      "room": "Cleanroom",
+      "guid": "33d32e90-19fc-4549-b63a-ff38de54f69c",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 51240,
+      "guidOffset": 60698
+    },
+    {
+      "section": "M090_102_080",
+      "floor": "M090_102",
+      "room": "Lobby",
+      "guid": "8beadcec-13fd-43a9-aa90-7aa6ecbd0d7e",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52488,
+      "guidOffset": 60714
+    },
+    {
+      "section": "M090_102_090",
+      "floor": "M090_102",
+      "room": "Monitor Control Room",
+      "guid": "67c67770-aef1-4727-b388-0b6734db8a80",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52584,
+      "guidOffset": 60730
+    },
+    {
+      "section": "M090_102_110",
+      "floor": "M090_102",
+      "room": "Anteroom",
+      "guid": "a4af2645-2a2b-499b-8ef2-87f8f6330a19",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r110_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55560,
+      "guidOffset": 60746
+    },
+    {
+      "section": "M090_102_120",
+      "floor": "M090_102",
+      "room": "Bioweapon Repository 05",
+      "guid": "10616813-c166-43a7-87e6-0834745e62ef",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r120_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55656,
+      "guidOffset": 60762
+    },
+    {
+      "section": "M090_102_130",
+      "floor": "M090_102",
+      "room": "Operations Room",
+      "guid": "921e3407-e363-4844-92f9-5abef86a5fcf",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r130_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55752,
+      "guidOffset": 60778
+    },
+    {
+      "section": "M090_102_140",
+      "floor": "M090_102",
+      "room": "Archives",
+      "guid": "df313985-6b9f-44e1-86d7-2aa901eea5f2",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r140_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55848,
+      "guidOffset": 60794
+    },
+    {
+      "section": "M090_102_160",
+      "floor": "M090_102",
+      "room": "Study",
+      "guid": "522944d6-3135-43c7-9163-4e8acdd4fceb",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r160_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57096,
+      "guidOffset": 60810
+    },
+    {
+      "section": "M090_102_170",
+      "floor": "M090_102",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r170_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57768,
+      "guidOffset": 60826
+    },
+    {
+      "section": "M090_102_180",
+      "floor": "M090_102",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r180_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58440,
+      "guidOffset": 60826
+    },
+    {
+      "section": "M090_102_020",
+      "floor": "M090_102",
+      "room": "Lab Entrance",
+      "guid": "0477c835-546d-47a3-8b24-e36213292cf5",
+      "guiAsset": "ui2500_m090_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58536,
+      "guidOffset": 60842
+    },
+    {
+      "section": "M090_103_020",
+      "floor": "M090_103",
+      "room": "Bioweapon Repository 05",
+      "guid": "10616813-c166-43a7-87e6-0834745e62ef",
+      "guiAsset": "ui2500_m090_103.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 24120,
+      "guidOffset": 27818
+    },
+    {
+      "section": "M090_103_030",
+      "floor": "M090_103",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_103.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 25944,
+      "guidOffset": 27834
+    },
+    {
+      "section": "M090_104_030",
+      "floor": "M090_104",
+      "room": "Dump Control Room",
+      "guid": "9f3bde45-8ba5-4787-9eec-b669c9432613",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 36920,
+      "guidOffset": 49322
+    },
+    {
+      "section": "M090_104_050",
+      "floor": "M090_104",
+      "room": "Back Room",
+      "guid": "8f0ce6cb-d963-4e6e-a64c-53723116c670",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 40040,
+      "guidOffset": 49338
+    },
+    {
+      "section": "M090_104_080",
+      "floor": "M090_104",
+      "room": "B4 Staff Room",
+      "guid": "04dc1ff6-266e-48d2-90a2-d5d9fd5c95b4",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 42584,
+      "guidOffset": 49354
+    },
+    {
+      "section": "M090_104_090",
+      "floor": "M090_104",
+      "room": "Bioweapon Repository 11",
+      "guid": "aee3591b-9324-4e58-ac2d-271ef8341f36",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 43832,
+      "guidOffset": 49370
+    },
+    {
+      "section": "M090_104_100",
+      "floor": "M090_104",
+      "room": "Elevator",
+      "guid": "bf5e4491-ef3a-4c90-a5fe-524537d62512",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 43928,
+      "guidOffset": 49386
+    },
+    {
+      "section": "M090_104_130",
+      "floor": "M090_104",
+      "room": "Systems Management",
+      "guid": "a06c9aad-e47e-43df-8ddc-7fb28dd4fe37",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r130_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46472,
+      "guidOffset": 49402
+    },
+    {
+      "section": "M090_104_010",
+      "floor": "M090_104",
+      "room": "Dump",
+      "guid": "14d81d07-da93-4e9f-b8b1-2c78fc1a1d18",
+      "guiAsset": "ui2500_m090_104.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 47144,
+      "guidOffset": 49418
+    },
+    {
+      "section": "M090_105_010",
+      "floor": "M090_105",
+      "room": "Dump",
+      "guid": "14d81d07-da93-4e9f-b8b1-2c78fc1a1d18",
+      "guiAsset": "ui2500_m090_105.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 36496,
+      "guidOffset": 41203
+    },
+    {
+      "section": "M090_105_020",
+      "floor": "M090_105",
+      "room": "Bioweapon Repository 12",
+      "guid": "d08f4165-db9f-4f67-973f-626e66062124",
+      "guiAsset": "ui2500_m090_105.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 37744,
+      "guidOffset": 41219
+    },
+    {
+      "section": "M090_105_030",
+      "floor": "M090_105",
+      "room": "Generator Room",
+      "guid": "864cb829-3279-4ef6-8e35-618848e8eeba",
+      "guiAsset": "ui2500_m090_105.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 38416,
+      "guidOffset": 41235
+    },
+    {
+      "section": "M210_001_010",
+      "floor": "M210_001",
+      "room": "Logistics Warehouse 1F",
+      "guid": "d4b6df15-dddb-43ac-a909-cbb57e47484e",
+      "guiAsset": "ui2500_m210_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 47816,
+      "guidOffset": 50701
+    },
+    {
+      "section": "M210_002_010",
+      "floor": "M210_002",
+      "room": "Logistics Warehouse 2F",
+      "guid": "0e31b6aa-62b8-4d0e-a8c0-11ca055cef88",
+      "guiAsset": "ui2500_m210_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 46936,
+      "guidOffset": 52737
+    },
+    {
+      "section": "M210_005_010",
+      "floor": "M210_005",
+      "room": "Logistics Warehouse Roof",
+      "guid": "87f89d1f-0325-4d05-869f-7e24f968c1be",
+      "guiAsset": "ui2500_m210_005.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 45320,
+      "guidOffset": 48225
+    },
+    {
+      "section": "M220_001_010",
+      "floor": "M220_001",
+      "room": "Cedarbrook Apartments 1F",
+      "guid": "fe5262ac-c45a-422f-96fa-56ba8fef90e4",
+      "guiAsset": "ui2500_m220_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 45712,
+      "guidOffset": 48585
+    },
+    {
+      "section": "M220_005_010",
+      "floor": "M220_005",
+      "room": "Cedarbrook Apartments Roof",
+      "guid": "cc16dbc5-0306-4932-87e7-31e92841ed61",
+      "guiAsset": "ui2500_m220_005.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 44504,
+      "guidOffset": 47354
+    },
+    {
+      "section": "M400_001_010",
+      "floor": "M400_001",
+      "room": "Entrance",
+      "guid": "db0e86a0-bec9-496b-a6bf-7604939fa7a2",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 57952,
+      "guidOffset": 66185
+    },
+    {
+      "section": "M400_001_020",
+      "floor": "M400_001",
+      "room": "Main Hall",
+      "guid": "8d9a69f6-9258-48f2-bfe2-b2b9ddcc6bcc",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58096,
+      "guidOffset": 66201
+    },
+    {
+      "section": "M400_001_030",
+      "floor": "M400_001",
+      "room": "West Office",
+      "guid": "d3074b3c-d8d5-44c1-b5a4-cc5fca9b4222",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58240,
+      "guidOffset": 66217
+    },
+    {
+      "section": "M400_001_050",
+      "floor": "M400_001",
+      "room": "Operations Room",
+      "guid": "a9e34947-80ca-4534-a9cb-bebc49f1e872",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58384,
+      "guidOffset": 66233
+    },
+    {
+      "section": "M400_001_060",
+      "floor": "M400_001",
+      "room": "Reception",
+      "guid": "99970d7d-75ef-42a8-a508-bf044f205e1b",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r060_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58528,
+      "guidOffset": 66249
+    },
+    {
+      "section": "M400_001_080",
+      "floor": "M400_001",
+      "room": "East Office",
+      "guid": "7a6e610c-7e05-4cf3-9683-6d0f8ed29767",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58672,
+      "guidOffset": 66265
+    },
+    {
+      "section": "M400_001_090",
+      "floor": "M400_001",
+      "room": "Press Room",
+      "guid": "251565fc-5759-4f01-ad1c-010cecabc226",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 58816,
+      "guidOffset": 66281
+    },
+    {
+      "section": "M400_001_090",
+      "floor": "M400_001",
+      "room": "Press Room",
+      "guid": "251565fc-5759-4f01-ad1c-010cecabc226",
+      "guiAsset": "ui2500_m400_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 63184,
+      "guidOffset": 66281
+    },
+    {
+      "section": "M400_002_010",
+      "floor": "M400_002",
+      "room": "Main Hall",
+      "guid": "8d9a69f6-9258-48f2-bfe2-b2b9ddcc6bcc",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67400,
+      "guidOffset": 79009
+    },
+    {
+      "section": "M400_002_010",
+      "floor": "M400_002",
+      "room": "Main Hall",
+      "guid": "8d9a69f6-9258-48f2-bfe2-b2b9ddcc6bcc",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67544,
+      "guidOffset": 79009
+    },
+    {
+      "section": "M400_002_020",
+      "floor": "M400_002",
+      "room": "Lounge",
+      "guid": "f482be92-0bc2-448f-97dd-31d3df31f8e2",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r020_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67688,
+      "guidOffset": 79025
+    },
+    {
+      "section": "M400_002_030",
+      "floor": "M400_002",
+      "room": "Library",
+      "guid": "bd199d2b-b5cf-4290-a2ef-685e3cf16b57",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67832,
+      "guidOffset": 79041
+    },
+    {
+      "section": "M400_002_050",
+      "floor": "M400_002",
+      "room": "S.T.A.R.S. Office",
+      "guid": "f490df74-79a3-46f1-b5f7-2dcf7cb57218",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r050_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 67976,
+      "guidOffset": 79057
+    },
+    {
+      "section": "M400_002_080",
+      "floor": "M400_002",
+      "room": "Chief's Office",
+      "guid": "2846a0ca-ff60-4de3-ab16-6c4f0f0ea116",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 68120,
+      "guidOffset": 79073
+    },
+    {
+      "section": "M400_002_090",
+      "floor": "M400_002",
+      "room": "Private Collection Room",
+      "guid": "5d255e6a-3046-4794-8cfe-df1e732cd6a6",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 68264,
+      "guidOffset": 79089
+    },
+    {
+      "section": "M400_002_090",
+      "floor": "M400_002",
+      "room": "Private Collection Room",
+      "guid": "5d255e6a-3046-4794-8cfe-df1e732cd6a6",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 68408,
+      "guidOffset": 79089
+    },
+    {
+      "section": "M400_002_100",
+      "floor": "M400_002",
+      "room": "Waiting Room",
+      "guid": "5153ea77-6529-4e53-9105-3bc235d843ff",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 68552,
+      "guidOffset": 79105
+    },
+    {
+      "section": "M400_002_100",
+      "floor": "M400_002",
+      "room": "Waiting Room",
+      "guid": "5153ea77-6529-4e53-9105-3bc235d843ff",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 68696,
+      "guidOffset": 79105
+    },
+    {
+      "section": "M400_002_090",
+      "floor": "M400_002",
+      "room": "Private Collection Room",
+      "guid": "5d255e6a-3046-4794-8cfe-df1e732cd6a6",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_02",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 75752,
+      "guidOffset": 79089
+    },
+    {
+      "section": "M400_002_080",
+      "floor": "M400_002",
+      "room": "Chief's Office",
+      "guid": "2846a0ca-ff60-4de3-ab16-6c4f0f0ea116",
+      "guiAsset": "ui2500_m400_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r080_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 75896,
+      "guidOffset": 79073
+    },
+    {
+      "section": "M400_003_010",
+      "floor": "M400_003",
+      "room": "Library",
+      "guid": "b517e026-7935-43ab-a497-3f29735f89e0",
+      "guiAsset": "ui2500_m400_003.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 43992,
+      "guidOffset": 47617
+    },
+    {
+      "section": "M400_101_010",
+      "floor": "M400_101",
+      "room": "Parking Garage",
+      "guid": "c84f3e26-7c9d-4b7c-aac1-9da4bdec7dff",
+      "guiAsset": "ui2500_m400_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 43200,
+      "guidOffset": 47017
+    },
+    {
+      "section": "M440_001_010",
+      "floor": "M440_001",
+      "room": "Director's Room",
+      "guid": "f3b20971-3361-4acb-8435-aaa76a1e1de6",
+      "guiAsset": "ui2500_m440_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 45944,
+      "guidOffset": 48834
+    },
+    {
+      "section": "M440_001_030",
+      "floor": "M440_001",
+      "room": "Main Hall",
+      "guid": "6957116f-bde4-4a7b-9d9d-1749d8118cd0",
+      "guiAsset": "ui2500_m440_001.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 45992,
+      "guidOffset": 48850
+    },
+    {
+      "section": "M440_002_010",
+      "floor": "M440_002",
+      "room": "Bedroom",
+      "guid": "2b696996-cbc5-41fa-bf84-4f3f51b3eab3",
+      "guiAsset": "ui2500_m440_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r010_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 47120,
+      "guidOffset": 50026
+    },
+    {
+      "section": "M440_002_030",
+      "floor": "M440_002",
+      "room": "Nursery",
+      "guid": "5125b298-2e28-4bef-8595-90a64e29c16e",
+      "guiAsset": "ui2500_m440_002.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 47168,
+      "guidOffset": 50042
+    },
+    {
+      "section": "M440_101_040",
+      "floor": "M440_101",
+      "room": "Storage Closet",
+      "guid": "1e747aee-95c4-4ac9-9886-16725112eb19",
+      "guiAsset": "ui2500_m440_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55168,
+      "guidOffset": 58266
+    },
+    {
+      "section": "M440_101_070",
+      "floor": "M440_101",
+      "room": "Research Lab",
+      "guid": "960f2910-71c7-48c7-b61b-a90876f0c5e1",
+      "guiAsset": "ui2500_m440_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r070_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55216,
+      "guidOffset": 58282
+    },
+    {
+      "section": "M440_101_090",
+      "floor": "M440_101",
+      "room": "Neonatal Observation Lab",
+      "guid": "0001bc66-b3e7-4669-ab01-366e78247c58",
+      "guiAsset": "ui2500_m440_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r090_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55264,
+      "guidOffset": 58298
+    },
+    {
+      "section": "M440_101_100",
+      "floor": "M440_101",
+      "room": "Meeting Room",
+      "guid": "10f4954e-1161-4f9c-a2d6-a1ac0f4642ea",
+      "guiAsset": "ui2500_m440_101.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r100_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 55312,
+      "guidOffset": 58314
+    },
+    {
+      "section": "M440_102_030",
+      "floor": "M440_102",
+      "room": "Underground Chapel",
+      "guid": "1e0b885d-da69-4310-83ba-bb0145088d36",
+      "guiAsset": "ui2500_m440_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52512,
+      "guidOffset": 55552
+    },
+    {
+      "section": "M440_102_030",
+      "floor": "M440_102",
+      "room": "Underground Chapel",
+      "guid": "1e0b885d-da69-4310-83ba-bb0145088d36",
+      "guiAsset": "ui2500_m440_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r030_01",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52560,
+      "guidOffset": 55552
+    },
+    {
+      "section": "M440_102_040",
+      "floor": "M440_102",
+      "room": "Crypt",
+      "guid": "0c2f8d13-e3c4-44c6-b93d-fdab1983af62",
+      "guiAsset": "ui2500_m440_102.gui.900043",
+      "panelPath": [
+        "Root/main",
+        "main/layout",
+        "layout/name",
+        "name/r040_00",
+        "0x4906905f3f472322"
+      ],
+      "attributeOffset": 52608,
+      "guidOffset": 55568
+    }
+  ],
+  "conflicts": [
+    [
+      "M030_102_070",
+      "Collection Pool",
+      "Elevator"
+    ]
+  ],
+  "excluded": [
+    {
+      "asset": "ui2500_m010_101.gui.900043.labels.json",
+      "section": "M010_101_030",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "01968175-33ab-47db-bbdc-e8431731ac2f",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r030_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 25808,
+        "guidOffset": 30321
+      }
+    },
+    {
+      "asset": "ui2500_m010_101.gui.900043.labels.json",
+      "section": "M010_101_050",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "fb52ae5d-da11-4071-868d-703f04cfbbd7",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r050_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 28160,
+        "guidOffset": 30337
+      }
+    },
+    {
+      "asset": "ui2500_m010_101.gui.900043.labels.json",
+      "section": "M010_101_060",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "313221ec-521c-4610-b940-7a4a1a761426",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r060_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 28208,
+        "guidOffset": 30353
+      }
+    },
+    {
+      "asset": "ui2500_m010_102.gui.900043.labels.json",
+      "section": "M010_102_010",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "4b1f35cb-5dbb-4939-92a0-111138c2187f",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r010_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 26304,
+        "guidOffset": 30047
+      }
+    },
+    {
+      "asset": "ui2500_m010_102.gui.900043.labels.json",
+      "section": "M010_102_040",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "fb52ae5d-da11-4071-868d-703f04cfbbd7",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r040_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 27504,
+        "guidOffset": 30063
+      }
+    },
+    {
+      "asset": "ui2500_m010_102.gui.900043.labels.json",
+      "section": "M010_102_020",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "313221ec-521c-4610-b940-7a4a1a761426",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r020_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 27552,
+        "guidOffset": 30079
+      }
+    },
+    {
+      "asset": "ui2500_m020_001.gui.900043.labels.json",
+      "section": "M020_001_010",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "8aebda42-f35f-473f-bf64-cb4c351299ad",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r010_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 25056,
+        "guidOffset": 29745
+      }
+    },
+    {
+      "asset": "ui2500_m020_001.gui.900043.labels.json",
+      "section": "M020_001_040",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "4e53fe34-adb3-4a93-90bd-2aace0ee87d4",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r040_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 26640,
+        "guidOffset": 29761
+      }
+    },
+    {
+      "asset": "ui2500_m020_001.gui.900043.labels.json",
+      "section": "M020_001_020",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "d713da98-4197-40ba-b6f7-2d2a2839cc64",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r020_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 26688,
+        "guidOffset": 29777
+      }
+    },
+    {
+      "asset": "ui2500_m020_101.gui.900043.labels.json",
+      "section": "M020_101_020",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "2f9401bd-f731-44b1-b261-0eeb6519ce55",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r020_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 22776,
+        "guidOffset": 26041
+      }
+    },
+    {
+      "asset": "ui2500_m020_101.gui.900043.labels.json",
+      "section": "M020_101_030",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "d074bd0e-2364-46de-9c3b-d5ad75a7b89a",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r030_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 23976,
+        "guidOffset": 26057
+      }
+    },
+    {
+      "asset": "ui2500_m020_102.gui.900043.labels.json",
+      "section": "M020_102_010",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "c6331738-c0a5-404d-a318-a733d9e16f8f",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r010_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 23536,
+        "guidOffset": 27809
+      }
+    },
+    {
+      "asset": "ui2500_m020_102.gui.900043.labels.json",
+      "section": "M020_102_020",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "3b317c7d-2078-49fc-8ff3-eb65a7e359d4",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r020_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 24352,
+        "guidOffset": 27825
+      }
+    },
+    {
+      "asset": "ui2500_m020_102.gui.900043.labels.json",
+      "section": "M020_102_030",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "f4761af8-7007-4d11-959c-bb5b524b32c9",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r030_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 24400,
+        "guidOffset": 27841
+      }
+    },
+    {
+      "asset": "ui2500_m080_001.gui.900043.labels.json",
+      "section": "M080_001_060",
+      "reason": "Unrecognized message GUID",
+      "record": {
+        "guid": "3c82a2c9-75ce-431a-9060-3beb714076f6",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/name",
+          "name/r060_00",
+          "0x4906905f3f472322"
+        ],
+        "attributeOffset": 90080,
+        "guidOffset": 94318
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "0f12ae76-c381-456d-a570-861b00565bd8",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r010_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103168,
+        "guidOffset": 109043
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "a7f204e0-dab2-403d-bc4d-870bf78459e9",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r020_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103216,
+        "guidOffset": 109059
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "6b521a66-2bab-4bf0-bbe2-5ba7245c51de",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r030_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103264,
+        "guidOffset": 109075
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "2504bf12-c024-4d42-b0bb-1b59d030c04b",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r040_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103312,
+        "guidOffset": 109091
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "dc1612e3-f9d3-4a55-9f8e-e474c53f7385",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r050_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103360,
+        "guidOffset": 109107
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "4a2727aa-d18f-498b-ab53-2edff13b3fa5",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/a010_00",
+          "a010_00/m_name"
+        ],
+        "attributeOffset": 103408,
+        "guidOffset": 109123
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "6b521a66-2bab-4bf0-bbe2-5ba7245c51de",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/a020_00",
+          "a010_00/m_name"
+        ],
+        "attributeOffset": 103456,
+        "guidOffset": 109075
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "a7f204e0-dab2-403d-bc4d-870bf78459e9",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/a030_00",
+          "a010_00/m_name"
+        ],
+        "attributeOffset": 103504,
+        "guidOffset": 109059
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "c1ac69fa-29bb-4522-a841-4b903dd22278",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/a040_00",
+          "a010_00/m_name"
+        ],
+        "attributeOffset": 103552,
+        "guidOffset": 109139
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "fd1dc0b2-12c5-4621-bc05-ede19c1a4269",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/p010_00",
+          "p_name/m_name"
+        ],
+        "attributeOffset": 103600,
+        "guidOffset": 109155
+      }
+    },
+    {
+      "asset": "ui2500_m100_001.gui.900043.labels.json",
+      "reason": "No single named room panel path",
+      "record": {
+        "guid": "c1ac69fa-29bb-4522-a841-4b903dd22278",
+        "path": [
+          "Root/main",
+          "main/layout",
+          "layout/area",
+          "area/layout",
+          "layout_area/name",
+          "name_layout/r060_00",
+          "r_name/m_name"
+        ],
+        "attributeOffset": 103648,
+        "guidOffset": 109139
+      }
+    }
+  ],
+  "floorNameCount": 46,
+  "roomNameCount": 172,
+  "liveChecks": [
+    {
+      "section": "M010_001_030",
+      "floor": "M010_001",
+      "expected": "The Wrenwood Hotel / Lounge & Bar",
+      "reportedBy": "User + current GuiMapBridge"
+    },
+    {
+      "section": "M010_001_020",
+      "floor": "M010_001",
+      "expected": "The Wrenwood Hotel / Kitchen",
+      "reportedBy": "User moved into kitchen; C# reader and CE Lua runtime both followed the current section"
+    }
+  ]
+}

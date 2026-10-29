@@ -109,7 +109,7 @@
                     getstage.Add("Armor Exhibit");
                     getstage.Add("Clock Tower");
                     getstage.Add("Throne Room Hall");
-                    getstage.Add("Transport Cat"); //Room 25
+                    getstage.Add("Transport Cart"); //Room 25
                     getstage.Add("Underground Ruins");
                     getstage.Add("Mine Rail");
                     getstage.Add("");
@@ -201,7 +201,7 @@
                     getstage.Add("Research Lab");
                     getstage.Add("Com Tower");
                     getstage.Add("Waste Disposal"); //Room 15
-                    getstage.Add("Basement");
+                    getstage.Add("Storage Room");
                     getstage.Add("Administration Corridor");
                     break;
                 case 5: //Separate Ways
@@ -216,11 +216,11 @@
                     getstage.Add("Village Gate and Gondola");
                     getstage.Add("Abandoned Cabin");
                     getstage.Add("Gigante Way"); //Room 10
-                    getstage.Add("Abandoned Cabin");
+                    getstage.Add("Shed of Enlightenment");
                     getstage.Add("Theater Hall");
                     getstage.Add("Castle Wall");
                     getstage.Add("Bedroom Garden");
-                    getstage.Add("Gallery"); //Room 15
+                    getstage.Add("Dining Hall"); //Room 15
                     getstage.Add("Exhibition Chamber");
                     getstage.Add("Com Tower");
                     getstage.Add("Tunnelway");
@@ -229,10 +229,10 @@
                     getstage.Add("Dozer Crash Site");
                     getstage.Add("Chapel and Furnace");
                     getstage.Add("Machine Room");
-                    getstage.Add("Militant Camp");
-                    getstage.Add("Fort"); //Room 25 //Needs real name (Where Leon's heli partner dies after)
-                    getstage.Add("Cavern Entrance");
-                    getstage.Add("Cavern");
+                    getstage.Add("Fort");
+                    getstage.Add("Cliffside Ruins"); //Room 25
+                    getstage.Add("Ancient Passage");
+                    getstage.Add("Penitentiary");
                     getstage.Add("Security Checkpoint");
                     getstage.Add("Capsule Chamber");
                     getstage.Add("Construction Building"); //Room 30
@@ -373,7 +373,7 @@
                     getstage.Add("Rüstungsexponat");
                     getstage.Add("Uhrenturm");
                     getstage.Add("Thronsaal Halle");
-                    getstage.Add("Transport Cat"); //Room 25
+                    getstage.Add("Transportwagen"); //Room 25
                     getstage.Add("Unterirdische Ruinen");
                     getstage.Add("Minenbahn");
                     getstage.Add("");
@@ -465,7 +465,7 @@
                     getstage.Add("Forschungslabor");
                     getstage.Add("Kommunikations-Turm");
                     getstage.Add("Abfallentsorgung"); //Room 15
-                    getstage.Add("Untergeschoss");
+                    getstage.Add("Abstellraum");
                     getstage.Add("Verwaltungskorridor");
                     break;
                 case 5: //Separate Ways
@@ -480,11 +480,11 @@
                     getstage.Add("Dorftor und Gondel");
                     getstage.Add("Verlassene Hütte");
                     getstage.Add("Weg des El Gigante"); //Room 10
-                    getstage.Add("Verlassene Hütte");
+                    getstage.Add("Schuppen der Erleuchtung");
                     getstage.Add("Theatersaal");
                     getstage.Add("Burgmauer");
                     getstage.Add("Schlafzimmer Garten");
-                    getstage.Add("Galerie"); //Room 15
+                    getstage.Add("Speisesaal"); //Room 15
                     getstage.Add("Ausstellungsraum");
                     getstage.Add("Kommunikations-Turm");
                     getstage.Add("Tunnelweg");
@@ -493,10 +493,10 @@
                     getstage.Add("Absturzstelle der Planierraupe");
                     getstage.Add("Kapelle und Ofen");
                     getstage.Add("Maschinenraum");
-                    getstage.Add("Militärbasis");
-                    getstage.Add("Festung"); //Room 25 //Needs real name (Where Leon's heli partner dies after)
-                    getstage.Add("Kaverneneingang");
-                    getstage.Add("Kaverne");
+                    getstage.Add("Festung");
+                    getstage.Add("Klippen-Ruinen"); //Room 25
+                    getstage.Add("Alte Passage");
+                    getstage.Add("Vollzugsanstalt");
                     getstage.Add("Sicherheits-Checkpoint");
                     getstage.Add("Kapselkammer");
                     getstage.Add("Bauwerk"); //Room 30

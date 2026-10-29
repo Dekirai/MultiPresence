@@ -1,0 +1,383 @@
+// English area labels keyed by known game stage IDs; no nearest-position guesses.
+// Source: LiterallyMetaphorical/RE4R-AP-Wizard map_labels.json, commit
+// 6d87937d923e8e2928a682f876f75f8c074e1bdf. See THIRD-PARTY-RE4.txt.
+// Curated stage names describe an area, not necessarily a room boundary.
+// A map section must be verified current by the reader before it is preferred.
+using System.Collections.Frozen;
+
+namespace MultiPresence.Models.RE4R
+{
+    public static class Locations
+    {
+        public sealed record Result(string Region, string Room, string Source, string Confidence)
+        {
+            public string FullLocation => $"{Region} / {Room}";
+        }
+
+        public static Result Get(int stageId, int sectionId, int mapSceneId, int mainStoryChapter = 0, bool sectionIsCurrent = false)
+        {
+            string region = GetRegion(mapSceneId, stageId, mainStoryChapter);
+            if (sectionIsCurrent && StageNames.TryGetValue(sectionId, out var section))
+            {
+                return new Result(region, section.Name, $"Current map section: {section.Source}", "Mapped area");
+            }
+
+            if (StageNames.TryGetValue(stageId, out var stage))
+            {
+                return new Result(region, stage.Name, stage.Source, "Mapped area");
+            }
+
+            return new Result(region, stageId > 0 ? $"Area {stageId}" : "Unknown area", "No known stage mapping", "Unknown");
+        }
+
+        // mainStoryChapter must be zero for Separate Ways and The Mercenaries.
+        public static string GetRegion(int mapSceneId, int stageId, int mainStoryChapter = 0)
+        {
+            int scene = mapSceneId;
+            if (scene is not (10000 or 20000 or 30000))
+            {
+                if (!StageScenes.TryGetValue(stageId, out scene))
+                {
+                    scene = mainStoryChapter switch
+                    {
+                        >= 1 and <= 6 => 10000,
+                        >= 7 and <= 12 => 20000,
+                        >= 13 and <= 16 => 30000,
+                        _ => (stageId / 10000) switch
+                        {
+                            4 => 10000,
+                            5 => 20000,
+                            6 => 30000,
+                            _ => 0,
+                        },
+                    };
+                }
+            }
+
+            return scene switch
+            {
+                10000 => "Village",
+                20000 => "Castle",
+                30000 => "Island",
+                _ => "Unknown region",
+            };
+        }
+
+        public static bool TryGetStageName(int stageId, out string name)
+        {
+            if (StageNames.TryGetValue(stageId, out var item))
+            {
+                name = item.Name;
+                return true;
+            }
+
+            name = string.Empty;
+            return false;
+        }
+
+        private static readonly FrozenDictionary<int, (string Name, string Source)> StageNames = new Dictionary<int, (string Name, string Source)>
+        {
+            { 40200, ("Village Square", "Pause-map label in stage") },
+            { 40201, ("Farm", "Pause-map label in stage") },
+            { 40212, ("Town Hall", "Pause-map label in stage") },
+            { 40510, ("Hunter's Lodge", "Pause-map label in stage") },
+            { 43303, ("Lakeside Settlement", "Pause-map label in stage") },
+            { 43311, ("Villa", "Curated stage mapping") },
+            { 43400, ("Lakeside Settlement", "Curated stage mapping") },
+            { 43410, ("Lakeside Settlement Cabin", "Curated stage mapping") },
+            { 43500, ("Forest Altar", "Pause-map label in stage") },
+            { 44101, ("Village Chief's Manor", "Curated stage mapping") },
+            { 44110, ("Village Chief's Manor", "Pause-map label in stage") },
+            { 44201, ("Manor Approach", "Curated stage mapping") },
+            { 44210, ("Abandoned Factory", "Pause-map label in stage") },
+            { 44300, ("Valley", "Curated stage mapping") },
+            { 44400, ("Valley", "Pause-map label in stage") },
+            { 45100, ("Church Grounds", "Curated stage mapping") },
+            { 45200, ("Church Grounds", "Curated stage mapping") },
+            { 45300, ("Lakeside Shrine", "Curated stage mapping") },
+            { 45301, ("Quarry", "Pause-map label in stage") },
+            { 45400, ("Fish Farm", "Curated stage mapping") },
+            { 45500, ("Dock", "Curated stage mapping") },
+            { 45510, ("Fish Farm", "Curated stage mapping") },
+            { 46100, ("Lake", "Curated stage mapping") },
+            { 46110, ("Small Cave Shrine", "Pause-map label in stage") },
+            { 46200, ("Large Cave Shrine", "Curated stage mapping") },
+            { 46210, ("Merchant Hideout", "Curated stage mapping") },
+            { 46900, ("Lake", "Curated stage mapping") },
+            { 47100, ("Checkpoint Alley", "Curated stage mapping") },
+            { 47101, ("Checkpoint Alley", "Curated stage mapping") },
+            { 47102, ("Checkpoint", "Curated stage mapping") },
+            { 47200, ("Checkpoint", "Curated stage mapping") },
+            { 47201, ("Checkpoint Cabin", "Curated stage mapping") },
+            { 47410, ("Slaughterhouse", "Pause-map label in stage") },
+            { 50200, ("Castle Entrance", "Curated stage mapping") },
+            { 50201, ("Chapel", "Pause-map label in stage") },
+            { 50300, ("Castle Gate", "Pause-map label in stage") },
+            { 50401, ("Audience Chamber", "Pause-map label in stage") },
+            { 50501, ("Dungeons", "Pause-map label in stage") },
+            { 50504, ("Treasury", "Pause-map label in stage") },
+            { 50505, ("Treasury", "Curated stage mapping") },
+            { 50601, ("Water Hall", "Pause-map label in stage") },
+            { 51100, ("Wine Cellar Exterior", "Curated stage mapping") },
+            { 51101, ("Wine Cellar Exterior", "Curated stage mapping") },
+            { 51200, ("Courtyard", "Pause-map label in stage") },
+            { 51400, ("Wine Cellar", "Curated stage mapping") },
+            { 51404, ("Wine Cellar", "Pause-map label in stage") },
+            { 51502, ("Bindery", "Pause-map label in stage") },
+            { 51600, ("Castle Battlements", "Pause-map label in stage") },
+            { 51612, ("Castle Battlements", "Curated stage mapping") },
+            { 52101, ("Grand Hall", "Pause-map label in stage") },
+            { 52202, ("Armory", "Pause-map label in stage") },
+            { 52203, ("Armory", "Curated stage mapping") },
+            { 52303, ("Gallery", "Pause-map label in stage") },
+            { 52401, ("Dining Hall", "Pause-map label in stage") },
+            { 53101, ("Library", "Curated stage mapping") },
+            { 53200, ("Library", "Pause-map label in stage") },
+            { 53201, ("Library", "Curated stage mapping") },
+            { 53300, ("Library", "Curated stage mapping") },
+            { 53302, ("Mausoleum", "Pause-map label in stage") },
+            { 54100, ("Library", "Curated stage mapping") },
+            { 54101, ("Ballroom Entrance", "Curated stage mapping") },
+            { 54102, ("Ballroom Entrance", "Curated stage mapping") },
+            { 54200, ("Ballroom", "Curated stage mapping") },
+            { 54300, ("Antechamber", "Pause-map label in stage") },
+            { 54301, ("Throne Room", "Curated stage mapping") },
+            { 54400, ("Depths", "Pause-map label in stage") },
+            { 54401, ("Depths Tunnels", "Curated stage mapping") },
+            { 54402, ("Depths Tunnels", "Curated stage mapping") },
+            { 54403, ("Underground Laboratory", "Curated stage mapping") },
+            { 54404, ("Underground Laboratory", "Curated stage mapping") },
+            { 54405, ("Underground Laboratory", "Curated stage mapping") },
+            { 54406, ("Underground Laboratory", "Curated stage mapping") },
+            { 54407, ("Underground Laboratory", "Curated stage mapping") },
+            { 55100, ("Mines", "Curated stage mapping") },
+            { 55103, ("Mines", "Pause-map label in stage") },
+            { 55200, ("Blast Furnace", "Pause-map label in stage") },
+            { 55201, ("Underground Tunnel", "Curated stage mapping") },
+            { 55202, ("Stopover", "Curated stage mapping") },
+            { 55300, ("Hive", "Curated stage mapping") },
+            { 55301, ("Hive", "Curated stage mapping") },
+            { 55302, ("Krauser", "Curated stage mapping") },
+            { 55400, ("Underground Tunnel", "Curated stage mapping") },
+            { 55401, ("Underground Tunnel", "Curated stage mapping") },
+            { 55402, ("Underground Tunnel", "Curated stage mapping") },
+            { 55403, ("Underground Tunnel", "Curated stage mapping") },
+            { 55404, ("Underground Tunnel", "Curated stage mapping") },
+            { 55405, ("Underground Tunnel", "Curated stage mapping") },
+            { 55406, ("Underground Tunnel", "Curated stage mapping") },
+            { 55407, ("Underground Tunnel", "Curated stage mapping") },
+            { 55408, ("Underground Tunnel", "Curated stage mapping") },
+            { 55409, ("Underground Tunnel", "Curated stage mapping") },
+            { 55410, ("Underground Tunnel", "Curated stage mapping") },
+            { 55411, ("Underground Tunnel", "Curated stage mapping") },
+            { 55412, ("Underground Tunnel", "Curated stage mapping") },
+            { 55413, ("Underground Tunnel", "Curated stage mapping") },
+            { 55414, ("Underground Tunnel", "Curated stage mapping") },
+            { 55415, ("Underground Tunnel", "Curated stage mapping") },
+            { 55416, ("Underground Tunnel", "Curated stage mapping") },
+            { 55417, ("Underground Tunnel", "Curated stage mapping") },
+            { 55418, ("Underground Tunnel", "Curated stage mapping") },
+            { 55419, ("Underground Tunnel", "Curated stage mapping") },
+            { 55420, ("Underground Tunnel", "Curated stage mapping") },
+            { 55421, ("Underground Tunnel", "Curated stage mapping") },
+            { 55422, ("Underground Tunnel", "Curated stage mapping") },
+            { 55423, ("Underground Tunnel", "Curated stage mapping") },
+            { 55424, ("Underground Tunnel", "Curated stage mapping") },
+            { 55425, ("Underground Tunnel", "Curated stage mapping") },
+            { 55426, ("Underground Tunnel", "Curated stage mapping") },
+            { 55427, ("Underground Tunnel", "Curated stage mapping") },
+            { 55428, ("Underground Tunnel", "Curated stage mapping") },
+            { 55429, ("Underground Tunnel", "Curated stage mapping") },
+            { 55430, ("Underground Tunnel", "Curated stage mapping") },
+            { 55431, ("Underground Tunnel", "Curated stage mapping") },
+            { 55432, ("Underground Tunnel", "Curated stage mapping") },
+            { 55433, ("Underground Tunnel", "Curated stage mapping") },
+            { 55434, ("Underground Tunnel", "Curated stage mapping") },
+            { 55435, ("Underground Tunnel", "Curated stage mapping") },
+            { 56100, ("Gondola (Ballroom)", "Curated stage mapping") },
+            { 56101, ("Clock Tower", "Curated stage mapping") },
+            { 56102, ("Clock Tower", "Pause-map label in stage") },
+            { 56103, ("Upper Clock Tower", "Curated stage mapping") },
+            { 56104, ("Upper Clock Tower", "Curated stage mapping") },
+            { 56200, ("Ancient Chantry", "Curated stage mapping") },
+            { 56302, ("Dock", "Pause-map label in stage") },
+            { 59101, ("Underground Passage", "Pause-map label in stage") },
+            { 59200, ("Underground Passage", "Curated stage mapping") },
+            { 59201, ("Underground Passage", "Curated stage mapping") },
+            { 59202, ("Underground Passage", "Curated stage mapping") },
+            { 59203, ("Underground Passage", "Curated stage mapping") },
+            { 59204, ("Underground Passage", "Curated stage mapping") },
+            { 59205, ("Underground Passage", "Curated stage mapping") },
+            { 59206, ("Underground Passage", "Curated stage mapping") },
+            { 59207, ("Underground Passage", "Curated stage mapping") },
+            { 59208, ("Underground Passage", "Curated stage mapping") },
+            { 59209, ("Underground Passage", "Curated stage mapping") },
+            { 59210, ("Underground Passage", "Curated stage mapping") },
+            { 59211, ("Underground Passage", "Curated stage mapping") },
+            { 59212, ("Underground Passage", "Curated stage mapping") },
+            { 59213, ("Underground Passage", "Curated stage mapping") },
+            { 59214, ("Underground Passage", "Curated stage mapping") },
+            { 59215, ("Underground Passage", "Curated stage mapping") },
+            { 59216, ("Underground Passage", "Curated stage mapping") },
+            { 59217, ("Underground Passage", "Curated stage mapping") },
+            { 59218, ("Underground Passage", "Curated stage mapping") },
+            { 59219, ("Underground Passage", "Curated stage mapping") },
+            { 59220, ("Underground Passage", "Curated stage mapping") },
+            { 59221, ("Underground Passage", "Curated stage mapping") },
+            { 59222, ("Underground Passage", "Curated stage mapping") },
+            { 60100, ("Wharf", "Pause-map label in stage") },
+            { 60200, ("Surveillance", "Curated stage mapping") },
+            { 60201, ("Surveillance", "Curated stage mapping") },
+            { 61100, ("Surveillance", "Curated stage mapping") },
+            { 61104, ("Facility 1 Storage", "Curated stage mapping") },
+            { 61105, ("Holding Cell", "Curated stage mapping") },
+            { 61106, ("Facility 1 Exit", "Curated stage mapping") },
+            { 61107, ("Facility 1 Exit", "Curated stage mapping") },
+            { 61200, ("Incubation Lab", "Curated stage mapping") },
+            { 61203, ("Incubation Lab", "Curated stage mapping") },
+            { 61204, ("Systems", "Curated stage mapping") },
+            { 61300, ("Systems", "Pause-map label in stage") },
+            { 61500, ("Utilities", "Curated stage mapping") },
+            { 61504, ("Utilities", "Pause-map label in stage") },
+            { 62100, ("Lower Cargo Depot", "Curated stage mapping") },
+            { 62200, ("Upper Cargo Depot", "Curated stage mapping") },
+            { 63100, ("Facility 2", "Curated stage mapping") },
+            { 63108, ("Waste Disposal", "Pause-map label in stage") },
+            { 64100, ("Amber Storeroom", "Curated stage mapping") },
+            { 64101, ("Amber Storeroom", "Curated stage mapping") },
+            { 64102, ("Campsite", "Curated stage mapping") },
+            { 64104, ("Campsite", "Curated stage mapping") },
+            { 65100, ("Ruins", "Curated stage mapping") },
+            { 66100, ("Stronghold", "Curated stage mapping") },
+            { 66101, ("Stronghold", "Curated stage mapping") },
+            { 66102, ("Stronghold", "Curated stage mapping") },
+            { 66103, ("Bulwark Gate", "Curated stage mapping") },
+            { 66104, ("Cliffside Ruins", "Pause-map label in stage") },
+            { 66105, ("Cliffside Ruins", "Curated stage mapping") },
+            { 67100, ("Specimen Storage", "Pause-map label in stage") },
+            { 67101, ("Specimen Storage", "Curated stage mapping") },
+            { 67104, ("Sanctuary Approach", "Curated stage mapping") },
+            { 67400, ("Sanctuary Approach", "Curated stage mapping") },
+            { 67501, ("Sanctuary Approach", "Curated stage mapping") },
+            { 68100, ("Sanctuary", "Curated stage mapping") },
+            { 68103, ("Luis's Laboratory", "Curated stage mapping") },
+            { 68105, ("Luis's Laboratory", "Pause-map label in stage") },
+            { 68203, ("Loading Docks", "Pause-map label in stage") }
+        }.ToFrozenDictionary();
+        private static readonly FrozenDictionary<int, int> StageScenes = new Dictionary<int, int>
+        {
+            { 40200, 10000 },
+            { 40201, 10000 },
+            { 40210, 10000 },
+            { 40212, 10000 },
+            { 40502, 10000 },
+            { 40510, 10000 },
+            { 43301, 10000 },
+            { 43303, 10000 },
+            { 43310, 10000 },
+            { 43311, 10000 },
+            { 43400, 10000 },
+            { 43410, 10000 },
+            { 43500, 10000 },
+            { 44110, 10000 },
+            { 44210, 10000 },
+            { 44400, 10000 },
+            { 44410, 10000 },
+            { 45200, 10000 },
+            { 45210, 10000 },
+            { 45300, 10000 },
+            { 45301, 10000 },
+            { 45400, 10000 },
+            { 45401, 10000 },
+            { 45500, 10000 },
+            { 46100, 10000 },
+            { 46110, 10000 },
+            { 46111, 10000 },
+            { 46210, 10000 },
+            { 46900, 10000 },
+            { 47200, 10000 },
+            { 47210, 10000 },
+            { 47301, 10000 },
+            { 47410, 10000 },
+            { 50201, 20000 },
+            { 50202, 20000 },
+            { 50300, 20000 },
+            { 50401, 20000 },
+            { 50501, 20000 },
+            { 50504, 20000 },
+            { 50600, 20000 },
+            { 50601, 20000 },
+            { 51101, 20000 },
+            { 51200, 20000 },
+            { 51404, 20000 },
+            { 51502, 20000 },
+            { 51600, 20000 },
+            { 51610, 20000 },
+            { 51611, 20000 },
+            { 51612, 20000 },
+            { 52101, 20000 },
+            { 52202, 20000 },
+            { 52300, 20000 },
+            { 52303, 20000 },
+            { 52401, 20000 },
+            { 53101, 20000 },
+            { 53200, 20000 },
+            { 53201, 20000 },
+            { 53302, 20000 },
+            { 54102, 20000 },
+            { 54200, 20000 },
+            { 54300, 20000 },
+            { 54301, 20000 },
+            { 54400, 20000 },
+            { 54405, 20000 },
+            { 55100, 20000 },
+            { 55103, 20000 },
+            { 55200, 20000 },
+            { 55202, 20000 },
+            { 55300, 20000 },
+            { 56101, 20000 },
+            { 56102, 20000 },
+            { 56103, 20000 },
+            { 56200, 20000 },
+            { 56302, 20000 },
+            { 59101, 30000 },
+            { 59102, 30000 },
+            { 60100, 30000 },
+            { 60104, 30000 },
+            { 60200, 30000 },
+            { 61100, 30000 },
+            { 61101, 30000 },
+            { 61104, 30000 },
+            { 61106, 30000 },
+            { 61204, 30000 },
+            { 61300, 30000 },
+            { 61301, 30000 },
+            { 61504, 30000 },
+            { 61505, 30000 },
+            { 62000, 30000 },
+            { 62100, 30000 },
+            { 63100, 30000 },
+            { 63102, 30000 },
+            { 63108, 30000 },
+            { 64101, 30000 },
+            { 64102, 30000 },
+            { 65100, 30000 },
+            { 65200, 30000 },
+            { 66101, 30000 },
+            { 66102, 30000 },
+            { 66103, 30000 },
+            { 66104, 30000 },
+            { 66105, 30000 },
+            { 66200, 30000 },
+            { 67100, 30000 },
+            { 67104, 30000 },
+            { 67200, 30000 },
+            { 67400, 30000 },
+            { 68100, 30000 },
+            { 68103, 30000 },
+            { 68105, 30000 },
+            { 68203, 30000 },
+            { 68300, 30000 }
+        }.ToFrozenDictionary();
+    }
+}

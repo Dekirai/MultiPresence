@@ -2,11 +2,11 @@
     "Games": {
         "Resident Evil 2": {
             "Default": {
-                "Details": "Weapon: {weapon} - Ammo: {ammo}",
-                "State": "Status: {healthstatus}",
+                "Details": "{character} | {scenario}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 2",
+                "LargeAssetText": "Status: {healthstatus} | {weapon} - Ammo: {ammo}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

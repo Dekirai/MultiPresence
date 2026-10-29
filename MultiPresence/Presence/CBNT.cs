@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class CBNT
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -32,6 +31,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("CBNT: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("CrashBandicootNSaneTrilogy"))
             {
                 string game_get = Hypervisor.ReadString(0x1A5C6E0, 100);
@@ -159,6 +163,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("CBNT: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

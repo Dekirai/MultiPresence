@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.TY;
@@ -8,9 +7,9 @@ namespace MultiPresence.Presence
 {
     public class TY
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
-        public static string[] levelvalue = null;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        public static string[]? levelvalue = null;
         public static void DoAction()
         {
             GetPID();
@@ -34,6 +33,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("TY: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("TY"))
             {
                 int health = Hypervisor.Read<byte>(0x2737CC);
@@ -79,6 +83,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("TY: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

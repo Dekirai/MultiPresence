@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class FFXV
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static async Task DoAction()
         {
             await Task.Delay(20000);
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("FFXV: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("ffxv_s"))
             {
                 int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x45DAB28, [0x10, 0x8, 0x8, 0x630, 0x10, 0x50, 0x154]), true);
@@ -105,6 +109,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("FFXV: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

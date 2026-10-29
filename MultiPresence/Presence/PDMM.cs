@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.PDMM;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class PDMM
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
 
         public static void DoAction()
         {
@@ -34,6 +33,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("PDMM: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("DivaMegaMix"))
             {
                 int isIngame = Hypervisor.Read<byte>(0xDB9A84);
@@ -122,6 +126,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("PDMM: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

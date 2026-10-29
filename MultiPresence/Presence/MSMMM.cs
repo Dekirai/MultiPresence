@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.MSMMM;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class MSMMMM
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
 
         public static void DoAction()
         {
@@ -34,6 +33,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("MSMMM: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("MilesMorales"))
             {
                 float health_get = Hypervisor.Read<float>(0x7796D68);
@@ -85,6 +89,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("MSMMM: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

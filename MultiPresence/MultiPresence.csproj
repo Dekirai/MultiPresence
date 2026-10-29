@@ -19,6 +19,7 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <SelfContained>false</SelfContained>
   </PropertyGroup>
 
@@ -28,15 +29,24 @@
 
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.6.1.70" />
+    <PackageReference Include="Steamworks.NET" Version="2024.8.0" />
     <PackageReference Include="TaskScheduler" Version="2.11.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Config\**\*.json" />
-    <Content Include="Config\**\*.json">
+    <None Remove="Native\steam_api64.dll" />
+    <Content Include="Native\steam_api64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Assets\Config\%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>steam_api64.dll</TargetPath>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Config\**\*.json" />
+    <EmbeddedResource Include="Config\**\*.json">
+      <LogicalName>MultiPresence.DefaultConfig.%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,5 +63,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
+  <Import Project="Build\PreserveUserConfiguration.targets" />
 
 </Project>

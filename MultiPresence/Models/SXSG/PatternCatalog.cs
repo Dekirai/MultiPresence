@@ -1,0 +1,7 @@
+namespace MultiPresence.Models.SXSG
+{
+    internal static class PatternCatalog
+    {
+        internal const string Application = "48 39 1D ?? ?? ?? ?? 48 89 AC 24 90 00 00 00 0F 84 ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B 58 70 48 85 DB";
+    }
+}

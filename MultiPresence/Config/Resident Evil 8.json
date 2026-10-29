@@ -2,11 +2,11 @@
     "Games": {
         "Resident Evil 8": {
             "Main Story": {
-                "Details": "Playing the Main Story",
-                "State": "Health: {healthstatus}",
+                "Details": "{character} | {gamemode}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 8",
+                "LargeAssetText": "{difficulty} | HP: {health}/{maxhealth} | {weapon}: {ammo} / {reserveammo}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -14,11 +14,11 @@
                 "Button2URL": ""
             },
             "Shadow of Rose": {
-                "Details": "Playing Shadow of Rose",
-                "State": "Health: {healthstatus}",
+                "Details": "{character} | {gamemode}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 8",
+                "LargeAssetText": "{difficulty} | HP: {health}/{maxhealth} | {weapon}: {ammo} / {reserveammo}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -26,11 +26,11 @@
                 "Button2URL": ""
             },
             "Mercenaries": {
-                "Details": "Mercenaries - {character}",
-                "State": "Health: {healthstatus} - Score: {score}",
+                "Details": "{character} | {gamemode}",
+                "State": "{location} | Score: {score}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 8",
+                "LargeAssetText": "HP: {health}/{maxhealth} | {weapon}: {ammo} / {reserveammo}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

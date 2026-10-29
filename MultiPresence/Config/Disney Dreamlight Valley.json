@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Disney Dreamlight Valley": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Disney Dreamlight Valley",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{locationdetails}",
+                "State": "{quest}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

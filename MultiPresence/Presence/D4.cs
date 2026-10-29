@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 
 namespace MultiPresence.Presence;

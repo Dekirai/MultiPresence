@@ -1,255 +1,196 @@
-#nullable disable
-using MultiPresence.Runtime;
 using DiscordRPC;
-using System.Diagnostics;
+using MultiPresence.Infrastructure;
+using MultiPresence.Models.RE7;
+using MultiPresence.Runtime;
 
 namespace MultiPresence.Presence
 {
     public class RE7
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
+        private static DateTime nextWarning;
+
         public static void DoAction()
         {
+            MemoryReader.Reset();
+            nextWarning = DateTime.MinValue;
             GetPID();
             discord = new DiscordRpcClient("1401528728567418993");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Resident Evil 7.json");
+            updater = new DiscordStatusUpdater("Assets/Config/Resident Evil 7.json");
             PresenceRuntime.Start(nameof(RE7), "re7", RPC);
         }
 
         private static void GetPID()
         {
-            try
-            {
-                ProcessMonitor.TryAttach("re7");
-            }
-            catch
-            {
-                //nothing?
-            }
+            ProcessMonitor.TryAttach("re7");
         }
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("RE7: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("re7"))
             {
                 try
                 {
-                    ulong _base = Hypervisor.GetPointer64(0x08FB2130, [0xD0, 0xF8, 0x0]);
-                    ulong _player = Hypervisor.GetPointer64(_base + 0x70, [0x0], true);
-                    ulong _properties = Hypervisor.GetPointer64(_base + 0x10, [0x0], true);
-                    ulong _pawn = Hypervisor.GetPointer64(_properties + 0x28, [0x0], true);
+                    if (!Hypervisor.IsAttached && !ProcessMonitor.TryAttach("re7"))
+                    {
+                        ShowStatus("Waiting for game data");
+                        return;
+                    }
 
-                    string pawn_name = Hypervisor.ReadString(_pawn + 0x14, 255, true, null, true);
-                    float maxhealth = Hypervisor.Read<float>(_player + 0x10, true);
+                    var snapshot = ReadSnapshot();
+                    if (snapshot.State is not "Main Story" and not "DLC Story" and not "DLC Minigame")
+                    {
+                        ShowStatus(snapshot.State == "Loading" ? "Loading" : snapshot.State == "Main Menu" ? "In Main Menu" : "Waiting for game data");
+                        return;
+                    }
 
-                    string gamemode = pawn_name switch
-                    {
-                        "Pl0000" => "Main Story",
-                        "Pl0000_Chapter1" => "Main Story",
-                        "Pl1000" => "DLC Story",
-                        "Pl2000" => "Main Story",
-                        "Pl2100" => "Main Story",
-                        "Pl3100_Chapter7_3" => "DLC Minigame",
-                        "Pl3100_Chapter7_1" => "DLC Minigame",
-                        "Pl3100_Chapter7_2" => "DLC Minigame",
-                        "Pl3400" => "DLC Minigame",
-                        "Pl9000" => "DLC Story",
-                        "Pl2000_Birthday" => "DLC Minigame",
-                        "Pl0000_IMD" => "DLC Story",
-                        _ => "Main Story"
-                    };
-
-                    if (gamemode == "Main Story")
-                    {
-                        if (maxhealth >= 1 && maxhealth <= 5000)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 7", placeholders, "Main Story");
-                        }
-                    }
-                    else if (gamemode == "DLC Story")
-                    {
-                        if (maxhealth >= 1 && maxhealth <= 5000)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersDLC);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 7", placeholders, "DLC Story");
-                        }
-                    }
-                    else if (gamemode == "DLC Minigame")
-                    {
-                        if (maxhealth >= 1 && maxhealth <= 5000)
-                        {
-                            var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholdersMinigame);
-                            PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 7", placeholders, "DLC Minigame");
-                        }
-                    }
-                    else
-                    {
-                        discord.SetPresence(new RichPresence()
-                        {
-                            Details = "In Main Menu",
-                            State = "",
-                            Assets = new Assets()
-                            {
-                                LargeImageKey = "logo",
-                                LargeImageText = "Resident Evil 7"
-                            },
-                            Timestamps = PlaceholderHelper._startTimestamp
-                        });
-                    }
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(() => GeneratePlaceholders(snapshot));
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Resident Evil 7", placeholders, snapshot.State);
                 }
-                catch
+                catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
                 {
-                    discord.SetPresence(new RichPresence()
+                    if (DateTime.UtcNow >= nextWarning)
                     {
-                        Details = "In Main Menu",
-                        State = "",
-                        Assets = new Assets()
-                        {
-                            LargeImageKey = "logo",
-                            LargeImageText = "Resident Evil 7"
-                        },
-                        Timestamps = PlaceholderHelper._startTimestamp
-                    });
+                        AppLog.Warning("Resident Evil 7 memory is not ready.", exception);
+                        nextWarning = DateTime.UtcNow.AddSeconds(30);
+                    }
+
+                    ShowStatus("Waiting for game data");
                 }
             }
             else
             {
+                MemoryReader.Reset();
                 discord.Deinitialize();
                 updater.Dispose();
                 PresenceRuntime.RequestDetection();
             }
         }
 
-        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        private static GameSnapshot ReadSnapshot()
         {
-            ulong _base = Hypervisor.GetPointer64(0x08FB2130, [0xD0, 0xF8, 0x0]);
-            ulong _player = Hypervisor.GetPointer64(_base + 0x70, [0x0], true);
-            ulong _properties = Hypervisor.GetPointer64(_base + 0x10, [0x0], true);
-            ulong _pawn = Hypervisor.GetPointer64(_properties + 0x28, [0x0], true);
-
-            float health = Hypervisor.Read<float>(_player + 0x14, true);
-            float maxhealth = Hypervisor.Read<float>(_player + 0x10, true);
-            string pawn_name = Hypervisor.ReadString(_pawn + 0x14, 255, true, null, true);
-
-            string healthstatus = "";
-
-            double percentage = (double)health / maxhealth * 100;
-
-            if (percentage > 75)
-                healthstatus = "Fine";
-            else if (percentage > 50)
-                healthstatus = "Caution";
-            else if (percentage > 25)
-                healthstatus = "Caution";
-            else
-                healthstatus = "Danger";
-
-            string gamemode = pawn_name switch
-            {
-                "Pl0000" => "Main Story",
-                "Pl0000_Chapter1" => "Main Story",
-                "Pl2000" => "Main Story",
-                "Pl2100" => "Main Story",
-                _ => "Main Story"
-            };
-
-            return new Dictionary<string, object>
-            {
-                { "health", health },
-                { "maxhealth", maxhealth },
-                { "healthstatus", healthstatus },
-                { "mode", gamemode }
-            };
+            return MemoryReader.ReadSnapshot();
         }
 
-        private static async Task<Dictionary<string, object>> GeneratePlaceholdersDLC()
+        private static Task<Dictionary<string, object>> GeneratePlaceholders(GameSnapshot snapshot)
         {
-            ulong _base = Hypervisor.GetPointer64(0x08FB2130, [0xD0, 0xF8, 0x0]);
-            ulong _player = Hypervisor.GetPointer64(_base + 0x70, [0x0], true);
-            ulong _properties = Hypervisor.GetPointer64(_base + 0x10, [0x0], true);
-            ulong _pawn = Hypervisor.GetPointer64(_properties + 0x28, [0x0], true);
-
-            float health = Hypervisor.Read<float>(_player + 0x14, true);
-            float maxhealth = Hypervisor.Read<float>(_player + 0x10, true);
-            string pawn_name = Hypervisor.ReadString(_pawn + 0x14, 255, true, null, true);
-
-            string healthstatus = "";
-
-            double percentage = (double)health / maxhealth * 100;
-
-            if (percentage > 75)
-                healthstatus = "Fine";
-            else if (percentage > 50)
-                healthstatus = "Caution";
-            else if (percentage > 25)
-                healthstatus = "Caution";
-            else
-                healthstatus = "Danger";
-
-            string gamemode = pawn_name switch
+            var placeholders = new Dictionary<string, object>
             {
-                "Pl1000" => "Not a Hero",
-                "Pl9000" => "End of Zoe",
-                "Pl0000_IMD" => "Ethan Must Die",
-                _ => "DLC Story"
+                { "state", snapshot.State },
+                { "mode", "" },
+                { "gamemode", "" },
+                { "character", "" },
+                { "characterid", "" },
+                { "difficulty", "" },
+                { "difficultyid", "" },
+                { "health", "" },
+                { "maxhealth", "" },
+                { "healthstatus", "" },
+                { "healthpercentage", "" },
+                { "healthstatusemoji", "" },
+                { "location", "" },
+                { "area", "" },
+                { "region", "" },
+                { "room", "" },
+                { "roomid", "" },
+                { "mapid", "" },
+                { "objective", "" },
+                { "primaryobjective", "" },
+                { "secondaryobjective", "" },
+                { "objectivepath", "" },
+                { "objectives", "" },
+                { "objectiveid", "" },
+                { "primaryobjectiveid", "" },
+                { "secondaryobjectiveid", "" },
+                { "weapon", "" },
+                { "currentweapon", "" },
+                { "weaponid", "" },
+                { "ammo", "" },
+                { "loadedammo", "" },
+                { "reserveammo", "" },
+                { "infiniteammo", "" }
             };
 
-            return new Dictionary<string, object>
+            if (snapshot.State is not "Main Story" and not "DLC Story" and not "DLC Minigame")
             {
-                { "health", health },
-                { "maxhealth", maxhealth },
-                { "healthstatus", healthstatus },
-                { "mode", gamemode }
+                return Task.FromResult(placeholders);
+            }
+
+            placeholders["mode"] = snapshot.Mode;
+            placeholders["gamemode"] = snapshot.Mode;
+            placeholders["character"] = snapshot.Character;
+            placeholders["characterid"] = snapshot.CharacterId;
+            placeholders["difficulty"] = snapshot.Difficulty;
+            placeholders["difficultyid"] = snapshot.DifficultyId < 0 ? "" : snapshot.DifficultyId;
+            placeholders["health"] = snapshot.Health;
+            placeholders["maxhealth"] = snapshot.MaxHealth;
+            placeholders["healthstatus"] = snapshot.HealthStatus;
+            placeholders["healthpercentage"] = snapshot.MaxHealth > 0 ? (double)snapshot.Health / snapshot.MaxHealth * 100 : "";
+            placeholders["healthstatusemoji"] = snapshot.HealthStatus switch
+            {
+                "Fine" => "🟢",
+                "Caution" => "🟡",
+                "Danger" or "Dead" => "🔴",
+                _ => ""
             };
+            placeholders["location"] = snapshot.Location;
+            placeholders["area"] = snapshot.Area;
+            placeholders["region"] = snapshot.Area;
+            placeholders["room"] = snapshot.Room;
+            placeholders["roomid"] = snapshot.RoomId;
+            placeholders["mapid"] = snapshot.MapId;
+            placeholders["objective"] = snapshot.Objective;
+            placeholders["primaryobjective"] = snapshot.PrimaryObjective;
+            placeholders["secondaryobjective"] = snapshot.SecondaryObjective;
+            placeholders["objectivepath"] = snapshot.ObjectivePath;
+            placeholders["objectives"] = snapshot.Objectives;
+            placeholders["objectiveid"] = snapshot.ObjectiveId;
+            placeholders["primaryobjectiveid"] = snapshot.PrimaryObjectiveId;
+            placeholders["secondaryobjectiveid"] = snapshot.SecondaryObjectiveId;
+            placeholders["weapon"] = snapshot.Weapon;
+            placeholders["currentweapon"] = snapshot.Weapon;
+            placeholders["weaponid"] = snapshot.WeaponId;
+            placeholders["ammo"] = snapshot.Ammo < 0 ? "" : snapshot.Ammo;
+            placeholders["loadedammo"] = placeholders["ammo"];
+            placeholders["reserveammo"] = snapshot.InfiniteAmmo == true ? "∞" : snapshot.ReserveAmmo < 0 ? "" : snapshot.ReserveAmmo;
+            placeholders["infiniteammo"] = snapshot.InfiniteAmmo.HasValue ? snapshot.InfiniteAmmo.Value : "";
+            return Task.FromResult(placeholders);
         }
-        private static async Task<Dictionary<string, object>> GeneratePlaceholdersMinigame()
+
+        private static void ShowStatus(string text)
         {
-            ulong _base = Hypervisor.GetPointer64(0x08FB2130, [0xD0, 0xF8, 0x0]);
-            ulong _player = Hypervisor.GetPointer64(_base + 0x70, [0x0], true);
-            ulong _properties = Hypervisor.GetPointer64(_base + 0x10, [0x0], true);
-            ulong _pawn = Hypervisor.GetPointer64(_properties + 0x28, [0x0], true);
-
-            float health = Hypervisor.Read<float>(_player + 0x14, true);
-            float maxhealth = Hypervisor.Read<float>(_player + 0x10, true);
-            string pawn_name = Hypervisor.ReadString(_pawn + 0x14, 255, true, null, true);
-
-            string healthstatus = "";
-
-            double percentage = (double)health / maxhealth * 100;
-
-            if (percentage > 75)
-                healthstatus = "Fine";
-            else if (percentage > 50)
-                healthstatus = "Caution";
-            else if (percentage > 25)
-                healthstatus = "Caution";
-            else
-                healthstatus = "Danger";
-
-            string gamemode = pawn_name switch
+            if (discord == null)
             {
-                "Pl3100_Chapter7_3" => "Banned Footage - Nightmare",
-                "Pl3100_Chapter7_1" => "Banned Footage - Bedroom",
-                "Pl3100_Chapter7_2" => "Banned Footage - 21",
-                "Pl3400" => "Banned Footage - Daughters",
-                "Pl2000_Birthday" => "Jack's 55th Birthday",
-                _ => "DLC Minigame"
-            };
+                throw new InvalidOperationException("RE7: presence is not initialized.");
+            }
 
-            return new Dictionary<string, object>
+            discord.SetPresence(new RichPresence()
             {
-                { "health", health },
-                { "maxhealth", maxhealth },
-                { "healthstatus", healthstatus },
-                { "mode", gamemode }
-            };
+                Details = text,
+                State = "",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = "Resident Evil 7"
+                },
+                Timestamps = PlaceholderHelper._startTimestamp
+            });
         }
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("RE7: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

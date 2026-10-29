@@ -19,7 +19,8 @@ public static class PlaceholderHelper
         DiscordStatusUpdater? updater,
         string gameName,
         Dictionary<string, object> placeholders,
-        string state = "Default")
+        string state = "Default",
+        Party? party = null)
     {
         if (discord is null || updater is null)
         {
@@ -50,7 +51,8 @@ public static class PlaceholderHelper
                         128))
                 },
                 Timestamps = _startTimestamp,
-                Buttons = buttons.Length == 0 ? null : buttons
+                Buttons = buttons.Length == 0 ? null : buttons,
+                Party = party
             });
         }
         catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)

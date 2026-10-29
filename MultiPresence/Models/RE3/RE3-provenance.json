@@ -1,0 +1,1426 @@
+{
+  "source": "Installed Steam Resident Evil 3 Remake patched PAK resources; game labels belong to CAPCOM.",
+  "parser": "IntelOrca.Biohazard.REE 1.6.0, embedded RE3RT file list and RE3 RSZ schema",
+  "parserSource": "https://github.com/IntelOrca/reeutils",
+  "mapping": [
+    "MiniMapId to scene key and FloorId comes from EsUIMapFloor*.UIMapFloorIdList.",
+    "FloorId to region GUID comes from EsUIMapFloorIdUserData.UIMapLocationList.FloorList/MapTabNameId.",
+    "Room labels join exact stNN_NNNN stem from floor Description with mes_map Map_stNN_NNNN message key.",
+    "Composite scene ID and AreaId to MiniMapId comes from EsMapIdChanger*.UIMapIdChanger.",
+    "LocationId fallback is supplied only when all named map members of MapStructureUserData.MyLocation agree; multi-region locations intentionally have no broad fallback.",
+    "Missing, rejected, dummy and zero-ID map rows are omitted; unknown mappings remain empty so caller can preserve raw IDs.",
+    "Engine formatting tags such as <ENT> are replaced with spaces and whitespace is collapsed for presence labels.",
+    "Weapon 0 is native BareHand; Nothing is an application label, not extracted text."
+  ],
+  "messages": [
+    {
+      "asset": "natives/stm/escape/message/mes_common.msg.67305745",
+      "sha256": "f423ab9808b6eb9b83da54fb152fb915988bca7868849b8a5e2261cf61bf83a5",
+      "labels": [
+        {
+          "guid": "51a9afa2-4be5-47ef-877d-54d6dc59a786",
+          "key": "Common_Name_Jill",
+          "english": "Jill"
+        },
+        {
+          "guid": "d0e2f8e5-9858-4d38-880c-55627fd42dd9",
+          "key": "Common_FullName_Jill",
+          "english": "Jill Valentine"
+        },
+        {
+          "guid": "91e519d8-4294-4caf-b776-540740df19d6",
+          "key": "Common_Name_Carlos",
+          "english": "Carlos"
+        },
+        {
+          "guid": "c901c281-bc72-423e-898e-a31de1c0e0c9",
+          "key": "Common_FullName_Carlos",
+          "english": "Carlos Oliveira"
+        },
+        {
+          "guid": "6cad17cb-abfc-4a73-b223-3b6b8552640b",
+          "key": "Mes_Common_Name_SuperHardPlus",
+          "english": "INFERNO"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_costume.msg.67305745",
+      "sha256": "7e5a206b8d584a2ad64e16e9f5c61d0854f273817cda345af836f1df114e275d",
+      "labels": []
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_item.msg.67305745",
+      "sha256": "9df255bbddb32479b366ab9e664bfabf0f6224558c88485ff065a6a4459925b0",
+      "labels": []
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_map.msg.67305745",
+      "sha256": "dafd2d6021cefc32af630c8046b8f306b0002192e0e97a894a235eea139473bb",
+      "labels": [
+        {
+          "guid": "00ba2e30-a675-4bb4-ae16-35ba22ca5d00",
+          "key": "Map_Area_st00_00",
+          "english": "Apartment Building"
+        },
+        {
+          "guid": "9cd0d7c9-9657-4dad-9b50-2f65e5dddba6",
+          "key": "Map_Area_st01_00",
+          "english": "Uptown"
+        },
+        {
+          "guid": "85f678ad-86f3-4dc5-83b7-771840bcb6a8",
+          "key": "Map_Area_st02_00",
+          "english": "Police Station"
+        },
+        {
+          "guid": "551246dc-720a-4c48-ae20-7c7cd9aa5dfc",
+          "key": "Map_Area_st03_00",
+          "english": "Downtown"
+        },
+        {
+          "guid": "1c1c25e0-6b9e-4b5b-883d-cda7b7e39ef9",
+          "key": "Map_Area_st03_01",
+          "english": "Redstone Street Station"
+        },
+        {
+          "guid": "6613ed34-ccb7-4e34-8839-7902201e8cda",
+          "key": "Map_Area_st03_02",
+          "english": "Subway Power Substation"
+        },
+        {
+          "guid": "e645e43a-d577-4081-a4d2-6b69c51e9515",
+          "key": "Map_Area_st03_03",
+          "english": "Subway Office"
+        },
+        {
+          "guid": "1d1f8069-b7f2-4b09-b5a9-4a785caae863",
+          "key": "Map_Area_st03_04",
+          "english": "Sewers"
+        },
+        {
+          "guid": "2bb54def-6dd2-4d49-a434-a34f7ffc1108",
+          "key": "Map_Area_st03_05",
+          "english": "Demolition Site"
+        },
+        {
+          "guid": "c7735330-f588-49ee-ad98-0278e2ce4cb7",
+          "key": "Map_Area_st03_06",
+          "english": "Subway Tunnels"
+        },
+        {
+          "guid": "fe586822-aad6-48be-895e-6d66e7b67d1e",
+          "key": "Map_Area_st03_07",
+          "english": "Clock Tower Plaza"
+        },
+        {
+          "guid": "6ac48afa-984f-40f5-b146-b63a214f3d37",
+          "key": "Map_Area_st03_08",
+          "english": "Outskirts of Raccoon City"
+        },
+        {
+          "guid": "5d7cdf39-4b6e-419d-8c9f-707a8ce0a4ae",
+          "key": "Map_Area_st04_00",
+          "english": "Hospital"
+        },
+        {
+          "guid": "1295638a-0923-45bf-8594-81430f2b4eeb",
+          "key": "Map_Area_st04_01",
+          "english": "Underground Storage"
+        },
+        {
+          "guid": "7c668fe3-7a4e-40af-893e-9d0d40a36736",
+          "key": "Map_Area_st05_00",
+          "english": "NEST 2"
+        },
+        {
+          "guid": "339389c0-3787-4502-b970-e9a2175831b8",
+          "key": "Map_st00",
+          "english": "Apartment Building"
+        },
+        {
+          "guid": "54d3b6f5-27e2-45d4-800b-6fddcba8b16a",
+          "key": "Map_st00_0201",
+          "english": "Jill's Room"
+        },
+        {
+          "guid": "eeea80fd-1874-4868-89f9-675d5caea464",
+          "key": "Map_st00_0202",
+          "english": "Hallway"
+        },
+        {
+          "guid": "b7f47516-fd91-46ae-8300-933348efe3ac",
+          "key": "Map_st00_0207",
+          "english": "Fire Escape"
+        },
+        {
+          "guid": "bde93223-41d2-400e-9017-6ce01baf4f45",
+          "key": "Map_st01",
+          "english": "Uptown"
+        },
+        {
+          "guid": "cafea251-7cb3-4fdc-80cb-229072d78cdf",
+          "key": "Map_st01_0101",
+          "english": "Outside Jill's Apartment"
+        },
+        {
+          "guid": "d668467c-3b84-48bf-a137-4db2985606a8",
+          "key": "Map_st01_0103",
+          "english": "Avenue"
+        },
+        {
+          "guid": "b78397c8-1360-4612-a643-0d47996013a6",
+          "key": "Map_st01_0301",
+          "english": "Side Street"
+        },
+        {
+          "guid": "aeaa028d-2b3c-4a37-b7a0-a2ad85df77c5",
+          "key": "Map_st01_0305",
+          "english": "Warehouse Back Alley"
+        },
+        {
+          "guid": "1e0c47ca-8fb1-477a-8b01-a359e413f782",
+          "key": "Map_st01_0401",
+          "english": "Parking Garage"
+        },
+        {
+          "guid": "44c75852-3962-41a7-a70e-dacf48372b92",
+          "key": "Map_st02",
+          "english": "Raccoon Police Station"
+        },
+        {
+          "guid": "617f29f9-22cd-4c0c-9926-30c4e3e2657d",
+          "key": "Map_st02_0216",
+          "english": "Third Floor Hallway"
+        },
+        {
+          "guid": "cb8eadba-1afe-49d5-ab1b-15887fdff3af",
+          "key": "Map_st02_0411",
+          "english": "Second Floor Hallway"
+        },
+        {
+          "guid": "99832246-1668-47a6-b451-0972f0ee00b0",
+          "key": "Map_st03",
+          "english": "Downtown"
+        },
+        {
+          "guid": "74d5b8bf-218c-4f26-82a2-2e5c3f1d034d",
+          "key": "Map_st03_02",
+          "english": "Raccoon City Outskirts"
+        },
+        {
+          "guid": "451012c6-fb2d-4e6b-aa75-b3f8fb8d14a8",
+          "key": "Map_st03_0301",
+          "english": "Subway Station"
+        },
+        {
+          "guid": "6c07b4fa-3e0f-4925-b398-fc9b15ca38d6",
+          "key": "Map_st03_0201",
+          "english": "Subway Ticket Gate"
+        },
+        {
+          "guid": "c3b017ea-8b63-4219-869c-490c9446b6a3",
+          "key": "Map_st03_0306",
+          "english": "Subway Car"
+        },
+        {
+          "guid": "d0ef6bb5-8c3f-4b45-a1f5-fdc99468c940",
+          "key": "Map_st03_0311",
+          "english": "Subway Maintenance Corridors"
+        },
+        {
+          "guid": "a3f36a9b-d7a1-4697-a70a-53688caac808",
+          "key": "Map_st03_0103",
+          "english": "Gun Shop"
+        },
+        {
+          "guid": "bb0cb10d-1d74-4faa-97f5-f3be1f17be1c",
+          "key": "Map_st03_0204",
+          "english": "Gas Station"
+        },
+        {
+          "guid": "cd8aa989-f488-4b6d-883b-e32517f5d878",
+          "key": "Map_st03_0209",
+          "english": "Main Street"
+        },
+        {
+          "guid": "99d68ea6-43b0-4a89-958e-37c32f017f7e",
+          "key": "Map_st03_0213",
+          "english": "Half-renovated Building Rooftop"
+        },
+        {
+          "guid": "e48c2a13-3c8c-45be-a02d-ed9a253232bf",
+          "key": "Map_st03_0234",
+          "english": "Donut Shop"
+        },
+        {
+          "guid": "ec94e605-6707-465d-a243-1cb58a797c85",
+          "key": "Map_st03_0217",
+          "english": "Pharmacy"
+        },
+        {
+          "guid": "084a4616-16fc-4c3d-971f-1107ccb614ff",
+          "key": "Map_st03_0221",
+          "english": "Garage"
+        },
+        {
+          "guid": "6a241b98-051f-4098-bdae-a972eee1c131",
+          "key": "Map_st03_0229",
+          "english": "Maintenance Access"
+        },
+        {
+          "guid": "1c5d7da2-aea0-4a73-b215-15df9135229d",
+          "key": "Map_st03_0502",
+          "english": "Subway Control Room"
+        },
+        {
+          "guid": "bd7ad663-512e-4b28-b096-567a4971c6c3",
+          "key": "Map_st03_0401_00",
+          "english": "Subway Power Substation"
+        },
+        {
+          "guid": "d1f974e0-41a2-497c-a5b8-1535c5ec0692",
+          "key": "Map_st03_0401_01",
+          "english": "Substation Exterior"
+        },
+        {
+          "guid": "703bae11-3f7c-4dc2-b3c2-e58f4323a185",
+          "key": "Map_st03_0404_00",
+          "english": "Substation Control Room"
+        },
+        {
+          "guid": "f91f9623-2349-49e0-9c1e-76835bddca98",
+          "key": "Map_st03_0404_01",
+          "english": "Control Room"
+        },
+        {
+          "guid": "d67953e4-80bb-41ec-b1da-7624f1a63332",
+          "key": "Map_st03_0402",
+          "english": "Power Distribution Station"
+        },
+        {
+          "guid": "d7ceb5f3-c952-43e1-83a2-1903113315b1",
+          "key": "Map_st03_0601",
+          "english": "Sewers"
+        },
+        {
+          "guid": "efc2fbd6-5994-4477-8385-d15fcc7b4dae",
+          "key": "Map_st03_0602",
+          "english": "Sewer Tunnels"
+        },
+        {
+          "guid": "6719d0fd-7d57-49a6-85e5-f7394c969fdb",
+          "key": "Map_st03_0603_00",
+          "english": "Sewer Manager's Office"
+        },
+        {
+          "guid": "a3ce226d-7526-494f-9853-6c729d08ea06",
+          "key": "Map_st03_0603_01",
+          "english": "Manager's Office"
+        },
+        {
+          "guid": "c513947b-6374-49d1-929d-e41312e85b5a",
+          "key": "Map_st03_0609_00",
+          "english": "Sewer Office"
+        },
+        {
+          "guid": "85883935-d7db-495f-9e1e-f4142619ad40",
+          "key": "Map_st03_0609_01",
+          "english": "Office"
+        },
+        {
+          "guid": "f00a890e-d053-436b-b66a-f2a41f9f4dc5",
+          "key": "Map_st03_0613_00",
+          "english": "Sewer Lab"
+        },
+        {
+          "guid": "ebb6fc6a-7d30-4f75-a6c7-5865238976f8",
+          "key": "Map_st03_0613_01",
+          "english": "Lab"
+        },
+        {
+          "guid": "8e3df8a4-9007-4287-be02-b03fe753a455",
+          "key": "Map_st03_0617_00",
+          "english": "Sewer Security Room"
+        },
+        {
+          "guid": "7ec53bad-f1f8-4e5f-9e12-b835eed4a985",
+          "key": "Map_st03_0617_01",
+          "english": "Security Room"
+        },
+        {
+          "guid": "4a512d42-654d-40ef-8318-a9b40e446977",
+          "key": "Map_st03_0701_00",
+          "english": "Demolition Site"
+        },
+        {
+          "guid": "211ea43f-d849-4ed3-a000-92d4a6651ba6",
+          "key": "Map_st03_0701_01",
+          "english": "Demolition Site Lower Floors"
+        },
+        {
+          "guid": "3fc99ef3-69d4-4ede-a220-23c247dc8c2a",
+          "key": "Map_st03_0704",
+          "english": "Demolition Site Upper Floors"
+        },
+        {
+          "guid": "41ed1f33-a160-4343-b412-0dab7a132ee7",
+          "key": "Map_st03_0230",
+          "english": "Demolition Site Grounds"
+        },
+        {
+          "guid": "25d72f1d-f5c9-42b4-a376-72782302c57b",
+          "key": "Map_st03_0105",
+          "english": "House"
+        },
+        {
+          "guid": "546e62ae-7fd1-4bdf-847c-97ce7d0cf67f",
+          "key": "Map_st03_0801",
+          "english": "Subway Tunnels"
+        },
+        {
+          "guid": "9520c33b-e75a-4753-bffd-a8937fc5ebdb",
+          "key": "Map_st03_0802",
+          "english": "Dilapidated Shelter"
+        },
+        {
+          "guid": "7d5e2361-39a5-4114-8a33-49cc805c3413",
+          "key": "Map_st03_0805",
+          "english": "Promenade"
+        },
+        {
+          "guid": "aa9e7a13-3924-4517-b1c7-df08ea1f2198",
+          "key": "Map_st03_0804_00",
+          "english": "Clock Tower Plaza"
+        },
+        {
+          "guid": "7f6f0f09-0bf8-4457-ba38-8a6a1efde8ea",
+          "key": "Map_st03_0804_01",
+          "english": "Plaza"
+        },
+        {
+          "guid": "f2d7aa5d-b221-43e2-937b-f0612fdae96e",
+          "key": "Map_st04",
+          "english": "Hospital"
+        },
+        {
+          "guid": "83db8e28-0f18-4631-b68f-8d4bb73a51ec",
+          "key": "Map_st04_02",
+          "english": "Hospital (Underground)"
+        },
+        {
+          "guid": "8a6828db-b156-47e8-b7ea-acb0eb047387",
+          "key": "Map_st04_0101",
+          "english": "Makeshift Sickroom"
+        },
+        {
+          "guid": "edd59b0c-733d-416c-86d3-4bee3facad49",
+          "key": "Map_st04_0102",
+          "english": "Lobby"
+        },
+        {
+          "guid": "04e543b5-c20f-43a9-a31a-c684cb442e8f",
+          "key": "Map_st04_0103",
+          "english": "Reception"
+        },
+        {
+          "guid": "1557fab9-63ee-44fc-9288-dbdfdb5f755e",
+          "key": "Map_st04_0113",
+          "english": "Courtyard"
+        },
+        {
+          "guid": "84ab2ddd-82e0-40cf-89c4-638cf290e9f3",
+          "key": "Map_st04_0105",
+          "english": "Lab Reception"
+        },
+        {
+          "guid": "b9fc9cf8-7058-48b3-85b5-f215f4ec37fe",
+          "key": "Map_st04_0109",
+          "english": "Research Lab"
+        },
+        {
+          "guid": "f30bb633-8c56-4335-91bb-de253e6a5097",
+          "key": "Map_st04_0107",
+          "english": "Emergency Entrance"
+        },
+        {
+          "guid": "e1adefbb-9b88-419d-81f3-859a4b73a3dc",
+          "key": "Map_st04_0108",
+          "english": "Operating Room"
+        },
+        {
+          "guid": "00e446ff-bcf5-418a-9143-645c071ec710",
+          "key": "Map_st04_0106",
+          "english": "Stairs"
+        },
+        {
+          "guid": "37b4b276-de7a-4262-b99c-2114a267737b",
+          "key": "Map_st04_0208",
+          "english": "Roof"
+        },
+        {
+          "guid": "78e4b742-63c1-4959-b0d8-4530e6dd1553",
+          "key": "Map_st04_0203",
+          "english": "Records Room"
+        },
+        {
+          "guid": "4f217c1f-d546-4b1d-b2db-72a9364dd53a",
+          "key": "Map_st04_0204",
+          "english": "Staff Room"
+        },
+        {
+          "guid": "96c7c36c-46cc-471b-b157-6573e3e5cdf3",
+          "key": "Map_st04_0205",
+          "english": "Nurses' Station"
+        },
+        {
+          "guid": "1364f105-ed3a-4fef-890b-23edc67cf924",
+          "key": "Map_st04_0210",
+          "english": "Sickroom"
+        },
+        {
+          "guid": "758f13c7-5d7f-43b7-bf94-ae983725d625",
+          "key": "Map_st04_0209",
+          "english": "Treatment Room"
+        },
+        {
+          "guid": "deb45f9a-0074-4550-8579-86b4e7595283",
+          "key": "Map_st04_0206",
+          "english": "Linen Room"
+        },
+        {
+          "guid": "41f6229a-0aad-44b5-9f4d-5a03e415ed9f",
+          "key": "Map_st04_0016",
+          "english": "Elevator"
+        },
+        {
+          "guid": "bbd700b0-527d-4117-9d52-b556f46e0fe0",
+          "key": "Map_st04_0406",
+          "english": "Office"
+        },
+        {
+          "guid": "4275dc22-1bba-4bec-94e5-74d02e51abef",
+          "key": "Map_st04_0405",
+          "english": "Surveillance Room"
+        },
+        {
+          "guid": "8617b6f2-6dd1-4f1f-8355-4caa13c3170a",
+          "key": "Map_st04_0403",
+          "english": "Bioweapons Shipping"
+        },
+        {
+          "guid": "1542c5fc-6085-4cd2-b836-b8e9415deffa",
+          "key": "Map_st05",
+          "english": "NEST 2"
+        },
+        {
+          "guid": "677ab933-8af7-414d-a31c-a8f9d17b575d",
+          "key": "Map_st05_0107",
+          "english": "Lab 1"
+        },
+        {
+          "guid": "f5c85ffb-e8f4-4ef3-b17c-829a7608d68d",
+          "key": "Map_st05_0102",
+          "english": "Storage"
+        },
+        {
+          "guid": "7707dbe9-13e8-4805-8071-48bfed1f555a",
+          "key": "Map_st05_0108",
+          "english": "Vaccine Lab"
+        },
+        {
+          "guid": "ee41c0e2-d889-4016-b393-9ec5ef7704c4",
+          "key": "Map_st05_0109",
+          "english": "Lab Storage"
+        },
+        {
+          "guid": "43645311-7d1e-4501-b2e4-a4d6df71da5a",
+          "key": "Map_st05_0111",
+          "english": "Bioweapon Incubation Room"
+        },
+        {
+          "guid": "4a37bac9-2da2-4356-b336-3cd82dd77660",
+          "key": "Map_st05_0110",
+          "english": "Incubation Lab"
+        },
+        {
+          "guid": "af50fe30-7695-49ac-93dd-d4ba76b9cebc",
+          "key": "Map_st05_0202",
+          "english": "Workers' Break Room"
+        },
+        {
+          "guid": "165a50ae-a0de-4e2a-afc5-826601b22424",
+          "key": "Map_st05_0112",
+          "english": "Machinery Room"
+        },
+        {
+          "guid": "6fbee741-2a7a-4971-890d-fef5a68c5cd1",
+          "key": "Map_st05_0201",
+          "english": "Disposal Chamber"
+        },
+        {
+          "guid": "b64389fd-1bd1-4404-91ad-31781857c44d",
+          "key": "Map_st05_0302",
+          "english": "Staff Break Room"
+        },
+        {
+          "guid": "9bffce65-5b56-4e4e-a8d4-e6791b9a8ba1",
+          "key": "Map_st05_0301_00",
+          "english": "Storage"
+        },
+        {
+          "guid": "9e5f9a10-0ef2-42a7-91db-b846b0dbfaec",
+          "key": "Map_st05_0301_01",
+          "english": "Surveillance Room"
+        },
+        {
+          "guid": "82ed744e-84bd-4a10-9630-5e8ba662e54e",
+          "key": "Map_st05_0401",
+          "english": "Main Access Elevator"
+        },
+        {
+          "guid": "5f7df746-1b72-4c34-beb0-2741c8f4a11f",
+          "key": "Map_st05_0101",
+          "english": "Lab Hallway"
+        },
+        {
+          "guid": "b284a00e-4128-4173-9ab7-b428e7e91441",
+          "key": "Map_st05_0601",
+          "english": "Sterilization Room"
+        },
+        {
+          "guid": "cce913b6-bb2c-479f-8f55-833f73d849b3",
+          "key": "Map_st05_0106",
+          "english": "Quality Testing Room"
+        },
+        {
+          "guid": "1b5beece-566c-4341-b36b-48ad2277f837",
+          "key": "Map_Floor_01",
+          "english": "1F"
+        },
+        {
+          "guid": "ee6375ba-0114-4858-964b-29de6452988f",
+          "key": "Map_Floor_02",
+          "english": "2F"
+        },
+        {
+          "guid": "5cec394b-2bf4-4258-bbdc-13eac0218d07",
+          "key": "Map_Floor_03",
+          "english": "3F"
+        },
+        {
+          "guid": "35c14003-18f2-41bc-8216-0b1246b5a2c1",
+          "key": "Map_Floor_04",
+          "english": "4F"
+        },
+        {
+          "guid": "8438495d-9ee7-4bd4-954c-fb7a8a8656cf",
+          "key": "Map_Floor_10",
+          "english": "B1"
+        },
+        {
+          "guid": "5efc7239-f44e-46c8-aac2-d6235bcd73fb",
+          "key": "Map_Floor_20",
+          "english": "B2"
+        },
+        {
+          "guid": "bdc83d6d-5daa-4bf4-bfa1-952ec63b77f3",
+          "key": "Map_Floor_DT_01",
+          "english": "Street Level"
+        },
+        {
+          "guid": "0c26976c-46c9-4d86-9e24-52b896d06384",
+          "key": "Map_Floor_DT_10",
+          "english": "Tunnels"
+        },
+        {
+          "guid": "648c7b43-6cd9-4adc-bcc9-6d5939f72f8c",
+          "key": "Map_Floor_DT_20",
+          "english": "Upper Floors"
+        },
+        {
+          "guid": "6b868a45-7a45-45e4-9efb-6e0d2eb902cb",
+          "key": "Map_Floor_DT_21",
+          "english": "Middle Floors"
+        },
+        {
+          "guid": "ecc68e75-7d41-4918-8d67-8e2b4da2998c",
+          "key": "Map_Floor_DT_22",
+          "english": "Lower Floors"
+        },
+        {
+          "guid": "ca80d6e5-9394-4956-a9f2-9c2e3d6a9820",
+          "key": "Map_Floor_DT_23",
+          "english": "Roof"
+        },
+        {
+          "guid": "a212893f-cb2e-459f-bdbf-d4a8289d964d",
+          "key": "Map_Floor_DT_24",
+          "english": "Ground Floor"
+        },
+        {
+          "guid": "aa6ade57-b613-4841-80c1-8b7e9bb4263e",
+          "key": "Map_Floor_DT_25",
+          "english": "Lowest Level"
+        },
+        {
+          "guid": "17019746-1cbd-4d79-a8d0-afbc10824a87",
+          "key": "Map_Floor_DT_30",
+          "english": "Upper Waterway"
+        },
+        {
+          "guid": "e60f3b8d-0b59-41aa-ab8e-b3e020e2e7f2",
+          "key": "Map_Floor_DT_31",
+          "english": "Lower Waterway"
+        },
+        {
+          "guid": "4e94232b-8132-42c7-a54f-72eb21430633",
+          "key": "Map_Gimmick_CommonBox_00",
+          "english": "Crate"
+        },
+        {
+          "guid": "2503dedb-ab34-4ba5-ac6b-9ad1010019b6",
+          "key": "Map_Gimmick_AttacheCase",
+          "english": "Attaché Case"
+        },
+        {
+          "guid": "4f981fea-5732-4fde-8dae-cbf2bfd82141",
+          "key": "Map_Gimmick_Hydrant",
+          "english": "Fire Hydrant"
+        },
+        {
+          "guid": "27eb805a-21e1-4345-9a8c-b8f7af0d9ff1",
+          "key": "Map_Gimmick_DoubleLadder",
+          "english": "Extension Ladder"
+        },
+        {
+          "guid": "980c2288-f701-4a87-979a-d03eaac8acc5",
+          "key": "Map_Gimmick_Disconnector",
+          "english": "Breaker Switch"
+        },
+        {
+          "guid": "3cd308fb-a84a-4a8f-9616-5da05b617ce4",
+          "key": "Map_Gimmick_PowerSwitch",
+          "english": "Power Switch"
+        },
+        {
+          "guid": "6abba1e3-18a0-46f2-b396-d33d2857b3d9",
+          "key": "Map_Gimmick_Locker",
+          "english": "Locker"
+        },
+        {
+          "guid": "56eaeb0d-421f-4eaf-9aad-a95e33ce8db9",
+          "key": "Map_Gimmick_KeyPick",
+          "english": "Simple Lock"
+        },
+        {
+          "guid": "a3ca3f34-c580-4c2f-8293-1b34313ff652",
+          "key": "Map_Gimmick_ControlPanel",
+          "english": "Control Panel"
+        },
+        {
+          "guid": "149e34ff-18f5-4646-ae42-fcc52e1bcff3",
+          "key": "Map_Gimmick_JewelryBox",
+          "english": "Monument"
+        },
+        {
+          "guid": "dd51f62b-7604-425a-8d6a-0e80428e07e4",
+          "key": "Map_Gimmick_GunCase",
+          "english": "Gun Rack"
+        },
+        {
+          "guid": "85d58dea-398c-4b89-a8dd-09b25e18dd77",
+          "key": "Map_Gimmick_Explosive",
+          "english": "Explosive"
+        },
+        {
+          "guid": "e04239ff-503b-4aca-ab71-57bc7f3b1b00",
+          "key": "Map_Gimmick_ToolBox",
+          "english": "Storage Box"
+        },
+        {
+          "guid": "6bfc8aeb-bd74-460f-a76c-aef68e107e3d",
+          "key": "Map_Gimmick_CassetteRecorder",
+          "english": "Tape Player"
+        },
+        {
+          "guid": "c95a6a80-0cc3-4ba2-b55d-da524c92be61",
+          "key": "Map_Gimmick_Generator",
+          "english": "Generator"
+        },
+        {
+          "guid": "d09fd440-0c31-46e7-b578-012efb3c5d4c",
+          "key": "Map_Gimmick_ExhaustPort",
+          "english": "Ventilation Hatch"
+        },
+        {
+          "guid": "7bd52f73-a4c6-47ec-9f0e-91854bde0a94",
+          "key": "Map_Gimmick_BreakerSwitch",
+          "english": "Breaker Switch"
+        },
+        {
+          "guid": "0b8cc3ef-2937-4f31-9335-8e389341a6ce",
+          "key": "Map_Gimmick_Jill",
+          "english": "Jill"
+        },
+        {
+          "guid": "906e81ac-d427-4286-bfc6-4ef99e34d827",
+          "key": "Map_Gimmick_FuseBox",
+          "english": "Fusebox"
+        },
+        {
+          "guid": "9c3f8b6a-1764-4d97-919f-a6104bf9cd92",
+          "key": "Map_Gimmick_Lift",
+          "english": "Lift Lever"
+        },
+        {
+          "guid": "410599ce-0325-4f71-811a-dc85c75591ff",
+          "key": "Map_Gimmick_CardReader",
+          "english": "Card Reader"
+        },
+        {
+          "guid": "d2a29ad2-a1a2-41e6-9744-e91ec03078d9",
+          "key": "Map_Gimmick_VoiceRecognitionDevice",
+          "english": "Voice Recognition Device"
+        },
+        {
+          "guid": "dce3b4ee-176c-468a-a699-1a3fe7446b6d",
+          "key": "Map_Gimmick_SecurityReleaseDevice",
+          "english": "Security Device"
+        },
+        {
+          "guid": "ca7604ce-b73d-49d1-b660-0aa7314bf97e",
+          "key": "Map_Gimmick_Showcase",
+          "english": "Sample Case"
+        },
+        {
+          "guid": "48ec9fa1-ca4a-494c-a98a-cee058200b1d",
+          "key": "Map_Gimmick_Extractor",
+          "english": "Medical-use Extractor"
+        },
+        {
+          "guid": "e6a67e97-ff75-4408-858f-d4d04caf4e49",
+          "key": "Map_Gimmick_Elevator",
+          "english": "Elevator"
+        },
+        {
+          "guid": "58ec49b3-2ea4-4549-8b33-89c583c1b552",
+          "key": "Map_Gimmick_VaccineExtractor",
+          "english": "Vaccine Equipment"
+        },
+        {
+          "guid": "90609691-1e7b-48aa-938b-6d9963a7ae1c",
+          "key": "Map_Gimmick_PowerSupplyUnit",
+          "english": "Power Source"
+        },
+        {
+          "guid": "fbd07ef2-5a66-4311-b5b2-408800710115",
+          "key": "Map_Gimmick_RailGun",
+          "english": "Railgun"
+        },
+        {
+          "guid": "229f01d7-3a52-4871-aa71-8257f8b1c0bc",
+          "key": "Map_Gimmick_Tank",
+          "english": "Tank"
+        },
+        {
+          "guid": "230c0d9e-3bc6-4013-874f-6ba47740f63a",
+          "key": "Map_Gimmick_MainShaftElevator",
+          "english": "Main Shaft Elevator"
+        },
+        {
+          "guid": "52458f8e-ca41-4ba1-9430-9e2c724b7120",
+          "key": "Map_Gimmick_Switch",
+          "english": "Touch Panel"
+        },
+        {
+          "guid": "83e1d777-8185-40c3-883e-8f13489d40e6",
+          "key": "Map_Gimmick_SecurityDevice",
+          "english": "Security Device"
+        },
+        {
+          "guid": "8297963b-535d-47f2-80d5-f8f994a6a4b7",
+          "key": "Map_Gimmick_LockedDoor",
+          "english": "Locked Door"
+        },
+        {
+          "guid": "ef22a00c-f0f8-43c5-ab30-9f0b439bec77",
+          "key": "Map_Gimmick_ElectronicLockDoor",
+          "english": "Electronically Locked Door"
+        },
+        {
+          "guid": "6389226a-8f0c-4038-b3bc-dabf652d1050",
+          "key": "Map_Gimmick_VoiceAuthenticationDoor",
+          "english": "Voice-Locked Door"
+        },
+        {
+          "guid": "82473b09-bfa7-4e89-b801-66285a32ae16",
+          "key": "Map_Gimmick_KeyPickDoor",
+          "english": "Padlocked Door"
+        },
+        {
+          "guid": "b63ba032-54b6-4d9d-8807-4c88ed519cd6",
+          "key": "Map_Gimmick_BoardedDoor",
+          "english": "Boarded-Up Door"
+        },
+        {
+          "guid": "c12671e1-1a96-4e79-ab55-010458ef677e",
+          "key": "Map_Gimmick_SecurityLockDoor",
+          "english": "Security-Locked Door"
+        },
+        {
+          "guid": "c3f68141-6b0e-480c-9672-0a3b1a5ea490",
+          "key": "Map_GuideSearch",
+          "english": "Currently Searching"
+        },
+        {
+          "guid": "4a952857-20cc-4195-b941-d7b962d4713d",
+          "key": "Map_GuideDiscover",
+          "english": "Search Complete"
+        },
+        {
+          "guid": "64dee0f7-8994-4618-828b-720e0579ccc2",
+          "key": "Map_GuideNoEntry",
+          "english": "Inaccessible"
+        },
+        {
+          "guid": "b9ae1a87-83b5-42eb-b78b-bb9e6de1c631",
+          "key": "Map_GuideAnotherTab",
+          "english": "Different Map"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_objective.msg.67305745",
+      "sha256": "43ff1cb81ca389a2d07ad8ca8488c79b371bd8a08458d9fbd591e65a7cd824df",
+      "labels": [
+        {
+          "guid": "e002c9f0-b50a-4c14-a759-4bae5445a609",
+          "key": "Objective_c00_0005",
+          "english": "Search the room"
+        },
+        {
+          "guid": "8842b6de-b94f-4343-82f9-56ebac4e766e",
+          "key": "Objective_c00_0010",
+          "english": "Escape the apartment building"
+        },
+        {
+          "guid": "5aaaa751-8319-4135-a9a4-c5901cff5759",
+          "key": "Objective_c01_0010",
+          "english": "Get out of town"
+        },
+        {
+          "guid": "fa8f15a9-5cc5-436b-a9e7-218715ab771e",
+          "key": "Objective_c01_0020",
+          "english": "Go to the rooftop parking lot"
+        },
+        {
+          "guid": "5b0934a4-5972-4f7c-a3b2-2cb6c2cedb74",
+          "key": "Objective_c02_0010",
+          "english": "Find Dr. Bard"
+        },
+        {
+          "guid": "026427fb-6e4d-4346-a559-264594472f8f",
+          "key": "Objective_c02_0010_000",
+          "english": "Go to the S.T.A.R.S. Office"
+        },
+        {
+          "guid": "1da8b000-3a0e-4b20-ab83-6bded5de0140",
+          "key": "Objective_c02_0010_001",
+          "english": "Go to the hospital"
+        },
+        {
+          "guid": "f229467e-3545-413e-8d77-5688a21970c1",
+          "key": "Objective_c02_0020",
+          "english": "Break the shower room wall"
+        },
+        {
+          "guid": "686e9d69-b906-4b97-833b-c44b38c90e1a",
+          "key": "Objective_c02_0020_000",
+          "english": "Get batteries from safety deposit room"
+        },
+        {
+          "guid": "26a1b928-1ec1-44bd-a4c6-b3f6f4bb9619",
+          "key": "Objective_c03_0010",
+          "english": "Go with Carlos"
+        },
+        {
+          "guid": "4c95da7d-fbdf-49eb-9cae-3c8ea44c6b0b",
+          "key": "Objective_c03_0020",
+          "english": "Get above ground"
+        },
+        {
+          "guid": "e6ce0ae0-c2ec-4393-bc18-7a3697c52c8a",
+          "key": "Objective_c03_0030",
+          "english": "Reactivate power at the substation"
+        },
+        {
+          "guid": "35336e68-b84c-4cab-9427-0d255592ccda",
+          "key": "Objective_c03_0030_000",
+          "english": "Put out the fire"
+        },
+        {
+          "guid": "6a1ff9f3-6999-4829-94a7-cc6705794060",
+          "key": "Objective_c03_0040",
+          "english": "Reactivate power at the substation"
+        },
+        {
+          "guid": "b3b95ff3-37f0-4ce1-a816-46adcf0be905",
+          "key": "Objective_c03_0040_000",
+          "english": "Reset the circuit breakers"
+        },
+        {
+          "guid": "63f26fd7-99ab-48ba-a2e5-43ba03ff93e0",
+          "key": "Objective_c03_0040_001",
+          "english": "Use the control panel to restore power"
+        },
+        {
+          "guid": "31aeb768-dff0-4889-848e-f219d197d75a",
+          "key": "Objective_c03_0050",
+          "english": "Bring the trains online in the subway office"
+        },
+        {
+          "guid": "bf09dcd3-e9d6-4f01-9dd1-333327b332ec",
+          "key": "Objective_c03_0060",
+          "english": "Return to the subway station"
+        },
+        {
+          "guid": "54b7e263-9a05-4e21-8803-61da1849b304",
+          "key": "Objective_c03_0070",
+          "english": "Lure the creature away from the subway station"
+        },
+        {
+          "guid": "ec2ee22c-84fe-4379-b2b5-c8c22f9ee0d1",
+          "key": "Objective_c03_0080",
+          "english": "Find a way above ground"
+        },
+        {
+          "guid": "c857de7a-64a6-4e61-acb7-90d6d82db2fd",
+          "key": "Objective_c03_0090",
+          "english": "Escape the creature"
+        },
+        {
+          "guid": "f17550a5-3891-4980-b3c8-40d05d19f0fa",
+          "key": "Objective_c03_0100",
+          "english": "Defeat the creature"
+        },
+        {
+          "guid": "3add4876-8def-44ea-a311-a8f09806926d",
+          "key": "Objective_c03_0110",
+          "english": "Return to the subway station"
+        },
+        {
+          "guid": "372cebee-a8fb-4703-9965-f6e0cc79c21d",
+          "key": "Objective_c03_0115",
+          "english": "Escape the creature"
+        },
+        {
+          "guid": "f583fbd7-86a0-42df-bba2-819859c2e5a5",
+          "key": "Objective_c03_0120",
+          "english": "Go to the subway platform"
+        },
+        {
+          "guid": "d38bcc09-a36f-4694-a7c4-ad8e1e2a0ca2",
+          "key": "Objective_c03_0130",
+          "english": "Find a way above ground"
+        },
+        {
+          "guid": "8b0859bf-b782-44f4-9d4d-4c12150cca92",
+          "key": "Objective_c03_0140",
+          "english": "Escape the creature"
+        },
+        {
+          "guid": "27f08bc2-2a88-4267-b95c-6b6528f358e3",
+          "key": "Objective_c03_0150",
+          "english": "Defeat the creature"
+        },
+        {
+          "guid": "339bcd54-c358-45fb-8857-5d05006469d6",
+          "key": "Objective_c04_0010",
+          "english": "Search for a vaccine"
+        },
+        {
+          "guid": "2544773c-5aeb-46b0-8108-9983a43e44f7",
+          "key": "Objective_c04_0010_000",
+          "english": "Search for an audiocassette"
+        },
+        {
+          "guid": "0ca522fd-858b-400f-a407-d4fd11cc61b1",
+          "key": "Objective_c04_0010_010",
+          "english": "Unlock the voice-authentication door"
+        },
+        {
+          "guid": "eb00bf9b-d046-4219-83ff-97d211bc5792",
+          "key": "Objective_c04_0020",
+          "english": "Give the vaccine to Jill"
+        },
+        {
+          "guid": "f7611c20-5e21-42d8-b44c-72bebd2f57f9",
+          "key": "Objective_c04_0030",
+          "english": "Defend Jill"
+        },
+        {
+          "guid": "508d5c4a-64c1-4923-84e2-3ccc2d72b572",
+          "key": "Objective_c04_0040",
+          "english": "Find the detonator"
+        },
+        {
+          "guid": "499a228f-5277-45cf-9144-399be41820c5",
+          "key": "Objective_c04_0050",
+          "english": "Place the detonator"
+        },
+        {
+          "guid": "869ffc13-86ee-4bef-9160-5da9756ba5ce",
+          "key": "Objective_c04_0060",
+          "english": "Hold out until the explosion"
+        },
+        {
+          "guid": "da37af74-2631-4dc1-bf46-be24d8c89727",
+          "key": "Objective_c04_0110",
+          "english": "Leave the sickroom"
+        },
+        {
+          "guid": "12cb3071-89e2-43e4-bb7e-dd727b1fbaef",
+          "key": "Objective_c04_0120",
+          "english": "Head to the underground facility"
+        },
+        {
+          "guid": "3f210657-7c11-445a-9bd6-ed2560249c64",
+          "key": "Objective_c04_0131",
+          "english": "Restore power to the elevator"
+        },
+        {
+          "guid": "99756e37-a96c-4189-b51c-caf79cce8627",
+          "key": "Objective_c04_0131_000",
+          "english": "Hunt for fuses"
+        },
+        {
+          "guid": "b4452f46-a283-49a3-b042-6f140e78047e",
+          "key": "Objective_c04_0135",
+          "english": "Pursue Nicholai"
+        },
+        {
+          "guid": "0c570884-275f-4fba-9733-92432efdb29a",
+          "key": "Objective_c05_0010",
+          "english": "Get the vaccine"
+        },
+        {
+          "guid": "f1ad5985-e21d-419e-907d-671805de2ca8",
+          "key": "Objective_c05_0010_000",
+          "english": "Go with Tyrell"
+        },
+        {
+          "guid": "40a6e7bb-5605-4d2f-9b53-ca25c983823f",
+          "key": "Objective_c05_0010_001",
+          "english": "Search for an antigen"
+        },
+        {
+          "guid": "f63cf371-e4f7-4300-b6b9-75aabd3dfd4e",
+          "key": "Objective_c05_0010_002",
+          "english": "Search for an adjuvant"
+        },
+        {
+          "guid": "c0ed33e2-bdac-4101-bd2b-60df359ccf9b",
+          "key": "Objective_c05_0020",
+          "english": "Escape the facility"
+        },
+        {
+          "guid": "9ce7aeb5-81e2-465c-9e7d-3781749be859",
+          "key": "Objective_c05_0020_000",
+          "english": "Defeat the creature"
+        },
+        {
+          "guid": "1234e139-cc92-4853-8d27-208516be6142",
+          "key": "Objective_c05_0020_001",
+          "english": "Go after Nicholai"
+        },
+        {
+          "guid": "f468e2f1-161a-4192-b4f8-7dff5647451e",
+          "key": "Objective_c05_0030",
+          "english": "Defeat the creature"
+        },
+        {
+          "guid": "837e2d46-4075-419c-903c-4bca5918e023",
+          "key": "Objective_c05_0030_001",
+          "english": "Power up the railgun"
+        },
+        {
+          "guid": "de285bf7-03ad-4f8c-bfae-3dbe71b028f7",
+          "key": "Objective_c05_0040",
+          "english": "Take back the vaccine"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_option.msg.67305745",
+      "sha256": "41a9af0fde07b6dd8d8cf317bc65a44545f153691e47d8063a6ef695cad24b46",
+      "labels": []
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_system.msg.67305745",
+      "sha256": "f7b65ea956f6028554a43a9736b5f5829ec0301584ddaa51c5b2d5b072f280bb",
+      "labels": [
+        {
+          "guid": "fdd0e967-e70e-4fcf-9b12-a83b6e3e66cc",
+          "key": "Mes_System_Rich_L1",
+          "english": "ASSISTED"
+        },
+        {
+          "guid": "21ef02bc-8287-4514-8331-5e7d87315e3a",
+          "key": "Mes_System_Rich_L2",
+          "english": "STANDARD"
+        },
+        {
+          "guid": "f922ddf9-03bf-4bef-bf3c-07a8fa9a1e47",
+          "key": "Mes_System_Rich_L3",
+          "english": "HARDCORE"
+        },
+        {
+          "guid": "e0eca6f4-c09f-438a-89eb-17feda379173",
+          "key": "Mes_System_Rich_L4",
+          "english": "NIGHTMARE"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_title.msg.67305745",
+      "sha256": "562752e8ab4d1bdf4c0731e8a3bded801b46f85624473f735b6ba3b09d6ddb1a",
+      "labels": []
+    },
+    {
+      "asset": "natives/stm/escape/message/mes_weapon.msg.67305745",
+      "sha256": "4615563d8540857d4c03be66c091ff14ec98c5c51c06f4152c40a1be934784dc",
+      "labels": [
+        {
+          "guid": "773319ca-4a5d-4de7-8265-602d71c80bb0",
+          "key": "Weapon_wp0000",
+          "english": "G19 Handgun"
+        },
+        {
+          "guid": "3e017d4c-5927-466b-80a0-203257fb006c",
+          "key": "Weapon_wp0100",
+          "english": "G18 Handgun (Burst Model)"
+        },
+        {
+          "guid": "5e610c76-7c73-48c9-8ef1-b5994f99c472",
+          "key": "Weapon_wp0200",
+          "english": "G18 Handgun"
+        },
+        {
+          "guid": "0da3e6c8-62cc-4c94-90ef-c085d8b0a0aa",
+          "key": "Weapon_wp0300",
+          "english": "Samurai Edge"
+        },
+        {
+          "guid": "9482c2db-e1b4-4242-b33b-da9c81a940a8",
+          "key": "Weapon_wp0600",
+          "english": "Infinite MUP Handgun"
+        },
+        {
+          "guid": "96e5f249-e93a-43db-a658-27fb439f6135",
+          "key": "Weapon_wp1000",
+          "english": "M3 Shotgun"
+        },
+        {
+          "guid": "2ca19ee8-0a5b-4a4d-96c1-49f4e40bde4e",
+          "key": "Weapon_wp2000",
+          "english": "CQBR Assault Rifle"
+        },
+        {
+          "guid": "82921d42-3779-4083-b254-8087381ba150",
+          "key": "Weapon_wp2100",
+          "english": "Infinite CQBR Assault Rifle"
+        },
+        {
+          "guid": "76108f4c-3f1d-4172-87e9-a29445a5318d",
+          "key": "Weapon_wp3000",
+          "english": ".44 AE Lightning Hawk"
+        },
+        {
+          "guid": "1dadfe73-c9f1-4600-95ab-d8c8ab8b643c",
+          "key": "Weapon_wp3100",
+          "english": "RAI-DEN"
+        },
+        {
+          "guid": "dc4016d7-c9b5-414c-ba29-eb14a616518b",
+          "key": "Weapon_wp4100",
+          "english": "MGL Grenade Launcher"
+        },
+        {
+          "guid": "27906b8e-b0d1-4704-b8d6-0e1682c9c1e6",
+          "key": "Weapon_wp4400",
+          "english": "Rocket Launcher"
+        },
+        {
+          "guid": "4c2f26e5-840b-499e-95c8-42803b486e18",
+          "key": "Weapon_wp4500",
+          "english": "Combat Knife"
+        },
+        {
+          "guid": "7e7e9067-1a9b-44c1-b3f2-7f4528e7c3fd",
+          "key": "Weapon_wp4510",
+          "english": "Survival Knife"
+        },
+        {
+          "guid": "c088a9ac-9000-4153-b565-77feb76ff3c8",
+          "key": "Weapon_wp4520",
+          "english": "HOT DOGGER"
+        },
+        {
+          "guid": "4c1226ea-32d5-4257-9e70-6aae4e5b3fec",
+          "key": "Weapon_wp4600",
+          "english": "Infinite Rocket Launcher"
+        },
+        {
+          "guid": "6fb464de-f75b-41db-8a9d-de32b4a3cd4d",
+          "key": "Weapon_wp4700",
+          "english": "Railgun"
+        },
+        {
+          "guid": "ea744c38-7e73-467b-bd1f-8454bb6eaf7a",
+          "key": "Weapon_wp6200",
+          "english": "Hand Grenade"
+        },
+        {
+          "guid": "d24a5619-584c-4ce2-8142-4e6ac4bb725a",
+          "key": "Weapon_wp6300",
+          "english": "Flash Grenade"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/sectionroot/message/mes_sys/mes_sys_common.msg.67305745",
+      "sha256": "260582b0fb69339f76e449b8d63183f0dd97500bb48b142b45052b31259282d0",
+      "labels": [
+        {
+          "guid": "17162c6b-741a-4516-82c7-c2ace3f70541",
+          "key": "Mes_Sys_Common_Easy",
+          "english": "ASSISTED"
+        },
+        {
+          "guid": "cea59860-fde3-4831-b043-2bd56fdf2b28",
+          "key": "Mes_Sys_Common_Nomal",
+          "english": "STANDARD"
+        },
+        {
+          "guid": "0fdb5091-4c62-4706-ab56-56ddd3ac5313",
+          "key": "Mes_Sys_Common_Hard",
+          "english": "HARDCORE"
+        },
+        {
+          "guid": "711d5985-de2f-4ee2-b0d6-f455aa7ac125",
+          "key": "Mes_Sys_Common_SuperHard",
+          "english": "NIGHTMARE"
+        }
+      ]
+    },
+    {
+      "asset": "natives/stm/sectionroot/message/mes_sys/mes_sys_mainmenu.msg.67305745",
+      "sha256": "0ed2d68c7d99cd0e1fec4d08722bb8f204fabef63f181f3c97c4b355299a9af3",
+      "labels": []
+    },
+    {
+      "asset": "natives/stm/sectionroot/message/mes_sys/mes_sys_pc.msg.67305745",
+      "sha256": "bde824fb53c64898e995dd2751a0db85bbf9a46f08a820352c2011d117fff27a",
+      "labels": []
+    }
+  ],
+  "enumEvidence": {
+    "source": "Installed re3.exe TDB enum initializer pool exported by work/re3-enums.json",
+    "survivorType": 43420,
+    "characterAliases": {
+      "CARLOS": 0,
+      "JILL": 2
+    },
+    "weaponType": 3833,
+    "difficultyType": 52953,
+    "difficultyLabelKeys": {
+      "Easy": "Mes_Sys_Common_Easy",
+      "Normal": "Mes_Sys_Common_Nomal",
+      "Hard": "Mes_Sys_Common_Hard",
+      "SuperHard": "Mes_Sys_Common_SuperHard",
+      "Unlimited": "Mes_Common_Name_SuperHardPlus"
+    },
+    "initializerLayout": "initidx=(FieldImpl+4 uint>>18)|((FieldImpl+8 uint>>30)<<14); initoffset=int(TDB+Q(B8)+initidx*4); value=int(TDB+Q(D8)+initoffset)",
+    "notes": [
+      "Character names use explicit CARLOS/JILL aliases, not enum order. Other NPC and inherited RE2 survivor types remain unknown.",
+      "Difficulty casing normalized from all-capitals English labels. Unlimited is the Inferno gameplay mode; its English label key retains SuperHardPlus naming."
+    ]
+  },
+  "userdataHashes": {
+    "natives_stm_escape_userdata_gui_map_esmapidchangerclocktower.user.2": "23d8b9bcae2c9f89f3be91784e1f1698981c23199a1c04d56e6ee263f0635aed",
+    "natives_stm_escape_userdata_gui_map_esmapidchangerdowntown.user.2": "c78d9d28ddee46670f5ae0210efe60eff74befc97a6480c716c2ac01479ef454",
+    "natives_stm_escape_userdata_gui_map_esmapidchangerhospital.user.2": "87bf8757c4bcb5a2361bd9fc5a16219a1cb1218a7c317a5784f2884d44a5049e",
+    "natives_stm_escape_userdata_gui_map_esmapidchangerhospital2.user.2": "4363f1810c602a52310bd4d59838cbe55b43d1c80e935fa257bae805781ca342",
+    "natives_stm_escape_userdata_gui_map_esmapidchangerlaboratory.user.2": "e7872944f2497f26133ffa01ef595609b6bfb451f9d44ff924cc67e1def1587d",
+    "natives_stm_escape_userdata_gui_map_esmapidchangerrpd.user.2": "b692e610c5c2591f477f4d805ed1349f651578de41b541a571abac1ca47a04eb",
+    "natives_stm_escape_userdata_gui_map_esuimapeventupdate.user.2": "1a51ecd61a4c13bf8aee319d0fe30ee141522968c100b68ac12c5c6e80267bc8",
+    "natives_stm_escape_userdata_gui_map_esuimapfloorclocktower.user.2": "794eacddb7be8291b7220c6e17f7ccadbb4ccdc807b0ddfbe20d62a4cd9306e8",
+    "natives_stm_escape_userdata_gui_map_esuimapfloordowntown.user.2": "9218fac97732c97428ebffd491d52ee61e3c6fa2686718a83006ad37c4d2889e",
+    "natives_stm_escape_userdata_gui_map_esuimapfloorhospital.user.2": "e1b2afb12d824361fbb3f2f9345b5545965afbee13caf5f50ae2bbc057fcf5ad",
+    "natives_stm_escape_userdata_gui_map_esuimapfloorhospital2.user.2": "645ecae81de313aac569b88f4ff3124c4b810ea69b1368b86f9fc983d315c2c3",
+    "natives_stm_escape_userdata_gui_map_esuimapflooriduserdata.user.2": "263c4479eb2de4f98531932f5e41cd3b4d6f7d88fc1adda7c791b4728eb0305c",
+    "natives_stm_escape_userdata_gui_map_esuimapfloorlaboratory.user.2": "565bde3b4f4ed432984352346bd3ae1cd7a969a3e6492b87451e30a706bb7600",
+    "natives_stm_escape_userdata_gui_map_esuimapfloorrpd.user.2": "f40fa53b01f5618481231404ebbcaeafdb7686439e753f5f78c04be990dd04c9",
+    "natives_stm_escape_userdata_gui_map_esuimapidchanger.user.2": "e5268f85da193748169c46a5ee21edb3c6503a3aaeb50b4648b9678eb3ed8aa3",
+    "natives_stm_escape_userdata_gui_map_st02_00.user.2": "fb54e3860519f96c0ecd23ee8616eb362ed4b37ae3e89f3a24033f74870c32ab",
+    "natives_stm_escape_userdata_gui_map_st02_01.user.2": "1ce99861d11dd0d5a45a3a7487b566e623402ac60e5ec0a2c8c46a5c1c53858d",
+    "natives_stm_escape_userdata_gui_map_st02_02.user.2": "84e92960f873bd51eafb52817b0ac6948634991b8bd06e7c1231ddffe8bafdc0",
+    "natives_stm_escape_userdata_gui_map_st03_00.user.2": "bba3119df315d58d52e4aca660047504bded2deda5086151708a40b90dc4dcfb",
+    "natives_stm_escape_userdata_gui_map_st03_01.user.2": "56b3f0b9fbb1ec8222e7477c503fb2d8e6b14c09de2f17b5c4bd7ba750d61884",
+    "natives_stm_escape_userdata_gui_map_st03_02.user.2": "a51b5e90161b8faff8c75c1767ccf980e71666e65e823607ee5899477028faaa",
+    "natives_stm_escape_userdata_gui_map_st03_03.user.2": "d53e6689bf10d0e7075355bff8eac03811b451c3c8b799358c94e4bd3d1b73f1",
+    "natives_stm_escape_userdata_gui_map_st03_04.user.2": "362f842b31b33e838aaef49894e7400da0eb8b9bd75b0507380fc69d7321ac2b",
+    "natives_stm_escape_userdata_gui_map_st03_05.user.2": "8d62f57e891de2554d2caad8f1de2a8aac003a8d33f6caa02f340da876d0f0b8",
+    "natives_stm_escape_userdata_gui_map_st03_06.user.2": "de3e1dc069d0d2f8bc976d55f83bef92326131024fe817c4d1991f60a1543d48",
+    "natives_stm_escape_userdata_gui_map_st03_07.user.2": "8e4f421ba4c7a8a92a36f8742246731847f8e65410601d1bb3b2c00335d028ac",
+    "natives_stm_escape_userdata_gui_map_st03_08.user.2": "c04276214f3cb66c2a44a8812f5f30440b18a7102dce2f971fbf0381a0f4600c",
+    "natives_stm_escape_userdata_gui_map_st03_09.user.2": "60fb9ea4f5567011895a3211169b0b35c83a64663aa035fe7944ecb5ff065edb",
+    "natives_stm_escape_userdata_gui_map_st03_10.user.2": "b06e6a43df6f799803b036a3cbf05afff10cc3b3cf31e47b8381fe5aa72a7bed",
+    "natives_stm_escape_userdata_gui_map_st03_50.user.2": "02b81a488d32a0e42c1fe798d1dc53951c20e29961d8594977244f8171752a47",
+    "natives_stm_escape_userdata_gui_map_st03_51.user.2": "4448264e23c5bdca0e30448b70ff8385434c3b5e8abf606f65e755797ad5e48c",
+    "natives_stm_escape_userdata_gui_map_st04_00.user.2": "af66e6820bbcb4f132dd18791778df48039cc07dc271663dfe4cffd07fdbcf04",
+    "natives_stm_escape_userdata_gui_map_st04_01.user.2": "4f27b03cea7e9fdb04804b66ce6bf036925048efed1df726f3a165c9f1fb451a",
+    "natives_stm_escape_userdata_gui_map_st04_22.user.2": "6537f880e3365df5cc2d42fc05f379db95c70cd624be5cf5c8f38b0c0089c6ce",
+    "natives_stm_escape_userdata_gui_map_st05_00.user.2": "46bb034d2d26238ef7d93726d350121ee65b5f017b7f5dacd2f04347ebe910cd",
+    "natives_stm_escape_userdata_gui_map_st05_01.user.2": "7d60034fd4b2d4c52c8109d0c1aa4fb2169611bdbc047b53c816951f14359651",
+    "natives_stm_escape_userdata_gui_map_st05_03.user.2": "02100c73c85ff835a6448788897ebbf36f72b0af8c32ae5ea514514800d0be70",
+    "natives_stm_escape_userdata_gui_map_st05_04.user.2": "ae01d15e10f5ee050a5e8c014488822493b0f5a7f67ebb24d5c558a8eb5d7972",
+    "natives_stm_escape_userdata_item_esweaponuserdata.user.2": "fed32894865b5fb8bb108c6564982c862028a4c351b635410f4debb2b7897d80",
+    "natives_stm_escape_userdata_mapdata_maparea_downtown.user.2": "e5e784a3826912a2d335c275808c2a04fbe55f5d4c2962febb1a19cefa510a62",
+    "natives_stm_escape_userdata_mapdata_maparea_hospital.user.2": "883b4c8dc6181e6617d899c50123f86e06911d56938eda181cf73188a397900c",
+    "natives_stm_escape_userdata_mapdata_maparea_hospital2.user.2": "2f636e29b17a14766114012fa09e93cda0dfbcb1086cbb5a538e9e68be7f526a",
+    "natives_stm_escape_userdata_mapdata_maparea_laboratory.user.2": "2aefe73e038fb45c8ab065d7def73ec947b6db76bfcb6deb8c18d4dce03e0cb2",
+    "natives_stm_escape_userdata_mapdata_maparea_rpd.user.2": "62fb3c659f6baaf56f4266e23461a021ed03cfa56e4faf2682c8d94a434cebb9",
+    "natives_stm_escape_userdata_mapdata_maparea_uptown.user.2": "8dfae29e0e84c5d80df18f1fde9093eea67b11ea93c0f57bae8c3b49934c4c95",
+    "natives_stm_escape_userdata_mapdata_mapstructure_clocktower.user.2": "273c94127167a8504176b4d96f7474745f686707d95eb35ccbecd0606b89406a",
+    "natives_stm_escape_userdata_mapdata_mapstructure_downtown.user.2": "bd80e88855b6ec13b0a9d51f3d998d83c03b1b17888aacd52b510a561a24c72a",
+    "natives_stm_escape_userdata_mapdata_mapstructure_hospital2.user.2": "7baee8f785704e073cd5866d49ad3a2cb659cf109e2f0e7938d07bb092d17503",
+    "natives_stm_escape_userdata_mapdata_mapstructure_laboratory.user.2": "19904ee6ddf619b832ee4ccd46ff8e0a8f2a55bef7ada796dca25ecc6d7dec3a",
+    "natives_stm_escape_userdata_mapdata_mapstructure_opening1.user.2": "52602f7db9b918c3d2c41ef47baa192c6699149c36981358d5810534882c126c",
+    "natives_stm_escape_userdata_mapdata_mapstructure_rpd.user.2": "7cae4e0325661f05d6a5a7dd19caf0a13bbeba438804018bcf242f8b0e514bf7",
+    "natives_stm_escape_userdata_mapdata_mapstructure_uptown.user.2": "a2f2de6cbfa3c2253d6bfda48a5d1950191175810be34c8e43e92affb0f6c06e",
+    "natives_stm_sectionroot_userdata_mapdata_mapstructure_hospital.user.2": "3eb91d3f6035a290f3658b7d917d17d9eb99e468b2610ccc140be3e89f6834b0",
+    "natives_stm_sectionroot_userdata_ropewaydifficultysettingsuserdata.user.2": "a623c352bc442ee8a10ac869af35e1c85e622a5e9703e1dadfd15ff43f03c5f0"
+  },
+  "counts": {
+    "maps": 284,
+    "sceneAreaMappings": 71,
+    "regions": 3,
+    "messages": 249,
+    "messageKeys": 249,
+    "characters": 2,
+    "difficulties": 5,
+    "weapons": 20,
+    "weaponKeys": 381
+  },
+  "baseline": {
+    "mapId": 167,
+    "region": "Downtown",
+    "room": "Donut Shop",
+    "objectiveGuids": [
+      "e6ce0ae0-c2ec-4393-bc18-7a3697c52c8a",
+      "6a1ff9f3-6999-4829-94a7-cc6705794060"
+    ]
+  }
+}

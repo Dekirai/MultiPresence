@@ -2,11 +2,11 @@
     "Games": {
         "CRISIS CORE –FINAL FANTASY VII– REUNION": {
             "Default": {
-                "Details": "Lv. {level} ({difficulty})",
-                "State": "HP: {hp}/{maxhp} - MP: {mp}/{maxmp}",
+                "Details": "{character} - Lv. {level} | {chaptername} ({difficulty})",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
+                "LargeAssetText": "HP {hp}/{maxhp} | MP {mp}/{maxmp} | AP {ap}/{maxap} | SP {sp}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -14,11 +14,11 @@
                 "Button2URL": ""
             },
             "Mission": {
-                "Details": "[In Mission] Lv. {level} ({difficulty})",
-                "State": "HP: {hp_mission}/{maxhp_mission} - MP: {mp_mission}/{maxmp_mission}",
+                "Details": "{character} - Lv. {level} | Mission {missionid} ({difficulty})",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "CRISIS CORE –FINAL FANTASY VII– REUNION",
+                "LargeAssetText": "HP {hp_mission}/{maxhp_mission} | MP {mp_mission}/{maxmp_mission} | AP {ap_mission}/{maxap_mission} | SP {sp}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

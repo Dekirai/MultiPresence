@@ -1,0 +1,42 @@
+{
+    "Games": {
+        "Cryo": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Cryo",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "In Lobby{players}",
+                "State": "{session}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Cryo",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{map} | {difficulty}{players}",
+                "State": "{objective}",
+                "LargeAsset": "{mapasset}",
+                "SmallAsset": "",
+                "LargeAssetText": "{map} | {session}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

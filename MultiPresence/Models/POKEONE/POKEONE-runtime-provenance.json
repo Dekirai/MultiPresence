@@ -1,0 +1,608 @@
+{
+  "game": "PokeOne",
+  "application_id": "1556140941792903248",
+  "verified_date": "2026-10-22",
+  "architecture": "x86",
+  "metadata_version": "24.1",
+  "files": [
+    {
+      "path": "E:\\Games\\PokeOne\\files\\GameAssembly.dll",
+      "length": 9462288,
+      "sha256": "63ba59b6c377f04840f8234f341a028ec170a952535136e69577beec9357f3e8"
+    },
+    {
+      "path": "E:\\Games\\PokeOne\\files\\PokeOne_Data\\il2cpp_data\\Metadata\\global-metadata.dat",
+      "length": 6129988,
+      "sha256": "69fe6eddd51f1969d5ba0ad7a581e5776933d2670950db9c4420ea6954a75f29"
+    }
+  ],
+  "analysis": {
+    "authority": "Installed IL2CPP metadata and passive ReadProcessMemory of the selected GameAssembly.dll.",
+    "method": "Existing Il2CppDumper with target-loading fallback disabled; Capstone disassembly of copied bytes.",
+    "mapped_module_sha256": "98f9937a1b87d7b6b2e7ccf427004bc5c7e9bf1faefa431a746cb6a8b4d4b425",
+    "mapped_module_size": 26599424,
+    "unreadable_pages": 0,
+    "mapped_copy_transform": "ReadProcessMemory, original header restored, ImageBase set to live base, section raw file coordinates changed to RVAs",
+    "native_limitation": "On-disk GameAssembly is packed; native methods recovered from read-only mapped module copy. No target code was loaded/executed by analysis tooling."
+  },
+  "patterns": {
+    "PlayerHandler": {
+      "pattern": "A1 ?? ?? ?? ?? 8B 40 5C 8B 40 04 85 C0 0F 84 ?? ?? ?? ?? 80 B8 4C 01 00 00 00 75 ?? A1 ?? ?? ?? ?? 8B 40 5C 8B 00 85 C0",
+      "operand": 1,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x15393d",
+      "type_info_slot_rva": "0xeaa0b4",
+      "unique_mapped_match": true,
+      "unique_live_match": true
+    },
+    "PokemonHandler": {
+      "pattern": "A1 ?? ?? ?? ?? 66 0F D6 44 24 10 8B 40 5C 8B 08 8B 47 1C 85 C0 0F 84 ?? ?? ?? ?? 3B 70 0C 0F 83 ?? ?? ?? ?? 8B 50 08 46",
+      "operand": 1,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x1850ad",
+      "type_info_slot_rva": "0xeaad24",
+      "unique_mapped_match": true,
+      "unique_live_match": true
+    },
+    "BattlePacketHandler": {
+      "pattern": "A1 ?? ?? ?? ?? 8B 40 5C 8B 00 85 C0 0F 84 ?? ?? ?? ?? C6 40 38 00 8B 46 50 85 C0 74 ?? 89 87 50 01 00 00 80 3D ?? ?? ?? ?? 00",
+      "operand": 1,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x18a84c",
+      "type_info_slot_rva": "0xea931c",
+      "unique_mapped_match": true,
+      "unique_live_match": true
+    },
+    "BattleHandler": {
+      "pattern": "8B 0D ?? ?? ?? ?? 8B 49 5C 8B 39 8B 0D ?? ?? ?? ?? F6 81 BF 00 00 00 02 74 ?? 83 79 70 00 75 ?? E8 ?? ?? ?? ?? 6A 00 6A 00",
+      "operand": 2,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x1633bc",
+      "type_info_slot_rva": "0xea9074",
+      "unique_mapped_match": true,
+      "unique_live_match": true
+    },
+    "MapManager": {
+      "pattern": "55 8B EC 80 3D ?? ?? ?? ?? 00 75 ?? B9 2F 2E 00 00 E8 ?? ?? ?? ?? C6 05 ?? ?? ?? ?? 01 8B 0D ?? ?? ?? ?? F6 81 BF 00 00 00 02 74 ?? 83 79 70 00 75 ?? E8 ?? ?? ?? ?? A1 ?? ?? ?? ?? 8B 48 5C 8B 45 08 89 01 5D C3 8B 49 5C 8B 45 08 89 01 5D C3",
+      "operand": 31,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0xb32360",
+      "type_info_slot_rva": "0xea96f4",
+      "unique_mapped_match": true,
+      "unique_live_match": true
+    },
+    "InventoryHandler": {
+      "pattern": "A1 ?? ?? ?? ?? 83 C4 10 8B 40 5C 8B 00 85 C0 0F 84 ?? ?? ?? ?? 6A 00 FF 76 18 50 E8 ?? ?? ?? ?? A1 ?? ?? ?? ?? 83 C4 0C",
+      "operand": 1,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x18a35f",
+      "type_info_slot_rva": "0xeaac08",
+      "optional": true,
+      "runtime_resolution": "Production reader requires exactly one readable executable-section match; absence leaves the corresponding optional values empty."
+    },
+    "PokedexHandler": {
+      "pattern": "A1 ?? ?? ?? ?? 83 C4 0C 8B 40 5C 8B 00 85 C0 0F 84 ?? ?? ?? ?? 6A 00 FF 76 1C 50 E8 ?? ?? ?? ?? 8B 4E 28 83 C4 0C 85 C9",
+      "operand": 1,
+      "root_resolution": "UInt32 absolute operand; not RIP-relative",
+      "match_rva": "0x18a39f",
+      "type_info_slot_rva": "0xeaad10",
+      "optional": true,
+      "runtime_resolution": "Production reader requires exactly one readable executable-section match; absence leaves the corresponding optional values empty."
+    }
+  },
+  "il2cpp_layout": {
+    "pointer_bytes": 4,
+    "class_static_fields": "0x5C",
+    "class_fields": "0x40",
+    "class_field_count_ushort": "0xAC",
+    "field_info_bytes": 20,
+    "field_info_name": "0",
+    "field_info_parent": "8",
+    "field_info_offset": "12",
+    "unity_cached_native_pointer": "8",
+    "managed_string_length": "8",
+    "managed_string_data": "12",
+    "list_array": "8",
+    "list_count": "12",
+    "list_version": "16",
+    "array_length": "12",
+    "array_elements": "16"
+  },
+  "native_fields": {
+    "PlayerHandler": {
+      "Instance": "static+4",
+      "Username": "0x2C",
+      "LoggedIn": "0x30",
+      "Level": "0x48"
+    },
+    "PSXAPI.Response.Level": {
+      "UserLevel": "8"
+    },
+    "PokemonHandler": {
+      "Instance": "static+0",
+      "CachedPokemon": "0x18",
+      "ActivePokemon": "0x1C"
+    },
+    "PokemonHandler.cPkmn": {
+      "UniqueID": "8",
+      "Health": "0x40",
+      "MaxHealth": "0x44",
+      "Status": "0x48",
+      "Position": "0x80",
+      "Box": "0x84",
+      "EggState": "0x90"
+    },
+    "BattlePacketHandler": {
+      "Instance": "static+0",
+      "InBattle": "static+4"
+    },
+    "BattleHandler": {
+      "Instance": "static+0",
+      "TeamStats": "0x98"
+    },
+    "PSXUtilities.PokemonInfo": {
+      "Health": "0x14",
+      "MaxHealth": "0x10",
+      "Trainer": "0x3C"
+    }
+  },
+  "baseline_observed": {
+    "trainer_name": "Matched the name supplied by the user.",
+    "trainer_level": 14,
+    "location": "Kanto / Pallet Town",
+    "in_battle": false,
+    "party_count": 6,
+    "capable_count": 6,
+    "party_health": [
+      "28/49",
+      "16/16",
+      "17/17",
+      "19/19",
+      "16/16",
+      "18/18"
+    ],
+    "battle_handler": "Instance is null outside battle; only required while in battle."
+  },
+  "limitations": [
+    "Patterns are unique in the examined build; future code changes may require updates.",
+    "The shipped DLL is packed, so production scanning must use the readable loaded executable sections."
+  ],
+  "region_catalog": {
+    "source": "E:\\Games\\PokeOne\\files\\PokeOne_Data\\level2",
+    "sha256": "1955cd0f168a9991777454c8a8d3becaf6d5a12a50a56bc940634049d14075c9",
+    "authority": "Bundled Unity scene; FlyMapZone GameObject names, serialized MapList aliases, and parent Transform region group names",
+    "nativeValidation": {
+      "method": "WorldMapHandler.areaPosition",
+      "rva": "0x41C060",
+      "behavior": "Compares the requested area name case-insensitively to FlyMapZone GameObject name and MapTags values",
+      "aliasInitialization": "FlyMapZone.Awake at RVA 0x1C41D0 derives MapTags from MapList"
+    },
+    "components": 177,
+    "uniqueAliasesIncludingAmbiguous": 667,
+    "regionCounts": {
+      "Johto": 176,
+      "Kanto": 210,
+      "Unova": 279
+    },
+    "generatedEntries": 665,
+    "ambiguousNamesExcluded": {
+      "route 22": [
+        {
+          "name": "Route 22",
+          "region": "Unova"
+        },
+        {
+          "name": "Route 22",
+          "region": "Kanto"
+        }
+      ],
+      "route 21": [
+        {
+          "name": "Route 21",
+          "region": "Unova"
+        },
+        {
+          "name": "Route 21",
+          "region": "Kanto"
+        }
+      ]
+    },
+    "fallback": "Exact recognized Map.Settings.MapName has precedence, followed by exact catalog area aliases. Internal map names are not parsed.",
+    "knownRegionNames": [
+      "Kanto",
+      "Johto",
+      "Hoenn",
+      "Sinnoh",
+      "Unova",
+      "Kalos",
+      "Alola"
+    ],
+    "knownRegionNameEvidence": "StatHandler.RegionFromInt RVA0xAD1D30; native jump table RVA0xAD1D98 + metadata literal bindings",
+    "liveLocations": {
+      "Pallet Town": "Kanto",
+      "Route 1": "Kanto",
+      "Viridian Forest": "Kanto"
+    },
+    "limitations": [
+      "Other regions and most locations were not visited live.",
+      "Only Kanto, Johto, and Unova have FlyMapZone scene groups in this installed build.",
+      "A name absent from the bundled catalog with no exact region MapName returns empty.",
+      "Region IDs and labels in StatHandler are not evidence that all seven regions are playable."
+    ]
+  },
+  "runtime_validation": {
+    "production_reader": "ReadSnapshot through the compiled Release assembly and existing Hypervisor.",
+    "live_observations": [
+      {
+        "location": "Kanto / Route 1",
+        "in_battle": true,
+        "capable_count": 6,
+        "party_count": 6
+      },
+      {
+        "location": "Kanto / Viridian Forest",
+        "trainer_level": 15,
+        "in_battle": true,
+        "capable_count": 6,
+        "party_count": 6
+      },
+      {
+        "location": "Kanto / Viridian Forest",
+        "trainer_level": 15,
+        "in_battle": true,
+        "capable_count": 5,
+        "party_count": 6,
+        "fainted_count": 1,
+        "fainted_native_health": "0/100",
+        "fainted_native_status": "fnt",
+        "user_confirmed": true
+      },
+      {
+        "state": "Menu",
+        "player_name": "",
+        "location": "",
+        "region": "",
+        "in_battle": false,
+        "capable_count": 0,
+        "party_count": 0,
+        "all_placeholders_empty": true,
+        "user_confirmed": true
+      }
+    ],
+    "synthetic_reader_checks": 64,
+    "formatter_and_template_checks": 19,
+    "region_catalog_checks": 3366,
+    "build": "Release: 0 errors, 0 warnings",
+    "reader_rules": [
+      "Read-only memory access; no hooks, injection, or remote calls.",
+      "Only active GUID-selected Pokemon count outside battle; boxed Pokemon are excluded.",
+      "Eggs are excluded from the battle-capable team denominator and are not counted as fainted.",
+      "Battle TeamStats is filtered by the current trainer name; live battle health takes precedence over cached party health.",
+      "Ready does not gate the snapshot because it controls battle interaction; absent owned team data yields Loading.",
+      "Frame reads are checked again before publishing; loading and logout do not reuse prior values."
+    ],
+    "limits": [
+      "Live tests used one local trainer in Kanto; co-op ownership and variable party sizes were checked with synthetic data.",
+      "No Discord client UI inspection was performed."
+    ]
+  },
+  "battle_lifecycle_correction": {
+    "target": "PokeOne GameAssembly.dll",
+    "source_sha256": "63ba59b6c377f04840f8234f341a028ec170a952535136e69577beec9357f3e8",
+    "method": "Passive ReadProcessMemory and Capstone x86 disassembly; method and field names from recovered IL2CPP metadata",
+    "live_outside_battle": {
+      "pid": 148156,
+      "BattlePacketHandler.InBattle": true,
+      "BattlePacketHandler.BattleStarted": false,
+      "BattlePacketHandler.BattleStarting": false,
+      "BattlePacketHandler.StartingBattle": false,
+      "BattleHandler.Instance": null
+    },
+    "native_stores": [
+      {
+        "method": "BattleHandler.Awake",
+        "method_rva": "0x200300",
+        "store_rva": "0x200328",
+        "effect": "BattleHandler.Instance = this"
+      },
+      {
+        "method": "BattleHandler.SetupInstance",
+        "method_rva": "0x200330",
+        "store_rva": "0x200358",
+        "effect": "BattleHandler.Instance = this"
+      },
+      {
+        "method": "BattleHandler.OnDestroy",
+        "method_rva": "0x200360",
+        "store_rva": "0x200382",
+        "effect": "BattleHandler.Instance = null"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x19253B",
+        "effect": "BattleStarted = false"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x19253F",
+        "effect": "BattleStarting = true"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x1925D3",
+        "effect": "StartingBattle = true"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x1929F1",
+        "effect": "BattleStarting = false"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x19395A",
+        "effect": "static InBattle = true"
+      },
+      {
+        "method": "BattlePacketHandler.StartBattle.MoveNext",
+        "method_rva": "0x192220",
+        "store_rva": "0x193DDE",
+        "effect": "StartingBattle = false, after BattleHandler.Ready = true"
+      },
+      {
+        "method": "BattleHandler.EndBattle.MoveNext",
+        "method_rva": "0x2162D0",
+        "store_rva": "0x216742",
+        "effect": "BattlePacketHandler.Instance.BattleStarted = false"
+      }
+    ],
+    "observed_limitations": [
+      "No store clearing static InBattle exists in the inspected EndBattle.MoveNext method; unrelated paths were not exhaustively inspected.",
+      "No positive BattleStarted assignment was found in direct stores in BattlePacketHandler, BattleHandler, or PlayerHandler methods; this does not exclude indirect stores elsewhere.",
+      "Recommended battle indicator is an inference from native Instance lifecycle plus observed outside-battle state: transition flags first, then live BattleHandler.Instance and valid owned TeamStats."
+    ],
+    "reader": "The two battle startup flags suppress incomplete snapshots; otherwise a live BattleHandler instance selects TeamStats, and a null/destroyed instance selects the active party. Static InBattle and BattleStarted do not determine battle state.",
+    "party_layout_correction": "cPkmn.EggState is a public field at 0x90, not a compiler-generated backing field.",
+    "live_production_reader_retest": [
+      {
+        "phase": "battle",
+        "location": "Kanto / Viridian Forest",
+        "trainer_level": 15,
+        "state": "Ingame",
+        "in_battle": true,
+        "capable_count": 5,
+        "party_count": 6
+      },
+      {
+        "phase": "after battle",
+        "location": "Kanto / Viridian Forest",
+        "trainer_level": 15,
+        "state": "Ingame",
+        "in_battle": false,
+        "capable_count": 5,
+        "party_count": 6,
+        "formatted_battle_status": "Not in Battle",
+        "user_confirmed_outside_battle": true
+      }
+    ],
+    "regression_checks": {
+      "reader": 64,
+      "formatter": 19,
+      "result": "all passed"
+    }
+  },
+  "expanded_features": {
+    "authority": "Installed IL2CPP metadata, bundled pokemon TextAsset, passive ReadProcessMemory, copied-byte Capstone disassembly, and production Release reader snapshots. These are local analysis results, not REA provider evidence.",
+    "features": [
+      "Active Pokemon and six team slots: English name, species, form, level, HP, maximum HP when known, condition, shiny, active flag and image URL.",
+      "Wild, Trainer and PvP battle type from native isWild and IsPVP flags.",
+      "Current opposing Pokemon names, levels, forms and conditions; no opponent HP is published.",
+      "Trainer EXP within current level, required EXP and percentage.",
+      "Money, Gold (Tokens), GameCoins and BattlePoints.",
+      "Badge count and names; Pokedex seen and caught server counters.",
+      "Public Pokemon artwork URLs including validated shiny/form variants; region artwork remains the game logo."
+    ],
+    "party_fields": {
+      "class": "PokemonHandler.cPkmn",
+      "PokemonID": "0x24",
+      "Level": "0x30",
+      "Health": "0x40",
+      "MaxHealth": "0x44",
+      "Status": "0x48",
+      "Personality": "0x5C",
+      "Shiny": "0x64",
+      "EggState": "0x90",
+      "Form": "0x9C"
+    },
+    "battle_fields": {
+      "class": "PSXUtilities.PokemonInfo",
+      "ID": "0x8",
+      "MaxHealth": "0x10",
+      "Health": "0x14",
+      "Level": "0x1C",
+      "Shiny": "0x20",
+      "Status": "0x2C",
+      "isActive": "0x38",
+      "Trainer": "0x3C",
+      "Personality": "0x40",
+      "Forme": "0x4C",
+      "opponent_path": "BattleHandler.FoeBattlePoke +0x94 -> live BattlePokeHandler.Stats +0x18"
+    },
+    "active_outside_battle": "PlayerHandler._FollowPokemon +0x20 must be a live FollowPokemon owned by PlayerHandler.Character +0x5C. Its Personality +0x24 must match exactly one non-egg active party member. Team and ActivePokemon share the resulting active snapshot.",
+    "battle_stat_rule": "Live owned TeamStats are used in battle because the server can scale level and HP independently of cached party stats. Native fainted HP 0/100 is a parser sentinel; MaxHealth is then unknown, not 100.",
+    "optional_isolation": "EXP, inventory, badges and Pokedex each have independent checked frames bound to the current logged-in PlayerHandler and username. Missing roots, changed layouts, unreadable memory and inconsistent data clear only that optional feature. InvalidDataException is explicitly covered.",
+    "trainer_evidence": {
+      "authority": "Installed metadata, passive ReadProcessMemory, Capstone x86 disassembly",
+      "source_sha256": "63ba59b6c377f04840f8234f341a028ec170a952535136e69577beec9357f3e8",
+      "experience": {
+        "path": "PlayerHandler.Level +0x48 -> PSXAPI.Response.Level",
+        "fields": {
+          "TotalExp": "0x0C",
+          "StartExp": "0x10",
+          "RequiredExp": "0x14"
+        },
+        "native_method_rva": "0x18B120",
+        "progress_subtraction_rva": "0x18B2CE",
+        "required_subtraction_rva": "0x18B347",
+        "formula": "(TotalExp - StartExp) / (RequiredExp - StartExp)",
+        "live_values": {
+          "level": 15,
+          "total": 2299,
+          "start": 2260,
+          "required": 2570,
+          "displayed_label": "39 / 310"
+        }
+      },
+      "inventory": {
+        "type_info_slot_rva": "0xEAAC08",
+        "fields": {
+          "Money": "0x24",
+          "Tokens": "0x28",
+          "GameCoins": "0x48",
+          "BattlePoints": "0x4C",
+          "Badges": "0x40"
+        },
+        "load_at_login_call_rva": "0x18A37A",
+        "set_money_method_rva": "0x1D99D0",
+        "money_store_rva": "0x1D9AB0",
+        "gold_store_rva": "0x1D9AB9",
+        "gold_semantics": "PSXAPI.Response.Money.Gold is stored in InventoryHandler.Tokens and displayed using GoldLabel.",
+        "regional_currency_update_method_rva": "0x1D8540",
+        "live_values": {
+          "money": 69032,
+          "gold_tokens": 3250,
+          "game_coins": 0,
+          "battle_points": 0,
+          "money_label": "69.032",
+          "gold_label": "3.250",
+          "badges_array": null
+        }
+      },
+      "badges": {
+        "name_mapping_method_rva": "0x168490",
+        "name_mapping_count": 32,
+        "name_evidence_file": "work/pokeone-assets/badge-names.json",
+        "profile_render_method_rva": "0xAD1DC0",
+        "skip_nonpositive_rva": "0xAD300E",
+        "id_to_ui_index_rva": "0xAD302D",
+        "semantics": "Positive array values are badge IDs; the profile enables its badge object at index ID-1. Null profile response array leaves all badge objects disabled.",
+        "inventory_assignment_rva": "0x1D94AA",
+        "limitation": "No nonempty badge array has been verified live yet. Null means zero only after currency labels match the inventory, proving initialized data; nonnull arrays count distinct recognized positive IDs and ignore nonpositive padding, as the native profile renderer does.",
+        "incremental_packet_dispatch_rva": "0xAD7648",
+        "incremental_packet_branch_rva": "0xAD94A8",
+        "packet_array_getter_call_rva": "0xAD94E6",
+        "inventory_assignment_helper_call_rva": "0xAD94FC",
+        "inventory_assignment_helper_store_rva": "0x2B826",
+        "freshness": "TCPConnection.HandlePacket copies PSXAPI.Response.Badges.All to InventoryHandler.Badges on badge updates, in addition to Login.Inventory initialization."
+      },
+      "pokedex": {
+        "type_info_slot_rva": "0xEAAD10",
+        "fields": {
+          "SeenLabel": "0x38",
+          "CaughtLabel": "0x3C",
+          "PokedexPokemonInfos": "0x50"
+        },
+        "load_at_login_call_rva": "0x18A3BA",
+        "full_packet_method_rva": "0x2743F0",
+        "incremental_update_method_rva": "0x2740F0",
+        "semantics": "Both packet handlers refresh the retained SeenLabel and CaughtLabel independently of opening the Pokedex. The reader takes these authoritative server counters, not the size of the party or a filtered visible list.",
+        "live_values": {
+          "seen_label": "20",
+          "caught_label": "16",
+          "list_entries": 20,
+          "status_1_seen_only": 4,
+          "status_2_caught": 16
+        }
+      },
+      "optional_read_behavior": "Each feature validates its own frame and the current PlayerHandler instance, login flag and player name. Missing roots, inconsistent values or unreadable optional data return null fields without keeping the preceding snapshot. Eleven live harness assertions passed; 20 steady reads averaged3.82ms.",
+      "validation_report": "work/pokeone/trainer-validation.json"
+    },
+    "live_validation": [
+      {
+        "phase": "wild battle",
+        "source": "production C# reader",
+        "own": "Wartortle",
+        "level": 15,
+        "hp": "45/45",
+        "opponent": "Noctowl",
+        "opponent_level": 10,
+        "user_confirmed": true
+      },
+      {
+        "phase": "Pokemon switch and fainting",
+        "source": "production C# reader",
+        "own": "Spearow",
+        "level": 6,
+        "hp": 0,
+        "max_hp": null,
+        "status": "Fainted",
+        "team": "5/6",
+        "user_confirmed_name": true
+      },
+      {
+        "phase": "second Pokemon switch",
+        "source": "passive native probe",
+        "own": "Mankey",
+        "level": 3,
+        "hp": "16/16",
+        "team": "5/6",
+        "user_confirmed_name": true
+      },
+      {
+        "phase": "trainer values",
+        "money": 69032,
+        "gold": 3250,
+        "badges": 0,
+        "seen": 20,
+        "caught": 16,
+        "user_confirmed": true
+      },
+      {
+        "phase": "after battle",
+        "source": "production C# reader",
+        "location": "Kanto / Route 2",
+        "state": "Ingame",
+        "battle_status": "Not in Battle",
+        "team": "5/6",
+        "follower": "Wartortle",
+        "level": 17,
+        "hp": "28/49",
+        "opponents": [],
+        "seen": 21,
+        "caught": 17
+      },
+      {
+        "phase": "logout",
+        "source": "production C# reader",
+        "state": "Menu",
+        "team": [],
+        "active": [],
+        "opponents": [],
+        "trainer_fields": "null or empty",
+        "all_138_placeholders_empty": true,
+        "user_confirmed_menu": true
+      }
+    ],
+    "verification": {
+      "reader_checks": 79,
+      "formatter_template_documentation_checks": 45,
+      "trainer_isolation_checks": 11,
+      "pokemon_catalog_checks": 8529,
+      "build": "Release: 0 errors, 0 warnings",
+      "production_dll_sha256": "631A28E8042A18A2B3024EF8DA9EC7182B58C99C5C33D0F9EC2E3FDE1DE02B2D",
+      "config_archive": "Only PokeOne configuration changed during the expansion; the other 88 payloads were checked unchanged."
+    },
+    "limits": [
+      "Trainer and PvP battle types were checked with synthetic data, not separate live battles.",
+      "No nonempty badge array, shiny Pokemon or alternate form was confirmed live; mappings were checked against installed data and synthetic/catalog tests.",
+      "Opponent HP is deliberately unavailable; server data can be unknown or percentage-scaled.",
+      "Region image URLs are not enabled; the game logo is used.",
+      "External Pokemon URLs were validated, but no Discord client rendering inspection was performed.",
+      "Future PokeOne updates can require new patterns or field layouts."
+    ]
+  }
+}

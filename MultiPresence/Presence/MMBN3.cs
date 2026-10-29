@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.MMBN3;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class MMBN3
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("MMBN3: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("MMBN_LC1"))
             {
                 int _game = Hypervisor.Read<byte>(0x987499C);
@@ -90,6 +94,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("MMBN3: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

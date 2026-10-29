@@ -1,232 +1,211 @@
-﻿namespace MultiPresence.Models.VS
+using System.Collections.Frozen;
+
+namespace MultiPresence.Models.VS
 {
     public class Stages
     {
-        public static async Task<string> GetStages(int stage)
+        public static Task<string> GetStages(int stage)
         {
-            string getstage;
-
-            switch (stage)
-            {
-                case 0:
-                    getstage = "Mad Forest";
-                    break;
-                case 1:
-                    getstage = "Moongolow";
-                    break;
-                case 3:
-                    getstage = "Inlaid Library";
-                    break;
-                case 7:
-                    getstage = "Green Acres";
-                    break;
-                case 8:
-                    getstage = "Dairy Plant";
-                    break;
-                case 9:
-                    getstage = "Il Molise";
-                    break;
-                case 10:
-                    getstage = "Gallo Tower";
-                    break;
-                case 11:
-                    getstage = "The Bone Zone";
-                    break;
-                case 12:
-                    getstage = "Holy Forbidden";
-                    break;
-                case 13:
-                    getstage = "Cappella Magna";
-                    break;
-                case 14:
-                    getstage = "Boss Rash";
-                    break;
-                case 15:
-                    getstage = "Eudaimonia M.";
-                    break;
-                case 17:
-                    getstage = "Tiny Bridge";
-                    break;
-                case 20:
-                    getstage = "Mt.Moonspell";
-                    break;
-                case 21:
-                    getstage = "Bat Country";
-                    break;
-                case 22:
-                    getstage = "Astral Stair";
-                    break;
-                case 23:
-                    getstage = "Lake Foscari";
-                    break;
-                case 24:
-                    getstage = "Abyss Foscari";
-                    break;
-                case 25:
-                    getstage = "Whiteout";
-                    break;
-                case 26:
-                    getstage = "Polus Replica";
-                    break;
-                case 27:
-                    getstage = "Space 54";
-                    break;
-                case 28:
-                    getstage = "Neo Galuga";
-                    break;
-                case 29:
-                    getstage = "Hectic Highway";
-                    break;
-                case 30:
-                    getstage = "Room 1665";
-                    break;
-                case 31:
-                    getstage = "Laborratory";
-                    break;
-                case 33:
-                    getstage = "Carlo Cart";
-                    break;
-                case 1000:
-                    getstage = "Planar Bazaar";
-                    break;
-                case 1001:
-                    getstage = "Castle Grounds";
-                    break;
-                case 1002:
-                    getstage = "Shrine Valley";
-                    break;
-                case 1003:
-                    getstage = "Forbidden Peaks";
-                    break;
-                case 1004:
-                    getstage = "Hidden Cave";
-                    break;
-                case 1005:
-                    getstage = "Frozen Lake";
-                    break;
-                case 1006:
-                    getstage = "Tanuki Forest";
-                    break;
-                case 1007:
-                    getstage = "Mt. Moonspell";
-                    break;
-                case 1011:
-                    getstage = "Old Mad Forest";
-                    break;
-                case 1012:
-                    getstage = "Rough Awakening";
-                    break;
-                case 1013:
-                    getstage = "Risky Woods";
-                    break;
-                case 1014:
-                    getstage = "Rotten Orchard";
-                    break;
-                case 1015:
-                    getstage = "Garlic Paradise";
-                    break;
-                case 1016:
-                    getstage = "Retirement";
-                    break;
-                case 1021:
-                    getstage = "Deep Lore";
-                    break;
-                case 1022:
-                    getstage = "Inlaid Library";
-                    break;
-                case 1023:
-                    getstage = "Mad Forest";
-                    break;
-                case 1024:
-                    getstage = "Gallo Tower";
-                    break;
-                case 1025:
-                    getstage = "Astral Stair";
-                    break;
-                case 1026:
-                    getstage = "Cappella Magna";
-                    break;
-                case 1031:
-                    getstage = "Meeting Called";
-                    break;
-                case 1032:
-                    getstage = "Suspect Security";
-                    break;
-                case 1033:
-                    getstage = "Ejected";
-                    break;
-                case 1034:
-                    getstage = "Don't Get Ghosted";
-                    break;
-                case 1035:
-                    getstage = "Space Rocks";
-                    break;
-                case 1036:
-                    getstage = "Emergency Meating";
-                    break;
-                case 1041:
-                    getstage = "Attack Aggressively";
-                    break;
-                case 1042:
-                    getstage = "Bullet Biters";
-                    break;
-                case 1043:
-                    getstage = "Neo City Chaos";
-                    break;
-                case 1044:
-                    getstage = "Operation: Gun City";
-                    break;
-                case 1045:
-                    getstage = "Run & Gun";
-                    break;
-                case 1046:
-                    getstage = "Alien Revengeance";
-                    break;
-                case 1047:
-                    getstage = "Unused Stage";
-                    break;
-                case 1048:
-                    getstage = "Ode to Castlevania";
-                    break;
-                case 1052:
-                    getstage = "Ice Age";
-                    break;
-                case 1053:
-                    getstage = "Ice Cream";
-                    break;
-                case 1054:
-                    getstage = "A Fiery Apparition";
-                    break;
-                case 1055:
-                    getstage = "A Pure Heart";
-                    break;
-                case 1056:
-                    getstage = "The Rebirth, The Return";
-                    break;
-                case 1058:
-                    getstage = "The World Eater";
-                    break;
-                case 1059:
-                    getstage = "The Guardian of the Lake";
-                    break;
-                case 1060:
-                    getstage = "The Sly Swashbuckler";
-                    break;
-                case 1061:
-                    getstage = "The Undefeated Champion";
-                    break;
-                case 1062:
-                    getstage = "The Star Pupil";
-                    break;
-                case 1063:
-                    getstage = "Tides of the Foscari";
-                    break;
-
-                default:
-                    getstage = "Unknown";
-                    break;
-            }
-            return getstage;
+            return Task.FromResult(Names.GetValueOrDefault(stage, $"Unknown stage ({stage})"));
         }
+
+        public static string GetAdventureName(int stage)
+        {
+            return Adventures.GetValueOrDefault(stage, "Adventure");
+        }
+
+        private static readonly FrozenDictionary<int, string> Adventures = new Dictionary<int, string>
+        {
+            { 1001, "Legacy of the Moonspell" },
+            { 1002, "Legacy of the Moonspell" },
+            { 1003, "Legacy of the Moonspell" },
+            { 1004, "Legacy of the Moonspell" },
+            { 1005, "Legacy of the Moonspell" },
+            { 1006, "Legacy of the Moonspell" },
+            { 1007, "Legacy of the Moonspell" },
+            { 1011, "A Garlic Paradise" },
+            { 1012, "A Garlic Paradise" },
+            { 1013, "A Garlic Paradise" },
+            { 1014, "A Garlic Paradise" },
+            { 1015, "A Garlic Paradise" },
+            { 1016, "A Garlic Paradise" },
+            { 1021, "World of Light and Dark" },
+            { 1022, "World of Light and Dark" },
+            { 1023, "World of Light and Dark" },
+            { 1024, "World of Light and Dark" },
+            { 1025, "World of Light and Dark" },
+            { 1026, "World of Light and Dark" },
+            { 1031, "Emergency Meeting" },
+            { 1032, "Emergency Meeting" },
+            { 1033, "Emergency Meeting" },
+            { 1034, "Emergency Meeting" },
+            { 1035, "Emergency Meeting" },
+            { 1036, "Emergency Meeting" },
+            { 1041, "Operation Guns" },
+            { 1042, "Operation Guns" },
+            { 1043, "Operation Guns" },
+            { 1044, "Operation Guns" },
+            { 1045, "Operation Guns" },
+            { 1046, "Operation Guns" },
+            { 1052, "To End An Ice Age" },
+            { 1053, "To End An Ice Age" },
+            { 1054, "To End An Ice Age" },
+            { 1055, "To End An Ice Age" },
+            { 1056, "To End An Ice Age" },
+            { 1058, "Tides of the Foscari" },
+            { 1059, "Tides of the Foscari" },
+            { 1060, "Tides of the Foscari" },
+            { 1061, "Tides of the Foscari" },
+            { 1062, "Tides of the Foscari" },
+            { 1063, "Tides of the Foscari" },
+            { 1064, "Tides of the Foscari" },
+            { 1065, "A Garlic Paradise" },
+            { 1066, "World of Light and Dark" },
+            { 1067, "To End An Ice Age" },
+            { 1068, "Legacy of the Moonspell" },
+            { 1069, "Emergency Meeting" },
+            { 1070, "Operation Guns" },
+            { 1071, "Tides of the Foscari" },
+            { 1080, "Ode to Castlevania" },
+            { 1081, "Ode to Castlevania" },
+            { 1082, "Ode to Castlevania" },
+            { 1083, "Ode to Castlevania" },
+            { 1084, "Ode to Castlevania" },
+            { 1085, "Ode to Castlevania" },
+            { 1086, "Ode to Castlevania" },
+            { 1087, "Ode to Castlevania" },
+            { 1088, "Ode to Castlevania" },
+            { 1089, "Ode to Castlevania" },
+            { 1801, "Legacy of the Bloodmoon" },
+            { 1802, "Legacy of the Bloodmoon" },
+            { 1803, "Legacy of the Bloodmoon" },
+            { 1804, "Legacy of the Bloodmoon" },
+            { 1805, "Legacy of the Bloodmoon" },
+            { 1806, "Legacy of the Bloodmoon" },
+            { 1807, "Legacy of the Bloodmoon" },
+            { 1808, "Legacy of the Bloodmoon" }
+        }.ToFrozenDictionary();
+        public static readonly FrozenDictionary<int, string> Names = new Dictionary<int, string>
+        {
+            { 0, "Mad Forest" },
+            { 1, "Moongolow" },
+            { 2, "ENTRANCE (2)" },
+            { 3, "Inlaid Library" },
+            { 4, "TEST (4)" },
+            { 5, "TESTONE (5)" },
+            { 6, "CASTLE (6)" },
+            { 7, "Green Acres" },
+            { 8, "Dairy Plant" },
+            { 9, "Il Molise" },
+            { 10, "Gallo Tower" },
+            { 11, "The Bone Zone" },
+            { 12, "Holy Forbidden" },
+            { 13, "Cappella Magna" },
+            { 14, "Boss Rash" },
+            { 15, "Eudaimonia M." },
+            { 16, "The Three Circles" },
+            { 17, "Tiny Bridge" },
+            { 18, "BLACK (18)" },
+            { 19, "WHITE (19)" },
+            { 20, "Mt.Moonspell" },
+            { 21, "Bat Country" },
+            { 22, "Astral Stair" },
+            { 23, "Lake Foscari" },
+            { 24, "Abyss Foscari" },
+            { 25, "Whiteout" },
+            { 26, "Polus Replica" },
+            { 27, "Space 54" },
+            { 28, "Neo Galuga" },
+            { 29, "Hectic Highway" },
+            { 30, "Room 1665" },
+            { 31, "Laborratory" },
+            { 32, "The Coop" },
+            { 33, "Carlo Cart" },
+            { 34, "A test" },
+            { 35, "A test" },
+            { 36, "A test" },
+            { 37, "TP Progression" },
+            { 38, "Emerald Diorama" },
+            { 39, "Westwoods" },
+            { 40, "Mazerella" },
+            { 41, "Ante Chamber" },
+            { 42, "The Lycaeum" },
+            { 1000, "Planar Bazaar" },
+            { 1001, "Castle Grounds" },
+            { 1002, "Shrine Valley" },
+            { 1003, "Forbidden Peaks" },
+            { 1004, "Hidden Cave" },
+            { 1005, "Frozen Lake" },
+            { 1006, "Tanuki Forest" },
+            { 1007, "Mt. Moonspell" },
+            { 1010, "ADV_0001TEST (1010)" },
+            { 1011, "Old Mad Forest" },
+            { 1012, "Rough Awakening" },
+            { 1013, "Risky Woods" },
+            { 1014, "Rotten Orchard" },
+            { 1015, "Garlic Paradise" },
+            { 1016, "Retirement" },
+            { 1021, "Deep Lore" },
+            { 1022, "Inlaid Library" },
+            { 1023, "Mad Forest" },
+            { 1024, "Gallo Tower" },
+            { 1025, "Astral Stair" },
+            { 1026, "Cappella Magna" },
+            { 1031, "Meeting Called" },
+            { 1032, "Suspect Security" },
+            { 1033, "Ejected" },
+            { 1034, "Don't Get Ghosted" },
+            { 1035, "Space Rocks" },
+            { 1036, "Emergency Meating" },
+            { 1041, "Attack Aggressively" },
+            { 1042, "Bullet Biters" },
+            { 1043, "Neo City Chaos" },
+            { 1044, "Operation: Gun City" },
+            { 1045, "Run & Gun" },
+            { 1046, "Alien Revengeance" },
+            { 1047, "Profane Chapel" },
+            { 1048, "Ode to Castlevania" },
+            { 1050, "ADV_EME_001 (1050)" },
+            { 1051, "ADV_EME_002 (1051)" },
+            { 1052, "Ice Age" },
+            { 1053, "Ice Cream" },
+            { 1054, "A Fiery Apparition" },
+            { 1055, "A Pure Heart" },
+            { 1056, "The Rebirth, The Return" },
+            { 1057, "ADV_SHEMOON_006 (1057)" },
+            { 1058, "The World Eater" },
+            { 1059, "The Guardian of the Lake" },
+            { 1060, "The Sly Swashbuckler" },
+            { 1061, "The Undefeated Champion" },
+            { 1062, "The Star Pupil" },
+            { 1063, "Tides of the Foscari" },
+            { 1064, "The True Horror" },
+            { 1065, "Planar Bazaar" },
+            { 1066, "Planar Bazaar" },
+            { 1067, "Planar Bazaar" },
+            { 1068, "Planar Bazaar" },
+            { 1069, "Planar Bazaar" },
+            { 1070, "Planar Bazaar" },
+            { 1071, "Planar Bazaar" },
+            { 1080, "Devious Woods" },
+            { 1081, "Entrance Corridor" },
+            { 1082, "Long Library" },
+            { 1083, "Clock Tower" },
+            { 1084, "Throne Room" },
+            { 1085, "Sunken City" },
+            { 1086, "Ecclesia" },
+            { 1087, "True Infinite Corridor" },
+            { 1088, "Planar Bazaar" },
+            { 1089, "Death's Domain" },
+            { 1800, "Red Moon Manor" },
+            { 1801, "Glade of Woe" },
+            { 1802, "Manor of Perdition" },
+            { 1803, "Grail of Ruin" },
+            { 1804, "Wicked Maze" },
+            { 1805, "Illusory World" },
+            { 1806, "Room 1665" },
+            { 1807, "To Face a God" },
+            { 1808, "Planar Bazaar" }
+        }.ToFrozenDictionary();
     }
 }

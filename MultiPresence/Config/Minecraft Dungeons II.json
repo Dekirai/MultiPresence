@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Minecraft Dungeons II": {
+            "Default": {
+                "Details": "Lv. {level} | HP {hp}/{maxhp} | Power {itempower}",
+                "State": "{location} | {quest}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{quest} | {objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

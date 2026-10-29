@@ -6,7 +6,7 @@
                 "State": "",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "Resident Evil 4 (2005)",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -14,11 +14,11 @@
                 "Button2URL": ""
             },
             "Main": {
-                "Details": "Weapon: {weapon}",
-                "State": "Chapter {chapter}: {room}",
+                "Details": "{character} | {mode}",
+                "State": "Chapter {chapter}: {location}",
                 "LargeAsset": "{area_icon_name}",
                 "SmallAsset": "",
-                "LargeAssetText": "{area}",
+                "LargeAssetText": "{difficulty} | HP: {health}/{maxhealth} | {weapon}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -26,11 +26,11 @@
                 "Button2URL": ""
             },
             "Mercenaries": {
-                "Details": "Score: {score}",
-                "State": "Playing as '{character}' on '{room}'",
+                "Details": "{character} | {mode}",
+                "State": "Score: {score} | {location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "HP: {health}/{maxhealth} | {weapon}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -38,11 +38,11 @@
                 "Button2URL": ""
             },
             "Assignment_Ada": {
-                "Details": "Weapon: {weapon}",
-                "State": "{room}",
+                "Details": "{character} | {mode}",
+                "State": "{location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "HP: {health}/{maxhealth} | {weapon}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -50,11 +50,11 @@
                 "Button2URL": ""
             },
             "Separate_Ways": {
-                "Details": "Weapon: {weapon}",
-                "State": "Chapter {chapter}: {room}",
+                "Details": "{character} | {mode}",
+                "State": "Chapter {chapter}: {location}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil 4",
+                "LargeAssetText": "HP: {health}/{maxhealth} | {weapon}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

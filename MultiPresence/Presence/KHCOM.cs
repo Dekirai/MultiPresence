@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.KHCOM;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class KHCOM
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("KHCOM: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("KINGDOM HEARTS Re_Chain of Memories"))
             {
                 int world_get = Hypervisor.Read<byte>(0x87B862);
@@ -125,6 +129,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("KHCOM: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

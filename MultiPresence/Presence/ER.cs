@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using System.Diagnostics;
@@ -7,8 +6,8 @@ namespace MultiPresence.Presence
 {
     public class ER
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -32,6 +31,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("ER: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("eldenring"))
             {
                 int maxhp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
@@ -130,6 +134,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("ER: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }

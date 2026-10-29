@@ -1,4 +1,3 @@
-#nullable disable
 using MultiPresence.Runtime;
 using DiscordRPC;
 using MultiPresence.Models.KHDDD;
@@ -8,8 +7,8 @@ namespace MultiPresence.Presence
 {
     public class KHDDD
     {
-        private static DiscordRpcClient discord;
-        private static DiscordStatusUpdater updater;
+        private static DiscordRpcClient? discord;
+        private static DiscordStatusUpdater? updater;
         public static void DoAction()
         {
             GetPID();
@@ -33,6 +32,11 @@ namespace MultiPresence.Presence
 
         private static async Task RPC()
         {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("KHDDD: presence is not initialized.");
+            }
+
             if (ProcessMonitor.IsRunning("KINGDOM HEARTS Dream Drop Distance"))
             {
                 int world_get = Hypervisor.Read<byte>(0xA40764);
@@ -101,6 +105,11 @@ namespace MultiPresence.Presence
 
         private static void InitializeDiscord()
         {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("KHDDD: presence is not initialized.");
+            }
+
             discord.Initialize();
         }
     }
