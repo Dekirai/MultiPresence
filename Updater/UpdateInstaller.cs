@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO.Compression;
 using MultiPresence.Infrastructure;
 
@@ -250,7 +251,14 @@ namespace MultiPresence.Updater
                         UpdateInstaller.EnsureSafeTarget(directory, file.Target);
                         try
                         {
-                            File.Move(temporary, file.Target, overwrite: !file.PreserveExisting);
+                            if (file.PreserveExisting)
+                            {
+                                File.Move(temporary, file.Target, overwrite: false);
+                            }
+                            else
+                            {
+                                ReplaceFile(temporary, file.Target);
+                            }
                         }
                         catch (IOException) when (file.PreserveExisting && File.Exists(file.Target))
                         {
@@ -301,7 +309,7 @@ namespace MultiPresence.Updater
                     else
                     {
                         File.Copy(item.Backup, temporary, overwrite: false);
-                        File.Move(temporary, item.File.Target, overwrite: true);
+                        ReplaceFile(temporary, item.File.Target);
                     }
                     applied.RemoveAt(index);
                 }
@@ -326,6 +334,30 @@ namespace MultiPresence.Updater
             if (errors.Count > 0)
             {
                 throw new AggregateException("The previous version could not be completely restored. The backup is in " + WorkDirectory, errors);
+            }
+        }
+
+        private void ReplaceFile(string source, string target)
+        {
+            var timer = Stopwatch.StartNew();
+            while (true)
+            {
+                try
+                {
+                    UpdateInstaller.EnsureSafeTarget(directory, target);
+                    File.Move(source, target, overwrite: true);
+                    return;
+                }
+                catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+                {
+                    var error = exception.HResult & 0xFFFF;
+                    if (error is not 5 and not 32 and not 33 || timer.Elapsed >= TimeSpan.FromSeconds(10) ||
+                        Directory.Exists(target) || File.Exists(target) && (File.GetAttributes(target) & FileAttributes.ReadOnly) != 0)
+                    {
+                        throw new IOException($"Could not replace '{target}'. The file is still in use or access was denied.", exception);
+                    }
+                    Thread.Sleep(250);
+                }
             }
         }
 

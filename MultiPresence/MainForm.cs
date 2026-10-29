@@ -319,6 +319,17 @@ public partial class MainForm : Form
                 return;
             }
 
+            if (await GitHubUpdater.IsInstalledAsync(release, Application.ExecutablePath, cancellationToken).ConfigureAwait(true))
+            {
+                AppLog.Information("The published MultiPresence update is already installed.", new { Version = release.Tag });
+                return;
+            }
+            if (_exiting || IsDisposed || cb_DisableAutoUpdates.Checked)
+            {
+                return;
+            }
+
+            AppLog.Information("A newer MultiPresence release is available.", new { CurrentVersion = CurrentReleaseDate, Version = release.Tag });
             var result = MessageBox.Show(
                 this,
                 $"MultiPresence {release.Tag} is available. Download and install the update?",
@@ -348,13 +359,17 @@ public partial class MainForm : Form
         }
         catch (Exception exception) when (
             exception is HttpRequestException or OperationCanceledException or JsonException or InvalidOperationException or
-                IOException or UnauthorizedAccessException or System.ComponentModel.Win32Exception or KeyNotFoundException)
+                IOException or InvalidDataException or UnauthorizedAccessException or System.ComponentModel.Win32Exception or KeyNotFoundException)
         {
             AppLog.Warning("The update could not be completed.", exception);
             if (installRequested && !_exiting && !IsDisposed)
             {
                 MessageBox.Show(this, "The update could not be downloaded or started. MultiPresence will keep running.\n\n" + exception.Message,
                     "MultiPresence update", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (exception is InvalidDataException && !_exiting && !IsDisposed)
+            {
+                ShowErrorNotification("The update release could not be used. " + exception.Message);
             }
         }
         finally

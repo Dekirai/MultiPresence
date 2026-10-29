@@ -8,7 +8,7 @@ namespace MultiPresence.Infrastructure
 {
     internal sealed record UpdateAsset(string Name, Uri DownloadUrl, long Size, string? Sha256);
 
-    internal sealed record UpdateRelease(string Tag, UpdateAsset Archive, UpdateAsset Updater);
+    internal sealed record UpdateRelease(string Tag, UpdateAsset Package, UpdateAsset Updater);
 
     internal static class GitHubUpdater
     {
@@ -28,8 +28,29 @@ namespace MultiPresence.Infrastructure
             }
 
             var assets = release.GetProperty("assets");
+            var packageName = assets.EnumerateArray().Any(asset =>
+                string.Equals(asset.GetProperty("name").GetString(), "MultiPresence.zip", StringComparison.OrdinalIgnoreCase))
+                ? "MultiPresence.zip" : "MultiPresence.exe";
             return new UpdateRelease(latest.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture),
-                GetAsset(assets, "MultiPresence.zip"), GetAsset(assets, "Updater.exe"));
+                GetAsset(assets, packageName), GetAsset(assets, "Updater.exe"));
+        }
+
+        public static async Task<bool> IsInstalledAsync(UpdateRelease release, string executablePath, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            if (!release.Package.Name.Equals("MultiPresence.exe", StringComparison.OrdinalIgnoreCase) || release.Package.Sha256 == null)
+            {
+                return false;
+            }
+
+            await using var executable = new FileStream(executablePath, FileMode.Open, FileAccess.Read, FileShare.Read, 65536, useAsync: true);
+            if (executable.Length != release.Package.Size)
+            {
+                return false;
+            }
+
+            var digest = Convert.ToHexString(await SHA256.HashDataAsync(executable, cancellationToken).ConfigureAwait(false));
+            return digest.Equals(release.Package.Sha256, StringComparison.OrdinalIgnoreCase);
         }
 
         public static async Task<DownloadedUpdate> DownloadAsync(HttpClient client, UpdateRelease release, CancellationToken cancellationToken)
@@ -42,7 +63,13 @@ namespace MultiPresence.Infrastructure
             var update = new DownloadedUpdate(directory);
             try
             {
-                await DownloadAssetAsync(client, release.Archive, update.ArchivePath, cancellationToken).ConfigureAwait(false);
+                var packagePath = Path.Combine(directory, release.Package.Name);
+                await DownloadAssetAsync(client, release.Package, packagePath, cancellationToken).ConfigureAwait(false);
+                if (release.Package.Name.Equals("MultiPresence.exe", StringComparison.OrdinalIgnoreCase))
+                {
+                    await CreatePackageAsync(packagePath, update.ArchivePath, cancellationToken).ConfigureAwait(false);
+                    File.Delete(packagePath);
+                }
                 await DownloadAssetAsync(client, release.Updater, update.UpdaterPath, cancellationToken).ConfigureAwait(false);
                 ValidatePackage(update.ArchivePath);
                 using var executable = File.OpenRead(update.UpdaterPath);
@@ -130,6 +157,38 @@ namespace MultiPresence.Infrastructure
             if (total != asset.Size || asset.Sha256 != null && !digest.Equals(asset.Sha256, StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidDataException($"The download for {asset.Name} is incomplete or its checksum does not match.");
+            }
+        }
+
+        private static async Task CreatePackageAsync(string executablePath, string archivePath, CancellationToken cancellationToken)
+        {
+            ValidateExecutable(executablePath);
+            using var archive = ZipFile.Open(archivePath, ZipArchiveMode.Create);
+            var entry = archive.CreateEntry("MultiPresence.exe", CompressionLevel.NoCompression);
+            await using var source = new FileStream(executablePath, FileMode.Open, FileAccess.Read, FileShare.Read, 65536, useAsync: true);
+            await using var destination = entry.Open();
+            await source.CopyToAsync(destination, cancellationToken).ConfigureAwait(false);
+        }
+
+        private static void ValidateExecutable(string path)
+        {
+            using var stream = File.OpenRead(path);
+            using var reader = new BinaryReader(stream);
+            if (stream.Length < 64 || reader.ReadUInt16() != 0x5A4D)
+            {
+                throw new InvalidDataException("The downloaded executable is invalid.");
+            }
+
+            stream.Position = 0x3C;
+            var header = reader.ReadInt32();
+            if (header < 64 || header > stream.Length - 24)
+            {
+                throw new InvalidDataException("The downloaded executable is incomplete.");
+            }
+            stream.Position = header;
+            if (reader.ReadUInt32() != 0x4550)
+            {
+                throw new InvalidDataException("The downloaded executable is invalid.");
             }
         }
 
