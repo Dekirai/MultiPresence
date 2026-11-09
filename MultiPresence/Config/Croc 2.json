@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Croc 2": {
+            "Default": {
+                "Details": "{location}",
+                "State": "Health: {health}/{maxhealth} | Crystals: {currentcrystals}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Croc 2 | {gameplaymode}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

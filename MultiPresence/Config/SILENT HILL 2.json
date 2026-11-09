@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "SILENT HILL 2": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "SILENT HILL 2",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{location}",
+                "State": "HP {health}/{maxhealth} | {weaponammo}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Combat: {combatdifficulty} | Puzzles: {puzzledifficulty}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

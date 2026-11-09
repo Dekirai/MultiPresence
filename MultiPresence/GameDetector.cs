@@ -13,6 +13,7 @@ public static partial class GameDetector
         ("CrashBandicoot4", "Crash Bandicoot 4: It's About Time"),
         ("CrashBandicootNSaneTrilogy", "Crash Bandicoot N. Sane Trilogy"),
         ("CCFF7R-Win64-Shipping", "CRISIS CORE –FINAL FANTASY VII– REUNION"),
+        ("croc2", "Croc 2"),
         ("Cryo", "Cryo"),
         ("DarkSoulsRemastered", "Dark Souls: Remastered"),
         ("DarkSoulsII", "Dark Souls II"),
@@ -45,6 +46,7 @@ public static partial class GameDetector
         ("Labyrinthine", "Labyrinthine"),
         ("MilesMorales", "Marvel's Spider-Man: Miles Morales"),
         ("Spider-Man", "Marvel's Spider-Man Remastered"),
+        ("Spider-Man2", "Marvel's Spider-Man 2"),
         ("Dungeons-Win64-Shipping", "Minecraft Dungeons II"),
         ("Overwatch", "Overwatch"),
         ("ProjectG", "Pangya Reborn"),
@@ -56,6 +58,7 @@ public static partial class GameDetector
         ("PokeOne", "PokeOne"),
         ("rayman30th", "Rayman"),
         ("bhd", "Resident Evil"),
+        ("re0hd", "Resident Evil 0"),
         ("re2", "Resident Evil 2"),
         ("re3", "Resident Evil 3"),
         ("bio4", "Resident Evil 4 (2005)"),
@@ -69,10 +72,13 @@ public static partial class GameDetector
         ("scott", "Scott Pilgrim vs The World"),
         ("smt3hd", "Shin Megami Tensei III"),
         ("SMT5V-Win64-Shipping", "Shin Megami Tensei V"),
+        ("SHProto-Win64-Shipping", "SILENT HILL 2"),
+        ("SHf-Win64-Shipping", "SILENT HILL f"),
         ("sonic2app", "Sonic Adventure 2"),
         ("Sonic Adventure DX", "Sonic Adventure DX"),
         ("SONIC_GENERATIONS", "Sonic Generations"),
         ("SB-Win64-Shipping", "Stellar Blade"),
+        ("Polaris-Win64-Shipping", "TEKKEN 8"),
         ("TemtemSwarm", "Temtem: Swarm"),
         ("isaac-ng", "The Binding of Isaac: Rebirth"),
         ("TY", "TY the Tasmanian Tiger"),
@@ -93,8 +99,12 @@ public static partial class GameDetector
     public static string GetGame() => Detect()?.GameName ?? string.Empty;
 
     public static DetectedGame? Detect()
+        => DetectAll().FirstOrDefault();
+
+    public static IReadOnlyList<DetectedGame> DetectAll(DetectedGame? activeGame = null)
     {
         Process[] allProcesses = [];
+        var games = new List<DetectedGame>();
         try
         {
             allProcesses = Process.GetProcesses();
@@ -107,20 +117,15 @@ public static partial class GameDetector
             {
                 if (processes.TryGetValue(processName, out var process))
                 {
-                    if (processName.Equals("P5S", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return new DetectedGame("Persona 5 Strikers", processName, process.Id);
-                    }
-
-                    return new DetectedGame(gameName, processName, process.Id);
+                    games.Add(new DetectedGame(gameName, processName, process.Id));
                 }
             }
 
             if (!processes.ContainsKey("SONIC_GENERATIONS") &&
                 processes.TryGetValue("SONIC_X_SHADOW_GENERATIONS", out var shadow) &&
-                DetectShadowGame(shadow) is { } shadowGame)
+                DetectMemoryGame(shadow, activeGame, DetectShadowGame) is { } shadowGame)
             {
-                return new DetectedGame(shadowGame, "SONIC_X_SHADOW_GENERATIONS", shadow.Id);
+                games.Add(new DetectedGame(shadowGame, "SONIC_X_SHADOW_GENERATIONS", shadow.Id));
             }
 
             if (processes.TryGetValue("game", out var genericGame))
@@ -128,56 +133,65 @@ public static partial class GameDetector
                 var title = DetectGenericGameTitle(genericGame);
                 if (title is not null)
                 {
-                    return new DetectedGame(title, "game", genericGame.Id);
+                    games.Add(new DetectedGame(title, "game", genericGame.Id));
                 }
             }
 
-            if (processes.TryGetValue("SRX", out var soulReaver) && DetectSoulReaverGame(soulReaver) is { } soulReaverGame)
+            if (processes.TryGetValue("defiance", out var defiance) &&
+                SafeWindowTitle(defiance).Contains("Defiance Remastered", StringComparison.OrdinalIgnoreCase))
             {
-                return new DetectedGame(soulReaverGame, "SRX", soulReaver.Id);
+                games.Add(new DetectedGame("Legacy of Kain: Defiance Remastered", "defiance", defiance.Id));
+            }
+
+            if (processes.TryGetValue("SRX", out var soulReaver) && DetectMemoryGame(soulReaver, activeGame, DetectSoulReaverGame) is { } soulReaverGame)
+            {
+                games.Add(new DetectedGame(soulReaverGame, "SRX", soulReaver.Id));
             }
 
             if (processes.TryGetValue("Cemu", out var cemu) && DetectCemuGame(cemu) is { } cemuGame)
             {
-                return new DetectedGame(cemuGame, "Cemu", cemu.Id);
+                games.Add(new DetectedGame(cemuGame, "Cemu", cemu.Id));
             }
 
-            if (processes.TryGetValue("MMBN_LC1", out var mmbn1) && DetectMmbn1Game(mmbn1) is { } mmbn1Game)
+            if (processes.TryGetValue("MMBN_LC1", out var mmbn1) && DetectMemoryGame(mmbn1, activeGame, DetectMmbn1Game) is { } mmbn1Game)
             {
-                return new DetectedGame(mmbn1Game, "MMBN_LC1", mmbn1.Id);
+                games.Add(new DetectedGame(mmbn1Game, "MMBN_LC1", mmbn1.Id));
             }
 
-            if (processes.TryGetValue("MMBN_LC2", out var mmbn2) && DetectMmbn2Game(mmbn2) is { } mmbn2Game)
+            if (processes.TryGetValue("MMBN_LC2", out var mmbn2) && DetectMemoryGame(mmbn2, activeGame, DetectMmbn2Game) is { } mmbn2Game)
             {
-                return new DetectedGame(mmbn2Game, "MMBN_LC2", mmbn2.Id);
+                games.Add(new DetectedGame(mmbn2Game, "MMBN_LC2", mmbn2.Id));
             }
 
-            if (processes.TryGetValue("RXC2", out var mmx) && DetectMegaManXGame(mmx) is { } mmxGame)
+            if (processes.TryGetValue("RXC2", out var mmx) && DetectMemoryGame(mmx, activeGame, DetectMegaManXGame) is { } mmxGame)
             {
-                return new DetectedGame(mmxGame, "RXC2", mmx.Id);
+                games.Add(new DetectedGame(mmxGame, "RXC2", mmx.Id));
             }
 
             if (processes.TryGetValue("eldenring", out var eldenRing) &&
                 !processes.ContainsKey("EasyAntiCheat_EOS"))
             {
-                return new DetectedGame("Elden Ring", "eldenring", eldenRing.Id);
+                games.Add(new DetectedGame("Elden Ring", "eldenring", eldenRing.Id));
             }
-
-            return null;
         }
         catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
         {
             AppLog.Warning("Game detection failed; it will be retried.", exception);
-            return null;
         }
         finally
         {
-            Hypervisor.DetachProcess();
             foreach (var process in allProcesses)
             {
                 process.Dispose();
             }
         }
+
+        return games.DistinctBy(game => game.GameName, StringComparer.OrdinalIgnoreCase).ToArray();
+    }
+
+    private static string? DetectMemoryGame(Process process, DetectedGame? activeGame, Func<Process, string?> detect)
+    {
+        return activeGame?.ProcessId == process.Id ? activeGame.GameName : detect(process);
     }
 
     private static string? DetectShadowGame(Process process) => WithMemory(process, () =>
@@ -193,21 +207,39 @@ public static partial class GameDetector
         return Models.SR2.MemoryReader.IsSoulReaver2() ? "Legacy of Kain Soul Reaver 2" : null;
     });
 
-    private static string? DetectCemuGame(Process process) => WithMemory(process, () =>
+    private static string? DetectCemuGame(Process process)
     {
-        if (!SafeWindowTitle(process).Contains("TitleId", StringComparison.OrdinalIgnoreCase))
+        var title = SafeWindowTitle(process);
+        if (TryGetCemuGame(title, out var game))
+        {
+            return game;
+        }
+        if (!title.Contains("TitleId", StringComparison.OrdinalIgnoreCase))
         {
             return null;
         }
 
-        var address = unchecked((ulong)Hypervisor.FindSignature(
-            "54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B").ToInt64());
-        var data = Hypervisor.ReadString(address, 32, true);
-        var match = CemuTitleIdRegex().Match(data);
-        return match.Success && CemuTitleMap.TryGetValue(match.Groups[1].Value, out var game)
-            ? game
-            : null;
-    });
+        return WithMemory(process, () =>
+        {
+            var address = unchecked((ulong)Hypervisor.FindSignature(
+                "54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B").ToInt64());
+            var data = Hypervisor.ReadString(address, 32, true);
+            TryGetCemuGame(data, out var detectedGame);
+            return detectedGame;
+        });
+    }
+
+    internal static bool TryGetCemuGame(string title, out string? game)
+    {
+        game = null;
+        var match = CemuTitleIdRegex().Match(title);
+        if (!match.Success)
+        {
+            return false;
+        }
+        CemuTitleMap.TryGetValue(match.Groups[1].Value, out game);
+        return true;
+    }
 
     private static string? DetectMmbn1Game(Process process) => WithMemory(process, () =>
         Hypervisor.Read<byte>(0x987499C) switch
@@ -251,17 +283,13 @@ public static partial class GameDetector
     {
         try
         {
-            Hypervisor.AttachProcess(process);
+            using var scope = Hypervisor.UseProcessScope(process);
             return detection();
         }
         catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
         {
             AppLog.Warning($"Memory-based detection failed for process {process.Id}.", exception);
             return null;
-        }
-        finally
-        {
-            Hypervisor.DetachProcess();
         }
     }
 
@@ -289,7 +317,7 @@ public static partial class GameDetector
         }
     }
 
-    [GeneratedRegex(@"TitleId:\s*([0-9a-fA-F]+)", RegexOptions.CultureInvariant)]
+    [GeneratedRegex(@"\bTitleId\s*:\s*(?:[0-9a-f]{8}[-\s]?)?([0-9a-f]{8})(?![0-9a-f])", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase)]
     private static partial Regex CemuTitleIdRegex();
 }
 

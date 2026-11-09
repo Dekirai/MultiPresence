@@ -15,6 +15,7 @@ namespace MultiPresence;
 public static class Hypervisor
 {
     private static readonly ReaderWriterLockSlim SessionLock = new(LockRecursionPolicy.NoRecursion);
+    private static readonly AsyncLocal<HypervisorSession?> ScopedSession = new();
     private static HypervisorSession? _session;
 
     public static Process? Process => WithSession(static session => session.Process);
@@ -166,8 +167,42 @@ public static class Hypervisor
     internal static int FindPattern(ReadOnlySpan<byte> data, string signature) =>
         SignaturePattern.Parse(signature).IndexOf(data);
 
+    internal static IDisposable UseProcessScope(Process process)
+    {
+        var previous = ScopedSession.Value;
+        var session = HypervisorSession.Attach(process, readOnly: true);
+        ScopedSession.Value = session;
+        return new ProcessScope(session, previous);
+    }
+
+    private sealed class ProcessScope(HypervisorSession session, HypervisorSession? previous) : IDisposable
+    {
+        private bool disposed;
+
+        public void Dispose()
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            disposed = true;
+            ScopedSession.Value = previous;
+            session.Dispose();
+        }
+    }
+
     private static T WithSession<T>(Func<HypervisorSession, T> action)
     {
+        if (ScopedSession.Value is { } scoped)
+        {
+            if (!scoped.IsAlive)
+            {
+                throw new InvalidOperationException("The scoped process is no longer running.");
+            }
+            return action(scoped);
+        }
+
         SessionLock.EnterReadLock();
         try
         {
@@ -187,6 +222,11 @@ public static class Hypervisor
 
     private static T WithOptionalSession<T>(Func<HypervisorSession, T> action, T fallback)
     {
+        if (ScopedSession.Value is { } scoped)
+        {
+            return scoped.IsAlive ? action(scoped) : fallback;
+        }
+
         SessionLock.EnterReadLock();
         try
         {
@@ -259,7 +299,7 @@ internal sealed class HypervisorSession : IDisposable
         }
     }
 
-    public static HypervisorSession Attach(Process input)
+    public static HypervisorSession Attach(Process input, bool readOnly = false)
     {
         int processId;
         try
@@ -271,12 +311,13 @@ internal sealed class HypervisorSession : IDisposable
             throw new InvalidOperationException("The target process is no longer available.", exception);
         }
 
-        var access = ProcessAccess.QueryInformation |
-                     ProcessAccess.VirtualMemoryRead |
-                     ProcessAccess.VirtualMemoryWrite |
-                     ProcessAccess.VirtualMemoryOperation;
+        var access = ProcessAccess.QueryInformation | ProcessAccess.VirtualMemoryRead;
+        if (!readOnly)
+        {
+            access |= ProcessAccess.VirtualMemoryWrite | ProcessAccess.VirtualMemoryOperation;
+        }
         var handle = NativeMethods.OpenProcess(access, false, processId);
-        var canWrite = true;
+        var canWrite = !readOnly;
 
         if (handle.IsInvalid)
         {

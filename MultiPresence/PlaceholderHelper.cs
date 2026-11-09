@@ -30,6 +30,7 @@ public static class PlaceholderHelper
 
         try
         {
+            PresencePreviewStore.Capture(gameName, state, placeholders);
             var buttons = CreateButtons(updater, gameName, placeholders, state);
             discord.SetPresence(new RichPresence
             {

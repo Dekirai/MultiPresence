@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Legacy of Kain: Defiance Remastered": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Legacy of Kain: Defiance Remastered",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{character} | Chapter {chapter} | {realm} | HP {healthpercentage}%",
+                "State": "{location} | {reaver} Lv. {reaverlevel} ({reaverxp} XP)",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

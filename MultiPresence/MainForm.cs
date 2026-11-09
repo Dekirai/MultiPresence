@@ -11,7 +11,7 @@ namespace MultiPresence;
 
 public partial class MainForm : Form
 {
-    private const string CurrentReleaseDate = "29.10.2026";
+    private const string CurrentReleaseDate = "09.11.2026";
     private static readonly HttpClient UpdateClient = CreateUpdateClient();
     private readonly System.Windows.Forms.Timer _detectionTimer = new() { Interval = 3000 };
     private readonly SemaphoreSlim _detectionGate = new(1, 1);
@@ -25,6 +25,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
         Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+        InitializePresenceControls();
 
         cb_DisableNotifications.Checked = Settings.Default.Notifications;
         cb_LaunchWithWindows.Checked = Settings.Default.startup;
@@ -64,63 +65,7 @@ public partial class MainForm : Form
 
     private void DetectionTimerOnTick(object? sender, EventArgs e) => _ = DetectAndStartAsync();
 
-    private async Task DetectAndStartAsync()
-    {
-        if (_exiting || IsDisposed || !await _detectionGate.WaitAsync(0).ConfigureAwait(true))
-        {
-            return;
-        }
-
-        _detectionTimer.Stop();
-        try
-        {
-            var detected = GameDetector.Detect();
-            UpdateDetectedGame(detected?.GameName);
-            if (detected is null)
-            {
-                _detectionTimer.Start();
-                return;
-            }
-
-            if (_blacklist.Contains(detected.GameName))
-            {
-                _detectionTimer.Start();
-                return;
-            }
-
-            if (!GameIntegrationRegistry.TryGet(detected.GameName, out var startAsync) || startAsync is null)
-            {
-                AppLog.Warning($"No integration is registered for detected game '{detected.GameName}'.");
-                _detectionTimer.Start();
-                return;
-            }
-
-            PlaceholderHelper._startTimestamp = Timestamps.Now;
-            ShowTrackingNotification(detected.GameName);
-            AppLog.Information("Starting game integration.", detected);
-            await startAsync().ConfigureAwait(true);
-
-            // Steam integrations complete only when the game exits. Memory integrations request
-            // detection through PresenceRuntime when their controlled polling loop finishes.
-            if (!_exiting && !IsDisposed && !PresenceRuntime.HasActiveLoops)
-            {
-                _detectionTimer.Start();
-            }
-        }
-        catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
-        {
-            AppLog.Error("Starting a game integration failed.", exception, new { Game = _activeGame });
-            if (!_exiting && !IsDisposed)
-            {
-                ShowErrorNotification("The game integration failed. See the log for details.");
-                _detectionTimer.Start();
-            }
-        }
-        finally
-        {
-            _detectionGate.Release();
-        }
-    }
+    private Task DetectAndStartAsync() => UpdatePresenceAsync();
 
     private void PresenceRuntimeOnDetectionRequested(object? sender, EventArgs e)
     {
@@ -131,7 +76,7 @@ public partial class MainForm : Form
 
         BeginInvoke(() =>
         {
-            if (!_exiting)
+            if (!_exiting && !_paused)
             {
                 _detectionTimer.Start();
             }
@@ -144,7 +89,7 @@ public partial class MainForm : Form
         _updatingMenu = true;
         try
         {
-            lb_ActiveGame.Text = _activeGame is null
+            lb_ActiveGame.Text = _paused ? "Presence paused" : _activeGame is null
                 ? "Active game: None"
                 : $"Active game: {_activeGame}";
             btn_Blacklist.Enabled = _activeGame is not null;
@@ -161,6 +106,10 @@ public partial class MainForm : Form
 
     private void btn_Exit_Click(object? sender, EventArgs e)
     {
+        if (!CloseConfigurationEditor())
+        {
+            return;
+        }
         _exiting = true;
         SaveSettings();
         Close();
@@ -190,7 +139,7 @@ public partial class MainForm : Form
         }
     }
 
-    private void btn_Blacklist_CheckedChanged(object? sender, EventArgs e)
+    private async void btn_Blacklist_CheckedChanged(object? sender, EventArgs e)
     {
         if (_updatingMenu || _activeGame is null)
         {
@@ -204,15 +153,7 @@ public partial class MainForm : Form
                 ? "Whitelist current game"
                 : "Blacklist current game";
 
-            if (btn_Blacklist.Checked)
-            {
-                PresenceRuntime.StopAll();
-                SteamPresenceLauncher.Stop();
-            }
-            else
-            {
-                _detectionTimer.Start();
-            }
+            await RestartPresenceAsync();
         }
         catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
         {
@@ -347,6 +288,10 @@ public partial class MainForm : Form
                     return;
                 }
 
+                if (!CloseConfigurationEditor())
+                {
+                    return;
+                }
                 SaveSettings();
                 update.Launch(Application.ExecutablePath);
                 AppLog.Information("Update downloaded. Restarting through Updater.exe.", new { Version = release.Tag });

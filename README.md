@@ -9,6 +9,8 @@
 - **Extensible** via memory readers and configs  
 - **Blacklist** unwanted games  
 - **Custom placeholders** for personalized presence text  
+- **Config editor** with placeholders, validation and a presence preview
+- **Game selection** with a preferred game, manual selection and pause/resume
 - **Tray integration** for easy access and autostart  
 
 ---
@@ -33,7 +35,8 @@
 1. Run **`MultiPresence.exe`**.  
 2. If your game doesn’t show up, try **"Run as administrator"**.  
 3. Right-click the tray icon to open:  
-   - **Config** (edit your placeholders)  
+   - **Edit presence...** (edit text, assets and buttons with a preview)
+   - **Select game**, **Preferred game...** and **Pause presence**
    - **Autostart** (launch on Windows startup)  
    - **Blacklist or whitelist** the current active game
 
@@ -45,11 +48,18 @@
 
 Customize your presence text:  
 1. Run MultiPresence once to create missing configuration files in `Assets/Config`.
-2. Open **Config** from the tray menu and edit the JSON file for your game.
-3. Save the file; changes are loaded automatically. Existing files are preserved when starting, building, or updating MultiPresence.
+2. Open **Edit presence...** from the tray menu, then select the game and presence state. Use the fields or JSON tab to edit the configuration; double-click a placeholder or asset to insert it.
+3. Click **Save** to apply changes. The preview uses current values when available and otherwise shows labeled sample values. It displays asset keys rather than downloading asset images. You can still open the config folder and edit JSON files directly; saved changes are loaded automatically. Existing files are preserved when starting, building, or updating MultiPresence.
 4. See the [Placeholder Guide](https://github.com/Dekirai/MultiPresence/wiki/How-to-use-placeholders) for full details.  
 
 Default templates are included in the executable. Release archives do not contain user configuration files. [Config.zip](https://github.com/Dekirai/MultiPresence/raw/refs/heads/main/Config.zip) is available if you explicitly want to restore defaults; replacing files from it will discard your customizations.
+
+### Game selection
+
+- **Select game** lists supported games that are running. Select one manually, or leave it on **Automatic**. Manual selection ends when that game closes.
+- **Preferred game...** saves the game Automatic should prioritize when several are running. Without a running preferred game, the current game remains selected.
+- **Pause presence** clears the Discord presence until you choose **Resume presence**. This does not close the game.
+- **Restart detection** restarts the current reader and detects running games again. While paused, it leaves the presence paused.
 
 <details>
 <summary>Placeholder Demo (Outdated Version)</summary>
@@ -70,9 +80,8 @@ Default templates are included in the executable. Release archives do not contai
 
 1. Open the tray menu of MultiPresence by right-clicking the icon
 2. Run a game and click on "Blacklist current game"
-   - To actually make it work, you have to restart either the game or MultiPresence
-- Do the same steps to whitelist the current game
-- Whitelisting a game immediately runs the Rich Presence without restarting the game or MultiPresence
+- Blacklisting takes effect immediately.
+- To allow a blacklisted running game again, open **Select game**, then the game and **Whitelist and select**.
 
 ---
 
@@ -91,6 +100,7 @@ Default templates are included in the executable. Release archives do not contai
 | Crash Bandicoot 4: It's About Time ¹        | [Steam](https://store.steampowered.com/app/1378990/Crash_Bandicoot_4_Its_About_Time/)                                            |                                      |
 | Crash Bandicoot N. Sane Trilogy             | [Steam](https://store.steampowered.com/app/731490/Crash_Bandicoot_N_Sane_Trilogy/)                                               | Supports all games                   |
 | Crisis Core -Final Fantasy VII- Reunion ¹   | [Steam](https://store.steampowered.com/app/1608070/CRISIS_CORE_FINAL_FANTASY_VII_REUNION/)                                       |                                      |
+| Croc 2 ¹                                    | [Steam](https://store.steampowered.com/app/4198360/Croc_2/)                                                                      |                                      |
 | Cryo ¹                                      | [Steam](https://store.steampowered.com/app/2564910/CRYO/)                                                                        |                                      |
 | Dark Souls Remastered                       | [Steam](https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/)                                                        |                                      |
 | Dark Souls II SotFS                         | [Steam](https://store.steampowered.com/app/335300/DARK_SOULS_II_Scholar_of_the_First_Sin/)                                       |                                      |
@@ -119,9 +129,11 @@ Default templates are included in the executable. Release archives do not contai
 | Kingdom Hearts 0.2 Birth by Sleep ¹         | [Steam](https://store.steampowered.com/app/2552440/)                                                                             |                                      |
 | Kingdom Hearts III ¹                        | [Steam](https://store.steampowered.com/app/2552450/KINGDOM_HEARTS_III__Re_Mind_DLC/)                                             |                                      |
 | Labyrinthine ¹                              | [Steam](https://store.steampowered.com/app/1302240/Labyrinthine/)                                                                |                                      |
+| Legacy of Kain: Defiance Remastered ¹       | [Steam](https://store.steampowered.com/app/3747730/)                                                                             |                                      |
 | Legacy of Kain Soul Reaver 1 ¹              | [Steam](https://store.steampowered.com/app/2521380/)                                                                             | Remastered Collection                |
 | Legacy of Kain Soul Reaver 2 ¹              | [Steam](https://store.steampowered.com/app/2521380/)                                                                             | Remastered Collection                |
 | Marvel's Spider-Man Remastered              | [Steam](https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/)                                                | Only base game tested                |
+| Marvel's Spider-Man 2 ¹                     | [Steam](https://store.steampowered.com/app/2651280/Marvels_SpiderMan_2/)                                                         |                                      |
 | Marvel's Spider-Man: Miles Morales          | [Steam](https://store.steampowered.com/app/1817190/Marvels_SpiderMan_Miles_Morales/)                                             |                                      |
 | Mega Man 11                                 | [Steam](https://store.steampowered.com/app/742300/Mega_Man_11/)                                                                  |                                      |
 | Mega Man Battle Network Collection Vol. 1   | [Steam](https://store.steampowered.com/app/1798010/Mega_Man_Battle_Network_Legacy_Collection_Vol_1/)                             | Supports all games                   |
@@ -137,6 +149,7 @@ Default templates are included in the executable. Release archives do not contai
 | Phasmophobia ¹                              | [Steam](https://store.steampowered.com/app/739630/Phasmophobia/)                                                                 |                                      |
 | PokeOne ¹                                   |                                                                                                                                  |                                      |
 | Rayman: 30th Anniversary Edition            | [Steam](https://store.steampowered.com/app/4094670/Rayman_30th_Anniversary_Edition/)                                             | Only Playstation version             |
+| Resident Evil 0 ¹                           | [Steam](https://store.steampowered.com/app/339340/Resident_Evil_0/)                                                              |                                      |
 | Resident Evil 1 Remake                      | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2 Remake ¹                    | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 3 Remake ¹                    | [Steam](https://store.steampowered.com/app/952060/Resident_Evil_3/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
@@ -148,13 +161,16 @@ Default templates are included in the executable. Release archives do not contai
 | Resident Evil 8 ¹                           | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil Requiem ¹                     | [Steam](https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/)                                                       |                                      |
 | Resident Evil Revelations 2                 | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Raid Mode only                       |
-| Scott Pilgrim vs The World                  | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
+| Scott Pilgrim vs The World ¹                | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Shin Megami Tensei III Nocturne             | [Steam](https://store.steampowered.com/app/1413480/Shin_Megami_Tensei_III_Nocturne_HD_Remaster/)                                 |                                      |
 | Shin Megami Tensei V: Vengeance             | [Steam](https://store.steampowered.com/app/1875830/Shin_Megami_Tensei_V_Vengeance/)                                              |                                      |
+| SILENT HILL 2 ¹                             | [Steam](https://store.steampowered.com/app/2124490/)                                                                             | Remake                               |
+| SILENT HILL f ¹                             | [Steam](https://store.steampowered.com/app/2947440/)                                                                             |                                      |
 | Sonic Adventure DX                          | [Steam](https://store.steampowered.com/app/71250/Sonic_Adventure_DX/)                                                            | Probably won't work with mods        |
 | Sonic Adventure 2                           | [Steam](https://store.steampowered.com/app/213610/Sonic_Adventure_2/)                                                            |                                      |
 | Sonic x Shadow Generations ¹                | [Steam](https://store.steampowered.com/app/2513280/SONIC_X_SHADOW_GENERATIONS/)                                                  | Pattern search: Shadow Generations only |
 | Stellar Blade ¹                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
+| TEKKEN 8 ¹                                  | [Steam](https://store.steampowered.com/app/1778820/)                                                                             |                                      |
 | Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |
 | The Binding of Isaac: Rebirth ¹             | [Steam](https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/)                                                 | Tested with having all DLC's         |
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |

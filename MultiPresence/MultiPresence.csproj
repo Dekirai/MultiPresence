@@ -50,6 +50,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="..\Placeholders\*.md">
+      <LogicalName>MultiPresence.Placeholders.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -65,5 +71,6 @@
   </ItemGroup>
 
   <Import Project="Build\PreserveUserConfiguration.targets" />
+  <Import Project="Build\GenerateEditorCatalog.targets" />
 
 </Project>

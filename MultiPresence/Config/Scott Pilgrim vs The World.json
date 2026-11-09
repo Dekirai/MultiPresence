@@ -2,11 +2,11 @@
     "Games": {
         "Scott Pilgrim vs The World": {
             "Default": {
-                "Details": "Lives: {lives} - Money: {money}",
-                "State": "Health: {health} - EXP: {totalexperience}",
+                "Details": "{character} | Level {level} | {difficulty}",
+                "State": "{stage} | Lives: {lives} | Money: {money}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Scott Pilgrim vs The World",
+                "LargeAssetText": "HP: {health} | GP: {gutpoints} | EXP: {totalexperience}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

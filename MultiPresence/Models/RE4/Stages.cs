@@ -105,7 +105,7 @@
                     getstage.Add("Weapon Exhibit");
                     getstage.Add("Ballroom");
                     getstage.Add("Exterior Clock Tower"); //Room 20
-                    getstage.Add("Throne"); //Needs real name
+                    getstage.Add("Throne Room");
                     getstage.Add("Armor Exhibit");
                     getstage.Add("Clock Tower");
                     getstage.Add("Throne Room Hall");
@@ -118,17 +118,17 @@
                     getstage.Add("");
                     getstage.Add("Mine Entrance");
                     getstage.Add("Service Tunnel");
-                    getstage.Add("Lava Room"); //Needs real name
+                    getstage.Add("Chamber of Fire");
                     getstage.Add("Excavation Site"); //Room 35
                     getstage.Add("Inferno Chamber");
                     getstage.Add("Ruins");
-                    getstage.Add("Salazar Statue Room"); //Needs real name
+                    getstage.Add("Salazar's Temple");
                     getstage.Add("Salazar's Tower");
                     getstage.Add("Tower Apex"); //Room 40
                     getstage.Add("Sewer");
                     getstage.Add("Dock");
-                    getstage.Add("Elevator");
-                    getstage.Add("Minigame");
+                    getstage.Add("Saddler's Quarters");
+                    getstage.Add("Shooting Range");
                     break;
                 case 3: //Island Part
                     getstage.Add("Outer Stronghold");
@@ -146,8 +146,8 @@
                     getstage.Add("Storage Room");
                     getstage.Add("Basement");
                     getstage.Add("Administration Corridor");
-                    getstage.Add("Road to Annex"); //Room 15 //Needs real name (Where Ashley drives the big machine)
-                    getstage.Add("Dust"); //Needs real name (Where Leon & Ashley jump into the trash)
+                    getstage.Add("Construction Tunnel"); //Room 15
+                    getstage.Add("Garbage Dump");
                     getstage.Add("Incinerator");
                     getstage.Add("Merchant Room");
                     getstage.Add("");
@@ -163,7 +163,7 @@
                     getstage.Add("Militant Camp");
                     getstage.Add(""); //Room 30
                     getstage.Add("");
-                    getstage.Add("Fort"); //Needs real name (Where Leon's heli partner dies after)
+                    getstage.Add("Militant Base");
                     getstage.Add("Cliffside Ruins");
                     getstage.Add("");
                     getstage.Add(""); //Room 35
@@ -181,8 +181,8 @@
                     getstage.Add("");
                     getstage.Add("Extraction Chamber");
                     getstage.Add("Construction Yard");
-                    getstage.Add("Construction Building"); //Room 50
-                    getstage.Add("Underground Water Vein"); //Needs real name (Escaping with the boat)
+                    getstage.Add("Construction Yard"); //Room 50
+                    getstage.Add("Underground Dock");
                     break;
                 case 4: //Mercenaries & Assignment Ada
                     getstage.Add("Pueblo");
@@ -316,23 +316,23 @@
                 case 1: //Village Part
                     getstage.Add("Der Weg nach Pueblo");
                     getstage.Add("Pueblo");
-                    getstage.Add("Geheimer Gang");
+                    getstage.Add("Geheimgang");
                     getstage.Add("Bauernhof");
                     getstage.Add("Ganado-Schlucht");
-                    getstage.Add("Mendez' Anwesen"); //Room 5
-                    getstage.Add("Haus der Gefangenschaft");
-                    getstage.Add("Basis der Ganado");
+                    getstage.Add("Villa Méndez"); //Room 5
+                    getstage.Add("Gefangenenhaus");
+                    getstage.Add("Ganado-Basis");
                     getstage.Add("Friedhof");
                     getstage.Add("Steinbruch");
                     getstage.Add("Sumpf"); //Room 10
                     getstage.Add("See");
                     getstage.Add("Wasserfall");
-                    getstage.Add("Höhle am See");
-                    getstage.Add("Dock des Händlers");
-                    getstage.Add("Dorftor und Gondel"); //Room 15
+                    getstage.Add("Seehöhle");
+                    getstage.Add("Händleranlegestelle");
+                    getstage.Add("Dorftor und Gondelbahn"); //Room 15
                     getstage.Add("");
                     getstage.Add("Pueblo");
-                    getstage.Add("Geheimer Gang");
+                    getstage.Add("Geheimgang");
                     getstage.Add("Bauernhof");
                     getstage.Add(""); //Room 20
                     getstage.Add("");
@@ -343,8 +343,8 @@
                     getstage.Add("Sumpf");
                     getstage.Add("See");
                     getstage.Add("Verlassene Hütte");
-                    getstage.Add("Festung der Ganado");
-                    getstage.Add("Weg des El Gigante"); //Room 30
+                    getstage.Add("Ganado-Festung");
+                    getstage.Add("Gigante-Weg"); //Room 30
                     getstage.Add("Schuppen der Erleuchtung");
                     break;
                 case 2: //Castle Part
@@ -354,25 +354,25 @@
                     getstage.Add("Burgtor");
                     getstage.Add("Große Halle");
                     getstage.Add("Gefängnis"); //Room 5
-                    getstage.Add("Theatersall");
+                    getstage.Add("Theatersaal");
                     getstage.Add("Eingangshalle");
                     getstage.Add("Halle der Verehrung");
-                    getstage.Add("Gallerie");
+                    getstage.Add("Galerie");
                     getstage.Add("Burgmauer"); //Room 10
-                    getstage.Add("Schlafzimmer Garten");
+                    getstage.Add("Schlafzimmergarten");
                     getstage.Add("Speisesaal");
-                    getstage.Add("Studienzimmer");
-                    getstage.Add("Lager");
-                    getstage.Add("Ausstellungsraum"); //Room 15
+                    getstage.Add("Arbeitszimmer");
+                    getstage.Add("Speicher");
+                    getstage.Add("Ausstellungskammer"); //Room 15
                     getstage.Add("Transportwagen");
-                    getstage.Add("Korridor des Königtums");
-                    getstage.Add("Waffen-Exponat");
+                    getstage.Add("Royaler Korridor");
+                    getstage.Add("Waffenausstellung");
                     getstage.Add("Ballsaal");
                     getstage.Add("Äußerer Uhrenturm"); //Room 20
-                    getstage.Add("Thron"); //Needs real name
-                    getstage.Add("Rüstungsexponat");
+                    getstage.Add("Thronsaal");
+                    getstage.Add("Rüstungsausstellung");
                     getstage.Add("Uhrenturm");
-                    getstage.Add("Thronsaal Halle");
+                    getstage.Add("Thronsaal-Vorhalle");
                     getstage.Add("Transportwagen"); //Room 25
                     getstage.Add("Unterirdische Ruinen");
                     getstage.Add("Minenbahn");
@@ -380,60 +380,60 @@
                     getstage.Add("Katakomben");
                     getstage.Add(""); //Room 30
                     getstage.Add("");
-                    getstage.Add("Eingang zum Bergwerk");
-                    getstage.Add("Service Tunnel");
-                    getstage.Add("Laval Raum"); //Needs real name
+                    getstage.Add("Mineneingang");
+                    getstage.Add("Servicetunnel");
+                    getstage.Add("Kammer des Feuers");
                     getstage.Add("Ausgrabungsstätte"); //Room 35
-                    getstage.Add("Inferno-Kammer");
+                    getstage.Add("Infernokammer");
                     getstage.Add("Ruinen");
-                    getstage.Add("Salazar Statuen Raum"); //Needs real name
-                    getstage.Add("Salazar's Turm");
+                    getstage.Add("Salazars Tempel");
+                    getstage.Add("Salazars Turm");
                     getstage.Add("Turmspitze"); //Room 40
-                    getstage.Add("Sumpf");
-                    getstage.Add("Dock");
-                    getstage.Add("Fahrstuhl");
-                    getstage.Add("Minigame");
+                    getstage.Add("Kanalisation");
+                    getstage.Add("Anlegestelle");
+                    getstage.Add("Saddlers Quartier");
+                    getstage.Add("Schießstand");
                     break;
                 case 3: //Island Part
-                    getstage.Add("Äußere Festung");
-                    getstage.Add("Klippen-Lager");
+                    getstage.Add("Außenbereich der Festung");
+                    getstage.Add("Klippenlager");
                     getstage.Add("");
-                    getstage.Add("Speisekammer");
+                    getstage.Add("Vorratskammer");
                     getstage.Add("Sicherheit");
                     getstage.Add("Bunker"); //Room 5
                     getstage.Add("Treppenhaus");
                     getstage.Add("Operationsraum");
-                    getstage.Add("Gefrierschrank");
+                    getstage.Add("Kühlraum");
                     getstage.Add("Forschungslabor");
-                    getstage.Add("Kommunkations-Turm"); //Room 10
-                    getstage.Add("Abfallentsorgung");
-                    getstage.Add("Abstellraum");
-                    getstage.Add("Untergeschoss");
+                    getstage.Add("Sendeturm"); //Room 10
+                    getstage.Add("Müllbereich");
+                    getstage.Add("Lagerraum");
+                    getstage.Add("Keller");
                     getstage.Add("Verwaltungskorridor");
-                    getstage.Add("Weg zum Anhang"); //Room 15 //Needs real name (Where Ashley drives the big machine)
-                    getstage.Add("Staub"); //Needs real name (Where Leon & Ashley jump into the trash)
+                    getstage.Add("Bautunnel"); //Room 15
+                    getstage.Add("Müllkippe");
                     getstage.Add("Verbrennungsanlage");
-                    getstage.Add("Kaufmannszimmer");
+                    getstage.Add("Händlerraum");
                     getstage.Add("");
                     getstage.Add(""); //Room 20
-                    getstage.Add("Absturzstelle der Planierraupe");
+                    getstage.Add("Bulldozer-Unfallstelle");
                     getstage.Add("Kapelle und Ofen");
                     getstage.Add("Maschinenraum");
-                    getstage.Add("Quartier von Saddler");
+                    getstage.Add("Saddlers Quartier");
                     getstage.Add(""); //Room 25
-                    getstage.Add("Kaverneneingang");
-                    getstage.Add("Kaverne");
+                    getstage.Add("Höhleneingang");
+                    getstage.Add("Höhle");
                     getstage.Add("Krausers Festung");
-                    getstage.Add("Militärbasis");
+                    getstage.Add("Militantenlager");
                     getstage.Add(""); //Room 30
                     getstage.Add("");
-                    getstage.Add("Festung"); //Needs real name (Where Leon's heli partner dies after)
-                    getstage.Add("Klippen-Ruinen");
+                    getstage.Add("Militantenbasis");
+                    getstage.Add("Klippenruinen");
                     getstage.Add("");
                     getstage.Add(""); //Room 35
                     getstage.Add("");
-                    getstage.Add("Alte Passage");
-                    getstage.Add("Vollzugsanstalt");
+                    getstage.Add("Uralter Gang");
+                    getstage.Add("Zuchthaus");
                     getstage.Add("Sicherheitskontrollpunkt");
                     getstage.Add(""); //Room 40
                     getstage.Add("Kapselkammer");
@@ -444,9 +444,9 @@
                     getstage.Add("");
                     getstage.Add("");
                     getstage.Add("Extraktionskammer");
-                    getstage.Add("Bauhof");
-                    getstage.Add("Bauwerk"); //Room 50
-                    getstage.Add("Unterirdische Wasserader"); //Needs real name (Escaping with the boat)
+                    getstage.Add("Baustelle");
+                    getstage.Add("Baustelle"); //Room 50
+                    getstage.Add("Unterirdische Anlegestelle");
                     break;
                 case 4: //Mercenaries & Assignment Ada
                     getstage.Add("Pueblo");

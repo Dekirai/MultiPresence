@@ -12,6 +12,26 @@ namespace MultiPresence.Runtime
         private static CancellationTokenSource? activeCancellation;
         private static TaskCompletionSource? activeCompletion;
 
+        public static bool IsRunning
+        {
+            get
+            {
+                lock (sync)
+                {
+                    return activeCompletion != null;
+                }
+            }
+        }
+
+        public static Task StopAsync()
+        {
+            lock (sync)
+            {
+                activeCancellation?.Cancel();
+                return activeCompletion?.Task ?? Task.CompletedTask;
+            }
+        }
+
         public static void Stop(bool waitForExit = false)
         {
             Task? completion;
@@ -97,14 +117,14 @@ namespace MultiPresence.Runtime
                 host?.Dispose();
                 stopEvent?.Dispose();
                 DeleteSessionDirectory(sessionDirectory);
+                PresenceRuntime.RequestDetection();
                 lock (sync)
                 {
                     activeCancellation = null;
                     activeCompletion = null;
+                    launchGate.Release();
+                    completion.TrySetResult();
                 }
-                launchGate.Release();
-                completion.TrySetResult();
-                PresenceRuntime.RequestDetection();
             }
         }
 

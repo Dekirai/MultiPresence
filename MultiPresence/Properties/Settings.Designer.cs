@@ -22,6 +22,14 @@ namespace MultiPresence.Properties {
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PreferredGame {
+            get { return ((string)(this["PreferredGame"])); }
+            set { this["PreferredGame"] = value; }
+        }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

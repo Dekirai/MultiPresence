@@ -1,0 +1,89 @@
+<Project>
+  <UsingTask TaskName="GenerateEditorCatalog" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Sources ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <OutputPath ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.Collections.Generic" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Linq" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Using Namespace="System.Xml" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        var configurations = new SortedDictionary<string, SortedSet<string>>(StringComparer.OrdinalIgnoreCase);
+        var incomplete = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var shared = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var source in Sources)
+        {
+            string text = File.ReadAllText(source.ItemSpec);
+            var files = Regex.Matches(text, "Assets[/\\\\][Cc]onfig[/\\\\]([^\"]+)\\.json")
+                .Cast<Match>().Select(match => match.Groups[1].Value).Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+            var bodies = new List<string>();
+            foreach (Match start in Regex.Matches(text, @"new\s+Dictionary\s*<\s*string\s*,\s*object\s*>\s*(?:\(\s*\))?\s*\{"))
+            {
+                int depth = 1, end = start.Index + start.Length;
+                bool quoted = false, escaped = false;
+                for (; end < text.Length && depth > 0; end++)
+                {
+                    char current = text[end];
+                    if (quoted)
+                    {
+                        if (escaped) escaped = false;
+                        else if (current == '\\') escaped = true;
+                        else if (current == '"') quoted = false;
+                    }
+                    else if (current == '"') quoted = true;
+                    else if (current == '{') depth++;
+                    else if (current == '}') depth--;
+                }
+                if (depth == 0) bodies.Add(text.Substring(start.Index, end - start.Index));
+            }
+            var keys = Regex.Matches(string.Join("\n", bodies), "\\{\\s*\"(?<key>[^\"]+)\"\\s*,")
+                .Cast<Match>().Select(match => match.Groups["key"].Value)
+                .Concat(Regex.Matches(text, "placeholders\\[\"(?<key>[^\"]+)\"\\]").Cast<Match>().Select(match => match.Groups["key"].Value))
+                .Distinct(StringComparer.OrdinalIgnoreCase);
+            foreach (string file in files)
+            {
+                if (!configurations.ContainsKey(file))
+                    configurations.Add(file, new SortedSet<string>(StringComparer.OrdinalIgnoreCase));
+                configurations[file].UnionWith(keys);
+                if (files.Length > 1 || Regex.IsMatch(text, "placeholders\\[(?!\")"))
+                    incomplete.Add(file);
+                if (files.Length > 1) shared.Add(file);
+            }
+        }
+        Directory.CreateDirectory(Path.GetDirectoryName(OutputPath));
+        using (var writer = XmlWriter.Create(OutputPath, new XmlWriterSettings { Indent = true }))
+        {
+            writer.WriteStartElement("Configurations");
+            foreach (var configuration in configurations)
+            {
+                writer.WriteStartElement("Configuration");
+                writer.WriteAttributeString("Name", configuration.Key);
+                writer.WriteAttributeString("Complete", (!incomplete.Contains(configuration.Key)).ToString());
+                writer.WriteAttributeString("Shared", shared.Contains(configuration.Key).ToString());
+                foreach (string key in configuration.Value)
+                {
+                    writer.WriteStartElement("Placeholder");
+                    writer.WriteAttributeString("Name", key);
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
+            }
+            writer.WriteEndElement();
+        }
+      ]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="PrepareEditorCatalog" BeforeTargets="PrepareResources">
+    <ItemGroup>
+      <EditorCatalogSource Include="$(MSBuildProjectDirectory)\Presence\*.cs;$(MSBuildProjectDirectory)\Steam\Presence\*.cs" />
+    </ItemGroup>
+    <GenerateEditorCatalog Sources="@(EditorCatalogSource)" OutputPath="$(IntermediateOutputPath)editor-catalog.xml" />
+    <ItemGroup>
+      <EmbeddedResource Include="$(IntermediateOutputPath)editor-catalog.xml" LogicalName="MultiPresence.EditorCatalog.xml" />
+    </ItemGroup>
+  </Target>
+</Project>

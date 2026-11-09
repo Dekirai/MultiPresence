@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Resident Evil 0": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil 0",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{character} | {difficulty}",
+                "State": "{location}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{weaponammo}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

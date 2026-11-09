@@ -1,32 +1,32 @@
-using MultiPresence.Runtime;
 using DiscordRPC;
-using System.Diagnostics;
+using MultiPresence.Infrastructure;
+using MultiPresence.Models.SPTG;
+using MultiPresence.Runtime;
+using System.Globalization;
 
 namespace MultiPresence.Presence
 {
     public class SPTG
     {
+        private const string GameName = "Scott Pilgrim vs The World";
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
+        private static DateTime nextWarning;
+
         public static void DoAction()
         {
+            MemoryReader.Reset();
+            nextWarning = DateTime.MinValue;
             GetPID();
             discord = new DiscordRpcClient("1394219480871342223");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Scott Pilgrim vs The World.json");
+            updater = new DiscordStatusUpdater("Assets/Config/Scott Pilgrim vs The World.json");
             PresenceRuntime.Start(nameof(SPTG), "scott", RPC);
         }
 
         private static void GetPID()
         {
-            try
-            {
-                ProcessMonitor.TryAttach("scott");
-            }
-            catch
-            {
-                //nothing?
-            }
+            ProcessMonitor.TryAttach("scott");
         }
 
         private static async Task RPC()
@@ -40,79 +40,96 @@ namespace MultiPresence.Presence
             {
                 try
                 {
-                    ulong _base = Hypervisor.GetPointer64(0x0230FF48, [0xC8, 0x1A8, 0x178]);
-                    float health = Hypervisor.Read<float>(_base, true);
+                    if (!Hypervisor.IsAttached && !ProcessMonitor.TryAttach("scott"))
+                    {
+                        discord.ClearPresence();
+                        return;
+                    }
 
-                    if (health > 0)
+                    var snapshot = ReadSnapshot();
+                    if (snapshot.State != "Ingame")
                     {
-                        var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Scott Pilgrim vs The World", placeholders);
+                        ShowStatus(snapshot.State == "Loading" ? "Loading" : "In Menus");
+                        return;
                     }
-                    else
-                    {
-                        discord.SetPresence(new RichPresence()
-                        {
-                            Details = "In Menus",
-                            State = "",
-                            Assets = new Assets()
-                            {
-                                LargeImageKey = "logo",
-                                LargeImageText = "Scott Pilgrim vs The World"
-                            },
-                            Timestamps = PlaceholderHelper._startTimestamp
-                        });
-                    }
+
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(() => GeneratePlaceholders(snapshot));
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, GameName, placeholders);
                 }
-                catch
+                catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
                 {
-                    discord.SetPresence(new RichPresence()
+                    if (DateTime.UtcNow >= nextWarning)
                     {
-                        Details = "In Menus",
-                        State = "",
-                        Assets = new Assets()
-                        {
-                            LargeImageKey = "logo",
-                            LargeImageText = "Scott Pilgrim vs The World"
-                        },
-                        Timestamps = PlaceholderHelper._startTimestamp
-                    });
+                        AppLog.Warning("Scott Pilgrim vs The World memory is not ready.", exception);
+                        nextWarning = DateTime.UtcNow.AddSeconds(30);
+                    }
+
+                    discord.ClearPresence();
                 }
             }
             else
             {
+                MemoryReader.Reset();
+                discord.ClearPresence();
                 discord.Deinitialize();
                 updater.Dispose();
                 PresenceRuntime.RequestDetection();
             }
         }
 
-        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        private static GameSnapshot ReadSnapshot()
         {
-            ulong _base = Hypervisor.GetPointer64(0x0230FF48, [0xC8, 0x1A8, 0x178]);
-            float health = Hypervisor.Read<float>(_base, true);
-            float gutpoints = Hypervisor.Read<float>(_base + 0x1BC, true);
-            float defense = Hypervisor.Read<float>(_base + 0x6F0, true);
-            float speed = Hypervisor.Read<float>(_base + 0x6F4, true);
-            float willpower = Hypervisor.Read<float>(_base + 0x6F8, true);
-            float strength = Hypervisor.Read<float>(_base + 0x6FC, true);
-            int lives = Hypervisor.Read<int>(_base + 0x700, true);
-            float money = Hypervisor.Read<float>(_base + 0x1278, true);
-            float totalexperience = Hypervisor.Read<float>(_base + 0x127C, true);
+            return MemoryReader.ReadSnapshot();
+        }
 
-            int money_rounded = (int)Math.Round(money, 0, MidpointRounding.AwayFromZero);
-
-            return new Dictionary<string, object>
+        private static Task<Dictionary<string, object>> GeneratePlaceholders(GameSnapshot snapshot)
+        {
+            if (snapshot.State != "Ingame")
             {
-                { "health", health },
-                { "gutpoints", gutpoints },
-                { "defense", defense },
-                { "speed", speed },
-                { "willpower", willpower },
-                { "strength", strength },
-                { "lives", lives },
-                { "money", money_rounded },
-                { "totalexperience", totalexperience }
-            };
+                return Task.FromResult(new Dictionary<string, object>());
+            }
+
+            var money = snapshot.Money.ToString("0.00", CultureInfo.InvariantCulture);
+            return Task.FromResult(new Dictionary<string, object>
+            {
+                { "character", snapshot.Character },
+                { "characterid", snapshot.CharacterId },
+                { "level", snapshot.Level },
+                { "stage", snapshot.Stage },
+                { "stageid", snapshot.StageId },
+                { "difficulty", snapshot.Difficulty },
+                { "difficultyid", snapshot.DifficultyId },
+                { "health", snapshot.Health.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "gutpoints", snapshot.GutPoints.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "defense", snapshot.Defense.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "speed", snapshot.Speed.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "willpower", snapshot.Willpower.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "strength", snapshot.Strength.ToString("0.##", CultureInfo.InvariantCulture) },
+                { "lives", snapshot.Lives },
+                { "money", money },
+                { "coins", money },
+                { "totalexperience", snapshot.TotalExperience.ToString("0.##", CultureInfo.InvariantCulture) }
+            });
+        }
+
+        private static void ShowStatus(string text)
+        {
+            if (discord == null)
+            {
+                throw new InvalidOperationException("SPTG: presence is not initialized.");
+            }
+
+            discord.SetPresence(new RichPresence()
+            {
+                Details = text,
+                State = "",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = GameName
+                },
+                Timestamps = PlaceholderHelper._startTimestamp
+            });
         }
 
         private static void InitializeDiscord()

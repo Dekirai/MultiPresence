@@ -1,0 +1,18 @@
+{
+    "Games": {
+        "Marvel's Spider-Man 2": {
+            "Default": {
+                "Details": "{character} | Level {level} | {difficulty}",
+                "State": "{location} | HP: {health}/{maxhealth} | XP: {experience}/{experience_required}",
+                "LargeAsset": "logo",
+                "SmallAsset": "{character_icon}",
+                "LargeAssetText": "Marvel's Spider-Man 2",
+                "SmallAssetText": "Skill Points: {skillpoints}",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

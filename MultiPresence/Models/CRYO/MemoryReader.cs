@@ -115,7 +115,7 @@ namespace MultiPresence.Models.CRYO
                 return 1;
             }
 
-            var clients = m.Pointer(client + 0xD0);
+            var clients = m.Pointer(client + 0xD8);
             if (clients == 0)
             {
                 return 1;
@@ -141,7 +141,7 @@ namespace MultiPresence.Models.CRYO
         {
             var result = new List<(string Text, string Progress)>();
             var manager = Singleton(m, "ObjectiveManager", "ObjectiveManager", "ValkoGames.Antarctic.Objectives");
-            if (manager == 0 || !m.Bool(manager + 0xA0))
+            if (manager == 0 || !m.Bool(manager + 0xA8))
             {
                 return result;
             }
@@ -180,6 +180,7 @@ namespace MultiPresence.Models.CRYO
                 return result;
             }
 
+            var contractTitle = GameText.GetContractTitle(m.String(m.Pointer(selected + 0x28)));
             foreach (var step in m.Array(m.Pointer(selected + 0x40), 128))
             {
                 if (step == 0)
@@ -193,7 +194,7 @@ namespace MultiPresence.Models.CRYO
                     continue;
                 }
 
-                AddStep(m, step, result);
+                AddStep(m, step, result, contractTitle);
                 foreach (var child in m.Array(m.Pointer(step + 0x30), 128))
                 {
                     if (child != 0)
@@ -201,7 +202,7 @@ namespace MultiPresence.Models.CRYO
                         m.Object(child, "Step", "");
                         if (m.Bool(child + 0x24))
                         {
-                            AddStep(m, child, result);
+                            AddStep(m, child, result, contractTitle);
                         }
                     }
                 }
@@ -210,7 +211,7 @@ namespace MultiPresence.Models.CRYO
             return result;
         }
 
-        private static void AddStep(FrameRead m, ulong step, List<(string Text, string Progress)> result)
+        private static void AddStep(FrameRead m, ulong step, List<(string Text, string Progress)> result, string fallbackText)
         {
             var maximum = m.Int(step + 0x20);
             var current = m.Int(step + 0x28);
@@ -220,6 +221,11 @@ namespace MultiPresence.Models.CRYO
             }
 
             var text = GameText.GetText(m.String(m.Pointer(step + 0x18)));
+            if (text.Length == 0)
+            {
+                text = fallbackText;
+            }
+
             if (text.Length == 0)
             {
                 return;
@@ -240,7 +246,7 @@ namespace MultiPresence.Models.CRYO
 
         private static ulong SelectedObjective(FrameRead m, ulong client)
         {
-            var player = client == 0 ? 0 : m.Pointer(client + 0xB8);
+            var player = client == 0 ? 0 : m.Pointer(client + 0xC0);
             if (player == 0 || m.Pointer(player + 0x10) == 0)
             {
                 return 0;
