@@ -1,0 +1,42 @@
+{
+    "Games": {
+        "BALL x PIT": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "BALL x PIT",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Farm": {
+                "Details": "{location} | {gold} Gold",
+                "State": "{wheat} Wheat | {wood} Wood | {stone} Stone",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "BALL x PIT",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{stage} | Layer {floor} | {speed}",
+                "State": "{character} | Run Lv. {level} | {rungold} Gold",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "HP {health}/{maxhealth} | {kills} Kills. {characterprogress}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

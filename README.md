@@ -94,6 +94,7 @@ Default templates are included in the executable. Release archives do not contai
 
 | Game                                        | Platform                                                                                                                         | Notes                                |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| BALL x PIT ¹                                | [Steam](https://store.steampowered.com/app/2062430/)                                                                             |                                      |
 | Borderlands GOTY Enhanced                   | [Steam](https://store.steampowered.com/app/729040/Borderlands_Game_of_the_Year_Enhanced/)                                        |                                      |
 | Borderlands 2                               | [Steam](https://store.steampowered.com/app/49520/Borderlands_2/)                                                                 |                                      |
 | Code Vein                                   | [Steam](https://store.steampowered.com/app/678960/CODE_VEIN/)                                                                    | Only base game tested                |
@@ -108,7 +109,6 @@ Default templates are included in the executable. Release archives do not contai
 | Devil May Cry HD Collection                 | [Steam](https://store.steampowered.com/app/631510/Devil_May_Cry_HD_Collection/)                                                  | Supports all games                   |
 | Devil May Cry 4                             | [Steam](https://store.steampowered.com/app/329050/Devil_May_Cry_4_Special_Edition/)                                              |                                      |
 | Devil May Cry 5                             | [Steam](https://store.steampowered.com/app/601150/Devil_May_Cry_5/)                                                              |                                      |
-| Diablo IV ²                                 | [Steam](https://store.steampowered.com/app/2344520/Diablo_IV/)                                                                   |                                      |
 | Disney Dreamlight Valley ¹                  | [Steam](https://store.steampowered.com/app/1401590/Disney_Dreamlight_Valley/)                                                    |                                      |
 | DmC Devil May Cry                           | [Steam](https://store.steampowered.com/app/220440/DmC_Devil_May_Cry/)                                                            | Only base game tested                |
 | Elden Ring                                  | [Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)                                                                  | Only with EAC disabled               |
@@ -140,8 +140,6 @@ Default templates are included in the executable. Release archives do not contai
 | Mega Man Battle Network Collection Vol. 2   | [Steam](https://store.steampowered.com/app/1798020/Mega_Man_Battle_Network_Legacy_Collection_Vol_2/)                             | Supports all games                   |
 | Mega Man X Legacy Collection 2              | [Steam](https://store.steampowered.com/app/743900/Mega_Man_X_Legacy_Collection_2/)                                               | Supports all games, no "X Challenge" |
 | Minecraft Dungeons II ¹                     | [Steam](https://store.steampowered.com/app/1912410/)                                                                             |                                      |
-| Overwatch ²                                 | [Steam](https://store.steampowered.com/app/2357570/Overwatch/)                                                                   |                                      |
-| Pangya Reborn                               | [Private Server](https://www.pangyareborn.com/)                                                                                  |                                      |
 | Persona 4 Golden                            | [Steam](https://store.steampowered.com/app/1113000/Persona_4_Golden/)                                                            |                                      |
 | Persona 5 Strikers                          | [Steam](https://store.steampowered.com/app/1382330/Persona_5_Strikers/)                                                          |                                      |
 | Persona 5 Royal                             | [Steam](https://store.steampowered.com/app/1687950/Persona_5_Royal/)                                                             |                                      |
@@ -150,7 +148,7 @@ Default templates are included in the executable. Release archives do not contai
 | PokeOne ¹                                   |                                                                                                                                  |                                      |
 | Rayman: 30th Anniversary Edition            | [Steam](https://store.steampowered.com/app/4094670/Rayman_30th_Anniversary_Edition/)                                             | Only Playstation version             |
 | Resident Evil 0 ¹                           | [Steam](https://store.steampowered.com/app/339340/Resident_Evil_0/)                                                              |                                      |
-| Resident Evil 1 Remake                      | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
+| Resident Evil 1 Remake ¹                    | [Steam](https://store.steampowered.com/app/304240/Resident_Evil/)                                                                |                                      |
 | Resident Evil 2 Remake ¹                    | [Steam](https://store.steampowered.com/app/883710/Resident_Evil_2/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 3 Remake ¹                    | [Steam](https://store.steampowered.com/app/952060/Resident_Evil_3/)                                                              | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 4 ¹                           | [Steam](https://store.steampowered.com/app/254700/Resident_Evil_4/)                                                              |                                      |
@@ -160,7 +158,7 @@ Default templates are included in the executable. Release archives do not contai
 | Resident Evil 7 ¹                           | [Steam](https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/)                                                    | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 8 ¹                           | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil Requiem ¹                     | [Steam](https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/)                                                       |                                      |
-| Resident Evil Revelations 2                 | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Raid Mode only                       |
+| Resident Evil Revelations 2 ¹               | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Campaign, Extra Episodes and Raid Mode |
 | Scott Pilgrim vs The World ¹                | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Shin Megami Tensei III Nocturne             | [Steam](https://store.steampowered.com/app/1413480/Shin_Megami_Tensei_III_Nocturne_HD_Remaster/)                                 |                                      |
 | Shin Megami Tensei V: Vengeance             | [Steam](https://store.steampowered.com/app/1875830/Shin_Megami_Tensei_V_Vengeance/)                                              |                                      |
@@ -171,7 +169,6 @@ Default templates are included in the executable. Release archives do not contai
 | Sonic x Shadow Generations ¹                | [Steam](https://store.steampowered.com/app/2513280/SONIC_X_SHADOW_GENERATIONS/)                                                  | Pattern search: Shadow Generations only |
 | Stellar Blade ¹                             | [Steam](https://store.steampowered.com/app/3489700/Stellar_Blade/)                                                               |                                      |
 | TEKKEN 8 ¹                                  | [Steam](https://store.steampowered.com/app/1778820/)                                                                             |                                      |
-| Temtem: Swarm ²                             | [Steam](https://store.steampowered.com/app/2510960/Temtem_Swarm/)                                                                |                                      |
 | The Binding of Isaac: Rebirth ¹             | [Steam](https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/)                                                 | Tested with having all DLC's         |
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |
 | Vampire Crawlers ¹                          | [Steam](https://store.steampowered.com/app/3265700/)                                                                             |                                      |
@@ -186,8 +183,7 @@ Default templates are included in the executable. Release archives do not contai
 
 ## Information
 
-¹: Requires pattern search.  
-²: Uses built-in Steam support. Steam must be running and the supported Steam edition of the game is required. No separate helper executable is needed.
+¹: Requires pattern search.
 
 > [!IMPORTANT]  
 > A pattern search can cause a short lag on your machine because the program is currently scanning a lot of memory to find the right address to work with.  

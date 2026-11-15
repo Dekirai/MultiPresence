@@ -79,7 +79,7 @@
   </UsingTask>
   <Target Name="PrepareEditorCatalog" BeforeTargets="PrepareResources">
     <ItemGroup>
-      <EditorCatalogSource Include="$(MSBuildProjectDirectory)\Presence\*.cs;$(MSBuildProjectDirectory)\Steam\Presence\*.cs" />
+      <EditorCatalogSource Include="$(MSBuildProjectDirectory)\Presence\*.cs" />
     </ItemGroup>
     <GenerateEditorCatalog Sources="@(EditorCatalogSource)" OutputPath="$(IntermediateOutputPath)editor-catalog.xml" />
     <ItemGroup>

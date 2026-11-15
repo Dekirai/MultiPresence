@@ -7,6 +7,7 @@ internal static class GameIntegrationRegistry
     private static readonly IReadOnlyDictionary<string, Func<Task>> Integrations =
         new Dictionary<string, Func<Task>>(StringComparer.OrdinalIgnoreCase)
         {
+            ["BALL x PIT"] = BXP.DoAction,
             ["Borderlands 1"] = Sync(BL1.DoAction),
             ["Borderlands 2"] = Sync(BL2.DoAction),
             ["CODE VEIN"] = Sync(CV.DoAction),
@@ -23,7 +24,6 @@ internal static class GameIntegrationRegistry
             ["Devil May Cry 3"] = DMC3.DoAction,
             ["Devil May Cry 4"] = DMC4.DoAction,
             ["Devil May Cry 5"] = DMC5.DoAction,
-            ["Diablo IV"] = D4.DoAction,
             ["Disney Dreamlight Valley"] = DDV.DoAction,
             ["DmC Devil May Cry"] = DMC.DoAction,
             ["Elden Ring"] = Sync(ER.DoAction),
@@ -61,8 +61,6 @@ internal static class GameIntegrationRegistry
             ["Marvel's Spider-Man 2"] = Sync(MSM2.DoAction),
             ["Marvel's Spider-Man: Miles Morales"] = Sync(MSMMMM.DoAction),
             ["Minecraft Dungeons II"] = Sync(MCD2.DoAction),
-            ["Overwatch"] = OW.DoAction,
-            ["Pangya Reborn"] = Sync(PYRE.DoAction),
             ["Persona 4 Golden"] = Sync(P4G.DoAction),
             ["Persona 5 Royal"] = Sync(P5R.DoAction),
             ["Persona 5 Strikers"] = Sync(P5S.DoAction),
@@ -94,7 +92,6 @@ internal static class GameIntegrationRegistry
             ["Sonic Generations"] = Sync(SXSG.DoAction),
             ["Stellar Blade"] = Sync(SB.DoAction),
             ["TEKKEN 8"] = TK8.DoAction,
-            ["Temtem: Swarm"] = TTS.DoAction,
             ["The Binding of Isaac: Rebirth"] = Sync(TBOI.DoAction),
             ["TY the Tasmanian Tiger"] = Sync(TY.DoAction),
             ["Vampire Crawlers"] = VC.DoAction,

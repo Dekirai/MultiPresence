@@ -24,7 +24,6 @@ internal static class ConfigurationEditorCatalog
         ["Kingdom Hearts I"] = "Kingdom Hearts Final Mix",
         ["Kingdom Hearts II"] = "Kingdom Hearts II Final Mix",
         ["Kingdom Hearts Birth by Sleep"] = "Kingdom Hearts Birth by Sleep Final Mix",
-        ["Overwatch"] = "Overwatch 2",
         ["Resident Evil 1"] = "Resident Evil",
         ["Resident Evil 2 Remake"] = "Resident Evil 2",
         ["Resident Evil 3 Remake"] = "Resident Evil 3",
@@ -183,6 +182,30 @@ internal static class ConfigurationEditorCatalog
     {
         string key = string.Concat(name.Where(char.IsLetterOrDigit)).ToLowerInvariant();
         string game = Normalize(gameName);
+        if (game == "ballxpit")
+        {
+            switch (key)
+            {
+                case "location": return "New Ballbylon";
+                case "stage": return "THE SNOWYxSHORES";
+                case "gold": return "5239";
+                case "wheat": return "39";
+                case "wood": return "28";
+                case "stone": return "26";
+                case "character": return "The Cogitator";
+                case "characterlevel": return "5";
+                case "characterprogress": return "Character Lv. 5 | XP 92/1230";
+                case "xp": return "92";
+                case "maxxp": return "1230";
+                case "floor": return "2";
+                case "speed": return "Fast+";
+                case "level": return "2";
+                case "rungold": return "9";
+                case "health": return "70";
+                case "maxhealth": return "70";
+                case "kills": return "21";
+            }
+        }
         if (game == "tekken8")
         {
             string? example = key switch
@@ -222,6 +245,30 @@ internal static class ConfigurationEditorCatalog
                 case "healthstatus": return "Healthy";
                 case "weaponammo": return "Handgun (15/30)";
                 case "weapon": return "Handgun";
+            }
+        }
+        if (game == "residentevilrevelations2")
+        {
+            switch (key)
+            {
+                case "campaign": return "Main Campaign";
+                case "campaigndisplay": return "Campaign: Episode 2";
+                case "episode": return "2";
+                case "location": return "Fishing Village";
+                case "locationdisplay": return " | Fishing Village";
+                case "partner": return "Moira Burton";
+                case "partnerdisplay": return " | Partner: Moira Burton";
+                case "objective": return "Explore the area";
+                case "chapter": return "VI";
+                case "mission": return "1";
+                case "character": return "Claire Redfield";
+                case "difficulty": return "Very Hard";
+                case "missiondisplay": return "Mission VI-01 | Very Hard | Recommended Lv. 75";
+                case "recommendedlevel": return "75";
+                case "kills": return "8";
+                case "enemytarget": return "34";
+                case "enemyprogress": return " | Enemies: 8/34";
+                case "medallions": return "120";
             }
         }
         if (game == "silenthillf")

@@ -57,7 +57,6 @@ public partial class MainForm : Form
         _detectionTimer.Tick -= DetectionTimerOnTick;
         PresenceRuntime.DetectionRequested -= PresenceRuntimeOnDetectionRequested;
         PresenceRuntime.StopAll();
-        SteamPresenceLauncher.Stop(waitForExit: true);
         Hypervisor.DetachProcess();
         notify.Visible = false;
         base.OnFormClosed(e);

@@ -29,17 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.6.1.70" />
-    <PackageReference Include="Steamworks.NET" Version="2024.8.0" />
     <PackageReference Include="TaskScheduler" Version="2.11.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Native\steam_api64.dll" />
-    <Content Include="Native\steam_api64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <TargetPath>steam_api64.dll</TargetPath>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +41,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\Placeholders\*.md">
+      <Link>Placeholders\%(Filename)%(Extension)</Link>
       <LogicalName>MultiPresence.Placeholders.%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
   </ItemGroup>

@@ -35,7 +35,7 @@ public partial class MainForm
         UpdateSelectionMenu();
     }
 
-    private bool IntegrationIsRunning => PresenceRuntime.HasActiveLoops || SteamPresenceLauncher.IsRunning ||
+    private bool IntegrationIsRunning => PresenceRuntime.HasActiveLoops ||
         _integrationTask is { IsCompleted: false };
 
     private async Task UpdatePresenceAsync()
@@ -114,11 +114,11 @@ public partial class MainForm
 
     private async Task StopCurrentPresenceAsync()
     {
-        await Task.WhenAll(PresenceRuntime.StopAllAsync(), SteamPresenceLauncher.StopAsync());
+        await PresenceRuntime.StopAllAsync();
         if (_integrationTask != null)
         {
             await _integrationTask;
-            await Task.WhenAll(PresenceRuntime.StopAllAsync(), SteamPresenceLauncher.StopAsync());
+            await PresenceRuntime.StopAllAsync();
         }
         _integrationTask = null;
         _activeDetectedGame = null;
@@ -240,8 +240,9 @@ public partial class MainForm
             _selectGame.DropDownItems.Add(item);
         }
         _selectGame.Text = _manualGame == null ? "Select game: Automatic" : "Select game: " + _manualGame;
-        _preferredGame.Text = string.IsNullOrEmpty(Settings.Default.PreferredGame)
-            ? "Preferred game..." : "Preferred game: " + Settings.Default.PreferredGame;
+        var preferred = Settings.Default.PreferredGame;
+        _preferredGame.Text = !string.IsNullOrEmpty(preferred) && GameIntegrationRegistry.TryGet(preferred, out _)
+            ? "Preferred game: " + preferred : "Preferred game...";
     }
 
     private async void PreferredGameOnClick(object? sender, EventArgs e)

@@ -18,6 +18,7 @@ public sealed class DiscordStatusUpdater : IDisposable
     private readonly FileSystemWatcher? _watcher;
     private readonly System.Threading.Timer? _reloadTimer;
     private FrozenDictionary<string, FrozenDictionary<string, PresenceTemplate>> _games = EmptyGames();
+    private readonly (string Game, string State, PresenceTemplate Template)? _missingStateDefault;
     private bool _disposed;
 
     public DiscordStatusUpdater(string configPath)
@@ -54,6 +55,15 @@ public sealed class DiscordStatusUpdater : IDisposable
         {
             AppLog.Warning($"Could not watch presence configuration '{_configPath}'.", exception);
         }
+    }
+
+    internal DiscordStatusUpdater(string configPath, string game, string state) : this(configPath)
+    {
+        using var stream = typeof(DiscordStatusUpdater).Assembly.GetManifestResourceStream($"MultiPresence.DefaultConfig.{game}.json");
+        if (stream == null) return;
+        using var document = JsonDocument.Parse(stream);
+        var template = document.RootElement.GetProperty("Games").GetProperty(game).GetProperty(state);
+        _missingStateDefault = (game, state, PresenceTemplate.FromJson(template));
     }
 
     public string UpdateDetails(
@@ -147,18 +157,18 @@ public sealed class DiscordStatusUpdater : IDisposable
         IReadOnlyDictionary<string, object> placeholders,
         Func<PresenceTemplate, string?> selector)
     {
-        if (!_games.TryGetValue(gameName, out var states))
+        if (_games.TryGetValue(gameName, out var states) &&
+            (states.TryGetValue(state, out var template) || states.TryGetValue("Default", out template)))
         {
-            return string.Empty;
+            return TemplateRenderer.Render(selector(template), placeholders);
         }
-
-        if (!states.TryGetValue(state, out var template) &&
-            !states.TryGetValue("Default", out template))
+        if (_missingStateDefault is { } fallback &&
+            string.Equals(gameName, fallback.Game, StringComparison.OrdinalIgnoreCase) &&
+            string.Equals(state, fallback.State, StringComparison.OrdinalIgnoreCase))
         {
-            return string.Empty;
+            return TemplateRenderer.Render(selector(fallback.Template), placeholders);
         }
-
-        return TemplateRenderer.Render(selector(template), placeholders);
+        return string.Empty;
     }
 
     private void ScheduleReload(object sender, FileSystemEventArgs eventArgs) =>

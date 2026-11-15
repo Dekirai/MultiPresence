@@ -195,7 +195,8 @@ namespace MultiPresence
             string directory = System.IO.Path.Combine(AppContext.BaseDirectory, "Assets", "Config");
             try
             {
-                var files = Directory.Exists(directory) ? Directory.EnumerateFiles(directory, "*.json", SearchOption.AllDirectories).Order(StringComparer.OrdinalIgnoreCase).ToArray() : Array.Empty<string>();
+                var files = Directory.Exists(directory) ? Directory.EnumerateFiles(directory, "*.json", SearchOption.AllDirectories)
+                    .Where(path => CanEditFile(directory, path)).Order(StringComparer.OrdinalIgnoreCase).ToArray() : Array.Empty<string>();
                 binding = true;
                 foreach (var path in files)
                 {
@@ -234,6 +235,19 @@ namespace MultiPresence
                 ShowError(exception.Message);
             }
             finally { binding = false; }
+        }
+
+        private static bool CanEditFile(string directory, string path)
+        {
+            if (ConfigurationDefaults.HasFile(System.IO.Path.GetRelativePath(directory, path))) return true;
+            try
+            {
+                return ConfigurationEditorDocument.Load(path).GetGames().Any(ConfigurationDefaults.HasGame);
+            }
+            catch (Exception exception) when (IsFileError(exception) || exception is JsonException or ArgumentException or InvalidOperationException)
+            {
+                return false;
+            }
         }
 
         private void SelectFile()
@@ -326,7 +340,7 @@ namespace MultiPresence
             binding = true;
             try
             {
-                Rebind(gameSelector, document.GetGames());
+                Rebind(gameSelector, document.GetGames().Where(ConfigurationDefaults.HasGame).ToArray());
                 string game = gameSelector.SelectedItem as string ?? "";
                 Rebind(stateSelector, game.Length == 0 ? Array.Empty<string>() : document.GetStates(game));
                 string state = stateSelector.SelectedItem as string ?? "";

@@ -1,12 +1,24 @@
 {
     "Games": {
         "Resident Evil Revelations 2": {
-            "Lobby": {
-                "Details": "Raid Mode: In Lobby",
-                "State": "{character} (Lv. {level})",
+            "Campaign": {
+                "Details": "{campaigndisplay}{locationdisplay}",
+                "State": "{character}{partnerdisplay}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil Revelations 2",
+                "LargeAssetText": "{objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "Raid Mode: In Lobby | {playername}",
+                "State": "{character} (Lv. {level}) | Red Hearts: {redhearts} | Blue Hearts: {bluehearts}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Medallions: {medallions} | Gold: {money}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",
@@ -14,11 +26,11 @@
                 "Button2URL": ""
             },
             "Ingame": {
-                "Details": "Raid Mode: Mission {chapter}-0{mission}",
-                "State": "{character} (Lv. {level})",
+                "Details": "Raid Mode: {missiondisplay}",
+                "State": "{character} (Lv. {level}){enemyprogress}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",
-                "LargeAssetText": "Resident Evil Revelations 2",
+                "LargeAssetText": "{playername}",
                 "SmallAssetText": "",
                 "Button1Text": "",
                 "Button1URL": "",

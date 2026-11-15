@@ -1,19 +1,41 @@
+using System.Text.Json;
+
 namespace MultiPresence.Infrastructure
 {
     internal static class ConfigurationDefaults
     {
         private const string resourcePrefix = "MultiPresence.DefaultConfig.";
+        private static readonly Dictionary<string, string> resources = typeof(ConfigurationDefaults).Assembly.GetManifestResourceNames()
+            .Where(name => name.StartsWith(resourcePrefix, StringComparison.Ordinal))
+            .ToDictionary(name => name[resourcePrefix.Length..].Replace('\\', Path.DirectorySeparatorChar).Replace('/', Path.DirectorySeparatorChar),
+                name => name, StringComparer.OrdinalIgnoreCase);
+        private static readonly Lazy<HashSet<string>> templateGames = new(GetTemplateGames);
+
+        public static bool HasFile(string relativePath) => resources.ContainsKey(relativePath);
+
+        public static bool HasGame(string name) => templateGames.Value.Contains(name);
+
+        private static HashSet<string> GetTemplateGames()
+        {
+            var games = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string resource in resources.Values)
+            {
+                using var stream = typeof(ConfigurationDefaults).Assembly.GetManifestResourceStream(resource)!;
+                using var document = JsonDocument.Parse(stream);
+                foreach (var game in document.RootElement.GetProperty("Games").EnumerateObject()) games.Add(game.Name);
+            }
+            return games;
+        }
 
         public static void CreateMissingFiles(string baseDirectory)
         {
             var assembly = typeof(ConfigurationDefaults).Assembly;
             var configDirectory = Path.GetFullPath(Path.Combine(baseDirectory, "Assets", "Config"));
-            foreach (var resource in assembly.GetManifestResourceNames().Where(name => name.StartsWith(resourcePrefix, StringComparison.Ordinal)))
+            foreach (var (name, resource) in resources)
             {
                 string? temporaryPath = null;
                 try
                 {
-                    var name = resource[resourcePrefix.Length..].Replace('\\', Path.DirectorySeparatorChar).Replace('/', Path.DirectorySeparatorChar);
                     var configPath = Path.GetFullPath(Path.Combine(configDirectory, name));
                     if (!configPath.StartsWith(configDirectory + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase) ||
                         File.Exists(configPath))

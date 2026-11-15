@@ -8,6 +8,7 @@ public static partial class GameDetector
 {
     private static readonly IReadOnlyList<(string ProcessName, string GameName)> GameProcessMap =
     [
+        ("Balls", "BALL x PIT"),
         ("BorderlandsGOTY", "Borderlands 1"),
         ("Borderlands2", "Borderlands 2"),
         ("CrashBandicoot4", "Crash Bandicoot 4: It's About Time"),
@@ -18,7 +19,6 @@ public static partial class GameDetector
         ("DarkSoulsRemastered", "Dark Souls: Remastered"),
         ("DarkSoulsII", "Dark Souls II"),
         ("DarkSoulsIII", "Dark Souls III"),
-        ("Diablo IV", "Diablo IV"),
         ("ddv", "Disney Dreamlight Valley"),
         ("DMC-DevilMayCry", "DmC Devil May Cry"),
         ("dmc1", "Devil May Cry"),
@@ -48,8 +48,6 @@ public static partial class GameDetector
         ("Spider-Man", "Marvel's Spider-Man Remastered"),
         ("Spider-Man2", "Marvel's Spider-Man 2"),
         ("Dungeons-Win64-Shipping", "Minecraft Dungeons II"),
-        ("Overwatch", "Overwatch"),
-        ("ProjectG", "Pangya Reborn"),
         ("p4g", "Persona 4 Golden"),
         ("P5R", "Persona 5 Royal"),
         ("P5S", "Persona 5 Strikers"),
@@ -79,7 +77,6 @@ public static partial class GameDetector
         ("SONIC_GENERATIONS", "Sonic Generations"),
         ("SB-Win64-Shipping", "Stellar Blade"),
         ("Polaris-Win64-Shipping", "TEKKEN 8"),
-        ("TemtemSwarm", "Temtem: Swarm"),
         ("isaac-ng", "The Binding of Isaac: Rebirth"),
         ("TY", "TY the Tasmanian Tiger"),
         ("Vampire Crawlers", "Vampire Crawlers"),
