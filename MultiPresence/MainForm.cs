@@ -11,7 +11,7 @@ namespace MultiPresence;
 
 public partial class MainForm : Form
 {
-    private const string CurrentReleaseDate = "09.11.2026";
+    private const string CurrentReleaseDate = "19.11.2026";
     private static readonly HttpClient UpdateClient = CreateUpdateClient();
     private readonly System.Windows.Forms.Timer _detectionTimer = new() { Interval = 3000 };
     private readonly SemaphoreSlim _detectionGate = new(1, 1);
