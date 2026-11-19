@@ -7,6 +7,7 @@ namespace MultiPresence;
 
 public partial class MainForm
 {
+    private static readonly TimeSpan FailedStartBackoff = TimeSpan.FromSeconds(60);
     private readonly ToolStripMenuItem _selectGame = new("Select game");
     private readonly ToolStripMenuItem _preferredGame = new("Preferred game...");
     private readonly ToolStripMenuItem _pausePresence = new("Pause presence") { CheckOnClick = true };
@@ -17,6 +18,7 @@ public partial class MainForm
     private ConfigurationEditorForm? _configurationEditor;
     private string? _manualGame;
     private bool _paused;
+    private (string GameName, int ProcessId, DateTime RetryAt)? _failedStart;
 
     private void InitializePresenceControls()
     {
@@ -61,7 +63,7 @@ public partial class MainForm
             }
 
             await StopCurrentPresenceAsync();
-            if (_exiting || _paused || selected == null)
+            if (_exiting || _paused || selected == null || IsWaitingAfterFailedStart(selected))
             {
                 return;
             }
@@ -74,8 +76,7 @@ public partial class MainForm
             _activeDetectedGame = selected;
             PlaceholderHelper._startTimestamp = Timestamps.Now;
             AppLog.Information("Starting game integration.", selected);
-            _integrationTask = ObserveIntegrationAsync(startAsync(), selected);
-            ShowTrackingNotification(selected.GameName);
+            _integrationTask = ObserveIntegrationAsync(Task.Run(startAsync), selected);
         }
         catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
         {
@@ -101,16 +102,31 @@ public partial class MainForm
         try
         {
             await integration;
+            if (!_exiting && !IsDisposed && _activeDetectedGame == game)
+            {
+                _failedStart = null;
+                ShowTrackingNotification(game.GameName);
+            }
         }
         catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
         {
             AppLog.Error("The game integration stopped unexpectedly.", exception, game);
-            if (!_exiting && !IsDisposed)
+            var repeated = _failedStart is { } previous &&
+                previous.GameName.Equals(game.GameName, StringComparison.OrdinalIgnoreCase) &&
+                previous.ProcessId == game.ProcessId;
+            _failedStart = (game.GameName, game.ProcessId, DateTime.UtcNow + FailedStartBackoff);
+            if (!repeated && !_exiting && !IsDisposed)
             {
                 ShowErrorNotification("The game integration failed. See the log for details.");
             }
         }
     }
+
+    private bool IsWaitingAfterFailedStart(DetectedGame game) =>
+        _failedStart is { } failed &&
+        failed.GameName.Equals(game.GameName, StringComparison.OrdinalIgnoreCase) &&
+        failed.ProcessId == game.ProcessId &&
+        DateTime.UtcNow < failed.RetryAt;
 
     private async Task StopCurrentPresenceAsync()
     {
@@ -130,6 +146,7 @@ public partial class MainForm
     {
         _detectionTimer.Stop();
         _restartDetection.Enabled = false;
+        _failedStart = null;
         await _detectionGate.WaitAsync();
         try
         {

@@ -42,11 +42,6 @@ namespace MultiPresence.Models.RE2
             return MapNames.GetValueOrDefault(id) ?? $"Unknown room ({id})";
         }
 
-        public static string GetFullLocation(int locationId, int mapId)
-        {
-            return $"{GetRegion(locationId)} / {GetRoom(mapId)}";
-        }
-
         public static readonly FrozenDictionary<int, string> LocationNames = new Dictionary<int, string>
         {
             { 0, "None" },

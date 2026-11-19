@@ -3,7 +3,6 @@
 // Game text copyright belongs to CAPCOM. This table contains short labels
 // used to identify the player's current location/objective, not external code.
 // Extraction: IntelOrca.Biohazard.REE 1.3.2 MsgFile/RePakCollection.
-// Resource names and GUID provenance: RE4-provenance.json.
 // Rejected, invalid, dummy and runtime-formatted entries were excluded.
 using System.Collections.Frozen;
 
@@ -14,11 +13,6 @@ namespace MultiPresence.Models.RE4R
         public static string Get(Guid id)
         {
             return Names.GetValueOrDefault(id) ?? string.Empty;
-        }
-
-        public static bool TryGet(Guid id, out string text)
-        {
-            return Names.TryGetValue(id, out text!);
         }
 
         private static readonly FrozenDictionary<Guid, string> Names = new Dictionary<Guid, string>

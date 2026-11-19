@@ -11,9 +11,9 @@ namespace MultiPresence.Presence
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1434314908643889322");
+            discord = new DiscordRpcClient("1434619803204845719");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Mega Man X7.json");
+            updater = new DiscordStatusUpdater("Assets/config/Mega Man X8.json");
             PresenceRuntime.Start(nameof(MMX8), "RXC2", RPC);
         }
 

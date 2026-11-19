@@ -1,5 +1,4 @@
 using MultiPresence.Infrastructure;
-using System.Diagnostics;
 using System.Reflection;
 using DiscordRPC;
 
@@ -17,7 +16,7 @@ public static class PresenceRuntime
 
     public static event EventHandler? DetectionRequested;
 
-    public static TimeSpan PollInterval { get; set; } = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan PollInterval = TimeSpan.FromSeconds(3);
 
     public static bool HasActiveLoops
     {
@@ -78,14 +77,6 @@ public static class PresenceRuntime
         return Task.WhenAll(loops.Select(loop => loop.Completion.Task));
     }
 
-    public static bool IsRunning(string integrationName)
-    {
-        lock (Sync)
-        {
-            return ActiveLoops.ContainsKey(integrationName);
-        }
-    }
-
     public static void RequestDetection()
     {
         StopAll();
@@ -109,7 +100,7 @@ public static class PresenceRuntime
         {
             while (!cancellation.IsCancellationRequested)
             {
-                var processExists = IsProcessRunning(processName);
+                var processExists = ProcessMonitor.IsRunning(processName);
                 try
                 {
                     // Poll once after process exit so legacy integration cleanup can run.
@@ -126,7 +117,7 @@ public static class PresenceRuntime
                         new { ConsecutiveFailures = consecutiveFailures });
                 }
 
-                if (!processExists || !IsProcessRunning(processName))
+                if (!processExists || !ProcessMonitor.IsRunning(processName))
                 {
                     break;
                 }
@@ -261,33 +252,6 @@ public static class PresenceRuntime
                 {
                     AppLog.Warning("Could not dispose a stopped presence resource.", exception);
                 }
-            }
-        }
-    }
-
-    private static bool IsProcessRunning(string processName)
-    {
-        Process[] processes = [];
-        try
-        {
-            processes = Process.GetProcessesByName(processName);
-            return processes.Any(static process =>
-            {
-                try
-                {
-                    return !process.HasExited;
-                }
-                catch
-                {
-                    return false;
-                }
-            });
-        }
-        finally
-        {
-            foreach (var process in processes)
-            {
-                process.Dispose();
             }
         }
     }

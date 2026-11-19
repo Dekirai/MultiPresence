@@ -63,18 +63,6 @@ namespace MultiPresence.Models.RE4R
             };
         }
 
-        public static bool TryGetStageName(int stageId, out string name)
-        {
-            if (StageNames.TryGetValue(stageId, out var item))
-            {
-                name = item.Name;
-                return true;
-            }
-
-            name = string.Empty;
-            return false;
-        }
-
         private static readonly FrozenDictionary<int, (string Name, string Source)> StageNames = new Dictionary<int, (string Name, string Source)>
         {
             { 40200, ("Village Square", "Pause-map label in stage") },

@@ -17,16 +17,6 @@ namespace MultiPresence.Models.DDV
             return Quests.TryGetValue(id, out var name) ? name : string.Empty;
         }
 
-        public static string GetCharacter(int id)
-        {
-            return Characters.TryGetValue(id, out var name) ? name : string.Empty;
-        }
-
-        public static string GetCurrency(int id)
-        {
-            return Currencies.TryGetValue(id, out var name) ? name : string.Empty;
-        }
-
         public static string GetObjective(string? key)
         {
             return key != null && Objectives.TryGetValue(key, out var text) ? text : string.Empty;
@@ -958,34 +948,6 @@ namespace MultiPresence.Models.DDV
             [10000212] = "Oogie Boogie",
             [10000218] = "Oogie Boogie",
             [10000219] = "Strange Mirror",
-        };
-
-        private static readonly Dictionary<int, string> Currencies = new Dictionary<int, string>
-        {
-            [80000000] = "Star Coin",
-            [80000003] = "Mist",
-            [80000009] = "Daisy Coin",
-            [80000010] = "Storybook Magic",
-            [80100000] = "Moonstone",
-            [80200000] = "Heart",
-            [80200001] = "Ticket",
-            [80200002] = "Pixel Dust",
-            [80300000] = "Dreamlight",
-            [80300002] = "Dust",
-            [80400000] = "Minnie Mouse Shards",
-            [80400001] = "Mickey Mouse Shards",
-            [80400002] = "Shank Shards",
-            [80400003] = "Rafiki Shards",
-            [80400004] = "Boo Shards",
-            [80400005] = "Bo Peep Shards",
-            [80400006] = "Olaf Shards",
-            [80700000] = "Wish Token",
-            [80800000] = "Moonstone",
-            [80800001] = "Moonstone",
-            [80800002] = "Moonstone",
-            [80800003] = "Moonstone",
-            [80800004] = "Moonstone",
-            [80800005] = "Moonstone",
         };
 
         // Exact localization keys referenced by shipped mission step/substep/objective data.

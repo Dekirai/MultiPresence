@@ -11,9 +11,10 @@ namespace MultiPresence.Presence
         private const string ProcessName = "VampireSurvivors";
         private const string ModuleName = "GameAssembly.dll";
         private const string ManagerPattern = "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 80 79 20 00 75 ?? " + "48 8B 05 ?? ?? ?? ?? 48 8B 88 B8 00 00 00 48 8B 01";
+        private const string SurvivedSecondsField = "<SurvivedSeconds>k__BackingField";
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
-        private static int cachedProcessId;
+        private static int cachedProcessId, survivedSecondsOffset;
         private static ulong cachedModuleBase, adventureClassSlot, gameManagerClassSlot;
         private static DateTime nextScan;
         public static string adventure = "";
@@ -191,7 +192,12 @@ namespace MultiPresence.Presence
             EquippedItem[] weapons = [], passives = [];
             if (isInGame)
             {
-                time = Hypervisor.Read<float>(gameManager + 0x468, true);
+                if (survivedSecondsOffset == 0)
+                {
+                    survivedSecondsOffset = GetFieldOffset(Pointer(gameManager), SurvivedSecondsField);
+                }
+
+                time = Hypervisor.Read<float>(gameManager + (ulong)survivedSecondsOffset, true);
                 var character = GetActiveCharacter(playerOptions);
                 if (character != 0)
                 {
@@ -218,6 +224,33 @@ namespace MultiPresence.Presence
 
             RequireObject(manager, "GameManager", "VampireSurvivors.Framework");
             return Pointer(manager + 0x10) == 0 ? 0 : manager;
+        }
+
+        private static int GetFieldOffset(ulong klass, string name)
+        {
+            var fields = Pointer(klass + 0x80);
+            int count = Hypervisor.Read<ushort>(klass + 0x124, true);
+            if (fields == 0 || count is 0 or > 4096)
+            {
+                throw new InvalidDataException("Vampire Survivors: GameManager field metadata is not readable.");
+            }
+
+            for (var index = 0; index < count; index++)
+            {
+                var field = fields + (ulong)index * 0x20;
+                if (Pointer(field + 0x10) != klass)
+                {
+                    break;
+                }
+
+                if (Hypervisor.ReadString(Pointer(field), name.Length + 1, true) == name)
+                {
+                    var offset = Hypervisor.Read<int>(field + 0x18, true);
+                    return offset >= 0x10 ? offset : throw new InvalidDataException($"Vampire Survivors: {name} has an invalid offset.");
+                }
+            }
+
+            throw new InvalidDataException($"Vampire Survivors: GameManager field {name} was not found.");
         }
 
         public static void GetHealthAndLevel(out float health, out int level)
@@ -318,7 +351,7 @@ namespace MultiPresence.Presence
 
         private static void ResetAddresses()
         {
-            cachedProcessId = 0;
+            cachedProcessId = survivedSecondsOffset = 0;
             cachedModuleBase = adventureClassSlot = gameManagerClassSlot = 0;
             nextScan = DateTime.MinValue;
         }

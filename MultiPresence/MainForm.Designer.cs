@@ -58,7 +58,6 @@
             // notify
             // 
             notify.ContextMenuStrip = cms;
-            notify.Icon = (Icon)resources.GetObject("notify.Icon");
             notify.Text = "MultiPresence";
             notify.Visible = true;
             // 

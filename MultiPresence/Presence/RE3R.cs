@@ -512,22 +512,6 @@ namespace MultiPresence.Presence
             return Hypervisor.Read<byte>(address, true);
         }
 
-        private static ulong Follow(ulong slot, params uint[] offsets)
-        {
-            var pointer = Pointer(slot);
-            foreach (var offset in offsets)
-            {
-                if (pointer == 0)
-                {
-                    return 0;
-                }
-
-                pointer = Pointer(pointer + offset);
-            }
-
-            return pointer;
-        }
-
         private static bool NativeObject(ulong address)
         {
             return address != 0 && Pointer(address + 0x10) != 0;

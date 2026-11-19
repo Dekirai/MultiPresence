@@ -12,7 +12,6 @@ WorldTransitionTable and BossChallengeTable provide explicit localization keys.
 For remaining worlds, ZoneEnvSpawnTable -> ZoneTable and ZoneCampTable provide
 an explicit region relationship. English strings are from the shipped
 SB/Content/Localization/Game/en/Game.archive.
-SB-provenance.json records the joins, example rows, resource hashes, and tools.
 These mappings describe regions, not nearest camps or exact room boundaries.
 Unknown maps retain their internal names rather than receiving a guessed label.
 

@@ -247,6 +247,28 @@ internal static class ConfigurationEditorCatalog
                 case "weapon": return "Handgun";
             }
         }
+        if (game == "residentevilrevelations")
+        {
+            switch (key)
+            {
+                case "character": return "Jill Valentine";
+                case "partner": return "Parker Luciani";
+                case "partnerdisplay": return " | Partner: Parker Luciani";
+                case "episode": return "1";
+                case "episodetitle": return "Into the Depths";
+                case "chapter": return "Episode 1 - Into the Depths";
+                case "difficulty": return "Infernal";
+                case "difficultydisplay": return " | Infernal";
+                case "location": return "Quarter Deck";
+                case "locationdisplay": return " | Quarter Deck";
+                case "objective": return "Search for Chris";
+                case "stage": return "Stage 2 - Beach";
+                case "stagenumber": return "Stage 2";
+                case "stagename": return "Beach";
+                case "level": return "3";
+                case "leveldisplay": return " (Lv. 3)";
+            }
+        }
         if (game == "residentevilrevelations2")
         {
             switch (key)
@@ -281,6 +303,54 @@ internal static class ConfigurationEditorCatalog
                 case "objectivename": return "Find the correct ema";
                 case "objectivecount": return "1";
                 case "objectivemaxcount": return "3";
+            }
+        }
+        if (game == "finalfantasyresonance")
+        {
+            switch (key)
+            {
+                case "character": return "Rain";
+                case "party": return "Lasswell";
+                case "partydisplay": return " | Party: Lasswell";
+                case "level": return "1";
+                case "nextlevel": return "28";
+                case "hp": return "228";
+                case "hpmax": return "270";
+                case "mp": return "35";
+                case "mpmax": return "35";
+                case "lb": return "0";
+                case "gil": return "1040";
+                case "difficulty": return "Normal";
+                case "chapter": return "Chapter 1 - Tailing the Truth";
+                case "chaptertitle": return "Tailing the Truth";
+                case "objective": return "Investigate the Earth Shrine";
+                case "location": return "Earth Shrine";
+            }
+        }
+        if (game == "visionsofmana")
+        {
+            switch (key)
+            {
+                case "character": return "Val";
+                case "class": return "Duelist";
+                case "party": return "Morley, Palamena";
+                case "partydisplay": return " | Party: Morley, Palamena";
+                case "level": return "12";
+                case "hp": return "290";
+                case "hpmax": return "290";
+                case "mp": return "30";
+                case "mpmax": return "30";
+                case "cs": return "20";
+                case "lucre": return "12503";
+                case "grizzlysyrup": return "59";
+                case "niccolocoins": return "12";
+                case "goldclovers": return "29";
+                case "difficulty": return "Normal";
+                case "chapter": return "Chapter 2 - Initiation";
+                case "chaptertitle": return "Initiation";
+                case "objective": return "Proceed further into the Luka Ruins.";
+                case "location": return "Luka Ruins";
+                case "region": return "Manadore Continent";
             }
         }
         if (description.StartsWith("Unavailable", StringComparison.OrdinalIgnoreCase)) return "";

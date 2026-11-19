@@ -1,6 +1,6 @@
 // English region labels joined from the installed game's data and localization tables.
 // These identify a world/region; they do not infer a nearby room or camp.
-// See SB-provenance.json and THIRD-PARTY-SB.txt.
+// See THIRD-PARTY-SB.txt.
 using System.Collections.Frozen;
 
 namespace MultiPresence.Models.SB
@@ -11,11 +11,6 @@ namespace MultiPresence.Models.SB
         {
             string name = NormalizeMapName(mapName);
             return Names.TryGetValue(name, out var english) ? english : name;
-        }
-
-        public static bool TryGetName(string? mapName, out string name)
-        {
-            return Names.TryGetValue(NormalizeMapName(mapName), out name!);
         }
 
         public static bool IsMenu(string? mapName)

@@ -24,6 +24,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        notify.Icon = Icon;
         Directory.SetCurrentDirectory(AppContext.BaseDirectory);
         InitializePresenceControls();
 

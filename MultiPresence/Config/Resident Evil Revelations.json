@@ -1,0 +1,54 @@
+{
+    "Games": {
+        "Resident Evil Revelations": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil Revelations",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Campaign": {
+                "Details": "{chapter}{difficultydisplay}",
+                "State": "{character}{partnerdisplay}{locationdisplay}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{objective}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Lobby": {
+                "Details": "Raid Mode: In Lobby",
+                "State": "{character}{leveldisplay}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Resident Evil Revelations",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "Raid Mode: {stage}{difficultydisplay}",
+                "State": "{character}{leveldisplay}{partnerdisplay}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "{location}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

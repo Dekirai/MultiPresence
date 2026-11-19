@@ -38,7 +38,7 @@ namespace MultiPresence.Presence
 
             if (ProcessMonitor.IsRunning("eldenring"))
             {
-                int maxhp = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
+                int maxhp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x13C]), true);
 
                 try
                 {
@@ -88,9 +88,9 @@ namespace MultiPresence.Presence
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
             string nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0x9C]), 20, true, null, true);
-            int clearcount = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03D5DF38, [0x120]), true);
+            int clearcount = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x120]), true);
             int archetype = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0xBF]), true);
-            int deaths = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x03D5DF38, [0x94]), true);
+            int deaths = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x94]), true);
             int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0x68]), true);
             int souls = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03D5DF38, [0x8, 0x6C]), true);
             int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x03B12E30, [0x0, 0x190, 0x0, 0x138]), true);

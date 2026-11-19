@@ -18,7 +18,7 @@
                 "State": "HP: {hp}/{hpmax}",
                 "LargeAsset": "{world_icon_name}",
                 "SmallAsset": "battle",
-                "LargeAssetText": "{world} - {room}",
+                "LargeAssetText": "{world}",
                 "SmallAssetText": "In Battle",
                 "Button1Text": "",
                 "Button1URL": "",

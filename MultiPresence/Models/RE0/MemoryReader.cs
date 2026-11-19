@@ -115,6 +115,5 @@ namespace MultiPresence.Models.RE0
         private static int ReadInt(ulong address) => Hypervisor.Read<int>(address, true);
         private static uint ReadUInt(ulong address) => Hypervisor.Read<uint>(address, true);
         private static byte ReadByte(ulong address) => Hypervisor.Read<byte>(address, true);
-        private static byte[] Bytes(ulong address, int count) => Hypervisor.ReadArray(address, count, true);
     }
 }

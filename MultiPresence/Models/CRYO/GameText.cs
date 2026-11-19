@@ -12,11 +12,6 @@ namespace MultiPresence.Models.CRYO
             return Difficulties.TryGetValue(id, out var value) ? value : "";
         }
 
-        public static string GetObjectiveType(int id)
-        {
-            return ObjectiveTypes.TryGetValue(id, out var value) ? value : "";
-        }
-
         public static string GetText(string key)
         {
             return Texts.TryGetValue(key, out var value) ? value : "";
@@ -45,13 +40,6 @@ namespace MultiPresence.Models.CRYO
             { 1, "Normal" },
             { 2, "Hard" },
             { 3, "Hell" },
-        };
-
-        private static readonly Dictionary<int, string> ObjectiveTypes = new Dictionary<int, string>
-        {
-            { 0, "Primary" },
-            { 1, "Escape" },
-            { 2, "Side" },
         };
 
         private static readonly Dictionary<string, string> ContractTitleKeys = new Dictionary<string, string>(StringComparer.Ordinal)

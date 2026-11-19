@@ -2,13 +2,6 @@ namespace MultiPresence.Models.REV2
 {
     public class Stages
     {
-        public static Task<string[]> GetStage(int stage)
-        {
-            string[] result = stage == 0x07D0 ? ["Raid Mode", "In Lobby"]
-                : IsRaidMission(stage) ? ["Raid Mode", ""] : ["", ""];
-            return Task.FromResult(result);
-        }
-
         internal static bool IsRaidMission(int stage)
         {
             switch (stage)

@@ -2591,24 +2591,6 @@ namespace MultiPresence.Models.FFXVI
             return VisibleSequences.TryGetValue((questId, sequenceId), out var visibleSequence) ? visibleSequence : 0;
         }
 
-        public static string GetTrackedObjective(int questId, int sequenceId)
-        {
-            return GetObjective(questId, GetVisibleSequenceId(questId, sequenceId));
-        }
-
-        public static int GetChapterId(int questId, int sequenceId)
-        {
-            foreach (var chapter in Chapters)
-            {
-                if (chapter.Quest == questId && sequenceId >= chapter.Start && sequenceId < chapter.End)
-                {
-                    return chapter.Id;
-                }
-            }
-
-            return 0;
-        }
-
         public static string GetChapterName(int questId, int sequenceId)
         {
             foreach (var chapter in Chapters)

@@ -45,7 +45,7 @@ namespace MultiPresence.Presence
                     if (_maxhealth > 0)
                     {
                         var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Granblue Fantasy: Relink", placeholders);
+                        PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Granblue Fantasy Relink", placeholders);
                     }
                     else
                     {

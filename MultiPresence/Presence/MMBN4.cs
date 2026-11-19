@@ -12,7 +12,7 @@ namespace MultiPresence.Presence
         public static void DoAction()
         {
             GetPID();
-            discord = new DiscordRpcClient("1435202230553673728");
+            discord = new DiscordRpcClient("1434621259463004341");
             InitializeDiscord();
             updater = new DiscordStatusUpdater("Assets/config/Mega Man Battle Network 4.json");
             PresenceRuntime.Start(nameof(MMBN4), "MMBN_LC2", RPC);

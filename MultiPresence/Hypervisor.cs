@@ -1,5 +1,4 @@
 using Microsoft.Win32.SafeHandles;
-using System.Buffers;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -9,7 +8,7 @@ using System.Text;
 namespace MultiPresence;
 
 /// <summary>
-/// Thread-safe compatibility facade for the Hypervisor process-memory library.
+/// Thread-safe, read-only facade for reading game process memory.
 /// A single session is sufficient because MultiPresence runs one game integration at a time.
 /// </summary>
 public static class Hypervisor
@@ -18,9 +17,8 @@ public static class Hypervisor
     private static readonly AsyncLocal<HypervisorSession?> ScopedSession = new();
     private static HypervisorSession? _session;
 
-    public static Process? Process => WithSession(static session => session.Process);
+    public static Process? Process => WithSession(static session => session.CurrentProcess);
     public static ulong PureAddress => WithSession(static session => session.MainModuleAddress);
-    public static ulong MemoryOffset => PureAddress & 0x7FFF00000000;
     public static bool IsAttached => WithOptionalSession(static session => session.IsAlive, false);
 
     public static void AttachProcess(Process input)
@@ -81,22 +79,6 @@ public static class Hypervisor
         where T : struct =>
         WithSession(session => session.ReadArray<T>(address, size, absolute, moduleName));
 
-    public static void Write<T>(ulong address, T value, bool absolute = false, string? moduleName = null)
-        where T : struct =>
-        WithSession(session =>
-        {
-            session.Write(address, value, absolute, moduleName);
-            return true;
-        });
-
-    public static void Write<T>(ulong address, T[] value, bool absolute = false, string? moduleName = null)
-        where T : struct =>
-        WithSession(session =>
-        {
-            session.WriteArray(address, value, absolute, moduleName);
-            return true;
-        });
-
     public static string ReadString(
         ulong address,
         int length,
@@ -105,27 +87,8 @@ public static class Hypervisor
         bool isUnicode = false) =>
         WithSession(session => session.ReadString(address, length, absolute, moduleName, isUnicode));
 
-    public static void WriteString(
-        ulong address,
-        string value,
-        bool absolute = false,
-        string? moduleName = null,
-        bool isUnicode = false) =>
-        WithSession(session =>
-        {
-            session.WriteString(address, value, absolute, moduleName, isUnicode);
-            return true;
-        });
-
     public static byte[] ReadArray(ulong address, int length, bool absolute = false) =>
         WithSession(session => session.ReadBytes(address, length, absolute));
-
-    public static void WriteArray(ulong address, byte[] value, bool absolute = false) =>
-        WithSession(session =>
-        {
-            session.WriteBytes(address, value, absolute);
-            return true;
-        });
 
     public static ulong GetPointer64(
         ulong address,
@@ -141,36 +104,13 @@ public static class Hypervisor
         string? moduleName = null) =>
         WithSession(session => session.GetPointer32(address, offsets, absolute, moduleName));
 
-    public static IntPtr FindSignature(string input) =>
-        WithSession(session => session.FindSignature(input));
-
-    public static void RedirectInstruction(ulong address, uint destination, bool absolute = false)
-    {
-        var instructionEnd = checked((uint)address + 0x07);
-        var displacement = destination - instructionEnd;
-        WriteArray(address + 0x03, BitConverter.GetBytes(displacement), absolute);
-    }
-
-    public static void DeleteInstruction(ulong address, int length, bool absolute = false)
-    {
-        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(length);
-        WriteArray(address, Enumerable.Repeat((byte)0x90, length).ToArray(), absolute);
-    }
-
-    public static void UnlockBlock(ulong address, bool absolute = false, string? moduleName = null) =>
-        WithSession(session =>
-        {
-            session.UnlockBlock(address, absolute, moduleName);
-            return true;
-        });
-
     internal static int FindPattern(ReadOnlySpan<byte> data, string signature) =>
         SignaturePattern.Parse(signature).IndexOf(data);
 
     internal static IDisposable UseProcessScope(Process process)
     {
         var previous = ScopedSession.Value;
-        var session = HypervisorSession.Attach(process, readOnly: true);
+        var session = HypervisorSession.Attach(process);
         ScopedSession.Value = session;
         return new ProcessScope(session, previous);
     }
@@ -245,35 +185,51 @@ public static class Hypervisor
 
 internal sealed class HypervisorSession : IDisposable
 {
-    private const int ScanChunkSize = 1024 * 1024;
+    private static readonly TimeSpan ModuleRefreshInterval = TimeSpan.FromSeconds(5);
     private readonly SafeProcessHandle _handle;
-    private readonly Dictionary<string, ulong> _moduleBaseAddresses;
+    private readonly object _moduleSync = new();
+    private Dictionary<string, ulong> _moduleBaseAddresses;
+    private DateTime _nextProcessRefresh;
+    private DateTime _nextModuleScan;
     private bool _disposed;
 
-    private HypervisorSession(Process process, SafeProcessHandle handle, bool canWrite)
+    private HypervisorSession(Process process, SafeProcessHandle handle)
     {
         Process = process;
         _handle = handle;
-        CanWrite = canWrite;
 
         var mainModule = process.MainModule
             ?? throw new InvalidOperationException($"Unable to resolve the main module for process {process.Id}.");
 
         MainModuleAddress = unchecked((ulong)mainModule.BaseAddress.ToInt64());
-        _moduleBaseAddresses = new Dictionary<string, ulong>(StringComparer.OrdinalIgnoreCase);
-
-        foreach (ProcessModule module in process.Modules)
-        {
-            if (!string.IsNullOrWhiteSpace(module.ModuleName))
-            {
-                _moduleBaseAddresses[module.ModuleName] = unchecked((ulong)module.BaseAddress.ToInt64());
-            }
-        }
+        _moduleBaseAddresses = LoadModules(process);
+        _nextProcessRefresh = DateTime.UtcNow + ModuleRefreshInterval;
+        _nextModuleScan = _nextProcessRefresh;
     }
 
     public Process Process { get; }
     public ulong MainModuleAddress { get; }
-    public bool CanWrite { get; }
+
+    /// <summary>
+    /// The attached process with its cached information (for example <see cref="Process.Modules"/>) refreshed
+    /// every few seconds, so DLLs that a game loads after the attach are found by later polls.
+    /// </summary>
+    public Process CurrentProcess
+    {
+        get
+        {
+            lock (_moduleSync)
+            {
+                if (DateTime.UtcNow >= _nextProcessRefresh)
+                {
+                    _nextProcessRefresh = DateTime.UtcNow + ModuleRefreshInterval;
+                    Process.Refresh();
+                }
+            }
+
+            return Process;
+        }
+    }
 
     public bool IsAlive
     {
@@ -299,7 +255,7 @@ internal sealed class HypervisorSession : IDisposable
         }
     }
 
-    public static HypervisorSession Attach(Process input, bool readOnly = false)
+    public static HypervisorSession Attach(Process input)
     {
         int processId;
         try
@@ -311,23 +267,10 @@ internal sealed class HypervisorSession : IDisposable
             throw new InvalidOperationException("The target process is no longer available.", exception);
         }
 
-        var access = ProcessAccess.QueryInformation | ProcessAccess.VirtualMemoryRead;
-        if (!readOnly)
-        {
-            access |= ProcessAccess.VirtualMemoryWrite | ProcessAccess.VirtualMemoryOperation;
-        }
-        var handle = NativeMethods.OpenProcess(access, false, processId);
-        var canWrite = !readOnly;
-
-        if (handle.IsInvalid)
-        {
-            handle.Dispose();
-            canWrite = false;
-            handle = NativeMethods.OpenProcess(
-                ProcessAccess.QueryInformation | ProcessAccess.VirtualMemoryRead,
-                false,
-                processId);
-        }
+        var handle = NativeMethods.OpenProcess(
+            ProcessAccess.QueryInformation | ProcessAccess.VirtualMemoryRead,
+            false,
+            processId);
 
         if (handle.IsInvalid)
         {
@@ -340,7 +283,7 @@ internal sealed class HypervisorSession : IDisposable
 
         try
         {
-            return new HypervisorSession(Process.GetProcessById(processId), handle, canWrite);
+            return new HypervisorSession(Process.GetProcessById(processId), handle);
         }
         catch
         {
@@ -395,30 +338,6 @@ internal sealed class HypervisorSession : IDisposable
         return result;
     }
 
-    public void Write<T>(ulong address, T value, bool absolute, string? moduleName)
-        where T : struct
-    {
-        var bytes = new byte[TypeSize<T>()];
-        MemoryMarshal.Write(bytes.AsSpan(), in value);
-        WriteExact(ResolveAddress(address, absolute, moduleName), bytes);
-    }
-
-    public void WriteArray<T>(ulong address, T[] values, bool absolute, string? moduleName)
-        where T : struct
-    {
-        ArgumentNullException.ThrowIfNull(values);
-        var elementSize = TypeSize<T>();
-        var bytes = new byte[checked(elementSize * values.Length)];
-
-        for (var index = 0; index < values.Length; index++)
-        {
-            var value = values[index];
-            MemoryMarshal.Write(bytes.AsSpan(index * elementSize, elementSize), in value);
-        }
-
-        WriteExact(ResolveAddress(address, absolute, moduleName), bytes);
-    }
-
     public string ReadString(ulong address, int length, bool absolute, string? moduleName, bool isUnicode)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(length);
@@ -434,14 +353,6 @@ internal sealed class HypervisorSession : IDisposable
             .TrimEnd('\0');
     }
 
-    public void WriteString(ulong address, string value, bool absolute, string? moduleName, bool isUnicode)
-    {
-        ArgumentNullException.ThrowIfNull(value);
-        var encoding = isUnicode ? Encoding.Unicode : Encoding.UTF8;
-        var bytes = encoding.GetBytes(value + '\0');
-        WriteExact(ResolveAddress(address, absolute, moduleName), bytes);
-    }
-
     public byte[] ReadBytes(ulong address, int length, bool absolute)
     {
         ArgumentOutOfRangeException.ThrowIfNegative(length);
@@ -452,12 +363,6 @@ internal sealed class HypervisorSession : IDisposable
         }
 
         return bytes;
-    }
-
-    public void WriteBytes(ulong address, byte[] value, bool absolute)
-    {
-        ArgumentNullException.ThrowIfNull(value);
-        WriteExact(ResolveAddress(address, absolute, null), value);
     }
 
     public ulong GetPointer64(ulong address, uint[]? offsets, bool absolute, string? moduleName)
@@ -510,57 +415,6 @@ internal sealed class HypervisorSession : IDisposable
         return checked(pointer + offsets[^1]);
     }
 
-    public IntPtr FindSignature(string signature)
-    {
-        var pattern = SignaturePattern.Parse(signature);
-        ulong currentAddress = 0;
-        var informationSize = (nuint)Marshal.SizeOf<MemoryBasicInformation>();
-
-        while (NativeMethods.VirtualQueryEx(
-                   _handle,
-                   ToIntPtr(currentAddress),
-                   out var information,
-                   informationSize) != 0)
-        {
-            var baseAddress = unchecked((ulong)information.BaseAddress.ToInt64());
-            var regionSize = information.RegionSize.ToUInt64();
-
-            if (information.State == MemoryState.Commit && IsReadable(information.Protect))
-            {
-                var result = ScanRegion(baseAddress, regionSize, pattern);
-                if (result is { } match)
-                {
-                    return ToIntPtr(match);
-                }
-            }
-
-            var nextAddress = baseAddress + regionSize;
-            if (nextAddress <= currentAddress)
-            {
-                break;
-            }
-
-            currentAddress = nextAddress;
-        }
-
-        throw new InvalidDataException($"Signature was not found in process {Process.Id}: {signature}");
-    }
-
-    public void UnlockBlock(ulong address, bool absolute, string? moduleName)
-    {
-        EnsureWritable();
-        var resolved = ResolveAddress(address, absolute, moduleName);
-        if (!NativeMethods.VirtualProtectEx(
-                _handle,
-                ToIntPtr(resolved),
-                0x100000,
-                MemoryProtection.ExecuteReadWrite,
-                out _))
-        {
-            throw MemoryAccessException.FromLastWin32Error("Could not change memory protection", resolved);
-        }
-    }
-
     public void Dispose()
     {
         if (_disposed)
@@ -571,74 +425,6 @@ internal sealed class HypervisorSession : IDisposable
         _disposed = true;
         _handle.Dispose();
         Process.Dispose();
-    }
-
-    private ulong? ScanRegion(ulong baseAddress, ulong regionSize, SignaturePattern pattern)
-    {
-        var overlap = Math.Max(0, pattern.Length - 1);
-        var rented = ArrayPool<byte>.Shared.Rent(ScanChunkSize + overlap);
-        var carried = 0;
-        ulong offset = 0;
-
-        try
-        {
-            while (offset < regionSize)
-            {
-                var requested = (int)Math.Min((ulong)ScanChunkSize, regionSize - offset);
-                var destination = rented.AsSpan(carried, requested);
-                var bytesRead = ReadAvailable(checked(baseAddress + offset), destination);
-                if (bytesRead <= 0)
-                {
-                    carried = 0;
-                    offset += (ulong)requested;
-                    continue;
-                }
-
-                var searchable = rented.AsSpan(0, carried + bytesRead);
-                var index = pattern.IndexOf(searchable);
-                if (index >= 0)
-                {
-                    return checked(baseAddress + offset - (ulong)carried + (ulong)index);
-                }
-
-                carried = Math.Min(overlap, searchable.Length);
-                if (carried > 0)
-                {
-                    searchable[^carried..].CopyTo(rented);
-                }
-
-                offset += (ulong)requested;
-            }
-
-            return null;
-        }
-        finally
-        {
-            ArrayPool<byte>.Shared.Return(rented);
-        }
-    }
-
-    private int ReadAvailable(ulong address, Span<byte> destination)
-    {
-        unsafe
-        {
-            fixed (byte* buffer = destination)
-            {
-                var success = NativeMethods.ReadProcessMemory(
-                    _handle,
-                    ToIntPtr(address),
-                    buffer,
-                    (nuint)destination.Length,
-                    out var bytesRead);
-
-                if (!success && bytesRead == 0)
-                {
-                    return 0;
-                }
-
-                return checked((int)bytesRead);
-            }
-        }
     }
 
     private void ReadExact(ulong address, Span<byte> destination)
@@ -670,36 +456,6 @@ internal sealed class HypervisorSession : IDisposable
         }
     }
 
-    private void WriteExact(ulong address, ReadOnlySpan<byte> source)
-    {
-        ThrowIfUnavailable();
-        EnsureWritable();
-        if (source.Length == 0)
-        {
-            return;
-        }
-
-        unsafe
-        {
-            fixed (byte* buffer = source)
-            {
-                var success = NativeMethods.WriteProcessMemory(
-                    _handle,
-                    ToIntPtr(address),
-                    buffer,
-                    (nuint)source.Length,
-                    out var bytesWritten);
-
-                if (!success || bytesWritten != (nuint)source.Length)
-                {
-                    throw MemoryAccessException.FromLastWin32Error(
-                        $"Expected to write {source.Length} bytes but wrote {bytesWritten}",
-                        address);
-                }
-            }
-        }
-    }
-
     private ulong ResolveAddress(ulong address, bool absolute, string? moduleName)
     {
         if (absolute)
@@ -708,8 +464,7 @@ internal sealed class HypervisorSession : IDisposable
         }
 
         var baseAddress = MainModuleAddress;
-        if (!string.IsNullOrWhiteSpace(moduleName) &&
-            !_moduleBaseAddresses.TryGetValue(moduleName, out baseAddress))
+        if (!string.IsNullOrWhiteSpace(moduleName) && !TryGetModuleBase(moduleName, out baseAddress))
         {
             throw new KeyNotFoundException(
                 $"Module '{moduleName}' is not loaded in process {Process.ProcessName} ({Process.Id}).");
@@ -718,21 +473,48 @@ internal sealed class HypervisorSession : IDisposable
         return checked(baseAddress + address);
     }
 
+    private bool TryGetModuleBase(string moduleName, out ulong baseAddress)
+    {
+        lock (_moduleSync)
+        {
+            if (_moduleBaseAddresses.TryGetValue(moduleName, out baseAddress))
+            {
+                return true;
+            }
+
+            if (DateTime.UtcNow < _nextModuleScan)
+            {
+                return false;
+            }
+
+            // Games such as Unity titles load their DLLs after the process starts; look again before giving up.
+            _nextModuleScan = DateTime.UtcNow + ModuleRefreshInterval;
+            Process.Refresh();
+            _moduleBaseAddresses = LoadModules(Process);
+            return _moduleBaseAddresses.TryGetValue(moduleName, out baseAddress);
+        }
+    }
+
+    private static Dictionary<string, ulong> LoadModules(Process process)
+    {
+        var modules = new Dictionary<string, ulong>(StringComparer.OrdinalIgnoreCase);
+        foreach (ProcessModule module in process.Modules)
+        {
+            if (!string.IsNullOrWhiteSpace(module.ModuleName))
+            {
+                modules[module.ModuleName] = unchecked((ulong)module.BaseAddress.ToInt64());
+            }
+        }
+
+        return modules;
+    }
+
     private void ThrowIfUnavailable()
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
         if (!IsAlive)
         {
             throw new InvalidOperationException($"Process {Process.Id} is no longer running.");
-        }
-    }
-
-    private void EnsureWritable()
-    {
-        if (!CanWrite)
-        {
-            throw new UnauthorizedAccessException(
-                "The process was attached in read-only mode; writing memory is not permitted.");
         }
     }
 
@@ -753,24 +535,6 @@ internal sealed class HypervisorSession : IDisposable
     {
         var type = typeof(T);
         return Marshal.SizeOf(type.IsEnum ? Enum.GetUnderlyingType(type) : type);
-    }
-
-    private static bool IsReadable(MemoryProtection protection)
-    {
-        if ((protection & (MemoryProtection.Guard | MemoryProtection.NoAccess)) != 0)
-        {
-            return false;
-        }
-
-        const MemoryProtection readable =
-            MemoryProtection.ReadOnly |
-            MemoryProtection.ReadWrite |
-            MemoryProtection.WriteCopy |
-            MemoryProtection.ExecuteRead |
-            MemoryProtection.ExecuteReadWrite |
-            MemoryProtection.ExecuteWriteCopy;
-
-        return (protection & readable) != 0;
     }
 
     private static IntPtr ToIntPtr(ulong address) => unchecked((IntPtr)(long)address);
@@ -861,41 +625,8 @@ public sealed class MemoryAccessException : IOException
 [Flags]
 internal enum ProcessAccess : uint
 {
-    VirtualMemoryOperation = 0x0008,
     VirtualMemoryRead = 0x0010,
-    VirtualMemoryWrite = 0x0020,
     QueryInformation = 0x0400
-}
-
-internal enum MemoryState : uint
-{
-    Commit = 0x1000
-}
-
-[Flags]
-internal enum MemoryProtection : uint
-{
-    NoAccess = 0x01,
-    ReadOnly = 0x02,
-    ReadWrite = 0x04,
-    WriteCopy = 0x08,
-    ExecuteRead = 0x20,
-    ExecuteReadWrite = 0x40,
-    ExecuteWriteCopy = 0x80,
-    Guard = 0x100
-}
-
-[StructLayout(LayoutKind.Sequential)]
-internal struct MemoryBasicInformation
-{
-    public IntPtr BaseAddress;
-    public IntPtr AllocationBase;
-    public MemoryProtection AllocationProtect;
-    public ushort PartitionId;
-    public UIntPtr RegionSize;
-    public MemoryState State;
-    public MemoryProtection Protect;
-    public uint Type;
 }
 
 internal static partial class NativeMethods
@@ -914,29 +645,4 @@ internal static partial class NativeMethods
         void* buffer,
         nuint size,
         out nuint bytesRead);
-
-    [LibraryImport("kernel32.dll", SetLastError = true)]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    internal static unsafe partial bool WriteProcessMemory(
-        SafeProcessHandle process,
-        IntPtr baseAddress,
-        void* buffer,
-        nuint size,
-        out nuint bytesWritten);
-
-    [LibraryImport("kernel32.dll", SetLastError = true)]
-    internal static partial nuint VirtualQueryEx(
-        SafeProcessHandle process,
-        IntPtr address,
-        out MemoryBasicInformation information,
-        nuint informationLength);
-
-    [LibraryImport("kernel32.dll", SetLastError = true)]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    internal static partial bool VirtualProtectEx(
-        SafeProcessHandle process,
-        IntPtr address,
-        nuint size,
-        MemoryProtection newProtection,
-        out MemoryProtection oldProtection);
 }

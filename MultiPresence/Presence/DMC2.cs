@@ -39,7 +39,6 @@ namespace MultiPresence.Presence
 
             if (ProcessMonitor.IsRunning("dmc2"))
             {
-                float maxhealth = Hypervisor.Read<float>(0x046DE36C, true);
                 int menuflag = Hypervisor.Read<byte>(0x1588C10);
 
                 if (menuflag == 3)

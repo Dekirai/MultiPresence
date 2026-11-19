@@ -1,10 +1,9 @@
 using MultiPresence.Infrastructure;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace MultiPresence;
 
-public static partial class GameDetector
+public static class GameDetector
 {
     private static readonly IReadOnlyList<(string ProcessName, string GameName)> GameProcessMap =
     [
@@ -29,6 +28,7 @@ public static partial class GameDetector
         ("DivaMegaMix", "Project Diva Mega Mix+"),
         ("ff7remake_", "Final Fantasy VII Remake"),
         ("ff7rebirth_", "Final Fantasy VII Rebirth"),
+        ("FFRS-Win64-Shipping", "FINAL FANTASY RESONANCE"),
         ("ffx", "Final Fantasy X"),
         ("ffxv_s", "Final Fantasy XV"),
         ("ffxvi", "Final Fantasy XVI"),
@@ -66,6 +66,7 @@ public static partial class GameDetector
         ("re7", "Resident Evil 7"),
         ("re8", "Resident Evil 8"),
         ("re9", "Resident Evil Requiem"),
+        ("rerev", "Resident Evil Revelations"),
         ("rerev2", "Resident Evil Revelations 2"),
         ("scott", "Scott Pilgrim vs The World"),
         ("smt3hd", "Shin Megami Tensei III"),
@@ -81,22 +82,9 @@ public static partial class GameDetector
         ("TY", "TY the Tasmanian Tiger"),
         ("Vampire Crawlers", "Vampire Crawlers"),
         ("VampireSurvivors", "Vampire Survivors"),
+        ("VisionsofMana-Win64-Shipping", "Visions of Mana"),
         ("ys1plus", "Ys I Chronicles")
     ];
-
-    private static readonly Dictionary<string, string> CemuTitleMap = new(StringComparer.OrdinalIgnoreCase)
-    {
-        ["10143600"] = "Zelda: The Wind Waker HD",
-        ["10143599"] = "Zelda: The Wind Waker HD",
-        ["10143500"] = "Zelda: The Wind Waker HD",
-        ["1019e500"] = "Zelda: Twilight Princess HD",
-        ["1019e600"] = "Zelda: Twilight Princess HD"
-    };
-
-    public static string GetGame() => Detect()?.GameName ?? string.Empty;
-
-    public static DetectedGame? Detect()
-        => DetectAll().FirstOrDefault();
 
     public static IReadOnlyList<DetectedGame> DetectAll(DetectedGame? activeGame = null)
     {
@@ -143,11 +131,6 @@ public static partial class GameDetector
             if (processes.TryGetValue("SRX", out var soulReaver) && DetectMemoryGame(soulReaver, activeGame, DetectSoulReaverGame) is { } soulReaverGame)
             {
                 games.Add(new DetectedGame(soulReaverGame, "SRX", soulReaver.Id));
-            }
-
-            if (processes.TryGetValue("Cemu", out var cemu) && DetectCemuGame(cemu) is { } cemuGame)
-            {
-                games.Add(new DetectedGame(cemuGame, "Cemu", cemu.Id));
             }
 
             if (processes.TryGetValue("MMBN_LC1", out var mmbn1) && DetectMemoryGame(mmbn1, activeGame, DetectMmbn1Game) is { } mmbn1Game)
@@ -203,40 +186,6 @@ public static partial class GameDetector
 
         return Models.SR2.MemoryReader.IsSoulReaver2() ? "Legacy of Kain Soul Reaver 2" : null;
     });
-
-    private static string? DetectCemuGame(Process process)
-    {
-        var title = SafeWindowTitle(process);
-        if (TryGetCemuGame(title, out var game))
-        {
-            return game;
-        }
-        if (!title.Contains("TitleId", StringComparison.OrdinalIgnoreCase))
-        {
-            return null;
-        }
-
-        return WithMemory(process, () =>
-        {
-            var address = unchecked((ulong)Hypervisor.FindSignature(
-                "54 69 74 6C 65 49 64 3A 20 30 30 30 35 30 30 30 30 ?? ?? ?? ?? ?? ?? ?? ?? ?? 0D 0A 5B").ToInt64());
-            var data = Hypervisor.ReadString(address, 32, true);
-            TryGetCemuGame(data, out var detectedGame);
-            return detectedGame;
-        });
-    }
-
-    internal static bool TryGetCemuGame(string title, out string? game)
-    {
-        game = null;
-        var match = CemuTitleIdRegex().Match(title);
-        if (!match.Success)
-        {
-            return false;
-        }
-        CemuTitleMap.TryGetValue(match.Groups[1].Value, out game);
-        return true;
-    }
 
     private static string? DetectMmbn1Game(Process process) => WithMemory(process, () =>
         Hypervisor.Read<byte>(0x987499C) switch
@@ -313,9 +262,6 @@ public static partial class GameDetector
             return string.Empty;
         }
     }
-
-    [GeneratedRegex(@"\bTitleId\s*:\s*(?:[0-9a-f]{8}[-\s]?)?([0-9a-f]{8})(?![0-9a-f])", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase)]
-    private static partial Regex CemuTitleIdRegex();
 }
 
 public sealed record DetectedGame(string GameName, string ProcessName, int ProcessId);

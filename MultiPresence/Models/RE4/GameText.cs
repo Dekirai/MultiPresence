@@ -6,19 +6,14 @@ namespace MultiPresence.Models.RE4
             .Select(stage => Stages.GetStage(stage).GetAwaiter().GetResult())
             .ToArray();
 
-        private static readonly string[][] GermanRooms = Enumerable.Range(0, 6)
-            .Select(stage => Stages.GetStageDE(stage).GetAwaiter().GetResult())
-            .ToArray();
-
-        public static string GetRoom(int stage, int room, bool german = false)
+        public static string GetRoom(int stage, int room)
         {
-            string[][] stages = german ? GermanRooms : Rooms;
-            if (stage < 0 || stage >= stages.Length || room < 0 || room >= stages[stage].Length)
+            if (stage < 0 || stage >= Rooms.Length || room < 0 || room >= Rooms[stage].Length)
             {
                 return string.Empty;
             }
 
-            string name = stages[stage][room];
+            string name = Rooms[stage][room];
             return string.IsNullOrWhiteSpace(name) ? string.Empty : name;
         }
 

@@ -9,11 +9,6 @@ namespace MultiPresence.Models.RE9
             return Names.GetValueOrDefault(id) ?? string.Empty;
         }
 
-        public static bool TryGet(Guid id, out string text)
-        {
-            return Names.TryGetValue(id, out text!);
-        }
-
         public static string GetItemName(string id)
         {
             return ItemNames.GetValueOrDefault(id) ?? id;

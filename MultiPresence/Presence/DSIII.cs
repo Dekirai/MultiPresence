@@ -88,9 +88,9 @@ namespace MultiPresence.Presence
         private static async Task<Dictionary<string, object>> GeneratePlaceholders()
         {
             string nickname = Hypervisor.ReadString(Hypervisor.GetPointer64(0x047572B8, [0x10, 0x88]), 20, true, null, true);
-            int clearcount = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x047572B8, [0x78]), true);
-            int archetype = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x016148F0, [0xA8, 0xC0, 0x64]), true);
-            int deaths = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x047572B8, [0x98]), true);
+            int clearcount = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x047572B8, [0x78]), true);
+            int archetype = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x047572B8, [0x10, 0xAE]), true);
+            int deaths = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x047572B8, [0x98]), true);
             int level = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x047572B8, [0x10, 0x70]), true);
             int souls = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x047572B8, [0x10, 0x74]), true);
             int hp = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x04543F60, [0x28, 0x3A0, 0x70, 0x90]), true);

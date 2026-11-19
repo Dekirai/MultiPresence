@@ -9,16 +9,6 @@ namespace MultiPresence.Models.RE9
             return Places.TryGetValue(id, out var p) ? (p.Room.Length == 0 ? p.Area : p.Area.Length == 0 ? p.Room : p.Area + " / " + p.Room) : string.Empty;
         }
 
-        public static string GetArea(string id)
-        {
-            return Places.TryGetValue(id, out var p) ? p.Area : string.Empty;
-        }
-
-        public static string GetRoom(string id)
-        {
-            return Places.TryGetValue(id, out var p) ? p.Room : string.Empty;
-        }
-
         private static readonly FrozenDictionary<string, (string Area, string Room)> Places = new Dictionary<string, (string Area, string Room)>(StringComparer.Ordinal)
         {
             { "Place_0000", ("Wrenwood", "Main Street") },

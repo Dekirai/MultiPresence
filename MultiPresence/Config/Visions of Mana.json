@@ -1,0 +1,30 @@
+{
+    "Games": {
+        "Visions of Mana": {
+            "Default": {
+                "Details": "In Main Menu",
+                "State": "",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Visions of Mana",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Ingame": {
+                "Details": "{character} ({class}) - Lv. {level}",
+                "State": "{location} | {objective}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "HP {hp}/{hpmax} | MP {mp}/{mpmax} | CS {cs}% | {lucre} Lucre",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            }
+        }
+    }
+}

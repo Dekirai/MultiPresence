@@ -146,11 +146,6 @@ public sealed class DiscordStatusUpdater : IDisposable
         _reloadTimer?.Dispose();
     }
 
-    internal static string ApplyPlaceholders(
-        string? template,
-        IReadOnlyDictionary<string, object> placeholders) =>
-        TemplateRenderer.Render(template, placeholders);
-
     private string Render(
         string gameName,
         string state,
@@ -196,7 +191,8 @@ public sealed class DiscordStatusUpdater : IDisposable
                     CommentHandling = JsonCommentHandling.Skip
                 });
 
-                if (!document.RootElement.TryGetProperty("Games", out var gamesElement) ||
+                if (document.RootElement.ValueKind != JsonValueKind.Object ||
+                    !document.RootElement.TryGetProperty("Games", out var gamesElement) ||
                     gamesElement.ValueKind != JsonValueKind.Object)
                 {
                     throw new InvalidDataException("The configuration must contain a 'Games' object.");
@@ -229,7 +225,8 @@ public sealed class DiscordStatusUpdater : IDisposable
                 _games = games.ToFrozenDictionary(StringComparer.OrdinalIgnoreCase);
                 AppLog.Information($"Loaded presence configuration '{_configPath}'.");
             }
-            catch (Exception exception) when (exception is IOException or JsonException or InvalidDataException)
+            catch (Exception exception) when (exception is IOException or JsonException or InvalidDataException or
+                InvalidOperationException or UnauthorizedAccessException)
             {
                 AppLog.Warning(
                     $"Presence configuration '{_configPath}' is invalid; the last valid version remains active.",

@@ -747,11 +747,6 @@ namespace MultiPresence.Models.FFXVI
             return Names.TryGetValue(placeId, out var name) ? name : string.Empty;
         }
 
-        public static string GetPlaceName(int placeId)
-        {
-            return GetName(placeId);
-        }
-
         public static string GetRegion(int placeId)
         {
             return Regions.TryGetValue(placeId, out var name) ? name : string.Empty;
@@ -760,11 +755,6 @@ namespace MultiPresence.Models.FFXVI
         public static int GetAreaPlaceId(int areaId)
         {
             return Areas.TryGetValue(areaId, out var placeId) ? placeId : 0;
-        }
-
-        public static string GetAreaName(int areaId)
-        {
-            return GetName(GetAreaPlaceId(areaId));
         }
 
         public static int GetMapPlaceId(int mapId, int subId = 0)

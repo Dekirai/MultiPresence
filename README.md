@@ -112,6 +112,7 @@ Default templates are included in the executable. Release archives do not contai
 | Disney Dreamlight Valley ¹                  | [Steam](https://store.steampowered.com/app/1401590/Disney_Dreamlight_Valley/)                                                    |                                      |
 | DmC Devil May Cry                           | [Steam](https://store.steampowered.com/app/220440/DmC_Devil_May_Cry/)                                                            | Only base game tested                |
 | Elden Ring                                  | [Steam](https://store.steampowered.com/app/1245620/ELDEN_RING/)                                                                  | Only with EAC disabled               |
+| FINAL FANTASY RESONANCE ¹                   | [Steam](https://store.steampowered.com/app/3259780/)                                                                             |                                      |
 | Final Fantasy VII Rebirth ¹                 | [Steam](https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/)                                                   |                                      |
 | Final Fantasy VII Remake ¹                  | [Steam](https://store.steampowered.com/app/1462040/FINAL_FANTASY_VII_REMAKE_INTERGRADE/)                                         |                                      |
 | Final Fantasy X                             | [Steam](https://store.steampowered.com/app/359870/FINAL_FANTASY_XX2_HD_Remaster/)                                                | Enter a new room to make it work     |
@@ -158,6 +159,7 @@ Default templates are included in the executable. Release archives do not contai
 | Resident Evil 7 ¹                           | [Steam](https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/)                                                    | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil 8 ¹                           | [Steam](https://store.steampowered.com/app/1196590/Resident_Evil_Village/)                                                       | [REFramework](https://github.com/praydog/reframework-nightly/releases) recommended |
 | Resident Evil Requiem ¹                     | [Steam](https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/)                                                       |                                      |
+| Resident Evil Revelations ¹                 | [Steam](https://store.steampowered.com/app/222480/Resident_Evil_Revelations/)                                                    | Campaign and Raid Mode               |
 | Resident Evil Revelations 2 ¹               | [Steam](https://store.steampowered.com/app/287290/Resident_Evil_Revelations_2/)                                                  | Campaign, Extra Episodes and Raid Mode |
 | Scott Pilgrim vs The World ¹                | [Steam](https://store.steampowered.com/app/2215260/Scott_Pilgrim_vs_The_World_The_Game__Complete_Edition/)                       |                                      |
 | Shin Megami Tensei III Nocturne             | [Steam](https://store.steampowered.com/app/1413480/Shin_Megami_Tensei_III_Nocturne_HD_Remaster/)                                 |                                      |
@@ -173,9 +175,8 @@ Default templates are included in the executable. Release archives do not contai
 | TY the Tasmanian Tiger                      | [Steam](https://store.steampowered.com/app/411960/TY_the_Tasmanian_Tiger/)                                                       |                                      |
 | Vampire Crawlers ¹                          | [Steam](https://store.steampowered.com/app/3265700/)                                                                             |                                      |
 | Vampire Survivors ¹                         | [Steam](https://store.steampowered.com/app/1794680/Vampire_Survivors/)                                                           |                                      |
+| Visions of Mana ¹                           | [Steam](https://store.steampowered.com/app/2490990/)                                                                             |                                      |
 | Ys I Chronicles+                            | [Steam](https://store.steampowered.com/app/223810/Ys_I__II_Chronicles/)                                                          |                                      |
-| Zelda: The Wind Waker HD ¹                  | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_The_Wind-Waker_HD)                                                       | Works on EUR and USA                 |
-| Zelda: Twilight Princess HD ¹               | [Cemu](https://wiki.cemu.info/wiki/The_Legend_of_Zelda:_Twilight-Princess_HD)                                                    | Works on EUR and USA                 |
 
 </details>
 
@@ -188,11 +189,6 @@ Default templates are included in the executable. Release archives do not contai
 > [!IMPORTANT]  
 > A pattern search can cause a short lag on your machine because the program is currently scanning a lot of memory to find the right address to work with.  
 > Depending on the game, it can take a long time to find the address, so be patient.
-
-<details>
-<summary>CEMU</summary>
-You have to disable the "Discord Presence" option found in Options -> General settings.  
-</details>
 
 The presences are always expected to work on the latest version of the game.  
 Games on lower versions will never be supported on purpose. They will always use the latest version from their game store.  

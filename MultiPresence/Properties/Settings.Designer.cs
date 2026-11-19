@@ -46,18 +46,6 @@ namespace MultiPresence.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool InfoNotifcations {
-            get {
-                return ((bool)(this["InfoNotifcations"]));
-            }
-            set {
-                this["InfoNotifcations"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool startupadmin {
             get {
                 return ((bool)(this["startupadmin"]));

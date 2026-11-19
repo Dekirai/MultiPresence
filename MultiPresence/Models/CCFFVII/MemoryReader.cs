@@ -151,11 +151,6 @@ namespace MultiPresence.Models.CCFFVII
             return Hypervisor.Read<int>(address, true);
         }
 
-        internal static byte ReadByte(ulong address)
-        {
-            return Hypervisor.Read<byte>(address, true);
-        }
-
         public static void Reset()
         {
             processId = moduleSize = 0;

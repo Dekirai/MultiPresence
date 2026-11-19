@@ -72,11 +72,6 @@ namespace MultiPresence.Models.CB4
             { "FB-21", new Level("FB-21", "The Gauntlet", "Flashback Tapes", "", "L107_MASTER", false) }
         };
 
-        public static bool TryGet(string id, [NotNullWhen(true)] out Level? level)
-        {
-            return Levels.TryGetValue(id ?? string.Empty, out level);
-        }
-
         public static bool TryGetForMap(string map, bool buddy, [NotNullWhen(true)] out Level? level)
         {
             level = null;

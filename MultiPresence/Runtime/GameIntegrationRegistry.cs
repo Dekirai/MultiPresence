@@ -27,6 +27,7 @@ internal static class GameIntegrationRegistry
             ["Disney Dreamlight Valley"] = DDV.DoAction,
             ["DmC Devil May Cry"] = DMC.DoAction,
             ["Elden Ring"] = Sync(ER.DoAction),
+            ["FINAL FANTASY RESONANCE"] = FFRS.DoAction,
             ["Final Fantasy VII Rebirth"] = Sync(FFVIIRB.DoAction),
             ["Final Fantasy VII Remake"] = Sync(FFVIIR.DoAction),
             ["Final Fantasy X"] = FFX.DoAction,
@@ -80,6 +81,7 @@ internal static class GameIntegrationRegistry
             ["Resident Evil 7"] = Sync(RE7.DoAction),
             ["Resident Evil 8"] = Sync(RE8.DoAction),
             ["Resident Evil Requiem"] = Sync(RE9.DoAction),
+            ["Resident Evil Revelations"] = REV.DoAction,
             ["Resident Evil Revelations 2"] = Sync(REV2.DoAction),
             ["Scott Pilgrim vs The World"] = Sync(SPTG.DoAction),
             ["Shadow Generations"] = Sync(SXSG.DoShadowAction),
@@ -96,9 +98,8 @@ internal static class GameIntegrationRegistry
             ["TY the Tasmanian Tiger"] = Sync(TY.DoAction),
             ["Vampire Crawlers"] = VC.DoAction,
             ["Vampire Survivors"] = Sync(VS.DoAction),
-            ["Ys I Chronicles"] = Sync(YSI.DoAction),
-            ["Zelda: The Wind Waker HD"] = WWHD.DoAction,
-            ["Zelda: Twilight Princess HD"] = TPHD.DoAction
+            ["Visions of Mana"] = VOM.DoAction,
+            ["Ys I Chronicles"] = Sync(YSI.DoAction)
         };
 
     public static bool TryGet(string gameName, out Func<Task>? startAsync) =>
