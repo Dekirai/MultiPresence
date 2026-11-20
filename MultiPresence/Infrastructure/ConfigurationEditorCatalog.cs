@@ -305,6 +305,24 @@ internal static class ConfigurationEditorCatalog
                 case "objectivemaxcount": return "3";
             }
         }
+        if (game == "devilmaycry5")
+        {
+            switch (key)
+            {
+                case "redorbs": return "65493";
+                case "blueorbs": return "15";
+                case "purpleorbs": return "0";
+                case "goldorbs": return "35";
+                case "mission": return "2";
+                case "missiontitle": return "Qliphoth";
+                case "missiondisplay": return "Mission 02 - Qliphoth";
+                case "mode": return "Story";
+                case "difficulty": return "Heaven or Hell";
+                case "character": return "Nero";
+                case "health": return "6000";
+                case "maxhealth": return "6000";
+            }
+        }
         if (game == "finalfantasyresonance")
         {
             switch (key)

@@ -1,33 +1,34 @@
-using MultiPresence.Runtime;
 using DiscordRPC;
-using System.Diagnostics;
+using MultiPresence.Infrastructure;
+using MultiPresence.Models.DMC5;
+using MultiPresence.Runtime;
+using System.Globalization;
 
 namespace MultiPresence.Presence
 {
     public class DMC5
     {
+        private const string ProcessName = "DevilMayCry5";
+        private const string GameName = "Devil May Cry 5";
         private static DiscordRpcClient? discord;
         private static DiscordStatusUpdater? updater;
-        public static async Task DoAction()
+        private static DateTime nextWarning;
+
+        public static Task DoAction()
         {
-            await Task.Delay(5000);
+            MemoryReader.Reset();
+            nextWarning = DateTime.MinValue;
             GetPID();
             discord = new DiscordRpcClient("1358118109004828802");
             InitializeDiscord();
-            updater = new DiscordStatusUpdater("Assets/config/Devil May Cry 5.json");
-            PresenceRuntime.Start(nameof(DMC5), "DevilMayCry5", RPC);
+            updater = new DiscordStatusUpdater("Assets/Config/Devil May Cry 5.json");
+            PresenceRuntime.Start(nameof(DMC5), ProcessName, RPC);
+            return Task.CompletedTask;
         }
 
         private static void GetPID()
         {
-            try
-            {
-                ProcessMonitor.TryAttach("DevilMayCry5");
-            }
-            catch
-            {
-                //nothing?
-            }
+            ProcessMonitor.TryAttach(ProcessName);
         }
 
         private static async Task RPC()
@@ -37,82 +38,109 @@ namespace MultiPresence.Presence
                 throw new InvalidOperationException("DMC5: presence is not initialized.");
             }
 
-            if (ProcessMonitor.IsRunning("DevilMayCry5"))
+            if (ProcessMonitor.IsRunning(ProcessName))
             {
-                float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x14]), true);
-
-                if (maxhealth > 0)
+                try
                 {
-                    var placeholders = await PlaceholderHelper.GetPlaceholders(GeneratePlaceholders);
-                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, "Devil May Cry 5", placeholders);
-                }
-                else
-                {
-                    discord.SetPresence(new RichPresence()
+                    if (!Hypervisor.IsAttached && !ProcessMonitor.TryAttach(ProcessName))
                     {
-                        Details = "In Main Menu",
-                        State = "",
-                        Assets = new Assets()
-                        {
-                            LargeImageKey = "logo",
-                            LargeImageText = "Devil May Cry 5"
-                        },
-                        Timestamps = PlaceholderHelper._startTimestamp
-                    });
+                        discord.ClearPresence();
+                        return;
+                    }
+
+                    var snapshot = ReadSnapshot();
+                    if (snapshot.State == "Loading")
+                    {
+                        ShowStatus("Loading");
+                        return;
+                    }
+                    if (snapshot.State == "Main Menu")
+                    {
+                        ShowStatus("In Main Menu");
+                        return;
+                    }
+
+                    var placeholders = await PlaceholderHelper.GetPlaceholders(() => GeneratePlaceholders(snapshot));
+                    PlaceholderHelper.UpdateDiscordStatus(discord, updater, GameName, placeholders, snapshot.State);
+                }
+                catch (Exception exception) when (exception is not OutOfMemoryException and not StackOverflowException)
+                {
+                    if (DateTime.UtcNow >= nextWarning)
+                    {
+                        AppLog.Warning("Devil May Cry 5 memory is not ready.", exception);
+                        nextWarning = DateTime.UtcNow.AddSeconds(30);
+                    }
+
+                    discord.ClearPresence();
                 }
             }
             else
             {
-                discord.Deinitialize();
-                updater.Dispose();
-                PresenceRuntime.RequestDetection();
+                StopPresence();
             }
         }
 
-        private static async Task<Dictionary<string, object>> GeneratePlaceholders()
+        private static GameSnapshot ReadSnapshot()
         {
-            float health = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x10]), true);
-            float maxhealth = Hypervisor.Read<float>(Hypervisor.GetPointer64(0x07E6A7F0, [0x88, 0x1F8, 0x260, 0x10, 0x20, 0x14]), true);
-            int redorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x60]), true);
-            int blueorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x78]), true);
-            int purpleorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x88]), true);
-            int goldorbs = Hypervisor.Read<int>(Hypervisor.GetPointer64(0x7E5FD40, [0x98]), true);
-            int difficulty_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x07E661B0, [0x88]), true);
-            int character_get = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x07E661B0, [0xBC]), true);
-            int mission = Hypervisor.Read<byte>(Hypervisor.GetPointer64(0x07E661B0, [0x80]), true);
+            return MemoryReader.ReadSnapshot();
+        }
 
-            string difficulty = difficulty_get switch
+        private static Task<Dictionary<string, object>> GeneratePlaceholders(GameSnapshot snapshot)
+        {
+            string mission = snapshot.Mission is > 0 ? $"Mission {snapshot.Mission.Value.ToString("00", CultureInfo.InvariantCulture)}" : "";
+            string missionDisplay = snapshot.Mode != "Story" ? snapshot.Mode : mission.Length > 0 && snapshot.MissionTitle.Length > 0 ? $"{mission} - {snapshot.MissionTitle}" : snapshot.MissionTitle;
+            var placeholders = new Dictionary<string, object>
             {
-                0 => "Human",
-                1 => "Devil Hunter",
-                2 => "Son of Sparda",
-                3 => "Dante Must Die",
-                4 => "Heaven or Hell",
-                5 => "Hell and Hell",
-                _ => "Unknown"
+                { "redorbs", Number(snapshot.RedOrbs) },
+                { "blueorbs", Number(snapshot.BlueOrbs) },
+                { "purpleorbs", Number(snapshot.PurpleOrbs) },
+                { "goldorbs", Number(snapshot.GoldOrbs) },
+                { "mission", Number(snapshot.Mission) },
+                { "missiontitle", snapshot.MissionTitle },
+                { "missiondisplay", missionDisplay },
+                { "mode", snapshot.Mode },
+                { "difficulty", snapshot.Difficulty },
+                { "character", snapshot.Character },
+                { "health", Number(snapshot.Health) },
+                { "maxhealth", Number(snapshot.MaxHealth) }
             };
-            string character = character_get switch
-            {
-                0 => "Nero",
-                1 => "Dante",
-                2 => "V",
-                3 => "Vergil",
-                4 => "Vergil",
-                _ => "Unknown"
-            };
+            return Task.FromResult(placeholders);
+        }
 
-            return new Dictionary<string, object>
+        private static string Number(int? value) => value?.ToString(CultureInfo.InvariantCulture) ?? "";
+
+        private static void ShowStatus(string text)
+        {
+            if (discord == null)
             {
-                { "redorbs", redorbs },
-                { "blueorbs", blueorbs },
-                { "purpleorbs", purpleorbs },
-                { "goldorbs", goldorbs },
-                { "mission", mission },
-                { "difficulty", difficulty },
-                { "character", character },
-                { "health", health },
-                { "maxhealth", maxhealth }
-            };
+                throw new InvalidOperationException("DMC5: presence is not initialized.");
+            }
+
+            discord.SetPresence(new RichPresence()
+            {
+                Details = text,
+                State = "",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo",
+                    LargeImageText = GameName
+                },
+                Timestamps = PlaceholderHelper._startTimestamp
+            });
+        }
+
+        private static void StopPresence()
+        {
+            if (discord == null || updater == null)
+            {
+                throw new InvalidOperationException("DMC5: presence is not initialized.");
+            }
+
+            MemoryReader.Reset();
+            discord.ClearPresence();
+            discord.Deinitialize();
+            updater.Dispose();
+            PresenceRuntime.RequestDetection();
         }
 
         private static void InitializeDiscord()

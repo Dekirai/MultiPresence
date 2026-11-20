@@ -2,7 +2,67 @@
     "Games": {
         "Devil May Cry 5": {
             "Default": {
-                "Details": "Mission {mission} ({difficulty})",
+                "Details": "{missiondisplay} ({difficulty})",
+                "State": "{character} - Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Red Orbs: {redorbs} | Gold Orbs: {goldorbs}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Pause Menu": {
+                "Details": "{missiondisplay} ({difficulty})",
+                "State": "In Pause Menu",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Red Orbs: {redorbs} | Gold Orbs: {goldorbs}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mission Menu": {
+                "Details": "{missiondisplay} ({difficulty})",
+                "State": "{character} - In Mission Menu",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Red Orbs: {redorbs} | Gold Orbs: {goldorbs}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Mission End": {
+                "Details": "{missiondisplay} ({difficulty})",
+                "State": "Mission Complete",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Red Orbs: {redorbs} | Gold Orbs: {goldorbs}",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "Bloody Palace": {
+                "Details": "Bloody Palace",
+                "State": "{character} - Health: {health}/{maxhealth}",
+                "LargeAsset": "logo",
+                "SmallAsset": "",
+                "LargeAssetText": "Devil May Cry 5",
+                "SmallAssetText": "",
+                "Button1Text": "",
+                "Button1URL": "",
+                "Button2Text": "",
+                "Button2URL": ""
+            },
+            "The Void": {
+                "Details": "The Void",
                 "State": "{character} - Health: {health}/{maxhealth}",
                 "LargeAsset": "logo",
                 "SmallAsset": "",

@@ -166,46 +166,121 @@ public partial class MainForm : Form
 
     private void cb_DisableAutoUpdates_CheckedChanged(object? sender, EventArgs e) => SaveSettings();
 
-    private void cb_LaunchWithWindows_Click(object? sender, EventArgs e)
+    private async void cb_LaunchWithWindows_Click(object? sender, EventArgs e)
     {
+        var enabled = cb_LaunchWithWindows.Checked;
         try
         {
-            if (cb_LaunchWithWindows.Checked)
+            if (enabled && StartupTaskExists())
             {
+                await ChangeStartupTaskAsync(false);
                 cb_LaunchWithWindowsAdmin.Checked = false;
-                SetStartupTask(false);
             }
 
-            SetRegistryStartup(cb_LaunchWithWindows.Checked);
+            SetRegistryStartup(enabled);
             SaveSettings();
         }
-        catch (Exception exception) when (exception is UnauthorizedAccessException or IOException)
+        catch (Exception exception) when (IsStartupFailure(exception))
         {
-            cb_LaunchWithWindows.Checked = !cb_LaunchWithWindows.Checked;
+            cb_LaunchWithWindows.Checked = !enabled;
             AppLog.Warning("Could not update normal startup registration.", exception);
-            ShowErrorNotification("Windows startup could not be changed.");
+            if (!IsCanceledElevation(exception))
+            {
+                ShowErrorNotification("Windows startup could not be changed.");
+            }
         }
     }
 
-    private void cb_LaunchWithWindowsAdmin_Click(object? sender, EventArgs e)
+    private async void cb_LaunchWithWindowsAdmin_Click(object? sender, EventArgs e)
     {
+        var enabled = cb_LaunchWithWindowsAdmin.Checked;
         try
         {
-            if (cb_LaunchWithWindowsAdmin.Checked)
+            await ChangeStartupTaskAsync(enabled);
+            if (enabled)
             {
                 cb_LaunchWithWindows.Checked = false;
                 SetRegistryStartup(false);
             }
 
-            SetStartupTask(cb_LaunchWithWindowsAdmin.Checked);
             SaveSettings();
         }
-        catch (Exception exception) when (exception is UnauthorizedAccessException or IOException)
+        catch (Exception exception) when (IsStartupFailure(exception))
         {
-            cb_LaunchWithWindowsAdmin.Checked = !cb_LaunchWithWindowsAdmin.Checked;
+            cb_LaunchWithWindowsAdmin.Checked = !enabled;
             AppLog.Warning("Could not update elevated startup registration.", exception);
-            ShowErrorNotification("Administrator startup could not be changed.");
+            if (!IsCanceledElevation(exception))
+            {
+                ShowErrorNotification("Administrator startup could not be changed.");
+            }
         }
+    }
+
+    private static bool IsStartupFailure(Exception exception) =>
+        exception is UnauthorizedAccessException or IOException or System.ComponentModel.Win32Exception or System.Runtime.InteropServices.COMException;
+
+    private static bool IsCanceledElevation(Exception exception) =>
+        exception is System.ComponentModel.Win32Exception { NativeErrorCode: 1223 };
+
+    private static bool StartupTaskExists()
+    {
+        try
+        {
+            using var taskService = new Microsoft.Win32.TaskScheduler.TaskService();
+            using var task = taskService.GetTask(StartupTaskName);
+            return task != null;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return true;
+        }
+    }
+
+    private static async Task ChangeStartupTaskAsync(bool enabled)
+    {
+        string user;
+        using (var identity = System.Security.Principal.WindowsIdentity.GetCurrent())
+        {
+            user = identity.Name;
+        }
+        if (IsElevated())
+        {
+            SetStartupTask(enabled, user);
+            return;
+        }
+
+        // Tasks with the highest run level can only be created or removed by an elevated process.
+        using var process = Process.Start(new ProcessStartInfo(Application.ExecutablePath)
+        {
+            ArgumentList = { Program.StartupTaskArgument, enabled ? "on" : "off", user },
+            UseShellExecute = true,
+            Verb = "runas"
+        }) ?? throw new IOException("The elevated startup helper could not be started.");
+        await process.WaitForExitAsync();
+        if (process.ExitCode != 0)
+        {
+            throw new IOException("The elevated startup helper could not change the startup task.");
+        }
+    }
+
+    internal static bool ApplyStartupTask(bool enabled, string user)
+    {
+        try
+        {
+            SetStartupTask(enabled, user);
+            return true;
+        }
+        catch (Exception exception) when (IsStartupFailure(exception))
+        {
+            AppLog.Warning("The elevated startup helper could not change the startup task.", exception);
+            return false;
+        }
+    }
+
+    private static bool IsElevated()
+    {
+        using var identity = System.Security.Principal.WindowsIdentity.GetCurrent();
+        return new System.Security.Principal.WindowsPrincipal(identity).IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
     }
 
     private void SetRegistryStartup(bool enabled)
@@ -224,23 +299,29 @@ public partial class MainForm : Form
         }
     }
 
-    private static void SetStartupTask(bool enabled)
+    private const string StartupTaskName = "MultiPresence";
+
+    private static void SetStartupTask(bool enabled, string user)
     {
-        const string taskName = "MultiPresence";
         using var taskService = new Microsoft.Win32.TaskScheduler.TaskService();
         if (!enabled)
         {
-            taskService.RootFolder.DeleteTask(taskName, exceptionOnNotExists: false);
+            taskService.RootFolder.DeleteTask(StartupTaskName, exceptionOnNotExists: false);
             return;
         }
 
         var definition = taskService.NewTask();
         definition.RegistrationInfo.Description = "Starts MultiPresence after interactive logon.";
+        definition.Principal.UserId = user;
         definition.Principal.LogonType = Microsoft.Win32.TaskScheduler.TaskLogonType.InteractiveToken;
         definition.Principal.RunLevel = Microsoft.Win32.TaskScheduler.TaskRunLevel.Highest;
-        definition.Triggers.Add(new Microsoft.Win32.TaskScheduler.LogonTrigger());
-        definition.Actions.Add(new Microsoft.Win32.TaskScheduler.ExecAction(Application.ExecutablePath));
-        taskService.RootFolder.RegisterTaskDefinition(taskName, definition);
+        definition.Settings.DisallowStartIfOnBatteries = false;
+        definition.Settings.StopIfGoingOnBatteries = false;
+        definition.Settings.ExecutionTimeLimit = TimeSpan.Zero;
+        definition.Triggers.Add(new Microsoft.Win32.TaskScheduler.LogonTrigger { UserId = user });
+        definition.Actions.Add(new Microsoft.Win32.TaskScheduler.ExecAction(
+            Application.ExecutablePath, null, Path.GetDirectoryName(Application.ExecutablePath)));
+        taskService.RootFolder.RegisterTaskDefinition(StartupTaskName, definition);
     }
 
     private async Task CheckForUpdatesAsync()

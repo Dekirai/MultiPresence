@@ -5,10 +5,17 @@ namespace MultiPresence;
 internal static class Program
 {
     private const string InstanceMutexName = @"Local\MultiPresence.5F864D79-3411-4DC7-84D5-4052C5436F23";
+    internal const string StartupTaskArgument = "--startup-task";
 
     [STAThread]
-    private static void Main()
+    private static void Main(string[] args)
     {
+        if (args.Length == 3 && args[0] == StartupTaskArgument)
+        {
+            Environment.ExitCode = MainForm.ApplyStartupTask(args[1] == "on", args[2]) ? 0 : 1;
+            return;
+        }
+
         using var instanceMutex = new Mutex(initiallyOwned: true, InstanceMutexName, out var isFirstInstance);
         if (!isFirstInstance)
         {
